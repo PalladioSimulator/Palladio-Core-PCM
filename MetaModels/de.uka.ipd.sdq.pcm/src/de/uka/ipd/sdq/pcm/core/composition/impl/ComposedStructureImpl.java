@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.ocl.ParserException;
@@ -59,58 +58,14 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getAssemblyContexts__ComposedStructure()
-     * <em>Assembly Contexts Composed Structure</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getAssemblyContexts__ComposedStructure()
-     * @generated
-     * @ordered
-     */
-    protected EList<AssemblyContext> assemblyContexts__ComposedStructure;
-
-    /**
-     * The cached value of the '{@link #getResourceRequiredDelegationConnectors_ComposedStructure()
-     * <em>Resource Required Delegation Connectors Composed Structure</em>}' containment reference
-     * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getResourceRequiredDelegationConnectors_ComposedStructure()
-     * @generated
-     * @ordered
-     */
-    protected EList<ResourceRequiredDelegationConnector> resourceRequiredDelegationConnectors_ComposedStructure;
-
-    /**
-     * The cached value of the '{@link #getEventChannel__ComposedStructure()
-     * <em>Event Channel Composed Structure</em>}' containment reference list. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @see #getEventChannel__ComposedStructure()
-     * @generated
-     * @ordered
-     */
-    protected EList<EventChannel> eventChannel__ComposedStructure;
-
-    /**
-     * The cached value of the '{@link #getConnectors__ComposedStructure()
-     * <em>Connectors Composed Structure</em>}' containment reference list. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getConnectors__ComposedStructure()
-     * @generated
-     * @ordered
-     */
-    protected EList<Connector> connectors__ComposedStructure;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ComposedStructureImpl() {
@@ -119,7 +74,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -129,69 +84,56 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<AssemblyContext> getAssemblyContexts__ComposedStructure() {
-        if (this.assemblyContexts__ComposedStructure == null) {
-            this.assemblyContexts__ComposedStructure = new EObjectContainmentWithInverseEList<AssemblyContext>(
-                    AssemblyContext.class, this,
-                    CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE,
-                    CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT);
-        }
-        return this.assemblyContexts__ComposedStructure;
+        return (EList<AssemblyContext>) this.eDynamicGet(
+                CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE,
+                CompositionPackage.Literals.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<ResourceRequiredDelegationConnector> getResourceRequiredDelegationConnectors_ComposedStructure() {
-        if (this.resourceRequiredDelegationConnectors_ComposedStructure == null) {
-            this.resourceRequiredDelegationConnectors_ComposedStructure = new EObjectContainmentWithInverseEList<ResourceRequiredDelegationConnector>(
-                    ResourceRequiredDelegationConnector.class,
-                    this,
-                    CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE,
-                    CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR);
-        }
-        return this.resourceRequiredDelegationConnectors_ComposedStructure;
+        return (EList<ResourceRequiredDelegationConnector>) this
+                .eDynamicGet(
+                        CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE,
+                        CompositionPackage.Literals.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<EventChannel> getEventChannel__ComposedStructure() {
-        if (this.eventChannel__ComposedStructure == null) {
-            this.eventChannel__ComposedStructure = new EObjectContainmentWithInverseEList<EventChannel>(
-                    EventChannel.class, this, CompositionPackage.COMPOSED_STRUCTURE__EVENT_CHANNEL_COMPOSED_STRUCTURE,
-                    CompositionPackage.EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL);
-        }
-        return this.eventChannel__ComposedStructure;
+        return (EList<EventChannel>) this.eDynamicGet(
+                CompositionPackage.COMPOSED_STRUCTURE__EVENT_CHANNEL_COMPOSED_STRUCTURE,
+                CompositionPackage.Literals.COMPOSED_STRUCTURE__EVENT_CHANNEL_COMPOSED_STRUCTURE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<Connector> getConnectors__ComposedStructure() {
-        if (this.connectors__ComposedStructure == null) {
-            this.connectors__ComposedStructure = new EObjectContainmentWithInverseEList<Connector>(Connector.class,
-                    this, CompositionPackage.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
-                    CompositionPackage.CONNECTOR__PARENT_STRUCTURE_CONNECTOR);
-        }
-        return this.connectors__ComposedStructure;
+        return (EList<Connector>) this.eDynamicGet(
+                CompositionPackage.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
+                CompositionPackage.Literals.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE, true, true);
     }
 
     /**
@@ -199,7 +141,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
      * {@link #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Multiple Connectors Constraint</em>}' operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -213,7 +155,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
      * {@link #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Multiple Connectors Constraint</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -223,7 +165,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -282,7 +224,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -318,7 +260,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -344,7 +286,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -366,7 +308,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -386,7 +328,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -416,7 +358,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -440,7 +382,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -448,15 +390,13 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE:
-            return this.assemblyContexts__ComposedStructure != null
-                    && !this.assemblyContexts__ComposedStructure.isEmpty();
+            return !this.getAssemblyContexts__ComposedStructure().isEmpty();
         case CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
-            return this.resourceRequiredDelegationConnectors_ComposedStructure != null
-            && !this.resourceRequiredDelegationConnectors_ComposedStructure.isEmpty();
+            return !this.getResourceRequiredDelegationConnectors_ComposedStructure().isEmpty();
         case CompositionPackage.COMPOSED_STRUCTURE__EVENT_CHANNEL_COMPOSED_STRUCTURE:
-            return this.eventChannel__ComposedStructure != null && !this.eventChannel__ComposedStructure.isEmpty();
+            return !this.getEventChannel__ComposedStructure().isEmpty();
         case CompositionPackage.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE:
-            return this.connectors__ComposedStructure != null && !this.connectors__ComposedStructure.isEmpty();
+            return !this.getConnectors__ComposedStructure().isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -464,7 +404,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
@@ -36,26 +35,14 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '
-     * {@link #getResourceRequiredRoles__ResourceInterfaceRequiringEntity()
-     * <em>Resource Required Roles Resource Interface Requiring Entity</em>}' containment reference
-     * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getResourceRequiredRoles__ResourceInterfaceRequiringEntity()
-     * @generated
-     * @ordered
-     */
-    protected EList<ResourceRequiredRole> resourceRequiredRoles__ResourceInterfaceRequiringEntity;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceInterfaceRequiringEntityImpl() {
@@ -64,7 +51,7 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -74,25 +61,22 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<ResourceRequiredRole> getResourceRequiredRoles__ResourceInterfaceRequiringEntity() {
-        if (this.resourceRequiredRoles__ResourceInterfaceRequiringEntity == null) {
-            this.resourceRequiredRoles__ResourceInterfaceRequiringEntity = new EObjectContainmentWithInverseEList<ResourceRequiredRole>(
-                    ResourceRequiredRole.class,
-                    this,
-                    EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY,
-                    EntityPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_INTERFACE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE);
-        }
-        return this.resourceRequiredRoles__ResourceInterfaceRequiringEntity;
+        return (EList<ResourceRequiredRole>) this
+                .eDynamicGet(
+                        EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY,
+                        EntityPackage.Literals.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -109,7 +93,7 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -125,7 +109,7 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -139,7 +123,7 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -157,7 +141,7 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -172,7 +156,7 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -180,8 +164,7 @@ public class ResourceInterfaceRequiringEntityImpl extends EntityImpl implements 
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            return this.resourceRequiredRoles__ResourceInterfaceRequiringEntity != null
-            && !this.resourceRequiredRoles__ResourceInterfaceRequiringEntity.isEmpty();
+            return !this.getResourceRequiredRoles__ResourceInterfaceRequiringEntity().isEmpty();
         }
         return super.eIsSet(featureID);
     }

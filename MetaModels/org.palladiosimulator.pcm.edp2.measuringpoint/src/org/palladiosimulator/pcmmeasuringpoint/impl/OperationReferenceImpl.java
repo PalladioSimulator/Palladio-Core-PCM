@@ -2,11 +2,7 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.pcmmeasuringpoint.OperationReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
@@ -33,28 +29,8 @@ import de.uka.ipd.sdq.pcm.repository.Role;
 public abstract class OperationReferenceImpl extends CDOObjectImpl implements OperationReference {
 
     /**
-     * The cached value of the '{@link #getRole() <em>Role</em>}' reference. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getRole()
-     * @generated
-     * @ordered
-     */
-    protected Role role;
-
-    /**
-     * The cached value of the '{@link #getOperationSignature() <em>Operation Signature</em>}'
-     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getOperationSignature()
-     * @generated
-     * @ordered
-     */
-    protected OperationSignature operationSignature;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected OperationReferenceImpl() {
@@ -63,7 +39,7 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -73,97 +49,81 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    protected int eStaticFeatureCount() {
+        return 0;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Role getRole() {
-        if (this.role != null && ((EObject) this.role).eIsProxy()) {
-            final InternalEObject oldRole = (InternalEObject) this.role;
-            this.role = (Role) this.eResolveProxy(oldRole);
-            if (this.role != oldRole) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PcmmeasuringpointPackage.OPERATION_REFERENCE__ROLE, oldRole, this.role));
-                }
-            }
-        }
-        return this.role;
+        return (Role) this.eDynamicGet(PcmmeasuringpointPackage.OPERATION_REFERENCE__ROLE,
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__ROLE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public Role basicGetRole() {
-        return this.role;
+        return (Role) this.eDynamicGet(PcmmeasuringpointPackage.OPERATION_REFERENCE__ROLE,
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__ROLE, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRole(final Role newRole) {
-        final Role oldRole = this.role;
-        this.role = newRole;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.OPERATION_REFERENCE__ROLE, oldRole, this.role));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.OPERATION_REFERENCE__ROLE,
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__ROLE, newRole);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public OperationSignature getOperationSignature() {
-        if (this.operationSignature != null && ((EObject) this.operationSignature).eIsProxy()) {
-            final InternalEObject oldOperationSignature = (InternalEObject) this.operationSignature;
-            this.operationSignature = (OperationSignature) this.eResolveProxy(oldOperationSignature);
-            if (this.operationSignature != oldOperationSignature) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PcmmeasuringpointPackage.OPERATION_REFERENCE__OPERATION_SIGNATURE, oldOperationSignature,
-                            this.operationSignature));
-                }
-            }
-        }
-        return this.operationSignature;
+        return (OperationSignature) this.eDynamicGet(PcmmeasuringpointPackage.OPERATION_REFERENCE__OPERATION_SIGNATURE,
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__OPERATION_SIGNATURE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationSignature basicGetOperationSignature() {
-        return this.operationSignature;
+        return (OperationSignature) this.eDynamicGet(PcmmeasuringpointPackage.OPERATION_REFERENCE__OPERATION_SIGNATURE,
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__OPERATION_SIGNATURE, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setOperationSignature(final OperationSignature newOperationSignature) {
-        final OperationSignature oldOperationSignature = this.operationSignature;
-        this.operationSignature = newOperationSignature;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.OPERATION_REFERENCE__OPERATION_SIGNATURE, oldOperationSignature,
-                    this.operationSignature));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.OPERATION_REFERENCE__OPERATION_SIGNATURE,
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__OPERATION_SIGNATURE, newOperationSignature);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -185,7 +145,7 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -203,7 +163,7 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -221,16 +181,16 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case PcmmeasuringpointPackage.OPERATION_REFERENCE__ROLE:
-            return this.role != null;
+            return this.basicGetRole() != null;
         case PcmmeasuringpointPackage.OPERATION_REFERENCE__OPERATION_SIGNATURE:
-            return this.operationSignature != null;
+            return this.basicGetOperationSignature() != null;
         }
         return super.eIsSet(featureID);
     }

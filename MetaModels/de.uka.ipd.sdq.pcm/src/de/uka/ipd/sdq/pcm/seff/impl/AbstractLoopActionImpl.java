@@ -5,11 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
@@ -33,24 +31,14 @@ AbstractLoopAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getBodyBehaviour_Loop() <em>Body Behaviour Loop</em>}'
-     * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getBodyBehaviour_Loop()
-     * @generated
-     * @ordered
-     */
-    protected ResourceDemandingBehaviour bodyBehaviour_Loop;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AbstractLoopActionImpl() {
@@ -59,7 +47,7 @@ AbstractLoopAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -69,75 +57,50 @@ AbstractLoopAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceDemandingBehaviour getBodyBehaviour_Loop() {
-        return this.bodyBehaviour_Loop;
+        return (ResourceDemandingBehaviour) this.eDynamicGet(SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP,
+                SeffPackage.Literals.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetBodyBehaviour_Loop(final ResourceDemandingBehaviour newBodyBehaviour_Loop,
             NotificationChain msgs) {
-        final ResourceDemandingBehaviour oldBodyBehaviour_Loop = this.bodyBehaviour_Loop;
-        this.bodyBehaviour_Loop = newBodyBehaviour_Loop;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP, oldBodyBehaviour_Loop, newBodyBehaviour_Loop);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newBodyBehaviour_Loop,
+                SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setBodyBehaviour_Loop(final ResourceDemandingBehaviour newBodyBehaviour_Loop) {
-        if (newBodyBehaviour_Loop != this.bodyBehaviour_Loop) {
-            NotificationChain msgs = null;
-            if (this.bodyBehaviour_Loop != null) {
-                msgs = ((InternalEObject) this.bodyBehaviour_Loop).eInverseRemove(this,
-                        SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR,
-                        ResourceDemandingBehaviour.class, msgs);
-            }
-            if (newBodyBehaviour_Loop != null) {
-                msgs = ((InternalEObject) newBodyBehaviour_Loop).eInverseAdd(this,
-                        SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR,
-                        ResourceDemandingBehaviour.class, msgs);
-            }
-            msgs = this.basicSetBodyBehaviour_Loop(newBodyBehaviour_Loop, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP, newBodyBehaviour_Loop, newBodyBehaviour_Loop));
-        }
+        this.eDynamicSet(SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP,
+                SeffPackage.Literals.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP, newBodyBehaviour_Loop);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
-            if (this.bodyBehaviour_Loop != null) {
-                msgs = ((InternalEObject) this.bodyBehaviour_Loop).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+            final ResourceDemandingBehaviour bodyBehaviour_Loop = this.getBodyBehaviour_Loop();
+            if (bodyBehaviour_Loop != null) {
+                msgs = ((InternalEObject) bodyBehaviour_Loop).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                         - SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP, null, msgs);
             }
             return this.basicSetBodyBehaviour_Loop((ResourceDemandingBehaviour) otherEnd, msgs);
@@ -147,7 +110,7 @@ AbstractLoopAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -162,7 +125,7 @@ AbstractLoopAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -176,7 +139,7 @@ AbstractLoopAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -191,7 +154,7 @@ AbstractLoopAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -206,14 +169,14 @@ AbstractLoopAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
-            return this.bodyBehaviour_Loop != null;
+            return this.getBodyBehaviour_Loop() != null;
         }
         return super.eIsSet(featureID);
     }

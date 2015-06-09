@@ -6,12 +6,9 @@
  */
 package de.fzi.se.quality.qualityannotation.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.fzi.se.quality.qualityannotation.Precision;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
@@ -41,30 +38,8 @@ import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
-     * The cached value of the '{@link #getDefaultPrecisionNumberOfCalls()
-     * <em>Default Precision Number Of Calls</em>}' containment reference. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getDefaultPrecisionNumberOfCalls()
-     * @generated
-     * @ordered
-     */
-    protected Precision defaultPrecisionNumberOfCalls;
-
-    /**
-     * The cached value of the '{@link #getDefaultPrecisionCallParameter()
-     * <em>Default Precision Call Parameter</em>}' containment reference. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getDefaultPrecisionCallParameter()
-     * @generated
-     * @ordered
-     */
-    protected Precision defaultPrecisionCallParameter;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected REPrecisionImpl() {
@@ -73,7 +48,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -83,142 +58,88 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Precision getDefaultPrecisionNumberOfCalls() {
-        return this.defaultPrecisionNumberOfCalls;
+        return (Precision) this.eDynamicGet(QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_NUMBER_OF_CALLS,
+                QualityAnnotationPackage.Literals.RE_PRECISION__DEFAULT_PRECISION_NUMBER_OF_CALLS, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetDefaultPrecisionNumberOfCalls(final Precision newDefaultPrecisionNumberOfCalls,
             NotificationChain msgs) {
-        final Precision oldDefaultPrecisionNumberOfCalls = this.defaultPrecisionNumberOfCalls;
-        this.defaultPrecisionNumberOfCalls = newDefaultPrecisionNumberOfCalls;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_NUMBER_OF_CALLS,
-                    oldDefaultPrecisionNumberOfCalls, newDefaultPrecisionNumberOfCalls);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newDefaultPrecisionNumberOfCalls,
+                QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_NUMBER_OF_CALLS, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setDefaultPrecisionNumberOfCalls(final Precision newDefaultPrecisionNumberOfCalls) {
-        if (newDefaultPrecisionNumberOfCalls != this.defaultPrecisionNumberOfCalls) {
-            NotificationChain msgs = null;
-            if (this.defaultPrecisionNumberOfCalls != null) {
-                msgs = ((InternalEObject) this.defaultPrecisionNumberOfCalls).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                        - QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_NUMBER_OF_CALLS, null, msgs);
-            }
-            if (newDefaultPrecisionNumberOfCalls != null) {
-                msgs = ((InternalEObject) newDefaultPrecisionNumberOfCalls).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-                        - QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_NUMBER_OF_CALLS, null, msgs);
-            }
-            msgs = this.basicSetDefaultPrecisionNumberOfCalls(newDefaultPrecisionNumberOfCalls, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_NUMBER_OF_CALLS,
-                    newDefaultPrecisionNumberOfCalls, newDefaultPrecisionNumberOfCalls));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_NUMBER_OF_CALLS,
+                QualityAnnotationPackage.Literals.RE_PRECISION__DEFAULT_PRECISION_NUMBER_OF_CALLS,
+                newDefaultPrecisionNumberOfCalls);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Precision getDefaultPrecisionCallParameter() {
-        return this.defaultPrecisionCallParameter;
+        return (Precision) this.eDynamicGet(QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_CALL_PARAMETER,
+                QualityAnnotationPackage.Literals.RE_PRECISION__DEFAULT_PRECISION_CALL_PARAMETER, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetDefaultPrecisionCallParameter(final Precision newDefaultPrecisionCallParameter,
             NotificationChain msgs) {
-        final Precision oldDefaultPrecisionCallParameter = this.defaultPrecisionCallParameter;
-        this.defaultPrecisionCallParameter = newDefaultPrecisionCallParameter;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_CALL_PARAMETER,
-                    oldDefaultPrecisionCallParameter, newDefaultPrecisionCallParameter);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newDefaultPrecisionCallParameter,
+                QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_CALL_PARAMETER, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setDefaultPrecisionCallParameter(final Precision newDefaultPrecisionCallParameter) {
-        if (newDefaultPrecisionCallParameter != this.defaultPrecisionCallParameter) {
-            NotificationChain msgs = null;
-            if (this.defaultPrecisionCallParameter != null) {
-                msgs = ((InternalEObject) this.defaultPrecisionCallParameter).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                        - QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_CALL_PARAMETER, null, msgs);
-            }
-            if (newDefaultPrecisionCallParameter != null) {
-                msgs = ((InternalEObject) newDefaultPrecisionCallParameter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-                        - QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_CALL_PARAMETER, null, msgs);
-            }
-            msgs = this.basicSetDefaultPrecisionCallParameter(newDefaultPrecisionCallParameter, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_CALL_PARAMETER,
-                    newDefaultPrecisionCallParameter, newDefaultPrecisionCallParameter));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_CALL_PARAMETER,
+                QualityAnnotationPackage.Literals.RE_PRECISION__DEFAULT_PRECISION_CALL_PARAMETER,
+                newDefaultPrecisionCallParameter);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public RequiredElement getRequiredElement() {
-        if (this.eContainerFeatureID() != QualityAnnotationPackage.RE_PRECISION__REQUIRED_ELEMENT) {
-            return null;
-        }
-        return (RequiredElement) this.eInternalContainer();
+        return (RequiredElement) this.eDynamicGet(QualityAnnotationPackage.RE_PRECISION__REQUIRED_ELEMENT,
+                QualityAnnotationPackage.Literals.RE_PRECISION__REQUIRED_ELEMENT, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetRequiredElement(final RequiredElement newRequiredElement, NotificationChain msgs) {
@@ -229,37 +150,18 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRequiredElement(final RequiredElement newRequiredElement) {
-        if (newRequiredElement != this.eInternalContainer()
-                || (this.eContainerFeatureID() != QualityAnnotationPackage.RE_PRECISION__REQUIRED_ELEMENT && newRequiredElement != null)) {
-            if (EcoreUtil.isAncestor(this, newRequiredElement)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newRequiredElement != null) {
-                msgs = ((InternalEObject) newRequiredElement).eInverseAdd(this,
-                        QualityAnnotationPackage.REQUIRED_ELEMENT__PRECISION, RequiredElement.class, msgs);
-            }
-            msgs = this.basicSetRequiredElement(newRequiredElement, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.RE_PRECISION__REQUIRED_ELEMENT, newRequiredElement, newRequiredElement));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.RE_PRECISION__REQUIRED_ELEMENT,
+                QualityAnnotationPackage.Literals.RE_PRECISION__REQUIRED_ELEMENT, newRequiredElement);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -276,7 +178,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -295,7 +197,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -310,7 +212,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -328,7 +230,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -349,7 +251,7 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -370,16 +272,16 @@ public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_NUMBER_OF_CALLS:
-            return this.defaultPrecisionNumberOfCalls != null;
+            return this.getDefaultPrecisionNumberOfCalls() != null;
         case QualityAnnotationPackage.RE_PRECISION__DEFAULT_PRECISION_CALL_PARAMETER:
-            return this.defaultPrecisionCallParameter != null;
+            return this.getDefaultPrecisionCallParameter() != null;
         case QualityAnnotationPackage.RE_PRECISION__REQUIRED_ELEMENT:
             return this.getRequiredElement() != null;
         }

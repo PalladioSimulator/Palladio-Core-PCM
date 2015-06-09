@@ -5,12 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.subsystem.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.ComposedProvidingRequiringEntityImpl;
 import de.uka.ipd.sdq.pcm.repository.Repository;
@@ -36,14 +33,14 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SubSystemImpl() {
@@ -52,7 +49,7 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -62,20 +59,18 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Repository getRepository__RepositoryComponent() {
-        if (this.eContainerFeatureID() != SubsystemPackage.SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT) {
-            return null;
-        }
-        return (Repository) this.eInternalContainer();
+        return (Repository) this.eDynamicGet(SubsystemPackage.SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT,
+                RepositoryPackage.Literals.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetRepository__RepositoryComponent(
@@ -87,38 +82,19 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRepository__RepositoryComponent(final Repository newRepository__RepositoryComponent) {
-        if (newRepository__RepositoryComponent != this.eInternalContainer()
-                || (this.eContainerFeatureID() != SubsystemPackage.SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT && newRepository__RepositoryComponent != null)) {
-            if (EcoreUtil.isAncestor(this, newRepository__RepositoryComponent)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newRepository__RepositoryComponent != null) {
-                msgs = ((InternalEObject) newRepository__RepositoryComponent).eInverseAdd(this,
-                        RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY, Repository.class, msgs);
-            }
-            msgs = this.basicSetRepository__RepositoryComponent(newRepository__RepositoryComponent, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SubsystemPackage.SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT, newRepository__RepositoryComponent,
-                    newRepository__RepositoryComponent));
-        }
+        this.eDynamicSet(SubsystemPackage.SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT,
+                RepositoryPackage.Literals.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT,
+                newRepository__RepositoryComponent);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -135,7 +111,7 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -150,7 +126,7 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -165,7 +141,7 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -179,7 +155,7 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -194,7 +170,7 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -209,7 +185,7 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -223,7 +199,7 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -241,7 +217,7 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

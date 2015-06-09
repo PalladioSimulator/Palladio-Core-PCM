@@ -5,12 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.reliability.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.pcm.reliability.FailureType;
@@ -35,14 +32,14 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected FailureTypeImpl() {
@@ -51,7 +48,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -61,20 +58,18 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Repository getRepository__FailureType() {
-        if (this.eContainerFeatureID() != ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE) {
-            return null;
-        }
-        return (Repository) this.eInternalContainer();
+        return (Repository) this.eDynamicGet(ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE,
+                ReliabilityPackage.Literals.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetRepository__FailureType(final Repository newRepository__FailureType,
@@ -86,38 +81,18 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRepository__FailureType(final Repository newRepository__FailureType) {
-        if (newRepository__FailureType != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE && newRepository__FailureType != null)) {
-            if (EcoreUtil.isAncestor(this, newRepository__FailureType)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newRepository__FailureType != null) {
-                msgs = ((InternalEObject) newRepository__FailureType).eInverseAdd(this,
-                        RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY, Repository.class, msgs);
-            }
-            msgs = this.basicSetRepository__FailureType(newRepository__FailureType, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE, newRepository__FailureType,
-                    newRepository__FailureType));
-        }
+        this.eDynamicSet(ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE,
+                ReliabilityPackage.Literals.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE, newRepository__FailureType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -134,7 +109,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -149,7 +124,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -164,7 +139,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -178,7 +153,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -193,7 +168,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -208,7 +183,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

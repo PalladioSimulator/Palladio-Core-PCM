@@ -4,14 +4,10 @@ package de.fzi.se.quality.qualityannotation.impl;
 
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ocl.ParserException;
@@ -39,18 +35,8 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
 public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfrastructureRole {
 
     /**
-     * The cached value of the '{@link #getRole() <em>Role</em>}' reference. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getRole()
-     * @generated
-     * @ordered
-     */
-    protected InfrastructureRequiredRole role;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMREInfrastructureRoleImpl() {
@@ -59,7 +45,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -69,46 +55,34 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public InfrastructureRequiredRole getRole() {
-        if (this.role != null && ((EObject) this.role).eIsProxy()) {
-            final InternalEObject oldRole = (InternalEObject) this.role;
-            this.role = (InfrastructureRequiredRole) this.eResolveProxy(oldRole);
-            if (this.role != oldRole) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_ROLE__ROLE, oldRole, this.role));
-                }
-            }
-        }
-        return this.role;
+        return (InfrastructureRequiredRole) this.eDynamicGet(QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_ROLE__ROLE,
+                QualityAnnotationPackage.Literals.PCMRE_INFRASTRUCTURE_ROLE__ROLE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InfrastructureRequiredRole basicGetRole() {
-        return this.role;
+        return (InfrastructureRequiredRole) this.eDynamicGet(QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_ROLE__ROLE,
+                QualityAnnotationPackage.Literals.PCMRE_INFRASTRUCTURE_ROLE__ROLE, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRole(final InfrastructureRequiredRole newRole) {
-        final InfrastructureRequiredRole oldRole = this.role;
-        this.role = newRole;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_ROLE__ROLE, oldRole, this.role));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_ROLE__ROLE,
+                QualityAnnotationPackage.Literals.PCMRE_INFRASTRUCTURE_ROLE__ROLE, newRole);
     }
 
     /**
@@ -116,7 +90,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
      * {@link #NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Level Must Consist Of Type PCMRE Infrastructure Signature</em>}' operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -129,7 +103,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
      * {@link #NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Level Must Consist Of Type PCMRE Infrastructure Signature</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -139,7 +113,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -160,13 +134,13 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
                 .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCMRE_INFRASTRUCTURE_ROLE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_INFRASTRUCTURE_SIGNATURE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature",
-                                                EObjectValidator.getObjectLabel(this, context) }),
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMRE_INFRASTRUCTURE_ROLE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_INFRASTRUCTURE_SIGNATURE,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature",
+                                EObjectValidator.getObjectLabel(this, context) }),
                                 new Object[] { this }));
             }
             return false;
@@ -179,7 +153,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
      * {@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each RE Target Must Be Referenced Only From One RE</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -202,7 +176,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -222,15 +196,15 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
                 .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCMRE_INFRASTRUCTURE_ROLE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE,
-                                EcorePlugin.INSTANCE.getString(
-                                        "_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "EachRETargetMustBeReferencedOnlyFromOneRE",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMRE_INFRASTRUCTURE_ROLE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE,
+                        EcorePlugin.INSTANCE.getString(
+                                "_UI_GenericInvariant_diagnostic",
+                                new Object[] { "EachRETargetMustBeReferencedOnlyFromOneRE",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                                        new Object[] { this }));
             }
             return false;
         }
@@ -239,7 +213,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -256,7 +230,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -271,7 +245,7 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -286,14 +260,14 @@ public class PCMREInfrastructureRoleImpl extends PCMREImpl implements PCMREInfra
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_ROLE__ROLE:
-            return this.role != null;
+            return this.basicGetRole() != null;
         }
         return super.eIsSet(featureID);
     }

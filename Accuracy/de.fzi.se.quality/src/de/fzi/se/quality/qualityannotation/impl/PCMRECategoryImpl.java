@@ -2,12 +2,10 @@ package de.fzi.se.quality.qualityannotation.impl;
 
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ocl.ParserException;
@@ -45,18 +43,8 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
     protected static final PCMRERequestCategory CATEGORY_EDEFAULT = PCMRERequestCategory.RESOURCE;
 
     /**
-     * The cached value of the '{@link #getCategory() <em>Category</em>}' attribute. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getCategory()
-     * @generated
-     * @ordered
-     */
-    protected PCMRERequestCategory category = CATEGORY_EDEFAULT;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMRECategoryImpl() {
@@ -65,7 +53,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -75,27 +63,24 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public PCMRERequestCategory getCategory() {
-        return this.category;
+        return (PCMRERequestCategory) this.eDynamicGet(QualityAnnotationPackage.PCMRE_CATEGORY__CATEGORY,
+                QualityAnnotationPackage.Literals.PCMRE_CATEGORY__CATEGORY, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setCategory(final PCMRERequestCategory newCategory) {
-        final PCMRERequestCategory oldCategory = this.category;
-        this.category = newCategory == null ? CATEGORY_EDEFAULT : newCategory;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.PCMRE_CATEGORY__CATEGORY, oldCategory, this.category));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.PCMRE_CATEGORY__CATEGORY,
+                QualityAnnotationPackage.Literals.PCMRE_CATEGORY__CATEGORY, newCategory);
     }
 
     /**
@@ -103,7 +88,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRE Infrastructure Interface For Category Infrastructure</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -116,7 +101,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRE Infrastructure Interface For Category Infrastructure</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -126,7 +111,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -145,20 +130,20 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
         if (!EOCL_ENV
                 .createQuery(
                         NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INFRASTRUCTURE_INTERFACE_FOR_CATEGORY_INFRASTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
+                        .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INFRASTRUCTURE_INTERFACE_FOR_CATEGORY_INFRASTRUCTURE,
-                                EcorePlugin.INSTANCE
-                                        .getString(
-                                                "_UI_GenericInvariant_diagnostic",
-                                                new Object[] {
-                                                        "NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure",
-                                                        EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INFRASTRUCTURE_INTERFACE_FOR_CATEGORY_INFRASTRUCTURE,
+                        EcorePlugin.INSTANCE
+                        .getString(
+                                "_UI_GenericInvariant_diagnostic",
+                                new Object[] {
+                                        "NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                                        new Object[] { this }));
             }
             return false;
         }
@@ -170,7 +155,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Existing RE Precision Call Parameter Must Be No Precision Due To The Non Existence Of Parameters For Category Resource Demand</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -183,7 +168,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Existing RE Precision Call Parameter Must Be No Precision Due To The Non Existence Of Parameters For Category Resource Demand</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -193,7 +178,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -212,20 +197,20 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
         if (!EOCL_ENV
                 .createQuery(
                         EXISTING_RE_PRECISION_CALL_PARAMETER_MUST_BE_NO_PRECISION_DUE_TO_THE_NON_EXISTENCE_OF_PARAMETERS_FOR_CATEGORY_RESOURCE_DEMAND__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
+                        .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCMRE_CATEGORY__EXISTING_RE_PRECISION_CALL_PARAMETER_MUST_BE_NO_PRECISION_DUE_TO_THE_NON_EXISTENCE_OF_PARAMETERS_FOR_CATEGORY_RESOURCE_DEMAND,
-                                EcorePlugin.INSTANCE
-                                        .getString(
-                                                "_UI_GenericInvariant_diagnostic",
-                                                new Object[] {
-                                                        "ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand",
-                                                        EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMRE_CATEGORY__EXISTING_RE_PRECISION_CALL_PARAMETER_MUST_BE_NO_PRECISION_DUE_TO_THE_NON_EXISTENCE_OF_PARAMETERS_FOR_CATEGORY_RESOURCE_DEMAND,
+                        EcorePlugin.INSTANCE
+                        .getString(
+                                "_UI_GenericInvariant_diagnostic",
+                                new Object[] {
+                                        "ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                                        new Object[] { this }));
             }
             return false;
         }
@@ -237,7 +222,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRE Resource Interface For Category Resource</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -250,7 +235,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRE Resource Interface For Category Resource</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -260,7 +245,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -279,16 +264,16 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
         if (!EOCL_ENV
                 .createQuery(
                         NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_INTERFACE_FOR_CATEGORY_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
+                        .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_INTERFACE_FOR_CATEGORY_RESOURCE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource",
-                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_INTERFACE_FOR_CATEGORY_RESOURCE,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                "NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource",
+                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -300,7 +285,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRE Interface For Category Component</em>}' operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -313,7 +298,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRE Interface For Category Component</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -323,7 +308,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -344,13 +329,13 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
                 .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INTERFACE_FOR_CATEGORY_COMPONENT,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent",
-                                                EObjectValidator.getObjectLabel(this, context) }),
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INTERFACE_FOR_CATEGORY_COMPONENT,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent",
+                                EObjectValidator.getObjectLabel(this, context) }),
                                 new Object[] { this }));
             }
             return false;
@@ -363,7 +348,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRE Resource For Category Resource Demand</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -376,7 +361,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRE Resource For Category Resource Demand</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -386,7 +371,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -405,16 +390,16 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
         if (!EOCL_ENV
                 .createQuery(
                         NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_FOR_CATEGORY_RESOURCE_DEMAND__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
+                        .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_FOR_CATEGORY_RESOURCE_DEMAND,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand",
-                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_FOR_CATEGORY_RESOURCE_DEMAND,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                "NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand",
+                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -426,7 +411,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRECI Behavior For Category Component Internal</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -439,7 +424,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Hierarchy Level Is PCMRECI Behavior For Category Component Internal</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -449,7 +434,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -468,16 +453,16 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
         if (!EOCL_ENV
                 .createQuery(
                         NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRECI_BEHAVIOR_FOR_CATEGORY_COMPONENT_INTERNAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
+                        .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRECI_BEHAVIOR_FOR_CATEGORY_COMPONENT_INTERNAL,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal",
-                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRECI_BEHAVIOR_FOR_CATEGORY_COMPONENT_INTERNAL,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                "NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal",
+                                EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -489,7 +474,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #EachCategoryExactlyOnceIfSpecified(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Category Exactly Once If Specified</em>}' operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #EachCategoryExactlyOnceIfSpecified(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -502,7 +487,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
      * {@link #EachCategoryExactlyOnceIfSpecified(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Category Exactly Once If Specified</em>}' invariant operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachCategoryExactlyOnceIfSpecified(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -512,7 +497,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -531,13 +516,13 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
         if (!EOCL_ENV.createQuery(EACH_CATEGORY_EXACTLY_ONCE_IF_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCMRE_CATEGORY__EACH_CATEGORY_EXACTLY_ONCE_IF_SPECIFIED,
-                                EcorePlugin.INSTANCE.getString(
-                                        "_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "EachCategoryExactlyOnceIfSpecified",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .add(new BasicDiagnostic(Diagnostic.ERROR, QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMRE_CATEGORY__EACH_CATEGORY_EXACTLY_ONCE_IF_SPECIFIED,
+                        EcorePlugin.INSTANCE.getString(
+                                "_UI_GenericInvariant_diagnostic",
+                                new Object[] { "EachCategoryExactlyOnceIfSpecified",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                                        new Object[] { this }));
             }
             return false;
         }
@@ -546,7 +531,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -560,7 +545,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -575,7 +560,7 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -590,34 +575,16 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityAnnotationPackage.PCMRE_CATEGORY__CATEGORY:
-            return this.category != CATEGORY_EDEFAULT;
+            return this.getCategory() != CATEGORY_EDEFAULT;
         }
         return super.eIsSet(featureID);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (this.eIsProxy()) {
-            return super.toString();
-        }
-
-        final StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (category: ");
-        result.append(this.category);
-        result.append(')');
-        return result.toString();
     }
 
 } // PCMRECategoryImpl

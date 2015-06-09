@@ -7,15 +7,10 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
@@ -48,35 +43,14 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getParentType_CompositeDataType()
-     * <em>Parent Type Composite Data Type</em>}' reference list. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getParentType_CompositeDataType()
-     * @generated
-     * @ordered
-     */
-    protected EList<CompositeDataType> parentType_CompositeDataType;
-    /**
-     * The cached value of the '{@link #getInnerDeclaration_CompositeDataType()
-     * <em>Inner Declaration Composite Data Type</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getInnerDeclaration_CompositeDataType()
-     * @generated
-     * @ordered
-     */
-    protected EList<InnerDeclaration> innerDeclaration_CompositeDataType;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CompositeDataTypeImpl() {
@@ -85,7 +59,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -95,20 +69,18 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Repository getRepository__DataType() {
-        if (this.eContainerFeatureID() != RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE) {
-            return null;
-        }
-        return (Repository) this.eInternalContainer();
+        return (Repository) this.eDynamicGet(RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE,
+                RepositoryPackage.Literals.DATA_TYPE__REPOSITORY_DATA_TYPE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetRepository__DataType(final Repository newRepository__DataType,
@@ -120,70 +92,44 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRepository__DataType(final Repository newRepository__DataType) {
-        if (newRepository__DataType != this.eInternalContainer()
-                || (this.eContainerFeatureID() != RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE && newRepository__DataType != null)) {
-            if (EcoreUtil.isAncestor(this, newRepository__DataType)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newRepository__DataType != null) {
-                msgs = ((InternalEObject) newRepository__DataType).eInverseAdd(this,
-                        RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY, Repository.class, msgs);
-            }
-            msgs = this.basicSetRepository__DataType(newRepository__DataType, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE, newRepository__DataType,
-                    newRepository__DataType));
-        }
+        this.eDynamicSet(RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE,
+                RepositoryPackage.Literals.DATA_TYPE__REPOSITORY_DATA_TYPE, newRepository__DataType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<CompositeDataType> getParentType_CompositeDataType() {
-        if (this.parentType_CompositeDataType == null) {
-            this.parentType_CompositeDataType = new EObjectResolvingEList<CompositeDataType>(CompositeDataType.class,
-                    this, RepositoryPackage.COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE);
-        }
-        return this.parentType_CompositeDataType;
+        return (EList<CompositeDataType>) this.eDynamicGet(
+                RepositoryPackage.COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE,
+                RepositoryPackage.Literals.COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<InnerDeclaration> getInnerDeclaration_CompositeDataType() {
-        if (this.innerDeclaration_CompositeDataType == null) {
-            this.innerDeclaration_CompositeDataType = new EObjectContainmentWithInverseEList<InnerDeclaration>(
-                    InnerDeclaration.class, this,
-                    RepositoryPackage.COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE,
-                    RepositoryPackage.INNER_DECLARATION__COMPOSITE_DATA_TYPE_INNER_DECLARATION);
-        }
-        return this.innerDeclaration_CompositeDataType;
+        return (EList<InnerDeclaration>) this.eDynamicGet(
+                RepositoryPackage.COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE,
+                RepositoryPackage.Literals.COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -204,7 +150,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -221,7 +167,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -236,7 +182,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -254,7 +200,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -278,7 +224,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -299,7 +245,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -309,17 +255,16 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
         case RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE:
             return this.getRepository__DataType() != null;
         case RepositoryPackage.COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE:
-            return this.parentType_CompositeDataType != null && !this.parentType_CompositeDataType.isEmpty();
+            return !this.getParentType_CompositeDataType().isEmpty();
         case RepositoryPackage.COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE:
-            return this.innerDeclaration_CompositeDataType != null
-                    && !this.innerDeclaration_CompositeDataType.isEmpty();
+            return !this.getInnerDeclaration_CompositeDataType().isEmpty();
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -337,7 +282,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

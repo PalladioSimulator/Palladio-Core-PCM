@@ -39,7 +39,7 @@ public interface InternalFailureOccurrenceDescription extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -75,7 +75,7 @@ public interface InternalFailureOccurrenceDescription extends FailureOccurrenceD
      * {@link de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription#getSoftwareInducedFailureType__InternalFailureOccurrenceDescription
      * <em>Software Induced Failure Type Internal Failure Occurrence Description</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '
      *            <em>Software Induced Failure Type Internal Failure Occurrence Description</em>'
@@ -112,7 +112,7 @@ public interface InternalFailureOccurrenceDescription extends FailureOccurrenceD
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Internal Action Internal Failure Occurrence Description</em>'
      *         container reference.
      * @see #setInternalAction__InternalFailureOccurrenceDescription(InternalAction)

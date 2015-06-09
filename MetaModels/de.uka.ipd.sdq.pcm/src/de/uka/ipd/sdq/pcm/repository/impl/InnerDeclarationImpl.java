@@ -5,13 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.NamedElementImpl;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
@@ -39,25 +35,14 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getDatatype_InnerDeclaration()
-     * <em>Datatype Inner Declaration</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
-     *
-     * @see #getDatatype_InnerDeclaration()
-     * @generated
-     * @ordered
-     */
-    protected DataType datatype_InnerDeclaration;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected InnerDeclarationImpl() {
@@ -66,7 +51,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -76,66 +61,51 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public DataType getDatatype_InnerDeclaration() {
-        if (this.datatype_InnerDeclaration != null && ((EObject) this.datatype_InnerDeclaration).eIsProxy()) {
-            final InternalEObject oldDatatype_InnerDeclaration = (InternalEObject) this.datatype_InnerDeclaration;
-            this.datatype_InnerDeclaration = (DataType) this.eResolveProxy(oldDatatype_InnerDeclaration);
-            if (this.datatype_InnerDeclaration != oldDatatype_InnerDeclaration) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            RepositoryPackage.INNER_DECLARATION__DATATYPE_INNER_DECLARATION,
-                            oldDatatype_InnerDeclaration, this.datatype_InnerDeclaration));
-                }
-            }
-        }
-        return this.datatype_InnerDeclaration;
+        return (DataType) this.eDynamicGet(RepositoryPackage.INNER_DECLARATION__DATATYPE_INNER_DECLARATION,
+                RepositoryPackage.Literals.INNER_DECLARATION__DATATYPE_INNER_DECLARATION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public DataType basicGetDatatype_InnerDeclaration() {
-        return this.datatype_InnerDeclaration;
+        return (DataType) this.eDynamicGet(RepositoryPackage.INNER_DECLARATION__DATATYPE_INNER_DECLARATION,
+                RepositoryPackage.Literals.INNER_DECLARATION__DATATYPE_INNER_DECLARATION, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setDatatype_InnerDeclaration(final DataType newDatatype_InnerDeclaration) {
-        final DataType oldDatatype_InnerDeclaration = this.datatype_InnerDeclaration;
-        this.datatype_InnerDeclaration = newDatatype_InnerDeclaration;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.INNER_DECLARATION__DATATYPE_INNER_DECLARATION, oldDatatype_InnerDeclaration,
-                    this.datatype_InnerDeclaration));
-        }
+        this.eDynamicSet(RepositoryPackage.INNER_DECLARATION__DATATYPE_INNER_DECLARATION,
+                RepositoryPackage.Literals.INNER_DECLARATION__DATATYPE_INNER_DECLARATION, newDatatype_InnerDeclaration);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public CompositeDataType getCompositeDataType_InnerDeclaration() {
-        if (this.eContainerFeatureID() != RepositoryPackage.INNER_DECLARATION__COMPOSITE_DATA_TYPE_INNER_DECLARATION) {
-            return null;
-        }
-        return (CompositeDataType) this.eInternalContainer();
+        return (CompositeDataType) this.eDynamicGet(
+                RepositoryPackage.INNER_DECLARATION__COMPOSITE_DATA_TYPE_INNER_DECLARATION,
+                RepositoryPackage.Literals.INNER_DECLARATION__COMPOSITE_DATA_TYPE_INNER_DECLARATION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetCompositeDataType_InnerDeclaration(
@@ -147,39 +117,19 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setCompositeDataType_InnerDeclaration(final CompositeDataType newCompositeDataType_InnerDeclaration) {
-        if (newCompositeDataType_InnerDeclaration != this.eInternalContainer()
-                || (this.eContainerFeatureID() != RepositoryPackage.INNER_DECLARATION__COMPOSITE_DATA_TYPE_INNER_DECLARATION && newCompositeDataType_InnerDeclaration != null)) {
-            if (EcoreUtil.isAncestor(this, newCompositeDataType_InnerDeclaration)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newCompositeDataType_InnerDeclaration != null) {
-                msgs = ((InternalEObject) newCompositeDataType_InnerDeclaration).eInverseAdd(this,
-                        RepositoryPackage.COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE,
-                        CompositeDataType.class, msgs);
-            }
-            msgs = this.basicSetCompositeDataType_InnerDeclaration(newCompositeDataType_InnerDeclaration, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.INNER_DECLARATION__COMPOSITE_DATA_TYPE_INNER_DECLARATION,
-                    newCompositeDataType_InnerDeclaration, newCompositeDataType_InnerDeclaration));
-        }
+        this.eDynamicSet(RepositoryPackage.INNER_DECLARATION__COMPOSITE_DATA_TYPE_INNER_DECLARATION,
+                RepositoryPackage.Literals.INNER_DECLARATION__COMPOSITE_DATA_TYPE_INNER_DECLARATION,
+                newCompositeDataType_InnerDeclaration);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -196,7 +146,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -211,7 +161,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -227,7 +177,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -246,7 +196,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -264,7 +214,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -282,14 +232,14 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.INNER_DECLARATION__DATATYPE_INNER_DECLARATION:
-            return this.datatype_InnerDeclaration != null;
+            return this.basicGetDatatype_InnerDeclaration() != null;
         case RepositoryPackage.INNER_DECLARATION__COMPOSITE_DATA_TYPE_INNER_DECLARATION:
             return this.getCompositeDataType_InnerDeclaration() != null;
         }

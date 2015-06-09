@@ -34,7 +34,7 @@ public interface OperationReference extends CDOObject {
      * description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Role</em>' reference.
      * @see #setRole(Role)
      * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getOperationReference_Role()
@@ -47,7 +47,7 @@ public interface OperationReference extends CDOObject {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.OperationReference#getRole <em>Role</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Role</em>' reference.
      * @see #getRole()
@@ -63,7 +63,7 @@ public interface OperationReference extends CDOObject {
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Operation Signature</em>' reference.
      * @see #setOperationSignature(OperationSignature)
      * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getOperationReference_OperationSignature()
@@ -76,7 +76,7 @@ public interface OperationReference extends CDOObject {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.OperationReference#getOperationSignature
      * <em>Operation Signature</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Operation Signature</em>' reference.
      * @see #getOperationSignature()

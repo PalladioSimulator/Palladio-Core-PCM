@@ -32,7 +32,7 @@ public interface ExternalCallActionReference extends CDOObject {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>External Call</em>' reference.
      * @see #setExternalCall(ExternalCallAction)
      * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getExternalCallActionReference_ExternalCall()
@@ -45,7 +45,7 @@ public interface ExternalCallActionReference extends CDOObject {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference#getExternalCall
      * <em>External Call</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>External Call</em>' reference.
      * @see #getExternalCall()

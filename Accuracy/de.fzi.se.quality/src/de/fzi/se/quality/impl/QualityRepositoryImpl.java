@@ -12,7 +12,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.fzi.se.quality.QualityPackage;
@@ -36,18 +35,8 @@ import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 public class QualityRepositoryImpl extends IdentifierImpl implements QualityRepository {
 
     /**
-     * The cached value of the '{@link #getQualityStatements() <em>Quality Statements</em>}'
-     * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getQualityStatements()
-     * @generated
-     * @ordered
-     */
-    protected EList<QualityStatement> qualityStatements;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected QualityRepositoryImpl() {
@@ -56,7 +45,7 @@ public class QualityRepositoryImpl extends IdentifierImpl implements QualityRepo
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -66,22 +55,19 @@ public class QualityRepositoryImpl extends IdentifierImpl implements QualityRepo
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<QualityStatement> getQualityStatements() {
-        if (this.qualityStatements == null) {
-            this.qualityStatements = new EObjectContainmentWithInverseEList<QualityStatement>(QualityStatement.class,
-                    this, QualityPackage.QUALITY_REPOSITORY__QUALITY_STATEMENTS,
-                    QualityPackage.QUALITY_STATEMENT__QUALITY_REPOSITORY);
-        }
-        return this.qualityStatements;
+        return (EList<QualityStatement>) this.eDynamicGet(QualityPackage.QUALITY_REPOSITORY__QUALITY_STATEMENTS,
+                QualityPackage.Literals.QUALITY_REPOSITORY__QUALITY_STATEMENTS, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -98,7 +84,7 @@ public class QualityRepositoryImpl extends IdentifierImpl implements QualityRepo
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -113,7 +99,7 @@ public class QualityRepositoryImpl extends IdentifierImpl implements QualityRepo
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,7 +113,7 @@ public class QualityRepositoryImpl extends IdentifierImpl implements QualityRepo
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -144,7 +130,7 @@ public class QualityRepositoryImpl extends IdentifierImpl implements QualityRepo
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -159,14 +145,14 @@ public class QualityRepositoryImpl extends IdentifierImpl implements QualityRepo
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityPackage.QUALITY_REPOSITORY__QUALITY_STATEMENTS:
-            return this.qualityStatements != null && !this.qualityStatements.isEmpty();
+            return !this.getQualityStatements().isEmpty();
         }
         return super.eIsSet(featureID);
     }

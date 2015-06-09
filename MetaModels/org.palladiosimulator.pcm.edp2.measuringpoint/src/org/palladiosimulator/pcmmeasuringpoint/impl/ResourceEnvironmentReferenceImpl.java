@@ -2,11 +2,7 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference;
@@ -30,18 +26,8 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl implements ResourceEnvironmentReference {
 
     /**
-     * The cached value of the '{@link #getResourceEnvironment() <em>Resource Environment</em>}'
-     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getResourceEnvironment()
-     * @generated
-     * @ordered
-     */
-    protected ResourceEnvironment resourceEnvironment;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceEnvironmentReferenceImpl() {
@@ -50,7 +36,7 @@ public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -60,53 +46,52 @@ public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    protected int eStaticFeatureCount() {
+        return 0;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public ResourceEnvironment getResourceEnvironment() {
-        if (this.resourceEnvironment != null && ((EObject) this.resourceEnvironment).eIsProxy()) {
-            final InternalEObject oldResourceEnvironment = (InternalEObject) this.resourceEnvironment;
-            this.resourceEnvironment = (ResourceEnvironment) this.eResolveProxy(oldResourceEnvironment);
-            if (this.resourceEnvironment != oldResourceEnvironment) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT,
-                            oldResourceEnvironment, this.resourceEnvironment));
-                }
-            }
-        }
-        return this.resourceEnvironment;
+        return (ResourceEnvironment) this.eDynamicGet(
+                PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT,
+                PcmmeasuringpointPackage.Literals.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceEnvironment basicGetResourceEnvironment() {
-        return this.resourceEnvironment;
+        return (ResourceEnvironment) this.eDynamicGet(
+                PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT,
+                PcmmeasuringpointPackage.Literals.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setResourceEnvironment(final ResourceEnvironment newResourceEnvironment) {
-        final ResourceEnvironment oldResourceEnvironment = this.resourceEnvironment;
-        this.resourceEnvironment = newResourceEnvironment;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT,
-                    oldResourceEnvironment, this.resourceEnvironment));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT,
+                PcmmeasuringpointPackage.Literals.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT,
+                newResourceEnvironment);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -123,7 +108,7 @@ public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -138,7 +123,7 @@ public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -153,14 +138,14 @@ public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT:
-            return this.resourceEnvironment != null;
+            return this.basicGetResourceEnvironment() != null;
         }
         return super.eIsSet(featureID);
     }

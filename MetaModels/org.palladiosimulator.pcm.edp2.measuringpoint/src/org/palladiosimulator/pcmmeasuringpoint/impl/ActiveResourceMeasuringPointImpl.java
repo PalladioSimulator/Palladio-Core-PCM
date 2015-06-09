@@ -2,11 +2,7 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
@@ -36,16 +32,6 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl implements ActiveResourceMeasuringPoint {
 
     /**
-     * The cached value of the '{@link #getActiveResource() <em>Active Resource</em>}' reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getActiveResource()
-     * @generated
-     * @ordered
-     */
-    protected ProcessingResourceSpecification activeResource;
-
-    /**
      * The default value of the '{@link #getReplicaID() <em>Replica ID</em>}' attribute. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -56,18 +42,8 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
     protected static final int REPLICA_ID_EDEFAULT = 0;
 
     /**
-     * The cached value of the '{@link #getReplicaID() <em>Replica ID</em>}' attribute. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getReplicaID()
-     * @generated
-     * @ordered
-     */
-    protected int replicaID = REPLICA_ID_EDEFAULT;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ActiveResourceMeasuringPointImpl() {
@@ -76,7 +52,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -86,78 +62,63 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ProcessingResourceSpecification getActiveResource() {
-        if (this.activeResource != null && ((EObject) this.activeResource).eIsProxy()) {
-            final InternalEObject oldActiveResource = (InternalEObject) this.activeResource;
-            this.activeResource = (ProcessingResourceSpecification) this.eResolveProxy(oldActiveResource);
-            if (this.activeResource != oldActiveResource) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PcmmeasuringpointPackage.ACTIVE_RESOURCE_MEASURING_POINT__ACTIVE_RESOURCE,
-                            oldActiveResource, this.activeResource));
-                }
-            }
-        }
-        return this.activeResource;
+        return (ProcessingResourceSpecification) this.eDynamicGet(
+                PcmmeasuringpointPackage.ACTIVE_RESOURCE_MEASURING_POINT__ACTIVE_RESOURCE,
+                PcmmeasuringpointPackage.Literals.ACTIVE_RESOURCE_REFERENCE__ACTIVE_RESOURCE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ProcessingResourceSpecification basicGetActiveResource() {
-        return this.activeResource;
+        return (ProcessingResourceSpecification) this.eDynamicGet(
+                PcmmeasuringpointPackage.ACTIVE_RESOURCE_MEASURING_POINT__ACTIVE_RESOURCE,
+                PcmmeasuringpointPackage.Literals.ACTIVE_RESOURCE_REFERENCE__ACTIVE_RESOURCE, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setActiveResource(final ProcessingResourceSpecification newActiveResource) {
-        final ProcessingResourceSpecification oldActiveResource = this.activeResource;
-        this.activeResource = newActiveResource;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.ACTIVE_RESOURCE_MEASURING_POINT__ACTIVE_RESOURCE, oldActiveResource,
-                    this.activeResource));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.ACTIVE_RESOURCE_MEASURING_POINT__ACTIVE_RESOURCE,
+                PcmmeasuringpointPackage.Literals.ACTIVE_RESOURCE_REFERENCE__ACTIVE_RESOURCE, newActiveResource);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public int getReplicaID() {
-        return this.replicaID;
+        return (Integer) this.eDynamicGet(PcmmeasuringpointPackage.ACTIVE_RESOURCE_MEASURING_POINT__REPLICA_ID,
+                PcmmeasuringpointPackage.Literals.ACTIVE_RESOURCE_REFERENCE__REPLICA_ID, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setReplicaID(final int newReplicaID) {
-        final int oldReplicaID = this.replicaID;
-        this.replicaID = newReplicaID;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.ACTIVE_RESOURCE_MEASURING_POINT__REPLICA_ID, oldReplicaID, this.replicaID));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.ACTIVE_RESOURCE_MEASURING_POINT__REPLICA_ID,
+                PcmmeasuringpointPackage.Literals.ACTIVE_RESOURCE_REFERENCE__REPLICA_ID, newReplicaID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -176,7 +137,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -194,7 +155,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -212,23 +173,23 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case PcmmeasuringpointPackage.ACTIVE_RESOURCE_MEASURING_POINT__ACTIVE_RESOURCE:
-            return this.activeResource != null;
+            return this.basicGetActiveResource() != null;
         case PcmmeasuringpointPackage.ACTIVE_RESOURCE_MEASURING_POINT__REPLICA_ID:
-            return this.replicaID != REPLICA_ID_EDEFAULT;
+            return this.getReplicaID() != REPLICA_ID_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -248,7 +209,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -269,39 +230,21 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (this.eIsProxy()) {
-            return super.toString();
-        }
-
-        final StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (replicaID: ");
-        result.append(this.replicaID);
-        result.append(')');
-        return result.toString();
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
      * @generated NOT
      */
     @Override
     public String getStringRepresentation() {
-        if (this.activeResource == null) {
+        if (this.getActiveResource() == null) {
             return "";
         }
         EcoreUtil.resolveAll(this);
 
         final StringBuilder result = new StringBuilder();
-        result.append(this.activeResource.getActiveResourceType_ActiveResourceSpecification().getEntityName());
+        result.append(this.getActiveResource().getActiveResourceType_ActiveResourceSpecification().getEntityName());
         result.append(" [");
-        result.append(String.valueOf(this.replicaID));
+        result.append(String.valueOf(this.getReplicaID()));
         result.append("] in ");
-        result.append(this.activeResource.getResourceContainer_ProcessingResourceSpecification().getEntityName());
+        result.append(this.getActiveResource().getResourceContainer_ProcessingResourceSpecification().getEntityName());
 
         return result.toString();
     }
@@ -313,11 +256,11 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
      */
     @Override
     public String getResourceURIRepresentation() {
-        if (this.activeResource == null) {
+        if (this.getActiveResource() == null) {
             return "";
         }
         EcoreUtil.resolveAll(this);
-        return EMFLoadHelper.getResourceURI(this.activeResource);
+        return EMFLoadHelper.getResourceURI(this.getActiveResource());
     }
 
 } // ActiveResourceMeasuringPointImpl

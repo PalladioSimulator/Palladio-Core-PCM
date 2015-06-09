@@ -36,7 +36,7 @@ public interface ResourceInterface extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,7 +51,7 @@ public interface ResourceInterface extends Entity {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Resource Repository Resource Interface</em>' container
      *         reference.
      * @see #setResourceRepository__ResourceInterface(ResourceRepository)
@@ -68,7 +68,7 @@ public interface ResourceInterface extends Entity {
      * {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface#getResourceRepository__ResourceInterface
      * <em>Resource Repository Resource Interface</em>}' container reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Resource Repository Resource Interface</em>' container
      *            reference.
@@ -89,7 +89,7 @@ public interface ResourceInterface extends Entity {
      * list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Resource Signatures Resource Interface</em>' containment
      *         reference list.
      * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getResourceInterface_ResourceSignatures__ResourceInterface()

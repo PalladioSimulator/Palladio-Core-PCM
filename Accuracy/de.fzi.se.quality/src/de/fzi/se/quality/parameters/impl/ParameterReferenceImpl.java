@@ -6,12 +6,9 @@
  */
 package de.fzi.se.quality.parameters.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.fzi.se.quality.parameters.ParameterInstance;
 import de.fzi.se.quality.parameters.ParameterPartition;
@@ -42,7 +39,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ParameterReferenceImpl() {
@@ -51,7 +48,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -61,20 +58,18 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ParameterPartition getParameterPartition() {
-        if (this.eContainerFeatureID() != ParametersPackage.PARAMETER_REFERENCE__PARAMETER_PARTITION) {
-            return null;
-        }
-        return (ParameterPartition) this.eInternalContainer();
+        return (ParameterPartition) this.eDynamicGet(ParametersPackage.PARAMETER_REFERENCE__PARAMETER_PARTITION,
+                ParametersPackage.Literals.PARAMETER_REFERENCE__PARAMETER_PARTITION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParameterPartition(final ParameterPartition newParameterPartition,
@@ -86,51 +81,29 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setParameterPartition(final ParameterPartition newParameterPartition) {
-        if (newParameterPartition != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ParametersPackage.PARAMETER_REFERENCE__PARAMETER_PARTITION && newParameterPartition != null)) {
-            if (EcoreUtil.isAncestor(this, newParameterPartition)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newParameterPartition != null) {
-                msgs = ((InternalEObject) newParameterPartition).eInverseAdd(this,
-                        ParametersPackage.PARAMETER_PARTITION__PARAMETER_REFERENCE, ParameterPartition.class, msgs);
-            }
-            msgs = this.basicSetParameterPartition(newParameterPartition, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParametersPackage.PARAMETER_REFERENCE__PARAMETER_PARTITION, newParameterPartition,
-                    newParameterPartition));
-        }
+        this.eDynamicSet(ParametersPackage.PARAMETER_REFERENCE__PARAMETER_PARTITION,
+                ParametersPackage.Literals.PARAMETER_REFERENCE__PARAMETER_PARTITION, newParameterPartition);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ParameterInstance getParameterInstance() {
-        if (this.eContainerFeatureID() != ParametersPackage.PARAMETER_REFERENCE__PARAMETER_INSTANCE) {
-            return null;
-        }
-        return (ParameterInstance) this.eInternalContainer();
+        return (ParameterInstance) this.eDynamicGet(ParametersPackage.PARAMETER_REFERENCE__PARAMETER_INSTANCE,
+                ParametersPackage.Literals.PARAMETER_REFERENCE__PARAMETER_INSTANCE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParameterInstance(final ParameterInstance newParameterInstance,
@@ -142,51 +115,30 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setParameterInstance(final ParameterInstance newParameterInstance) {
-        if (newParameterInstance != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ParametersPackage.PARAMETER_REFERENCE__PARAMETER_INSTANCE && newParameterInstance != null)) {
-            if (EcoreUtil.isAncestor(this, newParameterInstance)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newParameterInstance != null) {
-                msgs = ((InternalEObject) newParameterInstance).eInverseAdd(this,
-                        ParametersPackage.PARAMETER_INSTANCE__PARAMETER_REFERENCE, ParameterInstance.class, msgs);
-            }
-            msgs = this.basicSetParameterInstance(newParameterInstance, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParametersPackage.PARAMETER_REFERENCE__PARAMETER_INSTANCE, newParameterInstance,
-                    newParameterInstance));
-        }
+        this.eDynamicSet(ParametersPackage.PARAMETER_REFERENCE__PARAMETER_INSTANCE,
+                ParametersPackage.Literals.PARAMETER_REFERENCE__PARAMETER_INSTANCE, newParameterInstance);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ParameterValueDeviation getParameterValueDeviation() {
-        if (this.eContainerFeatureID() != ParametersPackage.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION) {
-            return null;
-        }
-        return (ParameterValueDeviation) this.eInternalContainer();
+        return (ParameterValueDeviation) this.eDynamicGet(
+                ParametersPackage.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION,
+                ParametersPackage.Literals.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParameterValueDeviation(final ParameterValueDeviation newParameterValueDeviation,
@@ -198,39 +150,18 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setParameterValueDeviation(final ParameterValueDeviation newParameterValueDeviation) {
-        if (newParameterValueDeviation != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ParametersPackage.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION && newParameterValueDeviation != null)) {
-            if (EcoreUtil.isAncestor(this, newParameterValueDeviation)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newParameterValueDeviation != null) {
-                msgs = ((InternalEObject) newParameterValueDeviation).eInverseAdd(this,
-                        QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE,
-                        ParameterValueDeviation.class, msgs);
-            }
-            msgs = this.basicSetParameterValueDeviation(newParameterValueDeviation, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParametersPackage.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION, newParameterValueDeviation,
-                    newParameterValueDeviation));
-        }
+        this.eDynamicSet(ParametersPackage.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION,
+                ParametersPackage.Literals.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION, newParameterValueDeviation);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -257,7 +188,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -276,7 +207,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -298,7 +229,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -316,7 +247,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -337,7 +268,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -358,7 +289,7 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

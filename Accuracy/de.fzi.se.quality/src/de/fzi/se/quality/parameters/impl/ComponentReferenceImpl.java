@@ -6,12 +6,9 @@
  */
 package de.fzi.se.quality.parameters.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.fzi.se.quality.parameters.ComponentInstance;
 import de.fzi.se.quality.parameters.ComponentReference;
@@ -35,7 +32,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ComponentReferenceImpl() {
@@ -44,7 +41,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -54,20 +51,18 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ComponentInstance getComponentInstance() {
-        if (this.eContainerFeatureID() != ParametersPackage.COMPONENT_REFERENCE__COMPONENT_INSTANCE) {
-            return null;
-        }
-        return (ComponentInstance) this.eInternalContainer();
+        return (ComponentInstance) this.eDynamicGet(ParametersPackage.COMPONENT_REFERENCE__COMPONENT_INSTANCE,
+                ParametersPackage.Literals.COMPONENT_REFERENCE__COMPONENT_INSTANCE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetComponentInstance(final ComponentInstance newComponentInstance,
@@ -79,38 +74,18 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setComponentInstance(final ComponentInstance newComponentInstance) {
-        if (newComponentInstance != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ParametersPackage.COMPONENT_REFERENCE__COMPONENT_INSTANCE && newComponentInstance != null)) {
-            if (EcoreUtil.isAncestor(this, newComponentInstance)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newComponentInstance != null) {
-                msgs = ((InternalEObject) newComponentInstance).eInverseAdd(this,
-                        ParametersPackage.COMPONENT_INSTANCE__COMPONENT_REFERENCE, ComponentInstance.class, msgs);
-            }
-            msgs = this.basicSetComponentInstance(newComponentInstance, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParametersPackage.COMPONENT_REFERENCE__COMPONENT_INSTANCE, newComponentInstance,
-                    newComponentInstance));
-        }
+        this.eDynamicSet(ParametersPackage.COMPONENT_REFERENCE__COMPONENT_INSTANCE,
+                ParametersPackage.Literals.COMPONENT_REFERENCE__COMPONENT_INSTANCE, newComponentInstance);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,7 +102,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -142,7 +117,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -157,7 +132,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -171,7 +146,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -186,7 +161,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -201,7 +176,7 @@ public abstract class ComponentReferenceImpl extends IdentifierImpl implements C
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

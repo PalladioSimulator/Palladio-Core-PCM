@@ -5,12 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.repository.DataType;
@@ -34,14 +31,14 @@ public abstract class DataTypeImpl extends CDOObjectImpl implements DataType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected DataTypeImpl() {
@@ -50,7 +47,7 @@ public abstract class DataTypeImpl extends CDOObjectImpl implements DataType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -60,20 +57,28 @@ public abstract class DataTypeImpl extends CDOObjectImpl implements DataType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public Repository getRepository__DataType() {
-        if (this.eContainerFeatureID() != RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE) {
-            return null;
-        }
-        return (Repository) this.eInternalContainer();
+    protected int eStaticFeatureCount() {
+        return 0;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    public Repository getRepository__DataType() {
+        return (Repository) this.eDynamicGet(RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE,
+                RepositoryPackage.Literals.DATA_TYPE__REPOSITORY_DATA_TYPE, true, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public NotificationChain basicSetRepository__DataType(final Repository newRepository__DataType,
@@ -85,37 +90,18 @@ public abstract class DataTypeImpl extends CDOObjectImpl implements DataType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRepository__DataType(final Repository newRepository__DataType) {
-        if (newRepository__DataType != this.eInternalContainer()
-                || (this.eContainerFeatureID() != RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE && newRepository__DataType != null)) {
-            if (EcoreUtil.isAncestor(this, newRepository__DataType)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newRepository__DataType != null) {
-                msgs = ((InternalEObject) newRepository__DataType).eInverseAdd(this,
-                        RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY, Repository.class, msgs);
-            }
-            msgs = this.basicSetRepository__DataType(newRepository__DataType, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE, newRepository__DataType, newRepository__DataType));
-        }
+        this.eDynamicSet(RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE,
+                RepositoryPackage.Literals.DATA_TYPE__REPOSITORY_DATA_TYPE, newRepository__DataType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -132,7 +118,7 @@ public abstract class DataTypeImpl extends CDOObjectImpl implements DataType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -147,7 +133,7 @@ public abstract class DataTypeImpl extends CDOObjectImpl implements DataType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -162,7 +148,7 @@ public abstract class DataTypeImpl extends CDOObjectImpl implements DataType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -176,7 +162,7 @@ public abstract class DataTypeImpl extends CDOObjectImpl implements DataType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -191,7 +177,7 @@ public abstract class DataTypeImpl extends CDOObjectImpl implements DataType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -206,7 +192,7 @@ public abstract class DataTypeImpl extends CDOObjectImpl implements DataType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

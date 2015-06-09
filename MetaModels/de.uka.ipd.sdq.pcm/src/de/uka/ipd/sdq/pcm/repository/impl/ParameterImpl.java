@@ -5,13 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.repository.DataType;
@@ -54,25 +50,15 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getDataType__Parameter() <em>Data Type Parameter</em>}'
-     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getDataType__Parameter()
-     * @generated
-     * @ordered
-     */
-    protected DataType dataType__Parameter;
-
-    /**
      * The default value of the '{@link #getParameterName() <em>Parameter Name</em>}' attribute.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getParameterName()
      * @generated
      * @ordered
@@ -80,19 +66,9 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
     protected static final String PARAMETER_NAME_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getParameterName() <em>Parameter Name</em>}' attribute. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getParameterName()
-     * @generated
-     * @ordered
-     */
-    protected String parameterName = PARAMETER_NAME_EDEFAULT;
-
-    /**
      * The default value of the '{@link #getModifier__Parameter() <em>Modifier Parameter</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getModifier__Parameter()
      * @generated
      * @ordered
@@ -100,18 +76,8 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
     protected static final ParameterModifier MODIFIER_PARAMETER_EDEFAULT = ParameterModifier.NONE;
 
     /**
-     * The cached value of the '{@link #getModifier__Parameter() <em>Modifier Parameter</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getModifier__Parameter()
-     * @generated
-     * @ordered
-     */
-    protected ParameterModifier modifier__Parameter = MODIFIER_PARAMETER_EDEFAULT;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ParameterImpl() {
@@ -120,7 +86,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -130,71 +96,72 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    protected int eStaticFeatureCount() {
+        return 0;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String getParameterName() {
-        return this.parameterName;
+        return (String) this.eDynamicGet(RepositoryPackage.PARAMETER__PARAMETER_NAME,
+                RepositoryPackage.Literals.PARAMETER__PARAMETER_NAME, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setParameterName(final String newParameterName) {
-        final String oldParameterName = this.parameterName;
-        this.parameterName = newParameterName;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.PARAMETER__PARAMETER_NAME,
-                    oldParameterName, this.parameterName));
-        }
+        this.eDynamicSet(RepositoryPackage.PARAMETER__PARAMETER_NAME,
+                RepositoryPackage.Literals.PARAMETER__PARAMETER_NAME, newParameterName);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ParameterModifier getModifier__Parameter() {
-        return this.modifier__Parameter;
+        return (ParameterModifier) this.eDynamicGet(RepositoryPackage.PARAMETER__MODIFIER_PARAMETER,
+                RepositoryPackage.Literals.PARAMETER__MODIFIER_PARAMETER, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setModifier__Parameter(final ParameterModifier newModifier__Parameter) {
-        final ParameterModifier oldModifier__Parameter = this.modifier__Parameter;
-        this.modifier__Parameter = newModifier__Parameter == null ? MODIFIER_PARAMETER_EDEFAULT
-                : newModifier__Parameter;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.PARAMETER__MODIFIER_PARAMETER,
-                    oldModifier__Parameter, this.modifier__Parameter));
-        }
+        this.eDynamicSet(RepositoryPackage.PARAMETER__MODIFIER_PARAMETER,
+                RepositoryPackage.Literals.PARAMETER__MODIFIER_PARAMETER, newModifier__Parameter);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public OperationSignature getOperationSignature__Parameter() {
-        if (this.eContainerFeatureID() != RepositoryPackage.PARAMETER__OPERATION_SIGNATURE_PARAMETER) {
-            return null;
-        }
-        return (OperationSignature) this.eInternalContainer();
+        return (OperationSignature) this.eDynamicGet(RepositoryPackage.PARAMETER__OPERATION_SIGNATURE_PARAMETER,
+                RepositoryPackage.Literals.PARAMETER__OPERATION_SIGNATURE_PARAMETER, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetOperationSignature__Parameter(
@@ -206,97 +173,61 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setOperationSignature__Parameter(final OperationSignature newOperationSignature__Parameter) {
-        if (newOperationSignature__Parameter != this.eInternalContainer()
-                || (this.eContainerFeatureID() != RepositoryPackage.PARAMETER__OPERATION_SIGNATURE_PARAMETER && newOperationSignature__Parameter != null)) {
-            if (EcoreUtil.isAncestor(this, newOperationSignature__Parameter)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newOperationSignature__Parameter != null) {
-                msgs = ((InternalEObject) newOperationSignature__Parameter).eInverseAdd(this,
-                        RepositoryPackage.OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE,
-                        OperationSignature.class, msgs);
-            }
-            msgs = this.basicSetOperationSignature__Parameter(newOperationSignature__Parameter, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.PARAMETER__OPERATION_SIGNATURE_PARAMETER, newOperationSignature__Parameter,
-                    newOperationSignature__Parameter));
-        }
+        this.eDynamicSet(RepositoryPackage.PARAMETER__OPERATION_SIGNATURE_PARAMETER,
+                RepositoryPackage.Literals.PARAMETER__OPERATION_SIGNATURE_PARAMETER, newOperationSignature__Parameter);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public DataType getDataType__Parameter() {
-        if (this.dataType__Parameter != null && ((EObject) this.dataType__Parameter).eIsProxy()) {
-            final InternalEObject oldDataType__Parameter = (InternalEObject) this.dataType__Parameter;
-            this.dataType__Parameter = (DataType) this.eResolveProxy(oldDataType__Parameter);
-            if (this.dataType__Parameter != oldDataType__Parameter) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            RepositoryPackage.PARAMETER__DATA_TYPE_PARAMETER, oldDataType__Parameter,
-                            this.dataType__Parameter));
-                }
-            }
-        }
-        return this.dataType__Parameter;
+        return (DataType) this.eDynamicGet(RepositoryPackage.PARAMETER__DATA_TYPE_PARAMETER,
+                RepositoryPackage.Literals.PARAMETER__DATA_TYPE_PARAMETER, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public DataType basicGetDataType__Parameter() {
-        return this.dataType__Parameter;
+        return (DataType) this.eDynamicGet(RepositoryPackage.PARAMETER__DATA_TYPE_PARAMETER,
+                RepositoryPackage.Literals.PARAMETER__DATA_TYPE_PARAMETER, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setDataType__Parameter(final DataType newDataType__Parameter) {
-        final DataType oldDataType__Parameter = this.dataType__Parameter;
-        this.dataType__Parameter = newDataType__Parameter;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.PARAMETER__DATA_TYPE_PARAMETER, oldDataType__Parameter, this.dataType__Parameter));
-        }
+        this.eDynamicSet(RepositoryPackage.PARAMETER__DATA_TYPE_PARAMETER,
+                RepositoryPackage.Literals.PARAMETER__DATA_TYPE_PARAMETER, newDataType__Parameter);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceSignature getResourceSignature__Parameter() {
-        if (this.eContainerFeatureID() != RepositoryPackage.PARAMETER__RESOURCE_SIGNATURE_PARAMETER) {
-            return null;
-        }
-        return (ResourceSignature) this.eInternalContainer();
+        return (ResourceSignature) this.eDynamicGet(RepositoryPackage.PARAMETER__RESOURCE_SIGNATURE_PARAMETER,
+                RepositoryPackage.Literals.PARAMETER__RESOURCE_SIGNATURE_PARAMETER, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceSignature__Parameter(
@@ -308,52 +239,30 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setResourceSignature__Parameter(final ResourceSignature newResourceSignature__Parameter) {
-        if (newResourceSignature__Parameter != this.eInternalContainer()
-                || (this.eContainerFeatureID() != RepositoryPackage.PARAMETER__RESOURCE_SIGNATURE_PARAMETER && newResourceSignature__Parameter != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceSignature__Parameter)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newResourceSignature__Parameter != null) {
-                msgs = ((InternalEObject) newResourceSignature__Parameter).eInverseAdd(this,
-                        ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE, ResourceSignature.class,
-                        msgs);
-            }
-            msgs = this.basicSetResourceSignature__Parameter(newResourceSignature__Parameter, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.PARAMETER__RESOURCE_SIGNATURE_PARAMETER, newResourceSignature__Parameter,
-                    newResourceSignature__Parameter));
-        }
+        this.eDynamicSet(RepositoryPackage.PARAMETER__RESOURCE_SIGNATURE_PARAMETER,
+                RepositoryPackage.Literals.PARAMETER__RESOURCE_SIGNATURE_PARAMETER, newResourceSignature__Parameter);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public InfrastructureSignature getInfrastructureSignature__Parameter() {
-        if (this.eContainerFeatureID() != RepositoryPackage.PARAMETER__INFRASTRUCTURE_SIGNATURE_PARAMETER) {
-            return null;
-        }
-        return (InfrastructureSignature) this.eInternalContainer();
+        return (InfrastructureSignature) this.eDynamicGet(
+                RepositoryPackage.PARAMETER__INFRASTRUCTURE_SIGNATURE_PARAMETER,
+                RepositoryPackage.Literals.PARAMETER__INFRASTRUCTURE_SIGNATURE_PARAMETER, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetInfrastructureSignature__Parameter(
@@ -365,53 +274,31 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setInfrastructureSignature__Parameter(
             final InfrastructureSignature newInfrastructureSignature__Parameter) {
-        if (newInfrastructureSignature__Parameter != this.eInternalContainer()
-                || (this.eContainerFeatureID() != RepositoryPackage.PARAMETER__INFRASTRUCTURE_SIGNATURE_PARAMETER && newInfrastructureSignature__Parameter != null)) {
-            if (EcoreUtil.isAncestor(this, newInfrastructureSignature__Parameter)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newInfrastructureSignature__Parameter != null) {
-                msgs = ((InternalEObject) newInfrastructureSignature__Parameter).eInverseAdd(this,
-                        RepositoryPackage.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE,
-                        InfrastructureSignature.class, msgs);
-            }
-            msgs = this.basicSetInfrastructureSignature__Parameter(newInfrastructureSignature__Parameter, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.PARAMETER__INFRASTRUCTURE_SIGNATURE_PARAMETER,
-                    newInfrastructureSignature__Parameter, newInfrastructureSignature__Parameter));
-        }
+        this.eDynamicSet(RepositoryPackage.PARAMETER__INFRASTRUCTURE_SIGNATURE_PARAMETER,
+                RepositoryPackage.Literals.PARAMETER__INFRASTRUCTURE_SIGNATURE_PARAMETER,
+                newInfrastructureSignature__Parameter);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EventType getEventType__Parameter() {
-        if (this.eContainerFeatureID() != RepositoryPackage.PARAMETER__EVENT_TYPE_PARAMETER) {
-            return null;
-        }
-        return (EventType) this.eInternalContainer();
+        return (EventType) this.eDynamicGet(RepositoryPackage.PARAMETER__EVENT_TYPE_PARAMETER,
+                RepositoryPackage.Literals.PARAMETER__EVENT_TYPE_PARAMETER, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetEventType__Parameter(final EventType newEventType__Parameter,
@@ -423,37 +310,18 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setEventType__Parameter(final EventType newEventType__Parameter) {
-        if (newEventType__Parameter != this.eInternalContainer()
-                || (this.eContainerFeatureID() != RepositoryPackage.PARAMETER__EVENT_TYPE_PARAMETER && newEventType__Parameter != null)) {
-            if (EcoreUtil.isAncestor(this, newEventType__Parameter)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newEventType__Parameter != null) {
-                msgs = ((InternalEObject) newEventType__Parameter).eInverseAdd(this,
-                        RepositoryPackage.EVENT_TYPE__PARAMETER_EVENT_TYPE, EventType.class, msgs);
-            }
-            msgs = this.basicSetEventType__Parameter(newEventType__Parameter, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.PARAMETER__EVENT_TYPE_PARAMETER, newEventType__Parameter, newEventType__Parameter));
-        }
+        this.eDynamicSet(RepositoryPackage.PARAMETER__EVENT_TYPE_PARAMETER,
+                RepositoryPackage.Literals.PARAMETER__EVENT_TYPE_PARAMETER, newEventType__Parameter);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -485,7 +353,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -506,7 +374,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -533,7 +401,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -562,7 +430,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -595,7 +463,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -628,14 +496,14 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.PARAMETER__DATA_TYPE_PARAMETER:
-            return this.dataType__Parameter != null;
+            return this.basicGetDataType__Parameter() != null;
         case RepositoryPackage.PARAMETER__INFRASTRUCTURE_SIGNATURE_PARAMETER:
             return this.getInfrastructureSignature__Parameter() != null;
         case RepositoryPackage.PARAMETER__OPERATION_SIGNATURE_PARAMETER:
@@ -643,34 +511,14 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
         case RepositoryPackage.PARAMETER__EVENT_TYPE_PARAMETER:
             return this.getEventType__Parameter() != null;
         case RepositoryPackage.PARAMETER__PARAMETER_NAME:
-            return PARAMETER_NAME_EDEFAULT == null ? this.parameterName != null : !PARAMETER_NAME_EDEFAULT
-            .equals(this.parameterName);
+            return PARAMETER_NAME_EDEFAULT == null ? this.getParameterName() != null : !PARAMETER_NAME_EDEFAULT
+            .equals(this.getParameterName());
         case RepositoryPackage.PARAMETER__MODIFIER_PARAMETER:
-            return this.modifier__Parameter != MODIFIER_PARAMETER_EDEFAULT;
+            return this.getModifier__Parameter() != MODIFIER_PARAMETER_EDEFAULT;
         case RepositoryPackage.PARAMETER__RESOURCE_SIGNATURE_PARAMETER:
             return this.getResourceSignature__Parameter() != null;
         }
         return super.eIsSet(featureID);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (this.eIsProxy()) {
-            return super.toString();
-        }
-
-        final StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (parameterName: ");
-        result.append(this.parameterName);
-        result.append(", modifier__Parameter: ");
-        result.append(this.modifier__Parameter);
-        result.append(')');
-        return result.toString();
     }
 
 } // ParameterImpl

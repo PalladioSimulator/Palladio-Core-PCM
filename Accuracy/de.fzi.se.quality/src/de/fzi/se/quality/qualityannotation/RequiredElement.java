@@ -46,7 +46,7 @@ public interface RequiredElement extends Identifier {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Required Element Deviation</em>' container reference.
      * @see #setRequiredElementDeviation(RequiredElementDeviation)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getRequiredElement_RequiredElementDeviation()
@@ -61,7 +61,7 @@ public interface RequiredElement extends Identifier {
      * {@link de.fzi.se.quality.qualityannotation.RequiredElement#getRequiredElementDeviation
      * <em>Required Element Deviation</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Required Element Deviation</em>' container reference.
      * @see #getRequiredElementDeviation()
@@ -80,7 +80,7 @@ public interface RequiredElement extends Identifier {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Child REs</em>' containment reference list.
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getRequiredElement_ChildREs()
      * @see de.fzi.se.quality.qualityannotation.RequiredElement#getParentRE
@@ -98,7 +98,7 @@ public interface RequiredElement extends Identifier {
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Parent RE</em>' container reference.
      * @see #setParentRE(RequiredElement)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getRequiredElement_ParentRE()
@@ -112,7 +112,7 @@ public interface RequiredElement extends Identifier {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.RequiredElement#getParentRE <em>Parent RE</em>}'
      * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Parent RE</em>' container reference.
      * @see #getParentRE()
@@ -130,7 +130,7 @@ public interface RequiredElement extends Identifier {
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Precision</em>' containment reference.
      * @see #setPrecision(REPrecision)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getRequiredElement_Precision()
@@ -144,7 +144,7 @@ public interface RequiredElement extends Identifier {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.RequiredElement#getPrecision <em>Precision</em>}'
      * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Precision</em>' containment reference.
      * @see #getPrecision()
@@ -162,7 +162,7 @@ public interface RequiredElement extends Identifier {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Quality Annotation</em>' container reference.
      * @see #setQualityAnnotation(QualityAnnotation)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getRequiredElement_QualityAnnotation()

@@ -10,17 +10,14 @@ import java.util.Map;
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
@@ -118,14 +115,14 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMRandomVariableImpl() {
@@ -134,7 +131,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -144,20 +141,19 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public VariableCharacterisation getVariableCharacterisation_Specification() {
-        if (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__VARIABLE_CHARACTERISATION_SPECIFICATION) {
-            return null;
-        }
-        return (VariableCharacterisation) this.eInternalContainer();
+        return (VariableCharacterisation) this.eDynamicGet(
+                CorePackage.PCM_RANDOM_VARIABLE__VARIABLE_CHARACTERISATION_SPECIFICATION,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__VARIABLE_CHARACTERISATION_SPECIFICATION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetVariableCharacterisation_Specification(
@@ -169,53 +165,32 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setVariableCharacterisation_Specification(
             final VariableCharacterisation newVariableCharacterisation_Specification) {
-        if (newVariableCharacterisation_Specification != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__VARIABLE_CHARACTERISATION_SPECIFICATION && newVariableCharacterisation_Specification != null)) {
-            if (EcoreUtil.isAncestor(this, newVariableCharacterisation_Specification)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newVariableCharacterisation_Specification != null) {
-                msgs = ((InternalEObject) newVariableCharacterisation_Specification).eInverseAdd(this,
-                        ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION,
-                        VariableCharacterisation.class, msgs);
-            }
-            msgs = this.basicSetVariableCharacterisation_Specification(newVariableCharacterisation_Specification, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CorePackage.PCM_RANDOM_VARIABLE__VARIABLE_CHARACTERISATION_SPECIFICATION,
-                    newVariableCharacterisation_Specification, newVariableCharacterisation_Specification));
-        }
+        this.eDynamicSet(CorePackage.PCM_RANDOM_VARIABLE__VARIABLE_CHARACTERISATION_SPECIFICATION,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__VARIABLE_CHARACTERISATION_SPECIFICATION,
+                newVariableCharacterisation_Specification);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public PassiveResource getPassiveResource_capacity_PCMRandomVariable() {
-        if (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE) {
-            return null;
-        }
-        return (PassiveResource) this.eInternalContainer();
+        return (PassiveResource) this.eDynamicGet(
+                CorePackage.PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetPassiveResource_capacity_PCMRandomVariable(
@@ -227,53 +202,32 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setPassiveResource_capacity_PCMRandomVariable(
             final PassiveResource newPassiveResource_capacity_PCMRandomVariable) {
-        if (newPassiveResource_capacity_PCMRandomVariable != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE && newPassiveResource_capacity_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newPassiveResource_capacity_PCMRandomVariable)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newPassiveResource_capacity_PCMRandomVariable != null) {
-                msgs = ((InternalEObject) newPassiveResource_capacity_PCMRandomVariable).eInverseAdd(this,
-                        RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE, PassiveResource.class, msgs);
-            }
-            msgs = this.basicSetPassiveResource_capacity_PCMRandomVariable(
-                    newPassiveResource_capacity_PCMRandomVariable, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CorePackage.PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE,
-                    newPassiveResource_capacity_PCMRandomVariable, newPassiveResource_capacity_PCMRandomVariable));
-        }
+        this.eDynamicSet(CorePackage.PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE,
+                newPassiveResource_capacity_PCMRandomVariable);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ParametricResourceDemand getParametricResourceDemand_PCMRandomVariable() {
-        if (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__PARAMETRIC_RESOURCE_DEMAND_PCM_RANDOM_VARIABLE) {
-            return null;
-        }
-        return (ParametricResourceDemand) this.eInternalContainer();
+        return (ParametricResourceDemand) this.eDynamicGet(
+                CorePackage.PCM_RANDOM_VARIABLE__PARAMETRIC_RESOURCE_DEMAND_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__PARAMETRIC_RESOURCE_DEMAND_PCM_RANDOM_VARIABLE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParametricResourceDemand_PCMRandomVariable(
@@ -285,54 +239,31 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setParametricResourceDemand_PCMRandomVariable(
             final ParametricResourceDemand newParametricResourceDemand_PCMRandomVariable) {
-        if (newParametricResourceDemand_PCMRandomVariable != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__PARAMETRIC_RESOURCE_DEMAND_PCM_RANDOM_VARIABLE && newParametricResourceDemand_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newParametricResourceDemand_PCMRandomVariable)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newParametricResourceDemand_PCMRandomVariable != null) {
-                msgs = ((InternalEObject) newParametricResourceDemand_PCMRandomVariable).eInverseAdd(this,
-                        SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND,
-                        ParametricResourceDemand.class, msgs);
-            }
-            msgs = this.basicSetParametricResourceDemand_PCMRandomVariable(
-                    newParametricResourceDemand_PCMRandomVariable, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CorePackage.PCM_RANDOM_VARIABLE__PARAMETRIC_RESOURCE_DEMAND_PCM_RANDOM_VARIABLE,
-                    newParametricResourceDemand_PCMRandomVariable, newParametricResourceDemand_PCMRandomVariable));
-        }
+        this.eDynamicSet(CorePackage.PCM_RANDOM_VARIABLE__PARAMETRIC_RESOURCE_DEMAND_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__PARAMETRIC_RESOURCE_DEMAND_PCM_RANDOM_VARIABLE,
+                newParametricResourceDemand_PCMRandomVariable);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public LoopAction getLoopAction_PCMRandomVariable() {
-        if (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__LOOP_ACTION_PCM_RANDOM_VARIABLE) {
-            return null;
-        }
-        return (LoopAction) this.eInternalContainer();
+        return (LoopAction) this.eDynamicGet(CorePackage.PCM_RANDOM_VARIABLE__LOOP_ACTION_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__LOOP_ACTION_PCM_RANDOM_VARIABLE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetLoopAction_PCMRandomVariable(final LoopAction newLoopAction_PCMRandomVariable,
@@ -344,51 +275,31 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setLoopAction_PCMRandomVariable(final LoopAction newLoopAction_PCMRandomVariable) {
-        if (newLoopAction_PCMRandomVariable != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__LOOP_ACTION_PCM_RANDOM_VARIABLE && newLoopAction_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newLoopAction_PCMRandomVariable)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newLoopAction_PCMRandomVariable != null) {
-                msgs = ((InternalEObject) newLoopAction_PCMRandomVariable).eInverseAdd(this,
-                        SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION, LoopAction.class, msgs);
-            }
-            msgs = this.basicSetLoopAction_PCMRandomVariable(newLoopAction_PCMRandomVariable, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CorePackage.PCM_RANDOM_VARIABLE__LOOP_ACTION_PCM_RANDOM_VARIABLE, newLoopAction_PCMRandomVariable,
-                    newLoopAction_PCMRandomVariable));
-        }
+        this.eDynamicSet(CorePackage.PCM_RANDOM_VARIABLE__LOOP_ACTION_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__LOOP_ACTION_PCM_RANDOM_VARIABLE,
+                newLoopAction_PCMRandomVariable);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public GuardedBranchTransition getGuardedBranchTransition_PCMRandomVariable() {
-        if (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__GUARDED_BRANCH_TRANSITION_PCM_RANDOM_VARIABLE) {
-            return null;
-        }
-        return (GuardedBranchTransition) this.eInternalContainer();
+        return (GuardedBranchTransition) this.eDynamicGet(
+                CorePackage.PCM_RANDOM_VARIABLE__GUARDED_BRANCH_TRANSITION_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__GUARDED_BRANCH_TRANSITION_PCM_RANDOM_VARIABLE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetGuardedBranchTransition_PCMRandomVariable(
@@ -400,54 +311,31 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setGuardedBranchTransition_PCMRandomVariable(
             final GuardedBranchTransition newGuardedBranchTransition_PCMRandomVariable) {
-        if (newGuardedBranchTransition_PCMRandomVariable != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__GUARDED_BRANCH_TRANSITION_PCM_RANDOM_VARIABLE && newGuardedBranchTransition_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newGuardedBranchTransition_PCMRandomVariable)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newGuardedBranchTransition_PCMRandomVariable != null) {
-                msgs = ((InternalEObject) newGuardedBranchTransition_PCMRandomVariable).eInverseAdd(this,
-                        SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION,
-                        GuardedBranchTransition.class, msgs);
-            }
-            msgs = this.basicSetGuardedBranchTransition_PCMRandomVariable(newGuardedBranchTransition_PCMRandomVariable,
-                    msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CorePackage.PCM_RANDOM_VARIABLE__GUARDED_BRANCH_TRANSITION_PCM_RANDOM_VARIABLE,
-                    newGuardedBranchTransition_PCMRandomVariable, newGuardedBranchTransition_PCMRandomVariable));
-        }
+        this.eDynamicSet(CorePackage.PCM_RANDOM_VARIABLE__GUARDED_BRANCH_TRANSITION_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__GUARDED_BRANCH_TRANSITION_PCM_RANDOM_VARIABLE,
+                newGuardedBranchTransition_PCMRandomVariable);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Loop getLoop_LoopIteration() {
-        if (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION) {
-            return null;
-        }
-        return (Loop) this.eInternalContainer();
+        return (Loop) this.eDynamicGet(CorePackage.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetLoop_LoopIteration(final Loop newLoop_LoopIteration, NotificationChain msgs) {
@@ -458,50 +346,30 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setLoop_LoopIteration(final Loop newLoop_LoopIteration) {
-        if (newLoop_LoopIteration != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION && newLoop_LoopIteration != null)) {
-            if (EcoreUtil.isAncestor(this, newLoop_LoopIteration)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newLoop_LoopIteration != null) {
-                msgs = ((InternalEObject) newLoop_LoopIteration).eInverseAdd(this,
-                        UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP, Loop.class, msgs);
-            }
-            msgs = this.basicSetLoop_LoopIteration(newLoop_LoopIteration, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CorePackage.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION, newLoop_LoopIteration, newLoop_LoopIteration));
-        }
+        this.eDynamicSet(CorePackage.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION, newLoop_LoopIteration);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SpecifiedExecutionTime getSpecifiedExecutionTime_PCMRandomVariable() {
-        if (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE) {
-            return null;
-        }
-        return (SpecifiedExecutionTime) this.eInternalContainer();
+        return (SpecifiedExecutionTime) this.eDynamicGet(
+                CorePackage.PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSpecifiedExecutionTime_PCMRandomVariable(
@@ -513,54 +381,32 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSpecifiedExecutionTime_PCMRandomVariable(
             final SpecifiedExecutionTime newSpecifiedExecutionTime_PCMRandomVariable) {
-        if (newSpecifiedExecutionTime_PCMRandomVariable != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE && newSpecifiedExecutionTime_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newSpecifiedExecutionTime_PCMRandomVariable)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newSpecifiedExecutionTime_PCMRandomVariable != null) {
-                msgs = ((InternalEObject) newSpecifiedExecutionTime_PCMRandomVariable).eInverseAdd(this,
-                        QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME,
-                        SpecifiedExecutionTime.class, msgs);
-            }
-            msgs = this.basicSetSpecifiedExecutionTime_PCMRandomVariable(newSpecifiedExecutionTime_PCMRandomVariable,
-                    msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CorePackage.PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE,
-                    newSpecifiedExecutionTime_PCMRandomVariable, newSpecifiedExecutionTime_PCMRandomVariable));
-        }
+        this.eDynamicSet(CorePackage.PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE,
+                newSpecifiedExecutionTime_PCMRandomVariable);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyEventConnector getAssemblyEventConnector__FilterCondition() {
-        if (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION) {
-            return null;
-        }
-        return (AssemblyEventConnector) this.eInternalContainer();
+        return (AssemblyEventConnector) this.eDynamicGet(
+                CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAssemblyEventConnector__FilterCondition(
@@ -572,54 +418,32 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setAssemblyEventConnector__FilterCondition(
             final AssemblyEventConnector newAssemblyEventConnector__FilterCondition) {
-        if (newAssemblyEventConnector__FilterCondition != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION && newAssemblyEventConnector__FilterCondition != null)) {
-            if (EcoreUtil.isAncestor(this, newAssemblyEventConnector__FilterCondition)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newAssemblyEventConnector__FilterCondition != null) {
-                msgs = ((InternalEObject) newAssemblyEventConnector__FilterCondition).eInverseAdd(this,
-                        CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__FILTER_CONDITION_ASSEMBLY_EVENT_CONNECTOR,
-                        AssemblyEventConnector.class, msgs);
-            }
-            msgs = this.basicSetAssemblyEventConnector__FilterCondition(newAssemblyEventConnector__FilterCondition,
-                    msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION,
-                    newAssemblyEventConnector__FilterCondition, newAssemblyEventConnector__FilterCondition));
-        }
+        this.eDynamicSet(CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION,
+                newAssemblyEventConnector__FilterCondition);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EventChannelSinkConnector getEventChannelSinkConnector__FilterCondition() {
-        if (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION) {
-            return null;
-        }
-        return (EventChannelSinkConnector) this.eInternalContainer();
+        return (EventChannelSinkConnector) this.eDynamicGet(
+                CorePackage.PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetEventChannelSinkConnector__FilterCondition(
@@ -631,54 +455,32 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setEventChannelSinkConnector__FilterCondition(
             final EventChannelSinkConnector newEventChannelSinkConnector__FilterCondition) {
-        if (newEventChannelSinkConnector__FilterCondition != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION && newEventChannelSinkConnector__FilterCondition != null)) {
-            if (EcoreUtil.isAncestor(this, newEventChannelSinkConnector__FilterCondition)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newEventChannelSinkConnector__FilterCondition != null) {
-                msgs = ((InternalEObject) newEventChannelSinkConnector__FilterCondition).eInverseAdd(this,
-                        CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR,
-                        EventChannelSinkConnector.class, msgs);
-            }
-            msgs = this.basicSetEventChannelSinkConnector__FilterCondition(
-                    newEventChannelSinkConnector__FilterCondition, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CorePackage.PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION,
-                    newEventChannelSinkConnector__FilterCondition, newEventChannelSinkConnector__FilterCondition));
-        }
+        this.eDynamicSet(CorePackage.PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION,
+                newEventChannelSinkConnector__FilterCondition);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public InfrastructureCall getInfrastructureCall__PCMRandomVariable() {
-        if (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__INFRASTRUCTURE_CALL_PCM_RANDOM_VARIABLE) {
-            return null;
-        }
-        return (InfrastructureCall) this.eInternalContainer();
+        return (InfrastructureCall) this.eDynamicGet(
+                CorePackage.PCM_RANDOM_VARIABLE__INFRASTRUCTURE_CALL_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__INFRASTRUCTURE_CALL_PCM_RANDOM_VARIABLE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetInfrastructureCall__PCMRandomVariable(
@@ -690,53 +492,31 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setInfrastructureCall__PCMRandomVariable(
             final InfrastructureCall newInfrastructureCall__PCMRandomVariable) {
-        if (newInfrastructureCall__PCMRandomVariable != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__INFRASTRUCTURE_CALL_PCM_RANDOM_VARIABLE && newInfrastructureCall__PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newInfrastructureCall__PCMRandomVariable)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newInfrastructureCall__PCMRandomVariable != null) {
-                msgs = ((InternalEObject) newInfrastructureCall__PCMRandomVariable).eInverseAdd(this,
-                        SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL,
-                        InfrastructureCall.class, msgs);
-            }
-            msgs = this.basicSetInfrastructureCall__PCMRandomVariable(newInfrastructureCall__PCMRandomVariable, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CorePackage.PCM_RANDOM_VARIABLE__INFRASTRUCTURE_CALL_PCM_RANDOM_VARIABLE,
-                    newInfrastructureCall__PCMRandomVariable, newInfrastructureCall__PCMRandomVariable));
-        }
+        this.eDynamicSet(CorePackage.PCM_RANDOM_VARIABLE__INFRASTRUCTURE_CALL_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__INFRASTRUCTURE_CALL_PCM_RANDOM_VARIABLE,
+                newInfrastructureCall__PCMRandomVariable);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceCall getResourceCall__PCMRandomVariable() {
-        if (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__RESOURCE_CALL_PCM_RANDOM_VARIABLE) {
-            return null;
-        }
-        return (ResourceCall) this.eInternalContainer();
+        return (ResourceCall) this.eDynamicGet(CorePackage.PCM_RANDOM_VARIABLE__RESOURCE_CALL_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__RESOURCE_CALL_PCM_RANDOM_VARIABLE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceCall__PCMRandomVariable(
@@ -748,51 +528,30 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setResourceCall__PCMRandomVariable(final ResourceCall newResourceCall__PCMRandomVariable) {
-        if (newResourceCall__PCMRandomVariable != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__RESOURCE_CALL_PCM_RANDOM_VARIABLE && newResourceCall__PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceCall__PCMRandomVariable)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newResourceCall__PCMRandomVariable != null) {
-                msgs = ((InternalEObject) newResourceCall__PCMRandomVariable).eInverseAdd(this,
-                        SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL, ResourceCall.class, msgs);
-            }
-            msgs = this.basicSetResourceCall__PCMRandomVariable(newResourceCall__PCMRandomVariable, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CorePackage.PCM_RANDOM_VARIABLE__RESOURCE_CALL_PCM_RANDOM_VARIABLE,
-                    newResourceCall__PCMRandomVariable, newResourceCall__PCMRandomVariable));
-        }
+        this.eDynamicSet(CorePackage.PCM_RANDOM_VARIABLE__RESOURCE_CALL_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__RESOURCE_CALL_PCM_RANDOM_VARIABLE,
+                newResourceCall__PCMRandomVariable);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public OpenWorkload getOpenWorkload_PCMRandomVariable() {
-        if (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__OPEN_WORKLOAD_PCM_RANDOM_VARIABLE) {
-            return null;
-        }
-        return (OpenWorkload) this.eInternalContainer();
+        return (OpenWorkload) this.eDynamicGet(CorePackage.PCM_RANDOM_VARIABLE__OPEN_WORKLOAD_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__OPEN_WORKLOAD_PCM_RANDOM_VARIABLE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetOpenWorkload_PCMRandomVariable(
@@ -804,51 +563,30 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setOpenWorkload_PCMRandomVariable(final OpenWorkload newOpenWorkload_PCMRandomVariable) {
-        if (newOpenWorkload_PCMRandomVariable != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__OPEN_WORKLOAD_PCM_RANDOM_VARIABLE && newOpenWorkload_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newOpenWorkload_PCMRandomVariable)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newOpenWorkload_PCMRandomVariable != null) {
-                msgs = ((InternalEObject) newOpenWorkload_PCMRandomVariable).eInverseAdd(this,
-                        UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD, OpenWorkload.class, msgs);
-            }
-            msgs = this.basicSetOpenWorkload_PCMRandomVariable(newOpenWorkload_PCMRandomVariable, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CorePackage.PCM_RANDOM_VARIABLE__OPEN_WORKLOAD_PCM_RANDOM_VARIABLE,
-                    newOpenWorkload_PCMRandomVariable, newOpenWorkload_PCMRandomVariable));
-        }
+        this.eDynamicSet(CorePackage.PCM_RANDOM_VARIABLE__OPEN_WORKLOAD_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__OPEN_WORKLOAD_PCM_RANDOM_VARIABLE,
+                newOpenWorkload_PCMRandomVariable);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ClosedWorkload getClosedWorkload_PCMRandomVariable() {
-        if (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE) {
-            return null;
-        }
-        return (ClosedWorkload) this.eInternalContainer();
+        return (ClosedWorkload) this.eDynamicGet(CorePackage.PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetClosedWorkload_PCMRandomVariable(
@@ -860,51 +598,30 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setClosedWorkload_PCMRandomVariable(final ClosedWorkload newClosedWorkload_PCMRandomVariable) {
-        if (newClosedWorkload_PCMRandomVariable != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE && newClosedWorkload_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newClosedWorkload_PCMRandomVariable)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newClosedWorkload_PCMRandomVariable != null) {
-                msgs = ((InternalEObject) newClosedWorkload_PCMRandomVariable).eInverseAdd(this,
-                        UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD, ClosedWorkload.class, msgs);
-            }
-            msgs = this.basicSetClosedWorkload_PCMRandomVariable(newClosedWorkload_PCMRandomVariable, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CorePackage.PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE,
-                    newClosedWorkload_PCMRandomVariable, newClosedWorkload_PCMRandomVariable));
-        }
+        this.eDynamicSet(CorePackage.PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE,
+                newClosedWorkload_PCMRandomVariable);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Delay getDelay_TimeSpecification() {
-        if (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__DELAY_TIME_SPECIFICATION) {
-            return null;
-        }
-        return (Delay) this.eInternalContainer();
+        return (Delay) this.eDynamicGet(CorePackage.PCM_RANDOM_VARIABLE__DELAY_TIME_SPECIFICATION,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__DELAY_TIME_SPECIFICATION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetDelay_TimeSpecification(final Delay newDelay_TimeSpecification,
@@ -916,51 +633,32 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setDelay_TimeSpecification(final Delay newDelay_TimeSpecification) {
-        if (newDelay_TimeSpecification != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__DELAY_TIME_SPECIFICATION && newDelay_TimeSpecification != null)) {
-            if (EcoreUtil.isAncestor(this, newDelay_TimeSpecification)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newDelay_TimeSpecification != null) {
-                msgs = ((InternalEObject) newDelay_TimeSpecification).eInverseAdd(this,
-                        UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY, Delay.class, msgs);
-            }
-            msgs = this.basicSetDelay_TimeSpecification(newDelay_TimeSpecification, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CorePackage.PCM_RANDOM_VARIABLE__DELAY_TIME_SPECIFICATION, newDelay_TimeSpecification,
-                    newDelay_TimeSpecification));
-        }
+        this.eDynamicSet(CorePackage.PCM_RANDOM_VARIABLE__DELAY_TIME_SPECIFICATION,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__DELAY_TIME_SPECIFICATION, newDelay_TimeSpecification);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public CommunicationLinkResourceSpecification getCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable() {
-        if (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE) {
-            return null;
-        }
-        return (CommunicationLinkResourceSpecification) this.eInternalContainer();
+        return (CommunicationLinkResourceSpecification) this
+                .eDynamicGet(
+                        CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE,
+                        CorePackage.Literals.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable(
@@ -976,59 +674,35 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable(
             final CommunicationLinkResourceSpecification newCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable) {
-        if (newCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE && newCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable != null) {
-                msgs = ((InternalEObject) newCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable)
-                        .eInverseAdd(
-                                this,
-                                ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION,
-                                CommunicationLinkResourceSpecification.class, msgs);
-            }
-            msgs = this.basicSetCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable(
-                    newCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE,
-                    newCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable,
-                    newCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable));
-        }
+        this.eDynamicSet(
+                CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE,
+                newCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ProcessingResourceSpecification getProcessingResourceSpecification_processingRate_PCMRandomVariable() {
-        if (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE) {
-            return null;
-        }
-        return (ProcessingResourceSpecification) this.eInternalContainer();
+        return (ProcessingResourceSpecification) this
+                .eDynamicGet(
+                        CorePackage.PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE,
+                        CorePackage.Literals.PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetProcessingResourceSpecification_processingRate_PCMRandomVariable(
@@ -1043,59 +717,35 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setProcessingResourceSpecification_processingRate_PCMRandomVariable(
             final ProcessingResourceSpecification newProcessingResourceSpecification_processingRate_PCMRandomVariable) {
-        if (newProcessingResourceSpecification_processingRate_PCMRandomVariable != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE && newProcessingResourceSpecification_processingRate_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newProcessingResourceSpecification_processingRate_PCMRandomVariable)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newProcessingResourceSpecification_processingRate_PCMRandomVariable != null) {
-                msgs = ((InternalEObject) newProcessingResourceSpecification_processingRate_PCMRandomVariable)
-                        .eInverseAdd(
-                                this,
-                                ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION,
-                                ProcessingResourceSpecification.class, msgs);
-            }
-            msgs = this.basicSetProcessingResourceSpecification_processingRate_PCMRandomVariable(
-                    newProcessingResourceSpecification_processingRate_PCMRandomVariable, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    CorePackage.PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE,
-                    newProcessingResourceSpecification_processingRate_PCMRandomVariable,
-                    newProcessingResourceSpecification_processingRate_PCMRandomVariable));
-        }
+        this.eDynamicSet(
+                CorePackage.PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE,
+                newProcessingResourceSpecification_processingRate_PCMRandomVariable);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public CommunicationLinkResourceSpecification getCommunicationLinkResourceSpecification_latency_PCMRandomVariable() {
-        if (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE) {
-            return null;
-        }
-        return (CommunicationLinkResourceSpecification) this.eInternalContainer();
+        return (CommunicationLinkResourceSpecification) this
+                .eDynamicGet(
+                        CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE,
+                        CorePackage.Literals.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetCommunicationLinkResourceSpecification_latency_PCMRandomVariable(
@@ -1110,41 +760,16 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setCommunicationLinkResourceSpecification_latency_PCMRandomVariable(
             final CommunicationLinkResourceSpecification newCommunicationLinkResourceSpecification_latency_PCMRandomVariable) {
-        if (newCommunicationLinkResourceSpecification_latency_PCMRandomVariable != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE && newCommunicationLinkResourceSpecification_latency_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newCommunicationLinkResourceSpecification_latency_PCMRandomVariable)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newCommunicationLinkResourceSpecification_latency_PCMRandomVariable != null) {
-                msgs = ((InternalEObject) newCommunicationLinkResourceSpecification_latency_PCMRandomVariable)
-                        .eInverseAdd(
-                                this,
-                                ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION,
-                                CommunicationLinkResourceSpecification.class, msgs);
-            }
-            msgs = this.basicSetCommunicationLinkResourceSpecification_latency_PCMRandomVariable(
-                    newCommunicationLinkResourceSpecification_latency_PCMRandomVariable, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE,
-                    newCommunicationLinkResourceSpecification_latency_PCMRandomVariable,
-                    newCommunicationLinkResourceSpecification_latency_PCMRandomVariable));
-        }
+        this.eDynamicSet(
+                CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE,
+                newCommunicationLinkResourceSpecification_latency_PCMRandomVariable);
     }
 
     /**
@@ -1152,7 +777,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      * {@link #SpecificationMustNotBeNULL(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Specification Must Not Be NULL</em>}' operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #SpecificationMustNotBeNULL(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -1163,7 +788,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      * {@link #SpecificationMustNotBeNULL(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Specification Must Not Be NULL</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #SpecificationMustNotBeNULL(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -1172,7 +797,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1193,7 +818,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
                         CoreValidator.PCM_RANDOM_VARIABLE__SPECIFICATION_MUST_NOT_BE_NULL,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
                                 "SpecificationMustNotBeNULL", EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                        new Object[] { this }));
             }
             return false;
         }
@@ -1202,7 +827,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1302,7 +927,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1349,7 +974,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1431,7 +1056,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1477,7 +1102,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1540,7 +1165,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1603,7 +1228,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1650,7 +1275,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -1679,10 +1304,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      */
     @Override
     public Expression basicGetExpression() {
-        if (this.specification == null) {
-            return null;
-        }
-        if (this.lastParseExpression == null || !this.lastParsedSpecification.equals(this.specification)) {
+        if (this.lastParseExpression == null || !this.lastParsedSpecification.equals(this.getSpecification())) {
             // re-parsing required
             final MyPCMStoExLexer lexer = new MyPCMStoExLexer(new ANTLRStringStream(this.getSpecification()));
             final MyPCMStoExParser parser = new MyPCMStoExParser(new CommonTokenStream(lexer));
@@ -1696,11 +1318,10 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
                 e = null;
             }
             this.lastParseExpression = e;
-            this.lastParsedSpecification = new String(this.specification);
+            this.lastParsedSpecification = new String(this.getSpecification());
         } else {
             // old parsed result can be returned
         }
         return this.lastParseExpression;
     }
-
 } // PCMRandomVariableImpl

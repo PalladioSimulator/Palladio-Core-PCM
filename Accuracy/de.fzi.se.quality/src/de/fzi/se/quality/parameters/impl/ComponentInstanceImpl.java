@@ -8,13 +8,10 @@ package de.fzi.se.quality.parameters.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.fzi.se.quality.parameters.ComponentInstance;
@@ -41,28 +38,8 @@ import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 public class ComponentInstanceImpl extends IdentifierImpl implements ComponentInstance {
 
     /**
-     * The cached value of the '{@link #getComponentReference() <em>Component Reference</em>}'
-     * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getComponentReference()
-     * @generated
-     * @ordered
-     */
-    protected ComponentReference componentReference;
-
-    /**
-     * The cached value of the '{@link #getParameterInstances() <em>Parameter Instances</em>}'
-     * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getParameterInstances()
-     * @generated
-     * @ordered
-     */
-    protected EList<ParameterInstance> parameterInstances;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ComponentInstanceImpl() {
@@ -71,7 +48,7 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -81,82 +58,53 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ComponentReference getComponentReference() {
-        return this.componentReference;
+        return (ComponentReference) this.eDynamicGet(ParametersPackage.COMPONENT_INSTANCE__COMPONENT_REFERENCE,
+                ParametersPackage.Literals.COMPONENT_INSTANCE__COMPONENT_REFERENCE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetComponentReference(final ComponentReference newComponentReference,
             NotificationChain msgs) {
-        final ComponentReference oldComponentReference = this.componentReference;
-        this.componentReference = newComponentReference;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    ParametersPackage.COMPONENT_INSTANCE__COMPONENT_REFERENCE, oldComponentReference,
-                    newComponentReference);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newComponentReference,
+                ParametersPackage.COMPONENT_INSTANCE__COMPONENT_REFERENCE, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setComponentReference(final ComponentReference newComponentReference) {
-        if (newComponentReference != this.componentReference) {
-            NotificationChain msgs = null;
-            if (this.componentReference != null) {
-                msgs = ((InternalEObject) this.componentReference).eInverseRemove(this,
-                        ParametersPackage.COMPONENT_REFERENCE__COMPONENT_INSTANCE, ComponentReference.class, msgs);
-            }
-            if (newComponentReference != null) {
-                msgs = ((InternalEObject) newComponentReference).eInverseAdd(this,
-                        ParametersPackage.COMPONENT_REFERENCE__COMPONENT_INSTANCE, ComponentReference.class, msgs);
-            }
-            msgs = this.basicSetComponentReference(newComponentReference, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParametersPackage.COMPONENT_INSTANCE__COMPONENT_REFERENCE, newComponentReference,
-                    newComponentReference));
-        }
+        this.eDynamicSet(ParametersPackage.COMPONENT_INSTANCE__COMPONENT_REFERENCE,
+                ParametersPackage.Literals.COMPONENT_INSTANCE__COMPONENT_REFERENCE, newComponentReference);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ParameterInstance> getParameterInstances() {
-        if (this.parameterInstances == null) {
-            this.parameterInstances = new EObjectContainmentWithInverseEList<ParameterInstance>(
-                    ParameterInstance.class, this, ParametersPackage.COMPONENT_INSTANCE__PARAMETER_INSTANCES,
-                    ParametersPackage.PARAMETER_INSTANCE__COMPONENT_INSTANCE);
-        }
-        return this.parameterInstances;
+        return (EList<ParameterInstance>) this.eDynamicGet(ParametersPackage.COMPONENT_INSTANCE__PARAMETER_INSTANCES,
+                ParametersPackage.Literals.COMPONENT_INSTANCE__PARAMETER_INSTANCES, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -164,8 +112,9 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ParametersPackage.COMPONENT_INSTANCE__COMPONENT_REFERENCE:
-            if (this.componentReference != null) {
-                msgs = ((InternalEObject) this.componentReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+            final ComponentReference componentReference = this.getComponentReference();
+            if (componentReference != null) {
+                msgs = ((InternalEObject) componentReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                         - ParametersPackage.COMPONENT_INSTANCE__COMPONENT_REFERENCE, null, msgs);
             }
             return this.basicSetComponentReference((ComponentReference) otherEnd, msgs);
@@ -178,7 +127,7 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -195,7 +144,7 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -211,7 +160,7 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -231,7 +180,7 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -249,16 +198,16 @@ public class ComponentInstanceImpl extends IdentifierImpl implements ComponentIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ParametersPackage.COMPONENT_INSTANCE__COMPONENT_REFERENCE:
-            return this.componentReference != null;
+            return this.getComponentReference() != null;
         case ParametersPackage.COMPONENT_INSTANCE__PARAMETER_INSTANCES:
-            return this.parameterInstances != null && !this.parameterInstances.isEmpty();
+            return !this.getParameterInstances().isEmpty();
         }
         return super.eIsSet(featureID);
     }

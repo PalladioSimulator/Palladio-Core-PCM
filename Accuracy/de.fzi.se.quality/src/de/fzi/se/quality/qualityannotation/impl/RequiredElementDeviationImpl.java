@@ -4,15 +4,10 @@ package de.fzi.se.quality.qualityannotation.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
@@ -49,40 +44,8 @@ import de.fzi.se.quality.qualityannotation.RequiredElementDeviation;
 public class RequiredElementDeviationImpl extends CDOObjectImpl implements RequiredElementDeviation {
 
     /**
-     * The cached value of the '{@link #getMaximumDeviationNumberOfCalls()
-     * <em>Maximum Deviation Number Of Calls</em>}' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getMaximumDeviationNumberOfCalls()
-     * @generated
-     * @ordered
-     */
-    protected Precision maximumDeviationNumberOfCalls;
-
-    /**
-     * The cached value of the '{@link #getMaximumDeviationCallParameterValues()
-     * <em>Maximum Deviation Call Parameter Values</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getMaximumDeviationCallParameterValues()
-     * @generated
-     * @ordered
-     */
-    protected EList<ParameterValueDeviation> maximumDeviationCallParameterValues;
-
-    /**
-     * The cached value of the '{@link #getRequiredElement() <em>Required Element</em>}' containment
-     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getRequiredElement()
-     * @generated
-     * @ordered
-     */
-    protected RequiredElement requiredElement;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected RequiredElementDeviationImpl() {
@@ -91,7 +54,7 @@ public class RequiredElementDeviationImpl extends CDOObjectImpl implements Requi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -101,20 +64,31 @@ public class RequiredElementDeviationImpl extends CDOObjectImpl implements Requi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public InternalStateInfluenceAnalysisAggregation getInternalStateInfluenceAnalysisAggregation() {
-        if (this.eContainerFeatureID() != QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION) {
-            return null;
-        }
-        return (InternalStateInfluenceAnalysisAggregation) this.eInternalContainer();
+    protected int eStaticFeatureCount() {
+        return 0;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    public InternalStateInfluenceAnalysisAggregation getInternalStateInfluenceAnalysisAggregation() {
+        return (InternalStateInfluenceAnalysisAggregation) this
+                .eDynamicGet(
+                        QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION,
+                        QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION,
+                        true, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public NotificationChain basicSetInternalStateInfluenceAnalysisAggregation(
@@ -128,166 +102,106 @@ public class RequiredElementDeviationImpl extends CDOObjectImpl implements Requi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setInternalStateInfluenceAnalysisAggregation(
             final InternalStateInfluenceAnalysisAggregation newInternalStateInfluenceAnalysisAggregation) {
-        if (newInternalStateInfluenceAnalysisAggregation != this.eInternalContainer()
-                || (this.eContainerFeatureID() != QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION && newInternalStateInfluenceAnalysisAggregation != null)) {
-            if (EcoreUtil.isAncestor(this, newInternalStateInfluenceAnalysisAggregation)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newInternalStateInfluenceAnalysisAggregation != null) {
-                msgs = ((InternalEObject) newInternalStateInfluenceAnalysisAggregation)
-                        .eInverseAdd(
-                                this,
-                                QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__REQUIRED_ELEMENT_DEVIATIONS,
-                                InternalStateInfluenceAnalysisAggregation.class, msgs);
-            }
-            msgs = this.basicSetInternalStateInfluenceAnalysisAggregation(newInternalStateInfluenceAnalysisAggregation,
-                    msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION,
-                    newInternalStateInfluenceAnalysisAggregation, newInternalStateInfluenceAnalysisAggregation));
-        }
+        this.eDynamicSet(
+                QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION,
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION,
+                newInternalStateInfluenceAnalysisAggregation);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Precision getMaximumDeviationNumberOfCalls() {
-        if (this.maximumDeviationNumberOfCalls != null && ((EObject) this.maximumDeviationNumberOfCalls).eIsProxy()) {
-            final InternalEObject oldMaximumDeviationNumberOfCalls = (InternalEObject) this.maximumDeviationNumberOfCalls;
-            this.maximumDeviationNumberOfCalls = (Precision) this.eResolveProxy(oldMaximumDeviationNumberOfCalls);
-            if (this.maximumDeviationNumberOfCalls != oldMaximumDeviationNumberOfCalls) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_NUMBER_OF_CALLS,
-                            oldMaximumDeviationNumberOfCalls, this.maximumDeviationNumberOfCalls));
-                }
-            }
-        }
-        return this.maximumDeviationNumberOfCalls;
+        return (Precision) this.eDynamicGet(
+                QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_NUMBER_OF_CALLS,
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_NUMBER_OF_CALLS, true,
+                true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public Precision basicGetMaximumDeviationNumberOfCalls() {
-        return this.maximumDeviationNumberOfCalls;
+        return (Precision) this.eDynamicGet(
+                QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_NUMBER_OF_CALLS,
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_NUMBER_OF_CALLS, false,
+                true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setMaximumDeviationNumberOfCalls(final Precision newMaximumDeviationNumberOfCalls) {
-        final Precision oldMaximumDeviationNumberOfCalls = this.maximumDeviationNumberOfCalls;
-        this.maximumDeviationNumberOfCalls = newMaximumDeviationNumberOfCalls;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_NUMBER_OF_CALLS,
-                    oldMaximumDeviationNumberOfCalls, this.maximumDeviationNumberOfCalls));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_NUMBER_OF_CALLS,
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_NUMBER_OF_CALLS,
+                newMaximumDeviationNumberOfCalls);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ParameterValueDeviation> getMaximumDeviationCallParameterValues() {
-        if (this.maximumDeviationCallParameterValues == null) {
-            this.maximumDeviationCallParameterValues = new EObjectContainmentWithInverseEList<ParameterValueDeviation>(
-                    ParameterValueDeviation.class, this,
-                    QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_CALL_PARAMETER_VALUES,
-                    QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__REQUIRED_ELEMENT_DEVIATION);
-        }
-        return this.maximumDeviationCallParameterValues;
+        return (EList<ParameterValueDeviation>) this.eDynamicGet(
+                QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_CALL_PARAMETER_VALUES,
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_CALL_PARAMETER_VALUES,
+                true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public RequiredElement getRequiredElement() {
-        return this.requiredElement;
+        return (RequiredElement) this.eDynamicGet(
+                QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetRequiredElement(final RequiredElement newRequiredElement, NotificationChain msgs) {
-        final RequiredElement oldRequiredElement = this.requiredElement;
-        this.requiredElement = newRequiredElement;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT, oldRequiredElement,
-                    newRequiredElement);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newRequiredElement,
+                QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRequiredElement(final RequiredElement newRequiredElement) {
-        if (newRequiredElement != this.requiredElement) {
-            NotificationChain msgs = null;
-            if (this.requiredElement != null) {
-                msgs = ((InternalEObject) this.requiredElement).eInverseRemove(this,
-                        QualityAnnotationPackage.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION, RequiredElement.class,
-                        msgs);
-            }
-            if (newRequiredElement != null) {
-                msgs = ((InternalEObject) newRequiredElement).eInverseAdd(this,
-                        QualityAnnotationPackage.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION, RequiredElement.class,
-                        msgs);
-            }
-            msgs = this.basicSetRequiredElement(newRequiredElement, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT, newRequiredElement,
-                    newRequiredElement));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT, newRequiredElement);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -304,8 +218,9 @@ public class RequiredElementDeviationImpl extends CDOObjectImpl implements Requi
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getMaximumDeviationCallParameterValues())
                     .basicAdd(otherEnd, msgs);
         case QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT:
-            if (this.requiredElement != null) {
-                msgs = ((InternalEObject) this.requiredElement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+            final RequiredElement requiredElement = this.getRequiredElement();
+            if (requiredElement != null) {
+                msgs = ((InternalEObject) requiredElement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                         - QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT, null, msgs);
             }
             return this.basicSetRequiredElement((RequiredElement) otherEnd, msgs);
@@ -315,7 +230,7 @@ public class RequiredElementDeviationImpl extends CDOObjectImpl implements Requi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -334,7 +249,7 @@ public class RequiredElementDeviationImpl extends CDOObjectImpl implements Requi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -353,7 +268,7 @@ public class RequiredElementDeviationImpl extends CDOObjectImpl implements Requi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -376,7 +291,7 @@ public class RequiredElementDeviationImpl extends CDOObjectImpl implements Requi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -403,7 +318,7 @@ public class RequiredElementDeviationImpl extends CDOObjectImpl implements Requi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -427,7 +342,7 @@ public class RequiredElementDeviationImpl extends CDOObjectImpl implements Requi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -436,12 +351,11 @@ public class RequiredElementDeviationImpl extends CDOObjectImpl implements Requi
         case QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION:
             return this.getInternalStateInfluenceAnalysisAggregation() != null;
         case QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_NUMBER_OF_CALLS:
-            return this.maximumDeviationNumberOfCalls != null;
+            return this.basicGetMaximumDeviationNumberOfCalls() != null;
         case QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_CALL_PARAMETER_VALUES:
-            return this.maximumDeviationCallParameterValues != null
-            && !this.maximumDeviationCallParameterValues.isEmpty();
+            return !this.getMaximumDeviationCallParameterValues().isEmpty();
         case QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT:
-            return this.requiredElement != null;
+            return this.getRequiredElement() != null;
         }
         return super.eIsSet(featureID);
     }

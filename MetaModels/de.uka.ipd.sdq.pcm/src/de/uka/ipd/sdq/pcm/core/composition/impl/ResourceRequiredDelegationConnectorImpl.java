@@ -5,13 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.core.composition.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
@@ -44,38 +40,14 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '
-     * {@link #getInnerResourceRequiredRole_ResourceRequiredDelegationConnector()
-     * <em>Inner Resource Required Role Resource Required Delegation Connector</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getInnerResourceRequiredRole_ResourceRequiredDelegationConnector()
-     * @generated
-     * @ordered
-     */
-    protected ResourceRequiredRole innerResourceRequiredRole_ResourceRequiredDelegationConnector;
-
-    /**
-     * The cached value of the '
-     * {@link #getOuterResourceRequiredRole_ResourceRequiredDelegationConnector()
-     * <em>Outer Resource Required Role Resource Required Delegation Connector</em>}' reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getOuterResourceRequiredRole_ResourceRequiredDelegationConnector()
-     * @generated
-     * @ordered
-     */
-    protected ResourceRequiredRole outerResourceRequiredRole_ResourceRequiredDelegationConnector;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceRequiredDelegationConnectorImpl() {
@@ -84,7 +56,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -94,20 +66,31 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public ComposedStructure getParentStructure_ResourceRequiredDelegationConnector() {
-        if (this.eContainerFeatureID() != CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR) {
-            return null;
-        }
-        return (ComposedStructure) this.eInternalContainer();
+    protected int eStaticFeatureCount() {
+        return 0;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    public ComposedStructure getParentStructure_ResourceRequiredDelegationConnector() {
+        return (ComposedStructure) this
+                .eDynamicGet(
+                        CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                        CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                        true, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public NotificationChain basicSetParentStructure_ResourceRequiredDelegationConnector(
@@ -122,156 +105,103 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setParentStructure_ResourceRequiredDelegationConnector(
             final ComposedStructure newParentStructure_ResourceRequiredDelegationConnector) {
-        if (newParentStructure_ResourceRequiredDelegationConnector != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR && newParentStructure_ResourceRequiredDelegationConnector != null)) {
-            if (EcoreUtil.isAncestor(this, newParentStructure_ResourceRequiredDelegationConnector)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newParentStructure_ResourceRequiredDelegationConnector != null) {
-                msgs = ((InternalEObject) newParentStructure_ResourceRequiredDelegationConnector)
-                        .eInverseAdd(
-                                this,
-                                CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE,
-                                ComposedStructure.class, msgs);
-            }
-            msgs = this.basicSetParentStructure_ResourceRequiredDelegationConnector(
-                    newParentStructure_ResourceRequiredDelegationConnector, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
-                    newParentStructure_ResourceRequiredDelegationConnector,
-                    newParentStructure_ResourceRequiredDelegationConnector));
-        }
+        this.eDynamicSet(
+                CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                newParentStructure_ResourceRequiredDelegationConnector);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceRequiredRole getInnerResourceRequiredRole_ResourceRequiredDelegationConnector() {
-        if (this.innerResourceRequiredRole_ResourceRequiredDelegationConnector != null
-                && ((EObject) this.innerResourceRequiredRole_ResourceRequiredDelegationConnector).eIsProxy()) {
-            final InternalEObject oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector = (InternalEObject) this.innerResourceRequiredRole_ResourceRequiredDelegationConnector;
-            this.innerResourceRequiredRole_ResourceRequiredDelegationConnector = (ResourceRequiredRole) this
-                    .eResolveProxy(oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector);
-            if (this.innerResourceRequiredRole_ResourceRequiredDelegationConnector != oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
-                            this,
-                            Notification.RESOLVE,
-                            CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
-                            oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector,
-                            this.innerResourceRequiredRole_ResourceRequiredDelegationConnector));
-                }
-            }
-        }
-        return this.innerResourceRequiredRole_ResourceRequiredDelegationConnector;
+        return (ResourceRequiredRole) this
+                .eDynamicGet(
+                        CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                        CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceRequiredRole basicGetInnerResourceRequiredRole_ResourceRequiredDelegationConnector() {
-        return this.innerResourceRequiredRole_ResourceRequiredDelegationConnector;
+        return (ResourceRequiredRole) this
+                .eDynamicGet(
+                        CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                        CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                        false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setInnerResourceRequiredRole_ResourceRequiredDelegationConnector(
             final ResourceRequiredRole newInnerResourceRequiredRole_ResourceRequiredDelegationConnector) {
-        final ResourceRequiredRole oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector = this.innerResourceRequiredRole_ResourceRequiredDelegationConnector;
-        this.innerResourceRequiredRole_ResourceRequiredDelegationConnector = newInnerResourceRequiredRole_ResourceRequiredDelegationConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
-                    oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector,
-                    this.innerResourceRequiredRole_ResourceRequiredDelegationConnector));
-        }
+        this.eDynamicSet(
+                CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                newInnerResourceRequiredRole_ResourceRequiredDelegationConnector);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceRequiredRole getOuterResourceRequiredRole_ResourceRequiredDelegationConnector() {
-        if (this.outerResourceRequiredRole_ResourceRequiredDelegationConnector != null
-                && ((EObject) this.outerResourceRequiredRole_ResourceRequiredDelegationConnector).eIsProxy()) {
-            final InternalEObject oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector = (InternalEObject) this.outerResourceRequiredRole_ResourceRequiredDelegationConnector;
-            this.outerResourceRequiredRole_ResourceRequiredDelegationConnector = (ResourceRequiredRole) this
-                    .eResolveProxy(oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector);
-            if (this.outerResourceRequiredRole_ResourceRequiredDelegationConnector != oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
-                            this,
-                            Notification.RESOLVE,
-                            CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
-                            oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector,
-                            this.outerResourceRequiredRole_ResourceRequiredDelegationConnector));
-                }
-            }
-        }
-        return this.outerResourceRequiredRole_ResourceRequiredDelegationConnector;
+        return (ResourceRequiredRole) this
+                .eDynamicGet(
+                        CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                        CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceRequiredRole basicGetOuterResourceRequiredRole_ResourceRequiredDelegationConnector() {
-        return this.outerResourceRequiredRole_ResourceRequiredDelegationConnector;
+        return (ResourceRequiredRole) this
+                .eDynamicGet(
+                        CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                        CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                        false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setOuterResourceRequiredRole_ResourceRequiredDelegationConnector(
             final ResourceRequiredRole newOuterResourceRequiredRole_ResourceRequiredDelegationConnector) {
-        final ResourceRequiredRole oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector = this.outerResourceRequiredRole_ResourceRequiredDelegationConnector;
-        this.outerResourceRequiredRole_ResourceRequiredDelegationConnector = newOuterResourceRequiredRole_ResourceRequiredDelegationConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
-                    oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector,
-                    this.outerResourceRequiredRole_ResourceRequiredDelegationConnector));
-        }
+        this.eDynamicSet(
+                CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                newOuterResourceRequiredRole_ResourceRequiredDelegationConnector);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -288,7 +218,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -303,7 +233,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -319,7 +249,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -343,7 +273,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -364,7 +294,7 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -385,16 +315,16 @@ ResourceRequiredDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
-            return this.innerResourceRequiredRole_ResourceRequiredDelegationConnector != null;
+            return this.basicGetInnerResourceRequiredRole_ResourceRequiredDelegationConnector() != null;
         case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
-            return this.outerResourceRequiredRole_ResourceRequiredDelegationConnector != null;
+            return this.basicGetOuterResourceRequiredRole_ResourceRequiredDelegationConnector() != null;
         case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
             return this.getParentStructure_ResourceRequiredDelegationConnector() != null;
         }

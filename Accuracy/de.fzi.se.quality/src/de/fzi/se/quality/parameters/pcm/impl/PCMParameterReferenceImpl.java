@@ -24,7 +24,7 @@ public abstract class PCMParameterReferenceImpl extends ParameterReferenceImpl i
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMParameterReferenceImpl() {
@@ -33,7 +33,7 @@ public abstract class PCMParameterReferenceImpl extends ParameterReferenceImpl i
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

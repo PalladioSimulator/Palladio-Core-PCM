@@ -5,12 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
@@ -34,14 +31,14 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected WorkloadImpl() {
@@ -50,7 +47,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -60,20 +57,28 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public UsageScenario getUsageScenario_Workload() {
-        if (this.eContainerFeatureID() != UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD) {
-            return null;
-        }
-        return (UsageScenario) this.eInternalContainer();
+    protected int eStaticFeatureCount() {
+        return 0;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    public UsageScenario getUsageScenario_Workload() {
+        return (UsageScenario) this.eDynamicGet(UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD,
+                UsagemodelPackage.Literals.WORKLOAD__USAGE_SCENARIO_WORKLOAD, true, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public NotificationChain basicSetUsageScenario_Workload(final UsageScenario newUsageScenario_Workload,
@@ -85,38 +90,18 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setUsageScenario_Workload(final UsageScenario newUsageScenario_Workload) {
-        if (newUsageScenario_Workload != this.eInternalContainer()
-                || (this.eContainerFeatureID() != UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD && newUsageScenario_Workload != null)) {
-            if (EcoreUtil.isAncestor(this, newUsageScenario_Workload)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newUsageScenario_Workload != null) {
-                msgs = ((InternalEObject) newUsageScenario_Workload).eInverseAdd(this,
-                        UsagemodelPackage.USAGE_SCENARIO__WORKLOAD_USAGE_SCENARIO, UsageScenario.class, msgs);
-            }
-            msgs = this.basicSetUsageScenario_Workload(newUsageScenario_Workload, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD, newUsageScenario_Workload,
-                    newUsageScenario_Workload));
-        }
+        this.eDynamicSet(UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD,
+                UsagemodelPackage.Literals.WORKLOAD__USAGE_SCENARIO_WORKLOAD, newUsageScenario_Workload);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -133,7 +118,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -148,7 +133,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -163,7 +148,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -177,7 +162,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -192,7 +177,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -207,7 +192,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

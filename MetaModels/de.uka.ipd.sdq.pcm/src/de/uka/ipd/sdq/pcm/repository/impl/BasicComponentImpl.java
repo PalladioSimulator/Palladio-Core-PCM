@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.ocl.ParserException;
@@ -27,7 +26,6 @@ import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 
 /**
@@ -51,36 +49,14 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getServiceEffectSpecifications__BasicComponent()
-     * <em>Service Effect Specifications Basic Component</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getServiceEffectSpecifications__BasicComponent()
-     * @generated
-     * @ordered
-     */
-    protected EList<ServiceEffectSpecification> serviceEffectSpecifications__BasicComponent;
-
-    /**
-     * The cached value of the '{@link #getPassiveResource_BasicComponent()
-     * <em>Passive Resource Basic Component</em>}' containment reference list. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @see #getPassiveResource_BasicComponent()
-     * @generated
-     * @ordered
-     */
-    protected EList<PassiveResource> passiveResource_BasicComponent;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected BasicComponentImpl() {
@@ -89,7 +65,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -99,42 +75,35 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<ServiceEffectSpecification> getServiceEffectSpecifications__BasicComponent() {
-        if (this.serviceEffectSpecifications__BasicComponent == null) {
-            this.serviceEffectSpecifications__BasicComponent = new EObjectContainmentWithInverseEList<ServiceEffectSpecification>(
-                    ServiceEffectSpecification.class, this,
-                    RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT,
-                    SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION);
-        }
-        return this.serviceEffectSpecifications__BasicComponent;
+        return (EList<ServiceEffectSpecification>) this.eDynamicGet(
+                RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT,
+                RepositoryPackage.Literals.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<PassiveResource> getPassiveResource_BasicComponent() {
-        if (this.passiveResource_BasicComponent == null) {
-            this.passiveResource_BasicComponent = new EObjectContainmentWithInverseEList<PassiveResource>(
-                    PassiveResource.class, this, RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT,
-                    RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE);
-        }
-        return this.passiveResource_BasicComponent;
+        return (EList<PassiveResource>) this.eDynamicGet(
+                RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT,
+                RepositoryPackage.Literals.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT, true, true);
     }
 
     /**
      * The cached OCL expression body for the '
      * {@link #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Seff Type Used Twice</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -147,7 +116,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
      * {@link #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Seff Type Used Twice</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -156,7 +125,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -185,7 +154,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -205,7 +174,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -223,7 +192,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -239,7 +208,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -261,7 +230,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -279,7 +248,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -287,10 +256,9 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
-            return this.serviceEffectSpecifications__BasicComponent != null
-            && !this.serviceEffectSpecifications__BasicComponent.isEmpty();
+            return !this.getServiceEffectSpecifications__BasicComponent().isEmpty();
         case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:
-            return this.passiveResource_BasicComponent != null && !this.passiveResource_BasicComponent.isEmpty();
+            return !this.getPassiveResource_BasicComponent().isEmpty();
         }
         return super.eIsSet(featureID);
     }

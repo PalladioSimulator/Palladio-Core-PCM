@@ -12,7 +12,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionRange;
@@ -34,21 +33,11 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
  * @generated
  */
 public class CharacterisedPCMParameterPartitionRangeImpl extends CharacterisedPCMParameterPartitionImpl implements
-        CharacterisedPCMParameterPartitionRange {
-
-    /**
-     * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference list.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getValues()
-     * @generated
-     * @ordered
-     */
-    protected EList<PCMRandomVariable> values;
+CharacterisedPCMParameterPartitionRange {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CharacterisedPCMParameterPartitionRangeImpl() {
@@ -57,7 +46,7 @@ public class CharacterisedPCMParameterPartitionRangeImpl extends CharacterisedPC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -67,21 +56,20 @@ public class CharacterisedPCMParameterPartitionRangeImpl extends CharacterisedPC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<PCMRandomVariable> getValues() {
-        if (this.values == null) {
-            this.values = new EObjectContainmentEList<PCMRandomVariable>(PCMRandomVariable.class, this,
-                    QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION_RANGE__VALUES);
-        }
-        return this.values;
+        return (EList<PCMRandomVariable>) this.eDynamicGet(
+                QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION_RANGE__VALUES,
+                QualityAnnotationPackage.Literals.CHARACTERISED_PCM_PARAMETER_PARTITION_RANGE__VALUES, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -96,7 +84,7 @@ public class CharacterisedPCMParameterPartitionRangeImpl extends CharacterisedPC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -110,7 +98,7 @@ public class CharacterisedPCMParameterPartitionRangeImpl extends CharacterisedPC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -127,7 +115,7 @@ public class CharacterisedPCMParameterPartitionRangeImpl extends CharacterisedPC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -142,14 +130,14 @@ public class CharacterisedPCMParameterPartitionRangeImpl extends CharacterisedPC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION_RANGE__VALUES:
-            return this.values != null && !this.values.isEmpty();
+            return !this.getValues().isEmpty();
         }
         return super.eIsSet(featureID);
     }

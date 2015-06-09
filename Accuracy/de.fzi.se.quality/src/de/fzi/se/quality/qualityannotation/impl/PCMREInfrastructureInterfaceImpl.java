@@ -4,14 +4,10 @@ package de.fzi.se.quality.qualityannotation.impl;
 
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ocl.ParserException;
@@ -40,18 +36,8 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface;
 public class PCMREInfrastructureInterfaceImpl extends PCMREImpl implements PCMREInfrastructureInterface {
 
     /**
-     * The cached value of the '{@link #getInterface() <em>Interface</em>}' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getInterface()
-     * @generated
-     * @ordered
-     */
-    protected InfrastructureInterface interface_;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMREInfrastructureInterfaceImpl() {
@@ -60,7 +46,7 @@ public class PCMREInfrastructureInterfaceImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -70,47 +56,36 @@ public class PCMREInfrastructureInterfaceImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public InfrastructureInterface getInterface() {
-        if (this.interface_ != null && ((EObject) this.interface_).eIsProxy()) {
-            final InternalEObject oldInterface = (InternalEObject) this.interface_;
-            this.interface_ = (InfrastructureInterface) this.eResolveProxy(oldInterface);
-            if (this.interface_ != oldInterface) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_INTERFACE__INTERFACE, oldInterface,
-                            this.interface_));
-                }
-            }
-        }
-        return this.interface_;
+        return (InfrastructureInterface) this.eDynamicGet(
+                QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_INTERFACE__INTERFACE,
+                QualityAnnotationPackage.Literals.PCMRE_INFRASTRUCTURE_INTERFACE__INTERFACE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InfrastructureInterface basicGetInterface() {
-        return this.interface_;
+        return (InfrastructureInterface) this.eDynamicGet(
+                QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_INTERFACE__INTERFACE,
+                QualityAnnotationPackage.Literals.PCMRE_INFRASTRUCTURE_INTERFACE__INTERFACE, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setInterface(final InfrastructureInterface newInterface) {
-        final InfrastructureInterface oldInterface = this.interface_;
-        this.interface_ = newInterface;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_INTERFACE__INTERFACE, oldInterface, this.interface_));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_INTERFACE__INTERFACE,
+                QualityAnnotationPackage.Literals.PCMRE_INFRASTRUCTURE_INTERFACE__INTERFACE, newInterface);
     }
 
     /**
@@ -131,7 +106,7 @@ public class PCMREInfrastructureInterfaceImpl extends PCMREImpl implements PCMRE
      * {@link #NextLowerLevelMustConsistOfTypePCMREInfrastructureRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Level Must Consist Of Type PCMRE Infrastructure Role</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerLevelMustConsistOfTypePCMREInfrastructureRole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -141,7 +116,7 @@ public class PCMREInfrastructureInterfaceImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -159,16 +134,16 @@ public class PCMREInfrastructureInterfaceImpl extends PCMREImpl implements PCMRE
         }
         if (!EOCL_ENV.createQuery(
                 NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_INFRASTRUCTURE_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(
-                this)) {
+                        this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCMRE_INFRASTRUCTURE_INTERFACE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_INFRASTRUCTURE_ROLE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "NextLowerLevelMustConsistOfTypePCMREInfrastructureRole",
-                                                EObjectValidator.getObjectLabel(this, context) }),
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMRE_INFRASTRUCTURE_INTERFACE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_INFRASTRUCTURE_ROLE,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "NextLowerLevelMustConsistOfTypePCMREInfrastructureRole",
+                                EObjectValidator.getObjectLabel(this, context) }),
                                 new Object[] { this }));
             }
             return false;
@@ -181,7 +156,7 @@ public class PCMREInfrastructureInterfaceImpl extends PCMREImpl implements PCMRE
      * {@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each RE Target Must Be Referenced Only From One RE</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -204,7 +179,7 @@ public class PCMREInfrastructureInterfaceImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -224,15 +199,15 @@ public class PCMREInfrastructureInterfaceImpl extends PCMREImpl implements PCMRE
                 .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCMRE_INFRASTRUCTURE_INTERFACE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE,
-                                EcorePlugin.INSTANCE.getString(
-                                        "_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "EachRETargetMustBeReferencedOnlyFromOneRE",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMRE_INFRASTRUCTURE_INTERFACE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE,
+                        EcorePlugin.INSTANCE.getString(
+                                "_UI_GenericInvariant_diagnostic",
+                                new Object[] { "EachRETargetMustBeReferencedOnlyFromOneRE",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                                        new Object[] { this }));
             }
             return false;
         }
@@ -241,7 +216,7 @@ public class PCMREInfrastructureInterfaceImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -258,7 +233,7 @@ public class PCMREInfrastructureInterfaceImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -273,7 +248,7 @@ public class PCMREInfrastructureInterfaceImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -288,14 +263,14 @@ public class PCMREInfrastructureInterfaceImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_INTERFACE__INTERFACE:
-            return this.interface_ != null;
+            return this.basicGetInterface() != null;
         }
         return super.eIsSet(featureID);
     }

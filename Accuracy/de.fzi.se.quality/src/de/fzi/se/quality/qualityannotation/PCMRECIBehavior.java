@@ -34,7 +34,7 @@ public interface PCMRECIBehavior extends PCMRE {
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Internal Behaviour</em>' reference.
      * @see #setInternalBehaviour(ResourceDemandingInternalBehaviour)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getPCMRECIBehavior_InternalBehaviour()
@@ -47,7 +47,7 @@ public interface PCMRECIBehavior extends PCMRE {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.PCMRECIBehavior#getInternalBehaviour
      * <em>Internal Behaviour</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Internal Behaviour</em>' reference.
      * @see #getInternalBehaviour()
@@ -62,7 +62,7 @@ public interface PCMRECIBehavior extends PCMRE {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model
+     * @model 
      *        annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.childREs->isEmpty()'"
      * @generated
      */

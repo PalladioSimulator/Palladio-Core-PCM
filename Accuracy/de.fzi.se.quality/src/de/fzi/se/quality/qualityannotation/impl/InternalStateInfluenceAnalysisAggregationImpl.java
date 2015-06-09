@@ -8,14 +8,10 @@ package de.fzi.se.quality.qualityannotation.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation;
@@ -46,33 +42,11 @@ import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
  * @generated
  */
 public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImpl implements
-        InternalStateInfluenceAnalysisAggregation {
-
-    /**
-     * The cached value of the '{@link #getParameterValueDeviations()
-     * <em>Parameter Value Deviations</em>}' containment reference list. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getParameterValueDeviations()
-     * @generated
-     * @ordered
-     */
-    protected EList<ParameterValueDeviation> parameterValueDeviations;
-
-    /**
-     * The cached value of the '{@link #getRequiredElementDeviations()
-     * <em>Required Element Deviations</em>}' containment reference list. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getRequiredElementDeviations()
-     * @generated
-     * @ordered
-     */
-    protected EList<RequiredElementDeviation> requiredElementDeviations;
+InternalStateInfluenceAnalysisAggregation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected InternalStateInfluenceAnalysisAggregationImpl() {
@@ -81,7 +55,7 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -91,20 +65,20 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public QualityAnnotation getQualityAnnotation() {
-        if (this.eContainerFeatureID() != QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION) {
-            return null;
-        }
-        return (QualityAnnotation) this.eInternalContainer();
+        return (QualityAnnotation) this.eDynamicGet(
+                QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION,
+                QualityAnnotationPackage.Literals.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION,
+                true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetQualityAnnotation(final QualityAnnotation newQualityAnnotation,
@@ -116,72 +90,49 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setQualityAnnotation(final QualityAnnotation newQualityAnnotation) {
-        if (newQualityAnnotation != this.eInternalContainer()
-                || (this.eContainerFeatureID() != QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION && newQualityAnnotation != null)) {
-            if (EcoreUtil.isAncestor(this, newQualityAnnotation)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newQualityAnnotation != null) {
-                msgs = ((InternalEObject) newQualityAnnotation).eInverseAdd(this,
-                        QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS,
-                        QualityAnnotation.class, msgs);
-            }
-            msgs = this.basicSetQualityAnnotation(newQualityAnnotation, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION,
-                    newQualityAnnotation, newQualityAnnotation));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION,
+                QualityAnnotationPackage.Literals.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION,
+                newQualityAnnotation);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ParameterValueDeviation> getParameterValueDeviations() {
-        if (this.parameterValueDeviations == null) {
-            this.parameterValueDeviations = new EObjectContainmentWithInverseEList<ParameterValueDeviation>(
-                    ParameterValueDeviation.class, this,
-                    QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__PARAMETER_VALUE_DEVIATIONS,
-                    QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION);
-        }
-        return this.parameterValueDeviations;
+        return (EList<ParameterValueDeviation>) this
+                .eDynamicGet(
+                        QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__PARAMETER_VALUE_DEVIATIONS,
+                        QualityAnnotationPackage.Literals.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__PARAMETER_VALUE_DEVIATIONS,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<RequiredElementDeviation> getRequiredElementDeviations() {
-        if (this.requiredElementDeviations == null) {
-            this.requiredElementDeviations = new EObjectContainmentWithInverseEList<RequiredElementDeviation>(
-                    RequiredElementDeviation.class,
-                    this,
-                    QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__REQUIRED_ELEMENT_DEVIATIONS,
-                    QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION);
-        }
-        return this.requiredElementDeviations;
+        return (EList<RequiredElementDeviation>) this
+                .eDynamicGet(
+                        QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__REQUIRED_ELEMENT_DEVIATIONS,
+                        QualityAnnotationPackage.Literals.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__REQUIRED_ELEMENT_DEVIATIONS,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -205,7 +156,7 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -224,7 +175,7 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -240,7 +191,7 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -258,7 +209,7 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -282,7 +233,7 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -303,7 +254,7 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -312,9 +263,9 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
         case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION:
             return this.getQualityAnnotation() != null;
         case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__PARAMETER_VALUE_DEVIATIONS:
-            return this.parameterValueDeviations != null && !this.parameterValueDeviations.isEmpty();
+            return !this.getParameterValueDeviations().isEmpty();
         case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__REQUIRED_ELEMENT_DEVIATIONS:
-            return this.requiredElementDeviations != null && !this.requiredElementDeviations.isEmpty();
+            return !this.getRequiredElementDeviations().isEmpty();
         }
         return super.eIsSet(featureID);
     }

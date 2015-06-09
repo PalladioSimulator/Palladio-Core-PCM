@@ -2,17 +2,13 @@
  */
 package de.fzi.se.quality.qualityannotation.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.fzi.se.quality.parameters.ParameterReference;
 import de.fzi.se.quality.parameters.ParameterValue;
-import de.fzi.se.quality.parameters.ParametersPackage;
 import de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation;
 import de.fzi.se.quality.qualityannotation.ParameterValueDeviation;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
@@ -44,28 +40,8 @@ import de.fzi.se.quality.qualityannotation.RequiredElementDeviation;
 public class ParameterValueDeviationImpl extends CDOObjectImpl implements ParameterValueDeviation {
 
     /**
-     * The cached value of the '{@link #getParameterReference() <em>Parameter Reference</em>}'
-     * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getParameterReference()
-     * @generated
-     * @ordered
-     */
-    protected ParameterReference parameterReference;
-
-    /**
-     * The cached value of the '{@link #getParameterValue() <em>Parameter Value</em>}' containment
-     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getParameterValue()
-     * @generated
-     * @ordered
-     */
-    protected ParameterValue parameterValue;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ParameterValueDeviationImpl() {
@@ -74,7 +50,7 @@ public class ParameterValueDeviationImpl extends CDOObjectImpl implements Parame
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -84,82 +60,66 @@ public class ParameterValueDeviationImpl extends CDOObjectImpl implements Parame
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public ParameterReference getParameterReference() {
-        return this.parameterReference;
+    protected int eStaticFeatureCount() {
+        return 0;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    public ParameterReference getParameterReference() {
+        return (ParameterReference) this.eDynamicGet(
+                QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE,
+                QualityAnnotationPackage.Literals.PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE, true, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public NotificationChain basicSetParameterReference(final ParameterReference newParameterReference,
             NotificationChain msgs) {
-        final ParameterReference oldParameterReference = this.parameterReference;
-        this.parameterReference = newParameterReference;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE, oldParameterReference,
-                    newParameterReference);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newParameterReference,
+                QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setParameterReference(final ParameterReference newParameterReference) {
-        if (newParameterReference != this.parameterReference) {
-            NotificationChain msgs = null;
-            if (this.parameterReference != null) {
-                msgs = ((InternalEObject) this.parameterReference).eInverseRemove(this,
-                        ParametersPackage.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION, ParameterReference.class,
-                        msgs);
-            }
-            if (newParameterReference != null) {
-                msgs = ((InternalEObject) newParameterReference).eInverseAdd(this,
-                        ParametersPackage.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION, ParameterReference.class,
-                        msgs);
-            }
-            msgs = this.basicSetParameterReference(newParameterReference, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE, newParameterReference,
-                    newParameterReference));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE,
+                QualityAnnotationPackage.Literals.PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE, newParameterReference);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public InternalStateInfluenceAnalysisAggregation getInternalStateInfluenceAnalysisAggregation() {
-        if (this.eContainerFeatureID() != QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION) {
-            return null;
-        }
-        return (InternalStateInfluenceAnalysisAggregation) this.eInternalContainer();
+        return (InternalStateInfluenceAnalysisAggregation) this
+                .eDynamicGet(
+                        QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION,
+                        QualityAnnotationPackage.Literals.PARAMETER_VALUE_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetInternalStateInfluenceAnalysisAggregation(
@@ -175,56 +135,33 @@ public class ParameterValueDeviationImpl extends CDOObjectImpl implements Parame
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setInternalStateInfluenceAnalysisAggregation(
             final InternalStateInfluenceAnalysisAggregation newInternalStateInfluenceAnalysisAggregation) {
-        if (newInternalStateInfluenceAnalysisAggregation != this.eInternalContainer()
-                || (this.eContainerFeatureID() != QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION && newInternalStateInfluenceAnalysisAggregation != null)) {
-            if (EcoreUtil.isAncestor(this, newInternalStateInfluenceAnalysisAggregation)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newInternalStateInfluenceAnalysisAggregation != null) {
-                msgs = ((InternalEObject) newInternalStateInfluenceAnalysisAggregation)
-                        .eInverseAdd(
-                                this,
-                                QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__PARAMETER_VALUE_DEVIATIONS,
-                                InternalStateInfluenceAnalysisAggregation.class, msgs);
-            }
-            msgs = this.basicSetInternalStateInfluenceAnalysisAggregation(newInternalStateInfluenceAnalysisAggregation,
-                    msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION,
-                    newInternalStateInfluenceAnalysisAggregation, newInternalStateInfluenceAnalysisAggregation));
-        }
+        this.eDynamicSet(
+                QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION,
+                QualityAnnotationPackage.Literals.PARAMETER_VALUE_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION,
+                newInternalStateInfluenceAnalysisAggregation);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public RequiredElementDeviation getRequiredElementDeviation() {
-        if (this.eContainerFeatureID() != QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__REQUIRED_ELEMENT_DEVIATION) {
-            return null;
-        }
-        return (RequiredElementDeviation) this.eInternalContainer();
+        return (RequiredElementDeviation) this.eDynamicGet(
+                QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__REQUIRED_ELEMENT_DEVIATION,
+                QualityAnnotationPackage.Literals.PARAMETER_VALUE_DEVIATION__REQUIRED_ELEMENT_DEVIATION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetRequiredElementDeviation(
@@ -236,106 +173,61 @@ public class ParameterValueDeviationImpl extends CDOObjectImpl implements Parame
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRequiredElementDeviation(final RequiredElementDeviation newRequiredElementDeviation) {
-        if (newRequiredElementDeviation != this.eInternalContainer()
-                || (this.eContainerFeatureID() != QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__REQUIRED_ELEMENT_DEVIATION && newRequiredElementDeviation != null)) {
-            if (EcoreUtil.isAncestor(this, newRequiredElementDeviation)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newRequiredElementDeviation != null) {
-                msgs = ((InternalEObject) newRequiredElementDeviation).eInverseAdd(this,
-                        QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_CALL_PARAMETER_VALUES,
-                        RequiredElementDeviation.class, msgs);
-            }
-            msgs = this.basicSetRequiredElementDeviation(newRequiredElementDeviation, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__REQUIRED_ELEMENT_DEVIATION,
-                    newRequiredElementDeviation, newRequiredElementDeviation));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__REQUIRED_ELEMENT_DEVIATION,
+                QualityAnnotationPackage.Literals.PARAMETER_VALUE_DEVIATION__REQUIRED_ELEMENT_DEVIATION,
+                newRequiredElementDeviation);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ParameterValue getParameterValue() {
-        return this.parameterValue;
+        return (ParameterValue) this.eDynamicGet(QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_VALUE,
+                QualityAnnotationPackage.Literals.PARAMETER_VALUE_DEVIATION__PARAMETER_VALUE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParameterValue(final ParameterValue newParameterValue, NotificationChain msgs) {
-        final ParameterValue oldParameterValue = this.parameterValue;
-        this.parameterValue = newParameterValue;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_VALUE, oldParameterValue,
-                    newParameterValue);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newParameterValue,
+                QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_VALUE, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setParameterValue(final ParameterValue newParameterValue) {
-        if (newParameterValue != this.parameterValue) {
-            NotificationChain msgs = null;
-            if (this.parameterValue != null) {
-                msgs = ((InternalEObject) this.parameterValue).eInverseRemove(this,
-                        ParametersPackage.PARAMETER_VALUE__PARAMETER_VALUE_DEVIATION, ParameterValue.class, msgs);
-            }
-            if (newParameterValue != null) {
-                msgs = ((InternalEObject) newParameterValue).eInverseAdd(this,
-                        ParametersPackage.PARAMETER_VALUE__PARAMETER_VALUE_DEVIATION, ParameterValue.class, msgs);
-            }
-            msgs = this.basicSetParameterValue(newParameterValue, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_VALUE, newParameterValue,
-                    newParameterValue));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_VALUE,
+                QualityAnnotationPackage.Literals.PARAMETER_VALUE_DEVIATION__PARAMETER_VALUE, newParameterValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE:
-            if (this.parameterReference != null) {
-                msgs = ((InternalEObject) this.parameterReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+            final ParameterReference parameterReference = this.getParameterReference();
+            if (parameterReference != null) {
+                msgs = ((InternalEObject) parameterReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                         - QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE, null, msgs);
             }
             return this.basicSetParameterReference((ParameterReference) otherEnd, msgs);
@@ -351,8 +243,9 @@ public class ParameterValueDeviationImpl extends CDOObjectImpl implements Parame
             }
             return this.basicSetRequiredElementDeviation((RequiredElementDeviation) otherEnd, msgs);
         case QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_VALUE:
-            if (this.parameterValue != null) {
-                msgs = ((InternalEObject) this.parameterValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+            final ParameterValue parameterValue = this.getParameterValue();
+            if (parameterValue != null) {
+                msgs = ((InternalEObject) parameterValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                         - QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_VALUE, null, msgs);
             }
             return this.basicSetParameterValue((ParameterValue) otherEnd, msgs);
@@ -362,7 +255,7 @@ public class ParameterValueDeviationImpl extends CDOObjectImpl implements Parame
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -383,7 +276,7 @@ public class ParameterValueDeviationImpl extends CDOObjectImpl implements Parame
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -403,7 +296,7 @@ public class ParameterValueDeviationImpl extends CDOObjectImpl implements Parame
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -423,7 +316,7 @@ public class ParameterValueDeviationImpl extends CDOObjectImpl implements Parame
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -447,7 +340,7 @@ public class ParameterValueDeviationImpl extends CDOObjectImpl implements Parame
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -471,20 +364,20 @@ public class ParameterValueDeviationImpl extends CDOObjectImpl implements Parame
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE:
-            return this.parameterReference != null;
+            return this.getParameterReference() != null;
         case QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION:
             return this.getInternalStateInfluenceAnalysisAggregation() != null;
         case QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__REQUIRED_ELEMENT_DEVIATION:
             return this.getRequiredElementDeviation() != null;
         case QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_VALUE:
-            return this.parameterValue != null;
+            return this.getParameterValue() != null;
         }
         return super.eIsSet(featureID);
     }

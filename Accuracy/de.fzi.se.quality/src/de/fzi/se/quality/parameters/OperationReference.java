@@ -36,7 +36,7 @@ public interface OperationReference extends Identifier {
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Call Instance</em>' container reference.
      * @see #setCallInstance(CallInstance)
      * @see de.fzi.se.quality.parameters.ParametersPackage#getOperationReference_CallInstance()
@@ -50,7 +50,7 @@ public interface OperationReference extends Identifier {
      * Sets the value of the '
      * {@link de.fzi.se.quality.parameters.OperationReference#getCallInstance
      * <em>Call Instance</em>}' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Call Instance</em>' container reference.
      * @see #getCallInstance()

@@ -6,12 +6,9 @@
  */
 package de.fzi.se.quality.parameters.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.fzi.se.quality.parameters.CallInstance;
 import de.fzi.se.quality.parameters.OperationReference;
@@ -35,7 +32,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected OperationReferenceImpl() {
@@ -44,7 +41,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -54,20 +51,18 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public CallInstance getCallInstance() {
-        if (this.eContainerFeatureID() != ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE) {
-            return null;
-        }
-        return (CallInstance) this.eInternalContainer();
+        return (CallInstance) this.eDynamicGet(ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE,
+                ParametersPackage.Literals.OPERATION_REFERENCE__CALL_INSTANCE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetCallInstance(final CallInstance newCallInstance, NotificationChain msgs) {
@@ -78,37 +73,18 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setCallInstance(final CallInstance newCallInstance) {
-        if (newCallInstance != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE && newCallInstance != null)) {
-            if (EcoreUtil.isAncestor(this, newCallInstance)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newCallInstance != null) {
-                msgs = ((InternalEObject) newCallInstance).eInverseAdd(this,
-                        ParametersPackage.CALL_INSTANCE__OPERATION_REFERENCE, CallInstance.class, msgs);
-            }
-            msgs = this.basicSetCallInstance(newCallInstance, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE, newCallInstance, newCallInstance));
-        }
+        this.eDynamicSet(ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE,
+                ParametersPackage.Literals.OPERATION_REFERENCE__CALL_INSTANCE, newCallInstance);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -125,7 +101,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -140,7 +116,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -155,7 +131,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -169,7 +145,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -184,7 +160,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -199,7 +175,7 @@ public abstract class OperationReferenceImpl extends IdentifierImpl implements O
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

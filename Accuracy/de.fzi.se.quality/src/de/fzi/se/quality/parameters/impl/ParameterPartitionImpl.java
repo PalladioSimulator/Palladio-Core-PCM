@@ -6,12 +6,9 @@
  */
 package de.fzi.se.quality.parameters.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.fzi.se.quality.parameters.ParameterPartition;
 import de.fzi.se.quality.parameters.ParameterReference;
@@ -38,18 +35,8 @@ import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 public abstract class ParameterPartitionImpl extends IdentifierImpl implements ParameterPartition {
 
     /**
-     * The cached value of the '{@link #getParameterReference() <em>Parameter Reference</em>}'
-     * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getParameterReference()
-     * @generated
-     * @ordered
-     */
-    protected ParameterReference parameterReference;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ParameterPartitionImpl() {
@@ -58,7 +45,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -68,20 +55,18 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public QualityAnnotation getQualityAnnotation() {
-        if (this.eContainerFeatureID() != ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION) {
-            return null;
-        }
-        return (QualityAnnotation) this.eInternalContainer();
+        return (QualityAnnotation) this.eDynamicGet(ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION,
+                ParametersPackage.Literals.PARAMETER_PARTITION__QUALITY_ANNOTATION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetQualityAnnotation(final QualityAnnotation newQualityAnnotation,
@@ -93,99 +78,52 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setQualityAnnotation(final QualityAnnotation newQualityAnnotation) {
-        if (newQualityAnnotation != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION && newQualityAnnotation != null)) {
-            if (EcoreUtil.isAncestor(this, newQualityAnnotation)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newQualityAnnotation != null) {
-                msgs = ((InternalEObject) newQualityAnnotation).eInverseAdd(this,
-                        QualityAnnotationPackage.QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS,
-                        QualityAnnotation.class, msgs);
-            }
-            msgs = this.basicSetQualityAnnotation(newQualityAnnotation, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION, newQualityAnnotation,
-                    newQualityAnnotation));
-        }
+        this.eDynamicSet(ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION,
+                ParametersPackage.Literals.PARAMETER_PARTITION__QUALITY_ANNOTATION, newQualityAnnotation);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ParameterReference getParameterReference() {
-        return this.parameterReference;
+        return (ParameterReference) this.eDynamicGet(ParametersPackage.PARAMETER_PARTITION__PARAMETER_REFERENCE,
+                ParametersPackage.Literals.PARAMETER_PARTITION__PARAMETER_REFERENCE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParameterReference(final ParameterReference newParameterReference,
             NotificationChain msgs) {
-        final ParameterReference oldParameterReference = this.parameterReference;
-        this.parameterReference = newParameterReference;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    ParametersPackage.PARAMETER_PARTITION__PARAMETER_REFERENCE, oldParameterReference,
-                    newParameterReference);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newParameterReference,
+                ParametersPackage.PARAMETER_PARTITION__PARAMETER_REFERENCE, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setParameterReference(final ParameterReference newParameterReference) {
-        if (newParameterReference != this.parameterReference) {
-            NotificationChain msgs = null;
-            if (this.parameterReference != null) {
-                msgs = ((InternalEObject) this.parameterReference).eInverseRemove(this,
-                        ParametersPackage.PARAMETER_REFERENCE__PARAMETER_PARTITION, ParameterReference.class, msgs);
-            }
-            if (newParameterReference != null) {
-                msgs = ((InternalEObject) newParameterReference).eInverseAdd(this,
-                        ParametersPackage.PARAMETER_REFERENCE__PARAMETER_PARTITION, ParameterReference.class, msgs);
-            }
-            msgs = this.basicSetParameterReference(newParameterReference, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParametersPackage.PARAMETER_PARTITION__PARAMETER_REFERENCE, newParameterReference,
-                    newParameterReference));
-        }
+        this.eDynamicSet(ParametersPackage.PARAMETER_PARTITION__PARAMETER_REFERENCE,
+                ParametersPackage.Literals.PARAMETER_PARTITION__PARAMETER_REFERENCE, newParameterReference);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -197,8 +135,9 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
             }
             return this.basicSetQualityAnnotation((QualityAnnotation) otherEnd, msgs);
         case ParametersPackage.PARAMETER_PARTITION__PARAMETER_REFERENCE:
-            if (this.parameterReference != null) {
-                msgs = ((InternalEObject) this.parameterReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+            final ParameterReference parameterReference = this.getParameterReference();
+            if (parameterReference != null) {
+                msgs = ((InternalEObject) parameterReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                         - ParametersPackage.PARAMETER_PARTITION__PARAMETER_REFERENCE, null, msgs);
             }
             return this.basicSetParameterReference((ParameterReference) otherEnd, msgs);
@@ -208,7 +147,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -225,7 +164,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -241,7 +180,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -257,7 +196,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -275,7 +214,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -293,7 +232,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -302,7 +241,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
         case ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION:
             return this.getQualityAnnotation() != null;
         case ParametersPackage.PARAMETER_PARTITION__PARAMETER_REFERENCE:
-            return this.parameterReference != null;
+            return this.getParameterReference() != null;
         }
         return super.eIsSet(featureID);
     }

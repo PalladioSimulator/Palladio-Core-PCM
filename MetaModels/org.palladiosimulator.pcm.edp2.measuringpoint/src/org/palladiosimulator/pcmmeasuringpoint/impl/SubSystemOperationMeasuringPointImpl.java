@@ -2,11 +2,7 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
@@ -43,38 +39,8 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
         SubSystemOperationMeasuringPoint {
 
     /**
-     * The cached value of the '{@link #getSubsystem() <em>Subsystem</em>}' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getSubsystem()
-     * @generated
-     * @ordered
-     */
-    protected SubSystem subsystem;
-
-    /**
-     * The cached value of the '{@link #getRole() <em>Role</em>}' reference. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getRole()
-     * @generated
-     * @ordered
-     */
-    protected Role role;
-
-    /**
-     * The cached value of the '{@link #getOperationSignature() <em>Operation Signature</em>}'
-     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getOperationSignature()
-     * @generated
-     * @ordered
-     */
-    protected OperationSignature operationSignature;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SubSystemOperationMeasuringPointImpl() {
@@ -83,7 +49,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -93,143 +59,105 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SubSystem getSubsystem() {
-        if (this.subsystem != null && ((EObject) this.subsystem).eIsProxy()) {
-            final InternalEObject oldSubsystem = (InternalEObject) this.subsystem;
-            this.subsystem = (SubSystem) this.eResolveProxy(oldSubsystem);
-            if (this.subsystem != oldSubsystem) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__SUBSYSTEM, oldSubsystem,
-                            this.subsystem));
-                }
-            }
-        }
-        return this.subsystem;
+        return (SubSystem) this.eDynamicGet(PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__SUBSYSTEM,
+                PcmmeasuringpointPackage.Literals.SUB_SYSTEM_REFERENCE__SUBSYSTEM, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SubSystem basicGetSubsystem() {
-        return this.subsystem;
+        return (SubSystem) this.eDynamicGet(PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__SUBSYSTEM,
+                PcmmeasuringpointPackage.Literals.SUB_SYSTEM_REFERENCE__SUBSYSTEM, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSubsystem(final SubSystem newSubsystem) {
-        final SubSystem oldSubsystem = this.subsystem;
-        this.subsystem = newSubsystem;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__SUBSYSTEM, oldSubsystem,
-                    this.subsystem));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__SUBSYSTEM,
+                PcmmeasuringpointPackage.Literals.SUB_SYSTEM_REFERENCE__SUBSYSTEM, newSubsystem);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Role getRole() {
-        if (this.role != null && ((EObject) this.role).eIsProxy()) {
-            final InternalEObject oldRole = (InternalEObject) this.role;
-            this.role = (Role) this.eResolveProxy(oldRole);
-            if (this.role != oldRole) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__ROLE, oldRole, this.role));
-                }
-            }
-        }
-        return this.role;
+        return (Role) this.eDynamicGet(PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__ROLE,
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__ROLE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public Role basicGetRole() {
-        return this.role;
+        return (Role) this.eDynamicGet(PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__ROLE,
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__ROLE, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRole(final Role newRole) {
-        final Role oldRole = this.role;
-        this.role = newRole;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__ROLE, oldRole, this.role));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__ROLE,
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__ROLE, newRole);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public OperationSignature getOperationSignature() {
-        if (this.operationSignature != null && ((EObject) this.operationSignature).eIsProxy()) {
-            final InternalEObject oldOperationSignature = (InternalEObject) this.operationSignature;
-            this.operationSignature = (OperationSignature) this.eResolveProxy(oldOperationSignature);
-            if (this.operationSignature != oldOperationSignature) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE,
-                            oldOperationSignature, this.operationSignature));
-                }
-            }
-        }
-        return this.operationSignature;
+        return (OperationSignature) this.eDynamicGet(
+                PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE,
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__OPERATION_SIGNATURE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationSignature basicGetOperationSignature() {
-        return this.operationSignature;
+        return (OperationSignature) this.eDynamicGet(
+                PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE,
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__OPERATION_SIGNATURE, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setOperationSignature(final OperationSignature newOperationSignature) {
-        final OperationSignature oldOperationSignature = this.operationSignature;
-        this.operationSignature = newOperationSignature;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE,
-                    oldOperationSignature, this.operationSignature));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE,
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__OPERATION_SIGNATURE, newOperationSignature);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -256,7 +184,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -277,7 +205,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -298,25 +226,25 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__SUBSYSTEM:
-            return this.subsystem != null;
+            return this.basicGetSubsystem() != null;
         case PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__ROLE:
-            return this.role != null;
+            return this.basicGetRole() != null;
         case PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE:
-            return this.operationSignature != null;
+            return this.basicGetOperationSignature() != null;
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -344,7 +272,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -377,7 +305,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
      */
     @Override
     public String getStringRepresentation() {
-        if (this.subsystem == null || this.role == null || this.operationSignature == null) {
+        if (this.getSubsystem() == null || this.getRole() == null || this.getOperationSignature() == null) {
             return "";
         }
         EcoreUtil.resolveAll(this);
@@ -385,11 +313,11 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
         final StringBuilder result = new StringBuilder();
 
         result.append("Sub System Operation: ");
-        result.append(this.subsystem.getEntityName());
+        result.append(this.getSubsystem().getEntityName());
         result.append(".");
-        result.append(this.role.getEntityName());
+        result.append(this.getRole().getEntityName());
         result.append(".");
-        result.append(this.operationSignature.getEntityName());
+        result.append(this.getOperationSignature().getEntityName());
 
         return result.toString();
     }
@@ -401,11 +329,11 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
      */
     @Override
     public String getResourceURIRepresentation() {
-        if (this.operationSignature == null) {
+        if (this.getOperationSignature() == null) {
             return "";
         }
         EcoreUtil.resolveAll(this);
-        return EMFLoadHelper.getResourceURI(this.operationSignature);
+        return EMFLoadHelper.getResourceURI(this.getOperationSignature());
     }
 
 } // SubSystemOperationMeasuringPointImpl

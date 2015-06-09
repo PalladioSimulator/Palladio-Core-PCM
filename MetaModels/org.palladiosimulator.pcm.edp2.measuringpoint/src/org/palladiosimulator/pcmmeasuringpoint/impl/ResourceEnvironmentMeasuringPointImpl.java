@@ -2,11 +2,9 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
@@ -41,7 +39,7 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
     /**
      * The default value of the '{@link #getStringRepresentation() <em>String Representation</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getStringRepresentation()
      * @generated
      * @ordered
@@ -60,7 +58,7 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceEnvironmentMeasuringPointImpl() {
@@ -69,7 +67,7 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -79,20 +77,19 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public MeasuringPointRepository getMeasuringPointRepository() {
-        if (this.eContainerFeatureID() != PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY) {
-            return null;
-        }
-        return (MeasuringPointRepository) this.eInternalContainer();
+        return (MeasuringPointRepository) this.eDynamicGet(
+                PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY,
+                MeasuringpointPackage.Literals.MEASURING_POINT__MEASURING_POINT_REPOSITORY, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetMeasuringPointRepository(
@@ -104,34 +101,13 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setMeasuringPointRepository(final MeasuringPointRepository newMeasuringPointRepository) {
-        if (newMeasuringPointRepository != this.eInternalContainer()
-                || (this.eContainerFeatureID() != PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY && newMeasuringPointRepository != null)) {
-            if (EcoreUtil.isAncestor(this, newMeasuringPointRepository)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newMeasuringPointRepository != null) {
-                msgs = ((InternalEObject) newMeasuringPointRepository).eInverseAdd(this,
-                        MeasuringpointPackage.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                        MeasuringPointRepository.class, msgs);
-            }
-            msgs = this.basicSetMeasuringPointRepository(newMeasuringPointRepository, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY,
-                    newMeasuringPointRepository, newMeasuringPointRepository));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY,
+                MeasuringpointPackage.Literals.MEASURING_POINT__MEASURING_POINT_REPOSITORY, newMeasuringPointRepository);
     }
 
     /**
@@ -141,7 +117,7 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
      */
     @Override
     public String getStringRepresentation() {
-        if (this.resourceEnvironment == null) {
+        if (this.getResourceEnvironment() == null) {
             return "";
         }
         EcoreUtil.resolveAll(this);
@@ -149,7 +125,7 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
         final StringBuilder result = new StringBuilder();
 
         result.append("Resource Environment: ");
-        result.append(this.resourceEnvironment.getEntityName());
+        result.append(this.getResourceEnvironment().getEntityName());
 
         return result.toString();
     }
@@ -161,16 +137,16 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
      */
     @Override
     public String getResourceURIRepresentation() {
-        if (this.resourceEnvironment == null) {
+        if (this.getResourceEnvironment() == null) {
             return "";
         }
         EcoreUtil.resolveAll(this);
-        return EMFLoadHelper.getResourceURI(this.resourceEnvironment);
+        return EMFLoadHelper.getResourceURI(this.getResourceEnvironment());
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -187,7 +163,7 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -202,7 +178,7 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -218,7 +194,7 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -236,7 +212,7 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -251,7 +227,7 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -266,7 +242,7 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -286,7 +262,7 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -308,7 +284,7 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

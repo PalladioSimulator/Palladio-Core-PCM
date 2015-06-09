@@ -41,7 +41,7 @@ public interface ExternalFailureOccurrenceDescription extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -77,7 +77,7 @@ public interface ExternalFailureOccurrenceDescription extends FailureOccurrenceD
      * {@link de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription#getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription
      * <em>Specified Reliability Annotation External Failure Occurrence Description</em>}' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '
      *            <em>Specified Reliability Annotation External Failure Occurrence Description</em>'

@@ -8,18 +8,14 @@ package de.fzi.se.quality.qualityannotation.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.fzi.se.quality.impl.QualityStatementImpl;
 import de.fzi.se.quality.parameters.ParameterPartition;
-import de.fzi.se.quality.parameters.ParametersPackage;
 import de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation;
 import de.fzi.se.quality.qualityannotation.ProbabilisticElement;
 import de.fzi.se.quality.qualityannotation.QualityAnnotation;
@@ -68,72 +64,8 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
     protected static final boolean IS_VALID_EDEFAULT = false;
 
     /**
-     * The cached value of the '{@link #isValid() <em>Is Valid</em>}' attribute. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @see #isValid()
-     * @generated
-     * @ordered
-     */
-    protected boolean isValid = IS_VALID_EDEFAULT;
-
-    /**
-     * The cached value of the '{@link #getForServiceSpecification()
-     * <em>For Service Specification</em>}' containment reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getForServiceSpecification()
-     * @generated
-     * @ordered
-     */
-    protected ServiceSpecification forServiceSpecification;
-
-    /**
-     * The cached value of the '{@link #getStipulatedREPrecisions()
-     * <em>Stipulated RE Precisions</em>}' containment reference list. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getStipulatedREPrecisions()
-     * @generated
-     * @ordered
-     */
-    protected EList<RequiredElement> stipulatedREPrecisions;
-
-    /**
-     * The cached value of the '{@link #getInternalStateInfluenceAnalysisResults()
-     * <em>Internal State Influence Analysis Results</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getInternalStateInfluenceAnalysisResults()
-     * @generated
-     * @ordered
-     */
-    protected EList<InternalStateInfluenceAnalysisAggregation> internalStateInfluenceAnalysisResults;
-
-    /**
-     * The cached value of the '{@link #getProbabilisticElements() <em>Probabilistic Elements</em>}'
-     * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getProbabilisticElements()
-     * @generated
-     * @ordered
-     */
-    protected EList<ProbabilisticElement> probabilisticElements;
-
-    /**
-     * The cached value of the '{@link #getValidForParameterPartitions()
-     * <em>Valid For Parameter Partitions</em>}' containment reference list. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getValidForParameterPartitions()
-     * @generated
-     * @ordered
-     */
-    protected EList<ParameterPartition> validForParameterPartitions;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected QualityAnnotationImpl() {
@@ -142,7 +74,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -152,157 +84,118 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean isValid() {
-        return this.isValid;
+        return (Boolean) this.eDynamicGet(QualityAnnotationPackage.QUALITY_ANNOTATION__IS_VALID,
+                QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__IS_VALID, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setIsValid(final boolean newIsValid) {
-        final boolean oldIsValid = this.isValid;
-        this.isValid = newIsValid;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.QUALITY_ANNOTATION__IS_VALID, oldIsValid, this.isValid));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.QUALITY_ANNOTATION__IS_VALID,
+                QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__IS_VALID, newIsValid);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ServiceSpecification getForServiceSpecification() {
-        return this.forServiceSpecification;
+        return (ServiceSpecification) this.eDynamicGet(
+                QualityAnnotationPackage.QUALITY_ANNOTATION__FOR_SERVICE_SPECIFICATION,
+                QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__FOR_SERVICE_SPECIFICATION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetForServiceSpecification(final ServiceSpecification newForServiceSpecification,
             NotificationChain msgs) {
-        final ServiceSpecification oldForServiceSpecification = this.forServiceSpecification;
-        this.forServiceSpecification = newForServiceSpecification;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.QUALITY_ANNOTATION__FOR_SERVICE_SPECIFICATION, oldForServiceSpecification,
-                    newForServiceSpecification);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newForServiceSpecification,
+                QualityAnnotationPackage.QUALITY_ANNOTATION__FOR_SERVICE_SPECIFICATION, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setForServiceSpecification(final ServiceSpecification newForServiceSpecification) {
-        if (newForServiceSpecification != this.forServiceSpecification) {
-            NotificationChain msgs = null;
-            if (this.forServiceSpecification != null) {
-                msgs = ((InternalEObject) this.forServiceSpecification).eInverseRemove(this,
-                        QualityAnnotationPackage.SERVICE_SPECIFICATION__QUALITY_ANNOTATION, ServiceSpecification.class,
-                        msgs);
-            }
-            if (newForServiceSpecification != null) {
-                msgs = ((InternalEObject) newForServiceSpecification).eInverseAdd(this,
-                        QualityAnnotationPackage.SERVICE_SPECIFICATION__QUALITY_ANNOTATION, ServiceSpecification.class,
-                        msgs);
-            }
-            msgs = this.basicSetForServiceSpecification(newForServiceSpecification, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.QUALITY_ANNOTATION__FOR_SERVICE_SPECIFICATION, newForServiceSpecification,
-                    newForServiceSpecification));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.QUALITY_ANNOTATION__FOR_SERVICE_SPECIFICATION,
+                QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__FOR_SERVICE_SPECIFICATION,
+                newForServiceSpecification);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<RequiredElement> getStipulatedREPrecisions() {
-        if (this.stipulatedREPrecisions == null) {
-            this.stipulatedREPrecisions = new EObjectContainmentWithInverseEList<RequiredElement>(
-                    RequiredElement.class, this, QualityAnnotationPackage.QUALITY_ANNOTATION__STIPULATED_RE_PRECISIONS,
-                    QualityAnnotationPackage.REQUIRED_ELEMENT__QUALITY_ANNOTATION);
-        }
-        return this.stipulatedREPrecisions;
+        return (EList<RequiredElement>) this.eDynamicGet(
+                QualityAnnotationPackage.QUALITY_ANNOTATION__STIPULATED_RE_PRECISIONS,
+                QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__STIPULATED_RE_PRECISIONS, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<InternalStateInfluenceAnalysisAggregation> getInternalStateInfluenceAnalysisResults() {
-        if (this.internalStateInfluenceAnalysisResults == null) {
-            this.internalStateInfluenceAnalysisResults = new EObjectContainmentWithInverseEList<InternalStateInfluenceAnalysisAggregation>(
-                    InternalStateInfluenceAnalysisAggregation.class, this,
-                    QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS,
-                    QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION);
-        }
-        return this.internalStateInfluenceAnalysisResults;
+        return (EList<InternalStateInfluenceAnalysisAggregation>) this.eDynamicGet(
+                QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS,
+                QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS, true,
+                true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ProbabilisticElement> getProbabilisticElements() {
-        if (this.probabilisticElements == null) {
-            this.probabilisticElements = new EObjectContainmentWithInverseEList<ProbabilisticElement>(
-                    ProbabilisticElement.class, this,
-                    QualityAnnotationPackage.QUALITY_ANNOTATION__PROBABILISTIC_ELEMENTS,
-                    QualityAnnotationPackage.PROBABILISTIC_ELEMENT__QUALITY_ANNOTATION);
-        }
-        return this.probabilisticElements;
+        return (EList<ProbabilisticElement>) this.eDynamicGet(
+                QualityAnnotationPackage.QUALITY_ANNOTATION__PROBABILISTIC_ELEMENTS,
+                QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__PROBABILISTIC_ELEMENTS, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<ParameterPartition> getValidForParameterPartitions() {
-        if (this.validForParameterPartitions == null) {
-            this.validForParameterPartitions = new EObjectContainmentWithInverseEList<ParameterPartition>(
-                    ParameterPartition.class, this,
-                    QualityAnnotationPackage.QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS,
-                    ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION);
-        }
-        return this.validForParameterPartitions;
+        return (EList<ParameterPartition>) this.eDynamicGet(
+                QualityAnnotationPackage.QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS,
+                QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -310,8 +203,9 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case QualityAnnotationPackage.QUALITY_ANNOTATION__FOR_SERVICE_SPECIFICATION:
-            if (this.forServiceSpecification != null) {
-                msgs = ((InternalEObject) this.forServiceSpecification).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+            final ServiceSpecification forServiceSpecification = this.getForServiceSpecification();
+            if (forServiceSpecification != null) {
+                msgs = ((InternalEObject) forServiceSpecification).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                         - QualityAnnotationPackage.QUALITY_ANNOTATION__FOR_SERVICE_SPECIFICATION, null, msgs);
             }
             return this.basicSetForServiceSpecification((ServiceSpecification) otherEnd, msgs);
@@ -333,7 +227,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -356,7 +250,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -380,7 +274,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -416,7 +310,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -446,45 +340,26 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityAnnotationPackage.QUALITY_ANNOTATION__IS_VALID:
-            return this.isValid != IS_VALID_EDEFAULT;
+            return this.isValid() != IS_VALID_EDEFAULT;
         case QualityAnnotationPackage.QUALITY_ANNOTATION__FOR_SERVICE_SPECIFICATION:
-            return this.forServiceSpecification != null;
+            return this.getForServiceSpecification() != null;
         case QualityAnnotationPackage.QUALITY_ANNOTATION__STIPULATED_RE_PRECISIONS:
-            return this.stipulatedREPrecisions != null && !this.stipulatedREPrecisions.isEmpty();
+            return !this.getStipulatedREPrecisions().isEmpty();
         case QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS:
-            return this.internalStateInfluenceAnalysisResults != null
-            && !this.internalStateInfluenceAnalysisResults.isEmpty();
+            return !this.getInternalStateInfluenceAnalysisResults().isEmpty();
         case QualityAnnotationPackage.QUALITY_ANNOTATION__PROBABILISTIC_ELEMENTS:
-            return this.probabilisticElements != null && !this.probabilisticElements.isEmpty();
+            return !this.getProbabilisticElements().isEmpty();
         case QualityAnnotationPackage.QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS:
-            return this.validForParameterPartitions != null && !this.validForParameterPartitions.isEmpty();
+            return !this.getValidForParameterPartitions().isEmpty();
         }
         return super.eIsSet(featureID);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (this.eIsProxy()) {
-            return super.toString();
-        }
-
-        final StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (isValid: ");
-        result.append(this.isValid);
-        result.append(')');
-        return result.toString();
     }
 
 } // QualityAnnotationImpl

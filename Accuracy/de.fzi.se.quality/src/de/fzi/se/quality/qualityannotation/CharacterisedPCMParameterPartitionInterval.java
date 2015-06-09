@@ -48,7 +48,7 @@ public interface CharacterisedPCMParameterPartitionInterval extends Characterise
      * be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>From</em>' containment reference.
      * @see #setFrom(PCMRandomVariable)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getCharacterisedPCMParameterPartitionInterval_From()
@@ -61,7 +61,7 @@ public interface CharacterisedPCMParameterPartitionInterval extends Characterise
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval#getFrom
      * <em>From</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>From</em>' containment reference.
      * @see #getFrom()
@@ -76,7 +76,7 @@ public interface CharacterisedPCMParameterPartitionInterval extends Characterise
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>To</em>' containment reference.
      * @see #setTo(PCMRandomVariable)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getCharacterisedPCMParameterPartitionInterval_To()
@@ -89,7 +89,7 @@ public interface CharacterisedPCMParameterPartitionInterval extends Characterise
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval#getTo
      * <em>To</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>To</em>' containment reference.
      * @see #getTo()

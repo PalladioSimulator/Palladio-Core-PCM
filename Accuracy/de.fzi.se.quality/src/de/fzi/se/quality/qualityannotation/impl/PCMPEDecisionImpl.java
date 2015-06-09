@@ -4,14 +4,10 @@ package de.fzi.se.quality.qualityannotation.impl;
 
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ocl.ParserException;
@@ -39,18 +35,8 @@ import de.uka.ipd.sdq.pcm.seff.BranchAction;
 public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
 
     /**
-     * The cached value of the '{@link #getBranchAction() <em>Branch Action</em>}' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getBranchAction()
-     * @generated
-     * @ordered
-     */
-    protected BranchAction branchAction;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMPEDecisionImpl() {
@@ -59,7 +45,7 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -69,46 +55,34 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public BranchAction getBranchAction() {
-        if (this.branchAction != null && ((EObject) this.branchAction).eIsProxy()) {
-            final InternalEObject oldBranchAction = (InternalEObject) this.branchAction;
-            this.branchAction = (BranchAction) this.eResolveProxy(oldBranchAction);
-            if (this.branchAction != oldBranchAction) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            QualityAnnotationPackage.PCMPE_DECISION__BRANCH_ACTION, oldBranchAction, this.branchAction));
-                }
-            }
-        }
-        return this.branchAction;
+        return (BranchAction) this.eDynamicGet(QualityAnnotationPackage.PCMPE_DECISION__BRANCH_ACTION,
+                QualityAnnotationPackage.Literals.PCMPE_DECISION__BRANCH_ACTION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public BranchAction basicGetBranchAction() {
-        return this.branchAction;
+        return (BranchAction) this.eDynamicGet(QualityAnnotationPackage.PCMPE_DECISION__BRANCH_ACTION,
+                QualityAnnotationPackage.Literals.PCMPE_DECISION__BRANCH_ACTION, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setBranchAction(final BranchAction newBranchAction) {
-        final BranchAction oldBranchAction = this.branchAction;
-        this.branchAction = newBranchAction;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.PCMPE_DECISION__BRANCH_ACTION, oldBranchAction, this.branchAction));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.PCMPE_DECISION__BRANCH_ACTION,
+                QualityAnnotationPackage.Literals.PCMPE_DECISION__BRANCH_ACTION, newBranchAction);
     }
 
     /**
@@ -116,7 +90,7 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
      * {@link #ThisIsTheLowestDecisionHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>This Is The Lowest Decision Hierarchy Level</em>}' operation. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #ThisIsTheLowestDecisionHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -139,7 +113,7 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -172,7 +146,7 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -189,7 +163,7 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -204,7 +178,7 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -219,14 +193,14 @@ public class PCMPEDecisionImpl extends PCMPEImpl implements PCMPEDecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityAnnotationPackage.PCMPE_DECISION__BRANCH_ACTION:
-            return this.branchAction != null;
+            return this.basicGetBranchAction() != null;
         }
         return super.eIsSet(featureID);
     }

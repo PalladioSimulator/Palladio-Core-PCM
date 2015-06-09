@@ -7,18 +7,13 @@ package de.uka.ipd.sdq.pcm.seff.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.seff.ForkAction;
 import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
@@ -49,35 +44,14 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getOutputParameterUsage_SynchronisationPoint()
-     * <em>Output Parameter Usage Synchronisation Point</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getOutputParameterUsage_SynchronisationPoint()
-     * @generated
-     * @ordered
-     */
-    protected EList<VariableUsage> outputParameterUsage_SynchronisationPoint;
-    /**
-     * The cached value of the '{@link #getSynchronousForkedBehaviours_SynchronisationPoint()
-     * <em>Synchronous Forked Behaviours Synchronisation Point</em>}' containment reference list.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getSynchronousForkedBehaviours_SynchronisationPoint()
-     * @generated
-     * @ordered
-     */
-    protected EList<ForkedBehaviour> synchronousForkedBehaviours_SynchronisationPoint;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SynchronisationPointImpl() {
@@ -86,7 +60,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -96,37 +70,31 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getOutputParameterUsage_SynchronisationPoint() {
-        if (this.outputParameterUsage_SynchronisationPoint == null) {
-            this.outputParameterUsage_SynchronisationPoint = new EObjectContainmentWithInverseEList<VariableUsage>(
-                    VariableUsage.class, this,
-                    SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT,
-                    ParameterPackage.VARIABLE_USAGE__SYNCHRONISATION_POINT_VARIABLE_USAGE);
-        }
-        return this.outputParameterUsage_SynchronisationPoint;
+        return (EList<VariableUsage>) this.eDynamicGet(
+                SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT,
+                SeffPackage.Literals.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ForkAction getForkAction_SynchronisationPoint() {
-        if (this.eContainerFeatureID() != SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT) {
-            return null;
-        }
-        return (ForkAction) this.eInternalContainer();
+        return (ForkAction) this.eDynamicGet(SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT,
+                SeffPackage.Literals.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetForkAction_SynchronisationPoint(
@@ -138,55 +106,33 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setForkAction_SynchronisationPoint(final ForkAction newForkAction_SynchronisationPoint) {
-        if (newForkAction_SynchronisationPoint != this.eInternalContainer()
-                || (this.eContainerFeatureID() != SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT && newForkAction_SynchronisationPoint != null)) {
-            if (EcoreUtil.isAncestor(this, newForkAction_SynchronisationPoint)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newForkAction_SynchronisationPoint != null) {
-                msgs = ((InternalEObject) newForkAction_SynchronisationPoint).eInverseAdd(this,
-                        SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION, ForkAction.class, msgs);
-            }
-            msgs = this.basicSetForkAction_SynchronisationPoint(newForkAction_SynchronisationPoint, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT,
-                    newForkAction_SynchronisationPoint, newForkAction_SynchronisationPoint));
-        }
+        this.eDynamicSet(SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT,
+                SeffPackage.Literals.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT,
+                newForkAction_SynchronisationPoint);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<ForkedBehaviour> getSynchronousForkedBehaviours_SynchronisationPoint() {
-        if (this.synchronousForkedBehaviours_SynchronisationPoint == null) {
-            this.synchronousForkedBehaviours_SynchronisationPoint = new EObjectContainmentWithInverseEList<ForkedBehaviour>(
-                    ForkedBehaviour.class, this,
-                    SeffPackage.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT,
-                    SeffPackage.FORKED_BEHAVIOUR__SYNCHRONISATION_POINT_FORKED_BEHAVIOUR);
-        }
-        return this.synchronousForkedBehaviours_SynchronisationPoint;
+        return (EList<ForkedBehaviour>) this.eDynamicGet(
+                SeffPackage.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT,
+                SeffPackage.Literals.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT, true,
+                true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -210,7 +156,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -230,7 +176,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -245,7 +191,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -263,7 +209,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -288,7 +234,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -309,7 +255,7 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -317,13 +263,11 @@ public class SynchronisationPointImpl extends EntityImpl implements Synchronisat
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT:
-            return this.outputParameterUsage_SynchronisationPoint != null
-            && !this.outputParameterUsage_SynchronisationPoint.isEmpty();
+            return !this.getOutputParameterUsage_SynchronisationPoint().isEmpty();
         case SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT:
             return this.getForkAction_SynchronisationPoint() != null;
         case SeffPackage.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT:
-            return this.synchronousForkedBehaviours_SynchronisationPoint != null
-            && !this.synchronousForkedBehaviours_SynchronisationPoint.isEmpty();
+            return !this.getSynchronousForkedBehaviours_SynchronisationPoint().isEmpty();
         }
         return super.eIsSet(featureID);
     }

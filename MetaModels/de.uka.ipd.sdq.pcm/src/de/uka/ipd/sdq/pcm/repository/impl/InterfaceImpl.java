@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import java.util.Collection;
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -16,13 +15,8 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
@@ -59,46 +53,14 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getParentInterfaces__Interface()
-     * <em>Parent Interfaces Interface</em>}' reference list. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getParentInterfaces__Interface()
-     * @generated
-     * @ordered
-     */
-    protected EList<Interface> parentInterfaces__Interface;
-
-    /**
-     * The cached value of the '{@link #getProtocols__Interface() <em>Protocols Interface</em>}'
-     * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getProtocols__Interface()
-     * @generated
-     * @ordered
-     */
-    protected EList<Protocol> protocols__Interface;
-
-    /**
-     * The cached value of the '{@link #getRequiredCharacterisations()
-     * <em>Required Characterisations</em>}' containment reference list. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getRequiredCharacterisations()
-     * @generated
-     * @ordered
-     */
-    protected EList<RequiredCharacterisation> requiredCharacterisations;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected InterfaceImpl() {
@@ -107,7 +69,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -117,66 +79,55 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<Interface> getParentInterfaces__Interface() {
-        if (this.parentInterfaces__Interface == null) {
-            this.parentInterfaces__Interface = new EObjectResolvingEList<Interface>(Interface.class, this,
-                    RepositoryPackage.INTERFACE__PARENT_INTERFACES_INTERFACE);
-        }
-        return this.parentInterfaces__Interface;
+        return (EList<Interface>) this.eDynamicGet(RepositoryPackage.INTERFACE__PARENT_INTERFACES_INTERFACE,
+                RepositoryPackage.Literals.INTERFACE__PARENT_INTERFACES_INTERFACE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<Protocol> getProtocols__Interface() {
-        if (this.protocols__Interface == null) {
-            this.protocols__Interface = new EObjectContainmentEList<Protocol>(Protocol.class, this,
-                    RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE);
-        }
-        return this.protocols__Interface;
+        return (EList<Protocol>) this.eDynamicGet(RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE,
+                RepositoryPackage.Literals.INTERFACE__PROTOCOLS_INTERFACE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<RequiredCharacterisation> getRequiredCharacterisations() {
-        if (this.requiredCharacterisations == null) {
-            this.requiredCharacterisations = new EObjectContainmentWithInverseEList<RequiredCharacterisation>(
-                    RequiredCharacterisation.class, this, RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS,
-                    RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION);
-        }
-        return this.requiredCharacterisations;
+        return (EList<RequiredCharacterisation>) this.eDynamicGet(
+                RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS,
+                RepositoryPackage.Literals.INTERFACE__REQUIRED_CHARACTERISATIONS, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Repository getRepository__Interface() {
-        if (this.eContainerFeatureID() != RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE) {
-            return null;
-        }
-        return (Repository) this.eInternalContainer();
+        return (Repository) this.eDynamicGet(RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE,
+                RepositoryPackage.Literals.INTERFACE__REPOSITORY_INTERFACE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetRepository__Interface(final Repository newRepository__Interface,
@@ -188,33 +139,13 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRepository__Interface(final Repository newRepository__Interface) {
-        if (newRepository__Interface != this.eInternalContainer()
-                || (this.eContainerFeatureID() != RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE && newRepository__Interface != null)) {
-            if (EcoreUtil.isAncestor(this, newRepository__Interface)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newRepository__Interface != null) {
-                msgs = ((InternalEObject) newRepository__Interface).eInverseAdd(this,
-                        RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY, Repository.class, msgs);
-            }
-            msgs = this.basicSetRepository__Interface(newRepository__Interface, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE, newRepository__Interface,
-                    newRepository__Interface));
-        }
+        this.eDynamicSet(RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE,
+                RepositoryPackage.Literals.INTERFACE__REPOSITORY_INTERFACE, newRepository__Interface);
     }
 
     /**
@@ -222,7 +153,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      * {@link #NoProtocolTypeIDUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Protocol Type ID Used Twice</em>}' operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #NoProtocolTypeIDUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -235,7 +166,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      * {@link #NoProtocolTypeIDUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Protocol Type ID Used Twice</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #NoProtocolTypeIDUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -244,7 +175,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -273,7 +204,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -294,7 +225,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -313,7 +244,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -328,7 +259,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -348,7 +279,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -376,7 +307,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -400,7 +331,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -408,11 +339,11 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.INTERFACE__PARENT_INTERFACES_INTERFACE:
-            return this.parentInterfaces__Interface != null && !this.parentInterfaces__Interface.isEmpty();
+            return !this.getParentInterfaces__Interface().isEmpty();
         case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
-            return this.protocols__Interface != null && !this.protocols__Interface.isEmpty();
+            return !this.getProtocols__Interface().isEmpty();
         case RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS:
-            return this.requiredCharacterisations != null && !this.requiredCharacterisations.isEmpty();
+            return !this.getRequiredCharacterisations().isEmpty();
         case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
             return this.getRepository__Interface() != null;
         }
@@ -422,7 +353,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

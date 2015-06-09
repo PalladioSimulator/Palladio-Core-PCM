@@ -2,12 +2,9 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
@@ -46,19 +43,9 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends AssemblyReference
         AssemblyPassiveResourceMeasuringPoint {
 
     /**
-     * The cached value of the '{@link #getPassiveResource() <em>Passive Resource</em>}' reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getPassiveResource()
-     * @generated
-     * @ordered
-     */
-    protected PassiveResource passiveResource;
-
-    /**
      * The default value of the '{@link #getStringRepresentation() <em>String Representation</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getStringRepresentation()
      * @generated
      * @ordered
@@ -78,7 +65,7 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends AssemblyReference
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AssemblyPassiveResourceMeasuringPointImpl() {
@@ -87,7 +74,7 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends AssemblyReference
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -97,66 +84,53 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends AssemblyReference
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public PassiveResource getPassiveResource() {
-        if (this.passiveResource != null && ((EObject) this.passiveResource).eIsProxy()) {
-            final InternalEObject oldPassiveResource = (InternalEObject) this.passiveResource;
-            this.passiveResource = (PassiveResource) this.eResolveProxy(oldPassiveResource);
-            if (this.passiveResource != oldPassiveResource) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__PASSIVE_RESOURCE,
-                            oldPassiveResource, this.passiveResource));
-                }
-            }
-        }
-        return this.passiveResource;
+        return (PassiveResource) this.eDynamicGet(
+                PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__PASSIVE_RESOURCE,
+                PcmmeasuringpointPackage.Literals.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public PassiveResource basicGetPassiveResource() {
-        return this.passiveResource;
+        return (PassiveResource) this.eDynamicGet(
+                PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__PASSIVE_RESOURCE,
+                PcmmeasuringpointPackage.Literals.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setPassiveResource(final PassiveResource newPassiveResource) {
-        final PassiveResource oldPassiveResource = this.passiveResource;
-        this.passiveResource = newPassiveResource;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__PASSIVE_RESOURCE,
-                    oldPassiveResource, this.passiveResource));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__PASSIVE_RESOURCE,
+                PcmmeasuringpointPackage.Literals.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE, newPassiveResource);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public MeasuringPointRepository getMeasuringPointRepository() {
-        if (this.eContainerFeatureID() != PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__MEASURING_POINT_REPOSITORY) {
-            return null;
-        }
-        return (MeasuringPointRepository) this.eInternalContainer();
+        return (MeasuringPointRepository) this.eDynamicGet(
+                PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__MEASURING_POINT_REPOSITORY,
+                MeasuringpointPackage.Literals.MEASURING_POINT__MEASURING_POINT_REPOSITORY, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetMeasuringPointRepository(
@@ -168,34 +142,14 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends AssemblyReference
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setMeasuringPointRepository(final MeasuringPointRepository newMeasuringPointRepository) {
-        if (newMeasuringPointRepository != this.eInternalContainer()
-                || (this.eContainerFeatureID() != PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__MEASURING_POINT_REPOSITORY && newMeasuringPointRepository != null)) {
-            if (EcoreUtil.isAncestor(this, newMeasuringPointRepository)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newMeasuringPointRepository != null) {
-                msgs = ((InternalEObject) newMeasuringPointRepository).eInverseAdd(this,
-                        MeasuringpointPackage.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                        MeasuringPointRepository.class, msgs);
-            }
-            msgs = this.basicSetMeasuringPointRepository(newMeasuringPointRepository, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__MEASURING_POINT_REPOSITORY,
-                    newMeasuringPointRepository, newMeasuringPointRepository));
-        }
+        this.eDynamicSet(
+                PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__MEASURING_POINT_REPOSITORY,
+                MeasuringpointPackage.Literals.MEASURING_POINT__MEASURING_POINT_REPOSITORY, newMeasuringPointRepository);
     }
 
     /**
@@ -205,16 +159,16 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends AssemblyReference
      */
     @Override
     public String getStringRepresentation() {
-        if (this.assembly == null || this.passiveResource == null) {
+        if (this.getAssembly() == null || this.getPassiveResource() == null) {
             return "";
         }
         EcoreUtil.resolveAll(this);
         final StringBuilder result = new StringBuilder();
 
         result.append("Passive Resource: ");
-        result.append(this.assembly.getEntityName());
+        result.append(this.getAssembly().getEntityName());
         result.append(".");
-        result.append(this.passiveResource.getEntityName());
+        result.append(this.getPassiveResource().getEntityName());
 
         return result.toString();
     }
@@ -226,16 +180,16 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends AssemblyReference
      */
     @Override
     public String getResourceURIRepresentation() {
-        if (this.passiveResource == null) {
+        if (this.getPassiveResource() == null) {
             return "";
         }
         EcoreUtil.resolveAll(this);
-        return EMFLoadHelper.getResourceURI(this.passiveResource);
+        return EMFLoadHelper.getResourceURI(this.getPassiveResource());
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -252,7 +206,7 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends AssemblyReference
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -267,7 +221,7 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends AssemblyReference
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -283,7 +237,7 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends AssemblyReference
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -306,7 +260,7 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends AssemblyReference
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -324,7 +278,7 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends AssemblyReference
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -342,14 +296,14 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends AssemblyReference
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__PASSIVE_RESOURCE:
-            return this.passiveResource != null;
+            return this.basicGetPassiveResource() != null;
         case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
             return this.getMeasuringPointRepository() != null;
         case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__STRING_REPRESENTATION:
@@ -364,7 +318,7 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends AssemblyReference
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -394,7 +348,7 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends AssemblyReference
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

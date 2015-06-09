@@ -22,7 +22,7 @@ import de.fzi.se.quality.parameters.ParametersPackage;
  * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- *
+ * 
  * @see de.fzi.se.quality.parameters.pcm.PCMFactory
  * @model kind="package"
  * @generated
@@ -31,28 +31,28 @@ public interface PCMPackage extends EPackage {
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String eNAME = "pcm";
 
     /**
      * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String eNS_URI = "http://fzi.de/PalladioComponentModel/Quality/Parameters/PCM/0.2";
 
     /**
      * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String eNS_PREFIX = "pcmparameters";
 
     /**
      * The singleton instance of the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     PCMPackage eINSTANCE = de.fzi.se.quality.parameters.pcm.impl.PCMPackageImpl.init();
@@ -61,7 +61,7 @@ public interface PCMPackage extends EPackage {
      * The meta object id for the '
      * {@link de.fzi.se.quality.parameters.pcm.impl.PCMParameterReferenceImpl
      * <em>Parameter Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.fzi.se.quality.parameters.pcm.impl.PCMParameterReferenceImpl
      * @see de.fzi.se.quality.parameters.pcm.impl.PCMPackageImpl#getPCMParameterReference()
      * @generated
@@ -71,7 +71,7 @@ public interface PCMPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -117,7 +117,7 @@ public interface PCMPackage extends EPackage {
      * The meta object id for the '
      * {@link de.fzi.se.quality.parameters.pcm.impl.PCMParameterValueImpl <em>Parameter Value</em>}'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.fzi.se.quality.parameters.pcm.impl.PCMParameterValueImpl
      * @see de.fzi.se.quality.parameters.pcm.impl.PCMPackageImpl#getPCMParameterValue()
      * @generated
@@ -127,7 +127,7 @@ public interface PCMPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -154,7 +154,7 @@ public interface PCMPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Variable Characterisations</b></em>' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -174,7 +174,7 @@ public interface PCMPackage extends EPackage {
      * {@link de.fzi.se.quality.parameters.pcm.impl.PCMInfrastructureOperationReferenceImpl
      * <em>Infrastructure Operation Reference</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see de.fzi.se.quality.parameters.pcm.impl.PCMInfrastructureOperationReferenceImpl
      * @see de.fzi.se.quality.parameters.pcm.impl.PCMPackageImpl#getPCMInfrastructureOperationReference()
      * @generated
@@ -184,7 +184,7 @@ public interface PCMPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -202,7 +202,7 @@ public interface PCMPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Role</b></em>' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -211,7 +211,7 @@ public interface PCMPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Signature</b></em>' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -220,7 +220,7 @@ public interface PCMPackage extends EPackage {
     /**
      * The number of structural features of the '<em>Infrastructure Operation Reference</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -230,7 +230,7 @@ public interface PCMPackage extends EPackage {
      * The meta object id for the '
      * {@link de.fzi.se.quality.parameters.pcm.impl.PCMBusinessOperationReferenceImpl
      * <em>Business Operation Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.fzi.se.quality.parameters.pcm.impl.PCMBusinessOperationReferenceImpl
      * @see de.fzi.se.quality.parameters.pcm.impl.PCMPackageImpl#getPCMBusinessOperationReference()
      * @generated
@@ -240,7 +240,7 @@ public interface PCMPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -258,7 +258,7 @@ public interface PCMPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Role</b></em>' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -267,7 +267,7 @@ public interface PCMPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Signature</b></em>' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -286,7 +286,7 @@ public interface PCMPackage extends EPackage {
      * The meta object id for the '
      * {@link de.fzi.se.quality.parameters.pcm.impl.PCMComponentReferenceImpl
      * <em>Component Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.fzi.se.quality.parameters.pcm.impl.PCMComponentReferenceImpl
      * @see de.fzi.se.quality.parameters.pcm.impl.PCMPackageImpl#getPCMComponentReference()
      * @generated
@@ -296,7 +296,7 @@ public interface PCMPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -314,7 +314,7 @@ public interface PCMPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Basic Component</b></em>' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -333,7 +333,7 @@ public interface PCMPackage extends EPackage {
      * The meta object id for the '
      * {@link de.fzi.se.quality.parameters.pcm.impl.PCMComponentParameterReferenceImpl
      * <em>Component Parameter Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.fzi.se.quality.parameters.pcm.impl.PCMComponentParameterReferenceImpl
      * @see de.fzi.se.quality.parameters.pcm.impl.PCMPackageImpl#getPCMComponentParameterReference()
      * @generated
@@ -343,7 +343,7 @@ public interface PCMPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -388,7 +388,7 @@ public interface PCMPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Variable Usage</b></em>' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -407,7 +407,7 @@ public interface PCMPackage extends EPackage {
      * The meta object id for the '
      * {@link de.fzi.se.quality.parameters.pcm.impl.PCMOperationParameterReferenceImpl
      * <em>Operation Parameter Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.fzi.se.quality.parameters.pcm.impl.PCMOperationParameterReferenceImpl
      * @see de.fzi.se.quality.parameters.pcm.impl.PCMPackageImpl#getPCMOperationParameterReference()
      * @generated
@@ -417,7 +417,7 @@ public interface PCMPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -453,7 +453,7 @@ public interface PCMPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Parameter</b></em>' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -473,7 +473,7 @@ public interface PCMPackage extends EPackage {
      * {@link de.fzi.se.quality.parameters.pcm.impl.PCMRequiredBusinessOperationReturnParameterReferenceImpl
      * <em>Required Business Operation Return Parameter Reference</em>}' class. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.fzi.se.quality.parameters.pcm.impl.PCMRequiredBusinessOperationReturnParameterReferenceImpl
      * @see de.fzi.se.quality.parameters.pcm.impl.PCMPackageImpl#getPCMRequiredBusinessOperationReturnParameterReference()
      * @generated
@@ -483,7 +483,7 @@ public interface PCMPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -519,7 +519,7 @@ public interface PCMPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Required Role</b></em>' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -528,7 +528,7 @@ public interface PCMPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Signature</b></em>' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -538,7 +538,7 @@ public interface PCMPackage extends EPackage {
      * The number of structural features of the '
      * <em>Required Business Operation Return Parameter Reference</em>' class. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -548,7 +548,7 @@ public interface PCMPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.fzi.se.quality.parameters.pcm.PCMParameterReference <em>Parameter Reference</em>}'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Parameter Reference</em>'.
      * @see de.fzi.se.quality.parameters.pcm.PCMParameterReference
      * @generated
@@ -558,7 +558,7 @@ public interface PCMPackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.fzi.se.quality.parameters.pcm.PCMParameterValue
      * <em>Parameter Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Parameter Value</em>'.
      * @see de.fzi.se.quality.parameters.pcm.PCMParameterValue
      * @generated
@@ -569,7 +569,7 @@ public interface PCMPackage extends EPackage {
      * Returns the meta object for the containment reference list '
      * {@link de.fzi.se.quality.parameters.pcm.PCMParameterValue#getVariableCharacterisations
      * <em>Variable Characterisations</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the containment reference list '
      *         <em>Variable Characterisations</em>'.
      * @see de.fzi.se.quality.parameters.pcm.PCMParameterValue#getVariableCharacterisations()
@@ -582,7 +582,7 @@ public interface PCMPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference
      * <em>Infrastructure Operation Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Infrastructure Operation Reference</em>'.
      * @see de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference
      * @generated
@@ -593,7 +593,7 @@ public interface PCMPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference#getRole
      * <em>Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the reference '<em>Role</em>'.
      * @see de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference#getRole()
      * @see #getPCMInfrastructureOperationReference()
@@ -605,7 +605,7 @@ public interface PCMPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference#getSignature
      * <em>Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the reference '<em>Signature</em>'.
      * @see de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference#getSignature()
      * @see #getPCMInfrastructureOperationReference()
@@ -617,7 +617,7 @@ public interface PCMPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference
      * <em>Business Operation Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Business Operation Reference</em>'.
      * @see de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference
      * @generated
@@ -628,7 +628,7 @@ public interface PCMPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference#getRole <em>Role</em>}
      * '. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the reference '<em>Role</em>'.
      * @see de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference#getRole()
      * @see #getPCMBusinessOperationReference()
@@ -640,7 +640,7 @@ public interface PCMPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference#getSignature
      * <em>Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the reference '<em>Signature</em>'.
      * @see de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference#getSignature()
      * @see #getPCMBusinessOperationReference()
@@ -652,7 +652,7 @@ public interface PCMPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.fzi.se.quality.parameters.pcm.PCMComponentReference <em>Component Reference</em>}'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Component Reference</em>'.
      * @see de.fzi.se.quality.parameters.pcm.PCMComponentReference
      * @generated
@@ -663,7 +663,7 @@ public interface PCMPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.fzi.se.quality.parameters.pcm.PCMComponentReference#getBasicComponent
      * <em>Basic Component</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the reference '<em>Basic Component</em>'.
      * @see de.fzi.se.quality.parameters.pcm.PCMComponentReference#getBasicComponent()
      * @see #getPCMComponentReference()
@@ -675,7 +675,7 @@ public interface PCMPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.fzi.se.quality.parameters.pcm.PCMComponentParameterReference
      * <em>Component Parameter Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Component Parameter Reference</em>'.
      * @see de.fzi.se.quality.parameters.pcm.PCMComponentParameterReference
      * @generated
@@ -686,7 +686,7 @@ public interface PCMPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.fzi.se.quality.parameters.pcm.PCMComponentParameterReference#getImplementationComponentType
      * <em>Implementation Component Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the reference '<em>Implementation Component Type</em>'.
      * @see de.fzi.se.quality.parameters.pcm.PCMComponentParameterReference#getImplementationComponentType()
      * @see #getPCMComponentParameterReference()
@@ -698,7 +698,7 @@ public interface PCMPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.fzi.se.quality.parameters.pcm.PCMComponentParameterReference#getVariableUsage
      * <em>Variable Usage</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the reference '<em>Variable Usage</em>'.
      * @see de.fzi.se.quality.parameters.pcm.PCMComponentParameterReference#getVariableUsage()
      * @see #getPCMComponentParameterReference()
@@ -710,7 +710,7 @@ public interface PCMPackage extends EPackage {
      * Returns the meta object for class '
      * {@link de.fzi.se.quality.parameters.pcm.PCMOperationParameterReference
      * <em>Operation Parameter Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Operation Parameter Reference</em>'.
      * @see de.fzi.se.quality.parameters.pcm.PCMOperationParameterReference
      * @generated
@@ -721,7 +721,7 @@ public interface PCMPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.fzi.se.quality.parameters.pcm.PCMOperationParameterReference#getParameter
      * <em>Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the reference '<em>Parameter</em>'.
      * @see de.fzi.se.quality.parameters.pcm.PCMOperationParameterReference#getParameter()
      * @see #getPCMOperationParameterReference()
@@ -734,7 +734,7 @@ public interface PCMPackage extends EPackage {
      * {@link de.fzi.se.quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference
      * <em>Required Business Operation Return Parameter Reference</em>}'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '
      *         <em>Required Business Operation Return Parameter Reference</em>'.
      * @see de.fzi.se.quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference
@@ -746,7 +746,7 @@ public interface PCMPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.fzi.se.quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference#getRequiredRole
      * <em>Required Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the reference '<em>Required Role</em>'.
      * @see de.fzi.se.quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference#getRequiredRole()
      * @see #getPCMRequiredBusinessOperationReturnParameterReference()
@@ -758,7 +758,7 @@ public interface PCMPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link de.fzi.se.quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference#getSignature
      * <em>Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the reference '<em>Signature</em>'.
      * @see de.fzi.se.quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference#getSignature()
      * @see #getPCMRequiredBusinessOperationReturnParameterReference()
@@ -769,7 +769,7 @@ public interface PCMPackage extends EPackage {
     /**
      * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @return the factory that creates the instances of the model.
      * @generated
      */
@@ -784,7 +784,7 @@ public interface PCMPackage extends EPackage {
      * <li>and each data type</li>
      * </ul>
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     interface Literals {
@@ -793,7 +793,7 @@ public interface PCMPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.fzi.se.quality.parameters.pcm.impl.PCMParameterReferenceImpl
          * <em>Parameter Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @see de.fzi.se.quality.parameters.pcm.impl.PCMParameterReferenceImpl
          * @see de.fzi.se.quality.parameters.pcm.impl.PCMPackageImpl#getPCMParameterReference()
          * @generated
@@ -804,7 +804,7 @@ public interface PCMPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.fzi.se.quality.parameters.pcm.impl.PCMParameterValueImpl
          * <em>Parameter Value</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @see de.fzi.se.quality.parameters.pcm.impl.PCMParameterValueImpl
          * @see de.fzi.se.quality.parameters.pcm.impl.PCMPackageImpl#getPCMParameterValue()
          * @generated
@@ -814,7 +814,7 @@ public interface PCMPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Variable Characterisations</b></em>' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS = eINSTANCE
@@ -825,7 +825,7 @@ public interface PCMPackage extends EPackage {
          * {@link de.fzi.se.quality.parameters.pcm.impl.PCMInfrastructureOperationReferenceImpl
          * <em>Infrastructure Operation Reference</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         *
+         * 
          * @see de.fzi.se.quality.parameters.pcm.impl.PCMInfrastructureOperationReferenceImpl
          * @see de.fzi.se.quality.parameters.pcm.impl.PCMPackageImpl#getPCMInfrastructureOperationReference()
          * @generated
@@ -882,7 +882,7 @@ public interface PCMPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.fzi.se.quality.parameters.pcm.impl.PCMComponentReferenceImpl
          * <em>Component Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @see de.fzi.se.quality.parameters.pcm.impl.PCMComponentReferenceImpl
          * @see de.fzi.se.quality.parameters.pcm.impl.PCMPackageImpl#getPCMComponentReference()
          * @generated
@@ -912,7 +912,7 @@ public interface PCMPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Implementation Component Type</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference PCM_COMPONENT_PARAMETER_REFERENCE__IMPLEMENTATION_COMPONENT_TYPE = eINSTANCE

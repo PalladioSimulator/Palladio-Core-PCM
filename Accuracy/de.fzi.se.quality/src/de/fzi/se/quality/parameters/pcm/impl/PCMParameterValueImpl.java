@@ -12,7 +12,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.fzi.se.quality.parameters.impl.ParameterValueImpl;
@@ -37,19 +36,8 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 public class PCMParameterValueImpl extends ParameterValueImpl implements PCMParameterValue {
 
     /**
-     * The cached value of the '{@link #getVariableCharacterisations()
-     * <em>Variable Characterisations</em>}' containment reference list. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getVariableCharacterisations()
-     * @generated
-     * @ordered
-     */
-    protected EList<VariableUsage> variableCharacterisations;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMParameterValueImpl() {
@@ -58,7 +46,7 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -68,21 +56,19 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getVariableCharacterisations() {
-        if (this.variableCharacterisations == null) {
-            this.variableCharacterisations = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this,
-                    PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS);
-        }
-        return this.variableCharacterisations;
+        return (EList<VariableUsage>) this.eDynamicGet(PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS,
+                PCMPackage.Literals.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -97,7 +83,7 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -111,7 +97,7 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -128,7 +114,7 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -143,14 +129,14 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS:
-            return this.variableCharacterisations != null && !this.variableCharacterisations.isEmpty();
+            return !this.getVariableCharacterisations().isEmpty();
         }
         return super.eIsSet(featureID);
     }

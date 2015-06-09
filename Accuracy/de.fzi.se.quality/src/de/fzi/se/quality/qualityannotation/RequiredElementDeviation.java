@@ -43,7 +43,7 @@ public interface RequiredElementDeviation extends CDOObject {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Internal State Influence Analysis Aggregation</em>' container
      *         reference.
      * @see #setInternalStateInfluenceAnalysisAggregation(InternalStateInfluenceAnalysisAggregation)
@@ -90,7 +90,7 @@ public interface RequiredElementDeviation extends CDOObject {
      * {@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation#getMaximumDeviationNumberOfCalls
      * <em>Maximum Deviation Number Of Calls</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Maximum Deviation Number Of Calls</em>' reference.
      * @see #getMaximumDeviationNumberOfCalls()
@@ -110,7 +110,7 @@ public interface RequiredElementDeviation extends CDOObject {
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Maximum Deviation Call Parameter Values</em>' containment
      *         reference list.
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getRequiredElementDeviation_MaximumDeviationCallParameterValues()
@@ -130,7 +130,7 @@ public interface RequiredElementDeviation extends CDOObject {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Required Element</em>' containment reference.
      * @see #setRequiredElement(RequiredElement)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getRequiredElementDeviation_RequiredElement()

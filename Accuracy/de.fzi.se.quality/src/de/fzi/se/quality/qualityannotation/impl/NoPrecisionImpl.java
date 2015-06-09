@@ -23,7 +23,7 @@ public class NoPrecisionImpl extends PrecisionImpl implements NoPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected NoPrecisionImpl() {
@@ -32,7 +32,7 @@ public class NoPrecisionImpl extends PrecisionImpl implements NoPrecision {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

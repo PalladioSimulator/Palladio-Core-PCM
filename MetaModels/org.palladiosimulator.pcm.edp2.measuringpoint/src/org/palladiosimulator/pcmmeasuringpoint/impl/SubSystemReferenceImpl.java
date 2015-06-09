@@ -2,11 +2,7 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 import org.palladiosimulator.pcmmeasuringpoint.SubSystemReference;
@@ -29,18 +25,8 @@ import de.uka.ipd.sdq.pcm.subsystem.SubSystem;
 public abstract class SubSystemReferenceImpl extends CDOObjectImpl implements SubSystemReference {
 
     /**
-     * The cached value of the '{@link #getSubsystem() <em>Subsystem</em>}' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getSubsystem()
-     * @generated
-     * @ordered
-     */
-    protected SubSystem subsystem;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SubSystemReferenceImpl() {
@@ -49,7 +35,7 @@ public abstract class SubSystemReferenceImpl extends CDOObjectImpl implements Su
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -59,51 +45,49 @@ public abstract class SubSystemReferenceImpl extends CDOObjectImpl implements Su
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    protected int eStaticFeatureCount() {
+        return 0;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public SubSystem getSubsystem() {
-        if (this.subsystem != null && ((EObject) this.subsystem).eIsProxy()) {
-            final InternalEObject oldSubsystem = (InternalEObject) this.subsystem;
-            this.subsystem = (SubSystem) this.eResolveProxy(oldSubsystem);
-            if (this.subsystem != oldSubsystem) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PcmmeasuringpointPackage.SUB_SYSTEM_REFERENCE__SUBSYSTEM, oldSubsystem, this.subsystem));
-                }
-            }
-        }
-        return this.subsystem;
+        return (SubSystem) this.eDynamicGet(PcmmeasuringpointPackage.SUB_SYSTEM_REFERENCE__SUBSYSTEM,
+                PcmmeasuringpointPackage.Literals.SUB_SYSTEM_REFERENCE__SUBSYSTEM, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SubSystem basicGetSubsystem() {
-        return this.subsystem;
+        return (SubSystem) this.eDynamicGet(PcmmeasuringpointPackage.SUB_SYSTEM_REFERENCE__SUBSYSTEM,
+                PcmmeasuringpointPackage.Literals.SUB_SYSTEM_REFERENCE__SUBSYSTEM, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSubsystem(final SubSystem newSubsystem) {
-        final SubSystem oldSubsystem = this.subsystem;
-        this.subsystem = newSubsystem;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.SUB_SYSTEM_REFERENCE__SUBSYSTEM, oldSubsystem, this.subsystem));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.SUB_SYSTEM_REFERENCE__SUBSYSTEM,
+                PcmmeasuringpointPackage.Literals.SUB_SYSTEM_REFERENCE__SUBSYSTEM, newSubsystem);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -120,7 +104,7 @@ public abstract class SubSystemReferenceImpl extends CDOObjectImpl implements Su
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -135,7 +119,7 @@ public abstract class SubSystemReferenceImpl extends CDOObjectImpl implements Su
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -150,14 +134,14 @@ public abstract class SubSystemReferenceImpl extends CDOObjectImpl implements Su
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case PcmmeasuringpointPackage.SUB_SYSTEM_REFERENCE__SUBSYSTEM:
-            return this.subsystem != null;
+            return this.basicGetSubsystem() != null;
         }
         return super.eIsSet(featureID);
     }

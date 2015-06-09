@@ -7,14 +7,10 @@ package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
@@ -50,35 +46,14 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getActiveResourceSpecifications_ResourceContainer()
-     * <em>Active Resource Specifications Resource Container</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getActiveResourceSpecifications_ResourceContainer()
-     * @generated
-     * @ordered
-     */
-    protected EList<ProcessingResourceSpecification> activeResourceSpecifications_ResourceContainer;
-    /**
-     * The cached value of the '{@link #getNestedResourceContainers__ResourceContainer()
-     * <em>Nested Resource Containers Resource Container</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getNestedResourceContainers__ResourceContainer()
-     * @generated
-     * @ordered
-     */
-    protected EList<ResourceContainer> nestedResourceContainers__ResourceContainer;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceContainerImpl() {
@@ -87,7 +62,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -97,38 +72,35 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<ProcessingResourceSpecification> getActiveResourceSpecifications_ResourceContainer() {
-        if (this.activeResourceSpecifications_ResourceContainer == null) {
-            this.activeResourceSpecifications_ResourceContainer = new EObjectContainmentWithInverseEList<ProcessingResourceSpecification>(
-                    ProcessingResourceSpecification.class,
-                    this,
-                    ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER,
-                    ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION);
-        }
-        return this.activeResourceSpecifications_ResourceContainer;
+        return (EList<ProcessingResourceSpecification>) this
+                .eDynamicGet(
+                        ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER,
+                        ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceEnvironment getResourceEnvironment_ResourceContainer() {
-        if (this.eContainerFeatureID() != ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER) {
-            return null;
-        }
-        return (ResourceEnvironment) this.eInternalContainer();
+        return (ResourceEnvironment) this.eDynamicGet(
+                ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER,
+                ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER, true,
+                true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceEnvironment_ResourceContainer(
@@ -140,70 +112,47 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setResourceEnvironment_ResourceContainer(
             final ResourceEnvironment newResourceEnvironment_ResourceContainer) {
-        if (newResourceEnvironment_ResourceContainer != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER && newResourceEnvironment_ResourceContainer != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceEnvironment_ResourceContainer)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newResourceEnvironment_ResourceContainer != null) {
-                msgs = ((InternalEObject) newResourceEnvironment_ResourceContainer).eInverseAdd(this,
-                        ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT,
-                        ResourceEnvironment.class, msgs);
-            }
-            msgs = this.basicSetResourceEnvironment_ResourceContainer(newResourceEnvironment_ResourceContainer, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER,
-                    newResourceEnvironment_ResourceContainer, newResourceEnvironment_ResourceContainer));
-        }
+        this.eDynamicSet(ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER,
+                ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER,
+                newResourceEnvironment_ResourceContainer);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<ResourceContainer> getNestedResourceContainers__ResourceContainer() {
-        if (this.nestedResourceContainers__ResourceContainer == null) {
-            this.nestedResourceContainers__ResourceContainer = new EObjectContainmentWithInverseEList<ResourceContainer>(
-                    ResourceContainer.class, this,
-                    ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER,
-                    ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER);
-        }
-        return this.nestedResourceContainers__ResourceContainer;
+        return (EList<ResourceContainer>) this.eDynamicGet(
+                ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER,
+                ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER,
+                true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceContainer getParentResourceContainer__ResourceContainer() {
-        if (this.eContainerFeatureID() != ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER) {
-            return null;
-        }
-        return (ResourceContainer) this.eInternalContainer();
+        return (ResourceContainer) this.eDynamicGet(
+                ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER,
+                ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER,
+                true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParentResourceContainer__ResourceContainer(
@@ -215,41 +164,20 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setParentResourceContainer__ResourceContainer(
             final ResourceContainer newParentResourceContainer__ResourceContainer) {
-        if (newParentResourceContainer__ResourceContainer != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER && newParentResourceContainer__ResourceContainer != null)) {
-            if (EcoreUtil.isAncestor(this, newParentResourceContainer__ResourceContainer)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newParentResourceContainer__ResourceContainer != null) {
-                msgs = ((InternalEObject) newParentResourceContainer__ResourceContainer).eInverseAdd(this,
-                        ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER,
-                        ResourceContainer.class, msgs);
-            }
-            msgs = this.basicSetParentResourceContainer__ResourceContainer(
-                    newParentResourceContainer__ResourceContainer, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER,
-                    newParentResourceContainer__ResourceContainer, newParentResourceContainer__ResourceContainer));
-        }
+        this.eDynamicSet(ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER,
+                ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER,
+                newParentResourceContainer__ResourceContainer);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -278,7 +206,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -301,7 +229,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -321,7 +249,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -341,7 +269,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -370,7 +298,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -394,7 +322,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -402,13 +330,11 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
-            return this.activeResourceSpecifications_ResourceContainer != null
-            && !this.activeResourceSpecifications_ResourceContainer.isEmpty();
+            return !this.getActiveResourceSpecifications_ResourceContainer().isEmpty();
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
             return this.getResourceEnvironment_ResourceContainer() != null;
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER:
-            return this.nestedResourceContainers__ResourceContainer != null
-            && !this.nestedResourceContainers__ResourceContainer.isEmpty();
+            return !this.getNestedResourceContainers__ResourceContainer().isEmpty();
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER:
             return this.getParentResourceContainer__ResourceContainer() != null;
         }

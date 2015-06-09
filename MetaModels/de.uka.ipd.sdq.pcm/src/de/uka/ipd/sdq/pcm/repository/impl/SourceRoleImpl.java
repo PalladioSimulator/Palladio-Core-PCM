@@ -5,11 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import de.uka.ipd.sdq.pcm.repository.EventGroup;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
@@ -32,24 +28,14 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getEventGroup__SourceRole()
-     * <em>Event Group Source Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getEventGroup__SourceRole()
-     * @generated
-     * @ordered
-     */
-    protected EventGroup eventGroup__SourceRole;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SourceRoleImpl() {
@@ -58,7 +44,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -68,53 +54,39 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EventGroup getEventGroup__SourceRole() {
-        if (this.eventGroup__SourceRole != null && ((EObject) this.eventGroup__SourceRole).eIsProxy()) {
-            final InternalEObject oldEventGroup__SourceRole = (InternalEObject) this.eventGroup__SourceRole;
-            this.eventGroup__SourceRole = (EventGroup) this.eResolveProxy(oldEventGroup__SourceRole);
-            if (this.eventGroup__SourceRole != oldEventGroup__SourceRole) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            RepositoryPackage.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE, oldEventGroup__SourceRole,
-                            this.eventGroup__SourceRole));
-                }
-            }
-        }
-        return this.eventGroup__SourceRole;
+        return (EventGroup) this.eDynamicGet(RepositoryPackage.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE,
+                RepositoryPackage.Literals.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public EventGroup basicGetEventGroup__SourceRole() {
-        return this.eventGroup__SourceRole;
+        return (EventGroup) this.eDynamicGet(RepositoryPackage.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE,
+                RepositoryPackage.Literals.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setEventGroup__SourceRole(final EventGroup newEventGroup__SourceRole) {
-        final EventGroup oldEventGroup__SourceRole = this.eventGroup__SourceRole;
-        this.eventGroup__SourceRole = newEventGroup__SourceRole;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE, oldEventGroup__SourceRole,
-                    this.eventGroup__SourceRole));
-        }
+        this.eDynamicSet(RepositoryPackage.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE,
+                RepositoryPackage.Literals.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE, newEventGroup__SourceRole);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -131,7 +103,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -146,7 +118,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -161,14 +133,14 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE:
-            return this.eventGroup__SourceRole != null;
+            return this.basicGetEventGroup__SourceRole() != null;
         }
         return super.eIsSet(featureID);
     }

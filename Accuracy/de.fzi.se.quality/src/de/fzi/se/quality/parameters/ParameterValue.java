@@ -39,7 +39,7 @@ public interface ParameterValue extends Identifier {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Parameter Instance</em>' container reference.
      * @see #setParameterInstance(ParameterInstance)
      * @see de.fzi.se.quality.parameters.ParametersPackage#getParameterValue_ParameterInstance()
@@ -72,7 +72,7 @@ public interface ParameterValue extends Identifier {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Parameter Value Deviation</em>' container reference.
      * @see #setParameterValueDeviation(ParameterValueDeviation)
      * @see de.fzi.se.quality.parameters.ParametersPackage#getParameterValue_ParameterValueDeviation()
@@ -87,7 +87,7 @@ public interface ParameterValue extends Identifier {
      * {@link de.fzi.se.quality.parameters.ParameterValue#getParameterValueDeviation
      * <em>Parameter Value Deviation</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Parameter Value Deviation</em>' container reference.
      * @see #getParameterValueDeviation()

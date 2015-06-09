@@ -9,7 +9,6 @@ package de.fzi.se.quality.qualityannotation.impl;
 import java.util.Collection;
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -17,11 +16,8 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
@@ -60,28 +56,8 @@ import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 public abstract class RequiredElementImpl extends IdentifierImpl implements RequiredElement {
 
     /**
-     * The cached value of the '{@link #getChildREs() <em>Child REs</em>}' containment reference
-     * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getChildREs()
-     * @generated
-     * @ordered
-     */
-    protected EList<RequiredElement> childREs;
-
-    /**
-     * The cached value of the '{@link #getPrecision() <em>Precision</em>}' containment reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getPrecision()
-     * @generated
-     * @ordered
-     */
-    protected REPrecision precision;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected RequiredElementImpl() {
@@ -90,7 +66,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -100,20 +76,19 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public RequiredElementDeviation getRequiredElementDeviation() {
-        if (this.eContainerFeatureID() != QualityAnnotationPackage.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION) {
-            return null;
-        }
-        return (RequiredElementDeviation) this.eInternalContainer();
+        return (RequiredElementDeviation) this.eDynamicGet(
+                QualityAnnotationPackage.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION,
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetRequiredElementDeviation(
@@ -125,67 +100,42 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRequiredElementDeviation(final RequiredElementDeviation newRequiredElementDeviation) {
-        if (newRequiredElementDeviation != this.eInternalContainer()
-                || (this.eContainerFeatureID() != QualityAnnotationPackage.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION && newRequiredElementDeviation != null)) {
-            if (EcoreUtil.isAncestor(this, newRequiredElementDeviation)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newRequiredElementDeviation != null) {
-                msgs = ((InternalEObject) newRequiredElementDeviation).eInverseAdd(this,
-                        QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT,
-                        RequiredElementDeviation.class, msgs);
-            }
-            msgs = this.basicSetRequiredElementDeviation(newRequiredElementDeviation, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION, newRequiredElementDeviation,
-                    newRequiredElementDeviation));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION,
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION,
+                newRequiredElementDeviation);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<RequiredElement> getChildREs() {
-        if (this.childREs == null) {
-            this.childREs = new EObjectContainmentWithInverseEList<RequiredElement>(RequiredElement.class, this,
-                    QualityAnnotationPackage.REQUIRED_ELEMENT__CHILD_RES,
-                    QualityAnnotationPackage.REQUIRED_ELEMENT__PARENT_RE);
-        }
-        return this.childREs;
+        return (EList<RequiredElement>) this.eDynamicGet(QualityAnnotationPackage.REQUIRED_ELEMENT__CHILD_RES,
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__CHILD_RES, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public RequiredElement getParentRE() {
-        if (this.eContainerFeatureID() != QualityAnnotationPackage.REQUIRED_ELEMENT__PARENT_RE) {
-            return null;
-        }
-        return (RequiredElement) this.eInternalContainer();
+        return (RequiredElement) this.eDynamicGet(QualityAnnotationPackage.REQUIRED_ELEMENT__PARENT_RE,
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__PARENT_RE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParentRE(final RequiredElement newParentRE, NotificationChain msgs) {
@@ -196,107 +146,62 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setParentRE(final RequiredElement newParentRE) {
-        if (newParentRE != this.eInternalContainer()
-                || (this.eContainerFeatureID() != QualityAnnotationPackage.REQUIRED_ELEMENT__PARENT_RE && newParentRE != null)) {
-            if (EcoreUtil.isAncestor(this, newParentRE)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newParentRE != null) {
-                msgs = ((InternalEObject) newParentRE).eInverseAdd(this,
-                        QualityAnnotationPackage.REQUIRED_ELEMENT__CHILD_RES, RequiredElement.class, msgs);
-            }
-            msgs = this.basicSetParentRE(newParentRE, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.REQUIRED_ELEMENT__PARENT_RE, newParentRE, newParentRE));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.REQUIRED_ELEMENT__PARENT_RE,
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__PARENT_RE, newParentRE);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public REPrecision getPrecision() {
-        return this.precision;
+        return (REPrecision) this.eDynamicGet(QualityAnnotationPackage.REQUIRED_ELEMENT__PRECISION,
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__PRECISION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetPrecision(final REPrecision newPrecision, NotificationChain msgs) {
-        final REPrecision oldPrecision = this.precision;
-        this.precision = newPrecision;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.REQUIRED_ELEMENT__PRECISION, oldPrecision, newPrecision);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newPrecision,
+                QualityAnnotationPackage.REQUIRED_ELEMENT__PRECISION, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setPrecision(final REPrecision newPrecision) {
-        if (newPrecision != this.precision) {
-            NotificationChain msgs = null;
-            if (this.precision != null) {
-                msgs = ((InternalEObject) this.precision).eInverseRemove(this,
-                        QualityAnnotationPackage.RE_PRECISION__REQUIRED_ELEMENT, REPrecision.class, msgs);
-            }
-            if (newPrecision != null) {
-                msgs = ((InternalEObject) newPrecision).eInverseAdd(this,
-                        QualityAnnotationPackage.RE_PRECISION__REQUIRED_ELEMENT, REPrecision.class, msgs);
-            }
-            msgs = this.basicSetPrecision(newPrecision, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.REQUIRED_ELEMENT__PRECISION, newPrecision, newPrecision));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.REQUIRED_ELEMENT__PRECISION,
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__PRECISION, newPrecision);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public QualityAnnotation getQualityAnnotation() {
-        if (this.eContainerFeatureID() != QualityAnnotationPackage.REQUIRED_ELEMENT__QUALITY_ANNOTATION) {
-            return null;
-        }
-        return (QualityAnnotation) this.eInternalContainer();
+        return (QualityAnnotation) this.eDynamicGet(QualityAnnotationPackage.REQUIRED_ELEMENT__QUALITY_ANNOTATION,
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__QUALITY_ANNOTATION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetQualityAnnotation(final QualityAnnotation newQualityAnnotation,
@@ -308,34 +213,13 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setQualityAnnotation(final QualityAnnotation newQualityAnnotation) {
-        if (newQualityAnnotation != this.eInternalContainer()
-                || (this.eContainerFeatureID() != QualityAnnotationPackage.REQUIRED_ELEMENT__QUALITY_ANNOTATION && newQualityAnnotation != null)) {
-            if (EcoreUtil.isAncestor(this, newQualityAnnotation)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newQualityAnnotation != null) {
-                msgs = ((InternalEObject) newQualityAnnotation).eInverseAdd(this,
-                        QualityAnnotationPackage.QUALITY_ANNOTATION__STIPULATED_RE_PRECISIONS, QualityAnnotation.class,
-                        msgs);
-            }
-            msgs = this.basicSetQualityAnnotation(newQualityAnnotation, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.REQUIRED_ELEMENT__QUALITY_ANNOTATION, newQualityAnnotation,
-                    newQualityAnnotation));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.REQUIRED_ELEMENT__QUALITY_ANNOTATION,
+                QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__QUALITY_ANNOTATION, newQualityAnnotation);
     }
 
     /**
@@ -366,7 +250,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -386,13 +270,13 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
                 STIPULATED_PRECISION_MUST_BE_SET_IN_STIPULATION_CONTEXT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.REQUIRED_ELEMENT__STIPULATED_PRECISION_MUST_BE_SET_IN_STIPULATION_CONTEXT,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "StipulatedPrecisionMustBeSetInStipulationContext",
-                                                EObjectValidator.getObjectLabel(this, context) }),
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.REQUIRED_ELEMENT__STIPULATED_PRECISION_MUST_BE_SET_IN_STIPULATION_CONTEXT,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "StipulatedPrecisionMustBeSetInStipulationContext",
+                                EObjectValidator.getObjectLabel(this, context) }),
                                 new Object[] { this }));
             }
             return false;
@@ -402,7 +286,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -422,8 +306,9 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
             }
             return this.basicSetParentRE((RequiredElement) otherEnd, msgs);
         case QualityAnnotationPackage.REQUIRED_ELEMENT__PRECISION:
-            if (this.precision != null) {
-                msgs = ((InternalEObject) this.precision).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+            final REPrecision precision = this.getPrecision();
+            if (precision != null) {
+                msgs = ((InternalEObject) precision).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                         - QualityAnnotationPackage.REQUIRED_ELEMENT__PRECISION, null, msgs);
             }
             return this.basicSetPrecision((REPrecision) otherEnd, msgs);
@@ -438,7 +323,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -461,7 +346,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -484,7 +369,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -506,7 +391,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -535,7 +420,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -562,7 +447,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -571,11 +456,11 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
         case QualityAnnotationPackage.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION:
             return this.getRequiredElementDeviation() != null;
         case QualityAnnotationPackage.REQUIRED_ELEMENT__CHILD_RES:
-            return this.childREs != null && !this.childREs.isEmpty();
+            return !this.getChildREs().isEmpty();
         case QualityAnnotationPackage.REQUIRED_ELEMENT__PARENT_RE:
             return this.getParentRE() != null;
         case QualityAnnotationPackage.REQUIRED_ELEMENT__PRECISION:
-            return this.precision != null;
+            return this.getPrecision() != null;
         case QualityAnnotationPackage.REQUIRED_ELEMENT__QUALITY_ANNOTATION:
             return this.getQualityAnnotation() != null;
         }
@@ -585,7 +470,7 @@ public abstract class RequiredElementImpl extends IdentifierImpl implements Requ
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

@@ -6,11 +6,7 @@
  */
 package de.fzi.se.quality.parameters.pcm.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import de.fzi.se.quality.parameters.pcm.PCMOperationParameterReference;
 import de.fzi.se.quality.parameters.pcm.PCMPackage;
@@ -30,21 +26,11 @@ import de.uka.ipd.sdq.pcm.repository.Parameter;
  * @generated
  */
 public class PCMOperationParameterReferenceImpl extends PCMParameterReferenceImpl implements
-        PCMOperationParameterReference {
-
-    /**
-     * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getParameter()
-     * @generated
-     * @ordered
-     */
-    protected Parameter parameter;
+PCMOperationParameterReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMOperationParameterReferenceImpl() {
@@ -53,7 +39,7 @@ public class PCMOperationParameterReferenceImpl extends PCMParameterReferenceImp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -63,51 +49,39 @@ public class PCMOperationParameterReferenceImpl extends PCMParameterReferenceImp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Parameter getParameter() {
-        if (this.parameter != null && ((EObject) this.parameter).eIsProxy()) {
-            final InternalEObject oldParameter = (InternalEObject) this.parameter;
-            this.parameter = (Parameter) this.eResolveProxy(oldParameter);
-            if (this.parameter != oldParameter) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PCMPackage.PCM_OPERATION_PARAMETER_REFERENCE__PARAMETER, oldParameter, this.parameter));
-                }
-            }
-        }
-        return this.parameter;
+        return (Parameter) this.eDynamicGet(PCMPackage.PCM_OPERATION_PARAMETER_REFERENCE__PARAMETER,
+                PCMPackage.Literals.PCM_OPERATION_PARAMETER_REFERENCE__PARAMETER, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public Parameter basicGetParameter() {
-        return this.parameter;
+        return (Parameter) this.eDynamicGet(PCMPackage.PCM_OPERATION_PARAMETER_REFERENCE__PARAMETER,
+                PCMPackage.Literals.PCM_OPERATION_PARAMETER_REFERENCE__PARAMETER, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setParameter(final Parameter newParameter) {
-        final Parameter oldParameter = this.parameter;
-        this.parameter = newParameter;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PCMPackage.PCM_OPERATION_PARAMETER_REFERENCE__PARAMETER, oldParameter, this.parameter));
-        }
+        this.eDynamicSet(PCMPackage.PCM_OPERATION_PARAMETER_REFERENCE__PARAMETER,
+                PCMPackage.Literals.PCM_OPERATION_PARAMETER_REFERENCE__PARAMETER, newParameter);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -124,7 +98,7 @@ public class PCMOperationParameterReferenceImpl extends PCMParameterReferenceImp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -139,7 +113,7 @@ public class PCMOperationParameterReferenceImpl extends PCMParameterReferenceImp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -154,14 +128,14 @@ public class PCMOperationParameterReferenceImpl extends PCMParameterReferenceImp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case PCMPackage.PCM_OPERATION_PARAMETER_REFERENCE__PARAMETER:
-            return this.parameter != null;
+            return this.basicGetParameter() != null;
         }
         return super.eIsSet(featureID);
     }

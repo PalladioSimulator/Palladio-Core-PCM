@@ -7,18 +7,14 @@ package de.uka.ipd.sdq.pcm.seff.impl;
 
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
@@ -53,7 +49,7 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -69,28 +65,8 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
     protected static final String SEFF_TYPE_ID_EDEFAULT = "1";
 
     /**
-     * The cached value of the '{@link #getSeffTypeID() <em>Seff Type ID</em>}' attribute. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getSeffTypeID()
-     * @generated
-     * @ordered
-     */
-    protected String seffTypeID = SEFF_TYPE_ID_EDEFAULT;
-
-    /**
-     * The cached value of the '{@link #getDescribedService__SEFF() <em>Described Service SEFF</em>}
-     * ' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getDescribedService__SEFF()
-     * @generated
-     * @ordered
-     */
-    protected Signature describedService__SEFF;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ServiceEffectSpecificationImpl() {
@@ -99,7 +75,7 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -109,91 +85,84 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    protected int eStaticFeatureCount() {
+        return 0;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String getSeffTypeID() {
-        return this.seffTypeID;
+        return (String) this.eDynamicGet(SeffPackage.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID,
+                SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSeffTypeID(final String newSeffTypeID) {
-        final String oldSeffTypeID = this.seffTypeID;
-        this.seffTypeID = newSeffTypeID;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPackage.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID, oldSeffTypeID, this.seffTypeID));
-        }
+        this.eDynamicSet(SeffPackage.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID,
+                SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID, newSeffTypeID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Signature getDescribedService__SEFF() {
-        if (this.describedService__SEFF != null && ((EObject) this.describedService__SEFF).eIsProxy()) {
-            final InternalEObject oldDescribedService__SEFF = (InternalEObject) this.describedService__SEFF;
-            this.describedService__SEFF = (Signature) this.eResolveProxy(oldDescribedService__SEFF);
-            if (this.describedService__SEFF != oldDescribedService__SEFF) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF,
-                            oldDescribedService__SEFF, this.describedService__SEFF));
-                }
-            }
-        }
-        return this.describedService__SEFF;
+        return (Signature) this.eDynamicGet(SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF,
+                SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public Signature basicGetDescribedService__SEFF() {
-        return this.describedService__SEFF;
+        return (Signature) this.eDynamicGet(SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF,
+                SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setDescribedService__SEFF(final Signature newDescribedService__SEFF) {
-        final Signature oldDescribedService__SEFF = this.describedService__SEFF;
-        this.describedService__SEFF = newDescribedService__SEFF;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF, oldDescribedService__SEFF,
-                    this.describedService__SEFF));
-        }
+        this.eDynamicSet(SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF,
+                SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF, newDescribedService__SEFF);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public BasicComponent getBasicComponent_ServiceEffectSpecification() {
-        if (this.eContainerFeatureID() != SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION) {
-            return null;
-        }
-        return (BasicComponent) this.eInternalContainer();
+        return (BasicComponent) this.eDynamicGet(
+                SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION,
+                SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION, true,
+                true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetBasicComponent_ServiceEffectSpecification(
@@ -205,36 +174,15 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setBasicComponent_ServiceEffectSpecification(
             final BasicComponent newBasicComponent_ServiceEffectSpecification) {
-        if (newBasicComponent_ServiceEffectSpecification != this.eInternalContainer()
-                || (this.eContainerFeatureID() != SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION && newBasicComponent_ServiceEffectSpecification != null)) {
-            if (EcoreUtil.isAncestor(this, newBasicComponent_ServiceEffectSpecification)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newBasicComponent_ServiceEffectSpecification != null) {
-                msgs = ((InternalEObject) newBasicComponent_ServiceEffectSpecification).eInverseAdd(this,
-                        RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT,
-                        BasicComponent.class, msgs);
-            }
-            msgs = this.basicSetBasicComponent_ServiceEffectSpecification(newBasicComponent_ServiceEffectSpecification,
-                    msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION,
-                    newBasicComponent_ServiceEffectSpecification, newBasicComponent_ServiceEffectSpecification));
-        }
+        this.eDynamicSet(SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION,
+                SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION,
+                newBasicComponent_ServiceEffectSpecification);
     }
 
     /**
@@ -242,7 +190,7 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
      * {@link #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Referenced Signature Must Belong To Interface Referenced By Provided Role</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -260,7 +208,7 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
      * {@link #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Referenced Signature Must Belong To Interface Referenced By Provided Role</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -270,7 +218,7 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -307,7 +255,7 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -324,7 +272,7 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -339,7 +287,7 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -355,7 +303,7 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -376,7 +324,7 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -397,7 +345,7 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -418,17 +366,17 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID:
-            return SEFF_TYPE_ID_EDEFAULT == null ? this.seffTypeID != null : !SEFF_TYPE_ID_EDEFAULT
-                    .equals(this.seffTypeID);
+            return SEFF_TYPE_ID_EDEFAULT == null ? this.getSeffTypeID() != null : !SEFF_TYPE_ID_EDEFAULT.equals(this
+                    .getSeffTypeID());
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF:
-            return this.describedService__SEFF != null;
+            return this.basicGetDescribedService__SEFF() != null;
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION:
             return this.getBasicComponent_ServiceEffectSpecification() != null;
         }
@@ -436,27 +384,9 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (this.eIsProxy()) {
-            return super.toString();
-        }
-
-        final StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (seffTypeID: ");
-        result.append(this.seffTypeID);
-        result.append(')');
-        return result.toString();
-    }
-
-    /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

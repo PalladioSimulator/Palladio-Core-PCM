@@ -6,11 +6,7 @@
  */
 package de.fzi.se.quality.parameters.pcm.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import de.fzi.se.quality.parameters.impl.ComponentReferenceImpl;
 import de.fzi.se.quality.parameters.pcm.PCMComponentReference;
@@ -33,18 +29,8 @@ import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 public class PCMComponentReferenceImpl extends ComponentReferenceImpl implements PCMComponentReference {
 
     /**
-     * The cached value of the '{@link #getBasicComponent() <em>Basic Component</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getBasicComponent()
-     * @generated
-     * @ordered
-     */
-    protected BasicComponent basicComponent;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMComponentReferenceImpl() {
@@ -53,7 +39,7 @@ public class PCMComponentReferenceImpl extends ComponentReferenceImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -63,51 +49,39 @@ public class PCMComponentReferenceImpl extends ComponentReferenceImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public BasicComponent getBasicComponent() {
-        if (this.basicComponent != null && ((EObject) this.basicComponent).eIsProxy()) {
-            final InternalEObject oldBasicComponent = (InternalEObject) this.basicComponent;
-            this.basicComponent = (BasicComponent) this.eResolveProxy(oldBasicComponent);
-            if (this.basicComponent != oldBasicComponent) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PCMPackage.PCM_COMPONENT_REFERENCE__BASIC_COMPONENT, oldBasicComponent, this.basicComponent));
-                }
-            }
-        }
-        return this.basicComponent;
+        return (BasicComponent) this.eDynamicGet(PCMPackage.PCM_COMPONENT_REFERENCE__BASIC_COMPONENT,
+                PCMPackage.Literals.PCM_COMPONENT_REFERENCE__BASIC_COMPONENT, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public BasicComponent basicGetBasicComponent() {
-        return this.basicComponent;
+        return (BasicComponent) this.eDynamicGet(PCMPackage.PCM_COMPONENT_REFERENCE__BASIC_COMPONENT,
+                PCMPackage.Literals.PCM_COMPONENT_REFERENCE__BASIC_COMPONENT, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setBasicComponent(final BasicComponent newBasicComponent) {
-        final BasicComponent oldBasicComponent = this.basicComponent;
-        this.basicComponent = newBasicComponent;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PCMPackage.PCM_COMPONENT_REFERENCE__BASIC_COMPONENT, oldBasicComponent, this.basicComponent));
-        }
+        this.eDynamicSet(PCMPackage.PCM_COMPONENT_REFERENCE__BASIC_COMPONENT,
+                PCMPackage.Literals.PCM_COMPONENT_REFERENCE__BASIC_COMPONENT, newBasicComponent);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -124,7 +98,7 @@ public class PCMComponentReferenceImpl extends ComponentReferenceImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -139,7 +113,7 @@ public class PCMComponentReferenceImpl extends ComponentReferenceImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -154,14 +128,14 @@ public class PCMComponentReferenceImpl extends ComponentReferenceImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case PCMPackage.PCM_COMPONENT_REFERENCE__BASIC_COMPONENT:
-            return this.basicComponent != null;
+            return this.basicGetBasicComponent() != null;
         }
         return super.eIsSet(featureID);
     }

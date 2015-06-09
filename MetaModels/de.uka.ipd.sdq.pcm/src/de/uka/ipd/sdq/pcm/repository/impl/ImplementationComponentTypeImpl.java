@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import java.util.Collection;
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -16,10 +15,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.ocl.ParserException;
@@ -57,37 +53,15 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getParentCompleteComponentTypes()
-     * <em>Parent Complete Component Types</em>}' reference list. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getParentCompleteComponentTypes()
-     * @generated
-     * @ordered
-     */
-    protected EList<CompleteComponentType> parentCompleteComponentTypes;
-
-    /**
-     * The cached value of the '{@link #getComponentParameterUsage_ImplementationComponentType()
-     * <em>Component Parameter Usage Implementation Component Type</em>}' containment reference
-     * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getComponentParameterUsage_ImplementationComponentType()
-     * @generated
-     * @ordered
-     */
-    protected EList<VariableUsage> componentParameterUsage_ImplementationComponentType;
-
-    /**
      * The default value of the '{@link #getComponentType() <em>Component Type</em>}' attribute.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getComponentType()
      * @generated
      * @ordered
@@ -95,18 +69,8 @@ ImplementationComponentType {
     protected static final ComponentType COMPONENT_TYPE_EDEFAULT = ComponentType.BUSINESS_COMPONENT;
 
     /**
-     * The cached value of the '{@link #getComponentType() <em>Component Type</em>}' attribute. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getComponentType()
-     * @generated
-     * @ordered
-     */
-    protected ComponentType componentType = COMPONENT_TYPE_EDEFAULT;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ImplementationComponentTypeImpl() {
@@ -115,7 +79,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -125,61 +89,52 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<CompleteComponentType> getParentCompleteComponentTypes() {
-        if (this.parentCompleteComponentTypes == null) {
-            this.parentCompleteComponentTypes = new EObjectResolvingEList<CompleteComponentType>(
-                    CompleteComponentType.class, this,
-                    RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES);
-        }
-        return this.parentCompleteComponentTypes;
+        return (EList<CompleteComponentType>) this.eDynamicGet(
+                RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES,
+                RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getComponentParameterUsage_ImplementationComponentType() {
-        if (this.componentParameterUsage_ImplementationComponentType == null) {
-            this.componentParameterUsage_ImplementationComponentType = new EObjectContainmentEList<VariableUsage>(
-                    VariableUsage.class,
-                    this,
-                    RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE);
-        }
-        return this.componentParameterUsage_ImplementationComponentType;
+        return (EList<VariableUsage>) this
+                .eDynamicGet(
+                        RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE,
+                        RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ComponentType getComponentType() {
-        return this.componentType;
+        return (ComponentType) this.eDynamicGet(RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE,
+                RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setComponentType(final ComponentType newComponentType) {
-        final ComponentType oldComponentType = this.componentType;
-        this.componentType = newComponentType == null ? COMPONENT_TYPE_EDEFAULT : newComponentType;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE, oldComponentType,
-                    this.componentType));
-        }
+        this.eDynamicSet(RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE,
+                RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE, newComponentType);
     }
 
     /**
@@ -238,7 +193,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -325,7 +280,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -392,7 +347,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -464,7 +419,7 @@ ImplementationComponentType {
      * {@link #ProvideSameOrMoreInterfacesAsCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Provide Same Or More Interfaces As Complete Component Type</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ProvideSameOrMoreInterfacesAsCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -474,7 +429,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -543,7 +498,7 @@ ImplementationComponentType {
      * {@link #RequireSameOrFewerInterfacesAsCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Require Same Or Fewer Interfaces As Complete Component Type</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #RequireSameOrFewerInterfacesAsCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -553,7 +508,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -590,7 +545,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -606,7 +561,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -624,7 +579,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -649,7 +604,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -670,7 +625,7 @@ ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -678,38 +633,19 @@ ImplementationComponentType {
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES:
-            return this.parentCompleteComponentTypes != null && !this.parentCompleteComponentTypes.isEmpty();
+            return !this.getParentCompleteComponentTypes().isEmpty();
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
-            return this.componentParameterUsage_ImplementationComponentType != null
-            && !this.componentParameterUsage_ImplementationComponentType.isEmpty();
+            return !this.getComponentParameterUsage_ImplementationComponentType().isEmpty();
         case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE:
-            return this.componentType != COMPONENT_TYPE_EDEFAULT;
+            return this.getComponentType() != COMPONENT_TYPE_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (this.eIsProxy()) {
-            return super.toString();
-        }
-
-        final StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (componentType: ");
-        result.append(this.componentType);
-        result.append(')');
-        return result.toString();
-    }
-
-    /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

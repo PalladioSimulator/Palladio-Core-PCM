@@ -8,14 +8,10 @@ package de.fzi.se.quality.qualityannotation.impl;
 
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ocl.ParserException;
@@ -43,18 +39,8 @@ import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
 
     /**
-     * The cached value of the '{@link #getSignature() <em>Signature</em>}' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getSignature()
-     * @generated
-     * @ordered
-     */
-    protected OperationSignature signature;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMRESignatureImpl() {
@@ -63,7 +49,7 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -73,46 +59,34 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public OperationSignature getSignature() {
-        if (this.signature != null && ((EObject) this.signature).eIsProxy()) {
-            final InternalEObject oldSignature = (InternalEObject) this.signature;
-            this.signature = (OperationSignature) this.eResolveProxy(oldSignature);
-            if (this.signature != oldSignature) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            QualityAnnotationPackage.PCMRE_SIGNATURE__SIGNATURE, oldSignature, this.signature));
-                }
-            }
-        }
-        return this.signature;
+        return (OperationSignature) this.eDynamicGet(QualityAnnotationPackage.PCMRE_SIGNATURE__SIGNATURE,
+                QualityAnnotationPackage.Literals.PCMRE_SIGNATURE__SIGNATURE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationSignature basicGetSignature() {
-        return this.signature;
+        return (OperationSignature) this.eDynamicGet(QualityAnnotationPackage.PCMRE_SIGNATURE__SIGNATURE,
+                QualityAnnotationPackage.Literals.PCMRE_SIGNATURE__SIGNATURE, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSignature(final OperationSignature newSignature) {
-        final OperationSignature oldSignature = this.signature;
-        this.signature = newSignature;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.PCMRE_SIGNATURE__SIGNATURE, oldSignature, this.signature));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.PCMRE_SIGNATURE__SIGNATURE,
+                QualityAnnotationPackage.Literals.PCMRE_SIGNATURE__SIGNATURE, newSignature);
     }
 
     /**
@@ -120,7 +94,7 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
      * {@link #ThisIsTheLowestComponentHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>This Is The Lowest Component Hierarchy Level</em>}' operation. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #ThisIsTheLowestComponentHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -142,7 +116,7 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -178,7 +152,7 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
      * {@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each RE Target Must Be Referenced Only From One RE</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -200,7 +174,7 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -233,7 +207,7 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -250,7 +224,7 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -265,7 +239,7 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -280,14 +254,14 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityAnnotationPackage.PCMRE_SIGNATURE__SIGNATURE:
-            return this.signature != null;
+            return this.basicGetSignature() != null;
         }
         return super.eIsSet(featureID);
     }

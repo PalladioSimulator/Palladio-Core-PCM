@@ -5,13 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
@@ -44,36 +40,14 @@ public abstract class SpecifiedQoSAnnotationImpl extends CDOObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getSignature_SpecifiedQoSAnnation()
-     * <em>Signature Specified Qo SAnnation</em>}' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getSignature_SpecifiedQoSAnnation()
-     * @generated
-     * @ordered
-     */
-    protected Signature signature_SpecifiedQoSAnnation;
-
-    /**
-     * The cached value of the '{@link #getRole_SpecifiedQoSAnnotation()
-     * <em>Role Specified Qo SAnnotation</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
-     *
-     * @see #getRole_SpecifiedQoSAnnotation()
-     * @generated
-     * @ordered
-     */
-    protected Role role_SpecifiedQoSAnnotation;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SpecifiedQoSAnnotationImpl() {
@@ -82,7 +56,7 @@ public abstract class SpecifiedQoSAnnotationImpl extends CDOObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -92,112 +66,98 @@ public abstract class SpecifiedQoSAnnotationImpl extends CDOObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    protected int eStaticFeatureCount() {
+        return 0;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Signature getSignature_SpecifiedQoSAnnation() {
-        if (this.signature_SpecifiedQoSAnnation != null && ((EObject) this.signature_SpecifiedQoSAnnation).eIsProxy()) {
-            final InternalEObject oldSignature_SpecifiedQoSAnnation = (InternalEObject) this.signature_SpecifiedQoSAnnation;
-            this.signature_SpecifiedQoSAnnation = (Signature) this.eResolveProxy(oldSignature_SpecifiedQoSAnnation);
-            if (this.signature_SpecifiedQoSAnnation != oldSignature_SpecifiedQoSAnnation) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION,
-                            oldSignature_SpecifiedQoSAnnation, this.signature_SpecifiedQoSAnnation));
-                }
-            }
-        }
-        return this.signature_SpecifiedQoSAnnation;
+        return (Signature) this.eDynamicGet(
+                QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION,
+                QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public Signature basicGetSignature_SpecifiedQoSAnnation() {
-        return this.signature_SpecifiedQoSAnnation;
+        return (Signature) this.eDynamicGet(
+                QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION,
+                QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSignature_SpecifiedQoSAnnation(final Signature newSignature_SpecifiedQoSAnnation) {
-        final Signature oldSignature_SpecifiedQoSAnnation = this.signature_SpecifiedQoSAnnation;
-        this.signature_SpecifiedQoSAnnation = newSignature_SpecifiedQoSAnnation;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION,
-                    oldSignature_SpecifiedQoSAnnation, this.signature_SpecifiedQoSAnnation));
-        }
+        this.eDynamicSet(QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION,
+                QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION,
+                newSignature_SpecifiedQoSAnnation);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Role getRole_SpecifiedQoSAnnotation() {
-        if (this.role_SpecifiedQoSAnnotation != null && ((EObject) this.role_SpecifiedQoSAnnotation).eIsProxy()) {
-            final InternalEObject oldRole_SpecifiedQoSAnnotation = (InternalEObject) this.role_SpecifiedQoSAnnotation;
-            this.role_SpecifiedQoSAnnotation = (Role) this.eResolveProxy(oldRole_SpecifiedQoSAnnotation);
-            if (this.role_SpecifiedQoSAnnotation != oldRole_SpecifiedQoSAnnotation) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION,
-                            oldRole_SpecifiedQoSAnnotation, this.role_SpecifiedQoSAnnotation));
-                }
-            }
-        }
-        return this.role_SpecifiedQoSAnnotation;
+        return (Role) this.eDynamicGet(QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION,
+                QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public Role basicGetRole_SpecifiedQoSAnnotation() {
-        return this.role_SpecifiedQoSAnnotation;
+        return (Role) this.eDynamicGet(QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION,
+                QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRole_SpecifiedQoSAnnotation(final Role newRole_SpecifiedQoSAnnotation) {
-        final Role oldRole_SpecifiedQoSAnnotation = this.role_SpecifiedQoSAnnotation;
-        this.role_SpecifiedQoSAnnotation = newRole_SpecifiedQoSAnnotation;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION,
-                    oldRole_SpecifiedQoSAnnotation, this.role_SpecifiedQoSAnnotation));
-        }
+        this.eDynamicSet(QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION,
+                QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION,
+                newRole_SpecifiedQoSAnnotation);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public QoSAnnotations getQosAnnotations_SpecifiedQoSAnnotation() {
-        if (this.eContainerFeatureID() != QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION) {
-            return null;
-        }
-        return (QoSAnnotations) this.eInternalContainer();
+        return (QoSAnnotations) this.eDynamicGet(
+                QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION,
+                QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION,
+                true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetQosAnnotations_SpecifiedQoSAnnotation(
@@ -209,39 +169,19 @@ public abstract class SpecifiedQoSAnnotationImpl extends CDOObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setQosAnnotations_SpecifiedQoSAnnotation(final QoSAnnotations newQosAnnotations_SpecifiedQoSAnnotation) {
-        if (newQosAnnotations_SpecifiedQoSAnnotation != this.eInternalContainer()
-                || (this.eContainerFeatureID() != QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION && newQosAnnotations_SpecifiedQoSAnnotation != null)) {
-            if (EcoreUtil.isAncestor(this, newQosAnnotations_SpecifiedQoSAnnotation)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newQosAnnotations_SpecifiedQoSAnnotation != null) {
-                msgs = ((InternalEObject) newQosAnnotations_SpecifiedQoSAnnotation).eInverseAdd(this,
-                        QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS,
-                        QoSAnnotations.class, msgs);
-            }
-            msgs = this.basicSetQosAnnotations_SpecifiedQoSAnnotation(newQosAnnotations_SpecifiedQoSAnnotation, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION,
-                    newQosAnnotations_SpecifiedQoSAnnotation, newQosAnnotations_SpecifiedQoSAnnotation));
-        }
+        this.eDynamicSet(QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION,
+                QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION,
+                newQosAnnotations_SpecifiedQoSAnnotation);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -258,7 +198,7 @@ public abstract class SpecifiedQoSAnnotationImpl extends CDOObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -273,7 +213,7 @@ public abstract class SpecifiedQoSAnnotationImpl extends CDOObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -289,7 +229,7 @@ public abstract class SpecifiedQoSAnnotationImpl extends CDOObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -313,7 +253,7 @@ public abstract class SpecifiedQoSAnnotationImpl extends CDOObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -334,7 +274,7 @@ public abstract class SpecifiedQoSAnnotationImpl extends CDOObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -355,16 +295,16 @@ public abstract class SpecifiedQoSAnnotationImpl extends CDOObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION:
-            return this.signature_SpecifiedQoSAnnation != null;
+            return this.basicGetSignature_SpecifiedQoSAnnation() != null;
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION:
-            return this.role_SpecifiedQoSAnnotation != null;
+            return this.basicGetRole_SpecifiedQoSAnnotation() != null;
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION:
             return this.getQosAnnotations_SpecifiedQoSAnnotation() != null;
         }

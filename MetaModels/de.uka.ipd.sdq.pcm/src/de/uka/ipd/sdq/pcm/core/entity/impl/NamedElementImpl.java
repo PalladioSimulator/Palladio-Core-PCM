@@ -5,9 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.core.entity.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
@@ -30,7 +28,7 @@ public abstract class NamedElementImpl extends CDOObjectImpl implements NamedEle
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -46,18 +44,8 @@ public abstract class NamedElementImpl extends CDOObjectImpl implements NamedEle
     protected static final String ENTITY_NAME_EDEFAULT = "aName";
 
     /**
-     * The cached value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getEntityName()
-     * @generated
-     * @ordered
-     */
-    protected String entityName = ENTITY_NAME_EDEFAULT;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected NamedElementImpl() {
@@ -66,7 +54,7 @@ public abstract class NamedElementImpl extends CDOObjectImpl implements NamedEle
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -76,32 +64,39 @@ public abstract class NamedElementImpl extends CDOObjectImpl implements NamedEle
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    protected int eStaticFeatureCount() {
+        return 0;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String getEntityName() {
-        return this.entityName;
+        return (String) this.eDynamicGet(EntityPackage.NAMED_ELEMENT__ENTITY_NAME,
+                EntityPackage.Literals.NAMED_ELEMENT__ENTITY_NAME, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setEntityName(final String newEntityName) {
-        final String oldEntityName = this.entityName;
-        this.entityName = newEntityName;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, EntityPackage.NAMED_ELEMENT__ENTITY_NAME,
-                    oldEntityName, this.entityName));
-        }
+        this.eDynamicSet(EntityPackage.NAMED_ELEMENT__ENTITY_NAME, EntityPackage.Literals.NAMED_ELEMENT__ENTITY_NAME,
+                newEntityName);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -115,7 +110,7 @@ public abstract class NamedElementImpl extends CDOObjectImpl implements NamedEle
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -130,7 +125,7 @@ public abstract class NamedElementImpl extends CDOObjectImpl implements NamedEle
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -145,35 +140,17 @@ public abstract class NamedElementImpl extends CDOObjectImpl implements NamedEle
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
-            return ENTITY_NAME_EDEFAULT == null ? this.entityName != null : !ENTITY_NAME_EDEFAULT
-                    .equals(this.entityName);
+            return ENTITY_NAME_EDEFAULT == null ? this.getEntityName() != null : !ENTITY_NAME_EDEFAULT.equals(this
+                    .getEntityName());
         }
         return super.eIsSet(featureID);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (this.eIsProxy()) {
-            return super.toString();
-        }
-
-        final StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (entityName: ");
-        result.append(this.entityName);
-        result.append(')');
-        return result.toString();
     }
 
 } // NamedElementImpl

@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface;
@@ -36,25 +35,14 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getInfrastructureSignatures__InfrastructureInterface()
-     * <em>Infrastructure Signatures Infrastructure Interface</em>}' containment reference list.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getInfrastructureSignatures__InfrastructureInterface()
-     * @generated
-     * @ordered
-     */
-    protected EList<InfrastructureSignature> infrastructureSignatures__InfrastructureInterface;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected InfrastructureInterfaceImpl() {
@@ -63,7 +51,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -73,24 +61,22 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<InfrastructureSignature> getInfrastructureSignatures__InfrastructureInterface() {
-        if (this.infrastructureSignatures__InfrastructureInterface == null) {
-            this.infrastructureSignatures__InfrastructureInterface = new EObjectContainmentWithInverseEList<InfrastructureSignature>(
-                    InfrastructureSignature.class, this,
-                    RepositoryPackage.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE,
-                    RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE);
-        }
-        return this.infrastructureSignatures__InfrastructureInterface;
+        return (EList<InfrastructureSignature>) this
+                .eDynamicGet(
+                        RepositoryPackage.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE,
+                        RepositoryPackage.Literals.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -107,7 +93,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -123,7 +109,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -137,7 +123,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -155,7 +141,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -170,7 +156,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -178,8 +164,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE:
-            return this.infrastructureSignatures__InfrastructureInterface != null
-            && !this.infrastructureSignatures__InfrastructureInterface.isEmpty();
+            return !this.getInfrastructureSignatures__InfrastructureInterface().isEmpty();
         }
         return super.eIsSet(featureID);
     }

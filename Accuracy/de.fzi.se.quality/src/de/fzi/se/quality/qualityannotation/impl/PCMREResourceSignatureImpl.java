@@ -8,14 +8,10 @@ package de.fzi.se.quality.qualityannotation.impl;
 
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ocl.ParserException;
@@ -44,18 +40,8 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature;
 public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResourceSignature {
 
     /**
-     * The cached value of the '{@link #getResourceSignature() <em>Resource Signature</em>}'
-     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getResourceSignature()
-     * @generated
-     * @ordered
-     */
-    protected ResourceSignature resourceSignature;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMREResourceSignatureImpl() {
@@ -64,7 +50,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -74,48 +60,36 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceSignature getResourceSignature() {
-        if (this.resourceSignature != null && ((EObject) this.resourceSignature).eIsProxy()) {
-            final InternalEObject oldResourceSignature = (InternalEObject) this.resourceSignature;
-            this.resourceSignature = (ResourceSignature) this.eResolveProxy(oldResourceSignature);
-            if (this.resourceSignature != oldResourceSignature) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            QualityAnnotationPackage.PCMRE_RESOURCE_SIGNATURE__RESOURCE_SIGNATURE,
-                            oldResourceSignature, this.resourceSignature));
-                }
-            }
-        }
-        return this.resourceSignature;
+        return (ResourceSignature) this.eDynamicGet(
+                QualityAnnotationPackage.PCMRE_RESOURCE_SIGNATURE__RESOURCE_SIGNATURE,
+                QualityAnnotationPackage.Literals.PCMRE_RESOURCE_SIGNATURE__RESOURCE_SIGNATURE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceSignature basicGetResourceSignature() {
-        return this.resourceSignature;
+        return (ResourceSignature) this.eDynamicGet(
+                QualityAnnotationPackage.PCMRE_RESOURCE_SIGNATURE__RESOURCE_SIGNATURE,
+                QualityAnnotationPackage.Literals.PCMRE_RESOURCE_SIGNATURE__RESOURCE_SIGNATURE, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setResourceSignature(final ResourceSignature newResourceSignature) {
-        final ResourceSignature oldResourceSignature = this.resourceSignature;
-        this.resourceSignature = newResourceSignature;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.PCMRE_RESOURCE_SIGNATURE__RESOURCE_SIGNATURE, oldResourceSignature,
-                    this.resourceSignature));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.PCMRE_RESOURCE_SIGNATURE__RESOURCE_SIGNATURE,
+                QualityAnnotationPackage.Literals.PCMRE_RESOURCE_SIGNATURE__RESOURCE_SIGNATURE, newResourceSignature);
     }
 
     /**
@@ -123,7 +97,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
      * {@link #ThisIsTheLowestResourceHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>This Is The Lowest Resource Hierarchy Level</em>}' operation. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #ThisIsTheLowestResourceHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -145,7 +119,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -165,15 +139,15 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
                 this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCMRE_RESOURCE_SIGNATURE__THIS_IS_THE_LOWEST_RESOURCE_HIERARCHY_LEVEL,
-                                EcorePlugin.INSTANCE.getString(
-                                        "_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "ThisIsTheLowestResourceHierarchyLevel",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMRE_RESOURCE_SIGNATURE__THIS_IS_THE_LOWEST_RESOURCE_HIERARCHY_LEVEL,
+                        EcorePlugin.INSTANCE.getString(
+                                "_UI_GenericInvariant_diagnostic",
+                                new Object[] { "ThisIsTheLowestResourceHierarchyLevel",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                                        new Object[] { this }));
             }
             return false;
         }
@@ -185,7 +159,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
      * {@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each RE Target Must Be Referenced Only From One RE</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -207,7 +181,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -227,15 +201,15 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
                 .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCMRE_RESOURCE_SIGNATURE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE,
-                                EcorePlugin.INSTANCE.getString(
-                                        "_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "EachRETargetMustBeReferencedOnlyFromOneRE",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMRE_RESOURCE_SIGNATURE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE,
+                        EcorePlugin.INSTANCE.getString(
+                                "_UI_GenericInvariant_diagnostic",
+                                new Object[] { "EachRETargetMustBeReferencedOnlyFromOneRE",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                                        new Object[] { this }));
             }
             return false;
         }
@@ -244,7 +218,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -261,7 +235,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -276,7 +250,7 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -291,14 +265,14 @@ public class PCMREResourceSignatureImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityAnnotationPackage.PCMRE_RESOURCE_SIGNATURE__RESOURCE_SIGNATURE:
-            return this.resourceSignature != null;
+            return this.basicGetResourceSignature() != null;
         }
         return super.eIsSet(featureID);
     }

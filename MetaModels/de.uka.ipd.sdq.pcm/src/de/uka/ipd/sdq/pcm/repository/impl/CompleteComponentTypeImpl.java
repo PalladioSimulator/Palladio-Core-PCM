@@ -14,7 +14,6 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
@@ -43,25 +42,14 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getParentProvidesComponentTypes()
-     * <em>Parent Provides Component Types</em>}' reference list. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getParentProvidesComponentTypes()
-     * @generated
-     * @ordered
-     */
-    protected EList<ProvidesComponentType> parentProvidesComponentTypes;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CompleteComponentTypeImpl() {
@@ -70,7 +58,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -80,18 +68,15 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<ProvidesComponentType> getParentProvidesComponentTypes() {
-        if (this.parentProvidesComponentTypes == null) {
-            this.parentProvidesComponentTypes = new EObjectResolvingEList<ProvidesComponentType>(
-                    ProvidesComponentType.class, this,
-                    RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES);
-        }
-        return this.parentProvidesComponentTypes;
+        return (EList<ProvidesComponentType>) this.eDynamicGet(
+                RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES,
+                RepositoryPackage.Literals.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES, true, true);
     }
 
     /**
@@ -99,7 +84,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
      * {@link #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>At Least One Interface Has To Be Provided Or Required By AUsefull Complete Component Type</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -125,7 +110,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
      * {@link #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>At Least One Interface Has To Be Provided Or Required By AUsefull Complete Component Type</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -135,7 +120,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -222,7 +207,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -259,7 +244,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -273,7 +258,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -290,7 +275,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -305,7 +290,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -313,7 +298,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
-            return this.parentProvidesComponentTypes != null && !this.parentProvidesComponentTypes.isEmpty();
+            return !this.getParentProvidesComponentTypes().isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -321,7 +306,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

@@ -29,7 +29,7 @@ public interface SystemReference extends CDOObject {
      * a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>System</em>' reference.
      * @see #setSystem(de.uka.ipd.sdq.pcm.system.System)
      * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getSystemReference_System()
@@ -42,7 +42,7 @@ public interface SystemReference extends CDOObject {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.SystemReference#getSystem <em>System</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>System</em>' reference.
      * @see #getSystem()

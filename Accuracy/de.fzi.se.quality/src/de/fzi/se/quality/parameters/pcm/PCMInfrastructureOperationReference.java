@@ -37,7 +37,7 @@ public interface PCMInfrastructureOperationReference extends OperationReference 
      * description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Role</em>' reference.
      * @see #setRole(InfrastructureRequiredRole)
      * @see de.fzi.se.quality.parameters.pcm.PCMPackage#getPCMInfrastructureOperationReference_Role()
@@ -50,7 +50,7 @@ public interface PCMInfrastructureOperationReference extends OperationReference 
      * Sets the value of the '
      * {@link de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference#getRole
      * <em>Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Role</em>' reference.
      * @see #getRole()
@@ -65,7 +65,7 @@ public interface PCMInfrastructureOperationReference extends OperationReference 
      * of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Signature</em>' reference.
      * @see #setSignature(InfrastructureSignature)
      * @see de.fzi.se.quality.parameters.pcm.PCMPackage#getPCMInfrastructureOperationReference_Signature()
@@ -78,7 +78,7 @@ public interface PCMInfrastructureOperationReference extends OperationReference 
      * Sets the value of the '
      * {@link de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference#getSignature
      * <em>Signature</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Signature</em>' reference.
      * @see #getSignature()

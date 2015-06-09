@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.ocl.ParserException;
@@ -45,25 +44,14 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getBranchTransitions_Branch()
-     * <em>Branch Transitions Branch</em>}' containment reference list. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getBranchTransitions_Branch()
-     * @generated
-     * @ordered
-     */
-    protected EList<BranchTransition> branchTransitions_Branch;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected BranchImpl() {
@@ -72,7 +60,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -82,18 +70,14 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<BranchTransition> getBranchTransitions_Branch() {
-        if (this.branchTransitions_Branch == null) {
-            this.branchTransitions_Branch = new EObjectContainmentWithInverseEList<BranchTransition>(
-                    BranchTransition.class, this, UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH,
-                    UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION);
-        }
-        return this.branchTransitions_Branch;
+        return (EList<BranchTransition>) this.eDynamicGet(UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH,
+                UsagemodelPackage.Literals.BRANCH__BRANCH_TRANSITIONS_BRANCH, true, true);
     }
 
     /**
@@ -101,7 +85,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
      * {@link #AllBranchProbabilitiesMustSumUpTo1(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>All Branch Probabilities Must Sum Up To1</em>}' operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #AllBranchProbabilitiesMustSumUpTo1(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -114,7 +98,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
      * {@link #AllBranchProbabilitiesMustSumUpTo1(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>All Branch Probabilities Must Sum Up To1</em>}' invariant operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #AllBranchProbabilitiesMustSumUpTo1(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -124,7 +108,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -157,7 +141,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -174,7 +158,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -189,7 +173,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -203,7 +187,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -220,7 +204,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -235,7 +219,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -243,7 +227,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH:
-            return this.branchTransitions_Branch != null && !this.branchTransitions_Branch.isEmpty();
+            return !this.getBranchTransitions_Branch().isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -251,7 +235,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

@@ -5,16 +5,11 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
-import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
@@ -61,7 +56,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -69,7 +64,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
     /**
      * The default value of the '{@link #getMTTR() <em>MTTR</em>}' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getMTTR()
      * @generated
      * @ordered
@@ -77,19 +72,9 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
     protected static final double MTTR_EDEFAULT = 0.0;
 
     /**
-     * The cached value of the '{@link #getMTTR() <em>MTTR</em>}' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getMTTR()
-     * @generated
-     * @ordered
-     */
-    protected double mttr = MTTR_EDEFAULT;
-
-    /**
      * The default value of the '{@link #getMTTF() <em>MTTF</em>}' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getMTTF()
      * @generated
      * @ordered
@@ -97,19 +82,9 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
     protected static final double MTTF_EDEFAULT = 0.0;
 
     /**
-     * The cached value of the '{@link #getMTTF() <em>MTTF</em>}' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getMTTF()
-     * @generated
-     * @ordered
-     */
-    protected double mttf = MTTF_EDEFAULT;
-
-    /**
      * The default value of the '{@link #isRequiredByContainer() <em>Required By Container</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #isRequiredByContainer()
      * @generated
      * @ordered
@@ -117,51 +92,9 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
     protected static final boolean REQUIRED_BY_CONTAINER_EDEFAULT = false;
 
     /**
-     * The cached value of the '{@link #isRequiredByContainer() <em>Required By Container</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #isRequiredByContainer()
-     * @generated
-     * @ordered
-     */
-    protected boolean requiredByContainer = REQUIRED_BY_CONTAINER_EDEFAULT;
-
-    /**
-     * The cached value of the '{@link #getSchedulingPolicy() <em>Scheduling Policy</em>}'
-     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getSchedulingPolicy()
-     * @generated
-     * @ordered
-     */
-    protected SchedulingPolicy schedulingPolicy;
-
-    /**
-     * The cached value of the '{@link #getActiveResourceType_ActiveResourceSpecification()
-     * <em>Active Resource Type Active Resource Specification</em>}' reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @see #getActiveResourceType_ActiveResourceSpecification()
-     * @generated
-     * @ordered
-     */
-    protected ProcessingResourceType activeResourceType_ActiveResourceSpecification;
-
-    /**
-     * The cached value of the '{@link #getProcessingRate_ProcessingResourceSpecification()
-     * <em>Processing Rate Processing Resource Specification</em>}' containment reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getProcessingRate_ProcessingResourceSpecification()
-     * @generated
-     * @ordered
-     */
-    protected PCMRandomVariable processingRate_ProcessingResourceSpecification;
-
-    /**
      * The default value of the '{@link #getNumberOfReplicas() <em>Number Of Replicas</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getNumberOfReplicas()
      * @generated
      * @ordered
@@ -169,18 +102,8 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
     protected static final int NUMBER_OF_REPLICAS_EDEFAULT = 1;
 
     /**
-     * The cached value of the '{@link #getNumberOfReplicas() <em>Number Of Replicas</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getNumberOfReplicas()
-     * @generated
-     * @ordered
-     */
-    protected int numberOfReplicas = NUMBER_OF_REPLICAS_EDEFAULT;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ProcessingResourceSpecificationImpl() {
@@ -189,7 +112,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -199,297 +122,233 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public double getMTTR() {
-        return this.mttr;
+        return (Double) this.eDynamicGet(ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR,
+                ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__MTTR, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setMTTR(final double newMTTR) {
-        final double oldMTTR = this.mttr;
-        this.mttr = newMTTR;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR, oldMTTR, this.mttr));
-        }
+        this.eDynamicSet(ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR,
+                ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__MTTR, newMTTR);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public double getMTTF() {
-        return this.mttf;
+        return (Double) this.eDynamicGet(ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF,
+                ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__MTTF, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setMTTF(final double newMTTF) {
-        final double oldMTTF = this.mttf;
-        this.mttf = newMTTF;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF, oldMTTF, this.mttf));
-        }
+        this.eDynamicSet(ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF,
+                ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__MTTF, newMTTF);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean isRequiredByContainer() {
-        return this.requiredByContainer;
+        return (Boolean) this.eDynamicGet(
+                ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__REQUIRED_BY_CONTAINER,
+                ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__REQUIRED_BY_CONTAINER, true,
+                true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRequiredByContainer(final boolean newRequiredByContainer) {
-        final boolean oldRequiredByContainer = this.requiredByContainer;
-        this.requiredByContainer = newRequiredByContainer;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__REQUIRED_BY_CONTAINER,
-                    oldRequiredByContainer, this.requiredByContainer));
-        }
+        this.eDynamicSet(ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__REQUIRED_BY_CONTAINER,
+                ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__REQUIRED_BY_CONTAINER,
+                newRequiredByContainer);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SchedulingPolicy getSchedulingPolicy() {
-        if (this.schedulingPolicy != null && ((EObject) this.schedulingPolicy).eIsProxy()) {
-            final InternalEObject oldSchedulingPolicy = (InternalEObject) this.schedulingPolicy;
-            this.schedulingPolicy = (SchedulingPolicy) this.eResolveProxy(oldSchedulingPolicy);
-            if (this.schedulingPolicy != oldSchedulingPolicy) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY,
-                            oldSchedulingPolicy, this.schedulingPolicy));
-                }
-            }
-        }
-        return this.schedulingPolicy;
+        return (SchedulingPolicy) this.eDynamicGet(
+                ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY,
+                ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SchedulingPolicy basicGetSchedulingPolicy() {
-        return this.schedulingPolicy;
+        return (SchedulingPolicy) this.eDynamicGet(
+                ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY,
+                ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSchedulingPolicy(final SchedulingPolicy newSchedulingPolicy) {
-        final SchedulingPolicy oldSchedulingPolicy = this.schedulingPolicy;
-        this.schedulingPolicy = newSchedulingPolicy;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY,
-                    oldSchedulingPolicy, this.schedulingPolicy));
-        }
+        this.eDynamicSet(ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY,
+                ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY,
+                newSchedulingPolicy);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ProcessingResourceType getActiveResourceType_ActiveResourceSpecification() {
-        if (this.activeResourceType_ActiveResourceSpecification != null
-                && ((EObject) this.activeResourceType_ActiveResourceSpecification).eIsProxy()) {
-            final InternalEObject oldActiveResourceType_ActiveResourceSpecification = (InternalEObject) this.activeResourceType_ActiveResourceSpecification;
-            this.activeResourceType_ActiveResourceSpecification = (ProcessingResourceType) this
-                    .eResolveProxy(oldActiveResourceType_ActiveResourceSpecification);
-            if (this.activeResourceType_ActiveResourceSpecification != oldActiveResourceType_ActiveResourceSpecification) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
-                            this,
-                            Notification.RESOLVE,
-                            ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION,
-                            oldActiveResourceType_ActiveResourceSpecification,
-                            this.activeResourceType_ActiveResourceSpecification));
-                }
-            }
-        }
-        return this.activeResourceType_ActiveResourceSpecification;
+        return (ProcessingResourceType) this
+                .eDynamicGet(
+                        ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION,
+                        ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ProcessingResourceType basicGetActiveResourceType_ActiveResourceSpecification() {
-        return this.activeResourceType_ActiveResourceSpecification;
+        return (ProcessingResourceType) this
+                .eDynamicGet(
+                        ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION,
+                        ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION,
+                        false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setActiveResourceType_ActiveResourceSpecification(
             final ProcessingResourceType newActiveResourceType_ActiveResourceSpecification) {
-        final ProcessingResourceType oldActiveResourceType_ActiveResourceSpecification = this.activeResourceType_ActiveResourceSpecification;
-        this.activeResourceType_ActiveResourceSpecification = newActiveResourceType_ActiveResourceSpecification;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION,
-                    oldActiveResourceType_ActiveResourceSpecification,
-                    this.activeResourceType_ActiveResourceSpecification));
-        }
+        this.eDynamicSet(
+                ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION,
+                ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION,
+                newActiveResourceType_ActiveResourceSpecification);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public PCMRandomVariable getProcessingRate_ProcessingResourceSpecification() {
-        return this.processingRate_ProcessingResourceSpecification;
+        return (PCMRandomVariable) this
+                .eDynamicGet(
+                        ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION,
+                        ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetProcessingRate_ProcessingResourceSpecification(
             final PCMRandomVariable newProcessingRate_ProcessingResourceSpecification, NotificationChain msgs) {
-        final PCMRandomVariable oldProcessingRate_ProcessingResourceSpecification = this.processingRate_ProcessingResourceSpecification;
-        this.processingRate_ProcessingResourceSpecification = newProcessingRate_ProcessingResourceSpecification;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION,
-                    oldProcessingRate_ProcessingResourceSpecification,
-                    newProcessingRate_ProcessingResourceSpecification);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this
+                .eDynamicInverseAdd(
+                        (InternalEObject) newProcessingRate_ProcessingResourceSpecification,
+                        ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION,
+                        msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setProcessingRate_ProcessingResourceSpecification(
             final PCMRandomVariable newProcessingRate_ProcessingResourceSpecification) {
-        if (newProcessingRate_ProcessingResourceSpecification != this.processingRate_ProcessingResourceSpecification) {
-            NotificationChain msgs = null;
-            if (this.processingRate_ProcessingResourceSpecification != null) {
-                msgs = ((InternalEObject) this.processingRate_ProcessingResourceSpecification)
-                        .eInverseRemove(
-                                this,
-                                CorePackage.PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE,
-                                PCMRandomVariable.class, msgs);
-            }
-            if (newProcessingRate_ProcessingResourceSpecification != null) {
-                msgs = ((InternalEObject) newProcessingRate_ProcessingResourceSpecification)
-                        .eInverseAdd(
-                                this,
-                                CorePackage.PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE,
-                                PCMRandomVariable.class, msgs);
-            }
-            msgs = this.basicSetProcessingRate_ProcessingResourceSpecification(
-                    newProcessingRate_ProcessingResourceSpecification, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION,
-                    newProcessingRate_ProcessingResourceSpecification,
-                    newProcessingRate_ProcessingResourceSpecification));
-        }
+        this.eDynamicSet(
+                ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION,
+                ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION,
+                newProcessingRate_ProcessingResourceSpecification);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public int getNumberOfReplicas() {
-        return this.numberOfReplicas;
+        return (Integer) this.eDynamicGet(
+                ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__NUMBER_OF_REPLICAS,
+                ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__NUMBER_OF_REPLICAS, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setNumberOfReplicas(final int newNumberOfReplicas) {
-        final int oldNumberOfReplicas = this.numberOfReplicas;
-        this.numberOfReplicas = newNumberOfReplicas;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__NUMBER_OF_REPLICAS,
-                    oldNumberOfReplicas, this.numberOfReplicas));
-        }
+        this.eDynamicSet(ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__NUMBER_OF_REPLICAS,
+                ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__NUMBER_OF_REPLICAS,
+                newNumberOfReplicas);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceContainer getResourceContainer_ProcessingResourceSpecification() {
-        if (this.eContainerFeatureID() != ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION) {
-            return null;
-        }
-        return (ResourceContainer) this.eInternalContainer();
+        return (ResourceContainer) this
+                .eDynamicGet(
+                        ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION,
+                        ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceContainer_ProcessingResourceSpecification(
@@ -504,54 +363,31 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setResourceContainer_ProcessingResourceSpecification(
             final ResourceContainer newResourceContainer_ProcessingResourceSpecification) {
-        if (newResourceContainer_ProcessingResourceSpecification != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION && newResourceContainer_ProcessingResourceSpecification != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceContainer_ProcessingResourceSpecification)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newResourceContainer_ProcessingResourceSpecification != null) {
-                msgs = ((InternalEObject) newResourceContainer_ProcessingResourceSpecification)
-                        .eInverseAdd(
-                                this,
-                                ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER,
-                                ResourceContainer.class, msgs);
-            }
-            msgs = this.basicSetResourceContainer_ProcessingResourceSpecification(
-                    newResourceContainer_ProcessingResourceSpecification, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION,
-                    newResourceContainer_ProcessingResourceSpecification,
-                    newResourceContainer_ProcessingResourceSpecification));
-        }
+        this.eDynamicSet(
+                ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION,
+                ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION,
+                newResourceContainer_ProcessingResourceSpecification);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION:
-            if (this.processingRate_ProcessingResourceSpecification != null) {
-                msgs = ((InternalEObject) this.processingRate_ProcessingResourceSpecification)
+            final PCMRandomVariable processingRate_ProcessingResourceSpecification = this
+                    .getProcessingRate_ProcessingResourceSpecification();
+            if (processingRate_ProcessingResourceSpecification != null) {
+                msgs = ((InternalEObject) processingRate_ProcessingResourceSpecification)
                         .eInverseRemove(
                                 this,
                                 EOPPOSITE_FEATURE_BASE
@@ -570,7 +406,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -587,7 +423,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -603,7 +439,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -637,7 +473,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -673,7 +509,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -709,54 +545,30 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR:
-            return this.mttr != MTTR_EDEFAULT;
+            return this.getMTTR() != MTTR_EDEFAULT;
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF:
-            return this.mttf != MTTF_EDEFAULT;
+            return this.getMTTF() != MTTF_EDEFAULT;
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__REQUIRED_BY_CONTAINER:
-            return this.requiredByContainer != REQUIRED_BY_CONTAINER_EDEFAULT;
+            return this.isRequiredByContainer() != REQUIRED_BY_CONTAINER_EDEFAULT;
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
-            return this.schedulingPolicy != null;
+            return this.basicGetSchedulingPolicy() != null;
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
-            return this.activeResourceType_ActiveResourceSpecification != null;
+            return this.basicGetActiveResourceType_ActiveResourceSpecification() != null;
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION:
-            return this.processingRate_ProcessingResourceSpecification != null;
+            return this.getProcessingRate_ProcessingResourceSpecification() != null;
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__NUMBER_OF_REPLICAS:
-            return this.numberOfReplicas != NUMBER_OF_REPLICAS_EDEFAULT;
+            return this.getNumberOfReplicas() != NUMBER_OF_REPLICAS_EDEFAULT;
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION:
             return this.getResourceContainer_ProcessingResourceSpecification() != null;
         }
         return super.eIsSet(featureID);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (this.eIsProxy()) {
-            return super.toString();
-        }
-
-        final StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (MTTR: ");
-        result.append(this.mttr);
-        result.append(", MTTF: ");
-        result.append(this.mttf);
-        result.append(", requiredByContainer: ");
-        result.append(this.requiredByContainer);
-        result.append(", numberOfReplicas: ");
-        result.append(this.numberOfReplicas);
-        result.append(')');
-        return result.toString();
     }
 
 } // ProcessingResourceSpecificationImpl

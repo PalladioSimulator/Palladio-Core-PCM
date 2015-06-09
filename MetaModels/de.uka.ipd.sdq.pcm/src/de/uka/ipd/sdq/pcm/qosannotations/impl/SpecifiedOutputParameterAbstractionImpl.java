@@ -7,19 +7,13 @@ package de.uka.ipd.sdq.pcm.qosannotations.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
@@ -55,48 +49,14 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getSignature_SpecifiedOutputParameterAbstraction()
-     * <em>Signature Specified Output Parameter Abstraction</em>}' reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @see #getSignature_SpecifiedOutputParameterAbstraction()
-     * @generated
-     * @ordered
-     */
-    protected Signature signature_SpecifiedOutputParameterAbstraction;
-
-    /**
-     * The cached value of the '{@link #getRole_SpecifiedOutputParameterAbstraction()
-     * <em>Role Specified Output Parameter Abstraction</em>}' reference. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getRole_SpecifiedOutputParameterAbstraction()
-     * @generated
-     * @ordered
-     */
-    protected Role role_SpecifiedOutputParameterAbstraction;
-
-    /**
-     * The cached value of the '
-     * {@link #getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction()
-     * <em>Expected External Outputs Specified Output Parameter Abstraction</em>}' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction()
-     * @generated
-     * @ordered
-     */
-    protected EList<VariableUsage> expectedExternalOutputs_SpecifiedOutputParameterAbstraction;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SpecifiedOutputParameterAbstractionImpl() {
@@ -105,7 +65,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -115,20 +75,31 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public QoSAnnotations getQosAnnotations_SpecifiedOutputParameterAbstraction() {
-        if (this.eContainerFeatureID() != QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION) {
-            return null;
-        }
-        return (QoSAnnotations) this.eInternalContainer();
+    protected int eStaticFeatureCount() {
+        return 0;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    public QoSAnnotations getQosAnnotations_SpecifiedOutputParameterAbstraction() {
+        return (QoSAnnotations) this
+                .eDynamicGet(
+                        QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        true, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public NotificationChain basicSetQosAnnotations_SpecifiedOutputParameterAbstraction(
@@ -143,169 +114,117 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setQosAnnotations_SpecifiedOutputParameterAbstraction(
             final QoSAnnotations newQosAnnotations_SpecifiedOutputParameterAbstraction) {
-        if (newQosAnnotations_SpecifiedOutputParameterAbstraction != this.eInternalContainer()
-                || (this.eContainerFeatureID() != QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION && newQosAnnotations_SpecifiedOutputParameterAbstraction != null)) {
-            if (EcoreUtil.isAncestor(this, newQosAnnotations_SpecifiedOutputParameterAbstraction)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newQosAnnotations_SpecifiedOutputParameterAbstraction != null) {
-                msgs = ((InternalEObject) newQosAnnotations_SpecifiedOutputParameterAbstraction).eInverseAdd(this,
-                        QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS,
-                        QoSAnnotations.class, msgs);
-            }
-            msgs = this.basicSetQosAnnotations_SpecifiedOutputParameterAbstraction(
-                    newQosAnnotations_SpecifiedOutputParameterAbstraction, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                    newQosAnnotations_SpecifiedOutputParameterAbstraction,
-                    newQosAnnotations_SpecifiedOutputParameterAbstraction));
-        }
+        this.eDynamicSet(
+                QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                newQosAnnotations_SpecifiedOutputParameterAbstraction);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Signature getSignature_SpecifiedOutputParameterAbstraction() {
-        if (this.signature_SpecifiedOutputParameterAbstraction != null
-                && ((EObject) this.signature_SpecifiedOutputParameterAbstraction).eIsProxy()) {
-            final InternalEObject oldSignature_SpecifiedOutputParameterAbstraction = (InternalEObject) this.signature_SpecifiedOutputParameterAbstraction;
-            this.signature_SpecifiedOutputParameterAbstraction = (Signature) this
-                    .eResolveProxy(oldSignature_SpecifiedOutputParameterAbstraction);
-            if (this.signature_SpecifiedOutputParameterAbstraction != oldSignature_SpecifiedOutputParameterAbstraction) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
-                            this,
-                            Notification.RESOLVE,
-                            QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                            oldSignature_SpecifiedOutputParameterAbstraction,
-                            this.signature_SpecifiedOutputParameterAbstraction));
-                }
-            }
-        }
-        return this.signature_SpecifiedOutputParameterAbstraction;
+        return (Signature) this
+                .eDynamicGet(
+                        QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public Signature basicGetSignature_SpecifiedOutputParameterAbstraction() {
-        return this.signature_SpecifiedOutputParameterAbstraction;
+        return (Signature) this
+                .eDynamicGet(
+                        QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSignature_SpecifiedOutputParameterAbstraction(
             final Signature newSignature_SpecifiedOutputParameterAbstraction) {
-        final Signature oldSignature_SpecifiedOutputParameterAbstraction = this.signature_SpecifiedOutputParameterAbstraction;
-        this.signature_SpecifiedOutputParameterAbstraction = newSignature_SpecifiedOutputParameterAbstraction;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                    oldSignature_SpecifiedOutputParameterAbstraction,
-                    this.signature_SpecifiedOutputParameterAbstraction));
-        }
+        this.eDynamicSet(
+                QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                newSignature_SpecifiedOutputParameterAbstraction);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Role getRole_SpecifiedOutputParameterAbstraction() {
-        if (this.role_SpecifiedOutputParameterAbstraction != null
-                && ((EObject) this.role_SpecifiedOutputParameterAbstraction).eIsProxy()) {
-            final InternalEObject oldRole_SpecifiedOutputParameterAbstraction = (InternalEObject) this.role_SpecifiedOutputParameterAbstraction;
-            this.role_SpecifiedOutputParameterAbstraction = (Role) this
-                    .eResolveProxy(oldRole_SpecifiedOutputParameterAbstraction);
-            if (this.role_SpecifiedOutputParameterAbstraction != oldRole_SpecifiedOutputParameterAbstraction) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
-                            this,
-                            Notification.RESOLVE,
-                            QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                            oldRole_SpecifiedOutputParameterAbstraction, this.role_SpecifiedOutputParameterAbstraction));
-                }
-            }
-        }
-        return this.role_SpecifiedOutputParameterAbstraction;
+        return (Role) this
+                .eDynamicGet(
+                        QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public Role basicGetRole_SpecifiedOutputParameterAbstraction() {
-        return this.role_SpecifiedOutputParameterAbstraction;
+        return (Role) this
+                .eDynamicGet(
+                        QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRole_SpecifiedOutputParameterAbstraction(final Role newRole_SpecifiedOutputParameterAbstraction) {
-        final Role oldRole_SpecifiedOutputParameterAbstraction = this.role_SpecifiedOutputParameterAbstraction;
-        this.role_SpecifiedOutputParameterAbstraction = newRole_SpecifiedOutputParameterAbstraction;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                    oldRole_SpecifiedOutputParameterAbstraction, this.role_SpecifiedOutputParameterAbstraction));
-        }
+        this.eDynamicSet(
+                QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                newRole_SpecifiedOutputParameterAbstraction);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction() {
-        if (this.expectedExternalOutputs_SpecifiedOutputParameterAbstraction == null) {
-            this.expectedExternalOutputs_SpecifiedOutputParameterAbstraction = new EObjectContainmentWithInverseEList<VariableUsage>(
-                    VariableUsage.class,
-                    this,
-                    QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                    ParameterPackage.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE);
-        }
-        return this.expectedExternalOutputs_SpecifiedOutputParameterAbstraction;
+        return (EList<VariableUsage>) this
+                .eDynamicGet(
+                        QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -326,7 +245,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -344,7 +263,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -360,7 +279,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -386,7 +305,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -413,7 +332,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -437,7 +356,7 @@ SpecifiedOutputParameterAbstraction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -445,12 +364,11 @@ SpecifiedOutputParameterAbstraction {
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
-            return this.signature_SpecifiedOutputParameterAbstraction != null;
+            return this.basicGetSignature_SpecifiedOutputParameterAbstraction() != null;
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
-            return this.role_SpecifiedOutputParameterAbstraction != null;
+            return this.basicGetRole_SpecifiedOutputParameterAbstraction() != null;
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
-            return this.expectedExternalOutputs_SpecifiedOutputParameterAbstraction != null
-            && !this.expectedExternalOutputs_SpecifiedOutputParameterAbstraction.isEmpty();
+            return !this.getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction().isEmpty();
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
             return this.getQosAnnotations_SpecifiedOutputParameterAbstraction() != null;
         }

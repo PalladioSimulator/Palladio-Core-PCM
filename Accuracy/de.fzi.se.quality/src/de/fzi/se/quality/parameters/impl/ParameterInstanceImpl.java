@@ -6,12 +6,9 @@
  */
 package de.fzi.se.quality.parameters.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.fzi.se.quality.parameters.CallInstance;
 import de.fzi.se.quality.parameters.ComponentInstance;
@@ -45,28 +42,8 @@ import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 public class ParameterInstanceImpl extends IdentifierImpl implements ParameterInstance {
 
     /**
-     * The cached value of the '{@link #getParameterReference() <em>Parameter Reference</em>}'
-     * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getParameterReference()
-     * @generated
-     * @ordered
-     */
-    protected ParameterReference parameterReference;
-
-    /**
-     * The cached value of the '{@link #getParameterValue() <em>Parameter Value</em>}' containment
-     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getParameterValue()
-     * @generated
-     * @ordered
-     */
-    protected ParameterValue parameterValue;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ParameterInstanceImpl() {
@@ -75,7 +52,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -85,80 +62,52 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ParameterReference getParameterReference() {
-        return this.parameterReference;
+        return (ParameterReference) this.eDynamicGet(ParametersPackage.PARAMETER_INSTANCE__PARAMETER_REFERENCE,
+                ParametersPackage.Literals.PARAMETER_INSTANCE__PARAMETER_REFERENCE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParameterReference(final ParameterReference newParameterReference,
             NotificationChain msgs) {
-        final ParameterReference oldParameterReference = this.parameterReference;
-        this.parameterReference = newParameterReference;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    ParametersPackage.PARAMETER_INSTANCE__PARAMETER_REFERENCE, oldParameterReference,
-                    newParameterReference);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newParameterReference,
+                ParametersPackage.PARAMETER_INSTANCE__PARAMETER_REFERENCE, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setParameterReference(final ParameterReference newParameterReference) {
-        if (newParameterReference != this.parameterReference) {
-            NotificationChain msgs = null;
-            if (this.parameterReference != null) {
-                msgs = ((InternalEObject) this.parameterReference).eInverseRemove(this,
-                        ParametersPackage.PARAMETER_REFERENCE__PARAMETER_INSTANCE, ParameterReference.class, msgs);
-            }
-            if (newParameterReference != null) {
-                msgs = ((InternalEObject) newParameterReference).eInverseAdd(this,
-                        ParametersPackage.PARAMETER_REFERENCE__PARAMETER_INSTANCE, ParameterReference.class, msgs);
-            }
-            msgs = this.basicSetParameterReference(newParameterReference, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParametersPackage.PARAMETER_INSTANCE__PARAMETER_REFERENCE, newParameterReference,
-                    newParameterReference));
-        }
+        this.eDynamicSet(ParametersPackage.PARAMETER_INSTANCE__PARAMETER_REFERENCE,
+                ParametersPackage.Literals.PARAMETER_INSTANCE__PARAMETER_REFERENCE, newParameterReference);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public CallInstance getInputCallInstance() {
-        if (this.eContainerFeatureID() != ParametersPackage.PARAMETER_INSTANCE__INPUT_CALL_INSTANCE) {
-            return null;
-        }
-        return (CallInstance) this.eInternalContainer();
+        return (CallInstance) this.eDynamicGet(ParametersPackage.PARAMETER_INSTANCE__INPUT_CALL_INSTANCE,
+                ParametersPackage.Literals.PARAMETER_INSTANCE__INPUT_CALL_INSTANCE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetInputCallInstance(final CallInstance newInputCallInstance, NotificationChain msgs) {
@@ -169,51 +118,29 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setInputCallInstance(final CallInstance newInputCallInstance) {
-        if (newInputCallInstance != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ParametersPackage.PARAMETER_INSTANCE__INPUT_CALL_INSTANCE && newInputCallInstance != null)) {
-            if (EcoreUtil.isAncestor(this, newInputCallInstance)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newInputCallInstance != null) {
-                msgs = ((InternalEObject) newInputCallInstance).eInverseAdd(this,
-                        ParametersPackage.CALL_INSTANCE__INPUT_PARAMETER_INSTANCES, CallInstance.class, msgs);
-            }
-            msgs = this.basicSetInputCallInstance(newInputCallInstance, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParametersPackage.PARAMETER_INSTANCE__INPUT_CALL_INSTANCE, newInputCallInstance,
-                    newInputCallInstance));
-        }
+        this.eDynamicSet(ParametersPackage.PARAMETER_INSTANCE__INPUT_CALL_INSTANCE,
+                ParametersPackage.Literals.PARAMETER_INSTANCE__INPUT_CALL_INSTANCE, newInputCallInstance);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public CallInstance getOutputCallInstance() {
-        if (this.eContainerFeatureID() != ParametersPackage.PARAMETER_INSTANCE__OUTPUT_CALL_INSTANCE) {
-            return null;
-        }
-        return (CallInstance) this.eInternalContainer();
+        return (CallInstance) this.eDynamicGet(ParametersPackage.PARAMETER_INSTANCE__OUTPUT_CALL_INSTANCE,
+                ParametersPackage.Literals.PARAMETER_INSTANCE__OUTPUT_CALL_INSTANCE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetOutputCallInstance(final CallInstance newOutputCallInstance, NotificationChain msgs) {
@@ -224,51 +151,29 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setOutputCallInstance(final CallInstance newOutputCallInstance) {
-        if (newOutputCallInstance != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ParametersPackage.PARAMETER_INSTANCE__OUTPUT_CALL_INSTANCE && newOutputCallInstance != null)) {
-            if (EcoreUtil.isAncestor(this, newOutputCallInstance)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newOutputCallInstance != null) {
-                msgs = ((InternalEObject) newOutputCallInstance).eInverseAdd(this,
-                        ParametersPackage.CALL_INSTANCE__OUTPUT_PARAMETER_INSTANCES, CallInstance.class, msgs);
-            }
-            msgs = this.basicSetOutputCallInstance(newOutputCallInstance, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParametersPackage.PARAMETER_INSTANCE__OUTPUT_CALL_INSTANCE, newOutputCallInstance,
-                    newOutputCallInstance));
-        }
+        this.eDynamicSet(ParametersPackage.PARAMETER_INSTANCE__OUTPUT_CALL_INSTANCE,
+                ParametersPackage.Literals.PARAMETER_INSTANCE__OUTPUT_CALL_INSTANCE, newOutputCallInstance);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ComponentInstance getComponentInstance() {
-        if (this.eContainerFeatureID() != ParametersPackage.PARAMETER_INSTANCE__COMPONENT_INSTANCE) {
-            return null;
-        }
-        return (ComponentInstance) this.eInternalContainer();
+        return (ComponentInstance) this.eDynamicGet(ParametersPackage.PARAMETER_INSTANCE__COMPONENT_INSTANCE,
+                ParametersPackage.Literals.PARAMETER_INSTANCE__COMPONENT_INSTANCE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetComponentInstance(final ComponentInstance newComponentInstance,
@@ -280,103 +185,60 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setComponentInstance(final ComponentInstance newComponentInstance) {
-        if (newComponentInstance != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ParametersPackage.PARAMETER_INSTANCE__COMPONENT_INSTANCE && newComponentInstance != null)) {
-            if (EcoreUtil.isAncestor(this, newComponentInstance)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newComponentInstance != null) {
-                msgs = ((InternalEObject) newComponentInstance).eInverseAdd(this,
-                        ParametersPackage.COMPONENT_INSTANCE__PARAMETER_INSTANCES, ComponentInstance.class, msgs);
-            }
-            msgs = this.basicSetComponentInstance(newComponentInstance, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParametersPackage.PARAMETER_INSTANCE__COMPONENT_INSTANCE, newComponentInstance,
-                    newComponentInstance));
-        }
+        this.eDynamicSet(ParametersPackage.PARAMETER_INSTANCE__COMPONENT_INSTANCE,
+                ParametersPackage.Literals.PARAMETER_INSTANCE__COMPONENT_INSTANCE, newComponentInstance);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ParameterValue getParameterValue() {
-        return this.parameterValue;
+        return (ParameterValue) this.eDynamicGet(ParametersPackage.PARAMETER_INSTANCE__PARAMETER_VALUE,
+                ParametersPackage.Literals.PARAMETER_INSTANCE__PARAMETER_VALUE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParameterValue(final ParameterValue newParameterValue, NotificationChain msgs) {
-        final ParameterValue oldParameterValue = this.parameterValue;
-        this.parameterValue = newParameterValue;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    ParametersPackage.PARAMETER_INSTANCE__PARAMETER_VALUE, oldParameterValue, newParameterValue);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newParameterValue,
+                ParametersPackage.PARAMETER_INSTANCE__PARAMETER_VALUE, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setParameterValue(final ParameterValue newParameterValue) {
-        if (newParameterValue != this.parameterValue) {
-            NotificationChain msgs = null;
-            if (this.parameterValue != null) {
-                msgs = ((InternalEObject) this.parameterValue).eInverseRemove(this,
-                        ParametersPackage.PARAMETER_VALUE__PARAMETER_INSTANCE, ParameterValue.class, msgs);
-            }
-            if (newParameterValue != null) {
-                msgs = ((InternalEObject) newParameterValue).eInverseAdd(this,
-                        ParametersPackage.PARAMETER_VALUE__PARAMETER_INSTANCE, ParameterValue.class, msgs);
-            }
-            msgs = this.basicSetParameterValue(newParameterValue, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParametersPackage.PARAMETER_INSTANCE__PARAMETER_VALUE, newParameterValue, newParameterValue));
-        }
+        this.eDynamicSet(ParametersPackage.PARAMETER_INSTANCE__PARAMETER_VALUE,
+                ParametersPackage.Literals.PARAMETER_INSTANCE__PARAMETER_VALUE, newParameterValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ParametersPackage.PARAMETER_INSTANCE__PARAMETER_REFERENCE:
-            if (this.parameterReference != null) {
-                msgs = ((InternalEObject) this.parameterReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+            final ParameterReference parameterReference = this.getParameterReference();
+            if (parameterReference != null) {
+                msgs = ((InternalEObject) parameterReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                         - ParametersPackage.PARAMETER_INSTANCE__PARAMETER_REFERENCE, null, msgs);
             }
             return this.basicSetParameterReference((ParameterReference) otherEnd, msgs);
@@ -396,8 +258,9 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
             }
             return this.basicSetComponentInstance((ComponentInstance) otherEnd, msgs);
         case ParametersPackage.PARAMETER_INSTANCE__PARAMETER_VALUE:
-            if (this.parameterValue != null) {
-                msgs = ((InternalEObject) this.parameterValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+            final ParameterValue parameterValue = this.getParameterValue();
+            if (parameterValue != null) {
+                msgs = ((InternalEObject) parameterValue).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                         - ParametersPackage.PARAMETER_INSTANCE__PARAMETER_VALUE, null, msgs);
             }
             return this.basicSetParameterValue((ParameterValue) otherEnd, msgs);
@@ -407,7 +270,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -430,7 +293,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -451,7 +314,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -473,7 +336,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -500,7 +363,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -527,14 +390,14 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ParametersPackage.PARAMETER_INSTANCE__PARAMETER_REFERENCE:
-            return this.parameterReference != null;
+            return this.getParameterReference() != null;
         case ParametersPackage.PARAMETER_INSTANCE__INPUT_CALL_INSTANCE:
             return this.getInputCallInstance() != null;
         case ParametersPackage.PARAMETER_INSTANCE__OUTPUT_CALL_INSTANCE:
@@ -542,7 +405,7 @@ public class ParameterInstanceImpl extends IdentifierImpl implements ParameterIn
         case ParametersPackage.PARAMETER_INSTANCE__COMPONENT_INSTANCE:
             return this.getComponentInstance() != null;
         case ParametersPackage.PARAMETER_INSTANCE__PARAMETER_VALUE:
-            return this.parameterValue != null;
+            return this.getParameterValue() != null;
         }
         return super.eIsSet(featureID);
     }

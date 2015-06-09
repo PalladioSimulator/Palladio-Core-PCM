@@ -68,245 +68,245 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class QualityAnnotationPackageImpl extends EPackageImpl implements QualityAnnotationPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass parameterValueDeviationEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass qualityAnnotationEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass serviceSpecificationEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass requiredElementEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass requiredElementDeviationEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass internalStateInfluenceAnalysisAggregationEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass rePrecisionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass probabilisticElementEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass precisionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass pcmParameterPartitionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass characterisedPCMParameterPartitionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass characterisedPCMParameterPartitionIntervalEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass characterisedPCMParameterPartitionRangeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass exactlyAsSpecifiedPrecisionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass limitedDeviationPrecisionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass noPrecisionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass pcmreCategoryEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass pcmreEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass pcmreInterfaceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass pcmreRoleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass pcmreSignatureEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass pcmServiceSpecificationEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass pcmreResourceInterfaceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass pcmreResourceSignatureEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass pcmreResourceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass pcmreResourceRoleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass pcmreciBehaviorEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass pcmreInfrastructureInterfaceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass pcmreInfrastructureRoleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass pcmreInfrastructureSignatureEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass pcmpeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass pcmpeAllDecisionsEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass pcmpeDecisionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EEnum pcmreRequestCategoryEEnum = null;
@@ -319,7 +319,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#eNS_URI
      * @see #init()
@@ -331,7 +331,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -344,7 +344,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
      * This method is used to initialize {@link QualityAnnotationPackage#eINSTANCE} when that field
      * is accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -358,7 +358,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
         // Obtain or create and register package
         final QualityAnnotationPackageImpl theQualityAnnotationPackage = (QualityAnnotationPackageImpl) (EPackage.Registry.INSTANCE
                 .get(eNS_URI) instanceof QualityAnnotationPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-                : new QualityAnnotationPackageImpl());
+                        : new QualityAnnotationPackageImpl());
 
         isInited = true;
 
@@ -368,13 +368,13 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
         // Obtain or create and register interdependencies
         final QualityPackageImpl theQualityPackage = (QualityPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(QualityPackage.eNS_URI) instanceof QualityPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(QualityPackage.eNS_URI) : QualityPackage.eINSTANCE);
+                        .getEPackage(QualityPackage.eNS_URI) : QualityPackage.eINSTANCE);
         final ParametersPackageImpl theParametersPackage = (ParametersPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(ParametersPackage.eNS_URI) instanceof ParametersPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(ParametersPackage.eNS_URI) : ParametersPackage.eINSTANCE);
+                        .getEPackage(ParametersPackage.eNS_URI) : ParametersPackage.eINSTANCE);
         final PCMPackageImpl thePCMPackage = (PCMPackageImpl) (EPackage.Registry.INSTANCE
                 .getEPackage(PCMPackage.eNS_URI) instanceof PCMPackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(PCMPackage.eNS_URI) : PCMPackage.eINSTANCE);
+                .getEPackage(PCMPackage.eNS_URI) : PCMPackage.eINSTANCE);
 
         // Create package meta-data objects
         theQualityAnnotationPackage.createPackageContents();
@@ -407,7 +407,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -417,7 +417,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -427,7 +427,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -437,7 +437,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -447,7 +447,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -457,7 +457,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -467,7 +467,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -477,7 +477,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -487,7 +487,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -497,7 +497,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -507,7 +507,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -517,7 +517,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -527,7 +527,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -537,7 +537,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -547,7 +547,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -557,7 +557,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -567,7 +567,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -577,7 +577,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -587,7 +587,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -597,7 +597,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -607,7 +607,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -617,7 +617,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -627,7 +627,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -637,7 +637,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -647,7 +647,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -657,7 +657,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -667,7 +667,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -677,7 +677,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -687,7 +687,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -697,7 +697,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -707,7 +707,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -717,7 +717,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -727,7 +727,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -737,7 +737,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -747,7 +747,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -757,7 +757,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -767,7 +767,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -777,7 +777,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -787,7 +787,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -797,7 +797,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -807,7 +807,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -817,7 +817,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -827,7 +827,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -837,7 +837,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -847,7 +847,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -857,7 +857,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -867,7 +867,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -877,7 +877,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -887,7 +887,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -897,7 +897,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -907,7 +907,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -917,7 +917,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -927,7 +927,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -937,7 +937,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -947,7 +947,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -957,7 +957,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -967,7 +967,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -977,7 +977,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -987,7 +987,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -997,7 +997,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1007,7 +1007,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1017,7 +1017,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1027,7 +1027,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1037,7 +1037,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1047,7 +1047,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1057,7 +1057,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1067,7 +1067,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1077,7 +1077,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1087,7 +1087,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1097,7 +1097,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1107,7 +1107,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1117,7 +1117,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1127,7 +1127,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1137,7 +1137,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1147,7 +1147,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1157,7 +1157,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1167,7 +1167,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1177,7 +1177,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1187,7 +1187,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1197,7 +1197,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1207,7 +1207,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1217,7 +1217,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1227,7 +1227,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1237,7 +1237,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1247,7 +1247,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1257,7 +1257,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1267,7 +1267,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1277,7 +1277,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1287,7 +1287,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1297,7 +1297,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1307,7 +1307,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isCreated = false;
@@ -1315,7 +1315,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void createPackageContents() {
@@ -1470,7 +1470,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isInitialized = false;
@@ -1478,7 +1478,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void initializePackageContents() {

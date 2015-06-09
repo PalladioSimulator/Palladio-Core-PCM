@@ -51,7 +51,7 @@ public interface ProbabilisticElement extends CDOObject {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.ProbabilisticElement#getPrecision
      * <em>Precision</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Precision</em>' containment reference.
      * @see #getPrecision()
@@ -70,7 +70,7 @@ public interface ProbabilisticElement extends CDOObject {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Child PEs</em>' containment reference list.
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getProbabilisticElement_ChildPEs()
      * @see de.fzi.se.quality.qualityannotation.ProbabilisticElement#getParentPE
@@ -89,7 +89,7 @@ public interface ProbabilisticElement extends CDOObject {
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Parent PE</em>' container reference.
      * @see #setParentPE(ProbabilisticElement)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getProbabilisticElement_ParentPE()
@@ -103,7 +103,7 @@ public interface ProbabilisticElement extends CDOObject {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.ProbabilisticElement#getParentPE
      * <em>Parent PE</em>}' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Parent PE</em>' container reference.
      * @see #getParentPE()
@@ -121,7 +121,7 @@ public interface ProbabilisticElement extends CDOObject {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Quality Annotation</em>' container reference.
      * @see #setQualityAnnotation(QualityAnnotation)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getProbabilisticElement_QualityAnnotation()

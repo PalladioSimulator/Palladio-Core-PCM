@@ -5,12 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.seff.ForkAction;
 import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
@@ -37,14 +34,14 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ForkedBehaviourImpl() {
@@ -53,7 +50,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -63,20 +60,19 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SynchronisationPoint getSynchronisationPoint_ForkedBehaviour() {
-        if (this.eContainerFeatureID() != SeffPackage.FORKED_BEHAVIOUR__SYNCHRONISATION_POINT_FORKED_BEHAVIOUR) {
-            return null;
-        }
-        return (SynchronisationPoint) this.eInternalContainer();
+        return (SynchronisationPoint) this.eDynamicGet(
+                SeffPackage.FORKED_BEHAVIOUR__SYNCHRONISATION_POINT_FORKED_BEHAVIOUR,
+                SeffPackage.Literals.FORKED_BEHAVIOUR__SYNCHRONISATION_POINT_FORKED_BEHAVIOUR, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSynchronisationPoint_ForkedBehaviour(
@@ -88,53 +84,31 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSynchronisationPoint_ForkedBehaviour(
             final SynchronisationPoint newSynchronisationPoint_ForkedBehaviour) {
-        if (newSynchronisationPoint_ForkedBehaviour != this.eInternalContainer()
-                || (this.eContainerFeatureID() != SeffPackage.FORKED_BEHAVIOUR__SYNCHRONISATION_POINT_FORKED_BEHAVIOUR && newSynchronisationPoint_ForkedBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, newSynchronisationPoint_ForkedBehaviour)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newSynchronisationPoint_ForkedBehaviour != null) {
-                msgs = ((InternalEObject) newSynchronisationPoint_ForkedBehaviour).eInverseAdd(this,
-                        SeffPackage.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT,
-                        SynchronisationPoint.class, msgs);
-            }
-            msgs = this.basicSetSynchronisationPoint_ForkedBehaviour(newSynchronisationPoint_ForkedBehaviour, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPackage.FORKED_BEHAVIOUR__SYNCHRONISATION_POINT_FORKED_BEHAVIOUR,
-                    newSynchronisationPoint_ForkedBehaviour, newSynchronisationPoint_ForkedBehaviour));
-        }
+        this.eDynamicSet(SeffPackage.FORKED_BEHAVIOUR__SYNCHRONISATION_POINT_FORKED_BEHAVIOUR,
+                SeffPackage.Literals.FORKED_BEHAVIOUR__SYNCHRONISATION_POINT_FORKED_BEHAVIOUR,
+                newSynchronisationPoint_ForkedBehaviour);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ForkAction getForkAction_ForkedBehaivour() {
-        if (this.eContainerFeatureID() != SeffPackage.FORKED_BEHAVIOUR__FORK_ACTION_FORKED_BEHAIVOUR) {
-            return null;
-        }
-        return (ForkAction) this.eInternalContainer();
+        return (ForkAction) this.eDynamicGet(SeffPackage.FORKED_BEHAVIOUR__FORK_ACTION_FORKED_BEHAIVOUR,
+                SeffPackage.Literals.FORKED_BEHAVIOUR__FORK_ACTION_FORKED_BEHAIVOUR, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetForkAction_ForkedBehaivour(final ForkAction newForkAction_ForkedBehaivour,
@@ -146,38 +120,18 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setForkAction_ForkedBehaivour(final ForkAction newForkAction_ForkedBehaivour) {
-        if (newForkAction_ForkedBehaivour != this.eInternalContainer()
-                || (this.eContainerFeatureID() != SeffPackage.FORKED_BEHAVIOUR__FORK_ACTION_FORKED_BEHAIVOUR && newForkAction_ForkedBehaivour != null)) {
-            if (EcoreUtil.isAncestor(this, newForkAction_ForkedBehaivour)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newForkAction_ForkedBehaivour != null) {
-                msgs = ((InternalEObject) newForkAction_ForkedBehaivour).eInverseAdd(this,
-                        SeffPackage.FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION, ForkAction.class, msgs);
-            }
-            msgs = this.basicSetForkAction_ForkedBehaivour(newForkAction_ForkedBehaivour, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPackage.FORKED_BEHAVIOUR__FORK_ACTION_FORKED_BEHAIVOUR, newForkAction_ForkedBehaivour,
-                    newForkAction_ForkedBehaivour));
-        }
+        this.eDynamicSet(SeffPackage.FORKED_BEHAVIOUR__FORK_ACTION_FORKED_BEHAIVOUR,
+                SeffPackage.Literals.FORKED_BEHAVIOUR__FORK_ACTION_FORKED_BEHAIVOUR, newForkAction_ForkedBehaivour);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -199,7 +153,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -216,7 +170,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -235,7 +189,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -251,7 +205,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -269,7 +223,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -287,7 +241,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

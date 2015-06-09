@@ -5,9 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 import de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum;
@@ -29,7 +27,7 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -37,7 +35,7 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
     /**
      * The default value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getType()
      * @generated
      * @ordered
@@ -45,18 +43,8 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
     protected static final PrimitiveTypeEnum TYPE_EDEFAULT = PrimitiveTypeEnum.INT;
 
     /**
-     * The cached value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getType()
-     * @generated
-     * @ordered
-     */
-    protected PrimitiveTypeEnum type = TYPE_EDEFAULT;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PrimitiveDataTypeImpl() {
@@ -65,7 +53,7 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -75,32 +63,29 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public PrimitiveTypeEnum getType() {
-        return this.type;
+        return (PrimitiveTypeEnum) this.eDynamicGet(RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE,
+                RepositoryPackage.Literals.PRIMITIVE_DATA_TYPE__TYPE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setType(final PrimitiveTypeEnum newType) {
-        final PrimitiveTypeEnum oldType = this.type;
-        this.type = newType == null ? TYPE_EDEFAULT : newType;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE,
-                    oldType, this.type));
-        }
+        this.eDynamicSet(RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE,
+                RepositoryPackage.Literals.PRIMITIVE_DATA_TYPE__TYPE, newType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -114,7 +99,7 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -129,7 +114,7 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -144,34 +129,16 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
-            return this.type != TYPE_EDEFAULT;
+            return this.getType() != TYPE_EDEFAULT;
         }
         return super.eIsSet(featureID);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (this.eIsProxy()) {
-            return super.toString();
-        }
-
-        final StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (type: ");
-        result.append(this.type);
-        result.append(')');
-        return result.toString();
     }
 
 } // PrimitiveDataTypeImpl

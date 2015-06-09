@@ -29,21 +29,21 @@ import de.uka.ipd.sdq.pcm.usagemodel.UserData;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static UsagemodelFactory init() {
@@ -61,7 +61,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public UsagemodelFactoryImpl() {
@@ -70,7 +70,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -109,7 +109,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -120,7 +120,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -131,7 +131,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -142,7 +142,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -153,7 +153,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -164,7 +164,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -175,7 +175,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -186,7 +186,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -197,7 +197,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -208,7 +208,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -219,7 +219,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -230,7 +230,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -241,7 +241,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -252,7 +252,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -262,7 +262,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @deprecated
      * @generated
      */

@@ -32,7 +32,7 @@ public interface AssemblyReference extends CDOObject {
      * of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Assembly</em>' reference.
      * @see #setAssembly(AssemblyContext)
      * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getAssemblyReference_Assembly()
@@ -45,7 +45,7 @@ public interface AssemblyReference extends CDOObject {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.AssemblyReference#getAssembly
      * <em>Assembly</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Assembly</em>' reference.
      * @see #getAssembly()

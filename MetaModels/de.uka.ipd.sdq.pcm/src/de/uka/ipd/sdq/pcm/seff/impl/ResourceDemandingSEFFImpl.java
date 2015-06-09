@@ -8,20 +8,15 @@ package de.uka.ipd.sdq.pcm.seff.impl;
 import java.util.Collection;
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
@@ -74,7 +69,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -90,49 +85,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
     protected static final String SEFF_TYPE_ID_EDEFAULT = "1";
 
     /**
-     * The cached value of the '{@link #getSeffTypeID() <em>Seff Type ID</em>}' attribute. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getSeffTypeID()
-     * @generated
-     * @ordered
-     */
-    protected String seffTypeID = SEFF_TYPE_ID_EDEFAULT;
-
-    /**
-     * The cached value of the '{@link #getDescribedService__SEFF() <em>Described Service SEFF</em>}
-     * ' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getDescribedService__SEFF()
-     * @generated
-     * @ordered
-     */
-    protected Signature describedService__SEFF;
-
-    /**
-     * The cached value of the '{@link #getSteps_Behaviour() <em>Steps Behaviour</em>}' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getSteps_Behaviour()
-     * @generated
-     * @ordered
-     */
-    protected EList<AbstractAction> steps_Behaviour;
-
-    /**
-     * The cached value of the '{@link #getResourceDemandingInternalBehaviours()
-     * <em>Resource Demanding Internal Behaviours</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getResourceDemandingInternalBehaviours()
-     * @generated
-     * @ordered
-     */
-    protected EList<ResourceDemandingInternalBehaviour> resourceDemandingInternalBehaviours;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceDemandingSEFFImpl() {
@@ -141,7 +95,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -151,91 +105,74 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public String getSeffTypeID() {
-        return this.seffTypeID;
+        return (String) this.eDynamicGet(SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID,
+                SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSeffTypeID(final String newSeffTypeID) {
-        final String oldSeffTypeID = this.seffTypeID;
-        this.seffTypeID = newSeffTypeID;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID, oldSeffTypeID, this.seffTypeID));
-        }
+        this.eDynamicSet(SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID,
+                SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID, newSeffTypeID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Signature getDescribedService__SEFF() {
-        if (this.describedService__SEFF != null && ((EObject) this.describedService__SEFF).eIsProxy()) {
-            final InternalEObject oldDescribedService__SEFF = (InternalEObject) this.describedService__SEFF;
-            this.describedService__SEFF = (Signature) this.eResolveProxy(oldDescribedService__SEFF);
-            if (this.describedService__SEFF != oldDescribedService__SEFF) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            SeffPackage.RESOURCE_DEMANDING_SEFF__DESCRIBED_SERVICE_SEFF, oldDescribedService__SEFF,
-                            this.describedService__SEFF));
-                }
-            }
-        }
-        return this.describedService__SEFF;
+        return (Signature) this.eDynamicGet(SeffPackage.RESOURCE_DEMANDING_SEFF__DESCRIBED_SERVICE_SEFF,
+                SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public Signature basicGetDescribedService__SEFF() {
-        return this.describedService__SEFF;
+        return (Signature) this.eDynamicGet(SeffPackage.RESOURCE_DEMANDING_SEFF__DESCRIBED_SERVICE_SEFF,
+                SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setDescribedService__SEFF(final Signature newDescribedService__SEFF) {
-        final Signature oldDescribedService__SEFF = this.describedService__SEFF;
-        this.describedService__SEFF = newDescribedService__SEFF;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPackage.RESOURCE_DEMANDING_SEFF__DESCRIBED_SERVICE_SEFF, oldDescribedService__SEFF,
-                    this.describedService__SEFF));
-        }
+        this.eDynamicSet(SeffPackage.RESOURCE_DEMANDING_SEFF__DESCRIBED_SERVICE_SEFF,
+                SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF, newDescribedService__SEFF);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public BasicComponent getBasicComponent_ServiceEffectSpecification() {
-        if (this.eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_SEFF__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION) {
-            return null;
-        }
-        return (BasicComponent) this.eInternalContainer();
+        return (BasicComponent) this.eDynamicGet(
+                SeffPackage.RESOURCE_DEMANDING_SEFF__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION,
+                SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION, true,
+                true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetBasicComponent_ServiceEffectSpecification(
@@ -247,54 +184,33 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setBasicComponent_ServiceEffectSpecification(
             final BasicComponent newBasicComponent_ServiceEffectSpecification) {
-        if (newBasicComponent_ServiceEffectSpecification != this.eInternalContainer()
-                || (this.eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_SEFF__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION && newBasicComponent_ServiceEffectSpecification != null)) {
-            if (EcoreUtil.isAncestor(this, newBasicComponent_ServiceEffectSpecification)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newBasicComponent_ServiceEffectSpecification != null) {
-                msgs = ((InternalEObject) newBasicComponent_ServiceEffectSpecification).eInverseAdd(this,
-                        RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT,
-                        BasicComponent.class, msgs);
-            }
-            msgs = this.basicSetBasicComponent_ServiceEffectSpecification(newBasicComponent_ServiceEffectSpecification,
-                    msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPackage.RESOURCE_DEMANDING_SEFF__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION,
-                    newBasicComponent_ServiceEffectSpecification, newBasicComponent_ServiceEffectSpecification));
-        }
+        this.eDynamicSet(SeffPackage.RESOURCE_DEMANDING_SEFF__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION,
+                SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION,
+                newBasicComponent_ServiceEffectSpecification);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AbstractLoopAction getAbstractLoopAction_ResourceDemandingBehaviour() {
-        if (this.eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR) {
-            return null;
-        }
-        return (AbstractLoopAction) this.eInternalContainer();
+        return (AbstractLoopAction) this.eDynamicGet(
+                SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR,
+                SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR,
+                true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAbstractLoopAction_ResourceDemandingBehaviour(
@@ -306,53 +222,34 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setAbstractLoopAction_ResourceDemandingBehaviour(
             final AbstractLoopAction newAbstractLoopAction_ResourceDemandingBehaviour) {
-        if (newAbstractLoopAction_ResourceDemandingBehaviour != this.eInternalContainer()
-                || (this.eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR && newAbstractLoopAction_ResourceDemandingBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, newAbstractLoopAction_ResourceDemandingBehaviour)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newAbstractLoopAction_ResourceDemandingBehaviour != null) {
-                msgs = ((InternalEObject) newAbstractLoopAction_ResourceDemandingBehaviour).eInverseAdd(this,
-                        SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP, AbstractLoopAction.class, msgs);
-            }
-            msgs = this.basicSetAbstractLoopAction_ResourceDemandingBehaviour(
-                    newAbstractLoopAction_ResourceDemandingBehaviour, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR,
-                    newAbstractLoopAction_ResourceDemandingBehaviour, newAbstractLoopAction_ResourceDemandingBehaviour));
-        }
+        this.eDynamicSet(SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR,
+                SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR,
+                newAbstractLoopAction_ResourceDemandingBehaviour);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AbstractBranchTransition getAbstractBranchTransition_ResourceDemandingBehaviour() {
-        if (this.eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR) {
-            return null;
-        }
-        return (AbstractBranchTransition) this.eInternalContainer();
+        return (AbstractBranchTransition) this
+                .eDynamicGet(
+                        SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
+                        SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
@@ -365,71 +262,41 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setAbstractBranchTransition_ResourceDemandingBehaviour(
             final AbstractBranchTransition newAbstractBranchTransition_ResourceDemandingBehaviour) {
-        if (newAbstractBranchTransition_ResourceDemandingBehaviour != this.eInternalContainer()
-                || (this.eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR && newAbstractBranchTransition_ResourceDemandingBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, newAbstractBranchTransition_ResourceDemandingBehaviour)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newAbstractBranchTransition_ResourceDemandingBehaviour != null) {
-                msgs = ((InternalEObject) newAbstractBranchTransition_ResourceDemandingBehaviour).eInverseAdd(this,
-                        SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
-                        AbstractBranchTransition.class, msgs);
-            }
-            msgs = this.basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
-                    newAbstractBranchTransition_ResourceDemandingBehaviour, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
-                    newAbstractBranchTransition_ResourceDemandingBehaviour,
-                    newAbstractBranchTransition_ResourceDemandingBehaviour));
-        }
+        this.eDynamicSet(
+                SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
+                SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
+                newAbstractBranchTransition_ResourceDemandingBehaviour);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<AbstractAction> getSteps_Behaviour() {
-        if (this.steps_Behaviour == null) {
-            this.steps_Behaviour = new EObjectContainmentWithInverseEList<AbstractAction>(AbstractAction.class, this,
-                    SeffPackage.RESOURCE_DEMANDING_SEFF__STEPS_BEHAVIOUR,
-                    SeffPackage.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION);
-        }
-        return this.steps_Behaviour;
+        return (EList<AbstractAction>) this.eDynamicGet(SeffPackage.RESOURCE_DEMANDING_SEFF__STEPS_BEHAVIOUR,
+                SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<ResourceDemandingInternalBehaviour> getResourceDemandingInternalBehaviours() {
-        if (this.resourceDemandingInternalBehaviours == null) {
-            this.resourceDemandingInternalBehaviours = new EObjectContainmentWithInverseEList<ResourceDemandingInternalBehaviour>(
-                    ResourceDemandingInternalBehaviour.class,
-                    this,
-                    SeffPackage.RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS,
-                    SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR);
-        }
-        return this.resourceDemandingInternalBehaviours;
+        return (EList<ResourceDemandingInternalBehaviour>) this.eDynamicGet(
+                SeffPackage.RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS,
+                SeffPackage.Literals.RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS, true, true);
     }
 
     /**
@@ -437,7 +304,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * {@link #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Referenced Signature Must Belong To Interface Referenced By Provided Role</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -455,7 +322,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * {@link #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Referenced Signature Must Belong To Interface Referenced By Provided Role</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -465,7 +332,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -504,7 +371,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * The cached OCL expression body for the '
      * {@link #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Stop Action</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -516,7 +383,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * {@link #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Stop Action</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -525,7 +392,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -556,7 +423,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * The cached OCL expression body for the '
      * {@link #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Start Action</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -568,7 +435,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * {@link #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Start Action</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -577,7 +444,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -609,7 +476,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * {@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -622,7 +489,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * {@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -632,7 +499,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -669,7 +536,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -704,7 +571,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -727,7 +594,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -750,7 +617,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -779,7 +646,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -816,7 +683,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -849,7 +716,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -857,10 +724,10 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID:
-            return SEFF_TYPE_ID_EDEFAULT == null ? this.seffTypeID != null : !SEFF_TYPE_ID_EDEFAULT
-                    .equals(this.seffTypeID);
+            return SEFF_TYPE_ID_EDEFAULT == null ? this.getSeffTypeID() != null : !SEFF_TYPE_ID_EDEFAULT.equals(this
+                    .getSeffTypeID());
         case SeffPackage.RESOURCE_DEMANDING_SEFF__DESCRIBED_SERVICE_SEFF:
-            return this.describedService__SEFF != null;
+            return this.basicGetDescribedService__SEFF() != null;
         case SeffPackage.RESOURCE_DEMANDING_SEFF__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION:
             return this.getBasicComponent_ServiceEffectSpecification() != null;
         case SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
@@ -868,17 +735,16 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
         case SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
             return this.getAbstractBranchTransition_ResourceDemandingBehaviour() != null;
         case SeffPackage.RESOURCE_DEMANDING_SEFF__STEPS_BEHAVIOUR:
-            return this.steps_Behaviour != null && !this.steps_Behaviour.isEmpty();
+            return !this.getSteps_Behaviour().isEmpty();
         case SeffPackage.RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS:
-            return this.resourceDemandingInternalBehaviours != null
-                    && !this.resourceDemandingInternalBehaviours.isEmpty();
+            return !this.getResourceDemandingInternalBehaviours().isEmpty();
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -912,7 +778,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -945,27 +811,9 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (this.eIsProxy()) {
-            return super.toString();
-        }
-
-        final StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (seffTypeID: ");
-        result.append(this.seffTypeID);
-        result.append(')');
-        return result.toString();
-    }
-
-    /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

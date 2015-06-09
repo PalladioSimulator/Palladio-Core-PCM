@@ -33,7 +33,7 @@ public interface PassiveResourceReference extends CDOObject {
      * be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Passive Resource</em>' reference.
      * @see #setPassiveResource(PassiveResource)
      * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getPassiveResourceReference_PassiveResource()
@@ -46,7 +46,7 @@ public interface PassiveResourceReference extends CDOObject {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.PassiveResourceReference#getPassiveResource
      * <em>Passive Resource</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Passive Resource</em>' reference.
      * @see #getPassiveResource()

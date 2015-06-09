@@ -7,23 +7,18 @@ package de.uka.ipd.sdq.pcm.seff.seff_performance.impl;
 
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
 
-import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
@@ -61,47 +56,14 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getSignature__InfrastructureCall()
-     * <em>Signature Infrastructure Call</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
-     *
-     * @see #getSignature__InfrastructureCall()
-     * @generated
-     * @ordered
-     */
-    protected InfrastructureSignature signature__InfrastructureCall;
-
-    /**
-     * The cached value of the '{@link #getNumberOfCalls__InfrastructureCall()
-     * <em>Number Of Calls Infrastructure Call</em>}' containment reference. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getNumberOfCalls__InfrastructureCall()
-     * @generated
-     * @ordered
-     */
-    protected PCMRandomVariable numberOfCalls__InfrastructureCall;
-
-    /**
-     * The cached value of the '{@link #getRequiredRole__InfrastructureCall()
-     * <em>Required Role Infrastructure Call</em>}' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getRequiredRole__InfrastructureCall()
-     * @generated
-     * @ordered
-     */
-    protected InfrastructureRequiredRole requiredRole__InfrastructureCall;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected InfrastructureCallImpl() {
@@ -110,7 +72,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -120,129 +82,90 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public InfrastructureSignature getSignature__InfrastructureCall() {
-        if (this.signature__InfrastructureCall != null && ((EObject) this.signature__InfrastructureCall).eIsProxy()) {
-            final InternalEObject oldSignature__InfrastructureCall = (InternalEObject) this.signature__InfrastructureCall;
-            this.signature__InfrastructureCall = (InfrastructureSignature) this
-                    .eResolveProxy(oldSignature__InfrastructureCall);
-            if (this.signature__InfrastructureCall != oldSignature__InfrastructureCall) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            SeffPerformancePackage.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL,
-                            oldSignature__InfrastructureCall, this.signature__InfrastructureCall));
-                }
-            }
-        }
-        return this.signature__InfrastructureCall;
+        return (InfrastructureSignature) this.eDynamicGet(
+                SeffPerformancePackage.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL,
+                SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InfrastructureSignature basicGetSignature__InfrastructureCall() {
-        return this.signature__InfrastructureCall;
+        return (InfrastructureSignature) this.eDynamicGet(
+                SeffPerformancePackage.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL,
+                SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSignature__InfrastructureCall(final InfrastructureSignature newSignature__InfrastructureCall) {
-        final InfrastructureSignature oldSignature__InfrastructureCall = this.signature__InfrastructureCall;
-        this.signature__InfrastructureCall = newSignature__InfrastructureCall;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPerformancePackage.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL,
-                    oldSignature__InfrastructureCall, this.signature__InfrastructureCall));
-        }
+        this.eDynamicSet(SeffPerformancePackage.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL,
+                SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL,
+                newSignature__InfrastructureCall);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public PCMRandomVariable getNumberOfCalls__InfrastructureCall() {
-        return this.numberOfCalls__InfrastructureCall;
+        return (PCMRandomVariable) this.eDynamicGet(
+                SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL,
+                SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetNumberOfCalls__InfrastructureCall(
             final PCMRandomVariable newNumberOfCalls__InfrastructureCall, NotificationChain msgs) {
-        final PCMRandomVariable oldNumberOfCalls__InfrastructureCall = this.numberOfCalls__InfrastructureCall;
-        this.numberOfCalls__InfrastructureCall = newNumberOfCalls__InfrastructureCall;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL,
-                    oldNumberOfCalls__InfrastructureCall, newNumberOfCalls__InfrastructureCall);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newNumberOfCalls__InfrastructureCall,
+                SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setNumberOfCalls__InfrastructureCall(final PCMRandomVariable newNumberOfCalls__InfrastructureCall) {
-        if (newNumberOfCalls__InfrastructureCall != this.numberOfCalls__InfrastructureCall) {
-            NotificationChain msgs = null;
-            if (this.numberOfCalls__InfrastructureCall != null) {
-                msgs = ((InternalEObject) this.numberOfCalls__InfrastructureCall).eInverseRemove(this,
-                        CorePackage.PCM_RANDOM_VARIABLE__INFRASTRUCTURE_CALL_PCM_RANDOM_VARIABLE,
-                        PCMRandomVariable.class, msgs);
-            }
-            if (newNumberOfCalls__InfrastructureCall != null) {
-                msgs = ((InternalEObject) newNumberOfCalls__InfrastructureCall).eInverseAdd(this,
-                        CorePackage.PCM_RANDOM_VARIABLE__INFRASTRUCTURE_CALL_PCM_RANDOM_VARIABLE,
-                        PCMRandomVariable.class, msgs);
-            }
-            msgs = this.basicSetNumberOfCalls__InfrastructureCall(newNumberOfCalls__InfrastructureCall, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL,
-                    newNumberOfCalls__InfrastructureCall, newNumberOfCalls__InfrastructureCall));
-        }
+        this.eDynamicSet(SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL,
+                SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL,
+                newNumberOfCalls__InfrastructureCall);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AbstractInternalControlFlowAction getAction__InfrastructureCall() {
-        if (this.eContainerFeatureID() != SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL) {
-            return null;
-        }
-        return (AbstractInternalControlFlowAction) this.eInternalContainer();
+        return (AbstractInternalControlFlowAction) this.eDynamicGet(
+                SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL,
+                SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAction__InfrastructureCall(
@@ -254,82 +177,49 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setAction__InfrastructureCall(final AbstractInternalControlFlowAction newAction__InfrastructureCall) {
-        if (newAction__InfrastructureCall != this.eInternalContainer()
-                || (this.eContainerFeatureID() != SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL && newAction__InfrastructureCall != null)) {
-            if (EcoreUtil.isAncestor(this, newAction__InfrastructureCall)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newAction__InfrastructureCall != null) {
-                msgs = ((InternalEObject) newAction__InfrastructureCall).eInverseAdd(this,
-                        SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION,
-                        AbstractInternalControlFlowAction.class, msgs);
-            }
-            msgs = this.basicSetAction__InfrastructureCall(newAction__InfrastructureCall, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL,
-                    newAction__InfrastructureCall, newAction__InfrastructureCall));
-        }
+        this.eDynamicSet(SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL,
+                SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL,
+                newAction__InfrastructureCall);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public InfrastructureRequiredRole getRequiredRole__InfrastructureCall() {
-        if (this.requiredRole__InfrastructureCall != null
-                && ((EObject) this.requiredRole__InfrastructureCall).eIsProxy()) {
-            final InternalEObject oldRequiredRole__InfrastructureCall = (InternalEObject) this.requiredRole__InfrastructureCall;
-            this.requiredRole__InfrastructureCall = (InfrastructureRequiredRole) this
-                    .eResolveProxy(oldRequiredRole__InfrastructureCall);
-            if (this.requiredRole__InfrastructureCall != oldRequiredRole__InfrastructureCall) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            SeffPerformancePackage.INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL,
-                            oldRequiredRole__InfrastructureCall, this.requiredRole__InfrastructureCall));
-                }
-            }
-        }
-        return this.requiredRole__InfrastructureCall;
+        return (InfrastructureRequiredRole) this.eDynamicGet(
+                SeffPerformancePackage.INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL,
+                SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InfrastructureRequiredRole basicGetRequiredRole__InfrastructureCall() {
-        return this.requiredRole__InfrastructureCall;
+        return (InfrastructureRequiredRole) this.eDynamicGet(
+                SeffPerformancePackage.INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL,
+                SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRequiredRole__InfrastructureCall(final InfrastructureRequiredRole newRequiredRole__InfrastructureCall) {
-        final InfrastructureRequiredRole oldRequiredRole__InfrastructureCall = this.requiredRole__InfrastructureCall;
-        this.requiredRole__InfrastructureCall = newRequiredRole__InfrastructureCall;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPerformancePackage.INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL,
-                    oldRequiredRole__InfrastructureCall, this.requiredRole__InfrastructureCall));
-        }
+        this.eDynamicSet(SeffPerformancePackage.INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL,
+                SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL,
+                newRequiredRole__InfrastructureCall);
     }
 
     /**
@@ -337,7 +227,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * {@link #SignatureMustBelongToUsedRequiredRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Signature Must Belong To Used Required Role</em>}' operation. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #SignatureMustBelongToUsedRequiredRole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -360,7 +250,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -419,7 +309,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -458,7 +348,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * {@link #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Signature Role Combination Must Be Unique Within Abstract Internal Control Flow Action</em>}
      * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -471,7 +361,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * {@link #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Signature Role Combination Must Be Unique Within Abstract Internal Control Flow Action</em>}
      * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -481,7 +371,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -518,15 +408,16 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL:
-            if (this.numberOfCalls__InfrastructureCall != null) {
-                msgs = ((InternalEObject) this.numberOfCalls__InfrastructureCall).eInverseRemove(this,
+            final PCMRandomVariable numberOfCalls__InfrastructureCall = this.getNumberOfCalls__InfrastructureCall();
+            if (numberOfCalls__InfrastructureCall != null) {
+                msgs = ((InternalEObject) numberOfCalls__InfrastructureCall).eInverseRemove(this,
                         EOPPOSITE_FEATURE_BASE
                         - SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL,
                         null, msgs);
@@ -543,7 +434,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -560,7 +451,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -576,7 +467,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -602,7 +493,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -626,7 +517,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -650,20 +541,20 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL:
-            return this.signature__InfrastructureCall != null;
+            return this.basicGetSignature__InfrastructureCall() != null;
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL:
-            return this.numberOfCalls__InfrastructureCall != null;
+            return this.getNumberOfCalls__InfrastructureCall() != null;
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL:
             return this.getAction__InfrastructureCall() != null;
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__REQUIRED_ROLE_INFRASTRUCTURE_CALL:
-            return this.requiredRole__InfrastructureCall != null;
+            return this.basicGetRequiredRole__InfrastructureCall() != null;
         }
         return super.eIsSet(featureID);
     }
@@ -671,7 +562,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

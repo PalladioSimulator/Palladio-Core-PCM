@@ -5,12 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.core.composition.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
@@ -34,14 +31,14 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ConnectorImpl() {
@@ -50,7 +47,7 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -60,20 +57,18 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ComposedStructure getParentStructure__Connector() {
-        if (this.eContainerFeatureID() != CompositionPackage.CONNECTOR__PARENT_STRUCTURE_CONNECTOR) {
-            return null;
-        }
-        return (ComposedStructure) this.eInternalContainer();
+        return (ComposedStructure) this.eDynamicGet(CompositionPackage.CONNECTOR__PARENT_STRUCTURE_CONNECTOR,
+                CompositionPackage.Literals.CONNECTOR__PARENT_STRUCTURE_CONNECTOR, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParentStructure__Connector(final ComposedStructure newParentStructure__Connector,
@@ -85,39 +80,18 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setParentStructure__Connector(final ComposedStructure newParentStructure__Connector) {
-        if (newParentStructure__Connector != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CompositionPackage.CONNECTOR__PARENT_STRUCTURE_CONNECTOR && newParentStructure__Connector != null)) {
-            if (EcoreUtil.isAncestor(this, newParentStructure__Connector)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newParentStructure__Connector != null) {
-                msgs = ((InternalEObject) newParentStructure__Connector).eInverseAdd(this,
-                        CompositionPackage.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class,
-                        msgs);
-            }
-            msgs = this.basicSetParentStructure__Connector(newParentStructure__Connector, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CompositionPackage.CONNECTOR__PARENT_STRUCTURE_CONNECTOR, newParentStructure__Connector,
-                    newParentStructure__Connector));
-        }
+        this.eDynamicSet(CompositionPackage.CONNECTOR__PARENT_STRUCTURE_CONNECTOR,
+                CompositionPackage.Literals.CONNECTOR__PARENT_STRUCTURE_CONNECTOR, newParentStructure__Connector);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -134,7 +108,7 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -149,7 +123,7 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -165,7 +139,7 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -179,7 +153,7 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -194,7 +168,7 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -209,7 +183,7 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

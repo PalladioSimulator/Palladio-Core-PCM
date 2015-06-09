@@ -2,11 +2,7 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference;
@@ -30,18 +26,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implements UsageScenarioReference {
 
     /**
-     * The cached value of the '{@link #getUsageScenario() <em>Usage Scenario</em>}' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getUsageScenario()
-     * @generated
-     * @ordered
-     */
-    protected UsageScenario usageScenario;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected UsageScenarioReferenceImpl() {
@@ -50,7 +36,7 @@ public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -60,53 +46,49 @@ public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    protected int eStaticFeatureCount() {
+        return 0;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public UsageScenario getUsageScenario() {
-        if (this.usageScenario != null && ((EObject) this.usageScenario).eIsProxy()) {
-            final InternalEObject oldUsageScenario = (InternalEObject) this.usageScenario;
-            this.usageScenario = (UsageScenario) this.eResolveProxy(oldUsageScenario);
-            if (this.usageScenario != oldUsageScenario) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO, oldUsageScenario,
-                            this.usageScenario));
-                }
-            }
-        }
-        return this.usageScenario;
+        return (UsageScenario) this.eDynamicGet(PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO,
+                PcmmeasuringpointPackage.Literals.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public UsageScenario basicGetUsageScenario() {
-        return this.usageScenario;
+        return (UsageScenario) this.eDynamicGet(PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO,
+                PcmmeasuringpointPackage.Literals.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setUsageScenario(final UsageScenario newUsageScenario) {
-        final UsageScenario oldUsageScenario = this.usageScenario;
-        this.usageScenario = newUsageScenario;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO, oldUsageScenario,
-                    this.usageScenario));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO,
+                PcmmeasuringpointPackage.Literals.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO, newUsageScenario);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -123,7 +105,7 @@ public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -138,7 +120,7 @@ public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -153,14 +135,14 @@ public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO:
-            return this.usageScenario != null;
+            return this.basicGetUsageScenario() != null;
         }
         return super.eIsSet(featureID);
     }

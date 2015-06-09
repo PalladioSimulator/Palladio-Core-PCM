@@ -11,10 +11,8 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
@@ -37,25 +35,14 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getLocalVariableUsages_SetVariableAction()
-     * <em>Local Variable Usages Set Variable Action</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getLocalVariableUsages_SetVariableAction()
-     * @generated
-     * @ordered
-     */
-    protected EList<VariableUsage> localVariableUsages_SetVariableAction;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SetVariableActionImpl() {
@@ -64,7 +51,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -74,24 +61,20 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getLocalVariableUsages_SetVariableAction() {
-        if (this.localVariableUsages_SetVariableAction == null) {
-            this.localVariableUsages_SetVariableAction = new EObjectContainmentWithInverseEList<VariableUsage>(
-                    VariableUsage.class, this,
-                    SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION,
-                    ParameterPackage.VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE);
-        }
-        return this.localVariableUsages_SetVariableAction;
+        return (EList<VariableUsage>) this.eDynamicGet(
+                SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION,
+                SeffPackage.Literals.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -108,7 +91,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -123,7 +106,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -137,7 +120,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -154,7 +137,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -169,7 +152,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -177,8 +160,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
-            return this.localVariableUsages_SetVariableAction != null
-                    && !this.localVariableUsages_SetVariableAction.isEmpty();
+            return !this.getLocalVariableUsages_SetVariableAction().isEmpty();
         }
         return super.eIsSet(featureID);
     }

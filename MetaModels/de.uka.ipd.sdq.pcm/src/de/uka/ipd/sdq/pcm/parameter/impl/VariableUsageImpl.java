@@ -7,14 +7,10 @@ package de.uka.ipd.sdq.pcm.parameter.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
@@ -79,36 +75,14 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getVariableCharacterisation_VariableUsage()
-     * <em>Variable Characterisation Variable Usage</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getVariableCharacterisation_VariableUsage()
-     * @generated
-     * @ordered
-     */
-    protected EList<VariableCharacterisation> variableCharacterisation_VariableUsage;
-
-    /**
-     * The cached value of the '{@link #getNamedReference__VariableUsage()
-     * <em>Named Reference Variable Usage</em>}' containment reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getNamedReference__VariableUsage()
-     * @generated
-     * @ordered
-     */
-    protected AbstractNamedReference namedReference__VariableUsage;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected VariableUsageImpl() {
@@ -117,7 +91,7 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,37 +101,41 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    protected int eStaticFeatureCount() {
+        return 0;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<VariableCharacterisation> getVariableCharacterisation_VariableUsage() {
-        if (this.variableCharacterisation_VariableUsage == null) {
-            this.variableCharacterisation_VariableUsage = new EObjectContainmentWithInverseEList<VariableCharacterisation>(
-                    VariableCharacterisation.class, this,
-                    ParameterPackage.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE,
-                    ParameterPackage.VARIABLE_CHARACTERISATION__VARIABLE_USAGE_VARIABLE_CHARACTERISATION);
-        }
-        return this.variableCharacterisation_VariableUsage;
+        return (EList<VariableCharacterisation>) this.eDynamicGet(
+                ParameterPackage.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public UserData getUserData_VariableUsage() {
-        if (this.eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE) {
-            return null;
-        }
-        return (UserData) this.eInternalContainer();
+        return (UserData) this.eDynamicGet(ParameterPackage.VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetUserData_VariableUsage(final UserData newUserData_VariableUsage,
@@ -169,51 +147,30 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setUserData_VariableUsage(final UserData newUserData_VariableUsage) {
-        if (newUserData_VariableUsage != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE && newUserData_VariableUsage != null)) {
-            if (EcoreUtil.isAncestor(this, newUserData_VariableUsage)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newUserData_VariableUsage != null) {
-                msgs = ((InternalEObject) newUserData_VariableUsage).eInverseAdd(this,
-                        UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA, UserData.class, msgs);
-            }
-            msgs = this.basicSetUserData_VariableUsage(newUserData_VariableUsage, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParameterPackage.VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE, newUserData_VariableUsage,
-                    newUserData_VariableUsage));
-        }
+        this.eDynamicSet(ParameterPackage.VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE, newUserData_VariableUsage);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SynchronisationPoint getSynchronisationPoint_VariableUsage() {
-        if (this.eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__SYNCHRONISATION_POINT_VARIABLE_USAGE) {
-            return null;
-        }
-        return (SynchronisationPoint) this.eInternalContainer();
+        return (SynchronisationPoint) this.eDynamicGet(
+                ParameterPackage.VARIABLE_USAGE__SYNCHRONISATION_POINT_VARIABLE_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__SYNCHRONISATION_POINT_VARIABLE_USAGE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSynchronisationPoint_VariableUsage(
@@ -225,52 +182,30 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSynchronisationPoint_VariableUsage(final SynchronisationPoint newSynchronisationPoint_VariableUsage) {
-        if (newSynchronisationPoint_VariableUsage != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__SYNCHRONISATION_POINT_VARIABLE_USAGE && newSynchronisationPoint_VariableUsage != null)) {
-            if (EcoreUtil.isAncestor(this, newSynchronisationPoint_VariableUsage)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newSynchronisationPoint_VariableUsage != null) {
-                msgs = ((InternalEObject) newSynchronisationPoint_VariableUsage).eInverseAdd(this,
-                        SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT,
-                        SynchronisationPoint.class, msgs);
-            }
-            msgs = this.basicSetSynchronisationPoint_VariableUsage(newSynchronisationPoint_VariableUsage, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParameterPackage.VARIABLE_USAGE__SYNCHRONISATION_POINT_VARIABLE_USAGE,
-                    newSynchronisationPoint_VariableUsage, newSynchronisationPoint_VariableUsage));
-        }
+        this.eDynamicSet(ParameterPackage.VARIABLE_USAGE__SYNCHRONISATION_POINT_VARIABLE_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__SYNCHRONISATION_POINT_VARIABLE_USAGE,
+                newSynchronisationPoint_VariableUsage);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public CallAction getCallAction__VariableUsage() {
-        if (this.eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__CALL_ACTION_VARIABLE_USAGE) {
-            return null;
-        }
-        return (CallAction) this.eInternalContainer();
+        return (CallAction) this.eDynamicGet(ParameterPackage.VARIABLE_USAGE__CALL_ACTION_VARIABLE_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__CALL_ACTION_VARIABLE_USAGE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetCallAction__VariableUsage(final CallAction newCallAction__VariableUsage,
@@ -282,51 +217,29 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setCallAction__VariableUsage(final CallAction newCallAction__VariableUsage) {
-        if (newCallAction__VariableUsage != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__CALL_ACTION_VARIABLE_USAGE && newCallAction__VariableUsage != null)) {
-            if (EcoreUtil.isAncestor(this, newCallAction__VariableUsage)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newCallAction__VariableUsage != null) {
-                msgs = ((InternalEObject) newCallAction__VariableUsage).eInverseAdd(this,
-                        SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION, CallAction.class, msgs);
-            }
-            msgs = this.basicSetCallAction__VariableUsage(newCallAction__VariableUsage, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParameterPackage.VARIABLE_USAGE__CALL_ACTION_VARIABLE_USAGE, newCallAction__VariableUsage,
-                    newCallAction__VariableUsage));
-        }
+        this.eDynamicSet(ParameterPackage.VARIABLE_USAGE__CALL_ACTION_VARIABLE_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__CALL_ACTION_VARIABLE_USAGE, newCallAction__VariableUsage);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public CallReturnAction getCallReturnAction__VariableUsage() {
-        if (this.eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__CALL_RETURN_ACTION_VARIABLE_USAGE) {
-            return null;
-        }
-        return (CallReturnAction) this.eInternalContainer();
+        return (CallReturnAction) this.eDynamicGet(ParameterPackage.VARIABLE_USAGE__CALL_RETURN_ACTION_VARIABLE_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__CALL_RETURN_ACTION_VARIABLE_USAGE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetCallReturnAction__VariableUsage(
@@ -338,52 +251,31 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setCallReturnAction__VariableUsage(final CallReturnAction newCallReturnAction__VariableUsage) {
-        if (newCallReturnAction__VariableUsage != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__CALL_RETURN_ACTION_VARIABLE_USAGE && newCallReturnAction__VariableUsage != null)) {
-            if (EcoreUtil.isAncestor(this, newCallReturnAction__VariableUsage)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newCallReturnAction__VariableUsage != null) {
-                msgs = ((InternalEObject) newCallReturnAction__VariableUsage).eInverseAdd(this,
-                        SeffPackage.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION,
-                        CallReturnAction.class, msgs);
-            }
-            msgs = this.basicSetCallReturnAction__VariableUsage(newCallReturnAction__VariableUsage, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParameterPackage.VARIABLE_USAGE__CALL_RETURN_ACTION_VARIABLE_USAGE,
-                    newCallReturnAction__VariableUsage, newCallReturnAction__VariableUsage));
-        }
+        this.eDynamicSet(ParameterPackage.VARIABLE_USAGE__CALL_RETURN_ACTION_VARIABLE_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__CALL_RETURN_ACTION_VARIABLE_USAGE,
+                newCallReturnAction__VariableUsage);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SetVariableAction getSetVariableAction_VariableUsage() {
-        if (this.eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE) {
-            return null;
-        }
-        return (SetVariableAction) this.eInternalContainer();
+        return (SetVariableAction) this.eDynamicGet(
+                ParameterPackage.VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSetVariableAction_VariableUsage(
@@ -395,52 +287,30 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSetVariableAction_VariableUsage(final SetVariableAction newSetVariableAction_VariableUsage) {
-        if (newSetVariableAction_VariableUsage != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE && newSetVariableAction_VariableUsage != null)) {
-            if (EcoreUtil.isAncestor(this, newSetVariableAction_VariableUsage)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newSetVariableAction_VariableUsage != null) {
-                msgs = ((InternalEObject) newSetVariableAction_VariableUsage).eInverseAdd(this,
-                        SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION,
-                        SetVariableAction.class, msgs);
-            }
-            msgs = this.basicSetSetVariableAction_VariableUsage(newSetVariableAction_VariableUsage, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParameterPackage.VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE,
-                    newSetVariableAction_VariableUsage, newSetVariableAction_VariableUsage));
-        }
+        this.eDynamicSet(ParameterPackage.VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE,
+                newSetVariableAction_VariableUsage);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getAssemblyContext__VariableUsage() {
-        if (this.eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__ASSEMBLY_CONTEXT_VARIABLE_USAGE) {
-            return null;
-        }
-        return (AssemblyContext) this.eInternalContainer();
+        return (AssemblyContext) this.eDynamicGet(ParameterPackage.VARIABLE_USAGE__ASSEMBLY_CONTEXT_VARIABLE_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__ASSEMBLY_CONTEXT_VARIABLE_USAGE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAssemblyContext__VariableUsage(
@@ -452,52 +322,31 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setAssemblyContext__VariableUsage(final AssemblyContext newAssemblyContext__VariableUsage) {
-        if (newAssemblyContext__VariableUsage != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__ASSEMBLY_CONTEXT_VARIABLE_USAGE && newAssemblyContext__VariableUsage != null)) {
-            if (EcoreUtil.isAncestor(this, newAssemblyContext__VariableUsage)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newAssemblyContext__VariableUsage != null) {
-                msgs = ((InternalEObject) newAssemblyContext__VariableUsage).eInverseAdd(this,
-                        CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT,
-                        AssemblyContext.class, msgs);
-            }
-            msgs = this.basicSetAssemblyContext__VariableUsage(newAssemblyContext__VariableUsage, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParameterPackage.VARIABLE_USAGE__ASSEMBLY_CONTEXT_VARIABLE_USAGE,
-                    newAssemblyContext__VariableUsage, newAssemblyContext__VariableUsage));
-        }
+        this.eDynamicSet(ParameterPackage.VARIABLE_USAGE__ASSEMBLY_CONTEXT_VARIABLE_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__ASSEMBLY_CONTEXT_VARIABLE_USAGE,
+                newAssemblyContext__VariableUsage);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EntryLevelSystemCall getEntryLevelSystemCall_InputParameterUsage() {
-        if (this.eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_INPUT_PARAMETER_USAGE) {
-            return null;
-        }
-        return (EntryLevelSystemCall) this.eInternalContainer();
+        return (EntryLevelSystemCall) this.eDynamicGet(
+                ParameterPackage.VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_INPUT_PARAMETER_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_INPUT_PARAMETER_USAGE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetEntryLevelSystemCall_InputParameterUsage(
@@ -509,54 +358,32 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setEntryLevelSystemCall_InputParameterUsage(
             final EntryLevelSystemCall newEntryLevelSystemCall_InputParameterUsage) {
-        if (newEntryLevelSystemCall_InputParameterUsage != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_INPUT_PARAMETER_USAGE && newEntryLevelSystemCall_InputParameterUsage != null)) {
-            if (EcoreUtil.isAncestor(this, newEntryLevelSystemCall_InputParameterUsage)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newEntryLevelSystemCall_InputParameterUsage != null) {
-                msgs = ((InternalEObject) newEntryLevelSystemCall_InputParameterUsage).eInverseAdd(this,
-                        UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL,
-                        EntryLevelSystemCall.class, msgs);
-            }
-            msgs = this.basicSetEntryLevelSystemCall_InputParameterUsage(newEntryLevelSystemCall_InputParameterUsage,
-                    msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParameterPackage.VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_INPUT_PARAMETER_USAGE,
-                    newEntryLevelSystemCall_InputParameterUsage, newEntryLevelSystemCall_InputParameterUsage));
-        }
+        this.eDynamicSet(ParameterPackage.VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_INPUT_PARAMETER_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_INPUT_PARAMETER_USAGE,
+                newEntryLevelSystemCall_InputParameterUsage);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EntryLevelSystemCall getEntryLevelSystemCall_OutputParameterUsage() {
-        if (this.eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_OUTPUT_PARAMETER_USAGE) {
-            return null;
-        }
-        return (EntryLevelSystemCall) this.eInternalContainer();
+        return (EntryLevelSystemCall) this.eDynamicGet(
+                ParameterPackage.VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_OUTPUT_PARAMETER_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_OUTPUT_PARAMETER_USAGE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetEntryLevelSystemCall_OutputParameterUsage(
@@ -568,54 +395,34 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setEntryLevelSystemCall_OutputParameterUsage(
             final EntryLevelSystemCall newEntryLevelSystemCall_OutputParameterUsage) {
-        if (newEntryLevelSystemCall_OutputParameterUsage != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_OUTPUT_PARAMETER_USAGE && newEntryLevelSystemCall_OutputParameterUsage != null)) {
-            if (EcoreUtil.isAncestor(this, newEntryLevelSystemCall_OutputParameterUsage)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newEntryLevelSystemCall_OutputParameterUsage != null) {
-                msgs = ((InternalEObject) newEntryLevelSystemCall_OutputParameterUsage).eInverseAdd(this,
-                        UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL,
-                        EntryLevelSystemCall.class, msgs);
-            }
-            msgs = this.basicSetEntryLevelSystemCall_OutputParameterUsage(newEntryLevelSystemCall_OutputParameterUsage,
-                    msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParameterPackage.VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_OUTPUT_PARAMETER_USAGE,
-                    newEntryLevelSystemCall_OutputParameterUsage, newEntryLevelSystemCall_OutputParameterUsage));
-        }
+        this.eDynamicSet(ParameterPackage.VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_OUTPUT_PARAMETER_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_OUTPUT_PARAMETER_USAGE,
+                newEntryLevelSystemCall_OutputParameterUsage);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SpecifiedOutputParameterAbstraction getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage() {
-        if (this.eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE) {
-            return null;
-        }
-        return (SpecifiedOutputParameterAbstraction) this.eInternalContainer();
+        return (SpecifiedOutputParameterAbstraction) this
+                .eDynamicGet(
+                        ParameterPackage.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE,
+                        ParameterPackage.Literals.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage(
@@ -631,108 +438,57 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage(
             final SpecifiedOutputParameterAbstraction newSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage) {
-        if (newSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE && newSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage != null)) {
-            if (EcoreUtil
-                    .isAncestor(this, newSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage != null) {
-                msgs = ((InternalEObject) newSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage)
-                        .eInverseAdd(
-                                this,
-                                QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                                SpecifiedOutputParameterAbstraction.class, msgs);
-            }
-            msgs = this.basicSetSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage(
-                    newSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    ParameterPackage.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE,
-                    newSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage,
-                    newSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage));
-        }
+        this.eDynamicSet(
+                ParameterPackage.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE,
+                newSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AbstractNamedReference getNamedReference__VariableUsage() {
-        return this.namedReference__VariableUsage;
+        return (AbstractNamedReference) this.eDynamicGet(
+                ParameterPackage.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetNamedReference__VariableUsage(
             final AbstractNamedReference newNamedReference__VariableUsage, NotificationChain msgs) {
-        final AbstractNamedReference oldNamedReference__VariableUsage = this.namedReference__VariableUsage;
-        this.namedReference__VariableUsage = newNamedReference__VariableUsage;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    ParameterPackage.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE, oldNamedReference__VariableUsage,
-                    newNamedReference__VariableUsage);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newNamedReference__VariableUsage,
+                ParameterPackage.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setNamedReference__VariableUsage(final AbstractNamedReference newNamedReference__VariableUsage) {
-        if (newNamedReference__VariableUsage != this.namedReference__VariableUsage) {
-            NotificationChain msgs = null;
-            if (this.namedReference__VariableUsage != null) {
-                msgs = ((InternalEObject) this.namedReference__VariableUsage).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE - ParameterPackage.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE, null,
-                        msgs);
-            }
-            if (newNamedReference__VariableUsage != null) {
-                msgs = ((InternalEObject) newNamedReference__VariableUsage).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-                        - ParameterPackage.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE, null, msgs);
-            }
-            msgs = this.basicSetNamedReference__VariableUsage(newNamedReference__VariableUsage, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParameterPackage.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE, newNamedReference__VariableUsage,
-                    newNamedReference__VariableUsage));
-        }
+        this.eDynamicSet(ParameterPackage.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE,
+                ParameterPackage.Literals.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE,
+                newNamedReference__VariableUsage);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -794,7 +550,7 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -829,7 +585,7 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -878,7 +634,7 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -912,7 +668,7 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -960,7 +716,7 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1005,7 +761,7 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -1013,8 +769,7 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ParameterPackage.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE:
-            return this.variableCharacterisation_VariableUsage != null
-                    && !this.variableCharacterisation_VariableUsage.isEmpty();
+            return !this.getVariableCharacterisation_VariableUsage().isEmpty();
         case ParameterPackage.VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE:
             return this.getUserData_VariableUsage() != null;
         case ParameterPackage.VARIABLE_USAGE__CALL_ACTION_VARIABLE_USAGE:
@@ -1034,7 +789,7 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
         case ParameterPackage.VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_OUTPUT_PARAMETER_USAGE:
             return this.getEntryLevelSystemCall_OutputParameterUsage() != null;
         case ParameterPackage.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE:
-            return this.namedReference__VariableUsage != null;
+            return this.getNamedReference__VariableUsage() != null;
         }
         return super.eIsSet(featureID);
     }

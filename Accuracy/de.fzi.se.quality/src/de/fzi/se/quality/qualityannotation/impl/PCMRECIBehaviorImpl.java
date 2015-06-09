@@ -4,14 +4,10 @@ package de.fzi.se.quality.qualityannotation.impl;
 
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ocl.ParserException;
@@ -39,18 +35,8 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour;
 public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
-     * The cached value of the '{@link #getInternalBehaviour() <em>Internal Behaviour</em>}'
-     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getInternalBehaviour()
-     * @generated
-     * @ordered
-     */
-    protected ResourceDemandingInternalBehaviour internalBehaviour;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMRECIBehaviorImpl() {
@@ -59,7 +45,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -69,48 +55,36 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceDemandingInternalBehaviour getInternalBehaviour() {
-        if (this.internalBehaviour != null && ((EObject) this.internalBehaviour).eIsProxy()) {
-            final InternalEObject oldInternalBehaviour = (InternalEObject) this.internalBehaviour;
-            this.internalBehaviour = (ResourceDemandingInternalBehaviour) this.eResolveProxy(oldInternalBehaviour);
-            if (this.internalBehaviour != oldInternalBehaviour) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            QualityAnnotationPackage.PCMRECI_BEHAVIOR__INTERNAL_BEHAVIOUR, oldInternalBehaviour,
-                            this.internalBehaviour));
-                }
-            }
-        }
-        return this.internalBehaviour;
+        return (ResourceDemandingInternalBehaviour) this.eDynamicGet(
+                QualityAnnotationPackage.PCMRECI_BEHAVIOR__INTERNAL_BEHAVIOUR,
+                QualityAnnotationPackage.Literals.PCMRECI_BEHAVIOR__INTERNAL_BEHAVIOUR, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceDemandingInternalBehaviour basicGetInternalBehaviour() {
-        return this.internalBehaviour;
+        return (ResourceDemandingInternalBehaviour) this.eDynamicGet(
+                QualityAnnotationPackage.PCMRECI_BEHAVIOR__INTERNAL_BEHAVIOUR,
+                QualityAnnotationPackage.Literals.PCMRECI_BEHAVIOR__INTERNAL_BEHAVIOUR, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setInternalBehaviour(final ResourceDemandingInternalBehaviour newInternalBehaviour) {
-        final ResourceDemandingInternalBehaviour oldInternalBehaviour = this.internalBehaviour;
-        this.internalBehaviour = newInternalBehaviour;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.PCMRECI_BEHAVIOR__INTERNAL_BEHAVIOUR, oldInternalBehaviour,
-                    this.internalBehaviour));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.PCMRECI_BEHAVIOR__INTERNAL_BEHAVIOUR,
+                QualityAnnotationPackage.Literals.PCMRECI_BEHAVIOR__INTERNAL_BEHAVIOUR, newInternalBehaviour);
     }
 
     /**
@@ -141,7 +115,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -162,13 +136,13 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
                 .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCMRECI_BEHAVIOR__THIS_IS_THE_LOWEST_COMPONENT_INTERNAL_HIERARCHY_LEVEL,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "ThisIsTheLowestComponentInternalHierarchyLevel",
-                                                EObjectValidator.getObjectLabel(this, context) }),
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMRECI_BEHAVIOR__THIS_IS_THE_LOWEST_COMPONENT_INTERNAL_HIERARCHY_LEVEL,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "ThisIsTheLowestComponentInternalHierarchyLevel",
+                                EObjectValidator.getObjectLabel(this, context) }),
                                 new Object[] { this }));
             }
             return false;
@@ -181,7 +155,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
      * {@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each RE Target Must Be Referenced Only From One RE</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -204,7 +178,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -224,15 +198,15 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
                 .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCMRECI_BEHAVIOR__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE,
-                                EcorePlugin.INSTANCE.getString(
-                                        "_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "EachRETargetMustBeReferencedOnlyFromOneRE",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMRECI_BEHAVIOR__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE,
+                        EcorePlugin.INSTANCE.getString(
+                                "_UI_GenericInvariant_diagnostic",
+                                new Object[] { "EachRETargetMustBeReferencedOnlyFromOneRE",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                                        new Object[] { this }));
             }
             return false;
         }
@@ -241,7 +215,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -258,7 +232,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -273,7 +247,7 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -288,14 +262,14 @@ public class PCMRECIBehaviorImpl extends PCMREImpl implements PCMRECIBehavior {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityAnnotationPackage.PCMRECI_BEHAVIOR__INTERNAL_BEHAVIOUR:
-            return this.internalBehaviour != null;
+            return this.basicGetInternalBehaviour() != null;
         }
         return super.eIsSet(featureID);
     }

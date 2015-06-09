@@ -11,8 +11,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
@@ -40,33 +38,14 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getExceptions__Signature() <em>Exceptions Signature</em>}'
-     * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getExceptions__Signature()
-     * @generated
-     * @ordered
-     */
-    protected EList<ExceptionType> exceptions__Signature;
-    /**
-     * The cached value of the '{@link #getFailureType() <em>Failure Type</em>}' reference list.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getFailureType()
-     * @generated
-     * @ordered
-     */
-    protected EList<FailureType> failureType;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SignatureImpl() {
@@ -75,7 +54,7 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -85,37 +64,31 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<ExceptionType> getExceptions__Signature() {
-        if (this.exceptions__Signature == null) {
-            this.exceptions__Signature = new EObjectContainmentEList<ExceptionType>(ExceptionType.class, this,
-                    RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE);
-        }
-        return this.exceptions__Signature;
+        return (EList<ExceptionType>) this.eDynamicGet(RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE,
+                RepositoryPackage.Literals.SIGNATURE__EXCEPTIONS_SIGNATURE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<FailureType> getFailureType() {
-        if (this.failureType == null) {
-            this.failureType = new EObjectResolvingEList<FailureType>(FailureType.class, this,
-                    RepositoryPackage.SIGNATURE__FAILURE_TYPE);
-        }
-        return this.failureType;
+        return (EList<FailureType>) this.eDynamicGet(RepositoryPackage.SIGNATURE__FAILURE_TYPE,
+                RepositoryPackage.Literals.SIGNATURE__FAILURE_TYPE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -130,7 +103,7 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -146,7 +119,7 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -167,7 +140,7 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -185,7 +158,7 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -193,9 +166,9 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE:
-            return this.exceptions__Signature != null && !this.exceptions__Signature.isEmpty();
+            return !this.getExceptions__Signature().isEmpty();
         case RepositoryPackage.SIGNATURE__FAILURE_TYPE:
-            return this.failureType != null && !this.failureType.isEmpty();
+            return !this.getFailureType().isEmpty();
         }
         return super.eIsSet(featureID);
     }

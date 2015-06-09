@@ -6,11 +6,7 @@
  */
 package de.fzi.se.quality.qualityannotation.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import de.fzi.se.quality.qualityannotation.PCMServiceSpecification;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
@@ -33,18 +29,8 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 public class PCMServiceSpecificationImpl extends ServiceSpecificationImpl implements PCMServiceSpecification {
 
     /**
-     * The cached value of the '{@link #getResourceDemandingSEFF() <em>Resource Demanding SEFF</em>}
-     * ' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getResourceDemandingSEFF()
-     * @generated
-     * @ordered
-     */
-    protected ResourceDemandingSEFF resourceDemandingSEFF;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMServiceSpecificationImpl() {
@@ -53,7 +39,7 @@ public class PCMServiceSpecificationImpl extends ServiceSpecificationImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -63,53 +49,42 @@ public class PCMServiceSpecificationImpl extends ServiceSpecificationImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceDemandingSEFF getResourceDemandingSEFF() {
-        if (this.resourceDemandingSEFF != null && ((EObject) this.resourceDemandingSEFF).eIsProxy()) {
-            final InternalEObject oldResourceDemandingSEFF = (InternalEObject) this.resourceDemandingSEFF;
-            this.resourceDemandingSEFF = (ResourceDemandingSEFF) this.eResolveProxy(oldResourceDemandingSEFF);
-            if (this.resourceDemandingSEFF != oldResourceDemandingSEFF) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            QualityAnnotationPackage.PCM_SERVICE_SPECIFICATION__RESOURCE_DEMANDING_SEFF,
-                            oldResourceDemandingSEFF, this.resourceDemandingSEFF));
-                }
-            }
-        }
-        return this.resourceDemandingSEFF;
+        return (ResourceDemandingSEFF) this.eDynamicGet(
+                QualityAnnotationPackage.PCM_SERVICE_SPECIFICATION__RESOURCE_DEMANDING_SEFF,
+                QualityAnnotationPackage.Literals.PCM_SERVICE_SPECIFICATION__RESOURCE_DEMANDING_SEFF, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceDemandingSEFF basicGetResourceDemandingSEFF() {
-        return this.resourceDemandingSEFF;
+        return (ResourceDemandingSEFF) this.eDynamicGet(
+                QualityAnnotationPackage.PCM_SERVICE_SPECIFICATION__RESOURCE_DEMANDING_SEFF,
+                QualityAnnotationPackage.Literals.PCM_SERVICE_SPECIFICATION__RESOURCE_DEMANDING_SEFF, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setResourceDemandingSEFF(final ResourceDemandingSEFF newResourceDemandingSEFF) {
-        final ResourceDemandingSEFF oldResourceDemandingSEFF = this.resourceDemandingSEFF;
-        this.resourceDemandingSEFF = newResourceDemandingSEFF;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.PCM_SERVICE_SPECIFICATION__RESOURCE_DEMANDING_SEFF,
-                    oldResourceDemandingSEFF, this.resourceDemandingSEFF));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.PCM_SERVICE_SPECIFICATION__RESOURCE_DEMANDING_SEFF,
+                QualityAnnotationPackage.Literals.PCM_SERVICE_SPECIFICATION__RESOURCE_DEMANDING_SEFF,
+                newResourceDemandingSEFF);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -126,7 +101,7 @@ public class PCMServiceSpecificationImpl extends ServiceSpecificationImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -141,7 +116,7 @@ public class PCMServiceSpecificationImpl extends ServiceSpecificationImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -156,14 +131,14 @@ public class PCMServiceSpecificationImpl extends ServiceSpecificationImpl implem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityAnnotationPackage.PCM_SERVICE_SPECIFICATION__RESOURCE_DEMANDING_SEFF:
-            return this.resourceDemandingSEFF != null;
+            return this.basicGetResourceDemandingSEFF() != null;
         }
         return super.eIsSet(featureID);
     }

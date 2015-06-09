@@ -55,7 +55,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * each class of the model, starting with the actual class of the object and proceeding up the
  * inheritance hierarchy until a non-null result is returned, which is the result of the switch.
  * <!-- end-user-doc -->
- *
+ * 
  * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage
  * @generated
  */
@@ -63,14 +63,14 @@ public class QualityAnnotationSwitch<T> {
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected static QualityAnnotationPackage modelPackage;
 
     /**
      * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public QualityAnnotationSwitch() {
@@ -82,7 +82,7 @@ public class QualityAnnotationSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -93,7 +93,7 @@ public class QualityAnnotationSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -109,7 +109,7 @@ public class QualityAnnotationSwitch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -583,7 +583,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Parameter Value Deviation</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -599,7 +599,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Quality Annotation</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Quality Annotation</em>
@@ -615,7 +615,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Service Specification</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -631,7 +631,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Required Element</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Required Element</em>'.
@@ -646,7 +646,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Required Element Deviation</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -663,7 +663,7 @@ public class QualityAnnotationSwitch<T> {
      * <em>Internal State Influence Analysis Aggregation</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -694,7 +694,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Probabilistic Element</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -725,7 +725,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>PCM Parameter Partition</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -741,7 +741,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Characterised PCM Parameter Partition</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -758,7 +758,7 @@ public class QualityAnnotationSwitch<T> {
      * <em>Characterised PCM Parameter Partition Interval</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -775,7 +775,7 @@ public class QualityAnnotationSwitch<T> {
      * <em>Characterised PCM Parameter Partition Range</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -791,7 +791,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Exactly As Specified Precision</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -807,7 +807,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>Limited Deviation Precision</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -838,7 +838,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>PCMRE Category</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>PCMRE Category</em>'.
@@ -868,7 +868,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>PCMRE Interface</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>PCMRE Interface</em>'.
@@ -898,7 +898,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>PCMRE Signature</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>PCMRE Signature</em>'.
@@ -913,7 +913,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>PCM Service Specification</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -929,7 +929,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>PCMRE Resource Interface</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -945,7 +945,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>PCMRE Resource Signature</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -961,7 +961,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>PCMRE Resource</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>PCMRE Resource</em>'.
@@ -976,7 +976,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>PCMRE Resource Role</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>PCMRE Resource Role</em>
@@ -992,7 +992,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>PCMRECI Behavior</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>PCMRECI Behavior</em>'.
@@ -1007,7 +1007,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>PCMRE Infrastructure Interface</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1023,7 +1023,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>PCMRE Infrastructure Role</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1039,7 +1039,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '
      * <em>PCMRE Infrastructure Signature</em>'. <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '
@@ -1070,7 +1070,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>PCMPE All Decisions</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>PCMPE All Decisions</em>
@@ -1086,7 +1086,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>PCMPE Decision</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>PCMPE Decision</em>'.
@@ -1131,7 +1131,7 @@ public class QualityAnnotationSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Parameter Partition</em>
      * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Parameter Partition</em>

@@ -33,7 +33,7 @@ public interface PCMREResourceRole extends PCMRE {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Resource Role</em>' reference.
      * @see #setResourceRole(ResourceRequiredRole)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getPCMREResourceRole_ResourceRole()
@@ -46,7 +46,7 @@ public interface PCMREResourceRole extends PCMRE {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.PCMREResourceRole#getResourceRole
      * <em>Resource Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Resource Role</em>' reference.
      * @see #getResourceRole()

@@ -2,11 +2,7 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 import org.palladiosimulator.pcmmeasuringpoint.SystemReference;
@@ -27,18 +23,8 @@ import org.palladiosimulator.pcmmeasuringpoint.SystemReference;
 public abstract class SystemReferenceImpl extends CDOObjectImpl implements SystemReference {
 
     /**
-     * The cached value of the '{@link #getSystem() <em>System</em>}' reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @see #getSystem()
-     * @generated
-     * @ordered
-     */
-    protected de.uka.ipd.sdq.pcm.system.System system;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SystemReferenceImpl() {
@@ -47,7 +33,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -57,51 +43,49 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    protected int eStaticFeatureCount() {
+        return 0;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public de.uka.ipd.sdq.pcm.system.System getSystem() {
-        if (this.system != null && ((EObject) this.system).eIsProxy()) {
-            final InternalEObject oldSystem = (InternalEObject) this.system;
-            this.system = (de.uka.ipd.sdq.pcm.system.System) this.eResolveProxy(oldSystem);
-            if (this.system != oldSystem) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM, oldSystem, this.system));
-                }
-            }
-        }
-        return this.system;
+        return (de.uka.ipd.sdq.pcm.system.System) this.eDynamicGet(PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM,
+                PcmmeasuringpointPackage.Literals.SYSTEM_REFERENCE__SYSTEM, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public de.uka.ipd.sdq.pcm.system.System basicGetSystem() {
-        return this.system;
+        return (de.uka.ipd.sdq.pcm.system.System) this.eDynamicGet(PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM,
+                PcmmeasuringpointPackage.Literals.SYSTEM_REFERENCE__SYSTEM, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSystem(final de.uka.ipd.sdq.pcm.system.System newSystem) {
-        final de.uka.ipd.sdq.pcm.system.System oldSystem = this.system;
-        this.system = newSystem;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM, oldSystem, this.system));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM,
+                PcmmeasuringpointPackage.Literals.SYSTEM_REFERENCE__SYSTEM, newSystem);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -118,7 +102,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -133,7 +117,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -148,14 +132,14 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM:
-            return this.system != null;
+            return this.basicGetSystem() != null;
         }
         return super.eIsSet(featureID);
     }

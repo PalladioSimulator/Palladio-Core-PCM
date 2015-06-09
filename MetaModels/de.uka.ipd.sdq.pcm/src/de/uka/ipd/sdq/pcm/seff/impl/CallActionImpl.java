@@ -11,11 +11,9 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.seff.CallAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
@@ -37,25 +35,14 @@ public abstract class CallActionImpl extends EntityImpl implements CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getInputVariableUsages__CallAction()
-     * <em>Input Variable Usages Call Action</em>}' containment reference list. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @see #getInputVariableUsages__CallAction()
-     * @generated
-     * @ordered
-     */
-    protected EList<VariableUsage> inputVariableUsages__CallAction;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CallActionImpl() {
@@ -64,7 +51,7 @@ public abstract class CallActionImpl extends EntityImpl implements CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -74,23 +61,19 @@ public abstract class CallActionImpl extends EntityImpl implements CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getInputVariableUsages__CallAction() {
-        if (this.inputVariableUsages__CallAction == null) {
-            this.inputVariableUsages__CallAction = new EObjectContainmentWithInverseEList<VariableUsage>(
-                    VariableUsage.class, this, SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION,
-                    ParameterPackage.VARIABLE_USAGE__CALL_ACTION_VARIABLE_USAGE);
-        }
-        return this.inputVariableUsages__CallAction;
+        return (EList<VariableUsage>) this.eDynamicGet(SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION,
+                SeffPackage.Literals.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -107,7 +90,7 @@ public abstract class CallActionImpl extends EntityImpl implements CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -122,7 +105,7 @@ public abstract class CallActionImpl extends EntityImpl implements CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -136,7 +119,7 @@ public abstract class CallActionImpl extends EntityImpl implements CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -153,7 +136,7 @@ public abstract class CallActionImpl extends EntityImpl implements CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -168,7 +151,7 @@ public abstract class CallActionImpl extends EntityImpl implements CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -176,7 +159,7 @@ public abstract class CallActionImpl extends EntityImpl implements CallAction {
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            return this.inputVariableUsages__CallAction != null && !this.inputVariableUsages__CallAction.isEmpty();
+            return !this.getInputVariableUsages__CallAction().isEmpty();
         }
         return super.eIsSet(featureID);
     }

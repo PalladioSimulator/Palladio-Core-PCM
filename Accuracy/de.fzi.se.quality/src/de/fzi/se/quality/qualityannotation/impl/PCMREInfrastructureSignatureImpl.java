@@ -4,14 +4,10 @@ package de.fzi.se.quality.qualityannotation.impl;
 
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ocl.ParserException;
@@ -40,18 +36,8 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
 public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMREInfrastructureSignature {
 
     /**
-     * The cached value of the '{@link #getSignature() <em>Signature</em>}' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getSignature()
-     * @generated
-     * @ordered
-     */
-    protected InfrastructureSignature signature;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMREInfrastructureSignatureImpl() {
@@ -60,7 +46,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -70,47 +56,36 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public InfrastructureSignature getSignature() {
-        if (this.signature != null && ((EObject) this.signature).eIsProxy()) {
-            final InternalEObject oldSignature = (InternalEObject) this.signature;
-            this.signature = (InfrastructureSignature) this.eResolveProxy(oldSignature);
-            if (this.signature != oldSignature) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_SIGNATURE__SIGNATURE, oldSignature,
-                            this.signature));
-                }
-            }
-        }
-        return this.signature;
+        return (InfrastructureSignature) this.eDynamicGet(
+                QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_SIGNATURE__SIGNATURE,
+                QualityAnnotationPackage.Literals.PCMRE_INFRASTRUCTURE_SIGNATURE__SIGNATURE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InfrastructureSignature basicGetSignature() {
-        return this.signature;
+        return (InfrastructureSignature) this.eDynamicGet(
+                QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_SIGNATURE__SIGNATURE,
+                QualityAnnotationPackage.Literals.PCMRE_INFRASTRUCTURE_SIGNATURE__SIGNATURE, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSignature(final InfrastructureSignature newSignature) {
-        final InfrastructureSignature oldSignature = this.signature;
-        this.signature = newSignature;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_SIGNATURE__SIGNATURE, oldSignature, this.signature));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_SIGNATURE__SIGNATURE,
+                QualityAnnotationPackage.Literals.PCMRE_INFRASTRUCTURE_SIGNATURE__SIGNATURE, newSignature);
     }
 
     /**
@@ -118,7 +93,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
      * {@link #ThisIsTheLowestInfrastructureHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>This Is The Lowest Infrastructure Hierarchy Level</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ThisIsTheLowestInfrastructureHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -141,7 +116,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -161,15 +136,15 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
                 .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCMRE_INFRASTRUCTURE_SIGNATURE__THIS_IS_THE_LOWEST_INFRASTRUCTURE_HIERARCHY_LEVEL,
-                                EcorePlugin.INSTANCE.getString(
-                                        "_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "ThisIsTheLowestInfrastructureHierarchyLevel",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMRE_INFRASTRUCTURE_SIGNATURE__THIS_IS_THE_LOWEST_INFRASTRUCTURE_HIERARCHY_LEVEL,
+                        EcorePlugin.INSTANCE.getString(
+                                "_UI_GenericInvariant_diagnostic",
+                                new Object[] { "ThisIsTheLowestInfrastructureHierarchyLevel",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                                        new Object[] { this }));
             }
             return false;
         }
@@ -181,7 +156,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
      * {@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each RE Target Must Be Referenced Only From One RE</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -204,7 +179,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -224,15 +199,15 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
                 .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCMRE_INFRASTRUCTURE_SIGNATURE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE,
-                                EcorePlugin.INSTANCE.getString(
-                                        "_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "EachRETargetMustBeReferencedOnlyFromOneRE",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMRE_INFRASTRUCTURE_SIGNATURE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE,
+                        EcorePlugin.INSTANCE.getString(
+                                "_UI_GenericInvariant_diagnostic",
+                                new Object[] { "EachRETargetMustBeReferencedOnlyFromOneRE",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                                        new Object[] { this }));
             }
             return false;
         }
@@ -241,7 +216,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -258,7 +233,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -273,7 +248,7 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -288,14 +263,14 @@ public class PCMREInfrastructureSignatureImpl extends PCMREImpl implements PCMRE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_SIGNATURE__SIGNATURE:
-            return this.signature != null;
+            return this.basicGetSignature() != null;
         }
         return super.eIsSet(featureID);
     }

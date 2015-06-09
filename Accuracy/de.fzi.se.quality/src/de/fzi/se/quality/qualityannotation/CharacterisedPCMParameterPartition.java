@@ -57,7 +57,7 @@ public interface CharacterisedPCMParameterPartition extends Identifier {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition#getForCharacterisation
      * <em>For Characterisation</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>For Characterisation</em>' attribute.
      * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType
@@ -76,7 +76,7 @@ public interface CharacterisedPCMParameterPartition extends Identifier {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Pcm Parameter Partition</em>' container reference.
      * @see #setPcmParameterPartition(PCMParameterPartition)
      * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getCharacterisedPCMParameterPartition_PcmParameterPartition()
@@ -92,7 +92,7 @@ public interface CharacterisedPCMParameterPartition extends Identifier {
      * {@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition#getPcmParameterPartition
      * <em>Pcm Parameter Partition</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Pcm Parameter Partition</em>' container reference.
      * @see #getPcmParameterPartition()
@@ -121,7 +121,7 @@ public interface CharacterisedPCMParameterPartition extends Identifier {
      * Sets the value of the '
      * {@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition#getQualifiedElementName
      * <em>Qualified Element Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Qualified Element Name</em>' attribute.
      * @see #getQualifiedElementName()

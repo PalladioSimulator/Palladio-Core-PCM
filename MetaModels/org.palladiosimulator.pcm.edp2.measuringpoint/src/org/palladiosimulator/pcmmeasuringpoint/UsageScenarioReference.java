@@ -32,7 +32,7 @@ public interface UsageScenarioReference extends CDOObject {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Usage Scenario</em>' reference.
      * @see #setUsageScenario(UsageScenario)
      * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getUsageScenarioReference_UsageScenario()
@@ -45,7 +45,7 @@ public interface UsageScenarioReference extends CDOObject {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference#getUsageScenario
      * <em>Usage Scenario</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Usage Scenario</em>' reference.
      * @see #getUsageScenario()

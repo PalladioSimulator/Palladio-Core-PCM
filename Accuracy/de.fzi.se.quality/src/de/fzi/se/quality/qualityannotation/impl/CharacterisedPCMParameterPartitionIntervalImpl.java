@@ -6,11 +6,9 @@
  */
 package de.fzi.se.quality.qualityannotation.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
@@ -34,31 +32,11 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
  * @generated
  */
 public class CharacterisedPCMParameterPartitionIntervalImpl extends CharacterisedPCMParameterPartitionImpl implements
-        CharacterisedPCMParameterPartitionInterval {
-
-    /**
-     * The cached value of the '{@link #getFrom() <em>From</em>}' containment reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getFrom()
-     * @generated
-     * @ordered
-     */
-    protected PCMRandomVariable from;
-
-    /**
-     * The cached value of the '{@link #getTo() <em>To</em>}' containment reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getTo()
-     * @generated
-     * @ordered
-     */
-    protected PCMRandomVariable to;
+CharacterisedPCMParameterPartitionInterval {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CharacterisedPCMParameterPartitionIntervalImpl() {
@@ -67,7 +45,7 @@ public class CharacterisedPCMParameterPartitionIntervalImpl extends Characterise
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -77,121 +55,75 @@ public class CharacterisedPCMParameterPartitionIntervalImpl extends Characterise
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public PCMRandomVariable getFrom() {
-        return this.from;
+        return (PCMRandomVariable) this.eDynamicGet(
+                QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__FROM,
+                QualityAnnotationPackage.Literals.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__FROM, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetFrom(final PCMRandomVariable newFrom, NotificationChain msgs) {
-        final PCMRandomVariable oldFrom = this.from;
-        this.from = newFrom;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__FROM, oldFrom, newFrom);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newFrom,
+                QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__FROM, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setFrom(final PCMRandomVariable newFrom) {
-        if (newFrom != this.from) {
-            NotificationChain msgs = null;
-            if (this.from != null) {
-                msgs = ((InternalEObject) this.from).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-                        - QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__FROM, null, msgs);
-            }
-            if (newFrom != null) {
-                msgs = ((InternalEObject) newFrom).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-                        - QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__FROM, null, msgs);
-            }
-            msgs = this.basicSetFrom(newFrom, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__FROM, newFrom, newFrom));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__FROM,
+                QualityAnnotationPackage.Literals.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__FROM, newFrom);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public PCMRandomVariable getTo() {
-        return this.to;
+        return (PCMRandomVariable) this.eDynamicGet(
+                QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__TO,
+                QualityAnnotationPackage.Literals.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__TO, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetTo(final PCMRandomVariable newTo, NotificationChain msgs) {
-        final PCMRandomVariable oldTo = this.to;
-        this.to = newTo;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__TO, oldTo, newTo);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newTo,
+                QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__TO, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setTo(final PCMRandomVariable newTo) {
-        if (newTo != this.to) {
-            NotificationChain msgs = null;
-            if (this.to != null) {
-                msgs = ((InternalEObject) this.to).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-                        - QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__TO, null, msgs);
-            }
-            if (newTo != null) {
-                msgs = ((InternalEObject) newTo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-                        - QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__TO, null, msgs);
-            }
-            msgs = this.basicSetTo(newTo, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__TO, newTo, newTo));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__TO,
+                QualityAnnotationPackage.Literals.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__TO, newTo);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -208,7 +140,7 @@ public class CharacterisedPCMParameterPartitionIntervalImpl extends Characterise
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -224,7 +156,7 @@ public class CharacterisedPCMParameterPartitionIntervalImpl extends Characterise
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -242,7 +174,7 @@ public class CharacterisedPCMParameterPartitionIntervalImpl extends Characterise
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -260,16 +192,16 @@ public class CharacterisedPCMParameterPartitionIntervalImpl extends Characterise
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__FROM:
-            return this.from != null;
+            return this.getFrom() != null;
         case QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__TO:
-            return this.to != null;
+            return this.getTo() != null;
         }
         return super.eIsSet(featureID);
     }

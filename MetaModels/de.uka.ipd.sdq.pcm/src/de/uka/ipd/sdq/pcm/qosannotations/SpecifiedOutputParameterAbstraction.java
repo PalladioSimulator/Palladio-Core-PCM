@@ -54,7 +54,7 @@ public interface SpecifiedOutputParameterAbstraction extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -70,7 +70,7 @@ public interface SpecifiedOutputParameterAbstraction extends CDOObject {
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Qos Annotations Specified Output Parameter Abstraction</em>'
      *         container reference.
      * @see #setQosAnnotations_SpecifiedOutputParameterAbstraction(QoSAnnotations)
@@ -105,7 +105,7 @@ public interface SpecifiedOutputParameterAbstraction extends CDOObject {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Signature Specified Output Parameter Abstraction</em>'
      *         reference.
      * @see #setSignature_SpecifiedOutputParameterAbstraction(Signature)
@@ -120,7 +120,7 @@ public interface SpecifiedOutputParameterAbstraction extends CDOObject {
      * {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getSignature_SpecifiedOutputParameterAbstraction
      * <em>Signature Specified Output Parameter Abstraction</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Signature Specified Output Parameter Abstraction</em>'
      *            reference.
@@ -137,7 +137,7 @@ public interface SpecifiedOutputParameterAbstraction extends CDOObject {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Role Specified Output Parameter Abstraction</em>' reference.
      * @see #setRole_SpecifiedOutputParameterAbstraction(Role)
      * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getSpecifiedOutputParameterAbstraction_Role_SpecifiedOutputParameterAbstraction()
@@ -151,7 +151,7 @@ public interface SpecifiedOutputParameterAbstraction extends CDOObject {
      * {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getRole_SpecifiedOutputParameterAbstraction
      * <em>Role Specified Output Parameter Abstraction</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Role Specified Output Parameter Abstraction</em>'
      *            reference.
@@ -174,7 +174,7 @@ public interface SpecifiedOutputParameterAbstraction extends CDOObject {
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '
      *         <em>Expected External Outputs Specified Output Parameter Abstraction</em>'
      *         containment reference list.

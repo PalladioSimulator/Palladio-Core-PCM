@@ -4,14 +4,10 @@ package de.fzi.se.quality.qualityannotation.impl;
 
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ocl.ParserException;
@@ -39,18 +35,8 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
-     * The cached value of the '{@link #getProcessingResourceType()
-     * <em>Processing Resource Type</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getProcessingResourceType()
-     * @generated
-     * @ordered
-     */
-    protected ProcessingResourceType processingResourceType;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMREResourceImpl() {
@@ -59,7 +45,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -69,48 +55,36 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ProcessingResourceType getProcessingResourceType() {
-        if (this.processingResourceType != null && ((EObject) this.processingResourceType).eIsProxy()) {
-            final InternalEObject oldProcessingResourceType = (InternalEObject) this.processingResourceType;
-            this.processingResourceType = (ProcessingResourceType) this.eResolveProxy(oldProcessingResourceType);
-            if (this.processingResourceType != oldProcessingResourceType) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            QualityAnnotationPackage.PCMRE_RESOURCE__PROCESSING_RESOURCE_TYPE,
-                            oldProcessingResourceType, this.processingResourceType));
-                }
-            }
-        }
-        return this.processingResourceType;
+        return (ProcessingResourceType) this.eDynamicGet(
+                QualityAnnotationPackage.PCMRE_RESOURCE__PROCESSING_RESOURCE_TYPE,
+                QualityAnnotationPackage.Literals.PCMRE_RESOURCE__PROCESSING_RESOURCE_TYPE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ProcessingResourceType basicGetProcessingResourceType() {
-        return this.processingResourceType;
+        return (ProcessingResourceType) this.eDynamicGet(
+                QualityAnnotationPackage.PCMRE_RESOURCE__PROCESSING_RESOURCE_TYPE,
+                QualityAnnotationPackage.Literals.PCMRE_RESOURCE__PROCESSING_RESOURCE_TYPE, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setProcessingResourceType(final ProcessingResourceType newProcessingResourceType) {
-        final ProcessingResourceType oldProcessingResourceType = this.processingResourceType;
-        this.processingResourceType = newProcessingResourceType;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.PCMRE_RESOURCE__PROCESSING_RESOURCE_TYPE, oldProcessingResourceType,
-                    this.processingResourceType));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.PCMRE_RESOURCE__PROCESSING_RESOURCE_TYPE,
+                QualityAnnotationPackage.Literals.PCMRE_RESOURCE__PROCESSING_RESOURCE_TYPE, newProcessingResourceType);
     }
 
     /**
@@ -118,7 +92,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
      * {@link #ThisIsTheLowestResourceDemandHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>This Is The Lowest Resource Demand Hierarchy Level</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ThisIsTheLowestResourceDemandHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -141,7 +115,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -177,7 +151,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
      * {@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each RE Target Must Be Referenced Only From One RE</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -200,7 +174,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -233,7 +207,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -250,7 +224,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -265,7 +239,7 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -280,14 +254,14 @@ public class PCMREResourceImpl extends PCMREImpl implements PCMREResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityAnnotationPackage.PCMRE_RESOURCE__PROCESSING_RESOURCE_TYPE:
-            return this.processingResourceType != null;
+            return this.basicGetProcessingResourceType() != null;
         }
         return super.eIsSet(featureID);
     }

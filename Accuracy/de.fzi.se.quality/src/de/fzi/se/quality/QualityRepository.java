@@ -39,7 +39,7 @@ public interface QualityRepository extends Identifier {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Quality Statements</em>' containment reference list.
      * @see de.fzi.se.quality.QualityPackage#getQualityRepository_QualityStatements()
      * @see de.fzi.se.quality.QualityStatement#getQualityRepository

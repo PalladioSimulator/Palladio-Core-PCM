@@ -30,35 +30,35 @@ public interface SubsystemPackage extends EPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String eNAME = "subsystem";
 
     /**
      * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/5.0";
 
     /**
      * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String eNS_PREFIX = "subsystem";
 
     /**
      * The singleton instance of the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     SubsystemPackage eINSTANCE = de.uka.ipd.sdq.pcm.subsystem.impl.SubsystemPackageImpl.init();
@@ -66,7 +66,7 @@ public interface SubsystemPackage extends EPackage {
     /**
      * The meta object id for the '{@link de.uka.ipd.sdq.pcm.subsystem.impl.SubSystemImpl
      * <em>Sub System</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.subsystem.impl.SubSystemImpl
      * @see de.uka.ipd.sdq.pcm.subsystem.impl.SubsystemPackageImpl#getSubSystem()
      * @generated
@@ -76,7 +76,7 @@ public interface SubsystemPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -85,7 +85,7 @@ public interface SubsystemPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -94,7 +94,7 @@ public interface SubsystemPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Assembly Contexts Composed Structure</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -104,7 +104,7 @@ public interface SubsystemPackage extends EPackage {
      * The feature id for the '
      * <em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -113,7 +113,7 @@ public interface SubsystemPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Event Channel Composed Structure</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -122,7 +122,7 @@ public interface SubsystemPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Connectors Composed Structure</b></em>' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -131,7 +131,7 @@ public interface SubsystemPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -141,7 +141,7 @@ public interface SubsystemPackage extends EPackage {
      * The feature id for the '
      * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -150,7 +150,7 @@ public interface SubsystemPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>'
      * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -159,7 +159,7 @@ public interface SubsystemPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Repository Repository Component</b></em>' container reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -168,7 +168,7 @@ public interface SubsystemPackage extends EPackage {
     /**
      * The number of structural features of the '<em>Sub System</em>' class. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -177,7 +177,7 @@ public interface SubsystemPackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.subsystem.SubSystem
      * <em>Sub System</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Sub System</em>'.
      * @see de.uka.ipd.sdq.pcm.subsystem.SubSystem
      * @generated
@@ -187,7 +187,7 @@ public interface SubsystemPackage extends EPackage {
     /**
      * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @return the factory that creates the instances of the model.
      * @generated
      */
@@ -202,7 +202,7 @@ public interface SubsystemPackage extends EPackage {
      * <li>and each data type</li>
      * </ul>
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     interface Literals {
@@ -210,7 +210,7 @@ public interface SubsystemPackage extends EPackage {
         /**
          * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.subsystem.impl.SubSystemImpl
          * <em>Sub System</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @see de.uka.ipd.sdq.pcm.subsystem.impl.SubSystemImpl
          * @see de.uka.ipd.sdq.pcm.subsystem.impl.SubsystemPackageImpl#getSubSystem()
          * @generated

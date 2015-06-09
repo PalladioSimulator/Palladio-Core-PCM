@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.pcm.qosannotations.impl;
 import java.util.Collection;
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
@@ -16,11 +15,8 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
@@ -57,36 +53,14 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getSpecifiedOutputParameterAbstractions_QoSAnnotations()
-     * <em>Specified Output Parameter Abstractions Qo SAnnotations</em>}' containment reference
-     * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getSpecifiedOutputParameterAbstractions_QoSAnnotations()
-     * @generated
-     * @ordered
-     */
-    protected EList<SpecifiedOutputParameterAbstraction> specifiedOutputParameterAbstractions_QoSAnnotations;
-
-    /**
-     * The cached value of the '{@link #getSpecifiedQoSAnnotations_QoSAnnotations()
-     * <em>Specified Qo SAnnotations Qo SAnnotations</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getSpecifiedQoSAnnotations_QoSAnnotations()
-     * @generated
-     * @ordered
-     */
-    protected EList<SpecifiedQoSAnnotation> specifiedQoSAnnotations_QoSAnnotations;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected QoSAnnotationsImpl() {
@@ -95,7 +69,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -105,38 +79,34 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<SpecifiedOutputParameterAbstraction> getSpecifiedOutputParameterAbstractions_QoSAnnotations() {
-        if (this.specifiedOutputParameterAbstractions_QoSAnnotations == null) {
-            this.specifiedOutputParameterAbstractions_QoSAnnotations = new EObjectContainmentWithInverseEList<SpecifiedOutputParameterAbstraction>(
-                    SpecifiedOutputParameterAbstraction.class,
-                    this,
-                    QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS,
-                    QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION);
-        }
-        return this.specifiedOutputParameterAbstractions_QoSAnnotations;
+        return (EList<SpecifiedOutputParameterAbstraction>) this
+                .eDynamicGet(
+                        QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS,
+                        QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public de.uka.ipd.sdq.pcm.system.System getSystem_QoSAnnotations() {
-        if (this.eContainerFeatureID() != QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS) {
-            return null;
-        }
-        return (de.uka.ipd.sdq.pcm.system.System) this.eInternalContainer();
+        return (de.uka.ipd.sdq.pcm.system.System) this.eDynamicGet(
+                QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS,
+                QosannotationsPackage.Literals.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSystem_QoSAnnotations(
@@ -148,50 +118,26 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSystem_QoSAnnotations(final de.uka.ipd.sdq.pcm.system.System newSystem_QoSAnnotations) {
-        if (newSystem_QoSAnnotations != this.eInternalContainer()
-                || (this.eContainerFeatureID() != QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS && newSystem_QoSAnnotations != null)) {
-            if (EcoreUtil.isAncestor(this, newSystem_QoSAnnotations)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newSystem_QoSAnnotations != null) {
-                msgs = ((InternalEObject) newSystem_QoSAnnotations).eInverseAdd(this,
-                        SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM, de.uka.ipd.sdq.pcm.system.System.class, msgs);
-            }
-            msgs = this.basicSetSystem_QoSAnnotations(newSystem_QoSAnnotations, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS, newSystem_QoSAnnotations,
-                    newSystem_QoSAnnotations));
-        }
+        this.eDynamicSet(QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS,
+                QosannotationsPackage.Literals.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS, newSystem_QoSAnnotations);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<SpecifiedQoSAnnotation> getSpecifiedQoSAnnotations_QoSAnnotations() {
-        if (this.specifiedQoSAnnotations_QoSAnnotations == null) {
-            this.specifiedQoSAnnotations_QoSAnnotations = new EObjectContainmentWithInverseEList<SpecifiedQoSAnnotation>(
-                    SpecifiedQoSAnnotation.class, this,
-                    QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS,
-                    QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION);
-        }
-        return this.specifiedQoSAnnotations_QoSAnnotations;
+        return (EList<SpecifiedQoSAnnotation>) this.eDynamicGet(
+                QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS,
+                QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS, true, true);
     }
 
     /**
@@ -212,7 +158,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
      * {@link #MultipleReliabilityAnnotationsPerExternalCallNotAllowed(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Multiple Reliability Annotations Per External Call Not Allowed</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #MultipleReliabilityAnnotationsPerExternalCallNotAllowed(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -222,7 +168,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -259,7 +205,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -283,7 +229,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -303,7 +249,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -318,7 +264,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -336,7 +282,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -362,7 +308,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -383,7 +329,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -391,13 +337,11 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
-            return this.specifiedOutputParameterAbstractions_QoSAnnotations != null
-            && !this.specifiedOutputParameterAbstractions_QoSAnnotations.isEmpty();
+            return !this.getSpecifiedOutputParameterAbstractions_QoSAnnotations().isEmpty();
         case QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS:
             return this.getSystem_QoSAnnotations() != null;
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS:
-            return this.specifiedQoSAnnotations_QoSAnnotations != null
-                    && !this.specifiedQoSAnnotations_QoSAnnotations.isEmpty();
+            return !this.getSpecifiedQoSAnnotations_QoSAnnotations().isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -405,7 +349,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

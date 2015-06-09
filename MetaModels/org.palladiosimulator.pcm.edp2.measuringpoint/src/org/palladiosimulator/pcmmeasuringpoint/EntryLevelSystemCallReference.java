@@ -47,7 +47,7 @@ public interface EntryLevelSystemCallReference extends CDOObject {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference#getEntryLevelSystemCall
      * <em>Entry Level System Call</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Entry Level System Call</em>' reference.
      * @see #getEntryLevelSystemCall()

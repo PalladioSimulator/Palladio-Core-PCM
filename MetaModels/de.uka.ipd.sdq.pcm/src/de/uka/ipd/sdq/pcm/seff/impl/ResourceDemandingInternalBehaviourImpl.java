@@ -5,12 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
@@ -35,14 +32,14 @@ ResourceDemandingInternalBehaviour {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceDemandingInternalBehaviourImpl() {
@@ -51,7 +48,7 @@ ResourceDemandingInternalBehaviour {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -61,20 +58,21 @@ ResourceDemandingInternalBehaviour {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceDemandingSEFF getResourceDemandingSEFF_ResourceDemandingInternalBehaviour() {
-        if (this.eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR) {
-            return null;
-        }
-        return (ResourceDemandingSEFF) this.eInternalContainer();
+        return (ResourceDemandingSEFF) this
+                .eDynamicGet(
+                        SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR,
+                        SeffPackage.Literals.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceDemandingSEFF_ResourceDemandingInternalBehaviour(
@@ -90,44 +88,21 @@ ResourceDemandingInternalBehaviour {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setResourceDemandingSEFF_ResourceDemandingInternalBehaviour(
             final ResourceDemandingSEFF newResourceDemandingSEFF_ResourceDemandingInternalBehaviour) {
-        if (newResourceDemandingSEFF_ResourceDemandingInternalBehaviour != this.eInternalContainer()
-                || (this.eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR && newResourceDemandingSEFF_ResourceDemandingInternalBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceDemandingSEFF_ResourceDemandingInternalBehaviour)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newResourceDemandingSEFF_ResourceDemandingInternalBehaviour != null) {
-                msgs = ((InternalEObject) newResourceDemandingSEFF_ResourceDemandingInternalBehaviour).eInverseAdd(
-                        this, SeffPackage.RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS,
-                        ResourceDemandingSEFF.class, msgs);
-            }
-            msgs = this.basicSetResourceDemandingSEFF_ResourceDemandingInternalBehaviour(
-                    newResourceDemandingSEFF_ResourceDemandingInternalBehaviour, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR,
-                    newResourceDemandingSEFF_ResourceDemandingInternalBehaviour,
-                    newResourceDemandingSEFF_ResourceDemandingInternalBehaviour));
-        }
+        this.eDynamicSet(
+                SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR,
+                SeffPackage.Literals.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR,
+                newResourceDemandingSEFF_ResourceDemandingInternalBehaviour);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -145,7 +120,7 @@ ResourceDemandingInternalBehaviour {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -160,7 +135,7 @@ ResourceDemandingInternalBehaviour {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -176,7 +151,7 @@ ResourceDemandingInternalBehaviour {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -190,7 +165,7 @@ ResourceDemandingInternalBehaviour {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -205,7 +180,7 @@ ResourceDemandingInternalBehaviour {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -220,7 +195,7 @@ ResourceDemandingInternalBehaviour {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

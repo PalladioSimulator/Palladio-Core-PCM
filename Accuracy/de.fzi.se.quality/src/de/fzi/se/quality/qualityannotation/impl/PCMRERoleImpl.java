@@ -8,14 +8,10 @@ package de.fzi.se.quality.qualityannotation.impl;
 
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ocl.ParserException;
@@ -42,18 +38,8 @@ import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
-     * The cached value of the '{@link #getRole() <em>Role</em>}' reference. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getRole()
-     * @generated
-     * @ordered
-     */
-    protected OperationRequiredRole role;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMRERoleImpl() {
@@ -62,7 +48,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -72,46 +58,34 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public OperationRequiredRole getRole() {
-        if (this.role != null && ((EObject) this.role).eIsProxy()) {
-            final InternalEObject oldRole = (InternalEObject) this.role;
-            this.role = (OperationRequiredRole) this.eResolveProxy(oldRole);
-            if (this.role != oldRole) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            QualityAnnotationPackage.PCMRE_ROLE__ROLE, oldRole, this.role));
-                }
-            }
-        }
-        return this.role;
+        return (OperationRequiredRole) this.eDynamicGet(QualityAnnotationPackage.PCMRE_ROLE__ROLE,
+                QualityAnnotationPackage.Literals.PCMRE_ROLE__ROLE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationRequiredRole basicGetRole() {
-        return this.role;
+        return (OperationRequiredRole) this.eDynamicGet(QualityAnnotationPackage.PCMRE_ROLE__ROLE,
+                QualityAnnotationPackage.Literals.PCMRE_ROLE__ROLE, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRole(final OperationRequiredRole newRole) {
-        final OperationRequiredRole oldRole = this.role;
-        this.role = newRole;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, QualityAnnotationPackage.PCMRE_ROLE__ROLE,
-                    oldRole, this.role));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.PCMRE_ROLE__ROLE, QualityAnnotationPackage.Literals.PCMRE_ROLE__ROLE,
+                newRole);
     }
 
     /**
@@ -141,7 +115,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -178,7 +152,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
      * {@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each RE Target Must Be Referenced Only From One RE</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -200,7 +174,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -233,7 +207,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -250,7 +224,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -265,7 +239,7 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -280,14 +254,14 @@ public class PCMRERoleImpl extends PCMREImpl implements PCMRERole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityAnnotationPackage.PCMRE_ROLE__ROLE:
-            return this.role != null;
+            return this.basicGetRole() != null;
         }
         return super.eIsSet(featureID);
     }

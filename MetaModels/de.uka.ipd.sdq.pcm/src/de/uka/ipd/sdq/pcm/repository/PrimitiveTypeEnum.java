@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.Enumerator;
 public enum PrimitiveTypeEnum implements Enumerator {
     /**
      * The '<em><b>INT</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #INT_VALUE
      * @generated
      * @ordered
@@ -33,7 +33,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
 
     /**
      * The '<em><b>STRING</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #STRING_VALUE
      * @generated
      * @ordered
@@ -42,7 +42,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
 
     /**
      * The '<em><b>BOOL</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #BOOL_VALUE
      * @generated
      * @ordered
@@ -51,7 +51,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
 
     /**
      * The '<em><b>DOUBLE</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #DOUBLE_VALUE
      * @generated
      * @ordered
@@ -60,7 +60,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
 
     /**
      * The '<em><b>CHAR</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #CHAR_VALUE
      * @generated
      * @ordered
@@ -69,7 +69,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
 
     /**
      * The '<em><b>BYTE</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #BYTE_VALUE
      * @generated
      * @ordered
@@ -78,7 +78,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
 
     /**
      * The '<em><b>LONG</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #LONG_VALUE
      * @generated
      * @ordered
@@ -87,7 +87,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -99,7 +99,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #INT
      * @model
      * @generated
@@ -114,7 +114,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #STRING
      * @model
      * @generated
@@ -129,7 +129,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #BOOL
      * @model
      * @generated
@@ -144,7 +144,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #DOUBLE
      * @model
      * @generated
@@ -159,7 +159,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #CHAR
      * @model
      * @generated
@@ -174,7 +174,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #BYTE
      * @model
      * @generated
@@ -189,7 +189,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #LONG
      * @model
      * @generated
@@ -200,7 +200,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
     /**
      * An array of all the '<em><b>Primitive Type Enum</b></em>' enumerators. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static final PrimitiveTypeEnum[] VALUES_ARRAY = new PrimitiveTypeEnum[] { INT, STRING, BOOL, DOUBLE, CHAR,
@@ -217,7 +217,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
     /**
      * Returns the '<em><b>Primitive Type Enum</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static PrimitiveTypeEnum get(final String literal) {
@@ -247,7 +247,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
     /**
      * Returns the '<em><b>Primitive Type Enum</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static PrimitiveTypeEnum get(final int value) {
@@ -272,28 +272,28 @@ public enum PrimitiveTypeEnum implements Enumerator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private final int value;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private final String name;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private final String literal;
 
     /**
      * Only this class can construct instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private PrimitiveTypeEnum(final int value, final String name, final String literal) {
@@ -304,7 +304,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -314,7 +314,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -324,7 +324,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

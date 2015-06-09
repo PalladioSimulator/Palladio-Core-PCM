@@ -5,9 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
 import de.uka.ipd.sdq.pcm.repository.ExceptionType;
@@ -32,7 +30,7 @@ public class ExceptionTypeImpl extends CDOObjectImpl implements ExceptionType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -40,7 +38,7 @@ public class ExceptionTypeImpl extends CDOObjectImpl implements ExceptionType {
     /**
      * The default value of the '{@link #getExceptionName() <em>Exception Name</em>}' attribute.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getExceptionName()
      * @generated
      * @ordered
@@ -48,19 +46,9 @@ public class ExceptionTypeImpl extends CDOObjectImpl implements ExceptionType {
     protected static final String EXCEPTION_NAME_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getExceptionName() <em>Exception Name</em>}' attribute. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getExceptionName()
-     * @generated
-     * @ordered
-     */
-    protected String exceptionName = EXCEPTION_NAME_EDEFAULT;
-
-    /**
      * The default value of the '{@link #getExceptionMessage() <em>Exception Message</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getExceptionMessage()
      * @generated
      * @ordered
@@ -68,18 +56,8 @@ public class ExceptionTypeImpl extends CDOObjectImpl implements ExceptionType {
     protected static final String EXCEPTION_MESSAGE_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getExceptionMessage() <em>Exception Message</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getExceptionMessage()
-     * @generated
-     * @ordered
-     */
-    protected String exceptionMessage = EXCEPTION_MESSAGE_EDEFAULT;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ExceptionTypeImpl() {
@@ -88,7 +66,7 @@ public class ExceptionTypeImpl extends CDOObjectImpl implements ExceptionType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -98,57 +76,61 @@ public class ExceptionTypeImpl extends CDOObjectImpl implements ExceptionType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    protected int eStaticFeatureCount() {
+        return 0;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String getExceptionName() {
-        return this.exceptionName;
+        return (String) this.eDynamicGet(RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_NAME,
+                RepositoryPackage.Literals.EXCEPTION_TYPE__EXCEPTION_NAME, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setExceptionName(final String newExceptionName) {
-        final String oldExceptionName = this.exceptionName;
-        this.exceptionName = newExceptionName;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_NAME, oldExceptionName, this.exceptionName));
-        }
+        this.eDynamicSet(RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_NAME,
+                RepositoryPackage.Literals.EXCEPTION_TYPE__EXCEPTION_NAME, newExceptionName);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public String getExceptionMessage() {
-        return this.exceptionMessage;
+        return (String) this.eDynamicGet(RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_MESSAGE,
+                RepositoryPackage.Literals.EXCEPTION_TYPE__EXCEPTION_MESSAGE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setExceptionMessage(final String newExceptionMessage) {
-        final String oldExceptionMessage = this.exceptionMessage;
-        this.exceptionMessage = newExceptionMessage;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_MESSAGE, oldExceptionMessage, this.exceptionMessage));
-        }
+        this.eDynamicSet(RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_MESSAGE,
+                RepositoryPackage.Literals.EXCEPTION_TYPE__EXCEPTION_MESSAGE, newExceptionMessage);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -164,7 +146,7 @@ public class ExceptionTypeImpl extends CDOObjectImpl implements ExceptionType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -182,7 +164,7 @@ public class ExceptionTypeImpl extends CDOObjectImpl implements ExceptionType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -200,40 +182,20 @@ public class ExceptionTypeImpl extends CDOObjectImpl implements ExceptionType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_NAME:
-            return EXCEPTION_NAME_EDEFAULT == null ? this.exceptionName != null : !EXCEPTION_NAME_EDEFAULT
-            .equals(this.exceptionName);
+            return EXCEPTION_NAME_EDEFAULT == null ? this.getExceptionName() != null : !EXCEPTION_NAME_EDEFAULT
+            .equals(this.getExceptionName());
         case RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_MESSAGE:
-            return EXCEPTION_MESSAGE_EDEFAULT == null ? this.exceptionMessage != null : !EXCEPTION_MESSAGE_EDEFAULT
-            .equals(this.exceptionMessage);
+            return EXCEPTION_MESSAGE_EDEFAULT == null ? this.getExceptionMessage() != null
+                    : !EXCEPTION_MESSAGE_EDEFAULT.equals(this.getExceptionMessage());
         }
         return super.eIsSet(featureID);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (this.eIsProxy()) {
-            return super.toString();
-        }
-
-        final StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (exceptionName: ");
-        result.append(this.exceptionName);
-        result.append(", exceptionMessage: ");
-        result.append(this.exceptionMessage);
-        result.append(')');
-        return result.toString();
     }
 
 } // ExceptionTypeImpl

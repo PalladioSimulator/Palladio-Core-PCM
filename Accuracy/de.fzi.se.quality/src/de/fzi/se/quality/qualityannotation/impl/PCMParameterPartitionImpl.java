@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.ocl.ParserException;
@@ -47,19 +46,8 @@ import de.fzi.se.quality.qualityannotation.util.QualityAnnotationValidator;
 public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements PCMParameterPartition {
 
     /**
-     * The cached value of the '{@link #getCharacerisedParameterPartitions()
-     * <em>Characerised Parameter Partitions</em>}' containment reference list. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @see #getCharacerisedParameterPartitions()
-     * @generated
-     * @ordered
-     */
-    protected EList<CharacterisedPCMParameterPartition> characerisedParameterPartitions;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMParameterPartitionImpl() {
@@ -68,7 +56,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -78,18 +66,16 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
+    @SuppressWarnings("unchecked")
     @Override
     public EList<CharacterisedPCMParameterPartition> getCharacerisedParameterPartitions() {
-        if (this.characerisedParameterPartitions == null) {
-            this.characerisedParameterPartitions = new EObjectContainmentWithInverseEList<CharacterisedPCMParameterPartition>(
-                    CharacterisedPCMParameterPartition.class, this,
-                    QualityAnnotationPackage.PCM_PARAMETER_PARTITION__CHARACERISED_PARAMETER_PARTITIONS,
-                    QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION__PCM_PARAMETER_PARTITION);
-        }
-        return this.characerisedParameterPartitions;
+        return (EList<CharacterisedPCMParameterPartition>) this.eDynamicGet(
+                QualityAnnotationPackage.PCM_PARAMETER_PARTITION__CHARACERISED_PARAMETER_PARTITIONS,
+                QualityAnnotationPackage.Literals.PCM_PARAMETER_PARTITION__CHARACERISED_PARAMETER_PARTITIONS, true,
+                true);
     }
 
     /**
@@ -110,7 +96,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
      * {@link #APCMParameterPartitionMustReferenceAPCMParameterReference(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>APCM Parameter Partition Must Reference APCM Parameter Reference</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #APCMParameterPartitionMustReferenceAPCMParameterReference(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -120,7 +106,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -141,13 +127,13 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
                 .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCM_PARAMETER_PARTITION__APCM_PARAMETER_PARTITION_MUST_REFERENCE_APCM_PARAMETER_REFERENCE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "APCMParameterPartitionMustReferenceAPCMParameterReference",
-                                                EObjectValidator.getObjectLabel(this, context) }),
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCM_PARAMETER_PARTITION__APCM_PARAMETER_PARTITION_MUST_REFERENCE_APCM_PARAMETER_REFERENCE,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "APCMParameterPartitionMustReferenceAPCMParameterReference",
+                                EObjectValidator.getObjectLabel(this, context) }),
                                 new Object[] { this }));
             }
             return false;
@@ -157,7 +143,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -174,7 +160,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -189,7 +175,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -203,7 +189,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -221,7 +207,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -236,14 +222,14 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityAnnotationPackage.PCM_PARAMETER_PARTITION__CHARACERISED_PARAMETER_PARTITIONS:
-            return this.characerisedParameterPartitions != null && !this.characerisedParameterPartitions.isEmpty();
+            return !this.getCharacerisedParameterPartitions().isEmpty();
         }
         return super.eIsSet(featureID);
     }
@@ -251,7 +237,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

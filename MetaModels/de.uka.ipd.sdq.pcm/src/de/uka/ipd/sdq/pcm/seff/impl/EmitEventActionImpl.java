@@ -7,17 +7,12 @@ package de.uka.ipd.sdq.pcm.seff.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.EventType;
 import de.uka.ipd.sdq.pcm.repository.SourceRole;
@@ -46,45 +41,14 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getInputVariableUsages__CallAction()
-     * <em>Input Variable Usages Call Action</em>}' containment reference list. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @see #getInputVariableUsages__CallAction()
-     * @generated
-     * @ordered
-     */
-    protected EList<VariableUsage> inputVariableUsages__CallAction;
-    /**
-     * The cached value of the '{@link #getEventType__EmitEventAction()
-     * <em>Event Type Emit Event Action</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
-     *
-     * @see #getEventType__EmitEventAction()
-     * @generated
-     * @ordered
-     */
-    protected EventType eventType__EmitEventAction;
-    /**
-     * The cached value of the '{@link #getSourceRole__EmitEventAction()
-     * <em>Source Role Emit Event Action</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
-     *
-     * @see #getSourceRole__EmitEventAction()
-     * @generated
-     * @ordered
-     */
-    protected SourceRole sourceRole__EmitEventAction;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EmitEventActionImpl() {
@@ -93,7 +57,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -103,115 +67,84 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getInputVariableUsages__CallAction() {
-        if (this.inputVariableUsages__CallAction == null) {
-            this.inputVariableUsages__CallAction = new EObjectContainmentWithInverseEList<VariableUsage>(
-                    VariableUsage.class, this, SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION,
-                    ParameterPackage.VARIABLE_USAGE__CALL_ACTION_VARIABLE_USAGE);
-        }
-        return this.inputVariableUsages__CallAction;
+        return (EList<VariableUsage>) this.eDynamicGet(
+                SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION,
+                SeffPackage.Literals.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EventType getEventType__EmitEventAction() {
-        if (this.eventType__EmitEventAction != null && ((EObject) this.eventType__EmitEventAction).eIsProxy()) {
-            final InternalEObject oldEventType__EmitEventAction = (InternalEObject) this.eventType__EmitEventAction;
-            this.eventType__EmitEventAction = (EventType) this.eResolveProxy(oldEventType__EmitEventAction);
-            if (this.eventType__EmitEventAction != oldEventType__EmitEventAction) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            SeffPackage.EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION, oldEventType__EmitEventAction,
-                            this.eventType__EmitEventAction));
-                }
-            }
-        }
-        return this.eventType__EmitEventAction;
+        return (EventType) this.eDynamicGet(SeffPackage.EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION,
+                SeffPackage.Literals.EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public EventType basicGetEventType__EmitEventAction() {
-        return this.eventType__EmitEventAction;
+        return (EventType) this.eDynamicGet(SeffPackage.EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION,
+                SeffPackage.Literals.EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setEventType__EmitEventAction(final EventType newEventType__EmitEventAction) {
-        final EventType oldEventType__EmitEventAction = this.eventType__EmitEventAction;
-        this.eventType__EmitEventAction = newEventType__EmitEventAction;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPackage.EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION, oldEventType__EmitEventAction,
-                    this.eventType__EmitEventAction));
-        }
+        this.eDynamicSet(SeffPackage.EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION,
+                SeffPackage.Literals.EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION, newEventType__EmitEventAction);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SourceRole getSourceRole__EmitEventAction() {
-        if (this.sourceRole__EmitEventAction != null && ((EObject) this.sourceRole__EmitEventAction).eIsProxy()) {
-            final InternalEObject oldSourceRole__EmitEventAction = (InternalEObject) this.sourceRole__EmitEventAction;
-            this.sourceRole__EmitEventAction = (SourceRole) this.eResolveProxy(oldSourceRole__EmitEventAction);
-            if (this.sourceRole__EmitEventAction != oldSourceRole__EmitEventAction) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            SeffPackage.EMIT_EVENT_ACTION__SOURCE_ROLE_EMIT_EVENT_ACTION,
-                            oldSourceRole__EmitEventAction, this.sourceRole__EmitEventAction));
-                }
-            }
-        }
-        return this.sourceRole__EmitEventAction;
+        return (SourceRole) this.eDynamicGet(SeffPackage.EMIT_EVENT_ACTION__SOURCE_ROLE_EMIT_EVENT_ACTION,
+                SeffPackage.Literals.EMIT_EVENT_ACTION__SOURCE_ROLE_EMIT_EVENT_ACTION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SourceRole basicGetSourceRole__EmitEventAction() {
-        return this.sourceRole__EmitEventAction;
+        return (SourceRole) this.eDynamicGet(SeffPackage.EMIT_EVENT_ACTION__SOURCE_ROLE_EMIT_EVENT_ACTION,
+                SeffPackage.Literals.EMIT_EVENT_ACTION__SOURCE_ROLE_EMIT_EVENT_ACTION, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSourceRole__EmitEventAction(final SourceRole newSourceRole__EmitEventAction) {
-        final SourceRole oldSourceRole__EmitEventAction = this.sourceRole__EmitEventAction;
-        this.sourceRole__EmitEventAction = newSourceRole__EmitEventAction;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPackage.EMIT_EVENT_ACTION__SOURCE_ROLE_EMIT_EVENT_ACTION, oldSourceRole__EmitEventAction,
-                    this.sourceRole__EmitEventAction));
-        }
+        this.eDynamicSet(SeffPackage.EMIT_EVENT_ACTION__SOURCE_ROLE_EMIT_EVENT_ACTION,
+                SeffPackage.Literals.EMIT_EVENT_ACTION__SOURCE_ROLE_EMIT_EVENT_ACTION, newSourceRole__EmitEventAction);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -228,7 +161,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -243,7 +176,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -267,7 +200,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -290,7 +223,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -311,7 +244,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -319,18 +252,18 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
-            return this.inputVariableUsages__CallAction != null && !this.inputVariableUsages__CallAction.isEmpty();
+            return !this.getInputVariableUsages__CallAction().isEmpty();
         case SeffPackage.EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION:
-            return this.eventType__EmitEventAction != null;
+            return this.basicGetEventType__EmitEventAction() != null;
         case SeffPackage.EMIT_EVENT_ACTION__SOURCE_ROLE_EMIT_EVENT_ACTION:
-            return this.sourceRole__EmitEventAction != null;
+            return this.basicGetSourceRole__EmitEventAction() != null;
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -348,7 +281,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

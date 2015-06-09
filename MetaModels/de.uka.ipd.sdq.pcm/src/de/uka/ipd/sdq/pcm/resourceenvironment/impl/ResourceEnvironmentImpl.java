@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.NamedElementImpl;
@@ -41,36 +40,14 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getLinkingResources__ResourceEnvironment()
-     * <em>Linking Resources Resource Environment</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getLinkingResources__ResourceEnvironment()
-     * @generated
-     * @ordered
-     */
-    protected EList<LinkingResource> linkingResources__ResourceEnvironment;
-
-    /**
-     * The cached value of the '{@link #getResourceContainer_ResourceEnvironment()
-     * <em>Resource Container Resource Environment</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getResourceContainer_ResourceEnvironment()
-     * @generated
-     * @ordered
-     */
-    protected EList<ResourceContainer> resourceContainer_ResourceEnvironment;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceEnvironmentImpl() {
@@ -79,7 +56,7 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -89,41 +66,35 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<LinkingResource> getLinkingResources__ResourceEnvironment() {
-        if (this.linkingResources__ResourceEnvironment == null) {
-            this.linkingResources__ResourceEnvironment = new EObjectContainmentWithInverseEList<LinkingResource>(
-                    LinkingResource.class, this,
-                    ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT,
-                    ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE);
-        }
-        return this.linkingResources__ResourceEnvironment;
+        return (EList<LinkingResource>) this.eDynamicGet(
+                ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT,
+                ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT, true,
+                true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<ResourceContainer> getResourceContainer_ResourceEnvironment() {
-        if (this.resourceContainer_ResourceEnvironment == null) {
-            this.resourceContainer_ResourceEnvironment = new EObjectContainmentWithInverseEList<ResourceContainer>(
-                    ResourceContainer.class, this,
-                    ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT,
-                    ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER);
-        }
-        return this.resourceContainer_ResourceEnvironment;
+        return (EList<ResourceContainer>) this.eDynamicGet(
+                ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT,
+                ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT,
+                true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -143,7 +114,7 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -160,7 +131,7 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -176,7 +147,7 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -197,7 +168,7 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -215,7 +186,7 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -223,11 +194,9 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
-            return this.linkingResources__ResourceEnvironment != null
-                    && !this.linkingResources__ResourceEnvironment.isEmpty();
+            return !this.getLinkingResources__ResourceEnvironment().isEmpty();
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT:
-            return this.resourceContainer_ResourceEnvironment != null
-                    && !this.resourceContainer_ResourceEnvironment.isEmpty();
+            return !this.getResourceContainer_ResourceEnvironment().isEmpty();
         }
         return super.eIsSet(featureID);
     }

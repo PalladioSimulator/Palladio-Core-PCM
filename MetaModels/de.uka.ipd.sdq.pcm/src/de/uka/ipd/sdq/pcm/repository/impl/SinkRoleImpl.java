@@ -5,11 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import de.uka.ipd.sdq.pcm.repository.EventGroup;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
@@ -32,24 +28,14 @@ public class SinkRoleImpl extends ProvidedRoleImpl implements SinkRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getEventGroup__SinkRole() <em>Event Group Sink Role</em>}'
-     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getEventGroup__SinkRole()
-     * @generated
-     * @ordered
-     */
-    protected EventGroup eventGroup__SinkRole;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SinkRoleImpl() {
@@ -58,7 +44,7 @@ public class SinkRoleImpl extends ProvidedRoleImpl implements SinkRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -68,53 +54,39 @@ public class SinkRoleImpl extends ProvidedRoleImpl implements SinkRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EventGroup getEventGroup__SinkRole() {
-        if (this.eventGroup__SinkRole != null && ((EObject) this.eventGroup__SinkRole).eIsProxy()) {
-            final InternalEObject oldEventGroup__SinkRole = (InternalEObject) this.eventGroup__SinkRole;
-            this.eventGroup__SinkRole = (EventGroup) this.eResolveProxy(oldEventGroup__SinkRole);
-            if (this.eventGroup__SinkRole != oldEventGroup__SinkRole) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            RepositoryPackage.SINK_ROLE__EVENT_GROUP_SINK_ROLE, oldEventGroup__SinkRole,
-                            this.eventGroup__SinkRole));
-                }
-            }
-        }
-        return this.eventGroup__SinkRole;
+        return (EventGroup) this.eDynamicGet(RepositoryPackage.SINK_ROLE__EVENT_GROUP_SINK_ROLE,
+                RepositoryPackage.Literals.SINK_ROLE__EVENT_GROUP_SINK_ROLE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public EventGroup basicGetEventGroup__SinkRole() {
-        return this.eventGroup__SinkRole;
+        return (EventGroup) this.eDynamicGet(RepositoryPackage.SINK_ROLE__EVENT_GROUP_SINK_ROLE,
+                RepositoryPackage.Literals.SINK_ROLE__EVENT_GROUP_SINK_ROLE, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setEventGroup__SinkRole(final EventGroup newEventGroup__SinkRole) {
-        final EventGroup oldEventGroup__SinkRole = this.eventGroup__SinkRole;
-        this.eventGroup__SinkRole = newEventGroup__SinkRole;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.SINK_ROLE__EVENT_GROUP_SINK_ROLE, oldEventGroup__SinkRole,
-                    this.eventGroup__SinkRole));
-        }
+        this.eDynamicSet(RepositoryPackage.SINK_ROLE__EVENT_GROUP_SINK_ROLE,
+                RepositoryPackage.Literals.SINK_ROLE__EVENT_GROUP_SINK_ROLE, newEventGroup__SinkRole);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -131,7 +103,7 @@ public class SinkRoleImpl extends ProvidedRoleImpl implements SinkRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -146,7 +118,7 @@ public class SinkRoleImpl extends ProvidedRoleImpl implements SinkRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -161,14 +133,14 @@ public class SinkRoleImpl extends ProvidedRoleImpl implements SinkRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.SINK_ROLE__EVENT_GROUP_SINK_ROLE:
-            return this.eventGroup__SinkRole != null;
+            return this.basicGetEventGroup__SinkRole() != null;
         }
         return super.eIsSet(featureID);
     }

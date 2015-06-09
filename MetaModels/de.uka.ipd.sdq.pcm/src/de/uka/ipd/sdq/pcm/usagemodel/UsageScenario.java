@@ -36,7 +36,7 @@ public interface UsageScenario extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,7 +51,7 @@ public interface UsageScenario extends Entity {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Scenario Behaviour Usage Scenario</em>' containment reference.
      * @see #setScenarioBehaviour_UsageScenario(ScenarioBehaviour)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUsageScenario_ScenarioBehaviour_UsageScenario()
@@ -67,7 +67,7 @@ public interface UsageScenario extends Entity {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getScenarioBehaviour_UsageScenario
      * <em>Scenario Behaviour Usage Scenario</em>}' containment reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Scenario Behaviour Usage Scenario</em>' containment
      *            reference.
@@ -86,7 +86,7 @@ public interface UsageScenario extends Entity {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Usage Model Usage Scenario</em>' container reference.
      * @see #setUsageModel_UsageScenario(UsageModel)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUsageScenario_UsageModel_UsageScenario()
@@ -101,7 +101,7 @@ public interface UsageScenario extends Entity {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getUsageModel_UsageScenario
      * <em>Usage Model Usage Scenario</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Usage Model Usage Scenario</em>' container reference.
      * @see #getUsageModel_UsageScenario()
@@ -119,7 +119,7 @@ public interface UsageScenario extends Entity {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Workload Usage Scenario</em>' containment reference.
      * @see #setWorkload_UsageScenario(Workload)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUsageScenario_Workload_UsageScenario()
@@ -134,7 +134,7 @@ public interface UsageScenario extends Entity {
      * {@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario
      * <em>Workload Usage Scenario</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Workload Usage Scenario</em>' containment reference.
      * @see #getWorkload_UsageScenario()

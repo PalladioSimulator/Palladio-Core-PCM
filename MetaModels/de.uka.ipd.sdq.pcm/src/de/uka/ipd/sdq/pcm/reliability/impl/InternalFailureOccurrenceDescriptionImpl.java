@@ -7,18 +7,14 @@ package de.uka.ipd.sdq.pcm.reliability.impl;
 
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
@@ -52,26 +48,14 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '
-     * {@link #getSoftwareInducedFailureType__InternalFailureOccurrenceDescription()
-     * <em>Software Induced Failure Type Internal Failure Occurrence Description</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getSoftwareInducedFailureType__InternalFailureOccurrenceDescription()
-     * @generated
-     * @ordered
-     */
-    protected SoftwareInducedFailureType softwareInducedFailureType__InternalFailureOccurrenceDescription;
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected InternalFailureOccurrenceDescriptionImpl() {
@@ -80,7 +64,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -90,102 +74,59 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SoftwareInducedFailureType getSoftwareInducedFailureType__InternalFailureOccurrenceDescription() {
-        if (this.softwareInducedFailureType__InternalFailureOccurrenceDescription != null
-                && ((EObject) this.softwareInducedFailureType__InternalFailureOccurrenceDescription).eIsProxy()) {
-            final InternalEObject oldSoftwareInducedFailureType__InternalFailureOccurrenceDescription = (InternalEObject) this.softwareInducedFailureType__InternalFailureOccurrenceDescription;
-            this.softwareInducedFailureType__InternalFailureOccurrenceDescription = (SoftwareInducedFailureType) this
-                    .eResolveProxy(oldSoftwareInducedFailureType__InternalFailureOccurrenceDescription);
-            if (this.softwareInducedFailureType__InternalFailureOccurrenceDescription != oldSoftwareInducedFailureType__InternalFailureOccurrenceDescription) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
-                            this,
-                            Notification.RESOLVE,
-                            ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
-                            oldSoftwareInducedFailureType__InternalFailureOccurrenceDescription,
-                            this.softwareInducedFailureType__InternalFailureOccurrenceDescription));
-                }
-            }
-        }
-        return this.softwareInducedFailureType__InternalFailureOccurrenceDescription;
+        return (SoftwareInducedFailureType) this
+                .eDynamicGet(
+                        ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
+                        ReliabilityPackage.Literals.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SoftwareInducedFailureType basicGetSoftwareInducedFailureType__InternalFailureOccurrenceDescription() {
-        return this.softwareInducedFailureType__InternalFailureOccurrenceDescription;
+        return (SoftwareInducedFailureType) this
+                .eDynamicGet(
+                        ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
+                        ReliabilityPackage.Literals.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
+                        false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSoftwareInducedFailureType__InternalFailureOccurrenceDescription(
             final SoftwareInducedFailureType newSoftwareInducedFailureType__InternalFailureOccurrenceDescription,
             NotificationChain msgs) {
-        final SoftwareInducedFailureType oldSoftwareInducedFailureType__InternalFailureOccurrenceDescription = this.softwareInducedFailureType__InternalFailureOccurrenceDescription;
-        this.softwareInducedFailureType__InternalFailureOccurrenceDescription = newSoftwareInducedFailureType__InternalFailureOccurrenceDescription;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
-                    oldSoftwareInducedFailureType__InternalFailureOccurrenceDescription,
-                    newSoftwareInducedFailureType__InternalFailureOccurrenceDescription);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this
+                .eDynamicInverseAdd(
+                        (InternalEObject) newSoftwareInducedFailureType__InternalFailureOccurrenceDescription,
+                        ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
+                        msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSoftwareInducedFailureType__InternalFailureOccurrenceDescription(
             final SoftwareInducedFailureType newSoftwareInducedFailureType__InternalFailureOccurrenceDescription) {
-        if (newSoftwareInducedFailureType__InternalFailureOccurrenceDescription != this.softwareInducedFailureType__InternalFailureOccurrenceDescription) {
-            NotificationChain msgs = null;
-            if (this.softwareInducedFailureType__InternalFailureOccurrenceDescription != null) {
-                msgs = ((InternalEObject) this.softwareInducedFailureType__InternalFailureOccurrenceDescription)
-                        .eInverseRemove(
-                                this,
-                                ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE,
-                                SoftwareInducedFailureType.class, msgs);
-            }
-            if (newSoftwareInducedFailureType__InternalFailureOccurrenceDescription != null) {
-                msgs = ((InternalEObject) newSoftwareInducedFailureType__InternalFailureOccurrenceDescription)
-                        .eInverseAdd(
-                                this,
-                                ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE,
-                                SoftwareInducedFailureType.class, msgs);
-            }
-            msgs = this.basicSetSoftwareInducedFailureType__InternalFailureOccurrenceDescription(
-                    newSoftwareInducedFailureType__InternalFailureOccurrenceDescription, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
-                    newSoftwareInducedFailureType__InternalFailureOccurrenceDescription,
-                    newSoftwareInducedFailureType__InternalFailureOccurrenceDescription));
-        }
+        this.eDynamicSet(
+                ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
+                ReliabilityPackage.Literals.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
+                newSoftwareInducedFailureType__InternalFailureOccurrenceDescription);
     }
 
     /**
@@ -193,7 +134,7 @@ InternalFailureOccurrenceDescription {
      * {@link #NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Resource Timeout Failure Allowed For Internal Failure Occurrence Description</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -206,7 +147,7 @@ InternalFailureOccurrenceDescription {
      * {@link #NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Resource Timeout Failure Allowed For Internal Failure Occurrence Description</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -216,7 +157,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -253,20 +194,21 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public InternalAction getInternalAction__InternalFailureOccurrenceDescription() {
-        if (this.eContainerFeatureID() != ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION) {
-            return null;
-        }
-        return (InternalAction) this.eInternalContainer();
+        return (InternalAction) this
+                .eDynamicGet(
+                        ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
+                        ReliabilityPackage.Literals.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetInternalAction__InternalFailureOccurrenceDescription(
@@ -281,44 +223,21 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setInternalAction__InternalFailureOccurrenceDescription(
             final InternalAction newInternalAction__InternalFailureOccurrenceDescription) {
-        if (newInternalAction__InternalFailureOccurrenceDescription != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION && newInternalAction__InternalFailureOccurrenceDescription != null)) {
-            if (EcoreUtil.isAncestor(this, newInternalAction__InternalFailureOccurrenceDescription)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newInternalAction__InternalFailureOccurrenceDescription != null) {
-                msgs = ((InternalEObject) newInternalAction__InternalFailureOccurrenceDescription).eInverseAdd(this,
-                        SeffPackage.INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION,
-                        InternalAction.class, msgs);
-            }
-            msgs = this.basicSetInternalAction__InternalFailureOccurrenceDescription(
-                    newInternalAction__InternalFailureOccurrenceDescription, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
-                    newInternalAction__InternalFailureOccurrenceDescription,
-                    newInternalAction__InternalFailureOccurrenceDescription));
-        }
+        this.eDynamicSet(
+                ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
+                ReliabilityPackage.Literals.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
+                newInternalAction__InternalFailureOccurrenceDescription);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -330,8 +249,10 @@ InternalFailureOccurrenceDescription {
             }
             return this.basicSetInternalAction__InternalFailureOccurrenceDescription((InternalAction) otherEnd, msgs);
         case ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION:
-            if (this.softwareInducedFailureType__InternalFailureOccurrenceDescription != null) {
-                msgs = ((InternalEObject) this.softwareInducedFailureType__InternalFailureOccurrenceDescription)
+            final SoftwareInducedFailureType softwareInducedFailureType__InternalFailureOccurrenceDescription = this
+                    .basicGetSoftwareInducedFailureType__InternalFailureOccurrenceDescription();
+            if (softwareInducedFailureType__InternalFailureOccurrenceDescription != null) {
+                msgs = ((InternalEObject) softwareInducedFailureType__InternalFailureOccurrenceDescription)
                         .eInverseRemove(
                                 this,
                                 ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE,
@@ -345,7 +266,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -362,7 +283,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -378,7 +299,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -397,7 +318,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -415,7 +336,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -433,7 +354,7 @@ InternalFailureOccurrenceDescription {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -442,7 +363,7 @@ InternalFailureOccurrenceDescription {
         case ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION:
             return this.getInternalAction__InternalFailureOccurrenceDescription() != null;
         case ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION:
-            return this.softwareInducedFailureType__InternalFailureOccurrenceDescription != null;
+            return this.basicGetSoftwareInducedFailureType__InternalFailureOccurrenceDescription() != null;
         }
         return super.eIsSet(featureID);
     }

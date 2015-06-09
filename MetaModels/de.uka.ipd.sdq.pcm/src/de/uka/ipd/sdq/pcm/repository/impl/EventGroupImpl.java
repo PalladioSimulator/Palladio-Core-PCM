@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.repository.EventGroup;
@@ -35,25 +34,14 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getEventTypes__EventGroup()
-     * <em>Event Types Event Group</em>}' containment reference list. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getEventTypes__EventGroup()
-     * @generated
-     * @ordered
-     */
-    protected EList<EventType> eventTypes__EventGroup;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EventGroupImpl() {
@@ -62,7 +50,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -72,23 +60,19 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<EventType> getEventTypes__EventGroup() {
-        if (this.eventTypes__EventGroup == null) {
-            this.eventTypes__EventGroup = new EObjectContainmentWithInverseEList<EventType>(EventType.class, this,
-                    RepositoryPackage.EVENT_GROUP__EVENT_TYPES_EVENT_GROUP,
-                    RepositoryPackage.EVENT_TYPE__EVENT_GROUP_EVENT_TYPE);
-        }
-        return this.eventTypes__EventGroup;
+        return (EList<EventType>) this.eDynamicGet(RepositoryPackage.EVENT_GROUP__EVENT_TYPES_EVENT_GROUP,
+                RepositoryPackage.Literals.EVENT_GROUP__EVENT_TYPES_EVENT_GROUP, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -105,7 +89,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -120,7 +104,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -134,7 +118,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -151,7 +135,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -166,7 +150,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -174,7 +158,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.EVENT_GROUP__EVENT_TYPES_EVENT_GROUP:
-            return this.eventTypes__EventGroup != null && !this.eventTypes__EventGroup.isEmpty();
+            return !this.getEventTypes__EventGroup().isEmpty();
         }
         return super.eIsSet(featureID);
     }

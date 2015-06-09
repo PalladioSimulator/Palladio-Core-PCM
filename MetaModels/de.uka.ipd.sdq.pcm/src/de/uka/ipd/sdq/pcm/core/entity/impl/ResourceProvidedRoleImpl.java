@@ -5,13 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.core.entity.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceProvidingEntity;
@@ -40,25 +36,14 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getProvidedResourceInterface__ResourceProvidedRole()
-     * <em>Provided Resource Interface Resource Provided Role</em>}' reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @see #getProvidedResourceInterface__ResourceProvidedRole()
-     * @generated
-     * @ordered
-     */
-    protected ResourceInterface providedResourceInterface__ResourceProvidedRole;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceProvidedRoleImpl() {
@@ -67,7 +52,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -77,20 +62,21 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceInterfaceProvidingEntity getResourceInterfaceProvidingEntity__ResourceProvidedRole() {
-        if (this.eContainerFeatureID() != EntityPackage.RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE) {
-            return null;
-        }
-        return (ResourceInterfaceProvidingEntity) this.eInternalContainer();
+        return (ResourceInterfaceProvidingEntity) this
+                .eDynamicGet(
+                        EntityPackage.RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE,
+                        EntityPackage.Literals.RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceInterfaceProvidingEntity__ResourceProvidedRole(
@@ -103,95 +89,59 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setResourceInterfaceProvidingEntity__ResourceProvidedRole(
             final ResourceInterfaceProvidingEntity newResourceInterfaceProvidingEntity__ResourceProvidedRole) {
-        if (newResourceInterfaceProvidingEntity__ResourceProvidedRole != this.eInternalContainer()
-                || (this.eContainerFeatureID() != EntityPackage.RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE && newResourceInterfaceProvidingEntity__ResourceProvidedRole != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceInterfaceProvidingEntity__ResourceProvidedRole)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newResourceInterfaceProvidingEntity__ResourceProvidedRole != null) {
-                msgs = ((InternalEObject) newResourceInterfaceProvidingEntity__ResourceProvidedRole)
-                        .eInverseAdd(
-                                this,
-                                EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
-                                ResourceInterfaceProvidingEntity.class, msgs);
-            }
-            msgs = this.basicSetResourceInterfaceProvidingEntity__ResourceProvidedRole(
-                    newResourceInterfaceProvidingEntity__ResourceProvidedRole, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    EntityPackage.RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE,
-                    newResourceInterfaceProvidingEntity__ResourceProvidedRole,
-                    newResourceInterfaceProvidingEntity__ResourceProvidedRole));
-        }
+        this.eDynamicSet(
+                EntityPackage.RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE,
+                EntityPackage.Literals.RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE,
+                newResourceInterfaceProvidingEntity__ResourceProvidedRole);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceInterface getProvidedResourceInterface__ResourceProvidedRole() {
-        if (this.providedResourceInterface__ResourceProvidedRole != null
-                && ((EObject) this.providedResourceInterface__ResourceProvidedRole).eIsProxy()) {
-            final InternalEObject oldProvidedResourceInterface__ResourceProvidedRole = (InternalEObject) this.providedResourceInterface__ResourceProvidedRole;
-            this.providedResourceInterface__ResourceProvidedRole = (ResourceInterface) this
-                    .eResolveProxy(oldProvidedResourceInterface__ResourceProvidedRole);
-            if (this.providedResourceInterface__ResourceProvidedRole != oldProvidedResourceInterface__ResourceProvidedRole) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            EntityPackage.RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE,
-                            oldProvidedResourceInterface__ResourceProvidedRole,
-                            this.providedResourceInterface__ResourceProvidedRole));
-                }
-            }
-        }
-        return this.providedResourceInterface__ResourceProvidedRole;
+        return (ResourceInterface) this.eDynamicGet(
+                EntityPackage.RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE,
+                EntityPackage.Literals.RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE,
+                true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceInterface basicGetProvidedResourceInterface__ResourceProvidedRole() {
-        return this.providedResourceInterface__ResourceProvidedRole;
+        return (ResourceInterface) this.eDynamicGet(
+                EntityPackage.RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE,
+                EntityPackage.Literals.RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE,
+                false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setProvidedResourceInterface__ResourceProvidedRole(
             final ResourceInterface newProvidedResourceInterface__ResourceProvidedRole) {
-        final ResourceInterface oldProvidedResourceInterface__ResourceProvidedRole = this.providedResourceInterface__ResourceProvidedRole;
-        this.providedResourceInterface__ResourceProvidedRole = newProvidedResourceInterface__ResourceProvidedRole;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    EntityPackage.RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE,
-                    oldProvidedResourceInterface__ResourceProvidedRole,
-                    this.providedResourceInterface__ResourceProvidedRole));
-        }
+        this.eDynamicSet(EntityPackage.RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE,
+                EntityPackage.Literals.RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE,
+                newProvidedResourceInterface__ResourceProvidedRole);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -209,7 +159,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -224,7 +174,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -243,7 +193,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -262,7 +212,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -280,7 +230,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -298,7 +248,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -307,7 +257,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
         case EntityPackage.RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE:
             return this.getResourceInterfaceProvidingEntity__ResourceProvidedRole() != null;
         case EntityPackage.RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE:
-            return this.providedResourceInterface__ResourceProvidedRole != null;
+            return this.basicGetProvidedResourceInterface__ResourceProvidedRole() != null;
         }
         return super.eIsSet(featureID);
     }

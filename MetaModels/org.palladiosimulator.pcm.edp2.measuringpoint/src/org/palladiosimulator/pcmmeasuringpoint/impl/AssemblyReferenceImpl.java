@@ -2,11 +2,7 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
@@ -29,18 +25,8 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements AssemblyReference {
 
     /**
-     * The cached value of the '{@link #getAssembly() <em>Assembly</em>}' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getAssembly()
-     * @generated
-     * @ordered
-     */
-    protected AssemblyContext assembly;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AssemblyReferenceImpl() {
@@ -49,7 +35,7 @@ public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements Ass
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -59,51 +45,49 @@ public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements Ass
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    protected int eStaticFeatureCount() {
+        return 0;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getAssembly() {
-        if (this.assembly != null && ((EObject) this.assembly).eIsProxy()) {
-            final InternalEObject oldAssembly = (InternalEObject) this.assembly;
-            this.assembly = (AssemblyContext) this.eResolveProxy(oldAssembly);
-            if (this.assembly != oldAssembly) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY, oldAssembly, this.assembly));
-                }
-            }
-        }
-        return this.assembly;
+        return (AssemblyContext) this.eDynamicGet(PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY,
+                PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetAssembly() {
-        return this.assembly;
+        return (AssemblyContext) this.eDynamicGet(PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY,
+                PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setAssembly(final AssemblyContext newAssembly) {
-        final AssemblyContext oldAssembly = this.assembly;
-        this.assembly = newAssembly;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY, oldAssembly, this.assembly));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY,
+                PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, newAssembly);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -120,7 +104,7 @@ public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements Ass
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -135,7 +119,7 @@ public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements Ass
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -150,14 +134,14 @@ public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements Ass
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY:
-            return this.assembly != null;
+            return this.basicGetAssembly() != null;
         }
         return super.eIsSet(featureID);
     }

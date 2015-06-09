@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.Enumerator;
 /**
  * <!-- begin-user-doc --> A representation of the literals of the enumeration '
  * <em><b>Component Type</b></em>', and utility methods for working with them. <!-- end-user-doc -->
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getComponentType()
  * @model
  * @generated
@@ -23,7 +23,7 @@ public enum ComponentType implements Enumerator {
     /**
      * The '<em><b>BUSINESS COMPONENT</b></em>' literal object. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #BUSINESS_COMPONENT_VALUE
      * @generated
      * @ordered
@@ -33,7 +33,7 @@ public enum ComponentType implements Enumerator {
     /**
      * The '<em><b>INFRASTRUCTURE COMPONENT</b></em>' literal object. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #INFRASTRUCTURE_COMPONENT_VALUE
      * @generated
      * @ordered
@@ -42,7 +42,7 @@ public enum ComponentType implements Enumerator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -54,7 +54,7 @@ public enum ComponentType implements Enumerator {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #BUSINESS_COMPONENT
      * @model
      * @generated
@@ -69,7 +69,7 @@ public enum ComponentType implements Enumerator {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #INFRASTRUCTURE_COMPONENT
      * @model
      * @generated
@@ -80,7 +80,7 @@ public enum ComponentType implements Enumerator {
     /**
      * An array of all the '<em><b>Component Type</b></em>' enumerators. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static final ComponentType[] VALUES_ARRAY = new ComponentType[] { BUSINESS_COMPONENT,
@@ -142,28 +142,28 @@ public enum ComponentType implements Enumerator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private final int value;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private final String name;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private final String literal;
 
     /**
      * Only this class can construct instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private ComponentType(final int value, final String name, final String literal) {
@@ -174,7 +174,7 @@ public enum ComponentType implements Enumerator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -184,7 +184,7 @@ public enum ComponentType implements Enumerator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -194,7 +194,7 @@ public enum ComponentType implements Enumerator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

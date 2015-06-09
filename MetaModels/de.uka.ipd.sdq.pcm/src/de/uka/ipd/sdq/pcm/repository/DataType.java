@@ -31,7 +31,7 @@ public interface DataType extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -57,7 +57,7 @@ public interface DataType extends CDOObject {
      * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.DataType#getRepository__DataType
      * <em>Repository Data Type</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Repository Data Type</em>' container reference.
      * @see #getRepository__DataType()

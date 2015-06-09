@@ -5,11 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
@@ -33,25 +29,14 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getParameter_CollectionIteratorAction()
-     * <em>Parameter Collection Iterator Action</em>}' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getParameter_CollectionIteratorAction()
-     * @generated
-     * @ordered
-     */
-    protected Parameter parameter_CollectionIteratorAction;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CollectionIteratorActionImpl() {
@@ -60,7 +45,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -70,55 +55,42 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Parameter getParameter_CollectionIteratorAction() {
-        if (this.parameter_CollectionIteratorAction != null
-                && ((EObject) this.parameter_CollectionIteratorAction).eIsProxy()) {
-            final InternalEObject oldParameter_CollectionIteratorAction = (InternalEObject) this.parameter_CollectionIteratorAction;
-            this.parameter_CollectionIteratorAction = (Parameter) this
-                    .eResolveProxy(oldParameter_CollectionIteratorAction);
-            if (this.parameter_CollectionIteratorAction != oldParameter_CollectionIteratorAction) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            SeffPackage.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION,
-                            oldParameter_CollectionIteratorAction, this.parameter_CollectionIteratorAction));
-                }
-            }
-        }
-        return this.parameter_CollectionIteratorAction;
+        return (Parameter) this.eDynamicGet(
+                SeffPackage.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION,
+                SeffPackage.Literals.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public Parameter basicGetParameter_CollectionIteratorAction() {
-        return this.parameter_CollectionIteratorAction;
+        return (Parameter) this.eDynamicGet(
+                SeffPackage.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION,
+                SeffPackage.Literals.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setParameter_CollectionIteratorAction(final Parameter newParameter_CollectionIteratorAction) {
-        final Parameter oldParameter_CollectionIteratorAction = this.parameter_CollectionIteratorAction;
-        this.parameter_CollectionIteratorAction = newParameter_CollectionIteratorAction;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    SeffPackage.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION,
-                    oldParameter_CollectionIteratorAction, this.parameter_CollectionIteratorAction));
-        }
+        this.eDynamicSet(SeffPackage.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION,
+                SeffPackage.Literals.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION,
+                newParameter_CollectionIteratorAction);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -135,7 +107,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -150,7 +122,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -165,14 +137,14 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION:
-            return this.parameter_CollectionIteratorAction != null;
+            return this.basicGetParameter_CollectionIteratorAction() != null;
         }
         return super.eIsSet(featureID);
     }

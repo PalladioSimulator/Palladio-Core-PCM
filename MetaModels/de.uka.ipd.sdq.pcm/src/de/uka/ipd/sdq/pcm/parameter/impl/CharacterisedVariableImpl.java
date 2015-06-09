@@ -5,9 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
@@ -31,7 +29,7 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -39,7 +37,7 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
     /**
      * The default value of the '{@link #getCharacterisationType() <em>Characterisation Type</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getCharacterisationType()
      * @generated
      * @ordered
@@ -47,18 +45,8 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
     protected static final VariableCharacterisationType CHARACTERISATION_TYPE_EDEFAULT = VariableCharacterisationType.STRUCTURE;
 
     /**
-     * The cached value of the '{@link #getCharacterisationType() <em>Characterisation Type</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getCharacterisationType()
-     * @generated
-     * @ordered
-     */
-    protected VariableCharacterisationType characterisationType = CHARACTERISATION_TYPE_EDEFAULT;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CharacterisedVariableImpl() {
@@ -67,7 +55,7 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -77,34 +65,30 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public VariableCharacterisationType getCharacterisationType() {
-        return this.characterisationType;
+        return (VariableCharacterisationType) this.eDynamicGet(
+                ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE,
+                ParameterPackage.Literals.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setCharacterisationType(final VariableCharacterisationType newCharacterisationType) {
-        final VariableCharacterisationType oldCharacterisationType = this.characterisationType;
-        this.characterisationType = newCharacterisationType == null ? CHARACTERISATION_TYPE_EDEFAULT
-                : newCharacterisationType;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE, oldCharacterisationType,
-                    this.characterisationType));
-        }
+        this.eDynamicSet(ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE,
+                ParameterPackage.Literals.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE, newCharacterisationType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -118,7 +102,7 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -133,7 +117,7 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -148,34 +132,16 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE:
-            return this.characterisationType != CHARACTERISATION_TYPE_EDEFAULT;
+            return this.getCharacterisationType() != CHARACTERISATION_TYPE_EDEFAULT;
         }
         return super.eIsSet(featureID);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (this.eIsProxy()) {
-            return super.toString();
-        }
-
-        final StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (characterisationType: ");
-        result.append(this.characterisationType);
-        result.append(')');
-        return result.toString();
     }
 
 } // CharacterisedVariableImpl

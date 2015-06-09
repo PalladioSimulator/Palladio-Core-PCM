@@ -7,21 +7,18 @@ package de.uka.ipd.sdq.pcm.usagemodel.impl;
 
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
 
-import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
@@ -46,7 +43,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -62,29 +59,8 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
     protected static final int POPULATION_EDEFAULT = 0;
 
     /**
-     * The cached value of the '{@link #getPopulation() <em>Population</em>}' attribute. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getPopulation()
-     * @generated
-     * @ordered
-     */
-    protected int population = POPULATION_EDEFAULT;
-
-    /**
-     * The cached value of the '{@link #getThinkTime_ClosedWorkload()
-     * <em>Think Time Closed Workload</em>}' containment reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getThinkTime_ClosedWorkload()
-     * @generated
-     * @ordered
-     */
-    protected PCMRandomVariable thinkTime_ClosedWorkload;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ClosedWorkloadImpl() {
@@ -93,7 +69,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -103,89 +79,58 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public int getPopulation() {
-        return this.population;
+        return (Integer) this.eDynamicGet(UsagemodelPackage.CLOSED_WORKLOAD__POPULATION,
+                UsagemodelPackage.Literals.CLOSED_WORKLOAD__POPULATION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setPopulation(final int newPopulation) {
-        final int oldPopulation = this.population;
-        this.population = newPopulation;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.CLOSED_WORKLOAD__POPULATION,
-                    oldPopulation, this.population));
-        }
+        this.eDynamicSet(UsagemodelPackage.CLOSED_WORKLOAD__POPULATION,
+                UsagemodelPackage.Literals.CLOSED_WORKLOAD__POPULATION, newPopulation);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public PCMRandomVariable getThinkTime_ClosedWorkload() {
-        return this.thinkTime_ClosedWorkload;
+        return (PCMRandomVariable) this.eDynamicGet(UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD,
+                UsagemodelPackage.Literals.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetThinkTime_ClosedWorkload(final PCMRandomVariable newThinkTime_ClosedWorkload,
             NotificationChain msgs) {
-        final PCMRandomVariable oldThinkTime_ClosedWorkload = this.thinkTime_ClosedWorkload;
-        this.thinkTime_ClosedWorkload = newThinkTime_ClosedWorkload;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD, oldThinkTime_ClosedWorkload,
-                    newThinkTime_ClosedWorkload);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newThinkTime_ClosedWorkload,
+                UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setThinkTime_ClosedWorkload(final PCMRandomVariable newThinkTime_ClosedWorkload) {
-        if (newThinkTime_ClosedWorkload != this.thinkTime_ClosedWorkload) {
-            NotificationChain msgs = null;
-            if (this.thinkTime_ClosedWorkload != null) {
-                msgs = ((InternalEObject) this.thinkTime_ClosedWorkload).eInverseRemove(this,
-                        CorePackage.PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE, PCMRandomVariable.class,
-                        msgs);
-            }
-            if (newThinkTime_ClosedWorkload != null) {
-                msgs = ((InternalEObject) newThinkTime_ClosedWorkload).eInverseAdd(this,
-                        CorePackage.PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE, PCMRandomVariable.class,
-                        msgs);
-            }
-            msgs = this.basicSetThinkTime_ClosedWorkload(newThinkTime_ClosedWorkload, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD, newThinkTime_ClosedWorkload,
-                    newThinkTime_ClosedWorkload));
-        }
+        this.eDynamicSet(UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD,
+                UsagemodelPackage.Literals.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD, newThinkTime_ClosedWorkload);
     }
 
     /**
@@ -193,7 +138,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
      * {@link #PopulationInClosedWorkloadNeedsToBeSpecified(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Population In Closed Workload Needs To Be Specified</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #PopulationInClosedWorkloadNeedsToBeSpecified(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -216,7 +161,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -252,7 +197,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
      * {@link #ThinkTimeInClosedWorkloadNeedsToBeSpecified(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Think Time In Closed Workload Needs To Be Specified</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ThinkTimeInClosedWorkloadNeedsToBeSpecified(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -275,7 +220,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -308,15 +253,16 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD:
-            if (this.thinkTime_ClosedWorkload != null) {
-                msgs = ((InternalEObject) this.thinkTime_ClosedWorkload).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+            final PCMRandomVariable thinkTime_ClosedWorkload = this.getThinkTime_ClosedWorkload();
+            if (thinkTime_ClosedWorkload != null) {
+                msgs = ((InternalEObject) thinkTime_ClosedWorkload).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                         - UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD, null, msgs);
             }
             return this.basicSetThinkTime_ClosedWorkload((PCMRandomVariable) otherEnd, msgs);
@@ -326,7 +272,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -341,7 +287,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -357,7 +303,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -375,7 +321,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -393,42 +339,24 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case UsagemodelPackage.CLOSED_WORKLOAD__POPULATION:
-            return this.population != POPULATION_EDEFAULT;
+            return this.getPopulation() != POPULATION_EDEFAULT;
         case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD:
-            return this.thinkTime_ClosedWorkload != null;
+            return this.getThinkTime_ClosedWorkload() != null;
         }
         return super.eIsSet(featureID);
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (this.eIsProxy()) {
-            return super.toString();
-        }
-
-        final StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (population: ");
-        result.append(this.population);
-        result.append(')');
-        return result.toString();
-    }
-
-    /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

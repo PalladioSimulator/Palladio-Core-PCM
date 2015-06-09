@@ -2,11 +2,7 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
@@ -34,18 +30,8 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
         ExternalCallActionMeasuringPoint {
 
     /**
-     * The cached value of the '{@link #getExternalCall() <em>External Call</em>}' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getExternalCall()
-     * @generated
-     * @ordered
-     */
-    protected ExternalCallAction externalCall;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ExternalCallActionMeasuringPointImpl() {
@@ -54,7 +40,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -64,53 +50,41 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ExternalCallAction getExternalCall() {
-        if (this.externalCall != null && ((EObject) this.externalCall).eIsProxy()) {
-            final InternalEObject oldExternalCall = (InternalEObject) this.externalCall;
-            this.externalCall = (ExternalCallAction) this.eResolveProxy(oldExternalCall);
-            if (this.externalCall != oldExternalCall) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_MEASURING_POINT__EXTERNAL_CALL,
-                            oldExternalCall, this.externalCall));
-                }
-            }
-        }
-        return this.externalCall;
+        return (ExternalCallAction) this.eDynamicGet(
+                PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_MEASURING_POINT__EXTERNAL_CALL,
+                PcmmeasuringpointPackage.Literals.EXTERNAL_CALL_ACTION_REFERENCE__EXTERNAL_CALL, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ExternalCallAction basicGetExternalCall() {
-        return this.externalCall;
+        return (ExternalCallAction) this.eDynamicGet(
+                PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_MEASURING_POINT__EXTERNAL_CALL,
+                PcmmeasuringpointPackage.Literals.EXTERNAL_CALL_ACTION_REFERENCE__EXTERNAL_CALL, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setExternalCall(final ExternalCallAction newExternalCall) {
-        final ExternalCallAction oldExternalCall = this.externalCall;
-        this.externalCall = newExternalCall;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_MEASURING_POINT__EXTERNAL_CALL, oldExternalCall,
-                    this.externalCall));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_MEASURING_POINT__EXTERNAL_CALL,
+                PcmmeasuringpointPackage.Literals.EXTERNAL_CALL_ACTION_REFERENCE__EXTERNAL_CALL, newExternalCall);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,7 +101,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -142,7 +116,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -157,21 +131,21 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_MEASURING_POINT__EXTERNAL_CALL:
-            return this.externalCall != null;
+            return this.basicGetExternalCall() != null;
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -189,7 +163,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -212,7 +186,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
      */
     @Override
     public String getStringRepresentation() {
-        if (this.externalCall == null) {
+        if (this.getExternalCall() == null) {
             return "";
         }
         EcoreUtil.resolveAll(this);
@@ -220,15 +194,16 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
         final StringBuilder result = new StringBuilder();
 
         result.append("ExternalCall ");
-        result.append(this.externalCall.getEntityName());
+        result.append(this.getExternalCall().getEntityName());
         result.append(" from ");
-        result.append(this.externalCall.getRole_ExternalService().getRequiringEntity_RequiredRole().getEntityName());
+        result.append(this.getExternalCall().getRole_ExternalService().getRequiringEntity_RequiredRole()
+                .getEntityName());
         result.append(" to ");
-        result.append(this.externalCall.getRole_ExternalService().getEntityName());
+        result.append(this.getExternalCall().getRole_ExternalService().getEntityName());
         result.append("->");
-        result.append(this.externalCall.getCalledService_ExternalService().getEntityName());
+        result.append(this.getExternalCall().getCalledService_ExternalService().getEntityName());
         result.append(" [");
-        result.append(this.externalCall.getId());
+        result.append(this.getExternalCall().getId());
         result.append("]");
 
         return result.toString();
@@ -241,11 +216,11 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
      */
     @Override
     public String getResourceURIRepresentation() {
-        if (this.externalCall == null) {
+        if (this.getExternalCall() == null) {
             return "";
         }
         EcoreUtil.resolveAll(this);
-        return EMFLoadHelper.getResourceURI(this.externalCall);
+        return EMFLoadHelper.getResourceURI(this.getExternalCall());
     }
 
 } // ExternalCallActionMeasuringPointImpl

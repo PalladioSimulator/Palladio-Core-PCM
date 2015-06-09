@@ -7,14 +7,10 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface;
@@ -43,25 +39,14 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getParameters__InfrastructureSignature()
-     * <em>Parameters Infrastructure Signature</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getParameters__InfrastructureSignature()
-     * @generated
-     * @ordered
-     */
-    protected EList<Parameter> parameters__InfrastructureSignature;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected InfrastructureSignatureImpl() {
@@ -70,7 +55,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -80,37 +65,33 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<Parameter> getParameters__InfrastructureSignature() {
-        if (this.parameters__InfrastructureSignature == null) {
-            this.parameters__InfrastructureSignature = new EObjectContainmentWithInverseEList<Parameter>(
-                    Parameter.class, this,
-                    RepositoryPackage.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE,
-                    RepositoryPackage.PARAMETER__INFRASTRUCTURE_SIGNATURE_PARAMETER);
-        }
-        return this.parameters__InfrastructureSignature;
+        return (EList<Parameter>) this.eDynamicGet(
+                RepositoryPackage.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE,
+                RepositoryPackage.Literals.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public InfrastructureInterface getInfrastructureInterface__InfrastructureSignature() {
-        if (this.eContainerFeatureID() != RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE) {
-            return null;
-        }
-        return (InfrastructureInterface) this.eInternalContainer();
+        return (InfrastructureInterface) this.eDynamicGet(
+                RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE,
+                RepositoryPackage.Literals.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE,
+                true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetInfrastructureInterface__InfrastructureSignature(
@@ -122,42 +103,20 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setInfrastructureInterface__InfrastructureSignature(
             final InfrastructureInterface newInfrastructureInterface__InfrastructureSignature) {
-        if (newInfrastructureInterface__InfrastructureSignature != this.eInternalContainer()
-                || (this.eContainerFeatureID() != RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE && newInfrastructureInterface__InfrastructureSignature != null)) {
-            if (EcoreUtil.isAncestor(this, newInfrastructureInterface__InfrastructureSignature)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newInfrastructureInterface__InfrastructureSignature != null) {
-                msgs = ((InternalEObject) newInfrastructureInterface__InfrastructureSignature).eInverseAdd(this,
-                        RepositoryPackage.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE,
-                        InfrastructureInterface.class, msgs);
-            }
-            msgs = this.basicSetInfrastructureInterface__InfrastructureSignature(
-                    newInfrastructureInterface__InfrastructureSignature, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE,
-                    newInfrastructureInterface__InfrastructureSignature,
-                    newInfrastructureInterface__InfrastructureSignature));
-        }
+        this.eDynamicSet(RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE,
+                RepositoryPackage.Literals.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE,
+                newInfrastructureInterface__InfrastructureSignature);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -179,7 +138,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -196,7 +155,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -212,7 +171,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -228,7 +187,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -248,7 +207,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -266,7 +225,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -274,8 +233,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE:
-            return this.parameters__InfrastructureSignature != null
-                    && !this.parameters__InfrastructureSignature.isEmpty();
+            return !this.getParameters__InfrastructureSignature().isEmpty();
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE:
             return this.getInfrastructureInterface__InfrastructureSignature() != null;
         }

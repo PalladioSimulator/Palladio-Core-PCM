@@ -7,15 +7,10 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
@@ -52,44 +47,14 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getEventGroup__EventChannel()
-     * <em>Event Group Event Channel</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getEventGroup__EventChannel()
-     * @generated
-     * @ordered
-     */
-    protected EventGroup eventGroup__EventChannel;
-    /**
-     * The cached value of the '{@link #getEventChannelSourceConnector__EventChannel()
-     * <em>Event Channel Source Connector Event Channel</em>}' reference list. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @see #getEventChannelSourceConnector__EventChannel()
-     * @generated
-     * @ordered
-     */
-    protected EList<EventChannelSourceConnector> eventChannelSourceConnector__EventChannel;
-    /**
-     * The cached value of the '{@link #getEventChannelSinkConnector__EventChannel()
-     * <em>Event Channel Sink Connector Event Channel</em>}' reference list. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getEventChannelSinkConnector__EventChannel()
-     * @generated
-     * @ordered
-     */
-    protected EList<EventChannelSinkConnector> eventChannelSinkConnector__EventChannel;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EventChannelImpl() {
@@ -98,7 +63,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -108,100 +73,76 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EventGroup getEventGroup__EventChannel() {
-        if (this.eventGroup__EventChannel != null && ((EObject) this.eventGroup__EventChannel).eIsProxy()) {
-            final InternalEObject oldEventGroup__EventChannel = (InternalEObject) this.eventGroup__EventChannel;
-            this.eventGroup__EventChannel = (EventGroup) this.eResolveProxy(oldEventGroup__EventChannel);
-            if (this.eventGroup__EventChannel != oldEventGroup__EventChannel) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            CompositionPackage.EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL, oldEventGroup__EventChannel,
-                            this.eventGroup__EventChannel));
-                }
-            }
-        }
-        return this.eventGroup__EventChannel;
+        return (EventGroup) this.eDynamicGet(CompositionPackage.EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL,
+                CompositionPackage.Literals.EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public EventGroup basicGetEventGroup__EventChannel() {
-        return this.eventGroup__EventChannel;
+        return (EventGroup) this.eDynamicGet(CompositionPackage.EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL,
+                CompositionPackage.Literals.EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setEventGroup__EventChannel(final EventGroup newEventGroup__EventChannel) {
-        final EventGroup oldEventGroup__EventChannel = this.eventGroup__EventChannel;
-        this.eventGroup__EventChannel = newEventGroup__EventChannel;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CompositionPackage.EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL, oldEventGroup__EventChannel,
-                    this.eventGroup__EventChannel));
-        }
+        this.eDynamicSet(CompositionPackage.EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL,
+                CompositionPackage.Literals.EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL, newEventGroup__EventChannel);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<EventChannelSourceConnector> getEventChannelSourceConnector__EventChannel() {
-        if (this.eventChannelSourceConnector__EventChannel == null) {
-            this.eventChannelSourceConnector__EventChannel = new EObjectWithInverseResolvingEList<EventChannelSourceConnector>(
-                    EventChannelSourceConnector.class, this,
-                    CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SOURCE_CONNECTOR_EVENT_CHANNEL,
-                    CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SOURCE_CONNECTOR);
-        }
-        return this.eventChannelSourceConnector__EventChannel;
+        return (EList<EventChannelSourceConnector>) this.eDynamicGet(
+                CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SOURCE_CONNECTOR_EVENT_CHANNEL,
+                CompositionPackage.Literals.EVENT_CHANNEL__EVENT_CHANNEL_SOURCE_CONNECTOR_EVENT_CHANNEL, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<EventChannelSinkConnector> getEventChannelSinkConnector__EventChannel() {
-        if (this.eventChannelSinkConnector__EventChannel == null) {
-            this.eventChannelSinkConnector__EventChannel = new EObjectWithInverseResolvingEList<EventChannelSinkConnector>(
-                    EventChannelSinkConnector.class, this,
-                    CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SINK_CONNECTOR_EVENT_CHANNEL,
-                    CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SINK_CONNECTOR);
-        }
-        return this.eventChannelSinkConnector__EventChannel;
+        return (EList<EventChannelSinkConnector>) this.eDynamicGet(
+                CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SINK_CONNECTOR_EVENT_CHANNEL,
+                CompositionPackage.Literals.EVENT_CHANNEL__EVENT_CHANNEL_SINK_CONNECTOR_EVENT_CHANNEL, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ComposedStructure getParentStructure__EventChannel() {
-        if (this.eContainerFeatureID() != CompositionPackage.EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL) {
-            return null;
-        }
-        return (ComposedStructure) this.eInternalContainer();
+        return (ComposedStructure) this.eDynamicGet(CompositionPackage.EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL,
+                CompositionPackage.Literals.EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParentStructure__EventChannel(
@@ -213,39 +154,19 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setParentStructure__EventChannel(final ComposedStructure newParentStructure__EventChannel) {
-        if (newParentStructure__EventChannel != this.eInternalContainer()
-                || (this.eContainerFeatureID() != CompositionPackage.EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL && newParentStructure__EventChannel != null)) {
-            if (EcoreUtil.isAncestor(this, newParentStructure__EventChannel)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newParentStructure__EventChannel != null) {
-                msgs = ((InternalEObject) newParentStructure__EventChannel).eInverseAdd(this,
-                        CompositionPackage.COMPOSED_STRUCTURE__EVENT_CHANNEL_COMPOSED_STRUCTURE,
-                        ComposedStructure.class, msgs);
-            }
-            msgs = this.basicSetParentStructure__EventChannel(newParentStructure__EventChannel, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CompositionPackage.EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL, newParentStructure__EventChannel,
-                    newParentStructure__EventChannel));
-        }
+        this.eDynamicSet(CompositionPackage.EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL,
+                CompositionPackage.Literals.EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL,
+                newParentStructure__EventChannel);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -269,7 +190,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -288,7 +209,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -304,7 +225,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -327,7 +248,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -356,7 +277,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -380,7 +301,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -388,13 +309,11 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case CompositionPackage.EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL:
-            return this.eventGroup__EventChannel != null;
+            return this.basicGetEventGroup__EventChannel() != null;
         case CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SOURCE_CONNECTOR_EVENT_CHANNEL:
-            return this.eventChannelSourceConnector__EventChannel != null
-            && !this.eventChannelSourceConnector__EventChannel.isEmpty();
+            return !this.getEventChannelSourceConnector__EventChannel().isEmpty();
         case CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SINK_CONNECTOR_EVENT_CHANNEL:
-            return this.eventChannelSinkConnector__EventChannel != null
-            && !this.eventChannelSinkConnector__EventChannel.isEmpty();
+            return !this.getEventChannelSinkConnector__EventChannel().isEmpty();
         case CompositionPackage.EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL:
             return this.getParentStructure__EventChannel() != null;
         }

@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
@@ -45,47 +44,14 @@ public class ResourceRepositoryImpl extends CDOObjectImpl implements ResourceRep
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getResourceInterfaces__ResourceRepository()
-     * <em>Resource Interfaces Resource Repository</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getResourceInterfaces__ResourceRepository()
-     * @generated
-     * @ordered
-     */
-    protected EList<ResourceInterface> resourceInterfaces__ResourceRepository;
-
-    /**
-     * The cached value of the '{@link #getSchedulingPolicies__ResourceRepository()
-     * <em>Scheduling Policies Resource Repository</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getSchedulingPolicies__ResourceRepository()
-     * @generated
-     * @ordered
-     */
-    protected EList<SchedulingPolicy> schedulingPolicies__ResourceRepository;
-
-    /**
-     * The cached value of the '{@link #getAvailableResourceTypes_ResourceRepository()
-     * <em>Available Resource Types Resource Repository</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getAvailableResourceTypes_ResourceRepository()
-     * @generated
-     * @ordered
-     */
-    protected EList<ResourceType> availableResourceTypes_ResourceRepository;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceRepositoryImpl() {
@@ -94,7 +60,7 @@ public class ResourceRepositoryImpl extends CDOObjectImpl implements ResourceRep
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -104,58 +70,57 @@ public class ResourceRepositoryImpl extends CDOObjectImpl implements ResourceRep
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    protected int eStaticFeatureCount() {
+        return 0;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<ResourceInterface> getResourceInterfaces__ResourceRepository() {
-        if (this.resourceInterfaces__ResourceRepository == null) {
-            this.resourceInterfaces__ResourceRepository = new EObjectContainmentWithInverseEList<ResourceInterface>(
-                    ResourceInterface.class, this,
-                    ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY,
-                    ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE);
-        }
-        return this.resourceInterfaces__ResourceRepository;
+        return (EList<ResourceInterface>) this.eDynamicGet(
+                ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY,
+                ResourcetypePackage.Literals.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<SchedulingPolicy> getSchedulingPolicies__ResourceRepository() {
-        if (this.schedulingPolicies__ResourceRepository == null) {
-            this.schedulingPolicies__ResourceRepository = new EObjectContainmentWithInverseEList<SchedulingPolicy>(
-                    SchedulingPolicy.class, this,
-                    ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY,
-                    ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY);
-        }
-        return this.schedulingPolicies__ResourceRepository;
+        return (EList<SchedulingPolicy>) this.eDynamicGet(
+                ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY,
+                ResourcetypePackage.Literals.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<ResourceType> getAvailableResourceTypes_ResourceRepository() {
-        if (this.availableResourceTypes_ResourceRepository == null) {
-            this.availableResourceTypes_ResourceRepository = new EObjectContainmentWithInverseEList<ResourceType>(
-                    ResourceType.class, this,
-                    ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY,
-                    ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE);
-        }
-        return this.availableResourceTypes_ResourceRepository;
+        return (EList<ResourceType>) this.eDynamicGet(
+                ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY,
+                ResourcetypePackage.Literals.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY, true,
+                true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -178,7 +143,7 @@ public class ResourceRepositoryImpl extends CDOObjectImpl implements ResourceRep
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -197,7 +162,7 @@ public class ResourceRepositoryImpl extends CDOObjectImpl implements ResourceRep
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -215,7 +180,7 @@ public class ResourceRepositoryImpl extends CDOObjectImpl implements ResourceRep
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -240,7 +205,7 @@ public class ResourceRepositoryImpl extends CDOObjectImpl implements ResourceRep
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -261,7 +226,7 @@ public class ResourceRepositoryImpl extends CDOObjectImpl implements ResourceRep
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -269,14 +234,11 @@ public class ResourceRepositoryImpl extends CDOObjectImpl implements ResourceRep
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
-            return this.resourceInterfaces__ResourceRepository != null
-                    && !this.resourceInterfaces__ResourceRepository.isEmpty();
+            return !this.getResourceInterfaces__ResourceRepository().isEmpty();
         case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
-            return this.schedulingPolicies__ResourceRepository != null
-                    && !this.schedulingPolicies__ResourceRepository.isEmpty();
+            return !this.getSchedulingPolicies__ResourceRepository().isEmpty();
         case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
-            return this.availableResourceTypes_ResourceRepository != null
-            && !this.availableResourceTypes_ResourceRepository.isEmpty();
+            return !this.getAvailableResourceTypes_ResourceRepository().isEmpty();
         }
         return super.eIsSet(featureID);
     }

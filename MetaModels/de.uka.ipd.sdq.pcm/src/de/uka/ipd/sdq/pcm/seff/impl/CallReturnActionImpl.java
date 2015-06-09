@@ -11,10 +11,8 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.seff.CallReturnAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
@@ -37,25 +35,14 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getReturnVariableUsage__CallReturnAction()
-     * <em>Return Variable Usage Call Return Action</em>}' containment reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getReturnVariableUsage__CallReturnAction()
-     * @generated
-     * @ordered
-     */
-    protected EList<VariableUsage> returnVariableUsage__CallReturnAction;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CallReturnActionImpl() {
@@ -64,7 +51,7 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -74,24 +61,20 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<VariableUsage> getReturnVariableUsage__CallReturnAction() {
-        if (this.returnVariableUsage__CallReturnAction == null) {
-            this.returnVariableUsage__CallReturnAction = new EObjectContainmentWithInverseEList<VariableUsage>(
-                    VariableUsage.class, this,
-                    SeffPackage.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION,
-                    ParameterPackage.VARIABLE_USAGE__CALL_RETURN_ACTION_VARIABLE_USAGE);
-        }
-        return this.returnVariableUsage__CallReturnAction;
+        return (EList<VariableUsage>) this.eDynamicGet(
+                SeffPackage.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION,
+                SeffPackage.Literals.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -108,7 +91,7 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -123,7 +106,7 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -137,7 +120,7 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -154,7 +137,7 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -169,7 +152,7 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -177,8 +160,7 @@ public class CallReturnActionImpl extends CallActionImpl implements CallReturnAc
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION:
-            return this.returnVariableUsage__CallReturnAction != null
-                    && !this.returnVariableUsage__CallReturnAction.isEmpty();
+            return !this.getReturnVariableUsage__CallReturnAction().isEmpty();
         }
         return super.eIsSet(featureID);
     }

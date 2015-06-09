@@ -23,7 +23,7 @@ import de.uka.ipd.sdq.identifier.IdentifierPackage;
  * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- *
+ * 
  * @see de.fzi.se.quality.parameters.ParametersFactory
  * @model kind="package"
  * @generated
@@ -32,28 +32,28 @@ public interface ParametersPackage extends EPackage {
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String eNAME = "parameters";
 
     /**
      * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String eNS_URI = "http://fzi.de/PalladioComponentModel/Quality/Parameters/0.2";
 
     /**
      * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String eNS_PREFIX = "parameters";
 
     /**
      * The singleton instance of the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     ParametersPackage eINSTANCE = de.fzi.se.quality.parameters.impl.ParametersPackageImpl.init();
@@ -61,7 +61,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The meta object id for the '{@link de.fzi.se.quality.parameters.impl.ParameterPartitionImpl
      * <em>Parameter Partition</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.fzi.se.quality.parameters.impl.ParameterPartitionImpl
      * @see de.fzi.se.quality.parameters.impl.ParametersPackageImpl#getParameterPartition()
      * @generated
@@ -71,7 +71,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -107,7 +107,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The meta object id for the '{@link de.fzi.se.quality.parameters.impl.ParameterValueImpl
      * <em>Parameter Value</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.fzi.se.quality.parameters.impl.ParameterValueImpl
      * @see de.fzi.se.quality.parameters.impl.ParametersPackageImpl#getParameterValue()
      * @generated
@@ -117,7 +117,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -153,7 +153,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The meta object id for the '{@link de.fzi.se.quality.parameters.impl.ParameterInstanceImpl
      * <em>Parameter Instance</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.fzi.se.quality.parameters.impl.ParameterInstanceImpl
      * @see de.fzi.se.quality.parameters.impl.ParametersPackageImpl#getParameterInstance()
      * @generated
@@ -163,7 +163,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -226,7 +226,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The meta object id for the '{@link de.fzi.se.quality.parameters.impl.CallInstanceImpl
      * <em>Call Instance</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.fzi.se.quality.parameters.impl.CallInstanceImpl
      * @see de.fzi.se.quality.parameters.impl.ParametersPackageImpl#getCallInstance()
      * @generated
@@ -236,7 +236,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -254,7 +254,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Output Parameter Instances</b></em>' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -263,7 +263,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Number Of Calls</b></em>' attribute. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -272,7 +272,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Input Parameter Instances</b></em>' containment reference
      * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -281,7 +281,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The number of structural features of the '<em>Call Instance</em>' class. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -290,7 +290,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The meta object id for the '{@link de.fzi.se.quality.parameters.impl.OperationReferenceImpl
      * <em>Operation Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.fzi.se.quality.parameters.impl.OperationReferenceImpl
      * @see de.fzi.se.quality.parameters.impl.ParametersPackageImpl#getOperationReference()
      * @generated
@@ -300,7 +300,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -327,7 +327,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The meta object id for the '{@link de.fzi.se.quality.parameters.impl.ComponentInstanceImpl
      * <em>Component Instance</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.fzi.se.quality.parameters.impl.ComponentInstanceImpl
      * @see de.fzi.se.quality.parameters.impl.ParametersPackageImpl#getComponentInstance()
      * @generated
@@ -337,7 +337,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -373,7 +373,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The meta object id for the '{@link de.fzi.se.quality.parameters.impl.ComponentReferenceImpl
      * <em>Component Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.fzi.se.quality.parameters.impl.ComponentReferenceImpl
      * @see de.fzi.se.quality.parameters.impl.ParametersPackageImpl#getComponentReference()
      * @generated
@@ -383,7 +383,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -410,7 +410,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The meta object id for the '{@link de.fzi.se.quality.parameters.impl.ParameterReferenceImpl
      * <em>Parameter Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see de.fzi.se.quality.parameters.impl.ParameterReferenceImpl
      * @see de.fzi.se.quality.parameters.impl.ParametersPackageImpl#getParameterReference()
      * @generated
@@ -420,7 +420,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Id</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -465,7 +465,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.fzi.se.quality.parameters.ParameterPartition
      * <em>Parameter Partition</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Parameter Partition</em>'.
      * @see de.fzi.se.quality.parameters.ParameterPartition
      * @generated
@@ -476,7 +476,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.fzi.se.quality.parameters.ParameterPartition#getQualityAnnotation
      * <em>Quality Annotation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the container reference '<em>Quality Annotation</em>'.
      * @see de.fzi.se.quality.parameters.ParameterPartition#getQualityAnnotation()
      * @see #getParameterPartition()
@@ -488,7 +488,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the containment reference '
      * {@link de.fzi.se.quality.parameters.ParameterPartition#getParameterReference
      * <em>Parameter Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the containment reference '<em>Parameter Reference</em>'.
      * @see de.fzi.se.quality.parameters.ParameterPartition#getParameterReference()
      * @see #getParameterPartition()
@@ -499,7 +499,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.fzi.se.quality.parameters.ParameterValue
      * <em>Parameter Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Parameter Value</em>'.
      * @see de.fzi.se.quality.parameters.ParameterValue
      * @generated
@@ -510,7 +510,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.fzi.se.quality.parameters.ParameterValue#getParameterInstance
      * <em>Parameter Instance</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the container reference '<em>Parameter Instance</em>'.
      * @see de.fzi.se.quality.parameters.ParameterValue#getParameterInstance()
      * @see #getParameterValue()
@@ -522,7 +522,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.fzi.se.quality.parameters.ParameterValue#getParameterValueDeviation
      * <em>Parameter Value Deviation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the container reference '<em>Parameter Value Deviation</em>'.
      * @see de.fzi.se.quality.parameters.ParameterValue#getParameterValueDeviation()
      * @see #getParameterValue()
@@ -533,7 +533,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.fzi.se.quality.parameters.ParameterInstance
      * <em>Parameter Instance</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Parameter Instance</em>'.
      * @see de.fzi.se.quality.parameters.ParameterInstance
      * @generated
@@ -544,7 +544,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the containment reference '
      * {@link de.fzi.se.quality.parameters.ParameterInstance#getParameterReference
      * <em>Parameter Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the containment reference '<em>Parameter Reference</em>'.
      * @see de.fzi.se.quality.parameters.ParameterInstance#getParameterReference()
      * @see #getParameterInstance()
@@ -556,7 +556,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.fzi.se.quality.parameters.ParameterInstance#getInputCallInstance
      * <em>Input Call Instance</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the container reference '<em>Input Call Instance</em>'.
      * @see de.fzi.se.quality.parameters.ParameterInstance#getInputCallInstance()
      * @see #getParameterInstance()
@@ -568,7 +568,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.fzi.se.quality.parameters.ParameterInstance#getOutputCallInstance
      * <em>Output Call Instance</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the container reference '<em>Output Call Instance</em>'.
      * @see de.fzi.se.quality.parameters.ParameterInstance#getOutputCallInstance()
      * @see #getParameterInstance()
@@ -580,7 +580,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.fzi.se.quality.parameters.ParameterInstance#getComponentInstance
      * <em>Component Instance</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the container reference '<em>Component Instance</em>'.
      * @see de.fzi.se.quality.parameters.ParameterInstance#getComponentInstance()
      * @see #getParameterInstance()
@@ -592,7 +592,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the containment reference '
      * {@link de.fzi.se.quality.parameters.ParameterInstance#getParameterValue
      * <em>Parameter Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the containment reference '<em>Parameter Value</em>'.
      * @see de.fzi.se.quality.parameters.ParameterInstance#getParameterValue()
      * @see #getParameterInstance()
@@ -603,7 +603,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.fzi.se.quality.parameters.CallInstance
      * <em>Call Instance</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Call Instance</em>'.
      * @see de.fzi.se.quality.parameters.CallInstance
      * @generated
@@ -614,7 +614,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the containment reference '
      * {@link de.fzi.se.quality.parameters.CallInstance#getOperationReference
      * <em>Operation Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the containment reference '<em>Operation Reference</em>'.
      * @see de.fzi.se.quality.parameters.CallInstance#getOperationReference()
      * @see #getCallInstance()
@@ -626,7 +626,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the containment reference list '
      * {@link de.fzi.se.quality.parameters.CallInstance#getOutputParameterInstances
      * <em>Output Parameter Instances</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the containment reference list '
      *         <em>Output Parameter Instances</em>'.
      * @see de.fzi.se.quality.parameters.CallInstance#getOutputParameterInstances()
@@ -639,7 +639,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the attribute '
      * {@link de.fzi.se.quality.parameters.CallInstance#getNumberOfCalls <em>Number Of Calls</em>}'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the attribute '<em>Number Of Calls</em>'.
      * @see de.fzi.se.quality.parameters.CallInstance#getNumberOfCalls()
      * @see #getCallInstance()
@@ -651,7 +651,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the containment reference list '
      * {@link de.fzi.se.quality.parameters.CallInstance#getInputParameterInstances
      * <em>Input Parameter Instances</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the containment reference list '
      *         <em>Input Parameter Instances</em>'.
      * @see de.fzi.se.quality.parameters.CallInstance#getInputParameterInstances()
@@ -663,7 +663,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.fzi.se.quality.parameters.OperationReference
      * <em>Operation Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Operation Reference</em>'.
      * @see de.fzi.se.quality.parameters.OperationReference
      * @generated
@@ -674,7 +674,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.fzi.se.quality.parameters.OperationReference#getCallInstance
      * <em>Call Instance</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the container reference '<em>Call Instance</em>'.
      * @see de.fzi.se.quality.parameters.OperationReference#getCallInstance()
      * @see #getOperationReference()
@@ -685,7 +685,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.fzi.se.quality.parameters.ComponentInstance
      * <em>Component Instance</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Component Instance</em>'.
      * @see de.fzi.se.quality.parameters.ComponentInstance
      * @generated
@@ -696,7 +696,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the containment reference '
      * {@link de.fzi.se.quality.parameters.ComponentInstance#getComponentReference
      * <em>Component Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the containment reference '<em>Component Reference</em>'.
      * @see de.fzi.se.quality.parameters.ComponentInstance#getComponentReference()
      * @see #getComponentInstance()
@@ -708,7 +708,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the containment reference list '
      * {@link de.fzi.se.quality.parameters.ComponentInstance#getParameterInstances
      * <em>Parameter Instances</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the containment reference list '<em>Parameter Instances</em>'.
      * @see de.fzi.se.quality.parameters.ComponentInstance#getParameterInstances()
      * @see #getComponentInstance()
@@ -719,7 +719,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.fzi.se.quality.parameters.ComponentReference
      * <em>Component Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Component Reference</em>'.
      * @see de.fzi.se.quality.parameters.ComponentReference
      * @generated
@@ -730,7 +730,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.fzi.se.quality.parameters.ComponentReference#getComponentInstance
      * <em>Component Instance</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the container reference '<em>Component Instance</em>'.
      * @see de.fzi.se.quality.parameters.ComponentReference#getComponentInstance()
      * @see #getComponentReference()
@@ -741,7 +741,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * Returns the meta object for class '{@link de.fzi.se.quality.parameters.ParameterReference
      * <em>Parameter Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Parameter Reference</em>'.
      * @see de.fzi.se.quality.parameters.ParameterReference
      * @generated
@@ -752,7 +752,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.fzi.se.quality.parameters.ParameterReference#getParameterPartition
      * <em>Parameter Partition</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the container reference '<em>Parameter Partition</em>'.
      * @see de.fzi.se.quality.parameters.ParameterReference#getParameterPartition()
      * @see #getParameterReference()
@@ -764,7 +764,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.fzi.se.quality.parameters.ParameterReference#getParameterInstance
      * <em>Parameter Instance</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the container reference '<em>Parameter Instance</em>'.
      * @see de.fzi.se.quality.parameters.ParameterReference#getParameterInstance()
      * @see #getParameterReference()
@@ -776,7 +776,7 @@ public interface ParametersPackage extends EPackage {
      * Returns the meta object for the container reference '
      * {@link de.fzi.se.quality.parameters.ParameterReference#getParameterValueDeviation
      * <em>Parameter Value Deviation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for the container reference '<em>Parameter Value Deviation</em>'.
      * @see de.fzi.se.quality.parameters.ParameterReference#getParameterValueDeviation()
      * @see #getParameterReference()
@@ -787,7 +787,7 @@ public interface ParametersPackage extends EPackage {
     /**
      * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @return the factory that creates the instances of the model.
      * @generated
      */
@@ -802,7 +802,7 @@ public interface ParametersPackage extends EPackage {
      * <li>and each data type</li>
      * </ul>
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     interface Literals {
@@ -811,7 +811,7 @@ public interface ParametersPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.fzi.se.quality.parameters.impl.ParameterPartitionImpl
          * <em>Parameter Partition</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @see de.fzi.se.quality.parameters.impl.ParameterPartitionImpl
          * @see de.fzi.se.quality.parameters.impl.ParametersPackageImpl#getParameterPartition()
          * @generated
@@ -821,7 +821,7 @@ public interface ParametersPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Quality Annotation</b></em>' container reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference PARAMETER_PARTITION__QUALITY_ANNOTATION = eINSTANCE.getParameterPartition_QualityAnnotation();
@@ -829,7 +829,7 @@ public interface ParametersPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Parameter Reference</b></em>' containment
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference PARAMETER_PARTITION__PARAMETER_REFERENCE = eINSTANCE.getParameterPartition_ParameterReference();
@@ -838,7 +838,7 @@ public interface ParametersPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.fzi.se.quality.parameters.impl.ParameterValueImpl <em>Parameter Value</em>}'
          * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @see de.fzi.se.quality.parameters.impl.ParameterValueImpl
          * @see de.fzi.se.quality.parameters.impl.ParametersPackageImpl#getParameterValue()
          * @generated
@@ -848,7 +848,7 @@ public interface ParametersPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Parameter Instance</b></em>' container reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference PARAMETER_VALUE__PARAMETER_INSTANCE = eINSTANCE.getParameterValue_ParameterInstance();
@@ -856,7 +856,7 @@ public interface ParametersPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Parameter Value Deviation</b></em>' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference PARAMETER_VALUE__PARAMETER_VALUE_DEVIATION = eINSTANCE.getParameterValue_ParameterValueDeviation();
@@ -865,7 +865,7 @@ public interface ParametersPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.fzi.se.quality.parameters.impl.ParameterInstanceImpl
          * <em>Parameter Instance</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @see de.fzi.se.quality.parameters.impl.ParameterInstanceImpl
          * @see de.fzi.se.quality.parameters.impl.ParametersPackageImpl#getParameterInstance()
          * @generated
@@ -875,7 +875,7 @@ public interface ParametersPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Parameter Reference</b></em>' containment
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference PARAMETER_INSTANCE__PARAMETER_REFERENCE = eINSTANCE.getParameterInstance_ParameterReference();
@@ -883,7 +883,7 @@ public interface ParametersPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Input Call Instance</b></em>' container reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference PARAMETER_INSTANCE__INPUT_CALL_INSTANCE = eINSTANCE.getParameterInstance_InputCallInstance();
@@ -891,7 +891,7 @@ public interface ParametersPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Output Call Instance</b></em>' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference PARAMETER_INSTANCE__OUTPUT_CALL_INSTANCE = eINSTANCE.getParameterInstance_OutputCallInstance();
@@ -899,7 +899,7 @@ public interface ParametersPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Component Instance</b></em>' container reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference PARAMETER_INSTANCE__COMPONENT_INSTANCE = eINSTANCE.getParameterInstance_ComponentInstance();
@@ -907,7 +907,7 @@ public interface ParametersPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Parameter Value</b></em>' containment reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference PARAMETER_INSTANCE__PARAMETER_VALUE = eINSTANCE.getParameterInstance_ParameterValue();
@@ -916,7 +916,7 @@ public interface ParametersPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.fzi.se.quality.parameters.impl.CallInstanceImpl <em>Call Instance</em>}' class.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @see de.fzi.se.quality.parameters.impl.CallInstanceImpl
          * @see de.fzi.se.quality.parameters.impl.ParametersPackageImpl#getCallInstance()
          * @generated
@@ -926,7 +926,7 @@ public interface ParametersPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Operation Reference</b></em>' containment
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference CALL_INSTANCE__OPERATION_REFERENCE = eINSTANCE.getCallInstance_OperationReference();
@@ -934,7 +934,7 @@ public interface ParametersPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Output Parameter Instances</b></em>' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference CALL_INSTANCE__OUTPUT_PARAMETER_INSTANCES = eINSTANCE.getCallInstance_OutputParameterInstances();
@@ -950,7 +950,7 @@ public interface ParametersPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Input Parameter Instances</b></em>' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference CALL_INSTANCE__INPUT_PARAMETER_INSTANCES = eINSTANCE.getCallInstance_InputParameterInstances();
@@ -959,7 +959,7 @@ public interface ParametersPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.fzi.se.quality.parameters.impl.OperationReferenceImpl
          * <em>Operation Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @see de.fzi.se.quality.parameters.impl.OperationReferenceImpl
          * @see de.fzi.se.quality.parameters.impl.ParametersPackageImpl#getOperationReference()
          * @generated
@@ -969,7 +969,7 @@ public interface ParametersPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Call Instance</b></em>' container reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference OPERATION_REFERENCE__CALL_INSTANCE = eINSTANCE.getOperationReference_CallInstance();
@@ -978,7 +978,7 @@ public interface ParametersPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.fzi.se.quality.parameters.impl.ComponentInstanceImpl
          * <em>Component Instance</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @see de.fzi.se.quality.parameters.impl.ComponentInstanceImpl
          * @see de.fzi.se.quality.parameters.impl.ParametersPackageImpl#getComponentInstance()
          * @generated
@@ -988,7 +988,7 @@ public interface ParametersPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Component Reference</b></em>' containment
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference COMPONENT_INSTANCE__COMPONENT_REFERENCE = eINSTANCE.getComponentInstance_ComponentReference();
@@ -996,7 +996,7 @@ public interface ParametersPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Parameter Instances</b></em>' containment
          * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference COMPONENT_INSTANCE__PARAMETER_INSTANCES = eINSTANCE.getComponentInstance_ParameterInstances();
@@ -1005,7 +1005,7 @@ public interface ParametersPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.fzi.se.quality.parameters.impl.ComponentReferenceImpl
          * <em>Component Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @see de.fzi.se.quality.parameters.impl.ComponentReferenceImpl
          * @see de.fzi.se.quality.parameters.impl.ParametersPackageImpl#getComponentReference()
          * @generated
@@ -1015,7 +1015,7 @@ public interface ParametersPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Component Instance</b></em>' container reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference COMPONENT_REFERENCE__COMPONENT_INSTANCE = eINSTANCE.getComponentReference_ComponentInstance();
@@ -1024,7 +1024,7 @@ public interface ParametersPackage extends EPackage {
          * The meta object literal for the '
          * {@link de.fzi.se.quality.parameters.impl.ParameterReferenceImpl
          * <em>Parameter Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @see de.fzi.se.quality.parameters.impl.ParameterReferenceImpl
          * @see de.fzi.se.quality.parameters.impl.ParametersPackageImpl#getParameterReference()
          * @generated
@@ -1034,7 +1034,7 @@ public interface ParametersPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Parameter Partition</b></em>' container reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference PARAMETER_REFERENCE__PARAMETER_PARTITION = eINSTANCE.getParameterReference_ParameterPartition();
@@ -1042,7 +1042,7 @@ public interface ParametersPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Parameter Instance</b></em>' container reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference PARAMETER_REFERENCE__PARAMETER_INSTANCE = eINSTANCE.getParameterReference_ParameterInstance();
@@ -1050,7 +1050,7 @@ public interface ParametersPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Parameter Value Deviation</b></em>' container
          * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         EReference PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION = eINSTANCE

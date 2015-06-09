@@ -7,12 +7,10 @@ package de.uka.ipd.sdq.pcm.reliability.impl;
 
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
@@ -42,7 +40,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -50,7 +48,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
     /**
      * The default value of the '{@link #getFailureProbability() <em>Failure Probability</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getFailureProbability()
      * @generated
      * @ordered
@@ -58,18 +56,8 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
     protected static final double FAILURE_PROBABILITY_EDEFAULT = 0.0;
 
     /**
-     * The cached value of the '{@link #getFailureProbability() <em>Failure Probability</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getFailureProbability()
-     * @generated
-     * @ordered
-     */
-    protected double failureProbability = FAILURE_PROBABILITY_EDEFAULT;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected FailureOccurrenceDescriptionImpl() {
@@ -78,7 +66,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -88,28 +76,34 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public double getFailureProbability() {
-        return this.failureProbability;
+    protected int eStaticFeatureCount() {
+        return 0;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    public double getFailureProbability() {
+        return (Double) this.eDynamicGet(ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY,
+                ReliabilityPackage.Literals.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY, true, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public void setFailureProbability(final double newFailureProbability) {
-        final double oldFailureProbability = this.failureProbability;
-        this.failureProbability = newFailureProbability;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY, oldFailureProbability,
-                    this.failureProbability));
-        }
+        this.eDynamicSet(ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY,
+                ReliabilityPackage.Literals.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY, newFailureProbability);
     }
 
     /**
@@ -117,7 +111,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
      * {@link #EnsureValidFailureProbabilityRange(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Ensure Valid Failure Probability Range</em>}' operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #EnsureValidFailureProbabilityRange(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -130,7 +124,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
      * {@link #EnsureValidFailureProbabilityRange(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Ensure Valid Failure Probability Range</em>}' invariant operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EnsureValidFailureProbabilityRange(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -140,7 +134,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -176,7 +170,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -190,7 +184,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -205,7 +199,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -220,40 +214,22 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY:
-            return this.failureProbability != FAILURE_PROBABILITY_EDEFAULT;
+            return this.getFailureProbability() != FAILURE_PROBABILITY_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (this.eIsProxy()) {
-            return super.toString();
-        }
-
-        final StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (failureProbability: ");
-        result.append(this.failureProbability);
-        result.append(')');
-        return result.toString();
-    }
-
-    /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
@@ -19,7 +18,6 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -46,43 +44,14 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getResourceDemand_Action() <em>Resource Demand Action</em>}'
-     * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getResourceDemand_Action()
-     * @generated
-     * @ordered
-     */
-    protected EList<ParametricResourceDemand> resourceDemand_Action;
-    /**
-     * The cached value of the '{@link #getInfrastructureCall__Action()
-     * <em>Infrastructure Call Action</em>}' containment reference list. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getInfrastructureCall__Action()
-     * @generated
-     * @ordered
-     */
-    protected EList<InfrastructureCall> infrastructureCall__Action;
-    /**
-     * The cached value of the '{@link #getResourceCall__Action() <em>Resource Call Action</em>}'
-     * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getResourceCall__Action()
-     * @generated
-     * @ordered
-     */
-    protected EList<ResourceCall> resourceCall__Action;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AbstractInternalControlFlowActionImpl() {
@@ -91,7 +60,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -101,57 +70,46 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<ParametricResourceDemand> getResourceDemand_Action() {
-        if (this.resourceDemand_Action == null) {
-            this.resourceDemand_Action = new EObjectContainmentWithInverseEList<ParametricResourceDemand>(
-                    ParametricResourceDemand.class, this,
-                    SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION,
-                    SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND);
-        }
-        return this.resourceDemand_Action;
+        return (EList<ParametricResourceDemand>) this.eDynamicGet(
+                SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION,
+                SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<InfrastructureCall> getInfrastructureCall__Action() {
-        if (this.infrastructureCall__Action == null) {
-            this.infrastructureCall__Action = new EObjectContainmentWithInverseEList<InfrastructureCall>(
-                    InfrastructureCall.class, this,
-                    SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION,
-                    SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL);
-        }
-        return this.infrastructureCall__Action;
+        return (EList<InfrastructureCall>) this.eDynamicGet(
+                SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION,
+                SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<ResourceCall> getResourceCall__Action() {
-        if (this.resourceCall__Action == null) {
-            this.resourceCall__Action = new EObjectContainmentWithInverseEList<ResourceCall>(ResourceCall.class, this,
-                    SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_CALL_ACTION,
-                    SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL);
-        }
-        return this.resourceCall__Action;
+        return (EList<ResourceCall>) this.eDynamicGet(
+                SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_CALL_ACTION,
+                SeffPackage.Literals.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_CALL_ACTION, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -174,7 +132,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -193,7 +151,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -211,7 +169,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -236,7 +194,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -257,7 +215,7 @@ AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -265,11 +223,11 @@ AbstractInternalControlFlowAction {
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION:
-            return this.resourceDemand_Action != null && !this.resourceDemand_Action.isEmpty();
+            return !this.getResourceDemand_Action().isEmpty();
         case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION:
-            return this.infrastructureCall__Action != null && !this.infrastructureCall__Action.isEmpty();
+            return !this.getInfrastructureCall__Action().isEmpty();
         case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_CALL_ACTION:
-            return this.resourceCall__Action != null && !this.resourceCall__Action.isEmpty();
+            return !this.getResourceCall__Action().isEmpty();
         }
         return super.eIsSet(featureID);
     }

@@ -33,7 +33,7 @@ import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference;
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter
  * <code>createXXX</code> method for each class of the model. <!-- end-user-doc -->
- *
+ * 
  * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage
  * @generated
  */
@@ -41,14 +41,14 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected static PcmmeasuringpointPackage modelPackage;
 
     /**
      * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public PcmmeasuringpointAdapterFactory() {
@@ -61,7 +61,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * Returns whether this factory is applicable for the type of the object. <!-- begin-user-doc
      * --> This implementation returns <code>true</code> if the object is either the model's package
      * or is an instance object of the model. <!-- end-user-doc -->
-     *
+     * 
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
@@ -79,7 +79,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
     /**
      * The switch that delegates to the <code>createXXX</code> methods. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PcmmeasuringpointSwitch<Adapter> modelSwitch = new PcmmeasuringpointSwitch<Adapter>() {
@@ -202,7 +202,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param target
      *            the object to adapt.
      * @return the adapter for the <code>target</code>.
@@ -219,7 +219,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>Assembly Operation Measuring Point</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.AssemblyOperationMeasuringPoint
      * @generated
@@ -234,7 +234,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>Assembly Passive Resource Measuring Point</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.AssemblyPassiveResourceMeasuringPoint
      * @generated
@@ -249,7 +249,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>Active Resource Measuring Point</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.ActiveResourceMeasuringPoint
      * @generated
@@ -264,7 +264,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>System Operation Measuring Point</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.SystemOperationMeasuringPoint
      * @generated
@@ -279,7 +279,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>Operation Reference</em>}'. <!-- begin-user-doc --> This default implementation returns
      * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
      * catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.OperationReference
      * @generated
@@ -294,7 +294,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily
      * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.AssemblyReference
      * @generated
@@ -309,7 +309,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.SystemReference
      * @generated
@@ -324,7 +324,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>Passive Resource Reference</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.PassiveResourceReference
      * @generated
@@ -339,7 +339,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>Active Resource Reference</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.ActiveResourceReference
      * @generated
@@ -354,7 +354,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>Linking Resource Measuring Point</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.LinkingResourceMeasuringPoint
      * @generated
@@ -369,7 +369,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>Linking Resource Reference</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.LinkingResourceReference
      * @generated
@@ -384,7 +384,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>Sub System Operation Measuring Point</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.SubSystemOperationMeasuringPoint
      * @generated
@@ -399,7 +399,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>Sub System Reference</em>}'. <!-- begin-user-doc --> This default implementation returns
      * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
      * catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.SubSystemReference
      * @generated
@@ -414,7 +414,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>Usage Scenario Measuring Point</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.UsageScenarioMeasuringPoint
      * @generated
@@ -429,7 +429,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>Usage Scenario Reference</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference
      * @generated
@@ -444,7 +444,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>Entry Level System Call Measuring Point</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallMeasuringPoint
      * @generated
@@ -459,7 +459,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>External Call Action Measuring Point</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionMeasuringPoint
      * @generated
@@ -474,7 +474,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>External Call Action Reference</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference
      * @generated
@@ -489,7 +489,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>Entry Level System Call Reference</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference
      * @generated
@@ -504,7 +504,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>Resource Environment Measuring Point</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint
      * @generated
@@ -519,7 +519,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>Resource Environment Reference</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference
      * @generated
@@ -534,7 +534,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
      * <em>Measuring Point</em>}'. <!-- begin-user-doc --> This default implementation returns null
      * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch
      * all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint
      * @generated
@@ -546,7 +546,7 @@ public class PcmmeasuringpointAdapterFactory extends AdapterFactoryImpl {
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
      * implementation returns null. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @generated
      */

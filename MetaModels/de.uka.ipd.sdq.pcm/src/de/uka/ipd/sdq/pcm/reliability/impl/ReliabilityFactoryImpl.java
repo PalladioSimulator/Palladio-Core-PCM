@@ -22,21 +22,21 @@ import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static ReliabilityFactory init() {
@@ -54,7 +54,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ReliabilityFactoryImpl() {
@@ -63,7 +63,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -88,7 +88,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -99,7 +99,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -110,7 +110,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -121,7 +121,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -132,7 +132,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -143,7 +143,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -154,7 +154,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -164,7 +164,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @deprecated
      * @generated
      */

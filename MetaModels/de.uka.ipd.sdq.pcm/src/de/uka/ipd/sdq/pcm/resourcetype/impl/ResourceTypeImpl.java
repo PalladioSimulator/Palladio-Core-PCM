@@ -7,14 +7,10 @@ package de.uka.ipd.sdq.pcm.resourcetype.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
@@ -50,26 +46,14 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '
-     * {@link #getResourceProvidedRoles__ResourceInterfaceProvidingEntity()
-     * <em>Resource Provided Roles Resource Interface Providing Entity</em>}' containment reference
-     * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getResourceProvidedRoles__ResourceInterfaceProvidingEntity()
-     * @generated
-     * @ordered
-     */
-    protected EList<ResourceProvidedRole> resourceProvidedRoles__ResourceInterfaceProvidingEntity;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceTypeImpl() {
@@ -78,7 +62,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -102,17 +86,12 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
-    public NotificationChain basicSetUnit(final Unit newUnit, final NotificationChain msgs) {
-        // TODO: implement this method to set the contained 'Unit' containment reference
-        // -> this method is automatically invoked to keep the containment relationship in synch
-        // -> do not modify other features
-        // -> return msgs, after adding any generated Notification to it (if it is null, a
-        // NotificationChain object must be created first)
-        // Ensure that you remove @generated or mark it @generated NOT
-        throw new UnsupportedOperationException();
+    public NotificationChain basicSetUnit(final Unit newUnit, NotificationChain msgs) {
+        msgs = this.eDynamicInverseAdd((InternalEObject) newUnit, ResourcetypePackage.RESOURCE_TYPE__UNIT, msgs);
+        return msgs;
     }
 
     /**
@@ -141,37 +120,34 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<ResourceProvidedRole> getResourceProvidedRoles__ResourceInterfaceProvidingEntity() {
-        if (this.resourceProvidedRoles__ResourceInterfaceProvidingEntity == null) {
-            this.resourceProvidedRoles__ResourceInterfaceProvidingEntity = new EObjectContainmentWithInverseEList<ResourceProvidedRole>(
-                    ResourceProvidedRole.class, this,
-                    ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
-                    EntityPackage.RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE);
-        }
-        return this.resourceProvidedRoles__ResourceInterfaceProvidingEntity;
+        return (EList<ResourceProvidedRole>) this
+                .eDynamicGet(
+                        ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
+                        EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceRepository getResourceRepository_ResourceType() {
-        if (this.eContainerFeatureID() != ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE) {
-            return null;
-        }
-        return (ResourceRepository) this.eInternalContainer();
+        return (ResourceRepository) this.eDynamicGet(
+                ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE,
+                ResourcetypePackage.Literals.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceRepository_ResourceType(
@@ -183,39 +159,19 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setResourceRepository_ResourceType(final ResourceRepository newResourceRepository_ResourceType) {
-        if (newResourceRepository_ResourceType != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE && newResourceRepository_ResourceType != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceRepository_ResourceType)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newResourceRepository_ResourceType != null) {
-                msgs = ((InternalEObject) newResourceRepository_ResourceType).eInverseAdd(this,
-                        ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY,
-                        ResourceRepository.class, msgs);
-            }
-            msgs = this.basicSetResourceRepository_ResourceType(newResourceRepository_ResourceType, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE,
-                    newResourceRepository_ResourceType, newResourceRepository_ResourceType));
-        }
+        this.eDynamicSet(ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE,
+                ResourcetypePackage.Literals.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE,
+                newResourceRepository_ResourceType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -236,7 +192,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -256,7 +212,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -272,7 +228,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -290,7 +246,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -314,7 +270,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -335,7 +291,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -345,8 +301,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
         case ResourcetypePackage.RESOURCE_TYPE__UNIT:
             return this.getUnit() != null;
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-            return this.resourceProvidedRoles__ResourceInterfaceProvidingEntity != null
-            && !this.resourceProvidedRoles__ResourceInterfaceProvidingEntity.isEmpty();
+            return !this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity().isEmpty();
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE:
             return this.getResourceRepository_ResourceType() != null;
         }
@@ -355,7 +310,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -381,7 +336,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

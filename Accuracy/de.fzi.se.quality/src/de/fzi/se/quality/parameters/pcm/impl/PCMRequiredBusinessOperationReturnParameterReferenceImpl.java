@@ -6,11 +6,7 @@
  */
 package de.fzi.se.quality.parameters.pcm.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import de.fzi.se.quality.parameters.pcm.PCMPackage;
 import de.fzi.se.quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference;
@@ -35,31 +31,11 @@ import de.uka.ipd.sdq.pcm.repository.OperationSignature;
  * @generated
  */
 public class PCMRequiredBusinessOperationReturnParameterReferenceImpl extends PCMParameterReferenceImpl implements
-        PCMRequiredBusinessOperationReturnParameterReference {
-
-    /**
-     * The cached value of the '{@link #getRequiredRole() <em>Required Role</em>}' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getRequiredRole()
-     * @generated
-     * @ordered
-     */
-    protected OperationRequiredRole requiredRole;
-
-    /**
-     * The cached value of the '{@link #getSignature() <em>Signature</em>}' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getSignature()
-     * @generated
-     * @ordered
-     */
-    protected OperationSignature signature;
+PCMRequiredBusinessOperationReturnParameterReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMRequiredBusinessOperationReturnParameterReferenceImpl() {
@@ -68,7 +44,7 @@ public class PCMRequiredBusinessOperationReturnParameterReferenceImpl extends PC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -78,99 +54,78 @@ public class PCMRequiredBusinessOperationReturnParameterReferenceImpl extends PC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public OperationRequiredRole getRequiredRole() {
-        if (this.requiredRole != null && ((EObject) this.requiredRole).eIsProxy()) {
-            final InternalEObject oldRequiredRole = (InternalEObject) this.requiredRole;
-            this.requiredRole = (OperationRequiredRole) this.eResolveProxy(oldRequiredRole);
-            if (this.requiredRole != oldRequiredRole) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PCMPackage.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__REQUIRED_ROLE,
-                            oldRequiredRole, this.requiredRole));
-                }
-            }
-        }
-        return this.requiredRole;
+        return (OperationRequiredRole) this.eDynamicGet(
+                PCMPackage.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__REQUIRED_ROLE,
+                PCMPackage.Literals.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__REQUIRED_ROLE, true,
+                true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationRequiredRole basicGetRequiredRole() {
-        return this.requiredRole;
+        return (OperationRequiredRole) this.eDynamicGet(
+                PCMPackage.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__REQUIRED_ROLE,
+                PCMPackage.Literals.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__REQUIRED_ROLE, false,
+                true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setRequiredRole(final OperationRequiredRole newRequiredRole) {
-        final OperationRequiredRole oldRequiredRole = this.requiredRole;
-        this.requiredRole = newRequiredRole;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PCMPackage.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__REQUIRED_ROLE,
-                    oldRequiredRole, this.requiredRole));
-        }
+        this.eDynamicSet(PCMPackage.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__REQUIRED_ROLE,
+                PCMPackage.Literals.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__REQUIRED_ROLE,
+                newRequiredRole);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public OperationSignature getSignature() {
-        if (this.signature != null && ((EObject) this.signature).eIsProxy()) {
-            final InternalEObject oldSignature = (InternalEObject) this.signature;
-            this.signature = (OperationSignature) this.eResolveProxy(oldSignature);
-            if (this.signature != oldSignature) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PCMPackage.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__SIGNATURE,
-                            oldSignature, this.signature));
-                }
-            }
-        }
-        return this.signature;
+        return (OperationSignature) this.eDynamicGet(
+                PCMPackage.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__SIGNATURE,
+                PCMPackage.Literals.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__SIGNATURE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationSignature basicGetSignature() {
-        return this.signature;
+        return (OperationSignature) this.eDynamicGet(
+                PCMPackage.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__SIGNATURE,
+                PCMPackage.Literals.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__SIGNATURE, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSignature(final OperationSignature newSignature) {
-        final OperationSignature oldSignature = this.signature;
-        this.signature = newSignature;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PCMPackage.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__SIGNATURE, oldSignature,
-                    this.signature));
-        }
+        this.eDynamicSet(PCMPackage.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__SIGNATURE,
+                PCMPackage.Literals.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__SIGNATURE, newSignature);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -192,7 +147,7 @@ public class PCMRequiredBusinessOperationReturnParameterReferenceImpl extends PC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -210,7 +165,7 @@ public class PCMRequiredBusinessOperationReturnParameterReferenceImpl extends PC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -228,16 +183,16 @@ public class PCMRequiredBusinessOperationReturnParameterReferenceImpl extends PC
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case PCMPackage.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__REQUIRED_ROLE:
-            return this.requiredRole != null;
+            return this.basicGetRequiredRole() != null;
         case PCMPackage.PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__SIGNATURE:
-            return this.signature != null;
+            return this.basicGetSignature() != null;
         }
         return super.eIsSet(featureID);
     }

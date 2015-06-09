@@ -2,12 +2,9 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
@@ -46,19 +43,9 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
         AssemblyOperationMeasuringPoint {
 
     /**
-     * The cached value of the '{@link #getAssembly() <em>Assembly</em>}' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getAssembly()
-     * @generated
-     * @ordered
-     */
-    protected AssemblyContext assembly;
-
-    /**
      * The default value of the '{@link #getStringRepresentation() <em>String Representation</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getStringRepresentation()
      * @generated
      * @ordered
@@ -78,7 +65,7 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AssemblyOperationMeasuringPointImpl() {
@@ -87,7 +74,7 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -97,65 +84,53 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getAssembly() {
-        if (this.assembly != null && ((EObject) this.assembly).eIsProxy()) {
-            final InternalEObject oldAssembly = (InternalEObject) this.assembly;
-            this.assembly = (AssemblyContext) this.eResolveProxy(oldAssembly);
-            if (this.assembly != oldAssembly) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY, oldAssembly,
-                            this.assembly));
-                }
-            }
-        }
-        return this.assembly;
+        return (AssemblyContext) this.eDynamicGet(
+                PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY,
+                PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetAssembly() {
-        return this.assembly;
+        return (AssemblyContext) this.eDynamicGet(
+                PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY,
+                PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setAssembly(final AssemblyContext newAssembly) {
-        final AssemblyContext oldAssembly = this.assembly;
-        this.assembly = newAssembly;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY, oldAssembly, this.assembly));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY,
+                PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, newAssembly);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public MeasuringPointRepository getMeasuringPointRepository() {
-        if (this.eContainerFeatureID() != PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY) {
-            return null;
-        }
-        return (MeasuringPointRepository) this.eInternalContainer();
+        return (MeasuringPointRepository) this.eDynamicGet(
+                PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY,
+                MeasuringpointPackage.Literals.MEASURING_POINT__MEASURING_POINT_REPOSITORY, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetMeasuringPointRepository(
@@ -167,34 +142,13 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setMeasuringPointRepository(final MeasuringPointRepository newMeasuringPointRepository) {
-        if (newMeasuringPointRepository != this.eInternalContainer()
-                || (this.eContainerFeatureID() != PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY && newMeasuringPointRepository != null)) {
-            if (EcoreUtil.isAncestor(this, newMeasuringPointRepository)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newMeasuringPointRepository != null) {
-                msgs = ((InternalEObject) newMeasuringPointRepository).eInverseAdd(this,
-                        MeasuringpointPackage.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                        MeasuringPointRepository.class, msgs);
-            }
-            msgs = this.basicSetMeasuringPointRepository(newMeasuringPointRepository, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY,
-                    newMeasuringPointRepository, newMeasuringPointRepository));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY,
+                MeasuringpointPackage.Literals.MEASURING_POINT__MEASURING_POINT_REPOSITORY, newMeasuringPointRepository);
     }
 
     /**
@@ -204,18 +158,18 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
      */
     @Override
     public String getStringRepresentation() {
-        if (this.assembly == null || this.role == null || this.operationSignature == null) {
+        if (this.getAssembly() == null || this.getRole() == null || this.getOperationSignature() == null) {
             return "";
         }
         EcoreUtil.resolveAll(this);
         final StringBuilder result = new StringBuilder();
 
         result.append("Operation: ");
-        result.append(this.assembly.getEntityName());
+        result.append(this.getAssembly().getEntityName());
         result.append(".");
-        result.append(this.role.getEntityName());
+        result.append(this.getRole().getEntityName());
         result.append(".");
-        result.append(this.operationSignature.getEntityName());
+        result.append(this.getOperationSignature().getEntityName());
 
         return result.toString();
     }
@@ -227,16 +181,16 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
      */
     @Override
     public String getResourceURIRepresentation() {
-        if (this.operationSignature == null) {
+        if (this.getOperationSignature() == null) {
             return "";
         }
         EcoreUtil.resolveAll(this);
-        return EMFLoadHelper.getResourceURI(this.operationSignature);
+        return EMFLoadHelper.getResourceURI(this.getOperationSignature());
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -253,7 +207,7 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -268,7 +222,7 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -284,7 +238,7 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -307,7 +261,7 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -325,7 +279,7 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -343,14 +297,14 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY:
-            return this.assembly != null;
+            return this.basicGetAssembly() != null;
         case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
             return this.getMeasuringPointRepository() != null;
         case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__STRING_REPRESENTATION:
@@ -365,7 +319,7 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -395,7 +349,7 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

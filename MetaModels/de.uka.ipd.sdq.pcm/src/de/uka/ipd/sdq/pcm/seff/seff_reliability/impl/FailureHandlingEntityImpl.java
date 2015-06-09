@@ -9,7 +9,6 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.pcm.reliability.FailureType;
@@ -34,25 +33,14 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getFailureTypes_FailureHandlingEntity()
-     * <em>Failure Types Failure Handling Entity</em>}' reference list. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getFailureTypes_FailureHandlingEntity()
-     * @generated
-     * @ordered
-     */
-    protected EList<FailureType> failureTypes_FailureHandlingEntity;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected FailureHandlingEntityImpl() {
@@ -61,7 +49,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -71,22 +59,21 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<FailureType> getFailureTypes_FailureHandlingEntity() {
-        if (this.failureTypes_FailureHandlingEntity == null) {
-            this.failureTypes_FailureHandlingEntity = new EObjectResolvingEList<FailureType>(FailureType.class, this,
-                    SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY);
-        }
-        return this.failureTypes_FailureHandlingEntity;
+        return (EList<FailureType>) this.eDynamicGet(
+                SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY,
+                SeffReliabilityPackage.Literals.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY, true,
+                true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -100,7 +87,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -117,7 +104,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -132,7 +119,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -140,8 +127,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
-            return this.failureTypes_FailureHandlingEntity != null
-                    && !this.failureTypes_FailureHandlingEntity.isEmpty();
+            return !this.getFailureTypes_FailureHandlingEntity().isEmpty();
         }
         return super.eIsSet(featureID);
     }

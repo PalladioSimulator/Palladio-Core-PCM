@@ -5,11 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.core.composition.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
@@ -41,48 +37,14 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '
-     * {@link #getInnerRequiredRole__RequiredInfrastructureDelegationConnector()
-     * <em>Inner Required Role Required Infrastructure Delegation Connector</em>}' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getInnerRequiredRole__RequiredInfrastructureDelegationConnector()
-     * @generated
-     * @ordered
-     */
-    protected InfrastructureRequiredRole innerRequiredRole__RequiredInfrastructureDelegationConnector;
-    /**
-     * The cached value of the '
-     * {@link #getOuterRequiredRole__RequiredInfrastructureDelegationConnector()
-     * <em>Outer Required Role Required Infrastructure Delegation Connector</em>}' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getOuterRequiredRole__RequiredInfrastructureDelegationConnector()
-     * @generated
-     * @ordered
-     */
-    protected InfrastructureRequiredRole outerRequiredRole__RequiredInfrastructureDelegationConnector;
-    /**
-     * The cached value of the '
-     * {@link #getAssemblyContext__RequiredInfrastructureDelegationConnector()
-     * <em>Assembly Context Required Infrastructure Delegation Connector</em>}' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getAssemblyContext__RequiredInfrastructureDelegationConnector()
-     * @generated
-     * @ordered
-     */
-    protected AssemblyContext assemblyContext__RequiredInfrastructureDelegationConnector;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected RequiredInfrastructureDelegationConnectorImpl() {
@@ -91,7 +53,7 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -101,172 +63,130 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public InfrastructureRequiredRole getInnerRequiredRole__RequiredInfrastructureDelegationConnector() {
-        if (this.innerRequiredRole__RequiredInfrastructureDelegationConnector != null
-                && ((EObject) this.innerRequiredRole__RequiredInfrastructureDelegationConnector).eIsProxy()) {
-            final InternalEObject oldInnerRequiredRole__RequiredInfrastructureDelegationConnector = (InternalEObject) this.innerRequiredRole__RequiredInfrastructureDelegationConnector;
-            this.innerRequiredRole__RequiredInfrastructureDelegationConnector = (InfrastructureRequiredRole) this
-                    .eResolveProxy(oldInnerRequiredRole__RequiredInfrastructureDelegationConnector);
-            if (this.innerRequiredRole__RequiredInfrastructureDelegationConnector != oldInnerRequiredRole__RequiredInfrastructureDelegationConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
-                            this,
-                            Notification.RESOLVE,
-                            CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
-                            oldInnerRequiredRole__RequiredInfrastructureDelegationConnector,
-                            this.innerRequiredRole__RequiredInfrastructureDelegationConnector));
-                }
-            }
-        }
-        return this.innerRequiredRole__RequiredInfrastructureDelegationConnector;
+        return (InfrastructureRequiredRole) this
+                .eDynamicGet(
+                        CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                        CompositionPackage.Literals.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InfrastructureRequiredRole basicGetInnerRequiredRole__RequiredInfrastructureDelegationConnector() {
-        return this.innerRequiredRole__RequiredInfrastructureDelegationConnector;
+        return (InfrastructureRequiredRole) this
+                .eDynamicGet(
+                        CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                        CompositionPackage.Literals.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                        false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setInnerRequiredRole__RequiredInfrastructureDelegationConnector(
             final InfrastructureRequiredRole newInnerRequiredRole__RequiredInfrastructureDelegationConnector) {
-        final InfrastructureRequiredRole oldInnerRequiredRole__RequiredInfrastructureDelegationConnector = this.innerRequiredRole__RequiredInfrastructureDelegationConnector;
-        this.innerRequiredRole__RequiredInfrastructureDelegationConnector = newInnerRequiredRole__RequiredInfrastructureDelegationConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
-                    oldInnerRequiredRole__RequiredInfrastructureDelegationConnector,
-                    this.innerRequiredRole__RequiredInfrastructureDelegationConnector));
-        }
+        this.eDynamicSet(
+                CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                newInnerRequiredRole__RequiredInfrastructureDelegationConnector);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public InfrastructureRequiredRole getOuterRequiredRole__RequiredInfrastructureDelegationConnector() {
-        if (this.outerRequiredRole__RequiredInfrastructureDelegationConnector != null
-                && ((EObject) this.outerRequiredRole__RequiredInfrastructureDelegationConnector).eIsProxy()) {
-            final InternalEObject oldOuterRequiredRole__RequiredInfrastructureDelegationConnector = (InternalEObject) this.outerRequiredRole__RequiredInfrastructureDelegationConnector;
-            this.outerRequiredRole__RequiredInfrastructureDelegationConnector = (InfrastructureRequiredRole) this
-                    .eResolveProxy(oldOuterRequiredRole__RequiredInfrastructureDelegationConnector);
-            if (this.outerRequiredRole__RequiredInfrastructureDelegationConnector != oldOuterRequiredRole__RequiredInfrastructureDelegationConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
-                            this,
-                            Notification.RESOLVE,
-                            CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
-                            oldOuterRequiredRole__RequiredInfrastructureDelegationConnector,
-                            this.outerRequiredRole__RequiredInfrastructureDelegationConnector));
-                }
-            }
-        }
-        return this.outerRequiredRole__RequiredInfrastructureDelegationConnector;
+        return (InfrastructureRequiredRole) this
+                .eDynamicGet(
+                        CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                        CompositionPackage.Literals.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InfrastructureRequiredRole basicGetOuterRequiredRole__RequiredInfrastructureDelegationConnector() {
-        return this.outerRequiredRole__RequiredInfrastructureDelegationConnector;
+        return (InfrastructureRequiredRole) this
+                .eDynamicGet(
+                        CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                        CompositionPackage.Literals.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                        false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setOuterRequiredRole__RequiredInfrastructureDelegationConnector(
             final InfrastructureRequiredRole newOuterRequiredRole__RequiredInfrastructureDelegationConnector) {
-        final InfrastructureRequiredRole oldOuterRequiredRole__RequiredInfrastructureDelegationConnector = this.outerRequiredRole__RequiredInfrastructureDelegationConnector;
-        this.outerRequiredRole__RequiredInfrastructureDelegationConnector = newOuterRequiredRole__RequiredInfrastructureDelegationConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
-                    oldOuterRequiredRole__RequiredInfrastructureDelegationConnector,
-                    this.outerRequiredRole__RequiredInfrastructureDelegationConnector));
-        }
+        this.eDynamicSet(
+                CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                newOuterRequiredRole__RequiredInfrastructureDelegationConnector);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getAssemblyContext__RequiredInfrastructureDelegationConnector() {
-        if (this.assemblyContext__RequiredInfrastructureDelegationConnector != null
-                && ((EObject) this.assemblyContext__RequiredInfrastructureDelegationConnector).eIsProxy()) {
-            final InternalEObject oldAssemblyContext__RequiredInfrastructureDelegationConnector = (InternalEObject) this.assemblyContext__RequiredInfrastructureDelegationConnector;
-            this.assemblyContext__RequiredInfrastructureDelegationConnector = (AssemblyContext) this
-                    .eResolveProxy(oldAssemblyContext__RequiredInfrastructureDelegationConnector);
-            if (this.assemblyContext__RequiredInfrastructureDelegationConnector != oldAssemblyContext__RequiredInfrastructureDelegationConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
-                            this,
-                            Notification.RESOLVE,
-                            CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
-                            oldAssemblyContext__RequiredInfrastructureDelegationConnector,
-                            this.assemblyContext__RequiredInfrastructureDelegationConnector));
-                }
-            }
-        }
-        return this.assemblyContext__RequiredInfrastructureDelegationConnector;
+        return (AssemblyContext) this
+                .eDynamicGet(
+                        CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                        CompositionPackage.Literals.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                        true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext__RequiredInfrastructureDelegationConnector() {
-        return this.assemblyContext__RequiredInfrastructureDelegationConnector;
+        return (AssemblyContext) this
+                .eDynamicGet(
+                        CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                        CompositionPackage.Literals.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                        false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setAssemblyContext__RequiredInfrastructureDelegationConnector(
             final AssemblyContext newAssemblyContext__RequiredInfrastructureDelegationConnector) {
-        final AssemblyContext oldAssemblyContext__RequiredInfrastructureDelegationConnector = this.assemblyContext__RequiredInfrastructureDelegationConnector;
-        this.assemblyContext__RequiredInfrastructureDelegationConnector = newAssemblyContext__RequiredInfrastructureDelegationConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(
-                    this,
-                    Notification.SET,
-                    CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
-                    oldAssemblyContext__RequiredInfrastructureDelegationConnector,
-                    this.assemblyContext__RequiredInfrastructureDelegationConnector));
-        }
+        this.eDynamicSet(
+                CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                newAssemblyContext__RequiredInfrastructureDelegationConnector);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -293,7 +213,7 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -314,7 +234,7 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -335,18 +255,18 @@ RequiredInfrastructureDelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR:
-            return this.innerRequiredRole__RequiredInfrastructureDelegationConnector != null;
+            return this.basicGetInnerRequiredRole__RequiredInfrastructureDelegationConnector() != null;
         case CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR:
-            return this.outerRequiredRole__RequiredInfrastructureDelegationConnector != null;
+            return this.basicGetOuterRequiredRole__RequiredInfrastructureDelegationConnector() != null;
         case CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR:
-            return this.assemblyContext__RequiredInfrastructureDelegationConnector != null;
+            return this.basicGetAssemblyContext__RequiredInfrastructureDelegationConnector() != null;
         }
         return super.eIsSet(featureID);
     }

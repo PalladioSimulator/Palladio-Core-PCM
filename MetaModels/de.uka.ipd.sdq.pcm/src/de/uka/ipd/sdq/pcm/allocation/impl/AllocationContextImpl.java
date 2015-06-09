@@ -7,18 +7,14 @@ package de.uka.ipd.sdq.pcm.allocation.impl;
 
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.ocl.ParserException;
 import org.eclipse.ocl.ecore.Constraint;
 import org.eclipse.ocl.ecore.OCL;
@@ -59,47 +55,14 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getResourceContainer_AllocationContext()
-     * <em>Resource Container Allocation Context</em>}' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getResourceContainer_AllocationContext()
-     * @generated
-     * @ordered
-     */
-    protected ResourceContainer resourceContainer_AllocationContext;
-
-    /**
-     * The cached value of the '{@link #getAssemblyContext_AllocationContext()
-     * <em>Assembly Context Allocation Context</em>}' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getAssemblyContext_AllocationContext()
-     * @generated
-     * @ordered
-     */
-    protected AssemblyContext assemblyContext_AllocationContext;
-
-    /**
-     * The cached value of the '{@link #getEventChannel__AllocationContext()
-     * <em>Event Channel Allocation Context</em>}' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getEventChannel__AllocationContext()
-     * @generated
-     * @ordered
-     */
-    protected EventChannel eventChannel__AllocationContext;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AllocationContextImpl() {
@@ -108,7 +71,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -118,116 +81,88 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceContainer getResourceContainer_AllocationContext() {
-        if (this.resourceContainer_AllocationContext != null
-                && ((EObject) this.resourceContainer_AllocationContext).eIsProxy()) {
-            final InternalEObject oldResourceContainer_AllocationContext = (InternalEObject) this.resourceContainer_AllocationContext;
-            this.resourceContainer_AllocationContext = (ResourceContainer) this
-                    .eResolveProxy(oldResourceContainer_AllocationContext);
-            if (this.resourceContainer_AllocationContext != oldResourceContainer_AllocationContext) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT,
-                            oldResourceContainer_AllocationContext, this.resourceContainer_AllocationContext));
-                }
-            }
-        }
-        return this.resourceContainer_AllocationContext;
+        return (ResourceContainer) this.eDynamicGet(
+                AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT,
+                AllocationPackage.Literals.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceContainer basicGetResourceContainer_AllocationContext() {
-        return this.resourceContainer_AllocationContext;
+        return (ResourceContainer) this.eDynamicGet(
+                AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT,
+                AllocationPackage.Literals.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setResourceContainer_AllocationContext(final ResourceContainer newResourceContainer_AllocationContext) {
-        final ResourceContainer oldResourceContainer_AllocationContext = this.resourceContainer_AllocationContext;
-        this.resourceContainer_AllocationContext = newResourceContainer_AllocationContext;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT,
-                    oldResourceContainer_AllocationContext, this.resourceContainer_AllocationContext));
-        }
+        this.eDynamicSet(AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT,
+                AllocationPackage.Literals.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT,
+                newResourceContainer_AllocationContext);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getAssemblyContext_AllocationContext() {
-        if (this.assemblyContext_AllocationContext != null
-                && ((EObject) this.assemblyContext_AllocationContext).eIsProxy()) {
-            final InternalEObject oldAssemblyContext_AllocationContext = (InternalEObject) this.assemblyContext_AllocationContext;
-            this.assemblyContext_AllocationContext = (AssemblyContext) this
-                    .eResolveProxy(oldAssemblyContext_AllocationContext);
-            if (this.assemblyContext_AllocationContext != oldAssemblyContext_AllocationContext) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            AllocationPackage.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT,
-                            oldAssemblyContext_AllocationContext, this.assemblyContext_AllocationContext));
-                }
-            }
-        }
-        return this.assemblyContext_AllocationContext;
+        return (AssemblyContext) this.eDynamicGet(
+                AllocationPackage.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT,
+                AllocationPackage.Literals.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext_AllocationContext() {
-        return this.assemblyContext_AllocationContext;
+        return (AssemblyContext) this.eDynamicGet(
+                AllocationPackage.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT,
+                AllocationPackage.Literals.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setAssemblyContext_AllocationContext(final AssemblyContext newAssemblyContext_AllocationContext) {
-        final AssemblyContext oldAssemblyContext_AllocationContext = this.assemblyContext_AllocationContext;
-        this.assemblyContext_AllocationContext = newAssemblyContext_AllocationContext;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    AllocationPackage.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT,
-                    oldAssemblyContext_AllocationContext, this.assemblyContext_AllocationContext));
-        }
+        this.eDynamicSet(AllocationPackage.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT,
+                AllocationPackage.Literals.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT,
+                newAssemblyContext_AllocationContext);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Allocation getAllocation_AllocationContext() {
-        if (this.eContainerFeatureID() != AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT) {
-            return null;
-        }
-        return (Allocation) this.eInternalContainer();
+        return (Allocation) this.eDynamicGet(AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT,
+                AllocationPackage.Literals.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAllocation_AllocationContext(final Allocation newAllocation_AllocationContext,
@@ -239,80 +174,47 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setAllocation_AllocationContext(final Allocation newAllocation_AllocationContext) {
-        if (newAllocation_AllocationContext != this.eInternalContainer()
-                || (this.eContainerFeatureID() != AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT && newAllocation_AllocationContext != null)) {
-            if (EcoreUtil.isAncestor(this, newAllocation_AllocationContext)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newAllocation_AllocationContext != null) {
-                msgs = ((InternalEObject) newAllocation_AllocationContext).eInverseAdd(this,
-                        AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION, Allocation.class, msgs);
-            }
-            msgs = this.basicSetAllocation_AllocationContext(newAllocation_AllocationContext, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT,
-                    newAllocation_AllocationContext, newAllocation_AllocationContext));
-        }
+        this.eDynamicSet(AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT,
+                AllocationPackage.Literals.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT,
+                newAllocation_AllocationContext);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EventChannel getEventChannel__AllocationContext() {
-        if (this.eventChannel__AllocationContext != null && ((EObject) this.eventChannel__AllocationContext).eIsProxy()) {
-            final InternalEObject oldEventChannel__AllocationContext = (InternalEObject) this.eventChannel__AllocationContext;
-            this.eventChannel__AllocationContext = (EventChannel) this
-                    .eResolveProxy(oldEventChannel__AllocationContext);
-            if (this.eventChannel__AllocationContext != oldEventChannel__AllocationContext) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            AllocationPackage.ALLOCATION_CONTEXT__EVENT_CHANNEL_ALLOCATION_CONTEXT,
-                            oldEventChannel__AllocationContext, this.eventChannel__AllocationContext));
-                }
-            }
-        }
-        return this.eventChannel__AllocationContext;
+        return (EventChannel) this.eDynamicGet(AllocationPackage.ALLOCATION_CONTEXT__EVENT_CHANNEL_ALLOCATION_CONTEXT,
+                AllocationPackage.Literals.ALLOCATION_CONTEXT__EVENT_CHANNEL_ALLOCATION_CONTEXT, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public EventChannel basicGetEventChannel__AllocationContext() {
-        return this.eventChannel__AllocationContext;
+        return (EventChannel) this.eDynamicGet(AllocationPackage.ALLOCATION_CONTEXT__EVENT_CHANNEL_ALLOCATION_CONTEXT,
+                AllocationPackage.Literals.ALLOCATION_CONTEXT__EVENT_CHANNEL_ALLOCATION_CONTEXT, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setEventChannel__AllocationContext(final EventChannel newEventChannel__AllocationContext) {
-        final EventChannel oldEventChannel__AllocationContext = this.eventChannel__AllocationContext;
-        this.eventChannel__AllocationContext = newEventChannel__AllocationContext;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    AllocationPackage.ALLOCATION_CONTEXT__EVENT_CHANNEL_ALLOCATION_CONTEXT,
-                    oldEventChannel__AllocationContext, this.eventChannel__AllocationContext));
-        }
+        this.eDynamicSet(AllocationPackage.ALLOCATION_CONTEXT__EVENT_CHANNEL_ALLOCATION_CONTEXT,
+                AllocationPackage.Literals.ALLOCATION_CONTEXT__EVENT_CHANNEL_ALLOCATION_CONTEXT,
+                newEventChannel__AllocationContext);
     }
 
     /**
@@ -333,7 +235,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * {@link #OneAssemblyContextOrOneEventChannelShouldBeReferred(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>One Assembly Context Or One Event Channel Should Be Referred</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #OneAssemblyContextOrOneEventChannelShouldBeReferred(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -343,7 +245,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -380,7 +282,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -397,7 +299,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -412,7 +314,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -427,7 +329,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -456,7 +358,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -480,7 +382,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -504,20 +406,20 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT:
-            return this.resourceContainer_AllocationContext != null;
+            return this.basicGetResourceContainer_AllocationContext() != null;
         case AllocationPackage.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT:
-            return this.assemblyContext_AllocationContext != null;
+            return this.basicGetAssemblyContext_AllocationContext() != null;
         case AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT:
             return this.getAllocation_AllocationContext() != null;
         case AllocationPackage.ALLOCATION_CONTEXT__EVENT_CHANNEL_ALLOCATION_CONTEXT:
-            return this.eventChannel__AllocationContext != null;
+            return this.basicGetEventChannel__AllocationContext() != null;
         }
         return super.eIsSet(featureID);
     }
@@ -525,7 +427,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

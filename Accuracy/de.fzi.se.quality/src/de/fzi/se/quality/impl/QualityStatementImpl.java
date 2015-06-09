@@ -6,12 +6,9 @@
  */
 package de.fzi.se.quality.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.fzi.se.quality.QualityPackage;
 import de.fzi.se.quality.QualityRepository;
@@ -35,7 +32,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected QualityStatementImpl() {
@@ -44,7 +41,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -54,20 +51,18 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public QualityRepository getQualityRepository() {
-        if (this.eContainerFeatureID() != QualityPackage.QUALITY_STATEMENT__QUALITY_REPOSITORY) {
-            return null;
-        }
-        return (QualityRepository) this.eInternalContainer();
+        return (QualityRepository) this.eDynamicGet(QualityPackage.QUALITY_STATEMENT__QUALITY_REPOSITORY,
+                QualityPackage.Literals.QUALITY_STATEMENT__QUALITY_REPOSITORY, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetQualityRepository(final QualityRepository newQualityRepository,
@@ -79,37 +74,18 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setQualityRepository(final QualityRepository newQualityRepository) {
-        if (newQualityRepository != this.eInternalContainer()
-                || (this.eContainerFeatureID() != QualityPackage.QUALITY_STATEMENT__QUALITY_REPOSITORY && newQualityRepository != null)) {
-            if (EcoreUtil.isAncestor(this, newQualityRepository)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newQualityRepository != null) {
-                msgs = ((InternalEObject) newQualityRepository).eInverseAdd(this,
-                        QualityPackage.QUALITY_REPOSITORY__QUALITY_STATEMENTS, QualityRepository.class, msgs);
-            }
-            msgs = this.basicSetQualityRepository(newQualityRepository, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityPackage.QUALITY_STATEMENT__QUALITY_REPOSITORY, newQualityRepository, newQualityRepository));
-        }
+        this.eDynamicSet(QualityPackage.QUALITY_STATEMENT__QUALITY_REPOSITORY,
+                QualityPackage.Literals.QUALITY_STATEMENT__QUALITY_REPOSITORY, newQualityRepository);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -126,7 +102,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -141,7 +117,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -156,7 +132,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -170,7 +146,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -185,7 +161,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -200,7 +176,7 @@ public abstract class QualityStatementImpl extends IdentifierImpl implements Qua
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

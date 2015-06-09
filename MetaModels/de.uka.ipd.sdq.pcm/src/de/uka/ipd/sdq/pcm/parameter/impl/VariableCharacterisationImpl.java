@@ -5,15 +5,11 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 
-import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
@@ -42,7 +38,7 @@ public class VariableCharacterisationImpl extends CDOObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -50,7 +46,7 @@ public class VariableCharacterisationImpl extends CDOObjectImpl implements Varia
     /**
      * The default value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getType()
      * @generated
      * @ordered
@@ -58,29 +54,8 @@ public class VariableCharacterisationImpl extends CDOObjectImpl implements Varia
     protected static final VariableCharacterisationType TYPE_EDEFAULT = VariableCharacterisationType.STRUCTURE;
 
     /**
-     * The cached value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getType()
-     * @generated
-     * @ordered
-     */
-    protected VariableCharacterisationType type = TYPE_EDEFAULT;
-
-    /**
-     * The cached value of the '{@link #getSpecification_VariableCharacterisation()
-     * <em>Specification Variable Characterisation</em>}' containment reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @see #getSpecification_VariableCharacterisation()
-     * @generated
-     * @ordered
-     */
-    protected PCMRandomVariable specification_VariableCharacterisation;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected VariableCharacterisationImpl() {
@@ -89,7 +64,7 @@ public class VariableCharacterisationImpl extends CDOObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -99,108 +74,90 @@ public class VariableCharacterisationImpl extends CDOObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    @Override
+    protected int eStaticFeatureCount() {
+        return 0;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public VariableCharacterisationType getType() {
-        return this.type;
+        return (VariableCharacterisationType) this.eDynamicGet(ParameterPackage.VARIABLE_CHARACTERISATION__TYPE,
+                ParameterPackage.Literals.VARIABLE_CHARACTERISATION__TYPE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setType(final VariableCharacterisationType newType) {
-        final VariableCharacterisationType oldType = this.type;
-        this.type = newType == null ? TYPE_EDEFAULT : newType;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParameterPackage.VARIABLE_CHARACTERISATION__TYPE, oldType, this.type));
-        }
+        this.eDynamicSet(ParameterPackage.VARIABLE_CHARACTERISATION__TYPE,
+                ParameterPackage.Literals.VARIABLE_CHARACTERISATION__TYPE, newType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public PCMRandomVariable getSpecification_VariableCharacterisation() {
-        return this.specification_VariableCharacterisation;
+        return (PCMRandomVariable) this.eDynamicGet(
+                ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION,
+                ParameterPackage.Literals.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION, true,
+                true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSpecification_VariableCharacterisation(
             final PCMRandomVariable newSpecification_VariableCharacterisation, NotificationChain msgs) {
-        final PCMRandomVariable oldSpecification_VariableCharacterisation = this.specification_VariableCharacterisation;
-        this.specification_VariableCharacterisation = newSpecification_VariableCharacterisation;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION,
-                    oldSpecification_VariableCharacterisation, newSpecification_VariableCharacterisation);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newSpecification_VariableCharacterisation,
+                ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSpecification_VariableCharacterisation(
             final PCMRandomVariable newSpecification_VariableCharacterisation) {
-        if (newSpecification_VariableCharacterisation != this.specification_VariableCharacterisation) {
-            NotificationChain msgs = null;
-            if (this.specification_VariableCharacterisation != null) {
-                msgs = ((InternalEObject) this.specification_VariableCharacterisation).eInverseRemove(this,
-                        CorePackage.PCM_RANDOM_VARIABLE__VARIABLE_CHARACTERISATION_SPECIFICATION,
-                        PCMRandomVariable.class, msgs);
-            }
-            if (newSpecification_VariableCharacterisation != null) {
-                msgs = ((InternalEObject) newSpecification_VariableCharacterisation).eInverseAdd(this,
-                        CorePackage.PCM_RANDOM_VARIABLE__VARIABLE_CHARACTERISATION_SPECIFICATION,
-                        PCMRandomVariable.class, msgs);
-            }
-            msgs = this.basicSetSpecification_VariableCharacterisation(newSpecification_VariableCharacterisation, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION,
-                    newSpecification_VariableCharacterisation, newSpecification_VariableCharacterisation));
-        }
+        this.eDynamicSet(ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION,
+                ParameterPackage.Literals.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION,
+                newSpecification_VariableCharacterisation);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public VariableUsage getVariableUsage_VariableCharacterisation() {
-        if (this.eContainerFeatureID() != ParameterPackage.VARIABLE_CHARACTERISATION__VARIABLE_USAGE_VARIABLE_CHARACTERISATION) {
-            return null;
-        }
-        return (VariableUsage) this.eInternalContainer();
+        return (VariableUsage) this.eDynamicGet(
+                ParameterPackage.VARIABLE_CHARACTERISATION__VARIABLE_USAGE_VARIABLE_CHARACTERISATION,
+                ParameterPackage.Literals.VARIABLE_CHARACTERISATION__VARIABLE_USAGE_VARIABLE_CHARACTERISATION, true,
+                true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetVariableUsage_VariableCharacterisation(
@@ -212,47 +169,29 @@ public class VariableCharacterisationImpl extends CDOObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setVariableUsage_VariableCharacterisation(final VariableUsage newVariableUsage_VariableCharacterisation) {
-        if (newVariableUsage_VariableCharacterisation != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ParameterPackage.VARIABLE_CHARACTERISATION__VARIABLE_USAGE_VARIABLE_CHARACTERISATION && newVariableUsage_VariableCharacterisation != null)) {
-            if (EcoreUtil.isAncestor(this, newVariableUsage_VariableCharacterisation)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newVariableUsage_VariableCharacterisation != null) {
-                msgs = ((InternalEObject) newVariableUsage_VariableCharacterisation).eInverseAdd(this,
-                        ParameterPackage.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE, VariableUsage.class,
-                        msgs);
-            }
-            msgs = this.basicSetVariableUsage_VariableCharacterisation(newVariableUsage_VariableCharacterisation, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ParameterPackage.VARIABLE_CHARACTERISATION__VARIABLE_USAGE_VARIABLE_CHARACTERISATION,
-                    newVariableUsage_VariableCharacterisation, newVariableUsage_VariableCharacterisation));
-        }
+        this.eDynamicSet(ParameterPackage.VARIABLE_CHARACTERISATION__VARIABLE_USAGE_VARIABLE_CHARACTERISATION,
+                ParameterPackage.Literals.VARIABLE_CHARACTERISATION__VARIABLE_USAGE_VARIABLE_CHARACTERISATION,
+                newVariableUsage_VariableCharacterisation);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION:
-            if (this.specification_VariableCharacterisation != null) {
-                msgs = ((InternalEObject) this.specification_VariableCharacterisation).eInverseRemove(this,
+            final PCMRandomVariable specification_VariableCharacterisation = this
+                    .getSpecification_VariableCharacterisation();
+            if (specification_VariableCharacterisation != null) {
+                msgs = ((InternalEObject) specification_VariableCharacterisation).eInverseRemove(this,
                         EOPPOSITE_FEATURE_BASE
                         - ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION,
                         null, msgs);
@@ -269,7 +208,7 @@ public class VariableCharacterisationImpl extends CDOObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -286,7 +225,7 @@ public class VariableCharacterisationImpl extends CDOObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -302,7 +241,7 @@ public class VariableCharacterisationImpl extends CDOObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -320,7 +259,7 @@ public class VariableCharacterisationImpl extends CDOObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -341,7 +280,7 @@ public class VariableCharacterisationImpl extends CDOObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -362,38 +301,20 @@ public class VariableCharacterisationImpl extends CDOObjectImpl implements Varia
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ParameterPackage.VARIABLE_CHARACTERISATION__TYPE:
-            return this.type != TYPE_EDEFAULT;
+            return this.getType() != TYPE_EDEFAULT;
         case ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION:
-            return this.specification_VariableCharacterisation != null;
+            return this.getSpecification_VariableCharacterisation() != null;
         case ParameterPackage.VARIABLE_CHARACTERISATION__VARIABLE_USAGE_VARIABLE_CHARACTERISATION:
             return this.getVariableUsage_VariableCharacterisation() != null;
         }
         return super.eIsSet(featureID);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    @Override
-    public String toString() {
-        if (this.eIsProxy()) {
-            return super.toString();
-        }
-
-        final StringBuffer result = new StringBuffer(super.toString());
-        result.append(" (type: ");
-        result.append(this.type);
-        result.append(')');
-        return result.toString();
     }
 
 } // VariableCharacterisationImpl

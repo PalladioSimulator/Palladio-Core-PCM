@@ -3,12 +3,9 @@
  */
 package de.uka.ipd.sdq.pcm.resourcetype.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
@@ -33,14 +30,14 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SchedulingPolicyImpl() {
@@ -49,7 +46,7 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -59,20 +56,19 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceRepository getResourceRepository__SchedulingPolicy() {
-        if (this.eContainerFeatureID() != ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY) {
-            return null;
-        }
-        return (ResourceRepository) this.eInternalContainer();
+        return (ResourceRepository) this.eDynamicGet(
+                ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY,
+                ResourcetypePackage.Literals.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceRepository__SchedulingPolicy(
@@ -84,39 +80,19 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setResourceRepository__SchedulingPolicy(final ResourceRepository newResourceRepository__SchedulingPolicy) {
-        if (newResourceRepository__SchedulingPolicy != this.eInternalContainer()
-                || (this.eContainerFeatureID() != ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY && newResourceRepository__SchedulingPolicy != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceRepository__SchedulingPolicy)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newResourceRepository__SchedulingPolicy != null) {
-                msgs = ((InternalEObject) newResourceRepository__SchedulingPolicy).eInverseAdd(this,
-                        ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY,
-                        ResourceRepository.class, msgs);
-            }
-            msgs = this.basicSetResourceRepository__SchedulingPolicy(newResourceRepository__SchedulingPolicy, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY,
-                    newResourceRepository__SchedulingPolicy, newResourceRepository__SchedulingPolicy));
-        }
+        this.eDynamicSet(ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY,
+                ResourcetypePackage.Literals.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY,
+                newResourceRepository__SchedulingPolicy);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -133,7 +109,7 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -148,7 +124,7 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -164,7 +140,7 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -178,7 +154,7 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -193,7 +169,7 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -208,7 +184,7 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

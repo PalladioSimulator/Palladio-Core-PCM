@@ -5,14 +5,10 @@
  */
 package de.uka.ipd.sdq.pcm.core.composition.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import de.uka.ipd.sdq.pcm.core.CorePackage;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector;
@@ -50,65 +46,14 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getSinkRole__AssemblyEventConnector()
-     * <em>Sink Role Assembly Event Connector</em>}' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getSinkRole__AssemblyEventConnector()
-     * @generated
-     * @ordered
-     */
-    protected SinkRole sinkRole__AssemblyEventConnector;
-    /**
-     * The cached value of the '{@link #getSourceRole__AssemblyEventConnector()
-     * <em>Source Role Assembly Event Connector</em>}' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @see #getSourceRole__AssemblyEventConnector()
-     * @generated
-     * @ordered
-     */
-    protected SourceRole sourceRole__AssemblyEventConnector;
-    /**
-     * The cached value of the '{@link #getSinkAssemblyContext__AssemblyEventConnector()
-     * <em>Sink Assembly Context Assembly Event Connector</em>}' reference. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getSinkAssemblyContext__AssemblyEventConnector()
-     * @generated
-     * @ordered
-     */
-    protected AssemblyContext sinkAssemblyContext__AssemblyEventConnector;
-    /**
-     * The cached value of the '{@link #getSourceAssemblyContext__AssemblyEventConnector()
-     * <em>Source Assembly Context Assembly Event Connector</em>}' reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @see #getSourceAssemblyContext__AssemblyEventConnector()
-     * @generated
-     * @ordered
-     */
-    protected AssemblyContext sourceAssemblyContext__AssemblyEventConnector;
-    /**
-     * The cached value of the '{@link #getFilterCondition__AssemblyEventConnector()
-     * <em>Filter Condition Assembly Event Connector</em>}' containment reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getFilterCondition__AssemblyEventConnector()
-     * @generated
-     * @ordered
-     */
-    protected PCMRandomVariable filterCondition__AssemblyEventConnector;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AssemblyEventConnectorImpl() {
@@ -117,7 +62,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,279 +72,202 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SinkRole getSinkRole__AssemblyEventConnector() {
-        if (this.sinkRole__AssemblyEventConnector != null
-                && ((EObject) this.sinkRole__AssemblyEventConnector).eIsProxy()) {
-            final InternalEObject oldSinkRole__AssemblyEventConnector = (InternalEObject) this.sinkRole__AssemblyEventConnector;
-            this.sinkRole__AssemblyEventConnector = (SinkRole) this.eResolveProxy(oldSinkRole__AssemblyEventConnector);
-            if (this.sinkRole__AssemblyEventConnector != oldSinkRole__AssemblyEventConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SINK_ROLE_ASSEMBLY_EVENT_CONNECTOR,
-                            oldSinkRole__AssemblyEventConnector, this.sinkRole__AssemblyEventConnector));
-                }
-            }
-        }
-        return this.sinkRole__AssemblyEventConnector;
+        return (SinkRole) this.eDynamicGet(
+                CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SINK_ROLE_ASSEMBLY_EVENT_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SINK_ROLE_ASSEMBLY_EVENT_CONNECTOR, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SinkRole basicGetSinkRole__AssemblyEventConnector() {
-        return this.sinkRole__AssemblyEventConnector;
+        return (SinkRole) this.eDynamicGet(
+                CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SINK_ROLE_ASSEMBLY_EVENT_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SINK_ROLE_ASSEMBLY_EVENT_CONNECTOR, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSinkRole__AssemblyEventConnector(final SinkRole newSinkRole__AssemblyEventConnector) {
-        final SinkRole oldSinkRole__AssemblyEventConnector = this.sinkRole__AssemblyEventConnector;
-        this.sinkRole__AssemblyEventConnector = newSinkRole__AssemblyEventConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SINK_ROLE_ASSEMBLY_EVENT_CONNECTOR,
-                    oldSinkRole__AssemblyEventConnector, this.sinkRole__AssemblyEventConnector));
-        }
+        this.eDynamicSet(CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SINK_ROLE_ASSEMBLY_EVENT_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SINK_ROLE_ASSEMBLY_EVENT_CONNECTOR,
+                newSinkRole__AssemblyEventConnector);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public SourceRole getSourceRole__AssemblyEventConnector() {
-        if (this.sourceRole__AssemblyEventConnector != null
-                && ((EObject) this.sourceRole__AssemblyEventConnector).eIsProxy()) {
-            final InternalEObject oldSourceRole__AssemblyEventConnector = (InternalEObject) this.sourceRole__AssemblyEventConnector;
-            this.sourceRole__AssemblyEventConnector = (SourceRole) this
-                    .eResolveProxy(oldSourceRole__AssemblyEventConnector);
-            if (this.sourceRole__AssemblyEventConnector != oldSourceRole__AssemblyEventConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR,
-                            oldSourceRole__AssemblyEventConnector, this.sourceRole__AssemblyEventConnector));
-                }
-            }
-        }
-        return this.sourceRole__AssemblyEventConnector;
+        return (SourceRole) this.eDynamicGet(
+                CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SourceRole basicGetSourceRole__AssemblyEventConnector() {
-        return this.sourceRole__AssemblyEventConnector;
+        return (SourceRole) this
+                .eDynamicGet(CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR,
+                        CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR,
+                        false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSourceRole__AssemblyEventConnector(final SourceRole newSourceRole__AssemblyEventConnector) {
-        final SourceRole oldSourceRole__AssemblyEventConnector = this.sourceRole__AssemblyEventConnector;
-        this.sourceRole__AssemblyEventConnector = newSourceRole__AssemblyEventConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR,
-                    oldSourceRole__AssemblyEventConnector, this.sourceRole__AssemblyEventConnector));
-        }
+        this.eDynamicSet(CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR,
+                newSourceRole__AssemblyEventConnector);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getSinkAssemblyContext__AssemblyEventConnector() {
-        if (this.sinkAssemblyContext__AssemblyEventConnector != null
-                && ((EObject) this.sinkAssemblyContext__AssemblyEventConnector).eIsProxy()) {
-            final InternalEObject oldSinkAssemblyContext__AssemblyEventConnector = (InternalEObject) this.sinkAssemblyContext__AssemblyEventConnector;
-            this.sinkAssemblyContext__AssemblyEventConnector = (AssemblyContext) this
-                    .eResolveProxy(oldSinkAssemblyContext__AssemblyEventConnector);
-            if (this.sinkAssemblyContext__AssemblyEventConnector != oldSinkAssemblyContext__AssemblyEventConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
-                            this,
-                            Notification.RESOLVE,
-                            CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SINK_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR,
-                            oldSinkAssemblyContext__AssemblyEventConnector,
-                            this.sinkAssemblyContext__AssemblyEventConnector));
-                }
-            }
-        }
-        return this.sinkAssemblyContext__AssemblyEventConnector;
+        return (AssemblyContext) this.eDynamicGet(
+                CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SINK_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SINK_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR,
+                true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetSinkAssemblyContext__AssemblyEventConnector() {
-        return this.sinkAssemblyContext__AssemblyEventConnector;
+        return (AssemblyContext) this.eDynamicGet(
+                CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SINK_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SINK_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR,
+                false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSinkAssemblyContext__AssemblyEventConnector(
             final AssemblyContext newSinkAssemblyContext__AssemblyEventConnector) {
-        final AssemblyContext oldSinkAssemblyContext__AssemblyEventConnector = this.sinkAssemblyContext__AssemblyEventConnector;
-        this.sinkAssemblyContext__AssemblyEventConnector = newSinkAssemblyContext__AssemblyEventConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SINK_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR,
-                    oldSinkAssemblyContext__AssemblyEventConnector, this.sinkAssemblyContext__AssemblyEventConnector));
-        }
+        this.eDynamicSet(CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SINK_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SINK_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR,
+                newSinkAssemblyContext__AssemblyEventConnector);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public AssemblyContext getSourceAssemblyContext__AssemblyEventConnector() {
-        if (this.sourceAssemblyContext__AssemblyEventConnector != null
-                && ((EObject) this.sourceAssemblyContext__AssemblyEventConnector).eIsProxy()) {
-            final InternalEObject oldSourceAssemblyContext__AssemblyEventConnector = (InternalEObject) this.sourceAssemblyContext__AssemblyEventConnector;
-            this.sourceAssemblyContext__AssemblyEventConnector = (AssemblyContext) this
-                    .eResolveProxy(oldSourceAssemblyContext__AssemblyEventConnector);
-            if (this.sourceAssemblyContext__AssemblyEventConnector != oldSourceAssemblyContext__AssemblyEventConnector) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(
-                            this,
-                            Notification.RESOLVE,
-                            CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR,
-                            oldSourceAssemblyContext__AssemblyEventConnector,
-                            this.sourceAssemblyContext__AssemblyEventConnector));
-                }
-            }
-        }
-        return this.sourceAssemblyContext__AssemblyEventConnector;
+        return (AssemblyContext) this.eDynamicGet(
+                CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR,
+                true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetSourceAssemblyContext__AssemblyEventConnector() {
-        return this.sourceAssemblyContext__AssemblyEventConnector;
+        return (AssemblyContext) this.eDynamicGet(
+                CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR,
+                false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSourceAssemblyContext__AssemblyEventConnector(
             final AssemblyContext newSourceAssemblyContext__AssemblyEventConnector) {
-        final AssemblyContext oldSourceAssemblyContext__AssemblyEventConnector = this.sourceAssemblyContext__AssemblyEventConnector;
-        this.sourceAssemblyContext__AssemblyEventConnector = newSourceAssemblyContext__AssemblyEventConnector;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR,
-                    oldSourceAssemblyContext__AssemblyEventConnector,
-                    this.sourceAssemblyContext__AssemblyEventConnector));
-        }
+        this.eDynamicSet(CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR,
+                newSourceAssemblyContext__AssemblyEventConnector);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public PCMRandomVariable getFilterCondition__AssemblyEventConnector() {
-        return this.filterCondition__AssemblyEventConnector;
+        return (PCMRandomVariable) this.eDynamicGet(
+                CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__FILTER_CONDITION_ASSEMBLY_EVENT_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__FILTER_CONDITION_ASSEMBLY_EVENT_CONNECTOR, true,
+                true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetFilterCondition__AssemblyEventConnector(
             final PCMRandomVariable newFilterCondition__AssemblyEventConnector, NotificationChain msgs) {
-        final PCMRandomVariable oldFilterCondition__AssemblyEventConnector = this.filterCondition__AssemblyEventConnector;
-        this.filterCondition__AssemblyEventConnector = newFilterCondition__AssemblyEventConnector;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__FILTER_CONDITION_ASSEMBLY_EVENT_CONNECTOR,
-                    oldFilterCondition__AssemblyEventConnector, newFilterCondition__AssemblyEventConnector);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newFilterCondition__AssemblyEventConnector,
+                CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__FILTER_CONDITION_ASSEMBLY_EVENT_CONNECTOR, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setFilterCondition__AssemblyEventConnector(
             final PCMRandomVariable newFilterCondition__AssemblyEventConnector) {
-        if (newFilterCondition__AssemblyEventConnector != this.filterCondition__AssemblyEventConnector) {
-            NotificationChain msgs = null;
-            if (this.filterCondition__AssemblyEventConnector != null) {
-                msgs = ((InternalEObject) this.filterCondition__AssemblyEventConnector).eInverseRemove(this,
-                        CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION,
-                        PCMRandomVariable.class, msgs);
-            }
-            if (newFilterCondition__AssemblyEventConnector != null) {
-                msgs = ((InternalEObject) newFilterCondition__AssemblyEventConnector).eInverseAdd(this,
-                        CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION,
-                        PCMRandomVariable.class, msgs);
-            }
-            msgs = this.basicSetFilterCondition__AssemblyEventConnector(newFilterCondition__AssemblyEventConnector,
-                    msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__FILTER_CONDITION_ASSEMBLY_EVENT_CONNECTOR,
-                    newFilterCondition__AssemblyEventConnector, newFilterCondition__AssemblyEventConnector));
-        }
+        this.eDynamicSet(CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__FILTER_CONDITION_ASSEMBLY_EVENT_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__FILTER_CONDITION_ASSEMBLY_EVENT_CONNECTOR,
+                newFilterCondition__AssemblyEventConnector);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__FILTER_CONDITION_ASSEMBLY_EVENT_CONNECTOR:
-            if (this.filterCondition__AssemblyEventConnector != null) {
-                msgs = ((InternalEObject) this.filterCondition__AssemblyEventConnector)
+            final PCMRandomVariable filterCondition__AssemblyEventConnector = this
+                    .getFilterCondition__AssemblyEventConnector();
+            if (filterCondition__AssemblyEventConnector != null) {
+                msgs = ((InternalEObject) filterCondition__AssemblyEventConnector)
                         .eInverseRemove(
                                 this,
                                 EOPPOSITE_FEATURE_BASE
@@ -413,7 +281,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -428,7 +296,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -462,7 +330,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -489,7 +357,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -516,22 +384,22 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SINK_ROLE_ASSEMBLY_EVENT_CONNECTOR:
-            return this.sinkRole__AssemblyEventConnector != null;
+            return this.basicGetSinkRole__AssemblyEventConnector() != null;
         case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR:
-            return this.sourceRole__AssemblyEventConnector != null;
+            return this.basicGetSourceRole__AssemblyEventConnector() != null;
         case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SINK_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR:
-            return this.sinkAssemblyContext__AssemblyEventConnector != null;
+            return this.basicGetSinkAssemblyContext__AssemblyEventConnector() != null;
         case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ASSEMBLY_CONTEXT_ASSEMBLY_EVENT_CONNECTOR:
-            return this.sourceAssemblyContext__AssemblyEventConnector != null;
+            return this.basicGetSourceAssemblyContext__AssemblyEventConnector() != null;
         case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__FILTER_CONDITION_ASSEMBLY_EVENT_CONNECTOR:
-            return this.filterCondition__AssemblyEventConnector != null;
+            return this.getFilterCondition__AssemblyEventConnector() != null;
         }
         return super.eIsSet(featureID);
     }

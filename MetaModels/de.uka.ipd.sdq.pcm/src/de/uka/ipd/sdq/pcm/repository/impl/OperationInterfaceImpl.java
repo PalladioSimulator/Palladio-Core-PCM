@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.ocl.ParserException;
@@ -46,25 +45,14 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getSignatures__OperationInterface()
-     * <em>Signatures Operation Interface</em>}' containment reference list. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     *
-     * @see #getSignatures__OperationInterface()
-     * @generated
-     * @ordered
-     */
-    protected EList<OperationSignature> signatures__OperationInterface;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected OperationInterfaceImpl() {
@@ -73,7 +61,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -83,19 +71,15 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public EList<OperationSignature> getSignatures__OperationInterface() {
-        if (this.signatures__OperationInterface == null) {
-            this.signatures__OperationInterface = new EObjectContainmentWithInverseEList<OperationSignature>(
-                    OperationSignature.class, this,
-                    RepositoryPackage.OPERATION_INTERFACE__SIGNATURES_OPERATION_INTERFACE,
-                    RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE);
-        }
-        return this.signatures__OperationInterface;
+        return (EList<OperationSignature>) this.eDynamicGet(
+                RepositoryPackage.OPERATION_INTERFACE__SIGNATURES_OPERATION_INTERFACE,
+                RepositoryPackage.Literals.OPERATION_INTERFACE__SIGNATURES_OPERATION_INTERFACE, true, true);
     }
 
     /**
@@ -103,7 +87,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
      * {@link #SignaturesHaveToBeUniqueForAnInterface(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Signatures Have To Be Unique For An Interface</em>}' operation. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #SignaturesHaveToBeUniqueForAnInterface(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -139,7 +123,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -172,7 +156,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -189,7 +173,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -204,7 +188,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -218,7 +202,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -235,7 +219,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -250,7 +234,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -258,7 +242,7 @@ public class OperationInterfaceImpl extends InterfaceImpl implements OperationIn
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.OPERATION_INTERFACE__SIGNATURES_OPERATION_INTERFACE:
-            return this.signatures__OperationInterface != null && !this.signatures__OperationInterface.isEmpty();
+            return !this.getSignatures__OperationInterface().isEmpty();
         }
         return super.eIsSet(featureID);
     }

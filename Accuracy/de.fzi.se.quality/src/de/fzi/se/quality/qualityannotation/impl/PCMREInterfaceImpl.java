@@ -8,14 +8,10 @@ package de.fzi.se.quality.qualityannotation.impl;
 
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ocl.ParserException;
@@ -43,18 +39,8 @@ import de.uka.ipd.sdq.pcm.repository.OperationInterface;
 public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
-     * The cached value of the '{@link #getInterface() <em>Interface</em>}' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getInterface()
-     * @generated
-     * @ordered
-     */
-    protected OperationInterface interface_;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMREInterfaceImpl() {
@@ -63,7 +49,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -73,46 +59,34 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public OperationInterface getInterface() {
-        if (this.interface_ != null && ((EObject) this.interface_).eIsProxy()) {
-            final InternalEObject oldInterface = (InternalEObject) this.interface_;
-            this.interface_ = (OperationInterface) this.eResolveProxy(oldInterface);
-            if (this.interface_ != oldInterface) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            QualityAnnotationPackage.PCMRE_INTERFACE__INTERFACE, oldInterface, this.interface_));
-                }
-            }
-        }
-        return this.interface_;
+        return (OperationInterface) this.eDynamicGet(QualityAnnotationPackage.PCMRE_INTERFACE__INTERFACE,
+                QualityAnnotationPackage.Literals.PCMRE_INTERFACE__INTERFACE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationInterface basicGetInterface() {
-        return this.interface_;
+        return (OperationInterface) this.eDynamicGet(QualityAnnotationPackage.PCMRE_INTERFACE__INTERFACE,
+                QualityAnnotationPackage.Literals.PCMRE_INTERFACE__INTERFACE, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setInterface(final OperationInterface newInterface) {
-        final OperationInterface oldInterface = this.interface_;
-        this.interface_ = newInterface;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.PCMRE_INTERFACE__INTERFACE, oldInterface, this.interface_));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.PCMRE_INTERFACE__INTERFACE,
+                QualityAnnotationPackage.Literals.PCMRE_INTERFACE__INTERFACE, newInterface);
     }
 
     /**
@@ -120,7 +94,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
      * {@link #NextLowerLevelMustConsistOfTypePCMRERole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Level Must Consist Of Type PCMRE Role</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerLevelMustConsistOfTypePCMRERole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -142,7 +116,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -178,7 +152,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
      * {@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each RE Target Must Be Referenced Only From One RE</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -200,7 +174,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -233,7 +207,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -250,7 +224,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -265,7 +239,7 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -280,14 +254,14 @@ public class PCMREInterfaceImpl extends PCMREImpl implements PCMREInterface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityAnnotationPackage.PCMRE_INTERFACE__INTERFACE:
-            return this.interface_ != null;
+            return this.basicGetInterface() != null;
         }
         return super.eIsSet(featureID);
     }

@@ -2,11 +2,7 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
@@ -33,18 +29,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implements UsageScenarioMeasuringPoint {
 
     /**
-     * The cached value of the '{@link #getUsageScenario() <em>Usage Scenario</em>}' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getUsageScenario()
-     * @generated
-     * @ordered
-     */
-    protected UsageScenario usageScenario;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected UsageScenarioMeasuringPointImpl() {
@@ -53,7 +39,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -63,53 +49,41 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public UsageScenario getUsageScenario() {
-        if (this.usageScenario != null && ((EObject) this.usageScenario).eIsProxy()) {
-            final InternalEObject oldUsageScenario = (InternalEObject) this.usageScenario;
-            this.usageScenario = (UsageScenario) this.eResolveProxy(oldUsageScenario);
-            if (this.usageScenario != oldUsageScenario) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PcmmeasuringpointPackage.USAGE_SCENARIO_MEASURING_POINT__USAGE_SCENARIO, oldUsageScenario,
-                            this.usageScenario));
-                }
-            }
-        }
-        return this.usageScenario;
+        return (UsageScenario) this.eDynamicGet(
+                PcmmeasuringpointPackage.USAGE_SCENARIO_MEASURING_POINT__USAGE_SCENARIO,
+                PcmmeasuringpointPackage.Literals.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public UsageScenario basicGetUsageScenario() {
-        return this.usageScenario;
+        return (UsageScenario) this.eDynamicGet(
+                PcmmeasuringpointPackage.USAGE_SCENARIO_MEASURING_POINT__USAGE_SCENARIO,
+                PcmmeasuringpointPackage.Literals.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setUsageScenario(final UsageScenario newUsageScenario) {
-        final UsageScenario oldUsageScenario = this.usageScenario;
-        this.usageScenario = newUsageScenario;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.USAGE_SCENARIO_MEASURING_POINT__USAGE_SCENARIO, oldUsageScenario,
-                    this.usageScenario));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.USAGE_SCENARIO_MEASURING_POINT__USAGE_SCENARIO,
+                PcmmeasuringpointPackage.Literals.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO, newUsageScenario);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -126,7 +100,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -141,7 +115,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -156,21 +130,21 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case PcmmeasuringpointPackage.USAGE_SCENARIO_MEASURING_POINT__USAGE_SCENARIO:
-            return this.usageScenario != null;
+            return this.basicGetUsageScenario() != null;
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -188,7 +162,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -211,14 +185,14 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
      */
     @Override
     public String getStringRepresentation() {
-        if (this.usageScenario == null) {
+        if (this.getUsageScenario() == null) {
             return "";
         }
         EcoreUtil.resolveAll(this);
         final StringBuilder result = new StringBuilder();
 
         result.append("Usage Scenario: ");
-        result.append(this.usageScenario.getEntityName());
+        result.append(this.getUsageScenario().getEntityName());
 
         return result.toString();
     }
@@ -230,11 +204,11 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
      */
     @Override
     public String getResourceURIRepresentation() {
-        if (this.usageScenario == null) {
+        if (this.getUsageScenario() == null) {
             return "";
         }
         EcoreUtil.resolveAll(this);
-        return EMFLoadHelper.getResourceURI(this.usageScenario);
+        return EMFLoadHelper.getResourceURI(this.getUsageScenario());
     }
 
 } // UsageScenarioMeasuringPointImpl

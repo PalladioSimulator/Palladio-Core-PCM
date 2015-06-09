@@ -2,12 +2,9 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
@@ -45,7 +42,7 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
     /**
      * The default value of the '{@link #getStringRepresentation() <em>String Representation</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getStringRepresentation()
      * @generated
      * @ordered
@@ -64,18 +61,8 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
     protected static final String RESOURCE_URI_REPRESENTATION_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getSystem() <em>System</em>}' reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     *
-     * @see #getSystem()
-     * @generated
-     * @ordered
-     */
-    protected de.uka.ipd.sdq.pcm.system.System system;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SystemOperationMeasuringPointImpl() {
@@ -84,7 +71,7 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -94,20 +81,19 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public MeasuringPointRepository getMeasuringPointRepository() {
-        if (this.eContainerFeatureID() != PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY) {
-            return null;
-        }
-        return (MeasuringPointRepository) this.eInternalContainer();
+        return (MeasuringPointRepository) this.eDynamicGet(
+                PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY,
+                MeasuringpointPackage.Literals.MEASURING_POINT__MEASURING_POINT_REPOSITORY, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetMeasuringPointRepository(
@@ -119,34 +105,13 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setMeasuringPointRepository(final MeasuringPointRepository newMeasuringPointRepository) {
-        if (newMeasuringPointRepository != this.eInternalContainer()
-                || (this.eContainerFeatureID() != PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY && newMeasuringPointRepository != null)) {
-            if (EcoreUtil.isAncestor(this, newMeasuringPointRepository)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newMeasuringPointRepository != null) {
-                msgs = ((InternalEObject) newMeasuringPointRepository).eInverseAdd(this,
-                        MeasuringpointPackage.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                        MeasuringPointRepository.class, msgs);
-            }
-            msgs = this.basicSetMeasuringPointRepository(newMeasuringPointRepository, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY,
-                    newMeasuringPointRepository, newMeasuringPointRepository));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY,
+                MeasuringpointPackage.Literals.MEASURING_POINT__MEASURING_POINT_REPOSITORY, newMeasuringPointRepository);
     }
 
     /**
@@ -156,18 +121,18 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
      */
     @Override
     public String getStringRepresentation() {
-        if (this.system == null || this.role == null || this.operationSignature == null) {
+        if (this.getSystem() == null || this.getRole() == null || this.getOperationSignature() == null) {
             return "";
         }
         EcoreUtil.resolveAll(this);
 
         final StringBuilder result = new StringBuilder();
 
-        result.append(this.system.getEntityName());
+        result.append(this.getSystem().getEntityName());
         result.append(".");
-        result.append(this.role.getEntityName());
+        result.append(this.getRole().getEntityName());
         result.append(".");
-        result.append(this.operationSignature.getEntityName());
+        result.append(this.getOperationSignature().getEntityName());
 
         return result.toString();
     }
@@ -179,60 +144,50 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
      */
     @Override
     public String getResourceURIRepresentation() {
-        if (this.operationSignature == null) {
+        if (this.getOperationSignature() == null) {
             return "";
         }
         EcoreUtil.resolveAll(this);
-        return EMFLoadHelper.getResourceURI(this.operationSignature);
+        return EMFLoadHelper.getResourceURI(this.getOperationSignature());
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public de.uka.ipd.sdq.pcm.system.System getSystem() {
-        if (this.system != null && ((EObject) this.system).eIsProxy()) {
-            final InternalEObject oldSystem = (InternalEObject) this.system;
-            this.system = (de.uka.ipd.sdq.pcm.system.System) this.eResolveProxy(oldSystem);
-            if (this.system != oldSystem) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__SYSTEM, oldSystem, this.system));
-                }
-            }
-        }
-        return this.system;
+        return (de.uka.ipd.sdq.pcm.system.System) this.eDynamicGet(
+                PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__SYSTEM,
+                PcmmeasuringpointPackage.Literals.SYSTEM_REFERENCE__SYSTEM, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public de.uka.ipd.sdq.pcm.system.System basicGetSystem() {
-        return this.system;
+        return (de.uka.ipd.sdq.pcm.system.System) this.eDynamicGet(
+                PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__SYSTEM,
+                PcmmeasuringpointPackage.Literals.SYSTEM_REFERENCE__SYSTEM, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setSystem(final de.uka.ipd.sdq.pcm.system.System newSystem) {
-        final de.uka.ipd.sdq.pcm.system.System oldSystem = this.system;
-        this.system = newSystem;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__SYSTEM, oldSystem, this.system));
-        }
+        this.eDynamicSet(PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__SYSTEM,
+                PcmmeasuringpointPackage.Literals.SYSTEM_REFERENCE__SYSTEM, newSystem);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -249,7 +204,7 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -264,7 +219,7 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -280,7 +235,7 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -303,7 +258,7 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -321,7 +276,7 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -339,7 +294,7 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -354,14 +309,14 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
             return RESOURCE_URI_REPRESENTATION_EDEFAULT == null ? this.getResourceURIRepresentation() != null
                     : !RESOURCE_URI_REPRESENTATION_EDEFAULT.equals(this.getResourceURIRepresentation());
         case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__SYSTEM:
-            return this.system != null;
+            return this.basicGetSystem() != null;
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -391,7 +346,7 @@ public class SystemOperationMeasuringPointImpl extends OperationReferenceImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

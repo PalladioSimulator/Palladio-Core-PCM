@@ -8,14 +8,10 @@ package de.fzi.se.quality.qualityannotation.impl;
 
 import java.util.Map;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ocl.ParserException;
@@ -44,18 +40,8 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
 public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResourceInterface {
 
     /**
-     * The cached value of the '{@link #getResourceInterface() <em>Resource Interface</em>}'
-     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getResourceInterface()
-     * @generated
-     * @ordered
-     */
-    protected ResourceInterface resourceInterface;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMREResourceInterfaceImpl() {
@@ -64,7 +50,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -74,48 +60,36 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public ResourceInterface getResourceInterface() {
-        if (this.resourceInterface != null && ((EObject) this.resourceInterface).eIsProxy()) {
-            final InternalEObject oldResourceInterface = (InternalEObject) this.resourceInterface;
-            this.resourceInterface = (ResourceInterface) this.eResolveProxy(oldResourceInterface);
-            if (this.resourceInterface != oldResourceInterface) {
-                if (this.eNotificationRequired()) {
-                    this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-                            QualityAnnotationPackage.PCMRE_RESOURCE_INTERFACE__RESOURCE_INTERFACE,
-                            oldResourceInterface, this.resourceInterface));
-                }
-            }
-        }
-        return this.resourceInterface;
+        return (ResourceInterface) this.eDynamicGet(
+                QualityAnnotationPackage.PCMRE_RESOURCE_INTERFACE__RESOURCE_INTERFACE,
+                QualityAnnotationPackage.Literals.PCMRE_RESOURCE_INTERFACE__RESOURCE_INTERFACE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceInterface basicGetResourceInterface() {
-        return this.resourceInterface;
+        return (ResourceInterface) this.eDynamicGet(
+                QualityAnnotationPackage.PCMRE_RESOURCE_INTERFACE__RESOURCE_INTERFACE,
+                QualityAnnotationPackage.Literals.PCMRE_RESOURCE_INTERFACE__RESOURCE_INTERFACE, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setResourceInterface(final ResourceInterface newResourceInterface) {
-        final ResourceInterface oldResourceInterface = this.resourceInterface;
-        this.resourceInterface = newResourceInterface;
-        if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    QualityAnnotationPackage.PCMRE_RESOURCE_INTERFACE__RESOURCE_INTERFACE, oldResourceInterface,
-                    this.resourceInterface));
-        }
+        this.eDynamicSet(QualityAnnotationPackage.PCMRE_RESOURCE_INTERFACE__RESOURCE_INTERFACE,
+                QualityAnnotationPackage.Literals.PCMRE_RESOURCE_INTERFACE__RESOURCE_INTERFACE, newResourceInterface);
     }
 
     /**
@@ -135,7 +109,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
      * {@link #NextLowerLevelMustConsistOfTypePCMREResourceRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Next Lower Level Must Consist Of Type PCMRE Resource Role</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #NextLowerLevelMustConsistOfTypePCMREResourceRole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -145,7 +119,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -165,13 +139,13 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
                 NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_RESOURCE_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCMRE_RESOURCE_INTERFACE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_RESOURCE_ROLE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "NextLowerLevelMustConsistOfTypePCMREResourceRole",
-                                                EObjectValidator.getObjectLabel(this, context) }),
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMRE_RESOURCE_INTERFACE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_RESOURCE_ROLE,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "NextLowerLevelMustConsistOfTypePCMREResourceRole",
+                                EObjectValidator.getObjectLabel(this, context) }),
                                 new Object[] { this }));
             }
             return false;
@@ -184,7 +158,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
      * {@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each RE Target Must Be Referenced Only From One RE</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -206,7 +180,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -226,15 +200,15 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
                 .check(this)) {
             if (diagnostics != null) {
                 diagnostics
-                        .add(new BasicDiagnostic(
-                                Diagnostic.ERROR,
-                                QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-                                QualityAnnotationValidator.PCMRE_RESOURCE_INTERFACE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE,
-                                EcorePlugin.INSTANCE.getString(
-                                        "_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "EachRETargetMustBeReferencedOnlyFromOneRE",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .add(new BasicDiagnostic(
+                        Diagnostic.ERROR,
+                        QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+                        QualityAnnotationValidator.PCMRE_RESOURCE_INTERFACE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE,
+                        EcorePlugin.INSTANCE.getString(
+                                "_UI_GenericInvariant_diagnostic",
+                                new Object[] { "EachRETargetMustBeReferencedOnlyFromOneRE",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                                        new Object[] { this }));
             }
             return false;
         }
@@ -243,7 +217,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -260,7 +234,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -275,7 +249,7 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -290,14 +264,14 @@ public class PCMREResourceInterfaceImpl extends PCMREImpl implements PCMREResour
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case QualityAnnotationPackage.PCMRE_RESOURCE_INTERFACE__RESOURCE_INTERFACE:
-            return this.resourceInterface != null;
+            return this.basicGetResourceInterface() != null;
         }
         return super.eIsSet(featureID);
     }

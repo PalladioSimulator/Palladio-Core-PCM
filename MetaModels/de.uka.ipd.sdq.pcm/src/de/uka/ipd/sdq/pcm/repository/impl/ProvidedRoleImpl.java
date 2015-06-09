@@ -5,12 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
@@ -34,14 +31,14 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ProvidedRoleImpl() {
@@ -50,7 +47,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -60,20 +57,19 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public InterfaceProvidingEntity getProvidingEntity_ProvidedRole() {
-        if (this.eContainerFeatureID() != RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE) {
-            return null;
-        }
-        return (InterfaceProvidingEntity) this.eInternalContainer();
+        return (InterfaceProvidingEntity) this.eDynamicGet(
+                RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE,
+                RepositoryPackage.Literals.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetProvidingEntity_ProvidedRole(
@@ -85,39 +81,19 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setProvidingEntity_ProvidedRole(final InterfaceProvidingEntity newProvidingEntity_ProvidedRole) {
-        if (newProvidingEntity_ProvidedRole != this.eInternalContainer()
-                || (this.eContainerFeatureID() != RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE && newProvidingEntity_ProvidedRole != null)) {
-            if (EcoreUtil.isAncestor(this, newProvidingEntity_ProvidedRole)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newProvidingEntity_ProvidedRole != null) {
-                msgs = ((InternalEObject) newProvidingEntity_ProvidedRole).eInverseAdd(this,
-                        EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
-                        InterfaceProvidingEntity.class, msgs);
-            }
-            msgs = this.basicSetProvidingEntity_ProvidedRole(newProvidingEntity_ProvidedRole, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE, newProvidingEntity_ProvidedRole,
-                    newProvidingEntity_ProvidedRole));
-        }
+        this.eDynamicSet(RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE,
+                RepositoryPackage.Literals.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE,
+                newProvidingEntity_ProvidedRole);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -134,7 +110,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -149,7 +125,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -165,7 +141,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -179,7 +155,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -194,7 +170,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -209,7 +185,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

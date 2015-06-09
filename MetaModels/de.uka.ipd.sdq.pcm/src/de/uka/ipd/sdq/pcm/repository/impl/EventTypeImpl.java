@@ -5,12 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.repository.EventGroup;
 import de.uka.ipd.sdq.pcm.repository.EventType;
@@ -36,24 +33,14 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getParameter__EventType() <em>Parameter Event Type</em>}'
-     * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @see #getParameter__EventType()
-     * @generated
-     * @ordered
-     */
-    protected Parameter parameter__EventType;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EventTypeImpl() {
@@ -62,7 +49,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -72,20 +59,18 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public EventGroup getEventGroup__EventType() {
-        if (this.eContainerFeatureID() != RepositoryPackage.EVENT_TYPE__EVENT_GROUP_EVENT_TYPE) {
-            return null;
-        }
-        return (EventGroup) this.eInternalContainer();
+        return (EventGroup) this.eDynamicGet(RepositoryPackage.EVENT_TYPE__EVENT_GROUP_EVENT_TYPE,
+                RepositoryPackage.Literals.EVENT_TYPE__EVENT_GROUP_EVENT_TYPE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetEventGroup__EventType(final EventGroup newEventGroup__EventType,
@@ -97,106 +82,61 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setEventGroup__EventType(final EventGroup newEventGroup__EventType) {
-        if (newEventGroup__EventType != this.eInternalContainer()
-                || (this.eContainerFeatureID() != RepositoryPackage.EVENT_TYPE__EVENT_GROUP_EVENT_TYPE && newEventGroup__EventType != null)) {
-            if (EcoreUtil.isAncestor(this, newEventGroup__EventType)) {
-                throw new IllegalArgumentException("Recursive containment not allowed for " + this.toString());
-            }
-            NotificationChain msgs = null;
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            if (newEventGroup__EventType != null) {
-                msgs = ((InternalEObject) newEventGroup__EventType).eInverseAdd(this,
-                        RepositoryPackage.EVENT_GROUP__EVENT_TYPES_EVENT_GROUP, EventGroup.class, msgs);
-            }
-            msgs = this.basicSetEventGroup__EventType(newEventGroup__EventType, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.EVENT_TYPE__EVENT_GROUP_EVENT_TYPE, newEventGroup__EventType,
-                    newEventGroup__EventType));
-        }
+        this.eDynamicSet(RepositoryPackage.EVENT_TYPE__EVENT_GROUP_EVENT_TYPE,
+                RepositoryPackage.Literals.EVENT_TYPE__EVENT_GROUP_EVENT_TYPE, newEventGroup__EventType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Parameter getParameter__EventType() {
-        return this.parameter__EventType;
+        return (Parameter) this.eDynamicGet(RepositoryPackage.EVENT_TYPE__PARAMETER_EVENT_TYPE,
+                RepositoryPackage.Literals.EVENT_TYPE__PARAMETER_EVENT_TYPE, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParameter__EventType(final Parameter newParameter__EventType,
             NotificationChain msgs) {
-        final Parameter oldParameter__EventType = this.parameter__EventType;
-        this.parameter__EventType = newParameter__EventType;
-        if (this.eNotificationRequired()) {
-            final ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.EVENT_TYPE__PARAMETER_EVENT_TYPE, oldParameter__EventType,
-                    newParameter__EventType);
-            if (msgs == null) {
-                msgs = notification;
-            } else {
-                msgs.add(notification);
-            }
-        }
+        msgs = this.eDynamicInverseAdd((InternalEObject) newParameter__EventType,
+                RepositoryPackage.EVENT_TYPE__PARAMETER_EVENT_TYPE, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void setParameter__EventType(final Parameter newParameter__EventType) {
-        if (newParameter__EventType != this.parameter__EventType) {
-            NotificationChain msgs = null;
-            if (this.parameter__EventType != null) {
-                msgs = ((InternalEObject) this.parameter__EventType).eInverseRemove(this,
-                        RepositoryPackage.PARAMETER__EVENT_TYPE_PARAMETER, Parameter.class, msgs);
-            }
-            if (newParameter__EventType != null) {
-                msgs = ((InternalEObject) newParameter__EventType).eInverseAdd(this,
-                        RepositoryPackage.PARAMETER__EVENT_TYPE_PARAMETER, Parameter.class, msgs);
-            }
-            msgs = this.basicSetParameter__EventType(newParameter__EventType, msgs);
-            if (msgs != null) {
-                msgs.dispatch();
-            }
-        } else if (this.eNotificationRequired()) {
-            this.eNotify(new ENotificationImpl(this, Notification.SET,
-                    RepositoryPackage.EVENT_TYPE__PARAMETER_EVENT_TYPE, newParameter__EventType,
-                    newParameter__EventType));
-        }
+        this.eDynamicSet(RepositoryPackage.EVENT_TYPE__PARAMETER_EVENT_TYPE,
+                RepositoryPackage.Literals.EVENT_TYPE__PARAMETER_EVENT_TYPE, newParameter__EventType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.EVENT_TYPE__PARAMETER_EVENT_TYPE:
-            if (this.parameter__EventType != null) {
-                msgs = ((InternalEObject) this.parameter__EventType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+            final Parameter parameter__EventType = this.getParameter__EventType();
+            if (parameter__EventType != null) {
+                msgs = ((InternalEObject) parameter__EventType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
                         - RepositoryPackage.EVENT_TYPE__PARAMETER_EVENT_TYPE, null, msgs);
             }
             return this.basicSetParameter__EventType((Parameter) otherEnd, msgs);
@@ -211,7 +151,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -228,7 +168,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -243,7 +183,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -259,7 +199,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -277,7 +217,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -295,14 +235,14 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case RepositoryPackage.EVENT_TYPE__PARAMETER_EVENT_TYPE:
-            return this.parameter__EventType != null;
+            return this.getParameter__EventType() != null;
         case RepositoryPackage.EVENT_TYPE__EVENT_GROUP_EVENT_TYPE:
             return this.getEventGroup__EventType() != null;
         }
