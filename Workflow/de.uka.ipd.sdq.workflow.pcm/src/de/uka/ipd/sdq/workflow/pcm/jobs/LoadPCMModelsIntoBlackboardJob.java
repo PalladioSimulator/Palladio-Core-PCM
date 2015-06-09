@@ -24,28 +24,15 @@ public class LoadPCMModelsIntoBlackboardJob extends SequentialBlackboardInteract
     public static final String PCM_MODELS_PARTITION_ID = "de.uka.ipd.sdq.pcmmodels.partition";
 
     /**
-     * ID of the blackboard partition containing the fully loaded parametric middleware completions.
-     * The blackboard partition is ensured to be of type {@link PCMResourceSetPartition}
-     */
-    public static final String RMI_MIDDLEWARE_PARTITION_ID = "de.uka.ipd.sdq.pcmmodels.partition.rmimiddleware";
-
-    /**
-     * ID of the blackboard partition containing the fully loaded parametric event middleware
-     * completions. The blackboard partition is ensured to be of type
-     * {@link PCMResourceSetPartition}
-     */
-    public static final String EVENT_MIDDLEWARE_PARTITION_ID = "de.uka.ipd.sdq.pcmmodels.partition.eventmiddleware";
-
-    /**
      * Constructor of the PCM loader job
      * 
      * @param config
      *            A PCM workflow configuration containing the list of URIs where to find the PCM
      *            model files
      */
-    public LoadPCMModelsIntoBlackboardJob(AbstractPCMWorkflowRunConfiguration config) {
+    public LoadPCMModelsIntoBlackboardJob(final AbstractPCMWorkflowRunConfiguration config) {
         super(false);
-        this.add(new PreparePCMBlackboardPartionJob());
+        this.add(new PreparePCMBlackboardPartitionJob());
         this.add(new LoadPCMModelsJob(config));
     }
 }

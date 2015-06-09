@@ -14,65 +14,60 @@ import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
 
-/**Loads the PCM models given in the configuration into a MDSD blackboard and store the models in a temporary eclipse project.
- * The temporary storage allows to transform and modify input PCM models without a modification of the source models and
- * can be accessed after the analysis to check the model used in the analysis.
+/**
+ * Loads the PCM models given in the configuration into a MDSD blackboard and store the models in a
+ * temporary eclipse project. The temporary storage allows to transform and modify input PCM models
+ * without a modification of the source models and can be accessed after the analysis to check the
+ * model used in the analysis.
+ * 
  * @author groenda
  *
  */
-public class LoadPCMModelsJob extends SequentialBlackboardInteractingJob<MDSDBlackboard>
-implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
-	private static final Logger LOGGER = Logger.getLogger(LoadPCMModelsJob.class);
-	private MDSDBlackboard blackboard;
-	private AbstractPCMWorkflowRunConfiguration configuration = null;
+public class LoadPCMModelsJob extends SequentialBlackboardInteractingJob<MDSDBlackboard> implements IJob,
+        IBlackboardInteractingJob<MDSDBlackboard> {
 
-	public LoadPCMModelsJob(AbstractPCMWorkflowRunConfiguration configuration) {
-		super(false);
-		this.configuration = configuration;
-	}
+    private static final Logger LOGGER = Logger.getLogger(LoadPCMModelsJob.class);
+    private MDSDBlackboard blackboard;
+    private AbstractPCMWorkflowRunConfiguration configuration = null;
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.workflow.IBlackboardInteractingJob#setBlackboard(de.uka.ipd.sdq.workflow.Blackboard)
-	 */
-	public void setBlackboard(MDSDBlackboard blackboard) {
-		this.blackboard = blackboard;
-	}
+    public LoadPCMModelsJob(final AbstractPCMWorkflowRunConfiguration configuration) {
+        super(false);
+        this.configuration = configuration;
+    }
 
-	@Override
-	public void execute(IProgressMonitor monitor) throws JobFailedException,
-			UserCanceledException {
-		ResourceSetPartition pcmPartition = this.blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
-		ResourceSetPartition rmiMiddlewarePartition = this.blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.RMI_MIDDLEWARE_PARTITION_ID);
-		ResourceSetPartition eventMiddlewarePartition = this.blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.EVENT_MIDDLEWARE_PARTITION_ID);
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.workflow.IBlackboardInteractingJob#setBlackboard(de.uka.ipd.sdq.workflow.
+     * Blackboard)
+     */
+    @Override
+    public void setBlackboard(final MDSDBlackboard blackboard) {
+        this.blackboard = blackboard;
+    }
 
-		// Load the PCM model itself
-		if(LOGGER.isEnabledFor(Level.INFO))
-			LOGGER.info("Loading PCM models");
-		for (String modelFile : configuration.getPCMModelFiles()) {
-			pcmPartition.loadModel(modelFile);
-		}
-		pcmPartition.resolveAllProxies();
+    @Override
+    public void execute(final IProgressMonitor monitor) throws JobFailedException, UserCanceledException {
+        final ResourceSetPartition pcmPartition = this.blackboard
+                .getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
 
-		// load the RMI middleware repository
-		if(LOGGER.isEnabledFor(Level.INFO))
-			LOGGER.info("Loading middleware completion models");
-		rmiMiddlewarePartition.loadModel(configuration.getRMIMiddlewareFile());
-		rmiMiddlewarePartition.resolveAllProxies();
+        // Load the PCM model itself
+        if (LOGGER.isEnabledFor(Level.INFO))
+            LOGGER.info("Loading PCM models");
+        for (final String modelFile : this.configuration.getPCMModelFiles()) {
+            pcmPartition.loadModel(modelFile);
+        }
+        pcmPartition.loadModel(this.configuration.getRMIMiddlewareFile());
+        pcmPartition.loadModel(this.configuration.getEventMiddlewareFile());
+        pcmPartition.resolveAllProxies();
+    }
 
-		// load the event middleware repository
-		if(LOGGER.isEnabledFor(Level.INFO))
-			LOGGER.info("Loading event middleware models");
-		eventMiddlewarePartition.loadModel(configuration.getEventMiddlewareFile());
-		eventMiddlewarePartition.resolveAllProxies();
-	}
+    @Override
+    public String getName() {
+        return "Perform PCM Model Load";
+    }
 
-	@Override
-	public String getName() {
-		return "Perform PCM Model Load";
-	}
-
-	@Override
-	public void cleanup(IProgressMonitor monitor)
-			throws CleanupFailedException {
-	}
+    @Override
+    public void cleanup(final IProgressMonitor monitor) throws CleanupFailedException {
+    }
 }
