@@ -21,7 +21,7 @@ public class LoadPCMModelsIntoBlackboardJob extends SequentialBlackboardInteract
      * ID of the blackboard partition containing the fully loaded PCM instance. The blackboard
      * partition is ensured to be of type {@link PCMResourceSetPartition}
      */
-    public static final String PCM_MODELS_PARTITION_ID = "de.uka.ipd.sdq.pcmmodels.partition";
+    public static final String PCM_MODELS_PARTITION_ID = "org.palladiosimulator.pcmmodels.partition";
 
     /**
      * Constructor of the PCM loader job
