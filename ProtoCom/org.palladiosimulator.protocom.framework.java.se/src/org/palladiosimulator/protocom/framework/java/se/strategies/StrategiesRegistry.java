@@ -9,13 +9,14 @@ import org.palladiosimulator.protocom.resourcestrategies.activeresource.cpu.Fibo
 
 public class StrategiesRegistry {
 
-    private HashMap<ResourceTypeEnum, IDemandStrategy> strategiesHash = new HashMap<ResourceTypeEnum, IDemandStrategy>();
+    private final HashMap<ResourceTypeEnum, IDemandStrategy> strategiesHash = new HashMap<ResourceTypeEnum, IDemandStrategy>();
     private static StrategiesRegistry singletonInstance = new StrategiesRegistry();
 
     private StrategiesRegistry() {
-        IDemandStrategy strat = new FibonacciDemand();
+        final IDemandStrategy strat = new FibonacciDemand();
         // TODO: inject the real processing rate
         strat.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, 1);
+        strat.calibrate();
         registerStrategyFor(ResourceTypeEnum.CPU, strat);
 
     }
@@ -24,13 +25,13 @@ public class StrategiesRegistry {
         return singletonInstance;
     }
 
-    public void registerStrategyFor(ResourceTypeEnum resourceType, IDemandStrategy strategy) {
-        strategiesHash.put(resourceType, strategy);
+    public void registerStrategyFor(final ResourceTypeEnum resourceType, final IDemandStrategy strategy) {
+        this.strategiesHash.put(resourceType, strategy);
     }
 
-    public IDemandStrategy getStrategyFor(ResourceTypeEnum resource) {
-        assert strategiesHash.containsKey(resource);
+    public IDemandStrategy getStrategyFor(final ResourceTypeEnum resource) {
+        assert this.strategiesHash.containsKey(resource);
 
-        return strategiesHash.get(resource);
+        return this.strategiesHash.get(resource);
     }
 }

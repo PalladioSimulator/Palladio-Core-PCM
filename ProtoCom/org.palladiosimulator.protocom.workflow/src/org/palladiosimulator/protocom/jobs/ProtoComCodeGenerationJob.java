@@ -18,11 +18,11 @@ import de.uka.ipd.sdq.workflow.pcm.jobs.ValidatePCMModelsJob;
 public class ProtoComCodeGenerationJob extends SequentialBlackboardInteractingJob<MDSDBlackboard> implements
         IBlackboardInteractingJob<MDSDBlackboard> {
 
-    public ProtoComCodeGenerationJob(ProtoComGenerationConfiguration configuration) throws CoreException {
+    public ProtoComCodeGenerationJob(final ProtoComGenerationConfiguration configuration) throws CoreException {
         this(configuration, null);
     }
 
-    public ProtoComCodeGenerationJob(ProtoComGenerationConfiguration configuration, IDebugListener listener)
+    public ProtoComCodeGenerationJob(final ProtoComGenerationConfiguration configuration, final IDebugListener listener)
             throws CoreException {
         super(false);
 
@@ -36,21 +36,7 @@ public class ProtoComCodeGenerationJob extends SequentialBlackboardInteractingJo
         // 2. Validate PCM models in memory
         this.addJob(new ValidatePCMModelsJob(configuration));
 
-        // TODO Daria: Remove the following job and integrate project creation into transformation
-        // Create empty project
-        // this.add(new CreatePluginProjectJob(configuration));
-
         // 3. Generate code into projects using Xtend
         this.addJob(new TransformPCMToCodeXtendJob(configuration));
-
-        // TODO Daria: Remove step 4, delete CreateProtoComMetaDataFilesJob, and integrate manifest
-        // generation into transformation
-        // 4. Generate MANIFEST.MF file
-        // this.addJob(new CreateProtoComMetaDataFilesJob(configuration));
-
-        // TODO Check the role of the following step once Daria's tasks are done
-        // 5. Compile the plugin (otherwise the source files are not properly found)
-        // this.addJob(new CompilePluginCodeJob(configuration));
-
     }
 }
