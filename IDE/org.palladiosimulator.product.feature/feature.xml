@@ -21,4 +21,8 @@
          id="de.uka.ipd.sdq.pcm.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.eclipse.epp.package.modeling.feature"
+         version="0.0.0"/>
+
 </feature>
