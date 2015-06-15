@@ -2,7 +2,7 @@
 <feature
       id="de.uka.ipd.sdq.pcm.feature"
       label="Palladio Component Model Feature"
-      version="3.6.0.qualifier"
+      version="4.0.0.qualifier"
       provider-name="sdq.ipd.uka.de"
       plugin="de.uka.ipd.sdq.branding">
 
@@ -108,7 +108,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
    </license>
 
    <url>
-      <update label="Palladio Component Model Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
+      <update label="Palladio Component Model Update Site" url="http://www.palladio-simulator.com/"/>
    </url>
 
    <requires>
