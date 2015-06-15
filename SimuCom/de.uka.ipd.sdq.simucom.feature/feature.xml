@@ -2,7 +2,7 @@
 <feature
       id="de.uka.ipd.sdq.simucom.feature"
       label="SimuCom CBSE Simulation"
-      version="3.5.0.qualifier"
+      version="4.0.0.qualifier"
       provider-name="sdq.ipd.kit.edu"
       plugin="de.uka.ipd.sdq.branding">
 
@@ -217,7 +217,7 @@ litigation.
    </license>
 
    <url>
-      <update label="Palladio Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
+      <update label="Palladio Update Site" url="https://sdqweb.ipd.kit.edu/eclipse/palladio/releases/current/"/>
       <discovery label="ProbeFramework Update Site" url="http://sdqweb.ipd.kit.edu/eclipse/probeframework/nightly/"/>
       <discovery label="EDP2 Update Site" url="http://sdqweb.ipd.kit.edu/eclipse/edp2/nightly/"/>
       <discovery label="RecorderFramework Update Site" url="http://sdqweb.ipd.kit.edu/eclipse/recorderframework/nightly/"/>
