@@ -172,21 +172,21 @@ This Agreement is governed by the laws of the State of New York and the intellec
          id="de.uka.ipd.sdq.pcm"
          download-size="0"
          install-size="0"
-         version="3.6.0.qualifier"
+         version="4.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="de.uka.ipd.sdq.pcm.edit"
          download-size="0"
          install-size="0"
-         version="3.6.0.qualifier"
+         version="4.0.0.qualifier"
          unpack="false"/>
 
    <plugin
          id="de.uka.ipd.sdq.pcm.editor"
          download-size="0"
          install-size="0"
-         version="3.6.0.qualifier"
+         version="4.0.0.qualifier"
          unpack="false"/>
 
    <plugin
