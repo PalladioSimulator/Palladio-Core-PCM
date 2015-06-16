@@ -3,8 +3,8 @@
       id="de.uka.ipd.sdq.simucom.feature"
       label="SimuCom CBSE Simulation"
       version="4.0.0.qualifier"
-      provider-name="sdq.ipd.kit.edu"
-      plugin="de.uka.ipd.sdq.branding">
+      provider-name="palladiosimulator.org"
+      plugin="org.palladiosimulator.branding">
 
    <description url="http://sdq.ipd.kit.edu">
       Simulation framework for PCM instances. Uses Model-2-Text transformation
@@ -365,7 +365,7 @@ litigation.
          unpack="false"/>
 
    <plugin
-         id="de.uka.ipd.sdq.branding"
+         id="org.palladiosimulator.branding"
          download-size="0"
          install-size="0"
          version="0.0.0"

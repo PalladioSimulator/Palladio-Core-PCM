@@ -3,8 +3,8 @@
       id="de.uka.ipd.sdq.reliability.feature"
       label="PCM Reliablity Solver Feature"
       version="3.5.0.qualifier"
-      provider-name="sdq.ipd.kit.edu"
-      plugin="de.uka.ipd.sdq.branding">
+      provider-name="palladiosimulator.org"
+      plugin="org.palladiosimulator.branding">
 
    <description url="http://sdq.ipd.kit.edu">
       Contains the implementation of reliability modelling and prediction
@@ -220,7 +220,7 @@ litigation.
    </url>
 
    <plugin
-         id="de.uka.ipd.sdq.branding"
+         id="org.palladiosimulator.branding"
          download-size="0"
          install-size="0"
          version="0.0.0"

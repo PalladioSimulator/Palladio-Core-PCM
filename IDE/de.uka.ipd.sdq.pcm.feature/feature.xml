@@ -4,7 +4,7 @@
       label="Palladio Component Model Feature"
       version="4.0.0.qualifier"
       provider-name="sdq.ipd.uka.de"
-      plugin="de.uka.ipd.sdq.branding">
+      plugin="org.palladiosimulator.branding">
 
    <description url="http://sdq.ipd.kit.edu">
       This feature installed the Palladio Component Model based on
@@ -224,7 +224,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
          unpack="false"/>
 
    <plugin
-         id="de.uka.ipd.sdq.branding"
+         id="org.palladiosimulator.branding"
          download-size="0"
          install-size="0"
          version="0.0.0"
