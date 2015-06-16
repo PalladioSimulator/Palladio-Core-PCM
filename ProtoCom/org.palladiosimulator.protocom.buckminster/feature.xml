@@ -7,12 +7,12 @@
 
    <url>
       <discovery label="Palladio" url="https://sdqweb.ipd.kit.edu/eclipse/palladio/nightly"/>
-      <discovery label="Palladio Third Party Wrapper" url="http://sdqweb.ipd.kit.edu/eclipse/thirdpartywrapper/nightly/"/>
-      <discovery label="Palladio Commons" url="http://sdqweb.ipd.kit.edu/eclipse/commons/nightly/"/>
-      <discovery label="EDP2 Update Site" url="http://sdqweb.ipd.kit.edu/eclipse/edp2/nightly/"/>
-      <discovery label="Measurement Framework Update Site" url="http://sdqweb.ipd.kit.edu/eclipse/measurementframework/nightly/"/>
-      <discovery label="Metric Specification Framework" url="http://sdqweb.ipd.kit.edu/eclipse/metricspec/nightly/"/>
-      <discovery label="Palladio Workflow Engine" url="http://sdqweb.ipd.kit.edu/eclipse/workflowengine/nightly"/>
+      <discovery label="Palladio Third Party Wrapper" url="https://sdqweb.ipd.kit.edu/eclipse/thirdpartywrapper/nightly/"/>
+      <discovery label="Palladio Commons" url="https://sdqweb.ipd.kit.edu/eclipse/commons/nightly/"/>
+      <discovery label="EDP2 Update Site" url="https://sdqweb.ipd.kit.edu/eclipse/edp2/nightly/"/>
+      <discovery label="Measurement Framework Update Site" url="https://sdqweb.ipd.kit.edu/eclipse/measurementframework/nightly/"/>
+      <discovery label="Metric Specification Framework" url="https://sdqweb.ipd.kit.edu/eclipse/metricspec/nightly/"/>
+      <discovery label="Palladio Workflow Engine" url="https://sdqweb.ipd.kit.edu/eclipse/workflowengine/nightly"/>
       <discovery label="Eclipse Release" url="http://download.eclipse.org/releases/luna/"/>
       <discovery label="Eclipse Orbit" url="http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/"/>
    </url>

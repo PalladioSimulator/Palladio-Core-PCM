@@ -218,9 +218,9 @@ litigation.
 
    <url>
       <update label="Palladio Update Site" url="https://sdqweb.ipd.kit.edu/eclipse/palladio/releases/current/"/>
-      <discovery label="ProbeFramework Update Site" url="http://sdqweb.ipd.kit.edu/eclipse/probeframework/nightly/"/>
-      <discovery label="EDP2 Update Site" url="http://sdqweb.ipd.kit.edu/eclipse/edp2/nightly/"/>
-      <discovery label="RecorderFramework Update Site" url="http://sdqweb.ipd.kit.edu/eclipse/recorderframework/nightly/"/>
+      <discovery label="ProbeFramework Update Site" url="https://sdqweb.ipd.kit.edu/eclipse/probeframework/nightly/"/>
+      <discovery label="EDP2 Update Site" url="https://sdqweb.ipd.kit.edu/eclipse/edp2/nightly/"/>
+      <discovery label="RecorderFramework Update Site" url="https://sdqweb.ipd.kit.edu/eclipse/recorderframework/nightly/"/>
    </url>
 
    <requires>
