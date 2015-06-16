@@ -14,12 +14,6 @@ EMF. With this feature it is possible to model, persist and visualize
 instances of the Palladio Component Model. A basic graphical
 Service Effect Editor is also provided.
    </description>
-
-   <copyright>
-      This plugin is protected by copyright held by the members of
-the Palladio Research Group, University of Karlsruhe.
-   </copyright>
-
    
    <url>
       <update label="Palladio Component Model Update Site" url="http://www.palladio-simulator.com/"/>

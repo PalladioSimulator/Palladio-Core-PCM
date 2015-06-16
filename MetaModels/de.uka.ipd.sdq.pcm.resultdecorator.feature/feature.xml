@@ -10,12 +10,6 @@
    <description url="http://sdq.ipd.kit.edu">
       PCM Result Decorator Feature
    </description>
-
-   <copyright>
-      This plugin is protected by copyright held by the members of
-the Palladio Research Group, University of Karlsruhe.
-   </copyright>
-
    
    <requires>
       <import plugin="org.eclipse.core.runtime"/>

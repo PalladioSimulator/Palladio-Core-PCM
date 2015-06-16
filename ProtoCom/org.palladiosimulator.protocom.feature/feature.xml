@@ -7,16 +7,10 @@
       license-feature="org.palladiosimulator.license"
       license-feature-version="1.0.0">
 
-   <description url="http://palladiosimulator.org">
+   <description url="https://sdqweb.ipd.kit.edu/wiki/ProtoCom">
       Code generator for PCM models for QoS performance prototypes
 or code stubs for Java SE (RMI) implementations.
    </description>
-
-   <copyright>
-      This plugin is protected by copyright held by the members of
-the Palladio Research Group, University of Karlsruhe.
-   </copyright>
-
    
    <requires>
       <import plugin="org.eclipse.ui"/>

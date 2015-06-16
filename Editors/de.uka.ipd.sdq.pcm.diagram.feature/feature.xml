@@ -14,12 +14,6 @@ Component Model. This allows to model component model instances
 graphically.
    </description>
 
-   <copyright>
-      This plugin is protected by copyright held by the members of
-the Palladio Research Group, University of Karlsruhe.
-   </copyright>
-
-   
    <url>
       <update label="Palladio Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
    </url>

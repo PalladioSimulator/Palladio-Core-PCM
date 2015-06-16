@@ -11,7 +11,6 @@
 PCM Core build.
    </description>
 
-   
    <url>
       <discovery label="Palladio Commons" url="https://sdqweb.ipd.kit.edu/eclipse/commons/nightly/"/>
       <discovery label="MDSD Profiles" url="https://sdqweb.ipd.kit.edu/eclipse/mdsdprofiles/nightly"/>
