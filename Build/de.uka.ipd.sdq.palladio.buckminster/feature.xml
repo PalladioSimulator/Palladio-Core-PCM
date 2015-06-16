@@ -59,42 +59,6 @@ PCM Core build.
          id="de.uka.ipd.sdq.simucom.feature"
          version="0.0.0"/>
 
-   <includes
-         id="org.palladiosimulator.edp2.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.palladiosimulator.commons.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.palladiosimulator.metricspec.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.palladiosimulator.measurementframework.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.palladiosimulator.recorderframework.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uka.ipd.sdq.sensorframework.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uka.ipd.sdq.sensorframework.visualisation.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.palladiosimulator.edp2.ui.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.palladiosimulator.mdsdprofiles.feature"
-         version="0.0.0"/>
-
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="de.uka.ipd.sdq.pcm.stochasticexpressions"/>
