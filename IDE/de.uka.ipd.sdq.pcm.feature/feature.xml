@@ -6,7 +6,7 @@
       provider-name="sdq.ipd.uka.de"
       plugin="org.palladiosimulator.branding"
       license-feature="org.palladiosimulator.license"
-      license-feature-version="1.0.0.qualifier">
+      license-feature-version="1.0.0">
 
    <description url="http://sdq.ipd.kit.edu">
       This feature installed the Palladio Component Model based on

@@ -6,7 +6,7 @@
       provider-name="palladiosimulator.org"
       plugin="org.palladiosimulator.branding"
       license-feature="org.palladiosimulator.license"
-      license-feature-version="1.0.0.qualifier">
+      license-feature-version="1.0.0">
 
    <description url="http://sdq.ipd.kit.edu">
       Simulation framework for PCM instances. Uses Model-2-Text transformation
