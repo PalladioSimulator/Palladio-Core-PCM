@@ -2,13 +2,16 @@
 <feature
       id="de.uka.ipd.sdq.palladio.buckminster"
       label="PCM Core - Buckminster Feature"
-      version="1.0.0">
+      version="1.0.0"
+      license-feature="org.palladiosimulator.license"
+      license-feature-version="1.0.0.qualifier">
 
    <description url="https://palladiosimulator.org">
       This feature contains the buckminster build structure for the
 PCM Core build.
    </description>
 
+   
    <url>
       <discovery label="Palladio Commons" url="https://sdqweb.ipd.kit.edu/eclipse/commons/nightly/"/>
       <discovery label="MDSD Profiles" url="https://sdqweb.ipd.kit.edu/eclipse/mdsdprofiles/nightly"/>
