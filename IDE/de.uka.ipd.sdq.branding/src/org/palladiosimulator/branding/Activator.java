@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.branding;
+package org.palladiosimulator.branding;
 
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
@@ -9,7 +9,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends Plugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "de.uka.ipd.sdq.branding";
+	public static final String PLUGIN_ID = "org.palladiosimulator.branding";
 
 	// The shared instance
 	private static Activator plugin;
