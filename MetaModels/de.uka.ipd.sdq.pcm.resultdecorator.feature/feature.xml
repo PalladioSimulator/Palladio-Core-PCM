@@ -3,7 +3,6 @@
       id="de.uka.ipd.sdq.pcm.resultdecorator.feature"
       label="Resultdecorator Feature"
       version="4.0.0.qualifier"
-      provider-name="palladiosimulator.org"
       license-feature="org.palladiosimulator.license"
       license-feature-version="1.0.0">
 

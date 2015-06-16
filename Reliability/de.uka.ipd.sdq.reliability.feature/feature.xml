@@ -3,7 +3,6 @@
       id="de.uka.ipd.sdq.reliability.feature"
       label="PCM Reliablity Solver Feature"
       version="3.5.0.qualifier"
-      provider-name="palladiosimulator.org"
       plugin="org.palladiosimulator.branding"
       license-feature="org.palladiosimulator.license"
       license-feature-version="1.0.0">

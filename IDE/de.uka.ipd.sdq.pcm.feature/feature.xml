@@ -3,7 +3,6 @@
       id="de.uka.ipd.sdq.pcm.feature"
       label="Palladio Component Model Feature"
       version="4.0.0.qualifier"
-      provider-name="sdq.ipd.uka.de"
       plugin="org.palladiosimulator.branding"
       license-feature="org.palladiosimulator.license"
       license-feature-version="1.0.0">
