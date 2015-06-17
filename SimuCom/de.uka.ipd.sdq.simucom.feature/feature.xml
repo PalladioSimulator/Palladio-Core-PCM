@@ -12,13 +12,6 @@
 to generate a plugin which is executed directly using OSGi dynamic
 loader.
    </description>
-   
-   <url>
-      <update label="Palladio Update Site" url="https://sdqweb.ipd.kit.edu/eclipse/palladio/releases/current/"/>
-      <discovery label="ProbeFramework Update Site" url="https://sdqweb.ipd.kit.edu/eclipse/probeframework/nightly/"/>
-      <discovery label="EDP2 Update Site" url="https://sdqweb.ipd.kit.edu/eclipse/edp2/nightly/"/>
-      <discovery label="RecorderFramework Update Site" url="https://sdqweb.ipd.kit.edu/eclipse/recorderframework/nightly/"/>
-   </url>
 
    <requires>
       <import plugin="de.uka.ipd.sdq.identifier" version="2.0.0" match="greaterOrEqual"/>
