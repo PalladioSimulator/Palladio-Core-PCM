@@ -2,7 +2,7 @@
 <feature
       id="de.uka.ipd.sdq.pcmsolver.feature"
       label="PCM Solver Feature"
-      version="3.5.0.qualifier"
+      version="4.0.0.qualifier"
       plugin="org.palladiosimulator.branding"
       license-feature="org.palladiosimulator.license"
       license-feature-version="1.0.0">
@@ -11,7 +11,7 @@
       Contains the contexts and the solver generated when solving usage
 dependencies.
    </description>
-   
+
    <url>
       <update label="Palladio Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
    </url>
