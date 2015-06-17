@@ -4,6 +4,7 @@
   <rm:locator searchPathRef="localresources" failOnError="false"/>
 
   <rm:locator pattern="^org\.palladiosimulator\.mdsdprofiles.*" searchPathRef="MDSDProfiles" failOnError="false"/>
+  <rm:locator pattern="^org\.modelversioning\.emfprofile.*" searchPathRef="MDSDProfiles" failOnError="false"/>
   <rm:locator pattern="^de\.uka\.ipd\.sdq\..*" searchPathRef="FeatureModel" failOnError="false"/>
   <rm:locator pattern="^de\.uka\.ipd\.sdq\..*" searchPathRef="WorkflowEngine" failOnError="false"/>
   <rm:locator searchPathRef="PalladioCoreSimucom" failOnError="false"/>
