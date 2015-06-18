@@ -39,7 +39,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
     private static final String FEATURE_OPTIONS_TAB_IMAGE_PATH = "icons/feature_tab.gif";
 
     private static final String TITLE_FEATURE_CONFIG_SECTION = "PCM2EJB Feature Configuration File";
-    private static final String LABEL_SIMULATE_NETWORK = "Simulate throughput of linking resources and middleware marshalling / demarshalling of remote calls.";
+    private static final String LABEL_SIMULATE_NETWORK = "Simulate middleware marshalling / demarshalling of remote calls.";
     private static final String SIMULATE_NETWORK_EXPLANATION = "Latency is always simulated if linking resources connect containers. The linking resource is treated as a FCFS resource.";
 
     // Default values
