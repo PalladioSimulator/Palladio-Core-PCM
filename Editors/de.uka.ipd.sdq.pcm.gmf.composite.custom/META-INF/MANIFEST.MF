@@ -13,5 +13,3 @@ Require-Bundle: org.eclipse.ui,
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: sdq.ipd.uka.de
-Import-Package: de.uka.ipd.sdq.pcm.gmf.composite.providers,
- org.eclipse.gmf.runtime.notation

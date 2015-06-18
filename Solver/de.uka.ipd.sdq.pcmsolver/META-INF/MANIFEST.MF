@@ -15,6 +15,7 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.spa.basicsolver,
  org.eclipse.debug.core,
  org.eclipse.debug.ui,
+ org.eclipse.ui.ide,
  org.eclipse.ui.console,
  org.eclipse.emf.transaction,
  de.uka.ipd.sdq.spa.resourcemodel,
@@ -45,6 +46,4 @@ Export-Package: de.uka.ipd.sdq.pcmsolver,
  de.uka.ipd.sdq.pcmsolver.visitors,
  de.uka.ipd.sdq.pcmsolver.visualisation
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: org.eclipse.ui.part,
- org.eclipse.ui.views.navigator
 Bundle-Vendor: sdq.ipd.uka.de
