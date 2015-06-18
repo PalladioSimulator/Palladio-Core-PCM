@@ -53,54 +53,65 @@ public interface IDemandStrategy {
 
     /**
      * Gets the name of the strategy.
+     * 
      * @return a string containing the name of the strategy
      */
     String getName();
 
     // New methods
-    
+
     /**
      * Sets the calibration listener that receives progress updates during the calibration.
-     * @param listener the calibration listener to receive the updates
+     * 
+     * @param listener
+     *            the calibration listener to receive the updates
      */
     void setCalibrationListener(ICalibrationListener listener);
-    
+
     /**
      * Sets the calibration table.
-     * @param table the calibration table
+     * 
+     * @param table
+     *            the calibration table
      */
     void setCalibrationTable(CalibrationTable table);
-    
+
     /**
      * Checks whether the strategy has a calibration table.
+     * 
      * @return true if the strategy has a calibration table, otherwise false
      */
     boolean hasCalibrationTable();
-    
+
     /**
      * Calibrates the strategy and sets the internal calibration table.
+     * 
      * @return a calibration table containing the results of the calibration
      */
     CalibrationTable calibrate();
-    
+
     /**
-     * Enables or disables debug mode. When debug mode is enabled, the calibration returns
-     * dummy results instead of actually calibrating the strategy.
+     * Enables or disables debug mode. When debug mode is enabled, the calibration returns dummy
+     * results instead of actually calibrating the strategy.
      * 
-     * @param enable true if debug mode should be enabled, otherwise false
+     * @param enable
+     *            true if debug mode should be enabled, otherwise false
      */
     void setDebug(boolean enable);
-    
+
     /**
      * Checks whether debug mode is enabled.
+     * 
      * @return true if debug mode is enabled, otherwise false
      */
     boolean debugEnabled();
 
     //
-    
+
     /**
      * Do cleanup work.
      */
     void cleanup();
+
+    void ensureCalibrationExists();
 }

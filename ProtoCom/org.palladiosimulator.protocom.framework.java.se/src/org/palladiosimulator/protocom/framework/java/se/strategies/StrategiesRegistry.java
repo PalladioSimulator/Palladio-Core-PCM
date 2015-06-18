@@ -16,7 +16,7 @@ public class StrategiesRegistry {
         final IDemandStrategy strat = new FibonacciDemand();
         // TODO: inject the real processing rate
         strat.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, 1);
-        strat.calibrate();
+        strat.ensureCalibrationExists();
         registerStrategyFor(ResourceTypeEnum.CPU, strat);
 
     }

@@ -31,12 +31,12 @@ public class PrototypePlatformTests {
         LOGGER.info("Initialising Testbed");
         final IDemandStrategy cpuStrategy = new FibonacciDemand();
         cpuStrategy.initializeStrategy(DegreeOfAccuracyEnum.HIGH, CPU_PROCESSING_RATE, CALIBRATION_PATH);
-        cpuStrategy.calibrate();
+        cpuStrategy.ensureCalibrationExists();
         DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.CPU, cpuStrategy);
 
         final IDemandStrategy hddStrategy = new ReadLargeChunksDemand();
         hddStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, HDD_PROCESSING_RATE, CALIBRATION_PATH);
-        hddStrategy.calibrate();
+        hddStrategy.ensureCalibrationExists();
         DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.HDD, hddStrategy);
         LOGGER.info("Testbed inialised");
     }
@@ -71,7 +71,7 @@ public class PrototypePlatformTests {
         bw.newLine();
 
         hddStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, 0.0, CALIBRATION_PATH);
-        hddStrategy.calibrate();
+        hddStrategy.ensureCalibrationExists();
 
         final boolean random = true;
 
