@@ -31,10 +31,12 @@ public class PrototypePlatformTests {
         LOGGER.info("Initialising Testbed");
         final IDemandStrategy cpuStrategy = new FibonacciDemand();
         cpuStrategy.initializeStrategy(DegreeOfAccuracyEnum.HIGH, CPU_PROCESSING_RATE, CALIBRATION_PATH);
+        cpuStrategy.calibrate();
         DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.CPU, cpuStrategy);
 
         final IDemandStrategy hddStrategy = new ReadLargeChunksDemand();
         hddStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, HDD_PROCESSING_RATE, CALIBRATION_PATH);
+        hddStrategy.calibrate();
         DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.HDD, hddStrategy);
         LOGGER.info("Testbed inialised");
     }
@@ -69,6 +71,7 @@ public class PrototypePlatformTests {
         bw.newLine();
 
         hddStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, 0.0, CALIBRATION_PATH);
+        hddStrategy.calibrate();
 
         final boolean random = true;
 
@@ -95,7 +98,8 @@ public class PrototypePlatformTests {
         final double lowerAcceptanceBound = (unitsToConsume - (unitsToConsume * ERROR_LEVEL / 2)) / CPU_PROCESSING_RATE;
         final double upperAcceptanceBound = (unitsToConsume + (unitsToConsume * ERROR_LEVEL / 2)) / CPU_PROCESSING_RATE;
 
-        final IDemandStrategy cpuStrategy = DemandConsumerStrategiesRegistry.singleton().getStrategyFor(ResourceTypeEnum.CPU);
+        final IDemandStrategy cpuStrategy = DemandConsumerStrategiesRegistry.singleton().getStrategyFor(
+                ResourceTypeEnum.CPU);
 
         int countOutliers = 0;
         for (int i = 0; i < TEST_ITERATIONS; i++) {
@@ -124,8 +128,8 @@ public class PrototypePlatformTests {
                 + " work units: " + countOutliers, countOutliers <= TEST_ITERATIONS * OUTLIER_RATIO);
     }
 
-    private void consumeRandomHDDDemand(final ReadLargeChunksDemand hddStrategy, final BufferedWriter bw, final int iterations)
-            throws IOException {
+    private void consumeRandomHDDDemand(final ReadLargeChunksDemand hddStrategy, final BufferedWriter bw,
+            final int iterations) throws IOException {
         final double[] demand = new double[iterations];
         final long[] startTime = new long[iterations];
         final long[] endTime = new long[iterations];
@@ -141,8 +145,8 @@ public class PrototypePlatformTests {
 
     }
 
-    private void consumeDecreasingHDDDemand(final ReadLargeChunksDemand hddStrategy, final BufferedWriter bw, final int iterations)
-            throws IOException {
+    private void consumeDecreasingHDDDemand(final ReadLargeChunksDemand hddStrategy, final BufferedWriter bw,
+            final int iterations) throws IOException {
 
         long sum;
         double demand;
@@ -169,8 +173,8 @@ public class PrototypePlatformTests {
         }
     }
 
-    private void writeHDDResultToFile(final BufferedWriter bw, final long startTime, final long endTime, final double demand, final int i)
-            throws IOException {
+    private void writeHDDResultToFile(final BufferedWriter bw, final long startTime, final long endTime,
+            final double demand, final int i) throws IOException {
         System.out.println(i + ": Reading " + demand + " B took " + (endTime - startTime) + " ns.");
         bw.write(demand + ";" + (endTime - startTime));
         bw.newLine();
