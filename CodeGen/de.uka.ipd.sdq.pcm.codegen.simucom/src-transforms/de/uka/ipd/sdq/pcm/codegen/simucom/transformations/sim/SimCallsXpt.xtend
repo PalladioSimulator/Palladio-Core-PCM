@@ -18,6 +18,7 @@ import de.uka.ipd.sdq.pcm.seff.ExternalCallAction
 import de.uka.ipd.sdq.pcm.seff.InternalAction
 import java.util.List
 
+
 class SimCallsXpt extends CallsXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension PCMext
@@ -46,22 +47,19 @@ class SimCallsXpt extends CallsXpt {
 						«externalCall.initFailureHandling(id)»
 				try { // needs to be closed after the call in PostCall
 			// end of failure handling before the call
-	
-	        «signature.handleRemoteExternalCall(prefix)»
+
 		«ENDIF»
 		«signature.genericPreCall(call,parameterUsages,prefix)»
 	'''
 
 	def dispatch preCall(InfrastructureSignature signature, Object call, String prefix, List<VariableUsage> parameterUsages) '''
-		«IF (call instanceof InternalAction)»
-		    «signature.handleRemoteExternalCall(prefix)»
-		«ELSE»
+		«IF !(call instanceof InternalAction)»
 			«/* ERROR "OAW GENERATION ERROR [m2t_transforms/sim/calls.xpt]: PreCall(Object call, String prefix, List[VariableUsage] parameterUsages) does not support a call for the provided action type." */»
 		«ENDIF»
 		«signature.genericPreCall(call,parameterUsages)»
 	'''
 
-	//«REM»This generic pre call does not include simulation of network failures and latency. «ENDREM»
+	//«REM»This generic pre call does not include simulation of network failures (see preCall for OperationSignature above) but does include latency. «ENDREM»
 	def genericPreCall(OperationSignature signature, Object call, List<VariableUsage> parameterUsages, String prefix) '''
 		try {
 		«signature.prepareSimulatedStackFrame(parameterUsages)»
@@ -70,6 +68,9 @@ class SimCallsXpt extends CallsXpt {
 		«ELSE»
 			«signature.entryLevelSystemCallActionDescription(call).startResponseTimeMeasurementTM»
 		«ENDIF»
+		«IF (call instanceof ExternalCallAction || call instanceof InternalAction)»			
+	        «signature.handleRemoteExternalCall(prefix)»
+	    «ENDIF»
 		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> callResult =
 	'''
 
@@ -107,11 +108,13 @@ class SimCallsXpt extends CallsXpt {
 	'''
 
 	//«REM»This generic post call does not include simulation of network failures and latency. «ENDREM»
-	def genericPostCall(OperationSignature signature, Object call, List<VariableUsage> outParameterUsages) '''
-		// Stop the time measurement
+	def genericPostCall(OperationSignature signature, Object call, String prefix, List<VariableUsage> outParameterUsages) '''
 		«IF (call instanceof ExternalCallAction)»
+			«signature.handleRemoteExternalCall(prefix)»
+			// Stop the time measurement
 			«signature.externalCallActionDescription(call).endResponseTimeMeasurementTM»
 		«ELSE»
+		    // Stop the time measurement
 			«("Call_"+signature.javaSignature+" <EntryLevelSystemCall id: "+(call as Entity).id+" >").endResponseTimeMeasurementTM»
 		«ENDIF»
 «««		«REM»Handle accuracy influence analysis. «ENDREM»
@@ -156,9 +159,10 @@ class SimCallsXpt extends CallsXpt {
 		// END Simulate an external call
 	'''
 
-	def genericPostCall(InfrastructureSignature is, Object call) '''
+	def genericPostCall(InfrastructureSignature is, Object call, String prefix) '''
 		// Stop the time measurement
 		«IF (call instanceof InternalAction)»
+		    «is.handleRemoteExternalCall(prefix)»
 			«is.internalActionDescription(call).endResponseTimeMeasurementTM»
 		«ELSE»
 			«/* ERROR "OAW GENERATION ERROR [m2t_transforms/sim/calls.xpt]: GenericPostCall(Object call, List[VariableUsage] outParameterUsages) does not support a call for the provided action type." */»
@@ -168,12 +172,9 @@ class SimCallsXpt extends CallsXpt {
 	'''
 
 	def postCall(OperationSignature os, Object call, String prefix, List<VariableUsage> outParameterUsages) '''
-		«os.genericPostCall(call,outParameterUsages)»
+		«os.genericPostCall(call,prefix,outParameterUsages)»
 		«IF (call instanceof ExternalCallAction)»
-		
-			«os.handleRemoteExternalCall(prefix)»
-
-			} // end of try block from the pre cal failure handling section
+			} // end of try block from the pre call failure handling section
 			«val externalCall = (call as ExternalCallAction)»
 			«val id = externalCall.id.javaVariableName()»
 			«val triesVar = javaVariableName("tries_"+ externalCall.calledService_ExternalService.javaSignature())»
@@ -212,10 +213,7 @@ class SimCallsXpt extends CallsXpt {
 	'''
 
 	def postCall(InfrastructureSignature is, Object call, String prefix) '''
-		«is.genericPostCall(call)»
-		«IF (call instanceof InternalAction)»
-			«is.handleRemoteExternalCall(prefix)»
-		«ENDIF»
+		«is.genericPostCall(call, prefix)»
 	'''
 	
 	def dispatch handleRemoteExternalCall(OperationSignature os, String prefix) '''
@@ -249,18 +247,30 @@ class SimCallsXpt extends CallsXpt {
 							linkingResourceID = main.ResourceEnvironment.getInstance().getLinkingResourceContainerID(toContainer.getResourceContainerID(), fromContainer.getResourceContainerID());
 						}
 						// If the linkingResourceID is NULL, we have to assume that no linking resource has been specified.
-						// In this case, we assume a perfect link that never fails and has no latency.
+						// In this case, we assume a perfect link that never fails and has no latency and unlimited throughput.
 						if (linkingResourceID != null) {
 							de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer linkingContainer = ctx.findLinkingResource(linkingResourceID);
 							// Load linking resource with a demand of 0 byte so that only the latency is considered.
 							// The bytesize is only considered when the completions are activated (ctx.getModel().getConfig().getSimulateLinkingResources() == true).
 							double demand = 0.0;
 							try {
-								if (ctx.getStack().currentStackFrame().getValue("stream.BYTESIZE") != null) {
-									demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("stream.BYTESIZE",Double.class));
+								// If completions are activated, they fill in the results of their BYTESIZE calcuation into the variable stream.BYTESIZE
+								// in the stackframe of this method (stored as currentStackframe above).
+								if (currentFrame.getValue("stream.BYTESIZE") != null) {
+									demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(de.uka.ipd.sdq.simucomframework.variables.StackContext.evaluateStatic("stream.BYTESIZE", Double.class, currentFrame));
 								}
 							} catch(de.uka.ipd.sdq.simucomframework.variables.exceptions.ValueNotInFrameException valueNotInFrameException) {
-								demand = 0.0;
+								try {
+    	   		        			// if no stream.BYTESIZE variable is available, the demand is calculated by summing up all the sent variables with BYTESIZE characterization  
+    	   		        			java.util.ArrayList<java.util.Map.Entry<String, Object>> stackFrameContent = stackframe.getContents();
+    	   		        			for (java.util.Map.Entry<String, Object> entry : stackFrameContent) {
+    	   		        				if (entry.getKey().endsWith("BYTESIZE")){
+    	   		        					demand += de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(entry.getValue());
+    	   		        				}
+    	   		        			}
+    	   		        		} catch (RuntimeException e){
+    	   		        			logger.error("Cannot cast BYTESIZE characterization of the following variable to double for calculating the network demand in "+this.getClass()+": "+e.getMessage());
+    	   		        		}
 							}
 							linkingContainer.loadActiveResource(ctx.getThread(), fromContainer.getResourceContainerID(), linkingContainer.getLinkingResourceTypeId(), demand);
 						} else {
