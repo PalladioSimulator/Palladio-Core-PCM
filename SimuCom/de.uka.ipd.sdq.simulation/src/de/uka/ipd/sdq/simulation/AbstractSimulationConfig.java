@@ -102,11 +102,11 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
      * @return the recorderConfigurationFactory
      */
     public final IRecorderConfigurationFactory getRecorderConfigurationFactory() {
-        return recorderConfigurationFactory;
+        return this.recorderConfigurationFactory;
     }
 
     public boolean getVerboseLogging() {
-        return verboseLogging || isDebug;
+        return this.verboseLogging || this.isDebug;
     }
 
     public boolean isDebug() {
@@ -114,15 +114,15 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
     }
 
     public void addListener(final ISimulationListener l) {
-        listeners.add(l);
+        this.listeners.add(l);
     }
 
     public List<ISimulationListener> getListeners() {
-        return listeners;
+        return this.listeners;
     }
 
     public String getAdditionalExperimentRunDescription() {
-        return additionalExperimentRunDescription;
+        return this.additionalExperimentRunDescription;
     }
 
     public void setAdditionalExperimentRunDescription(final String additionalExperimentRunDescription) {
@@ -143,23 +143,23 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
     @Override
     public String getNameExperimentRun() {
         String name = "";
-        if (descriptor != null) {
-            name += descriptor.getNameExperimentRun();
+        if (this.descriptor != null) {
+            name += this.descriptor.getNameExperimentRun();
         } else {
             name += getNameBase();
         }
-        if (additionalExperimentRunDescription != null) {
-            name += additionalExperimentRunDescription;
+        if (this.additionalExperimentRunDescription != null) {
+            name += this.additionalExperimentRunDescription;
         }
         return name;
     }
 
     public String getNameBase() {
-        return nameExperimentRun;
+        return this.nameExperimentRun;
     }
 
     public String getVariationId() {
-        return variationId;
+        return this.variationId;
     }
 
     public void setNameBase(final String name) {
@@ -167,19 +167,19 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
     }
 
     public long getSimuTime() {
-        return simuTime;
+        return this.simuTime;
     }
 
     public long getMaxMeasurementsCount() {
-        return maxMeasurementsCount;
+        return this.maxMeasurementsCount;
     }
 
     public String getRecorderName() {
-        return recorderName;
+        return this.recorderName;
     }
 
     public String getEngine() {
-        return "de.uka.ipd.sdq.simulation.abstractsimengine.ssj.SSJSimEngineFactory";
+        return "org.palladiosimulator.simulation.abstractsimengine.ssj.SSJSimEngineFactory";
     }
 
     /**
@@ -198,11 +198,11 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
     }
 
     public ExperimentRunDescriptor getExperimentRunDescriptor() {
-        return descriptor;
+        return this.descriptor;
     }
 
     public String getSimulatorId() {
-        return simulatorId;
+        return this.simulatorId;
     }
 
 }
