@@ -16,7 +16,7 @@
 <intAttribute key="datasourceID" value="0"/>
 <intAttribute key="de.uka.ipd.sdq.workflowengine.debuglevel" value="1"/>
 <stringAttribute key="eventMiddlewareRepositoryFile" value="pathmap://PCM_MODELS/default_event_middleware.repository"/>
-<stringAttribute key="experimentRun" value="LinkingResourceTest"/>
+<stringAttribute key="experimentRun" value="LinkingResourceTest with Middleware Marshalling"/>
 <stringAttribute key="featureConfig" value="pathmap://PCM_MODELS/ConnectorConfig.featureconfig"/>
 <stringAttribute key="fixedSeed0" value="0"/>
 <stringAttribute key="fixedSeed1" value="1"/>
@@ -34,7 +34,7 @@
 <stringAttribute key="simTime" value="15000"/>
 <booleanAttribute key="simulateAccuracy" value="false"/>
 <booleanAttribute key="simulateFailures" value="false"/>
-<booleanAttribute key="simulateLinkingResources" value="false"/>
+<booleanAttribute key="simulateLinkingResources" value="true"/>
 <stringAttribute key="simulatorId" value="de.uka.ipd.sdq.codegen.simucontroller.simucom"/>
 <stringAttribute key="stepwidth" value=""/>
 <stringAttribute key="usageFile" value="platform:/resource/LinkingResourceTest/default.usagemodel"/>
