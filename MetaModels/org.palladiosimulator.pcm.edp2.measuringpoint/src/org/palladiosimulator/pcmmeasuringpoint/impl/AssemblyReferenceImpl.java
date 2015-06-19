@@ -26,7 +26,7 @@ public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements Ass
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AssemblyReferenceImpl() {
@@ -35,7 +35,7 @@ public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements Ass
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -45,7 +45,7 @@ public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements Ass
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -55,7 +55,7 @@ public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements Ass
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -66,7 +66,7 @@ public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements Ass
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetAssembly() {
@@ -76,7 +76,7 @@ public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements Ass
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -87,7 +87,7 @@ public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements Ass
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -104,7 +104,7 @@ public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements Ass
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -119,7 +119,7 @@ public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements Ass
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -134,7 +134,7 @@ public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements Ass
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

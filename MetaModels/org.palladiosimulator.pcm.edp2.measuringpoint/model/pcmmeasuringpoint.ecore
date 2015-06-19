@@ -2,11 +2,11 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pcmmeasuringpoint" nsURI="http://palladiosimulator.org/PCM/MeasuringPoint/1.0"
     nsPrefix="pcmmeasuringpoint">
-  <eClassifiers xsi:type="ecore:EClass" name="AssemblyOperationMeasuringPoint" eSuperTypes="#//OperationReference #//AssemblyReference ../../org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPoint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AssemblyOperationMeasuringPoint" eSuperTypes="../../org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPoint #//OperationReference #//AssemblyReference"/>
   <eClassifiers xsi:type="ecore:EClass" name="AssemblyPassiveResourceMeasuringPoint"
-      eSuperTypes="#//AssemblyReference #//PassiveResourceReference ../../org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPoint"/>
+      eSuperTypes="../../org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPoint #//AssemblyReference #//PassiveResourceReference"/>
   <eClassifiers xsi:type="ecore:EClass" name="ActiveResourceMeasuringPoint" eSuperTypes="../../org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPoint #//ActiveResourceReference"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SystemOperationMeasuringPoint" eSuperTypes="#//OperationReference ../../org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPoint #//SystemReference"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SystemOperationMeasuringPoint" eSuperTypes="../../org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPoint #//OperationReference #//SystemReference"/>
   <eClassifiers xsi:type="ecore:EClass" name="OperationReference" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="role" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//repository/Role"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operationSignature" lowerBound="1"
@@ -56,7 +56,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="entryLevelSystemCall" lowerBound="1"
         eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//usagemodel/EntryLevelSystemCall"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ResourceEnvironmentMeasuringPoint" eSuperTypes="#//ResourceEnvironmentReference ../../org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPoint"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceEnvironmentMeasuringPoint" eSuperTypes="../../org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPoint #//ResourceEnvironmentReference"/>
   <eClassifiers xsi:type="ecore:EClass" name="ResourceEnvironmentReference" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="resourceEnvironment" lowerBound="1"
         eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourceenvironment/ResourceEnvironment"/>

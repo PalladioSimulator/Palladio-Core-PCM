@@ -33,7 +33,7 @@ public interface LinkingResourceReference extends CDOObject {
      * be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Linking Resource</em>' reference.
      * @see #setLinkingResource(LinkingResource)
      * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getLinkingResourceReference_LinkingResource()
@@ -46,7 +46,7 @@ public interface LinkingResourceReference extends CDOObject {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.LinkingResourceReference#getLinkingResource
      * <em>Linking Resource</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Linking Resource</em>' reference.
      * @see #getLinkingResource()

@@ -43,7 +43,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ActiveResourceMeasuringPointImpl() {
@@ -52,7 +52,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -62,7 +62,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -74,7 +74,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ProcessingResourceSpecification basicGetActiveResource() {
@@ -85,7 +85,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -96,7 +96,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -107,7 +107,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -118,7 +118,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -137,7 +137,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -155,7 +155,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -173,7 +173,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -189,7 +189,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -209,7 +209,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -235,9 +235,12 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
     @Override
     public String getStringRepresentation() {
         if (this.getActiveResource() == null) {
-            return "";
+            throw new RuntimeException("PCM Measuring Point was not setup correctly");
         }
-        EcoreUtil.resolveAll(this);
+
+        if (this.getActiveResource().getActiveResourceType_ActiveResourceSpecification() == null) {
+            return super.getStringRepresentation();
+        }
 
         final StringBuilder result = new StringBuilder();
         result.append(this.getActiveResource().getActiveResourceType_ActiveResourceSpecification().getEntityName());
@@ -245,7 +248,6 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
         result.append(String.valueOf(this.getReplicaID()));
         result.append("] in ");
         result.append(this.getActiveResource().getResourceContainer_ProcessingResourceSpecification().getEntityName());
-
         return result.toString();
     }
 

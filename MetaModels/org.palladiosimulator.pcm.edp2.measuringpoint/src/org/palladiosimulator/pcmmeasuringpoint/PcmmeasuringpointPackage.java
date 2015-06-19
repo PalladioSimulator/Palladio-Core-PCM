@@ -19,7 +19,7 @@ import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointPackage;
  * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * 
+ *
  * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointFactory
  * @model kind="package"
  * @generated
@@ -28,28 +28,28 @@ public interface PcmmeasuringpointPackage extends EPackage {
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String eNAME = "pcmmeasuringpoint";
 
     /**
      * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String eNS_URI = "http://palladiosimulator.org/PCM/MeasuringPoint/1.0";
 
     /**
      * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String eNS_PREFIX = "pcmmeasuringpoint";
 
     /**
      * The singleton instance of the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     PcmmeasuringpointPackage eINSTANCE = org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl
@@ -59,7 +59,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * The meta object id for the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.impl.OperationReferenceImpl
      * <em>Operation Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.OperationReferenceImpl
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getOperationReference()
      * @generated
@@ -67,38 +67,11 @@ public interface PcmmeasuringpointPackage extends EPackage {
     int OPERATION_REFERENCE = 4;
 
     /**
-     * The feature id for the '<em><b>Role</b></em>' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
-     * @generated
-     * @ordered
-     */
-    int OPERATION_REFERENCE__ROLE = 0;
-
-    /**
-     * The feature id for the '<em><b>Operation Signature</b></em>' reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     * 
-     * @generated
-     * @ordered
-     */
-    int OPERATION_REFERENCE__OPERATION_SIGNATURE = 1;
-
-    /**
-     * The number of structural features of the '<em>Operation Reference</em>' class. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int OPERATION_REFERENCE_FEATURE_COUNT = 2;
-
-    /**
      * The meta object id for the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyOperationMeasuringPointImpl
      * <em>Assembly Operation Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyOperationMeasuringPointImpl
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getAssemblyOperationMeasuringPoint()
      * @generated
@@ -106,49 +79,22 @@ public interface PcmmeasuringpointPackage extends EPackage {
     int ASSEMBLY_OPERATION_MEASURING_POINT = 0;
 
     /**
-     * The feature id for the '<em><b>Role</b></em>' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
-     * @generated
-     * @ordered
-     */
-    int ASSEMBLY_OPERATION_MEASURING_POINT__ROLE = OPERATION_REFERENCE__ROLE;
-
-    /**
-     * The feature id for the '<em><b>Operation Signature</b></em>' reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     * 
-     * @generated
-     * @ordered
-     */
-    int ASSEMBLY_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE = OPERATION_REFERENCE__OPERATION_SIGNATURE;
-
-    /**
-     * The feature id for the '<em><b>Assembly</b></em>' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
-     * @generated
-     * @ordered
-     */
-    int ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY = OPERATION_REFERENCE_FEATURE_COUNT + 0;
-
-    /**
      * The feature id for the '<em><b>Measuring Point Repository</b></em>' container reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY = OPERATION_REFERENCE_FEATURE_COUNT + 1;
+    int ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY = MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY;
 
     /**
      * The feature id for the '<em><b>String Representation</b></em>' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
-    int ASSEMBLY_OPERATION_MEASURING_POINT__STRING_REPRESENTATION = OPERATION_REFERENCE_FEATURE_COUNT + 2;
+    int ASSEMBLY_OPERATION_MEASURING_POINT__STRING_REPRESENTATION = MeasuringpointPackage.MEASURING_POINT__STRING_REPRESENTATION;
 
     /**
      * The feature id for the '<em><b>Resource URI Representation</b></em>' attribute. <!--
@@ -157,22 +103,49 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSEMBLY_OPERATION_MEASURING_POINT__RESOURCE_URI_REPRESENTATION = OPERATION_REFERENCE_FEATURE_COUNT + 3;
+    int ASSEMBLY_OPERATION_MEASURING_POINT__RESOURCE_URI_REPRESENTATION = MeasuringpointPackage.MEASURING_POINT__RESOURCE_URI_REPRESENTATION;
+
+    /**
+     * The feature id for the '<em><b>Role</b></em>' reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ASSEMBLY_OPERATION_MEASURING_POINT__ROLE = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Operation Signature</b></em>' reference. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ASSEMBLY_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Assembly</b></em>' reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Assembly Operation Measuring Point</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
-    int ASSEMBLY_OPERATION_MEASURING_POINT_FEATURE_COUNT = OPERATION_REFERENCE_FEATURE_COUNT + 4;
+    int ASSEMBLY_OPERATION_MEASURING_POINT_FEATURE_COUNT = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 3;
 
     /**
      * The meta object id for the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyReferenceImpl
      * <em>Assembly Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyReferenceImpl
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getAssemblyReference()
      * @generated
@@ -180,52 +153,16 @@ public interface PcmmeasuringpointPackage extends EPackage {
     int ASSEMBLY_REFERENCE = 5;
 
     /**
-     * The feature id for the '<em><b>Assembly</b></em>' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
-     * @generated
-     * @ordered
-     */
-    int ASSEMBLY_REFERENCE__ASSEMBLY = 0;
-
-    /**
-     * The number of structural features of the '<em>Assembly Reference</em>' class. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int ASSEMBLY_REFERENCE_FEATURE_COUNT = 1;
-
-    /**
      * The meta object id for the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyPassiveResourceMeasuringPointImpl
      * <em>Assembly Passive Resource Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyPassiveResourceMeasuringPointImpl
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getAssemblyPassiveResourceMeasuringPoint()
      * @generated
      */
     int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT = 1;
-
-    /**
-     * The feature id for the '<em><b>Assembly</b></em>' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
-     * @generated
-     * @ordered
-     */
-    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__ASSEMBLY = ASSEMBLY_REFERENCE__ASSEMBLY;
-
-    /**
-     * The feature id for the '<em><b>Passive Resource</b></em>' reference. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
-     * @generated
-     * @ordered
-     */
-    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__PASSIVE_RESOURCE = ASSEMBLY_REFERENCE_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Measuring Point Repository</b></em>' container reference. <!--
@@ -234,16 +171,16 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__MEASURING_POINT_REPOSITORY = ASSEMBLY_REFERENCE_FEATURE_COUNT + 1;
+    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__MEASURING_POINT_REPOSITORY = MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY;
 
     /**
      * The feature id for the '<em><b>String Representation</b></em>' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
-    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__STRING_REPRESENTATION = ASSEMBLY_REFERENCE_FEATURE_COUNT + 2;
+    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__STRING_REPRESENTATION = MeasuringpointPackage.MEASURING_POINT__STRING_REPRESENTATION;
 
     /**
      * The feature id for the '<em><b>Resource URI Representation</b></em>' attribute. <!--
@@ -252,16 +189,34 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__RESOURCE_URI_REPRESENTATION = ASSEMBLY_REFERENCE_FEATURE_COUNT + 3;
+    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__RESOURCE_URI_REPRESENTATION = MeasuringpointPackage.MEASURING_POINT__RESOURCE_URI_REPRESENTATION;
+
+    /**
+     * The feature id for the '<em><b>Assembly</b></em>' reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__ASSEMBLY = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Passive Resource</b></em>' reference. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__PASSIVE_RESOURCE = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Assembly Passive Resource Measuring Point</em>'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
-    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT_FEATURE_COUNT = ASSEMBLY_REFERENCE_FEATURE_COUNT + 4;
+    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT_FEATURE_COUNT = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 2;
 
     /**
      * The meta object id for the '
@@ -291,7 +246,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * The meta object id for the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemReferenceImpl
      * <em>System Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.SystemReferenceImpl
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getSystemReference()
      * @generated
@@ -302,7 +257,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * The meta object id for the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.impl.PassiveResourceReferenceImpl
      * <em>Passive Resource Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.PassiveResourceReferenceImpl
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getPassiveResourceReference()
      * @generated
@@ -313,7 +268,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * The meta object id for the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ActiveResourceReferenceImpl
      * <em>Active Resource Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.ActiveResourceReferenceImpl
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getActiveResourceReference()
      * @generated
@@ -332,7 +287,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>String Representation</b></em>' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -350,7 +305,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Active Resource</b></em>' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -359,7 +314,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Replica ID</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -368,29 +323,11 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The number of structural features of the '<em>Active Resource Measuring Point</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
     int ACTIVE_RESOURCE_MEASURING_POINT_FEATURE_COUNT = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 2;
-
-    /**
-     * The feature id for the '<em><b>Role</b></em>' reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
-     * @generated
-     * @ordered
-     */
-    int SYSTEM_OPERATION_MEASURING_POINT__ROLE = OPERATION_REFERENCE__ROLE;
-
-    /**
-     * The feature id for the '<em><b>Operation Signature</b></em>' reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     * 
-     * @generated
-     * @ordered
-     */
-    int SYSTEM_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE = OPERATION_REFERENCE__OPERATION_SIGNATURE;
 
     /**
      * The feature id for the '<em><b>Measuring Point Repository</b></em>' container reference. <!--
@@ -399,16 +336,16 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SYSTEM_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY = OPERATION_REFERENCE_FEATURE_COUNT + 0;
+    int SYSTEM_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY = MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY;
 
     /**
      * The feature id for the '<em><b>String Representation</b></em>' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
-    int SYSTEM_OPERATION_MEASURING_POINT__STRING_REPRESENTATION = OPERATION_REFERENCE_FEATURE_COUNT + 1;
+    int SYSTEM_OPERATION_MEASURING_POINT__STRING_REPRESENTATION = MeasuringpointPackage.MEASURING_POINT__STRING_REPRESENTATION;
 
     /**
      * The feature id for the '<em><b>Resource URI Representation</b></em>' attribute. <!--
@@ -417,30 +354,93 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SYSTEM_OPERATION_MEASURING_POINT__RESOURCE_URI_REPRESENTATION = OPERATION_REFERENCE_FEATURE_COUNT + 2;
+    int SYSTEM_OPERATION_MEASURING_POINT__RESOURCE_URI_REPRESENTATION = MeasuringpointPackage.MEASURING_POINT__RESOURCE_URI_REPRESENTATION;
+
+    /**
+     * The feature id for the '<em><b>Role</b></em>' reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int SYSTEM_OPERATION_MEASURING_POINT__ROLE = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Operation Signature</b></em>' reference. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int SYSTEM_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>System</b></em>' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
-    int SYSTEM_OPERATION_MEASURING_POINT__SYSTEM = OPERATION_REFERENCE_FEATURE_COUNT + 3;
+    int SYSTEM_OPERATION_MEASURING_POINT__SYSTEM = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>System Operation Measuring Point</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
-    int SYSTEM_OPERATION_MEASURING_POINT_FEATURE_COUNT = OPERATION_REFERENCE_FEATURE_COUNT + 4;
+    int SYSTEM_OPERATION_MEASURING_POINT_FEATURE_COUNT = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 3;
+
+    /**
+     * The feature id for the '<em><b>Role</b></em>' reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int OPERATION_REFERENCE__ROLE = 0;
+
+    /**
+     * The feature id for the '<em><b>Operation Signature</b></em>' reference. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int OPERATION_REFERENCE__OPERATION_SIGNATURE = 1;
+
+    /**
+     * The number of structural features of the '<em>Operation Reference</em>' class. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int OPERATION_REFERENCE_FEATURE_COUNT = 2;
+
+    /**
+     * The feature id for the '<em><b>Assembly</b></em>' reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ASSEMBLY_REFERENCE__ASSEMBLY = 0;
+
+    /**
+     * The number of structural features of the '<em>Assembly Reference</em>' class. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int ASSEMBLY_REFERENCE_FEATURE_COUNT = 1;
 
     /**
      * The feature id for the '<em><b>System</b></em>' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -458,7 +458,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Passive Resource</b></em>' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -476,7 +476,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Active Resource</b></em>' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -485,7 +485,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Replica ID</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -516,7 +516,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * The meta object id for the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.impl.LinkingResourceReferenceImpl
      * <em>Linking Resource Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.LinkingResourceReferenceImpl
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getLinkingResourceReference()
      * @generated
@@ -535,7 +535,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>String Representation</b></em>' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -553,7 +553,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Linking Resource</b></em>' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -562,7 +562,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The number of structural features of the '<em>Linking Resource Measuring Point</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -571,7 +571,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Linking Resource</b></em>' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -591,7 +591,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SubSystemOperationMeasuringPointImpl
      * <em>Sub System Operation Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.SubSystemOperationMeasuringPointImpl
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getSubSystemOperationMeasuringPoint()
      * @generated
@@ -602,7 +602,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * The meta object id for the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SubSystemReferenceImpl
      * <em>Sub System Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.SubSystemReferenceImpl
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getSubSystemReference()
      * @generated
@@ -621,7 +621,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>String Representation</b></em>' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -639,7 +639,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Subsystem</b></em>' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -648,7 +648,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Role</b></em>' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -657,7 +657,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Operation Signature</b></em>' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -666,7 +666,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The number of structural features of the '<em>Sub System Operation Measuring Point</em>'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -675,7 +675,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Subsystem</b></em>' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -706,7 +706,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * The meta object id for the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.impl.UsageScenarioReferenceImpl
      * <em>Usage Scenario Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.UsageScenarioReferenceImpl
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getUsageScenarioReference()
      * @generated
@@ -725,7 +725,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>String Representation</b></em>' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -743,7 +743,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Usage Scenario</b></em>' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -752,7 +752,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The number of structural features of the '<em>Usage Scenario Measuring Point</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -761,7 +761,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Usage Scenario</b></em>' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -781,7 +781,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * {@link org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallMeasuringPointImpl
      * <em>Entry Level System Call Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallMeasuringPointImpl
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getEntryLevelSystemCallMeasuringPoint()
      * @generated
@@ -793,7 +793,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ExternalCallActionMeasuringPointImpl
      * <em>External Call Action Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.ExternalCallActionMeasuringPointImpl
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getExternalCallActionMeasuringPoint()
      * @generated
@@ -836,7 +836,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>String Representation</b></em>' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -863,7 +863,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The number of structural features of the '<em>Entry Level System Call Measuring Point</em>'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -881,7 +881,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>String Representation</b></em>' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -899,7 +899,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>External Call</b></em>' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -908,7 +908,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The number of structural features of the '<em>External Call Action Measuring Point</em>'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -917,7 +917,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The feature id for the '<em><b>External Call</b></em>' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -926,7 +926,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The number of structural features of the '<em>External Call Action Reference</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -944,7 +944,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * The number of structural features of the '<em>Entry Level System Call Reference</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
@@ -963,43 +963,16 @@ public interface PcmmeasuringpointPackage extends EPackage {
     int RESOURCE_ENVIRONMENT_REFERENCE = 20;
 
     /**
-     * The feature id for the '<em><b>Resource Environment</b></em>' reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     * 
-     * @generated
-     * @ordered
-     */
-    int RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT = 0;
-
-    /**
-     * The number of structural features of the '<em>Resource Environment Reference</em>' class.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     * @ordered
-     */
-    int RESOURCE_ENVIRONMENT_REFERENCE_FEATURE_COUNT = 1;
-
-    /**
      * The meta object id for the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentMeasuringPointImpl
      * <em>Resource Environment Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentMeasuringPointImpl
      * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getResourceEnvironmentMeasuringPoint()
      * @generated
      */
     int RESOURCE_ENVIRONMENT_MEASURING_POINT = 19;
-
-    /**
-     * The feature id for the '<em><b>Resource Environment</b></em>' reference. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     * 
-     * @generated
-     * @ordered
-     */
-    int RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT = RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT;
 
     /**
      * The feature id for the '<em><b>Measuring Point Repository</b></em>' container reference. <!--
@@ -1008,16 +981,16 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY = RESOURCE_ENVIRONMENT_REFERENCE_FEATURE_COUNT + 0;
+    int RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY = MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY;
 
     /**
      * The feature id for the '<em><b>String Representation</b></em>' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
-    int RESOURCE_ENVIRONMENT_MEASURING_POINT__STRING_REPRESENTATION = RESOURCE_ENVIRONMENT_REFERENCE_FEATURE_COUNT + 1;
+    int RESOURCE_ENVIRONMENT_MEASURING_POINT__STRING_REPRESENTATION = MeasuringpointPackage.MEASURING_POINT__STRING_REPRESENTATION;
 
     /**
      * The feature id for the '<em><b>Resource URI Representation</b></em>' attribute. <!--
@@ -1026,22 +999,49 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_URI_REPRESENTATION = RESOURCE_ENVIRONMENT_REFERENCE_FEATURE_COUNT + 2;
+    int RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_URI_REPRESENTATION = MeasuringpointPackage.MEASURING_POINT__RESOURCE_URI_REPRESENTATION;
+
+    /**
+     * The feature id for the '<em><b>Resource Environment</b></em>' reference. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Resource Environment Measuring Point</em>'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */
-    int RESOURCE_ENVIRONMENT_MEASURING_POINT_FEATURE_COUNT = RESOURCE_ENVIRONMENT_REFERENCE_FEATURE_COUNT + 3;
+    int RESOURCE_ENVIRONMENT_MEASURING_POINT_FEATURE_COUNT = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Resource Environment</b></em>' reference. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT = 0;
+
+    /**
+     * The number of structural features of the '<em>Resource Environment Reference</em>' class.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int RESOURCE_ENVIRONMENT_REFERENCE_FEATURE_COUNT = 1;
 
     /**
      * Returns the meta object for class '
      * {@link org.palladiosimulator.pcmmeasuringpoint.AssemblyOperationMeasuringPoint
      * <em>Assembly Operation Measuring Point</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Assembly Operation Measuring Point</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.AssemblyOperationMeasuringPoint
      * @generated
@@ -1053,7 +1053,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * {@link org.palladiosimulator.pcmmeasuringpoint.AssemblyPassiveResourceMeasuringPoint
      * <em>Assembly Passive Resource Measuring Point</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Assembly Passive Resource Measuring Point</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.AssemblyPassiveResourceMeasuringPoint
      * @generated
@@ -1064,7 +1064,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for class '
      * {@link org.palladiosimulator.pcmmeasuringpoint.ActiveResourceMeasuringPoint
      * <em>Active Resource Measuring Point</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Active Resource Measuring Point</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.ActiveResourceMeasuringPoint
      * @generated
@@ -1075,7 +1075,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for class '
      * {@link org.palladiosimulator.pcmmeasuringpoint.SystemOperationMeasuringPoint
      * <em>System Operation Measuring Point</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>System Operation Measuring Point</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.SystemOperationMeasuringPoint
      * @generated
@@ -1086,7 +1086,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for class '
      * {@link org.palladiosimulator.pcmmeasuringpoint.OperationReference
      * <em>Operation Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Operation Reference</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.OperationReference
      * @generated
@@ -1097,7 +1097,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link org.palladiosimulator.pcmmeasuringpoint.OperationReference#getRole <em>Role</em>}'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Role</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.OperationReference#getRole()
      * @see #getOperationReference()
@@ -1109,7 +1109,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link org.palladiosimulator.pcmmeasuringpoint.OperationReference#getOperationSignature
      * <em>Operation Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Operation Signature</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.OperationReference#getOperationSignature()
      * @see #getOperationReference()
@@ -1121,7 +1121,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for class '
      * {@link org.palladiosimulator.pcmmeasuringpoint.AssemblyReference <em>Assembly Reference</em>}
      * '. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Assembly Reference</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.AssemblyReference
      * @generated
@@ -1132,7 +1132,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link org.palladiosimulator.pcmmeasuringpoint.AssemblyReference#getAssembly
      * <em>Assembly</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Assembly</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.AssemblyReference#getAssembly()
      * @see #getAssemblyReference()
@@ -1144,7 +1144,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for class '
      * {@link org.palladiosimulator.pcmmeasuringpoint.SystemReference <em>System Reference</em>}'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>System Reference</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.SystemReference
      * @generated
@@ -1155,7 +1155,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link org.palladiosimulator.pcmmeasuringpoint.SystemReference#getSystem <em>System</em>}'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>System</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.SystemReference#getSystem()
      * @see #getSystemReference()
@@ -1167,7 +1167,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for class '
      * {@link org.palladiosimulator.pcmmeasuringpoint.PassiveResourceReference
      * <em>Passive Resource Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Passive Resource Reference</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.PassiveResourceReference
      * @generated
@@ -1178,7 +1178,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link org.palladiosimulator.pcmmeasuringpoint.PassiveResourceReference#getPassiveResource
      * <em>Passive Resource</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Passive Resource</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.PassiveResourceReference#getPassiveResource()
      * @see #getPassiveResourceReference()
@@ -1190,7 +1190,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for class '
      * {@link org.palladiosimulator.pcmmeasuringpoint.ActiveResourceReference
      * <em>Active Resource Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Active Resource Reference</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.ActiveResourceReference
      * @generated
@@ -1201,7 +1201,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link org.palladiosimulator.pcmmeasuringpoint.ActiveResourceReference#getActiveResource
      * <em>Active Resource</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Active Resource</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.ActiveResourceReference#getActiveResource()
      * @see #getActiveResourceReference()
@@ -1213,7 +1213,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for the attribute '
      * {@link org.palladiosimulator.pcmmeasuringpoint.ActiveResourceReference#getReplicaID
      * <em>Replica ID</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the attribute '<em>Replica ID</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.ActiveResourceReference#getReplicaID()
      * @see #getActiveResourceReference()
@@ -1225,7 +1225,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for class '
      * {@link org.palladiosimulator.pcmmeasuringpoint.LinkingResourceMeasuringPoint
      * <em>Linking Resource Measuring Point</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Linking Resource Measuring Point</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.LinkingResourceMeasuringPoint
      * @generated
@@ -1236,7 +1236,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for class '
      * {@link org.palladiosimulator.pcmmeasuringpoint.LinkingResourceReference
      * <em>Linking Resource Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Linking Resource Reference</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.LinkingResourceReference
      * @generated
@@ -1247,7 +1247,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link org.palladiosimulator.pcmmeasuringpoint.LinkingResourceReference#getLinkingResource
      * <em>Linking Resource</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Linking Resource</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.LinkingResourceReference#getLinkingResource()
      * @see #getLinkingResourceReference()
@@ -1271,7 +1271,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for class '
      * {@link org.palladiosimulator.pcmmeasuringpoint.SubSystemReference
      * <em>Sub System Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Sub System Reference</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.SubSystemReference
      * @generated
@@ -1282,7 +1282,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link org.palladiosimulator.pcmmeasuringpoint.SubSystemReference#getSubsystem
      * <em>Subsystem</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Subsystem</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.SubSystemReference#getSubsystem()
      * @see #getSubSystemReference()
@@ -1294,7 +1294,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for class '
      * {@link org.palladiosimulator.pcmmeasuringpoint.UsageScenarioMeasuringPoint
      * <em>Usage Scenario Measuring Point</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Usage Scenario Measuring Point</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.UsageScenarioMeasuringPoint
      * @generated
@@ -1305,7 +1305,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for class '
      * {@link org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference
      * <em>Usage Scenario Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Usage Scenario Reference</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference
      * @generated
@@ -1316,7 +1316,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference#getUsageScenario
      * <em>Usage Scenario</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Usage Scenario</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference#getUsageScenario()
      * @see #getUsageScenarioReference()
@@ -1352,7 +1352,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for class '
      * {@link org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference
      * <em>External Call Action Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>External Call Action Reference</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference
      * @generated
@@ -1363,7 +1363,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference#getExternalCall
      * <em>External Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>External Call</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference#getExternalCall()
      * @see #getExternalCallActionReference()
@@ -1375,7 +1375,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for class '
      * {@link org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference
      * <em>Entry Level System Call Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Entry Level System Call Reference</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference
      * @generated
@@ -1386,7 +1386,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference#getEntryLevelSystemCall
      * <em>Entry Level System Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Entry Level System Call</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference#getEntryLevelSystemCall()
      * @see #getEntryLevelSystemCallReference()
@@ -1410,7 +1410,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for class '
      * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference
      * <em>Resource Environment Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for class '<em>Resource Environment Reference</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference
      * @generated
@@ -1421,7 +1421,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * Returns the meta object for the reference '
      * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference#getResourceEnvironment
      * <em>Resource Environment</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the meta object for the reference '<em>Resource Environment</em>'.
      * @see org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference#getResourceEnvironment()
      * @see #getResourceEnvironmentReference()
@@ -1432,7 +1432,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
     /**
      * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @return the factory that creates the instances of the model.
      * @generated
      */
@@ -1448,7 +1448,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * <li>and each data type</li>
      * </ul>
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     interface Literals {
@@ -1458,7 +1458,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyOperationMeasuringPointImpl
          * <em>Assembly Operation Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         * 
+         *
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyOperationMeasuringPointImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getAssemblyOperationMeasuringPoint()
          * @generated
@@ -1470,7 +1470,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyPassiveResourceMeasuringPointImpl
          * <em>Assembly Passive Resource Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         * 
+         *
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyPassiveResourceMeasuringPointImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getAssemblyPassiveResourceMeasuringPoint()
          * @generated
@@ -1482,7 +1482,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ActiveResourceMeasuringPointImpl
          * <em>Active Resource Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         * 
+         *
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.ActiveResourceMeasuringPointImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getActiveResourceMeasuringPoint()
          * @generated
@@ -1494,7 +1494,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemOperationMeasuringPointImpl
          * <em>System Operation Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         * 
+         *
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.SystemOperationMeasuringPointImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getSystemOperationMeasuringPoint()
          * @generated
@@ -1505,7 +1505,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * The meta object literal for the '
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.OperationReferenceImpl
          * <em>Operation Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.OperationReferenceImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getOperationReference()
          * @generated
@@ -1523,7 +1523,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Operation Signature</b></em>' reference feature.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference OPERATION_REFERENCE__OPERATION_SIGNATURE = eINSTANCE.getOperationReference_OperationSignature();
@@ -1532,7 +1532,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * The meta object literal for the '
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyReferenceImpl
          * <em>Assembly Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyReferenceImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getAssemblyReference()
          * @generated
@@ -1551,7 +1551,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * The meta object literal for the '
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemReferenceImpl
          * <em>System Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.SystemReferenceImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getSystemReference()
          * @generated
@@ -1581,7 +1581,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Passive Resource</b></em>' reference feature.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE = eINSTANCE
@@ -1591,7 +1591,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * The meta object literal for the '
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ActiveResourceReferenceImpl
          * <em>Active Resource Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.ActiveResourceReferenceImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getActiveResourceReference()
          * @generated
@@ -1619,7 +1619,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.LinkingResourceMeasuringPointImpl
          * <em>Linking Resource Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         * 
+         *
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.LinkingResourceMeasuringPointImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getLinkingResourceMeasuringPoint()
          * @generated
@@ -1641,7 +1641,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Linking Resource</b></em>' reference feature.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE = eINSTANCE
@@ -1652,7 +1652,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SubSystemOperationMeasuringPointImpl
          * <em>Sub System Operation Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         * 
+         *
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.SubSystemOperationMeasuringPointImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getSubSystemOperationMeasuringPoint()
          * @generated
@@ -1663,7 +1663,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * The meta object literal for the '
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SubSystemReferenceImpl
          * <em>Sub System Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.SubSystemReferenceImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getSubSystemReference()
          * @generated
@@ -1683,7 +1683,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.UsageScenarioMeasuringPointImpl
          * <em>Usage Scenario Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         * 
+         *
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.UsageScenarioMeasuringPointImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getUsageScenarioMeasuringPoint()
          * @generated
@@ -1694,7 +1694,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * The meta object literal for the '
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.UsageScenarioReferenceImpl
          * <em>Usage Scenario Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.UsageScenarioReferenceImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getUsageScenarioReference()
          * @generated
@@ -1714,7 +1714,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallMeasuringPointImpl
          * <em>Entry Level System Call Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         * 
+         *
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallMeasuringPointImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getEntryLevelSystemCallMeasuringPoint()
          * @generated
@@ -1726,7 +1726,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ExternalCallActionMeasuringPointImpl
          * <em>External Call Action Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         * 
+         *
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.ExternalCallActionMeasuringPointImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getExternalCallActionMeasuringPoint()
          * @generated
@@ -1738,7 +1738,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ExternalCallActionReferenceImpl
          * <em>External Call Action Reference</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         * 
+         *
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.ExternalCallActionReferenceImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getExternalCallActionReference()
          * @generated
@@ -1759,7 +1759,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallReferenceImpl
          * <em>Entry Level System Call Reference</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         * 
+         *
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallReferenceImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getEntryLevelSystemCallReference()
          * @generated
@@ -1769,7 +1769,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Entry Level System Call</b></em>' reference
          * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference ENTRY_LEVEL_SYSTEM_CALL_REFERENCE__ENTRY_LEVEL_SYSTEM_CALL = eINSTANCE
@@ -1780,7 +1780,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentMeasuringPointImpl
          * <em>Resource Environment Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         * 
+         *
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentMeasuringPointImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getResourceEnvironmentMeasuringPoint()
          * @generated
@@ -1792,7 +1792,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentReferenceImpl
          * <em>Resource Environment Reference</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         * 
+         *
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentReferenceImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getResourceEnvironmentReference()
          * @generated
@@ -1802,7 +1802,7 @@ public interface PcmmeasuringpointPackage extends EPackage {
         /**
          * The meta object literal for the '<em><b>Resource Environment</b></em>' reference feature.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         EReference RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT = eINSTANCE

@@ -13,5 +13,5 @@ import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
  * @model
  * @generated
  */
-public interface SystemOperationMeasuringPoint extends OperationReference, MeasuringPoint, SystemReference {
+public interface SystemOperationMeasuringPoint extends MeasuringPoint, OperationReference, SystemReference {
 } // SystemOperationMeasuringPoint

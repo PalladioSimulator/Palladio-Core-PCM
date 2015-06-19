@@ -47,7 +47,7 @@ public interface ResourceEnvironmentReference extends CDOObject {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference#getResourceEnvironment
      * <em>Resource Environment</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Resource Environment</em>' reference.
      * @see #getResourceEnvironment()

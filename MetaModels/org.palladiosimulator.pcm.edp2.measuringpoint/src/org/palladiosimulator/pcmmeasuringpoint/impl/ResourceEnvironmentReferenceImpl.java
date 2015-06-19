@@ -27,7 +27,7 @@ public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceEnvironmentReferenceImpl() {
@@ -36,7 +36,7 @@ public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -46,7 +46,7 @@ public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -56,7 +56,7 @@ public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -68,7 +68,7 @@ public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceEnvironment basicGetResourceEnvironment() {
@@ -79,7 +79,7 @@ public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -91,7 +91,7 @@ public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -108,7 +108,7 @@ public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -123,7 +123,7 @@ public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -138,7 +138,7 @@ public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

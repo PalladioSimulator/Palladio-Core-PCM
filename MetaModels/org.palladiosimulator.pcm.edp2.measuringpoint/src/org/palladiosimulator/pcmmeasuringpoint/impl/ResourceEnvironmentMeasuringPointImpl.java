@@ -2,16 +2,15 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.impl;
 
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
-import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
-import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPointRepository;
-import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointPackage;
+import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference;
+
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -20,45 +19,19 @@ import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint
  * The following features are implemented:
  * <ul>
  * <li>
- * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentMeasuringPointImpl#getMeasuringPointRepository
- * <em>Measuring Point Repository</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentMeasuringPointImpl#getStringRepresentation
- * <em>String Representation</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentMeasuringPointImpl#getResourceURIRepresentation
- * <em>Resource URI Representation</em>}</li>
+ * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentMeasuringPointImpl#getResourceEnvironment
+ * <em>Resource Environment</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentReferenceImpl implements
+public class ResourceEnvironmentMeasuringPointImpl extends MeasuringPointImpl implements
         ResourceEnvironmentMeasuringPoint {
 
     /**
-     * The default value of the '{@link #getStringRepresentation() <em>String Representation</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @see #getStringRepresentation()
-     * @generated
-     * @ordered
-     */
-    protected static final String STRING_REPRESENTATION_EDEFAULT = null;
-    /**
-     * The default value of the '{@link #getResourceURIRepresentation()
-     * <em>Resource URI Representation</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
-     *
-     * @see #getResourceURIRepresentation()
-     * @generated
-     * @ordered
-     */
-    protected static final String RESOURCE_URI_REPRESENTATION_EDEFAULT = null;
-
-    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceEnvironmentMeasuringPointImpl() {
@@ -67,7 +40,7 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -77,37 +50,37 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public MeasuringPointRepository getMeasuringPointRepository() {
-        return (MeasuringPointRepository) this.eDynamicGet(
-                PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY,
-                MeasuringpointPackage.Literals.MEASURING_POINT__MEASURING_POINT_REPOSITORY, true, true);
+    public ResourceEnvironment getResourceEnvironment() {
+        return (ResourceEnvironment) this.eDynamicGet(
+                PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT,
+                PcmmeasuringpointPackage.Literals.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    public NotificationChain basicSetMeasuringPointRepository(
-            final MeasuringPointRepository newMeasuringPointRepository, NotificationChain msgs) {
-        msgs = this.eBasicSetContainer((InternalEObject) newMeasuringPointRepository,
-                PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY, msgs);
-        return msgs;
+    public ResourceEnvironment basicGetResourceEnvironment() {
+        return (ResourceEnvironment) this.eDynamicGet(
+                PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT,
+                PcmmeasuringpointPackage.Literals.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT, false, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public void setMeasuringPointRepository(final MeasuringPointRepository newMeasuringPointRepository) {
-        this.eDynamicSet(PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY,
-                MeasuringpointPackage.Literals.MEASURING_POINT__MEASURING_POINT_REPOSITORY, newMeasuringPointRepository);
+    public void setResourceEnvironment(final ResourceEnvironment newResourceEnvironment) {
+        this.eDynamicSet(PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT,
+                PcmmeasuringpointPackage.Literals.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT,
+                newResourceEnvironment);
     }
 
     /**
@@ -118,8 +91,13 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
     @Override
     public String getStringRepresentation() {
         if (this.getResourceEnvironment() == null) {
-            return "";
+            throw new RuntimeException("PCM Measuring Point was not setup correctly");
         }
+
+        if (this.getResourceEnvironment().getEntityName() == null) {
+            return super.getStringRepresentation();
+        }
+
         EcoreUtil.resolveAll(this);
 
         final StringBuilder result = new StringBuilder();
@@ -146,80 +124,31 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
-        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            return this.basicSetMeasuringPointRepository((MeasuringPointRepository) otherEnd, msgs);
-        }
-        return super.eInverseAdd(otherEnd, featureID, msgs);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
-        switch (featureID) {
-        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
-            return this.basicSetMeasuringPointRepository(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
-        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
-            return this.eInternalContainer().eInverseRemove(this,
-                    MeasuringpointPackage.MEASURING_POINT_REPOSITORY__MEASURING_POINTS, MeasuringPointRepository.class,
-                    msgs);
-        }
-        return super.eBasicRemoveFromContainerFeature(msgs);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
-        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
-            return this.getMeasuringPointRepository();
-        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__STRING_REPRESENTATION:
-            return this.getStringRepresentation();
-        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
-            return this.getResourceURIRepresentation();
+        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT:
+            if (resolve) {
+                return this.getResourceEnvironment();
+            }
+            return this.basicGetResourceEnvironment();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
-        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
-            this.setMeasuringPointRepository((MeasuringPointRepository) newValue);
+        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT:
+            this.setResourceEnvironment((ResourceEnvironment) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -227,14 +156,14 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public void eUnset(final int featureID) {
         switch (featureID) {
-        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
-            this.setMeasuringPointRepository((MeasuringPointRepository) null);
+        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT:
+            this.setResourceEnvironment((ResourceEnvironment) null);
             return;
         }
         super.eUnset(featureID);
@@ -242,39 +171,29 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
-        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
-            return this.getMeasuringPointRepository() != null;
-        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__STRING_REPRESENTATION:
-            return STRING_REPRESENTATION_EDEFAULT == null ? this.getStringRepresentation() != null
-                    : !STRING_REPRESENTATION_EDEFAULT.equals(this.getStringRepresentation());
-        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
-            return RESOURCE_URI_REPRESENTATION_EDEFAULT == null ? this.getResourceURIRepresentation() != null
-                    : !RESOURCE_URI_REPRESENTATION_EDEFAULT.equals(this.getResourceURIRepresentation());
+        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT:
+            return this.basicGetResourceEnvironment() != null;
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == MeasuringPoint.class) {
+        if (baseClass == ResourceEnvironmentReference.class) {
             switch (derivedFeatureID) {
-            case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
-                return MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY;
-            case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__STRING_REPRESENTATION:
-                return MeasuringpointPackage.MEASURING_POINT__STRING_REPRESENTATION;
-            case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
-                return MeasuringpointPackage.MEASURING_POINT__RESOURCE_URI_REPRESENTATION;
+            case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT:
+                return PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT;
             default:
                 return -1;
             }
@@ -284,19 +203,15 @@ public class ResourceEnvironmentMeasuringPointImpl extends ResourceEnvironmentRe
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == MeasuringPoint.class) {
+        if (baseClass == ResourceEnvironmentReference.class) {
             switch (baseFeatureID) {
-            case MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY:
-                return PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__MEASURING_POINT_REPOSITORY;
-            case MeasuringpointPackage.MEASURING_POINT__STRING_REPRESENTATION:
-                return PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__STRING_REPRESENTATION;
-            case MeasuringpointPackage.MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
-                return PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_URI_REPRESENTATION;
+            case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT:
+                return PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT;
             default:
                 return -1;
             }

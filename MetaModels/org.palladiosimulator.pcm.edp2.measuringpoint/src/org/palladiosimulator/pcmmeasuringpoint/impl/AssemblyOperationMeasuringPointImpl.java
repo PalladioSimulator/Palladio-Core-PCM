@@ -2,19 +2,18 @@
  */
 package org.palladiosimulator.pcmmeasuringpoint.impl;
 
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
-import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
-import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPointRepository;
-import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointPackage;
+import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyOperationMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyReference;
+import org.palladiosimulator.pcmmeasuringpoint.OperationReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
+import de.uka.ipd.sdq.pcm.repository.Role;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -23,49 +22,24 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
  * The following features are implemented:
  * <ul>
  * <li>
+ * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyOperationMeasuringPointImpl#getRole
+ * <em>Role</em>}</li>
+ * <li>
+ * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyOperationMeasuringPointImpl#getOperationSignature
+ * <em>Operation Signature</em>}</li>
+ * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyOperationMeasuringPointImpl#getAssembly
  * <em>Assembly</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyOperationMeasuringPointImpl#getMeasuringPointRepository
- * <em>Measuring Point Repository</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyOperationMeasuringPointImpl#getStringRepresentation
- * <em>String Representation</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyOperationMeasuringPointImpl#getResourceURIRepresentation
- * <em>Resource URI Representation</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl implements
-        AssemblyOperationMeasuringPoint {
-
-    /**
-     * The default value of the '{@link #getStringRepresentation() <em>String Representation</em>}'
-     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @see #getStringRepresentation()
-     * @generated
-     * @ordered
-     */
-    protected static final String STRING_REPRESENTATION_EDEFAULT = null;
-
-    /**
-     * The default value of the '{@link #getResourceURIRepresentation()
-     * <em>Resource URI Representation</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
-     *
-     * @see #getResourceURIRepresentation()
-     * @generated
-     * @ordered
-     */
-    protected static final String RESOURCE_URI_REPRESENTATION_EDEFAULT = null;
+public class AssemblyOperationMeasuringPointImpl extends MeasuringPointImpl implements AssemblyOperationMeasuringPoint {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AssemblyOperationMeasuringPointImpl() {
@@ -74,7 +48,7 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -84,7 +58,73 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @generated
+     */
+    @Override
+    public Role getRole() {
+        return (Role) this.eDynamicGet(PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ROLE,
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__ROLE, true, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public Role basicGetRole() {
+        return (Role) this.eDynamicGet(PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ROLE,
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__ROLE, false, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setRole(final Role newRole) {
+        this.eDynamicSet(PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ROLE,
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__ROLE, newRole);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public OperationSignature getOperationSignature() {
+        return (OperationSignature) this.eDynamicGet(
+                PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE,
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__OPERATION_SIGNATURE, true, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public OperationSignature basicGetOperationSignature() {
+        return (OperationSignature) this.eDynamicGet(
+                PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE,
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__OPERATION_SIGNATURE, false, true);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setOperationSignature(final OperationSignature newOperationSignature) {
+        this.eDynamicSet(PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE,
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__OPERATION_SIGNATURE, newOperationSignature);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -96,7 +136,7 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetAssembly() {
@@ -107,7 +147,7 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -118,49 +158,19 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public MeasuringPointRepository getMeasuringPointRepository() {
-        return (MeasuringPointRepository) this.eDynamicGet(
-                PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY,
-                MeasuringpointPackage.Literals.MEASURING_POINT__MEASURING_POINT_REPOSITORY, true, true);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    public NotificationChain basicSetMeasuringPointRepository(
-            final MeasuringPointRepository newMeasuringPointRepository, NotificationChain msgs) {
-        msgs = this.eBasicSetContainer((InternalEObject) newMeasuringPointRepository,
-                PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY, msgs);
-        return msgs;
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public void setMeasuringPointRepository(final MeasuringPointRepository newMeasuringPointRepository) {
-        this.eDynamicSet(PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY,
-                MeasuringpointPackage.Literals.MEASURING_POINT__MEASURING_POINT_REPOSITORY, newMeasuringPointRepository);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated NOT
      */
     @Override
     public String getStringRepresentation() {
         if (this.getAssembly() == null || this.getRole() == null || this.getOperationSignature() == null) {
-            return "";
+            throw new RuntimeException("PCM Measuring Point was not setup correctly");
         }
+
+        if (this.getAssembly().getEntityName() == null) {
+            return super.getStringRepresentation();
+        }
+
         EcoreUtil.resolveAll(this);
         final StringBuilder result = new StringBuilder();
 
@@ -190,88 +200,47 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
-        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
-            if (this.eInternalContainer() != null) {
-                msgs = this.eBasicRemoveFromContainer(msgs);
-            }
-            return this.basicSetMeasuringPointRepository((MeasuringPointRepository) otherEnd, msgs);
-        }
-        return super.eInverseAdd(otherEnd, featureID, msgs);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
-            final NotificationChain msgs) {
-        switch (featureID) {
-        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
-            return this.basicSetMeasuringPointRepository(null, msgs);
-        }
-        return super.eInverseRemove(otherEnd, featureID, msgs);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
-        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
-            return this.eInternalContainer().eInverseRemove(this,
-                    MeasuringpointPackage.MEASURING_POINT_REPOSITORY__MEASURING_POINTS, MeasuringPointRepository.class,
-                    msgs);
-        }
-        return super.eBasicRemoveFromContainerFeature(msgs);
-    }
-
-    /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
+        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ROLE:
+            if (resolve) {
+                return this.getRole();
+            }
+            return this.basicGetRole();
+        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE:
+            if (resolve) {
+                return this.getOperationSignature();
+            }
+            return this.basicGetOperationSignature();
         case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY:
             if (resolve) {
                 return this.getAssembly();
             }
             return this.basicGetAssembly();
-        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
-            return this.getMeasuringPointRepository();
-        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__STRING_REPRESENTATION:
-            return this.getStringRepresentation();
-        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
-            return this.getResourceURIRepresentation();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
+        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ROLE:
+            this.setRole((Role) newValue);
+            return;
+        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE:
+            this.setOperationSignature((OperationSignature) newValue);
+            return;
         case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY:
             this.setAssembly((AssemblyContext) newValue);
-            return;
-        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
-            this.setMeasuringPointRepository((MeasuringPointRepository) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -279,17 +248,20 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public void eUnset(final int featureID) {
         switch (featureID) {
+        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ROLE:
+            this.setRole((Role) null);
+            return;
+        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE:
+            this.setOperationSignature((OperationSignature) null);
+            return;
         case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY:
             this.setAssembly((AssemblyContext) null);
-            return;
-        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
-            this.setMeasuringPointRepository((MeasuringPointRepository) null);
             return;
         }
         super.eUnset(featureID);
@@ -297,49 +269,43 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
+        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ROLE:
+            return this.basicGetRole() != null;
+        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE:
+            return this.basicGetOperationSignature() != null;
         case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY:
             return this.basicGetAssembly() != null;
-        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
-            return this.getMeasuringPointRepository() != null;
-        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__STRING_REPRESENTATION:
-            return STRING_REPRESENTATION_EDEFAULT == null ? this.getStringRepresentation() != null
-                    : !STRING_REPRESENTATION_EDEFAULT.equals(this.getStringRepresentation());
-        case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
-            return RESOURCE_URI_REPRESENTATION_EDEFAULT == null ? this.getResourceURIRepresentation() != null
-                    : !RESOURCE_URI_REPRESENTATION_EDEFAULT.equals(this.getResourceURIRepresentation());
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == AssemblyReference.class) {
+        if (baseClass == OperationReference.class) {
             switch (derivedFeatureID) {
-            case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY:
-                return PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY;
+            case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ROLE:
+                return PcmmeasuringpointPackage.OPERATION_REFERENCE__ROLE;
+            case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE:
+                return PcmmeasuringpointPackage.OPERATION_REFERENCE__OPERATION_SIGNATURE;
             default:
                 return -1;
             }
         }
-        if (baseClass == MeasuringPoint.class) {
+        if (baseClass == AssemblyReference.class) {
             switch (derivedFeatureID) {
-            case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY:
-                return MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY;
-            case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__STRING_REPRESENTATION:
-                return MeasuringpointPackage.MEASURING_POINT__STRING_REPRESENTATION;
-            case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
-                return MeasuringpointPackage.MEASURING_POINT__RESOURCE_URI_REPRESENTATION;
+            case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY:
+                return PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY;
             default:
                 return -1;
             }
@@ -349,27 +315,25 @@ public class AssemblyOperationMeasuringPointImpl extends OperationReferenceImpl 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == AssemblyReference.class) {
+        if (baseClass == OperationReference.class) {
             switch (baseFeatureID) {
-            case PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY:
-                return PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY;
+            case PcmmeasuringpointPackage.OPERATION_REFERENCE__ROLE:
+                return PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ROLE;
+            case PcmmeasuringpointPackage.OPERATION_REFERENCE__OPERATION_SIGNATURE:
+                return PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE;
             default:
                 return -1;
             }
         }
-        if (baseClass == MeasuringPoint.class) {
+        if (baseClass == AssemblyReference.class) {
             switch (baseFeatureID) {
-            case MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY:
-                return PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__MEASURING_POINT_REPOSITORY;
-            case MeasuringpointPackage.MEASURING_POINT__STRING_REPRESENTATION:
-                return PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__STRING_REPRESENTATION;
-            case MeasuringpointPackage.MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
-                return PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__RESOURCE_URI_REPRESENTATION;
+            case PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY:
+                return PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY;
             default:
                 return -1;
             }

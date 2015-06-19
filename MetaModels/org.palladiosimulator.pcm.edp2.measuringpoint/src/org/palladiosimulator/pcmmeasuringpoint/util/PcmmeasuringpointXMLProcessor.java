@@ -12,14 +12,14 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 /**
  * This class contains helper methods to serialize and deserialize XML documents <!-- begin-user-doc
  * --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class PcmmeasuringpointXMLProcessor extends XMLProcessor {
 
     /**
      * Public constructor to instantiate the helper. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public PcmmeasuringpointXMLProcessor() {
@@ -30,7 +30,7 @@ public class PcmmeasuringpointXMLProcessor extends XMLProcessor {
     /**
      * Register for "*" and "xml" file extensions the PcmmeasuringpointResourceFactoryImpl factory.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

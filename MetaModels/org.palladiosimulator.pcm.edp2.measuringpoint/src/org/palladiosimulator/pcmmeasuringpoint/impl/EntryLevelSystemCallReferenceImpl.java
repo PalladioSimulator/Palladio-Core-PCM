@@ -27,7 +27,7 @@ public abstract class EntryLevelSystemCallReferenceImpl extends CDOObjectImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EntryLevelSystemCallReferenceImpl() {
@@ -36,7 +36,7 @@ public abstract class EntryLevelSystemCallReferenceImpl extends CDOObjectImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -46,7 +46,7 @@ public abstract class EntryLevelSystemCallReferenceImpl extends CDOObjectImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -56,7 +56,7 @@ public abstract class EntryLevelSystemCallReferenceImpl extends CDOObjectImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -69,7 +69,7 @@ public abstract class EntryLevelSystemCallReferenceImpl extends CDOObjectImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public EntryLevelSystemCall basicGetEntryLevelSystemCall() {
@@ -81,7 +81,7 @@ public abstract class EntryLevelSystemCallReferenceImpl extends CDOObjectImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -93,7 +93,7 @@ public abstract class EntryLevelSystemCallReferenceImpl extends CDOObjectImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -110,7 +110,7 @@ public abstract class EntryLevelSystemCallReferenceImpl extends CDOObjectImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -125,7 +125,7 @@ public abstract class EntryLevelSystemCallReferenceImpl extends CDOObjectImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -140,7 +140,7 @@ public abstract class EntryLevelSystemCallReferenceImpl extends CDOObjectImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

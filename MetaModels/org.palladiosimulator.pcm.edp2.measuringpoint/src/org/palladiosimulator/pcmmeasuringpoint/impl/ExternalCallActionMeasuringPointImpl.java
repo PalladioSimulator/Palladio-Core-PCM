@@ -31,7 +31,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ExternalCallActionMeasuringPointImpl() {
@@ -40,7 +40,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -50,7 +50,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -62,7 +62,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ExternalCallAction basicGetExternalCall() {
@@ -73,7 +73,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -84,7 +84,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -101,7 +101,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -116,7 +116,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -131,7 +131,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -145,7 +145,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -163,7 +163,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -187,8 +187,13 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
     @Override
     public String getStringRepresentation() {
         if (this.getExternalCall() == null) {
-            return "";
+            throw new RuntimeException("PCM Measuring Point was not setup correctly");
         }
+
+        if (this.getExternalCall().getEntityName() == null) {
+            return super.getStringRepresentation();
+        }
+
         EcoreUtil.resolveAll(this);
 
         final StringBuilder result = new StringBuilder();

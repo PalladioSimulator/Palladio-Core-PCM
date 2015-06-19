@@ -22,14 +22,14 @@ import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioMeasuringPoint;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements PcmmeasuringpointFactory {
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static PcmmeasuringpointFactory init() {
@@ -47,7 +47,7 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public PcmmeasuringpointFactoryImpl() {
@@ -56,7 +56,7 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -89,7 +89,7 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -100,7 +100,7 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -111,7 +111,7 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -122,7 +122,7 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -133,7 +133,7 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -144,7 +144,7 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -155,7 +155,7 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -166,7 +166,7 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -177,7 +177,7 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -188,7 +188,7 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -199,7 +199,7 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -209,7 +209,7 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @deprecated
      * @generated
      */

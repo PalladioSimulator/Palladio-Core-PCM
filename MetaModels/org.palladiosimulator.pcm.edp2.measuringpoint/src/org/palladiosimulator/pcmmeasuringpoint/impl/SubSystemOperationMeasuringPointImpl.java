@@ -40,7 +40,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SubSystemOperationMeasuringPointImpl() {
@@ -49,7 +49,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -59,7 +59,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -70,7 +70,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SubSystem basicGetSubsystem() {
@@ -80,7 +80,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -91,7 +91,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -102,7 +102,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public Role basicGetRole() {
@@ -112,7 +112,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -123,7 +123,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -135,7 +135,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public OperationSignature basicGetOperationSignature() {
@@ -146,7 +146,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -157,7 +157,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -184,7 +184,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -205,7 +205,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -226,7 +226,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -244,7 +244,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -272,7 +272,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -306,8 +306,13 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl imp
     @Override
     public String getStringRepresentation() {
         if (this.getSubsystem() == null || this.getRole() == null || this.getOperationSignature() == null) {
-            return "";
+            throw new RuntimeException("PCM Measuring Point was not setup correctly");
         }
+
+        if (this.getSubsystem().getEntityName() == null) {
+            return super.getStringRepresentation();
+        }
+
         EcoreUtil.resolveAll(this);
 
         final StringBuilder result = new StringBuilder();

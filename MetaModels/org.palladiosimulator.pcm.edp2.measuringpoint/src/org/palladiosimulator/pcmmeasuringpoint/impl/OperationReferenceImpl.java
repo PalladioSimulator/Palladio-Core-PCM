@@ -30,7 +30,7 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected OperationReferenceImpl() {
@@ -39,7 +39,7 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -49,7 +49,7 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -59,7 +59,7 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -70,7 +70,7 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public Role basicGetRole() {
@@ -80,7 +80,7 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -91,7 +91,7 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -102,7 +102,7 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public OperationSignature basicGetOperationSignature() {
@@ -112,7 +112,7 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -123,7 +123,7 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -145,7 +145,7 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -163,7 +163,7 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -181,7 +181,7 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

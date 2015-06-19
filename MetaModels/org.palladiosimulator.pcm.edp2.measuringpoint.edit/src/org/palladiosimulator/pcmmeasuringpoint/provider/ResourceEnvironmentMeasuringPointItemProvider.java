@@ -7,11 +7,10 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointPackage;
+import org.palladiosimulator.edp2.models.measuringpoint.provider.MeasuringPointItemProvider;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint;
 
@@ -22,7 +21,7 @@ import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint
  *
  * @generated
  */
-public class ResourceEnvironmentMeasuringPointItemProvider extends ResourceEnvironmentReferenceItemProvider {
+public class ResourceEnvironmentMeasuringPointItemProvider extends MeasuringPointItemProvider {
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
@@ -45,59 +44,26 @@ public class ResourceEnvironmentMeasuringPointItemProvider extends ResourceEnvir
         if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            this.addMeasuringPointRepositoryPropertyDescriptor(object);
-            this.addStringRepresentationPropertyDescriptor(object);
-            this.addResourceURIRepresentationPropertyDescriptor(object);
+            this.addResourceEnvironmentPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Measuring Point Repository feature. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void addMeasuringPointRepositoryPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_MeasuringPoint_measuringPointRepository_feature"), this.getString(
-                        "_UI_PropertyDescriptor_description", "_UI_MeasuringPoint_measuringPointRepository_feature",
-                        "_UI_MeasuringPoint_type"),
-                        MeasuringpointPackage.Literals.MEASURING_POINT__MEASURING_POINT_REPOSITORY, true, false, true, null,
-                        null, null));
-    }
-
-    /**
-     * This adds a property descriptor for the String Representation feature. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
+     * This adds a property descriptor for the Resource Environment feature. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * 
      * @generated
      */
-    protected void addStringRepresentationPropertyDescriptor(final Object object) {
+    protected void addResourceEnvironmentPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_MeasuringPoint_stringRepresentation_feature"), this.getString(
-                        "_UI_PropertyDescriptor_description", "_UI_MeasuringPoint_stringRepresentation_feature",
-                        "_UI_MeasuringPoint_type"),
-                        MeasuringpointPackage.Literals.MEASURING_POINT__STRING_REPRESENTATION, false, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
-    }
-
-    /**
-     * This adds a property descriptor for the Resource URI Representation feature. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void addResourceURIRepresentationPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_MeasuringPoint_resourceURIRepresentation_feature"), this.getString(
-                        "_UI_PropertyDescriptor_description", "_UI_MeasuringPoint_resourceURIRepresentation_feature",
-                        "_UI_MeasuringPoint_type"),
-                        MeasuringpointPackage.Literals.MEASURING_POINT__RESOURCE_URI_REPRESENTATION, false, false, false,
-                        ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+                this.getString("_UI_ResourceEnvironmentReference_resourceEnvironment_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
+                        "_UI_ResourceEnvironmentReference_resourceEnvironment_feature",
+                        "_UI_ResourceEnvironmentReference_type"),
+                        PcmmeasuringpointPackage.Literals.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT, true, false,
+                        true, null, null, null));
     }
 
     /**
@@ -135,13 +101,6 @@ public class ResourceEnvironmentMeasuringPointItemProvider extends ResourceEnvir
     @Override
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
-
-        switch (notification.getFeatureID(ResourceEnvironmentMeasuringPoint.class)) {
-        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__STRING_REPRESENTATION:
-        case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_URI_REPRESENTATION:
-            this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-            return;
-        }
         super.notifyChanged(notification);
     }
 
@@ -154,6 +113,17 @@ public class ResourceEnvironmentMeasuringPointItemProvider extends ResourceEnvir
     @Override
     protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
+    }
+
+    /**
+     * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public ResourceLocator getResourceLocator() {
+        return PcmmeasuringpointEditPlugin.INSTANCE;
     }
 
 }

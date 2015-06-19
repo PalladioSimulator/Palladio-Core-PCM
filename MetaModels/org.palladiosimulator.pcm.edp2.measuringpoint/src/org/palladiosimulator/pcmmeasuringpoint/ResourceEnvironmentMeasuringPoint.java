@@ -13,5 +13,5 @@ import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
  * @model
  * @generated
  */
-public interface ResourceEnvironmentMeasuringPoint extends ResourceEnvironmentReference, MeasuringPoint {
+public interface ResourceEnvironmentMeasuringPoint extends MeasuringPoint, ResourceEnvironmentReference {
 } // ResourceEnvironmentMeasuringPoint

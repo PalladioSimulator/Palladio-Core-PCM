@@ -24,7 +24,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SystemReferenceImpl() {
@@ -33,7 +33,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -43,7 +43,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -53,7 +53,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -64,7 +64,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public de.uka.ipd.sdq.pcm.system.System basicGetSystem() {
@@ -74,7 +74,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -85,7 +85,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -102,7 +102,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -117,7 +117,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -132,7 +132,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

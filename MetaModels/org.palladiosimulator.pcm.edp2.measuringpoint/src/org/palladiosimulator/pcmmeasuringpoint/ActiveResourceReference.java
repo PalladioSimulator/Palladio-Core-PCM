@@ -34,7 +34,7 @@ public interface ActiveResourceReference extends CDOObject {
      * be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Active Resource</em>' reference.
      * @see #setActiveResource(ProcessingResourceSpecification)
      * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getActiveResourceReference_ActiveResource()
@@ -47,7 +47,7 @@ public interface ActiveResourceReference extends CDOObject {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.ActiveResourceReference#getActiveResource
      * <em>Active Resource</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Active Resource</em>' reference.
      * @see #getActiveResource()
@@ -63,7 +63,7 @@ public interface ActiveResourceReference extends CDOObject {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Replica ID</em>' attribute.
      * @see #setReplicaID(int)
      * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getActiveResourceReference_ReplicaID()
@@ -76,7 +76,7 @@ public interface ActiveResourceReference extends CDOObject {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcmmeasuringpoint.ActiveResourceReference#getReplicaID
      * <em>Replica ID</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Replica ID</em>' attribute.
      * @see #getReplicaID()

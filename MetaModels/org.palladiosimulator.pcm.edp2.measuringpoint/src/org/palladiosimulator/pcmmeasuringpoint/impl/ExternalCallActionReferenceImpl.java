@@ -27,7 +27,7 @@ public abstract class ExternalCallActionReferenceImpl extends CDOObjectImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ExternalCallActionReferenceImpl() {
@@ -36,7 +36,7 @@ public abstract class ExternalCallActionReferenceImpl extends CDOObjectImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -46,7 +46,7 @@ public abstract class ExternalCallActionReferenceImpl extends CDOObjectImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -56,7 +56,7 @@ public abstract class ExternalCallActionReferenceImpl extends CDOObjectImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -68,7 +68,7 @@ public abstract class ExternalCallActionReferenceImpl extends CDOObjectImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ExternalCallAction basicGetExternalCall() {
@@ -79,7 +79,7 @@ public abstract class ExternalCallActionReferenceImpl extends CDOObjectImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -90,7 +90,7 @@ public abstract class ExternalCallActionReferenceImpl extends CDOObjectImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -107,7 +107,7 @@ public abstract class ExternalCallActionReferenceImpl extends CDOObjectImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -122,7 +122,7 @@ public abstract class ExternalCallActionReferenceImpl extends CDOObjectImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -137,7 +137,7 @@ public abstract class ExternalCallActionReferenceImpl extends CDOObjectImpl impl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

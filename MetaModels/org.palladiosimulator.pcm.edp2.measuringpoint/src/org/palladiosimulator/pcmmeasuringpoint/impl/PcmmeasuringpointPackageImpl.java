@@ -44,154 +44,154 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class PcmmeasuringpointPackageImpl extends EPackageImpl implements PcmmeasuringpointPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass assemblyOperationMeasuringPointEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass assemblyPassiveResourceMeasuringPointEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass activeResourceMeasuringPointEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass systemOperationMeasuringPointEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass operationReferenceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass assemblyReferenceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass systemReferenceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass passiveResourceReferenceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass activeResourceReferenceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass linkingResourceMeasuringPointEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass linkingResourceReferenceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass subSystemOperationMeasuringPointEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass subSystemReferenceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass usageScenarioMeasuringPointEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass usageScenarioReferenceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass entryLevelSystemCallMeasuringPointEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass externalCallActionMeasuringPointEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass externalCallActionReferenceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass entryLevelSystemCallReferenceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass resourceEnvironmentMeasuringPointEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass resourceEnvironmentReferenceEClass = null;
@@ -204,7 +204,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#eNS_URI
      * @see #init()
@@ -216,7 +216,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private static boolean isInited = false;
@@ -229,7 +229,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
      * This method is used to initialize {@link PcmmeasuringpointPackage#eINSTANCE} when that field
      * is accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -243,7 +243,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         // Obtain or create and register package
         final PcmmeasuringpointPackageImpl thePcmmeasuringpointPackage = (PcmmeasuringpointPackageImpl) (EPackage.Registry.INSTANCE
                 .get(eNS_URI) instanceof PcmmeasuringpointPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-                        : new PcmmeasuringpointPackageImpl());
+                : new PcmmeasuringpointPackageImpl());
 
         isInited = true;
 
@@ -269,7 +269,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -279,7 +279,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -289,7 +289,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -299,7 +299,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -309,7 +309,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -319,7 +319,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -329,7 +329,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -339,7 +339,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -349,7 +349,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -359,7 +359,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -369,7 +369,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -379,7 +379,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -389,7 +389,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -399,7 +399,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -409,7 +409,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -419,7 +419,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -429,7 +429,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -439,7 +439,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -449,7 +449,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -459,7 +459,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -469,7 +469,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -479,7 +479,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -489,7 +489,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -499,7 +499,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -509,7 +509,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -519,7 +519,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -529,7 +529,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -539,7 +539,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -549,7 +549,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -559,7 +559,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -569,7 +569,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -579,7 +579,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -589,7 +589,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -599,7 +599,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -609,7 +609,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -619,7 +619,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private boolean isCreated = false;
@@ -627,7 +627,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public void createPackageContents() {
@@ -697,7 +697,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private boolean isInitialized = false;
@@ -705,7 +705,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public void initializePackageContents() {
@@ -741,17 +741,17 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         // Set bounds for type parameters
 
         // Add supertypes to classes
+        this.assemblyOperationMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
         this.assemblyOperationMeasuringPointEClass.getESuperTypes().add(this.getOperationReference());
         this.assemblyOperationMeasuringPointEClass.getESuperTypes().add(this.getAssemblyReference());
-        this.assemblyOperationMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
-        this.assemblyPassiveResourceMeasuringPointEClass.getESuperTypes().add(this.getAssemblyReference());
-        this.assemblyPassiveResourceMeasuringPointEClass.getESuperTypes().add(this.getPassiveResourceReference());
         this.assemblyPassiveResourceMeasuringPointEClass.getESuperTypes().add(
                 theMeasuringpointPackage.getMeasuringPoint());
+        this.assemblyPassiveResourceMeasuringPointEClass.getESuperTypes().add(this.getAssemblyReference());
+        this.assemblyPassiveResourceMeasuringPointEClass.getESuperTypes().add(this.getPassiveResourceReference());
         this.activeResourceMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
         this.activeResourceMeasuringPointEClass.getESuperTypes().add(this.getActiveResourceReference());
-        this.systemOperationMeasuringPointEClass.getESuperTypes().add(this.getOperationReference());
         this.systemOperationMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
+        this.systemOperationMeasuringPointEClass.getESuperTypes().add(this.getOperationReference());
         this.systemOperationMeasuringPointEClass.getESuperTypes().add(this.getSystemReference());
         this.linkingResourceMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
         this.linkingResourceMeasuringPointEClass.getESuperTypes().add(this.getLinkingResourceReference());
@@ -761,12 +761,12 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         this.usageScenarioMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
         this.usageScenarioMeasuringPointEClass.getESuperTypes().add(this.getUsageScenarioReference());
         this.entryLevelSystemCallMeasuringPointEClass.getESuperTypes()
-                .add(theMeasuringpointPackage.getMeasuringPoint());
+        .add(theMeasuringpointPackage.getMeasuringPoint());
         this.entryLevelSystemCallMeasuringPointEClass.getESuperTypes().add(this.getEntryLevelSystemCallReference());
         this.externalCallActionMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
         this.externalCallActionMeasuringPointEClass.getESuperTypes().add(this.getExternalCallActionReference());
-        this.resourceEnvironmentMeasuringPointEClass.getESuperTypes().add(this.getResourceEnvironmentReference());
         this.resourceEnvironmentMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
+        this.resourceEnvironmentMeasuringPointEClass.getESuperTypes().add(this.getResourceEnvironmentReference());
 
         // Initialize classes and features; add operations and parameters
         this.initEClass(this.assemblyOperationMeasuringPointEClass, AssemblyOperationMeasuringPoint.class,

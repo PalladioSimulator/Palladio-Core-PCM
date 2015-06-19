@@ -31,7 +31,7 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl i
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EntryLevelSystemCallMeasuringPointImpl() {
@@ -40,7 +40,7 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl i
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -50,7 +50,7 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl i
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -63,7 +63,7 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl i
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public EntryLevelSystemCall basicGetEntryLevelSystemCall() {
@@ -75,7 +75,7 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl i
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -87,7 +87,7 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl i
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -104,7 +104,7 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl i
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -119,7 +119,7 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl i
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -134,7 +134,7 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl i
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -148,7 +148,7 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl i
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -166,7 +166,7 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl i
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -190,8 +190,13 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl i
     @Override
     public String getStringRepresentation() {
         if (this.getEntryLevelSystemCall() == null) {
-            return "";
+            throw new RuntimeException("PCM Measuring Point was not setup correctly");
         }
+
+        if (this.getEntryLevelSystemCall().getEntityName() == null) {
+            return super.getStringRepresentation();
+        }
+
         EcoreUtil.resolveAll(this);
 
         final StringBuilder result = new StringBuilder();

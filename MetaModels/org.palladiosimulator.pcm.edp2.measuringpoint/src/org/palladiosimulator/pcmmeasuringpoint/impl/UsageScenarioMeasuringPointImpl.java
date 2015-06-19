@@ -30,7 +30,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected UsageScenarioMeasuringPointImpl() {
@@ -39,7 +39,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -49,7 +49,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -61,7 +61,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public UsageScenario basicGetUsageScenario() {
@@ -72,7 +72,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -83,7 +83,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -100,7 +100,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -115,7 +115,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -130,7 +130,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -144,7 +144,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -162,7 +162,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -186,8 +186,13 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
     @Override
     public String getStringRepresentation() {
         if (this.getUsageScenario() == null) {
-            return "";
+            throw new RuntimeException("PCM Measuring Point was not setup correctly");
         }
+
+        if (this.getUsageScenario().getEntityName() == null) {
+            return super.getStringRepresentation();
+        }
+
         EcoreUtil.resolveAll(this);
         final StringBuilder result = new StringBuilder();
 
