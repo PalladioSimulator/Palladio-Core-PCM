@@ -4,7 +4,7 @@
   <rm:locator searchPathRef="localresources" failOnError="false"/>
 
   <rm:locator pattern="^org\.palladiosimulator\.mdsdprofiles.*" searchPathRef="MDSDProfiles" failOnError="false"/>
-  <rm:locator pattern="^org\.modelversioning\.emfprofile.*" searchPathRef="MDSDProfiles" failOnError="false"/>
+  <rm:locator pattern="^org\.modelversioning\.emfprofile.*" searchPathRef="EMFProfiles" failOnError="false"/>
   <rm:locator pattern="^de\.uka\.ipd\.sdq\..*" searchPathRef="FeatureModel" failOnError="false"/>
   <rm:locator pattern="^de\.uka\.ipd\.sdq\..*" searchPathRef="WorkflowEngine" failOnError="false"/>
   <rm:locator searchPathRef="PalladioCoreSimucom" failOnError="false"/>
@@ -56,4 +56,11 @@
       </rm:uri>
     </rm:provider>
   </rm:searchPath>
+  
+  <rm:searchPath name="EMFProfiles">
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+      <rm:uri format="http://www.modelversioning.org/emf-profiles-updatesite/"/>
+    </rm:provider>
+  </rm:searchPath>
+  
 </rm:rmap>
