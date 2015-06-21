@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 /**
  * Base class for simulated resource container. A resource container corresponds to PCM resource
  * container in such that they contain an arbitrary amount of active resources.
- * 
+ *
  * @author Steffen Becker, Sebastian Lehrig
  */
 public abstract class AbstractSimulatedResourceContainer {
@@ -29,7 +29,7 @@ public abstract class AbstractSimulatedResourceContainer {
     protected final String myContainerID;
 
     // TODO: Multiple Resources with Scheduler
-    protected final HashMap<String, AbstractScheduledResource> activeResources = new HashMap<String, AbstractScheduledResource>();
+    protected HashMap<String, AbstractScheduledResource> activeResources = new HashMap<String, AbstractScheduledResource>();
 
     // Resources can also be lookup by the provided resource interface id
     protected final HashMap<String, String> activeResourceProvidedInterfaces = new HashMap<String, String>();
@@ -46,7 +46,7 @@ public abstract class AbstractSimulatedResourceContainer {
     /**
      * Demand processing of a resource demand by a given type of active resources In future versions
      * this has to control schedulers of resource types which exist in multiple instances
-     * 
+     *
      * @param requestingProcess
      *            The thread requesting the processing of a resource demand
      * @param typeID
@@ -57,7 +57,7 @@ public abstract class AbstractSimulatedResourceContainer {
      *            itself for converting this demand into time spans
      */
     public void loadActiveResource(final SimuComSimProcess requestingProcess, final String typeID, final double demand) {
-        AbstractScheduledResource resource = activeResources.get(typeID);
+        final AbstractScheduledResource resource = activeResources.get(typeID);
         if (resource == null) {
             throw new ResourceContainerIsMissingRequiredResourceType(typeID);
         }
@@ -67,7 +67,7 @@ public abstract class AbstractSimulatedResourceContainer {
     /**
      * Demand processing of a resource demand by a given type of active resource and a resource
      * interface operation
-     * 
+     *
      * @param requestingProcess
      *            The thread requesting the processing of a resource demand
      * @param typeID
@@ -78,10 +78,10 @@ public abstract class AbstractSimulatedResourceContainer {
      *            The demand in units processable by the resource. The resource is responsible
      *            itself for converting this demand into time spans
      */
-    public void loadActiveResource(SimuComSimProcess requestingProcess, String providedInterfaceID,
-            int resourceServiceID, double demand) {
+    public void loadActiveResource(final SimuComSimProcess requestingProcess, final String providedInterfaceID,
+            final int resourceServiceID, final double demand) {
         AbstractScheduledResource resource = null;
-        String typeID = activeResourceProvidedInterfaces.get(providedInterfaceID);
+        final String typeID = activeResourceProvidedInterfaces.get(providedInterfaceID);
         if (typeID != null) {
             resource = activeResources.get(typeID);
         }
@@ -95,7 +95,7 @@ public abstract class AbstractSimulatedResourceContainer {
     /**
      * Demand processing of a resource demand by a given type of active resource and a resource
      * interface operation and additional parameters which can be used in an active resource
-     * 
+     *
      * @param requestingProcess
      *            The thread requesting the processing of a resource demand
      * @param providedInterfaceID
@@ -112,7 +112,7 @@ public abstract class AbstractSimulatedResourceContainer {
     public void loadActiveResource(final SimuComSimProcess requestingProcess, final String providedInterfaceID,
             final int resourceServiceID, final Map<String, Serializable> parameterMap, final double demand) {
         AbstractScheduledResource resource = null;
-        String typeID = activeResourceProvidedInterfaces.get(providedInterfaceID);
+        final String typeID = activeResourceProvidedInterfaces.get(providedInterfaceID);
         if (typeID != null) {
             resource = activeResources.get(typeID);
         }
@@ -124,7 +124,7 @@ public abstract class AbstractSimulatedResourceContainer {
 
     /**
      * Retrieves all active resources in this resource container.
-     * 
+     *
      * @return all active resources
      */
     public Collection<AbstractScheduledResource> getActiveResources() {
@@ -133,7 +133,7 @@ public abstract class AbstractSimulatedResourceContainer {
 
     /**
      * Retrieves the HashMap with all all active resources in this resource container.
-     * 
+     *
      * @return all active resources
      */
     public HashMap<String, AbstractScheduledResource> getAllActiveResources() {
@@ -142,14 +142,14 @@ public abstract class AbstractSimulatedResourceContainer {
 
     /**
      * Retrieves all active resources in this resource container which are currently unavailable.
-     * 
+     *
      * @return all unavailable active resources
      */
     public List<AbstractScheduledResource> getFailedResources() {
-        List<AbstractScheduledResource> resultList = new ArrayList<AbstractScheduledResource>();
-        Iterator<AbstractScheduledResource> iterator = getActiveResources().iterator();
+        final List<AbstractScheduledResource> resultList = new ArrayList<AbstractScheduledResource>();
+        final Iterator<AbstractScheduledResource> iterator = getActiveResources().iterator();
         while (iterator.hasNext()) {
-            AbstractScheduledResource resource = iterator.next();
+            final AbstractScheduledResource resource = iterator.next();
             if (!resource.isAvailable() && resource.isRequiredByContainer()) {
                 resultList.add(resource);
             }
