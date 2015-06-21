@@ -18,7 +18,7 @@ import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 /**
  * Central registry for simulated resources (resource containers, linking resources). The central
  * registry can be used to start and stop all resources simultaniously.
- * 
+ *
  * @author Steffen Becker, Sebastian Lehrig
  */
 public class ResourceRegistry implements IAbstractObservable<IResourceEnvironmentListener> {
@@ -33,7 +33,7 @@ public class ResourceRegistry implements IAbstractObservable<IResourceEnvironmen
 
     /**
      * Default initialization.
-     * 
+     *
      * @param model
      *            the corresponding SimuCom model.
      */
@@ -45,8 +45,19 @@ public class ResourceRegistry implements IAbstractObservable<IResourceEnvironmen
     }
 
     /**
+     * Add a PCM ResourceContainer
+     *
+     * @param container
+     *            the resource container to add
+     */
+    public void addResourceContainer(final SimulatedResourceContainer container) {
+        assert (!resourceContainerHash.containsKey(container.getResourceContainerID()));
+        resourceContainerHash.put(container.getResourceContainerID(), container);
+    }
+
+    /**
      * Create and add a PCM ResourceContainer
-     * 
+     *
      * @param containerID
      *            PCM ID of the resource container to create
      * @return The simulated resource container object
@@ -56,14 +67,14 @@ public class ResourceRegistry implements IAbstractObservable<IResourceEnvironmen
             final SimulatedResourceContainer container = new SimulatedResourceContainer(myModel, containerID);
             resourceContainerHash.put(container.getResourceContainerID(), container);
             this.observableDelegate.getEventDispatcher()
-                    .addedResourceContainer(container, resourceContainerHash.size());
+            .addedResourceContainer(container, resourceContainerHash.size());
         }
         return resourceContainerHash.get(containerID);
     }
 
     /**
      * Create a simulated PCM LinkingResource
-     * 
+     *
      * @param containerID
      *            PCM ID of the LinkingResource
      * @return The resource container introduced for the linking resource. Note, this container is
@@ -72,7 +83,7 @@ public class ResourceRegistry implements IAbstractObservable<IResourceEnvironmen
      */
     public AbstractSimulatedResourceContainer createLinkingResourceContainer(final String containerID) {
         if (!resourceContainerHash.containsKey(containerID)) {
-            SimulatedLinkingResourceContainer container = new SimulatedLinkingResourceContainer(myModel, containerID);
+            final SimulatedLinkingResourceContainer container = new SimulatedLinkingResourceContainer(myModel, containerID);
             resourceContainerHash.put(containerID, container);
         }
         return resourceContainerHash.get(containerID);
@@ -80,7 +91,7 @@ public class ResourceRegistry implements IAbstractObservable<IResourceEnvironmen
 
     /**
      * Add a PCM LinkingResourceContainer
-     * 
+     *
      * @param container
      *            the linking resource container to add
      */
@@ -90,8 +101,8 @@ public class ResourceRegistry implements IAbstractObservable<IResourceEnvironmen
     }
 
     public List<SimulatedLinkingResourceContainer> getLinkingResourceContainers() {
-        List<SimulatedLinkingResourceContainer> resourceContainers = new ArrayList<SimulatedLinkingResourceContainer>();
-        for (AbstractSimulatedResourceContainer container : resourceContainerHash.values()) {
+        final List<SimulatedLinkingResourceContainer> resourceContainers = new ArrayList<SimulatedLinkingResourceContainer>();
+        for (final AbstractSimulatedResourceContainer container : resourceContainerHash.values()) {
             if (container instanceof SimulatedLinkingResourceContainer) {
                 resourceContainers.add((SimulatedLinkingResourceContainer) container);
             }
@@ -100,8 +111,8 @@ public class ResourceRegistry implements IAbstractObservable<IResourceEnvironmen
     }
 
     public List<SimulatedResourceContainer> getSimulatedResourceContainers() {
-        List<SimulatedResourceContainer> resourceContainers = new ArrayList<SimulatedResourceContainer>();
-        for (AbstractSimulatedResourceContainer container : resourceContainerHash.values()) {
+        final List<SimulatedResourceContainer> resourceContainers = new ArrayList<SimulatedResourceContainer>();
+        for (final AbstractSimulatedResourceContainer container : resourceContainerHash.values()) {
             if (container instanceof SimulatedResourceContainer) {
                 resourceContainers.add((SimulatedResourceContainer) container);
             }
@@ -114,13 +125,13 @@ public class ResourceRegistry implements IAbstractObservable<IResourceEnvironmen
      *            ID of the container
      * @return True if the given ID is known in the resource registry
      */
-    public boolean containsResourceContainer(String resourceContainerID) {
+    public boolean containsResourceContainer(final String resourceContainerID) {
         return resourceContainerHash.containsKey(resourceContainerID);
     }
 
     /**
      * Retrieve the resource container with the given ID
-     * 
+     *
      * @param resourceContainerID
      *            ID of the container to retrieve. The container must exist in this registry
      * @return The queried resource container
@@ -132,7 +143,7 @@ public class ResourceRegistry implements IAbstractObservable<IResourceEnvironmen
 
     /**
      * Retrieve the resource container with the given ID
-     * 
+     *
      * @param resourceContainerID
      *            ID of the container to retrieve. The container must exist in this registry
      * @return The queried resource container
@@ -155,11 +166,11 @@ public class ResourceRegistry implements IAbstractObservable<IResourceEnvironmen
      * Start all simulated resources in the simulation framework
      */
     public void activateAllActiveResources() {
-        ArrayList<AbstractScheduledResource> resources = new ArrayList<AbstractScheduledResource>();
-        for (AbstractSimulatedResourceContainer src : resourceContainerHash.values()) {
+        final ArrayList<AbstractScheduledResource> resources = new ArrayList<AbstractScheduledResource>();
+        for (final AbstractSimulatedResourceContainer src : resourceContainerHash.values()) {
             resources.addAll(src.getActiveResources());
         }
-        for (AbstractScheduledResource sar : resources) {
+        for (final AbstractScheduledResource sar : resources) {
             sar.activateResource();
         }
     }
@@ -169,10 +180,10 @@ public class ResourceRegistry implements IAbstractObservable<IResourceEnvironmen
      */
     public void deactivateAllActiveResources() {
         final List<AbstractScheduledResource> resources = new ArrayList<AbstractScheduledResource>();
-        for (AbstractSimulatedResourceContainer src : resourceContainerHash.values()) {
+        for (final AbstractSimulatedResourceContainer src : resourceContainerHash.values()) {
             resources.addAll(src.getActiveResources());
         }
-        for (AbstractScheduledResource sar : resources) {
+        for (final AbstractScheduledResource sar : resources) {
             sar.deactivateResource();
         }
     }
