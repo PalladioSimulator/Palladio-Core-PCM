@@ -1,7 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -21,17 +21,22 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
  *
  * TODO Find original author ;)
  *
- * @author ???, Sebastian Lehrig
+ * @author Steffen Becker, ???, Sebastian Lehrig
  */
 public class SimulatedResourceContainer extends AbstractSimulatedResourceContainer {
 
     private final List<SimulatedResourceContainer> nestedResourceContainers;
-
-    private SimulatedResourceContainer parentResourceContainer = null;
+    private final SimulatedResourceContainer parentResourceContainer;
 
     public SimulatedResourceContainer(final SimuComModel myModel, final String containerID) {
+        this(myModel,containerID,new LinkedList<SimulatedResourceContainer>(),null);
+    }
+
+    protected SimulatedResourceContainer(final SimuComModel myModel, final String containerID, final List<SimulatedResourceContainer> nestedContainer, final SimulatedResourceContainer parent) {
         super(myModel, containerID);
-        nestedResourceContainers = new ArrayList<SimulatedResourceContainer>();
+
+        nestedResourceContainers = nestedContainer;
+        parentResourceContainer = parent;
     }
 
     public IPassiveResource createPassiveResource(final PassiveResource resource,
@@ -63,16 +68,6 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
                     + ": Nested resource container " + nestedResourceContainerId + " is not available.");
         }
         nestedResourceContainers.add((SimulatedResourceContainer) resourceContainer);
-    }
-
-    public void setParentResourceContainer(final String parentResourceContainerId) {
-        final AbstractSimulatedResourceContainer resourceContainer = myModel.getResourceRegistry()
-                .getResourceContainer(parentResourceContainerId);
-        if ((resourceContainer == null) || (!(resourceContainer instanceof SimulatedResourceContainer))) {
-            throw new RuntimeException("Could not initialize resouce container " + this.myContainerID
-                    + ": Parent resource container " + parentResourceContainerId + " is not available.");
-        }
-        parentResourceContainer = (SimulatedResourceContainer) resourceContainer;
     }
 
     public void addActiveResource(final ProcessingResourceSpecification activeResource,
