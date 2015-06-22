@@ -14,14 +14,14 @@
         </pathconvert>
     	<property name="product.repositories.extended" value="${product.repositories},file\:///var/lib/jenkins/jobs/Build Eclipse Target Platform/lastSuccessful/archive/targetPlatform" />
         <echoproperties />
-        <echo message="Repositories: ${product.repositories}"/>
+        <echo message="Repositories: ${product.repositories.extended}"/>
         <echo message="Install Dir : ${product.install.directory}"/>
     	    	
  
         <p2.director
             destination="${product.install.directory}"
-            metadataRepository="${product.repositories}"
-            artifactRepository="${product.repositories}"
+            metadataRepository="${product.repositories.extended}"
+            artifactRepository="${product.repositories.extended}"
             profile="${profile}"
             arch="${target.arch}"
             os="${target.os}"
