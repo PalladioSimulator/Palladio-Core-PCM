@@ -14,7 +14,7 @@
 	        refid="repositories.valuepath">
             <map from="" to="file:/"/>
         </pathconvert>
-    	<property name="product.repositories.extended" value="${product.repositories}" />
+    	<property name="product.repositories.extended" value="${product.repositories},http://download.eclipse.org/releases/luna" />
         <echoproperties />
         <echo message="Repositories: ${product.repositories.extended}"/>
         <echo message="Install Dir : ${product.install.directory}"/>
