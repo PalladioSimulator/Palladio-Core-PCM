@@ -46,7 +46,7 @@
 	    <p2.publish.featuresAndBundles
 	        repository="${target.platform.repository}.shared"
 	        repositoryName="${repository.name}.shared"
-	        source="${shared.TP}"
+	        source="/var/lib/jenkins/jobs/Build Eclipse Target Platform/lastSuccessful/archive/targetPlatform"
 	        publishArtifacts="true" />
 	    <buckminster.publishJRE metadataRepository="${target.platform.repository}" publishArtifacts="false" />
 	</target>
