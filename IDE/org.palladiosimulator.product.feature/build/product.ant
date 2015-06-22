@@ -12,7 +12,7 @@
 	        refid="repositories.valuepath">
             <map from="" to="file:/"/>
         </pathconvert>
-    	<property name="product.repositories.extended" value="${product.repositories},file\:///var/lib/jenkins/jobs/Build Eclipse Target Platform/lastSuccessful/archive/targetPlatform" />
+    	<property name="product.repositories.extended" value="${product.repositories},file://var/lib/jenkins/jobs/Build Eclipse Target Platform/lastSuccessful/archive/targetPlatform" />
         <echoproperties />
         <echo message="Repositories: ${product.repositories.extended}"/>
         <echo message="Install Dir : ${product.install.directory}"/>
