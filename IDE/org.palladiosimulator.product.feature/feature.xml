@@ -25,4 +25,28 @@
          id="org.eclipse.epp.package.modeling.feature"
          version="0.0.0"/>
 
+   <includes
+         id="de.uka.ipd.sdq.pcm.diagram.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="de.uka.ipd.sdq.pcmsolver.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="de.uka.ipd.sdq.simucom.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.palladiosimulator.edp2.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.palladiosimulator.protocom.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="de.uka.ipd.sdq.dsexplore.feature"
+         version="0.0.0"/>
+
 </feature>
