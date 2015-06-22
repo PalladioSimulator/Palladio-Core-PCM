@@ -1,6 +1,6 @@
 <project name="Palladio Product Packaging">
 	<property environment="env"/>
-	<property name="shared.TP" value="file://var/lib/jenkins/jobs/Build Eclipse Target Platform/lastSuccessful/archive/targetPlatform" />
+	<property name="shared.TP" value="/var/lib/jenkins/jobs/Build Eclipse Target Platform/lastSuccessful/archive/targetPlatform" />
     
 	<target name="create.product"> 
         <property name="product.install.directory" location="${sp:destination}"/>
@@ -14,7 +14,7 @@
 	        refid="repositories.valuepath">
             <map from="" to="file:/"/>
         </pathconvert>
-    	<property name="product.repositories.extended" value="${product.repositories},${shared.TP}.shared" />
+    	<property name="product.repositories.extended" value="${product.repositories}" />
         <echoproperties />
         <echo message="Repositories: ${product.repositories.extended}"/>
         <echo message="Install Dir : ${product.install.directory}"/>
@@ -44,10 +44,10 @@
 	        publishArtifacts="true" />
 		<echo message="Publishing the shared Target Platform as P2" />
 	    <p2.publish.featuresAndBundles
-	        repository="${target.platform.repository}.shared"
-	        repositoryName="${repository.name}.shared"
-	        source="/var/lib/jenkins/jobs/Build Eclipse Target Platform/lastSuccessful/archive/targetPlatform"
-	        publishArtifacts="true" />
+	        repository="${target.platform.repository}"
+	        repositoryName="${repository.name}"
+	        source="${shared.TP}"
+	        publishArtifacts="true" append="true" />
 	    <buckminster.publishJRE metadataRepository="${target.platform.repository}" publishArtifacts="false" />
 	</target>
 </project>
