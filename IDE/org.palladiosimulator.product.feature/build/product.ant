@@ -1,7 +1,6 @@
 <project name="Palladio Product Packaging">
 	<property environment="env"/>
 	<property name="shared.TP" value="/var/lib/jenkins/jobs/Build Eclipse Target Platform/lastSuccessful/archive/targetPlatform" />
-	<property name="luna.p2" value="http://download.eclipse.org/releases/luna" />
     
 	<target name="create.product"> 
         <property name="product.install.directory" location="${sp:destination}"/>
@@ -15,14 +14,13 @@
 	        refid="repositories.valuepath">
             <map from="" to="file:/"/>
         </pathconvert>
-    	<property name="product.repositories.extended" value="${product.repositories},${luna.p2}" />
         <echoproperties />
-        <echo message="Repositories: ${product.repositories.extended}"/>
+        <echo message="Repositories: ${product.repositories}"/>
         <echo message="Install Dir : ${product.install.directory}"/>
         <p2.director
             destination="${product.install.directory}"
-            metadataRepository="${product.repositories.extended}"
-            artifactRepository="${product.repositories.extended}"
+            metadataRepository="${product.repositories}"
+            artifactRepository="${product.repositories}"
             profile="${profile}"
             arch="${target.arch}"
             os="${target.os}"
