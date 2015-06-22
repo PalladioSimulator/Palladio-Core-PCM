@@ -50,7 +50,6 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
@@ -186,7 +185,7 @@ IMenuListener, IViewerProvider, IGotoMarker {
 
     /**
      * This is the property sheet page. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected List<PropertySheetPage> propertySheetPages = new ArrayList<PropertySheetPage>();
@@ -593,13 +592,7 @@ IMenuListener, IViewerProvider, IGotoMarker {
         // Create an adapter factory that yields item providers.
         //
         final ComposedAdapterFactory compAdapterFactory = new ComposedAdapterFactory(
-                ComposedAdapterFactory.Descriptor.Registry.INSTANCE) {
-
-            @Override
-            public ComposeableAdapterFactory getRootAdapterFactory() {
-                return (ComposeableAdapterFactory) AllocationEditor.this.adapterFactory;
-            }
-        };
+                ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
         compAdapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
         compAdapterFactory.addAdapterFactory(new CoreItemProviderAdapterFactory());
@@ -625,8 +618,8 @@ IMenuListener, IViewerProvider, IGotoMarker {
         compAdapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
         compAdapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
-        this.adapterFactory = new StereotypableElementDecoratorAdapterFactory(new PalladioItemProviderAdapterFactory(
-                compAdapterFactory));
+        this.adapterFactory = new StereotypableElementDecoratorAdapterFactory(
+                new PalladioItemProviderAdapterFactory(compAdapterFactory));
 
         // Create the command stack that will notify this editor as commands are executed.
         //
@@ -1525,7 +1518,7 @@ IMenuListener, IViewerProvider, IGotoMarker {
     public void setStatusLineManager(final ISelection selection) {
         final IStatusLineManager statusLineManager = this.currentViewer != null
                 && this.currentViewer == this.contentOutlineViewer ? this.contentOutlineStatusLineManager : this
-                .getActionBars().getStatusLineManager();
+                        .getActionBars().getStatusLineManager();
 
         if (statusLineManager != null) {
             if (selection instanceof IStructuredSelection) {

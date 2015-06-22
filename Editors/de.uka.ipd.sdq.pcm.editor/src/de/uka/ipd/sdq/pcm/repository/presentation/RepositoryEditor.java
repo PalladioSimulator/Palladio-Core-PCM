@@ -620,13 +620,8 @@ IMenuListener, IViewerProvider, IGotoMarker {
         compAdapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
         compAdapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
-        final ComposedAdapterFactory palladioDecoratorFactory = new ComposedAdapterFactory();
-        palladioDecoratorFactory.addAdapterFactory(new PalladioItemProviderAdapterFactory(compAdapterFactory));
-        compAdapterFactory.setParentAdapterFactory(palladioDecoratorFactory);
-        final ComposedAdapterFactory stereotypeDecoratorFactory = new ComposedAdapterFactory(new StereotypableElementDecoratorAdapterFactory(
-                palladioDecoratorFactory));
-        palladioDecoratorFactory.setParentAdapterFactory(stereotypeDecoratorFactory);
-        this.adapterFactory = stereotypeDecoratorFactory;
+        this.adapterFactory = new StereotypableElementDecoratorAdapterFactory(
+                new PalladioItemProviderAdapterFactory(compAdapterFactory));
 
         // Create the command stack that will notify this editor as commands are executed.
         //

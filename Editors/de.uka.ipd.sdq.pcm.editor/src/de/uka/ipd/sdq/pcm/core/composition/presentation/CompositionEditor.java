@@ -51,6 +51,7 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
@@ -117,6 +118,7 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
+import org.palladiosimulator.mdsdprofiles.provider.StereotypableElementDecoratorAdapterFactory;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
@@ -140,6 +142,7 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.provider.SeffReliabilityItemProv
 import de.uka.ipd.sdq.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
 import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
@@ -161,9 +164,9 @@ IMenuListener, IViewerProvider, IGotoMarker {
     protected AdapterFactoryEditingDomain editingDomain;
 
     /**
-     * @generated
+     * @generated not
      */
-    protected ComposedAdapterFactory adapterFactory;
+    protected AdapterFactory adapterFactory;
 
     /**
      * @generated
@@ -182,7 +185,7 @@ IMenuListener, IViewerProvider, IGotoMarker {
 
     /**
      * This is the property sheet page. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected List<PropertySheetPage> propertySheetPages = new ArrayList<PropertySheetPage>();
@@ -585,34 +588,37 @@ IMenuListener, IViewerProvider, IGotoMarker {
     protected void initializeEditingDomain() {
         // Create an adapter factory that yields item providers.
         //
-        this.adapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
+        final ComposedAdapterFactory compAdapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
-        this.adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new PcmItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new CoreItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new EntityItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new CompositionItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new UsagemodelItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new ResourcetypeItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new ProtocolItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new ParameterItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new ReliabilityItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new SeffItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new SeffPerformanceItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new SeffReliabilityItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new QosannotationsItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new QosPerformanceItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new QosReliabilityItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new SystemItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new ResourceenvironmentItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new AllocationItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new SubsystemItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new StoexItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new UnitsItemProviderAdapterFactory());
-        this.adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new PcmItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new CoreItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new EntityItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new CompositionItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new UsagemodelItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new ResourcetypeItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new ProtocolItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new ParameterItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new ReliabilityItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new SeffItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new SeffPerformanceItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new SeffReliabilityItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new QosannotationsItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new QosPerformanceItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new QosReliabilityItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new SystemItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new ResourceenvironmentItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new AllocationItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new SubsystemItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new StoexItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new UnitsItemProviderAdapterFactory());
+        compAdapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+
+        this.adapterFactory = new StereotypableElementDecoratorAdapterFactory(
+                new PalladioItemProviderAdapterFactory(compAdapterFactory));
 
         // Create the command stack that will notify this editor as commands are executed.
         //
@@ -1512,7 +1518,7 @@ IMenuListener, IViewerProvider, IGotoMarker {
     public void setStatusLineManager(final ISelection selection) {
         final IStatusLineManager statusLineManager = this.currentViewer != null
                 && this.currentViewer == this.contentOutlineViewer ? this.contentOutlineStatusLineManager : this
-                .getActionBars().getStatusLineManager();
+                        .getActionBars().getStatusLineManager();
 
         if (statusLineManager != null) {
             if (selection instanceof IStructuredSelection) {
@@ -1594,7 +1600,7 @@ IMenuListener, IViewerProvider, IGotoMarker {
 
         this.getSite().getPage().removePartListener(this.partListener);
 
-        this.adapterFactory.dispose();
+        ((IDisposable) this.adapterFactory).dispose();
 
         if (this.getActionBarContributor().getActiveEditor() == this) {
             this.getActionBarContributor().setActiveEditor(null);

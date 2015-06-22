@@ -50,7 +50,6 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
@@ -187,7 +186,7 @@ ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 
     /**
      * This is the property sheet page. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected List<PropertySheetPage> propertySheetPages = new ArrayList<PropertySheetPage>();
@@ -265,7 +264,7 @@ ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
                             ResourceenvironmentEditor.this);
 
                     ResourceenvironmentEditor.this
-                            .setCurrentViewer(ResourceenvironmentEditor.this.contentOutlineViewer);
+                    .setCurrentViewer(ResourceenvironmentEditor.this.contentOutlineViewer);
                 }
             } else if (p instanceof PropertySheet) {
                 if (ResourceenvironmentEditor.this.propertySheetPages.contains(((PropertySheet) p).getCurrentPage())) {
@@ -439,7 +438,7 @@ ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
                             ResourceenvironmentEditor.this.removedResources.addAll(visitor.getRemovedResources());
                             if (!ResourceenvironmentEditor.this.isDirty()) {
                                 ResourceenvironmentEditor.this.getSite().getPage()
-                                        .closeEditor(ResourceenvironmentEditor.this, false);
+                                .closeEditor(ResourceenvironmentEditor.this, false);
                             }
                         }
                     });
@@ -599,13 +598,7 @@ ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
         // Create an adapter factory that yields item providers.
         //
         final ComposedAdapterFactory compAdapterFactory = new ComposedAdapterFactory(
-                ComposedAdapterFactory.Descriptor.Registry.INSTANCE) {
-
-            @Override
-            public ComposeableAdapterFactory getRootAdapterFactory() {
-                return (ComposeableAdapterFactory) ResourceenvironmentEditor.this.adapterFactory;
-            }
-        };
+                ComposedAdapterFactory.Descriptor.Registry.INSTANCE);
 
         compAdapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
         compAdapterFactory.addAdapterFactory(new CoreItemProviderAdapterFactory());
@@ -1239,18 +1232,18 @@ ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
                     // Set up the tree viewer.
                     //
                     ResourceenvironmentEditor.this.contentOutlineViewer
-                            .setContentProvider(new AdapterFactoryContentProvider(
-                                    ResourceenvironmentEditor.this.adapterFactory));
+                    .setContentProvider(new AdapterFactoryContentProvider(
+                            ResourceenvironmentEditor.this.adapterFactory));
                     ResourceenvironmentEditor.this.contentOutlineViewer
-                            .setLabelProvider(new AdapterFactoryLabelProvider(
-                                    ResourceenvironmentEditor.this.adapterFactory));
+                    .setLabelProvider(new AdapterFactoryLabelProvider(
+                            ResourceenvironmentEditor.this.adapterFactory));
                     ResourceenvironmentEditor.this.contentOutlineViewer
-                            .setInput(ResourceenvironmentEditor.this.editingDomain.getResourceSet());
+                    .setInput(ResourceenvironmentEditor.this.editingDomain.getResourceSet());
 
                     // Make sure our popups work.
                     //
                     ResourceenvironmentEditor.this
-                            .createContextMenuFor(ResourceenvironmentEditor.this.contentOutlineViewer);
+                    .createContextMenuFor(ResourceenvironmentEditor.this.contentOutlineViewer);
 
                     if (!ResourceenvironmentEditor.this.editingDomain.getResourceSet().getResources().isEmpty()) {
                         // Select the root object in the view.
@@ -1564,7 +1557,7 @@ ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
     public void setStatusLineManager(final ISelection selection) {
         final IStatusLineManager statusLineManager = this.currentViewer != null
                 && this.currentViewer == this.contentOutlineViewer ? this.contentOutlineStatusLineManager : this
-                .getActionBars().getStatusLineManager();
+                        .getActionBars().getStatusLineManager();
 
         if (statusLineManager != null) {
             if (selection instanceof IStructuredSelection) {
