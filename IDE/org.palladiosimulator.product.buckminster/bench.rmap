@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rm:rmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:maven="http://www.eclipse.org/buckminster/MavenProvider-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
 
-  <rm:redirect pattern=".*" href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Build/trunk/org.palladiosimulator.targetPlatformBuild/pcm_base.rmap"/>
+  <rm:locator pattern="^org\.palladiosimulator\.product.*" searchPathRef="productsvn"/>
+  <rm:locator searchPathRef="pcm_aggregate" failOnError="false"/>
 
+  <rm:redirect pattern=".*" href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Build/trunk/org.palladiosimulator.targetPlatformBuild/eclipse-platform.rmap"/>
+
+  <rm:searchPath name="productsvn">
+    <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="svn">
+      <rm:uri format="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/IDE/{0}">
+        <bc:propertyRef key="buckminster.component"/>
+      </rm:uri>
+    </rm:provider>
+  </rm:searchPath>
+  
+  <rm:searchPath name="MonitorRepository">
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
+      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/palladiosimulator/nightly/"/>
+    </rm:provider>
+  </rm:searchPath>
+  
 </rm:rmap>
