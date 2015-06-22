@@ -1,6 +1,8 @@
 <project name="Palladio Product Packaging">
 	<property environment="env"/>
-    <target name="create.product"> 
+	<property name="shared.TP" value="file://var/lib/jenkins/jobs/Build Eclipse Target Platform/lastSuccessful/archive/targetPlatform" />
+    
+	<target name="create.product"> 
         <property name="product.install.directory" location="${sp:destination}"/>
         <delete dir="${product.install.directory}" includeemptydirs="true" failonerror="false"/>
         <mkdir dir="${product.install.directory}" />
@@ -12,12 +14,10 @@
 	        refid="repositories.valuepath">
             <map from="" to="file:/"/>
         </pathconvert>
-    	<property name="product.repositories.extended" value="${product.repositories},file://var/lib/jenkins/jobs/Build Eclipse Target Platform/lastSuccessful/archive/targetPlatform" />
+    	<property name="product.repositories.extended" value="${product.repositories},${shared.TP}.shared" />
         <echoproperties />
         <echo message="Repositories: ${product.repositories.extended}"/>
         <echo message="Install Dir : ${product.install.directory}"/>
-    	    	
- 
         <p2.director
             destination="${product.install.directory}"
             metadataRepository="${product.repositories.extended}"
@@ -36,10 +36,17 @@
 	    <buckminster.targetPlatformLocation property="target.platform.location" />
 	    <property name="target.platform.repository" value="file:/${sp:output}" />
 	    <property name="repository.name" value="Target Platform Repository" />        
-	    <p2.publish.featuresAndBundles
+	    <echo message="Publishing the local Target Platform as P2" />
+		<p2.publish.featuresAndBundles
 	        repository="${target.platform.repository}"
 	        repositoryName="${repository.name}"
 	        source="${target.platform.location}"
+	        publishArtifacts="true" />
+		<echo message="Publishing the shared Target Platform as P2" />
+	    <p2.publish.featuresAndBundles
+	        repository="${target.platform.repository}.shared"
+	        repositoryName="${repository.name}.shared"
+	        source="${shared.TP}"
 	        publishArtifacts="true" />
 	    <buckminster.publishJRE metadataRepository="${target.platform.repository}" publishArtifacts="false" />
 	</target>
