@@ -20755,7 +20755,7 @@ the &quot;timeout&quot; attribute of the &quot;AcquireAction&quot; for further i
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_U1lYIJZwEdyvM-KRcbKtDQ" base_Package="_wQr8YCh8Edue7oeC4NTCGg" packageName="pcm" nsPrefix="pcm" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/5.0" basePackage="de.uka.ipd.sdq" prefix="Pcm"/>
+  <Ecore:EPackage xmi:id="_U1lYIJZwEdyvM-KRcbKtDQ" base_Package="_wQr8YCh8Edue7oeC4NTCGg" packageName="pcm" nsPrefix="pcm" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/5.0" basePackage="org.palladiosimulator" prefix="Pcm"/>
   <Ecore:EPackage xmi:id="_U1l_MJZwEdyvM-KRcbKtDQ" base_Package="_3amlYCh8Edue7oeC4NTCGg" packageName="core" nsPrefix="core" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/5.0" basePackage="" prefix="Core"/>
   <Ecore:EPackage xmi:id="_U1mmQJZwEdyvM-KRcbKtDQ" base_Package="_qLB6kOJQEdqxcra4qpeplw" packageName="entity" nsPrefix="entity" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/5.0" basePackage="" prefix="Entity"/>
   <Ecore:EPackage xmi:id="_U1n0YZZwEdyvM-KRcbKtDQ" base_Package="_cGFKsGc6EduCGaQAxkcIwA" packageName="composition" nsPrefix="composition" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0" basePackage="" prefix="Composition"/>
