@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="de.uka.ipd.sdq.pcm.feature"
+      id="org.palladiosimulator.pcm.bench.feature"
       label="Palladio-Bench"
       version="4.0.0.qualifier"
       plugin="org.palladiosimulator.branding"
@@ -73,42 +73,7 @@
    </requires>
 
    <plugin
-         id="de.uka.ipd.sdq.pcm"
-         download-size="0"
-         install-size="0"
-         version="4.0.0.qualifier"
-         unpack="false"/>
-
-   <plugin
-         id="de.uka.ipd.sdq.pcm.edit"
-         download-size="0"
-         install-size="0"
-         version="4.0.0.qualifier"
-         unpack="false"/>
-
-   <plugin
-         id="de.uka.ipd.sdq.pcm.editor"
-         download-size="0"
-         install-size="0"
-         version="4.0.0.qualifier"
-         unpack="false"/>
-
-   <plugin
          id="de.uka.ipd.sdq.pcmbench.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="de.uka.ipd.sdq.stoex.analyser"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="de.uka.ipd.sdq.pcm.stochasticexpressions"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -129,41 +94,6 @@
 
    <plugin
          id="org.palladiosimulator.branding"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="de.uka.ipd.sdq.pcm.dialogs"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="de.uka.ipd.sdq.pcm.resources"
-         download-size="0"
-         install-size="0"
-         version="3.6.0.qualifier"
-         unpack="false"/>
-
-   <plugin
-         id="de.uka.ipd.sdq.completions"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="de.uka.ipd.sdq.completions.edit"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="de.uka.ipd.sdq.completions.editor"
          download-size="0"
          install-size="0"
          version="0.0.0"
