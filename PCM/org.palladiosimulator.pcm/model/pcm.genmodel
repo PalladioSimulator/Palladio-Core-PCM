@@ -1173,7 +1173,7 @@
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
             createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/SpecifiedOutputParameterAbstraction/qosAnnotations_SpecifiedOutputParameterAbstraction"/>
       </genClasses>
-      <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="QosPerformance" basePackage="org.palladiosimulator.qosannotations"
+      <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="QosPerformance" basePackage="org.palladiosimulator.pcm.qosannotations"
           resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
           ecorePackage="pcm.ecore#//qosannotations/qos_performance">
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//qosannotations/qos_performance/SystemSpecifiedExecutionTime">
@@ -1191,7 +1191,7 @@
               propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/qos_performance/ComponentSpecifiedExecutionTime/assemblyContext_ComponentSpecifiedExecutionTime"/>
         </genClasses>
       </nestedGenPackages>
-      <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="QosReliability" basePackage="org.palladiosimulator.qosannotations"
+      <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="QosReliability" basePackage="org.palladiosimulator.pcm.qosannotations"
           resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
           ecorePackage="pcm.ecore#//qosannotations/qos_reliability">
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//qosannotations/qos_reliability/SpecifiedReliabilityAnnotation">
