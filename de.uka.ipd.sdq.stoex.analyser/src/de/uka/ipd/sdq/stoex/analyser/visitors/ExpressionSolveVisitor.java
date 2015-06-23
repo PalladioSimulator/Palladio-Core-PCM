@@ -394,6 +394,48 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 			} else {
 				throw new ExpressionSolvingFailedException("Function Round is only supported supported for a single double parameter!", object);
 			}
+		}  else if (object.getId().equals("Ceil")){
+			// Ceil must only have one parameter
+			if (object.getParameters_FunctionLiteral().size() == 1){
+				Expression solvedParam = parameterList.get(0);
+				//Parameter for Ceil can be a DoubleLiteral 
+				if (solvedParam instanceof DoubleLiteral) {
+						IntLiteral intLit = StoexFactory.eINSTANCE.createIntLiteral();
+						intLit.setValue((int)Math.ceil(((DoubleLiteral)solvedParam).getValue()));
+						return intLit;
+				} else
+					throw new ExpressionSolvingFailedException("Function Ceil is only supported supported for a single double parameter!", object);
+			} else {
+				throw new ExpressionSolvingFailedException("Function Ceil is only supported supported for a single double parameter!", object);
+			}
+		}  else if (object.getId().equals("Sqrt")){
+			// Sqrt must only have one parameter
+			if (object.getParameters_FunctionLiteral().size() == 1){
+				Expression solvedParam = parameterList.get(0);
+				//Parameter for Sqrt can be a DoubleLiteral 
+				if (solvedParam instanceof DoubleLiteral) {
+						DoubleLiteral doubleLit = StoexFactory.eINSTANCE.createDoubleLiteral();
+						doubleLit.setValue(Math.sqrt(((DoubleLiteral)solvedParam).getValue()));
+						return doubleLit;
+				} else
+					throw new ExpressionSolvingFailedException("Function Sqrt is only supported supported for a single double parameter!", object);
+			} else {
+				throw new ExpressionSolvingFailedException("Function Sqrt is only supported supported for a single double parameter!", object);
+			}
+		} else if (object.getId().equals("Log")){
+			// Log must have two parameters: base, value
+			if (object.getParameters_FunctionLiteral().size() == 2){
+				Expression base = parameterList.get(0);
+				Expression value = parameterList.get(1);
+				if (base instanceof DoubleLiteral && value instanceof DoubleLiteral) {
+					DoubleLiteral result = StoexFactory.eINSTANCE.createDoubleLiteral();
+					result.setValue(Math.log(((DoubleLiteral)value).getValue())/Math.log(((DoubleLiteral)base).getValue()));
+					return result;
+				} else
+					throw new ExpressionSolvingFailedException("Function Ceil is only supported supported for a single double parameter!", object);
+			} else {
+				throw new ExpressionSolvingFailedException("Function Log is only supported supported for two double parameters: base, value!", object);
+			}
 		} else {
 			throw new UnsupportedOperationException(this.getClass().getName()+": Function "+object.getId()+" not supported!");
         }
