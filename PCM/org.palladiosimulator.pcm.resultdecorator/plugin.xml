@@ -13,34 +13,34 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/ResultDecorator/1.0"
-            class="de.uka.ipd.sdq.pcm.resultdecorator.ResultdecoratorPackage"
+            class="org.palladiosimulator.pcm.resultdecorator.ResultdecoratorPackage"
             genModel="model/resultdecorator.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/ResultDecorator/Repository/1.0"
-            class="de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.RepositorydecoratorPackage"
+            class="org.palladiosimulator.pcm.resultdecorator.repositorydecorator.RepositorydecoratorPackage"
             genModel="model/resultdecorator.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="repositorydecorator"
-            class="de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.util.RepositorydecoratorResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.resultdecorator.repositorydecorator.util.RepositorydecoratorResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/ResultDecorator/ResourceEnvironment/1.0"
-            class="de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.ResourceenvironmentdecoratorPackage"
+            class="org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.ResourceenvironmentdecoratorPackage"
             genModel="model/resultdecorator.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="resourceenvironmentdecorator"
-            class="de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.util.ResourceenvironmentdecoratorResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.util.ResourceenvironmentdecoratorResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">

@@ -13,7 +13,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/ResultDecorator/1.0"
-            class="de.uka.ipd.sdq.pcm.resultdecorator.provider.ResultdecoratorItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.resultdecorator.provider.ResultdecoratorItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -25,7 +25,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/ResultDecorator/Repository/1.0"
-            class="de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.provider.RepositorydecoratorItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.resultdecorator.repositorydecorator.provider.RepositorydecoratorItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -37,7 +37,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/ResultDecorator/ResourceEnvironment/1.0"
-            class="de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.provider.ResourceenvironmentdecoratorItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.provider.ResourceenvironmentdecoratorItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

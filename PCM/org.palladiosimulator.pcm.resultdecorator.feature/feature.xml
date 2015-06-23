@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="de.uka.ipd.sdq.pcm.resultdecorator.feature"
+      id="org.palladiosimulator.pcm.resultdecorator.feature"
       label="Resultdecorator Feature"
       version="4.0.0.qualifier"
       license-feature="org.palladiosimulator.license"
@@ -31,21 +31,21 @@
    </requires>
 
    <plugin
-         id="de.uka.ipd.sdq.pcm.resultdecorator"
+         id="org.palladiosimulator.pcm.resultdecorator"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="de.uka.ipd.sdq.pcm.resultdecorator.edit"
+         id="org.palladiosimulator.pcm.resultdecorator.edit"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="de.uka.ipd.sdq.pcm.resultdecorator.editor"
+         id="org.palladiosimulator.pcm.resultdecorator.editor"
          download-size="0"
          install-size="0"
          version="0.0.0"

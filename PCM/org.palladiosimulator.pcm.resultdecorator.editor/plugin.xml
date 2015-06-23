@@ -15,9 +15,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.resultdecorator.presentation.ResultdecoratorModelWizardID"
+            id="org.palladiosimulator.pcm.resultdecorator.presentation.ResultdecoratorModelWizardID"
             name="%_UI_ResultdecoratorModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.resultdecorator.presentation.ResultdecoratorModelWizard"
+            class="org.palladiosimulator.pcm.resultdecorator.presentation.ResultdecoratorModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/ResultdecoratorModelFile.gif">
          <description>%_UI_ResultdecoratorModelWizard_description</description>
@@ -27,12 +27,12 @@
 
    <extension point="org.eclipse.ui.editors">
       <editor
-            id="de.uka.ipd.sdq.pcm.resultdecorator.presentation.ResultdecoratorEditorID"
+            id="org.palladiosimulator.pcm.resultdecorator.presentation.ResultdecoratorEditorID"
             name="%_UI_ResultdecoratorEditor_label"
             icon="icons/full/obj16/ResultdecoratorModelFile.gif"
             extensions="resultdecorator"
-            class="de.uka.ipd.sdq.pcm.resultdecorator.presentation.ResultdecoratorEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.resultdecorator.presentation.ResultdecoratorActionBarContributor">
+            class="org.palladiosimulator.pcm.resultdecorator.presentation.ResultdecoratorEditor"
+            contributorClass="org.palladiosimulator.pcm.resultdecorator.presentation.ResultdecoratorActionBarContributor">
       </editor>
    </extension>
 
@@ -41,9 +41,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.presentation.RepositorydecoratorModelWizardID"
+            id="org.palladiosimulator.pcm.resultdecorator.repositorydecorator.presentation.RepositorydecoratorModelWizardID"
             name="%_UI_RepositorydecoratorModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.presentation.RepositorydecoratorModelWizard"
+            class="org.palladiosimulator.pcm.resultdecorator.repositorydecorator.presentation.RepositorydecoratorModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/RepositorydecoratorModelFile.gif">
          <description>%_UI_RepositorydecoratorModelWizard_description</description>
@@ -53,12 +53,12 @@
 
    <extension point="org.eclipse.ui.editors">
       <editor
-            id="de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.presentation.RepositorydecoratorEditorID"
+            id="org.palladiosimulator.pcm.resultdecorator.repositorydecorator.presentation.RepositorydecoratorEditorID"
             name="%_UI_RepositorydecoratorEditor_label"
             icon="icons/full/obj16/RepositorydecoratorModelFile.gif"
             extensions="repositorydecorator"
-            class="de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.presentation.RepositorydecoratorEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.presentation.RepositorydecoratorActionBarContributor">
+            class="org.palladiosimulator.pcm.resultdecorator.repositorydecorator.presentation.RepositorydecoratorEditor"
+            contributorClass="org.palladiosimulator.pcm.resultdecorator.repositorydecorator.presentation.RepositorydecoratorActionBarContributor">
       </editor>
    </extension>
 
@@ -67,9 +67,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.presentation.ResourceenvironmentdecoratorModelWizardID"
+            id="org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.presentation.ResourceenvironmentdecoratorModelWizardID"
             name="%_UI_ResourceenvironmentdecoratorModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.presentation.ResourceenvironmentdecoratorModelWizard"
+            class="org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.presentation.ResourceenvironmentdecoratorModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/ResourceenvironmentdecoratorModelFile.gif">
          <description>%_UI_ResourceenvironmentdecoratorModelWizard_description</description>
@@ -79,12 +79,12 @@
 
    <extension point="org.eclipse.ui.editors">
       <editor
-            id="de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.presentation.ResourceenvironmentdecoratorEditorID"
+            id="org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.presentation.ResourceenvironmentdecoratorEditorID"
             name="%_UI_ResourceenvironmentdecoratorEditor_label"
             icon="icons/full/obj16/ResourceenvironmentdecoratorModelFile.gif"
             extensions="resourceenvironmentdecorator"
-            class="de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.presentation.ResourceenvironmentdecoratorEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.presentation.ResourceenvironmentdecoratorActionBarContributor">
+            class="org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.presentation.ResourceenvironmentdecoratorEditor"
+            contributorClass="org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.presentation.ResourceenvironmentdecoratorActionBarContributor">
       </editor>
    </extension>
 
