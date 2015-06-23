@@ -3,8 +3,8 @@ package de.uka.ipd.sdq.pcm.stochasticexpressions;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
-import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import org.palladiosimulator.pcm.parameter.CharacterisedVariable;
+import org.palladiosimulator.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.stoex.util.StoexSwitch;
 
 public class PCMStoExSwitch extends StoexSwitch<Object> {
