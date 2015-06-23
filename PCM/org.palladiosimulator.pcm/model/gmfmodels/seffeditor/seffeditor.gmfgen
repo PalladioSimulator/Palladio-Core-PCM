@@ -2963,7 +2963,7 @@
             xsi:type="gmfgen:ToolEntry"
             title="ResourceDemand"
             description="Create new ResourceDemand"
-            smallIconPath="/de.uka.ipd.sdq.pcm.edit/icons/full/ctool16/ParametricRessourceDemand.gif"
+            smallIconPath="/org.palladiosimulator.pcm.edit/icons/full/ctool16/ParametricRessourceDemand.gif"
             genNodes="//@diagram/@childNodes.11"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
@@ -3018,13 +3018,13 @@
             xsi:type="gmfgen:ToolEntry"
             title="Control Flow"
             description="Create new Control Flow Link"
-            smallIconPath="/de.uka.ipd.sdq.pcm.edit/icons/full/ctool16/ControlFlow.gif"
+            smallIconPath="/org.palladiosimulator.pcm.edit/icons/full/ctool16/ControlFlow.gif"
             genLinks="//@diagram/@links.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="Recovery Flow"
             description="Create new Recovery Flow Link"
-            smallIconPath="/de.uka.ipd.sdq.pcm.edit/icons/full/ctool16/RecoveryFlow.gif"
+            smallIconPath="/org.palladiosimulator.pcm.edit/icons/full/ctool16/RecoveryFlow.gif"
             genLinks="//@diagram/@links.1"/>
       </groups>
     </palette>

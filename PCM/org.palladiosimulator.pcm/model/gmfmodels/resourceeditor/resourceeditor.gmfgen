@@ -549,8 +549,8 @@
             xsi:type="gmfgen:ToolEntry"
             title="Connection"
             description="Create new Connection"
-            largeIconPath="/de.uka.ipd.sdq.pcm.edit/icons/full/obj16/CommunicationLink.gif"
-            smallIconPath="/de.uka.ipd.sdq.pcm.edit/icons/full/obj16/CommunicationLink.gif"
+            largeIconPath="/org.palladiosimulator.pcm.edit/icons/full/obj16/CommunicationLink.gif"
+            smallIconPath="/org.palladiosimulator.pcm.edit/icons/full/obj16/CommunicationLink.gif"
             genLinks="//@diagram/@links.0"/>
       </groups>
     </palette>

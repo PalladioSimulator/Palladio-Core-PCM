@@ -43,11 +43,11 @@
         <smallIcon
             xsi:type="gmftool:BundleImage"
             path="/icons/full/obj16/CommunicationLink.gif"
-            bundle="de.uka.ipd.sdq.pcm.edit"/>
+            bundle="org.palladiosimulator.pcm.edit"/>
         <largeIcon
             xsi:type="gmftool:BundleImage"
             path="/icons/full/obj16/CommunicationLink.gif"
-            bundle="de.uka.ipd.sdq.pcm.edit"/>
+            bundle="org.palladiosimulator.pcm.edit"/>
       </tools>
     </tools>
   </palette>

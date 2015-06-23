@@ -21,7 +21,7 @@
       <import plugin="de.uka.ipd.sdq.units"/>
       <import plugin="org.eclipse.emf.edit"/>
       <import plugin="de.uka.ipd.sdq.identifier.edit"/>
-      <import plugin="de.uka.ipd.sdq.pcm.edit"/>
+      <import plugin="org.palladiosimulator.pcm.edit"/>
       <import plugin="de.uka.ipd.sdq.probfunction.edit"/>
       <import plugin="de.uka.ipd.sdq.stoex.edit"/>
       <import plugin="de.uka.ipd.sdq.units.edit"/>
