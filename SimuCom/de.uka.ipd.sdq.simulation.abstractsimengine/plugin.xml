@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<?eclipse version="3.4"?>
-<plugin>
-   <extension-point id="de.uka.ipd.sdq.simulation.abstractsimengine.engine" name="Simulation Engine" schema="schema/de.uka.ipd.sdq.simulation.abstractsimengine.engine.exsd"/>
-</plugin>

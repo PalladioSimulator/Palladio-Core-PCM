@@ -1,8 +1,0 @@
-<?xml version="1.0" ?>
-<!-- Configuration of the Ant build system to generate a Jar file --> 
-<project name="org.palladiosimulator.protocom.resourcestrategies" default="CreateJar">
-	<target name="CreateJar" description="Create Jar file">
-		<!-- includes="**/jee/servlet/**/*.class" -->
-		<jar destfile="../org.palladiosimulator.protocom.framework.java.ee/src/org/palladiosimulator/protocom/framework/java/ee/webcontent/files/lib/org.palladiosimulator.protocom.resourcestrategies.jar" basedir="bin" includes="**/*.class" />
-	</target>
-</project>
