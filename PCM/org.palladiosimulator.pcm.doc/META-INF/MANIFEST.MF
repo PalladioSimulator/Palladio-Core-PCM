@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Doc
-Bundle-SymbolicName: de.uka.ipd.sdq.pcm.doc
+Bundle-SymbolicName: org.palladiosimulator.pcm.doc
 Bundle-Version: 1.0.0
 Export-Package: .,
  template,
