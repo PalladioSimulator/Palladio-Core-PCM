@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<!--
+Copyright 2007, SDQ, IPD, U KA
+-->
+<plugin>
+
+   
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
+      <?gmfgen generated="true"?>
+      <editpartProvider class="de.uka.ipd.sdq.pcm.gmf.allocation.custom.providers.CustomPalladioComponentModelEditPartProvider">
+      	<Priority name="Low"/>
+         <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
+            <method name="getType()" value="allocation"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
+            <method name="getType()" value="2003,3002"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
+            <method name="getType()" value=""/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
+            <method name="getType()" value="5008,5006,5007"/>
+         </object>
+         <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
+            <method name="getType()" value="7003"/>
+         </object>
+         <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>      	
+      </editpartProvider>
+   </extension>
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders" id="modelassist-provider">
+      <modelingAssistantProvider
+            class="de.uka.ipd.sdq.pcm.gmf.allocation.custom.providers.CustomPalladioComponentModelModelingAssistantProvider">
+         <Priority
+               name="Low">
+         </Priority>
+         <object
+               class="de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationEditPart"
+               id="Allocation_1000">
+         </object>
+         <object
+               class="de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.ResourceContainerEditPart"
+               id="ResourceContainer_2003">
+         </object>
+         <context
+               elements="Allocation_1000,ResourceContainer_2003">
+         </context>
+      </modelingAssistantProvider>
+   </extension>
+</plugin>

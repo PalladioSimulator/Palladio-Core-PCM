@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0">
+            
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.AssemblyConnectorEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.AssemblyConnectorEditHelperAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.composite.AssemblyConnector_4004">
+         </adviceBinding>
+         
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.AssemblyContextEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.AssemblyContextEditHelperAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.composite.AssemblyContext_3006">
+         </adviceBinding>
+
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.AssemblyEventConnectorEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.AssemblyEventConnectorEditHelperAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.composite.AssemblyEventConnector_4007">
+         </adviceBinding>
+         
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.AssemblyInfrastructureConnectorEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.AssemblyInfrastructureConnectorEditHelperAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.composite.AssemblyInfrastructureConnector_4008">
+         </adviceBinding>
+
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.EventChannelEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.EventChannelEditHelperAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.composite.EventChannel_3017">
+         </adviceBinding>
+         
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.InfrastructureProvidedRoleEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.InfrastructureProvidedRoleEditHelperAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.composite.InfrastructureProvidedRole_3015">
+         </adviceBinding>
+         
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.InfrastructureRequiredRoleEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.InfrastructureRequiredRoleEditHelperAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.composite.InfrastructureRequiredRole_3016">
+         </adviceBinding>
+         
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.OperationProvidedRoleEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.OperationProvidedRoleEditHelperAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.composite.OperationProvidedRole_3011">
+         </adviceBinding>
+         
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.OperationRequiredRoleEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.OperationRequiredRoleEditHelperAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.composite.OperationRequiredRole_3012">
+         </adviceBinding>
+         
+         <adviceBinding
+               class="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.ProvidedDelegationConnectorEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.ProvidedDelegationConnectorEditHelperAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.composite.ProvidedDelegationConnector_4006">
+         </adviceBinding>
+         
+         <adviceBinding
+               class="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.RequiredDelegationConnectorEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.RequiredDelegationConnectorEditHelperAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.composite.RequiredDelegationConnector_4005">
+         </adviceBinding>
+         
+      </metamodel>
+   </extension>
+   
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings" id="element-types-bindings">
+      <?gmfgen generated="true"?>
+      <clientContext id="de.uka.ipd.sdq.pcm.gmf.composite.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="de.uka.ipd.sdq.pcm.gmf.composite.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="de.uka.ipd.sdq.pcm.gmf.composite.TypeContext">
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.AssemblyConnector_4004"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.AssemblyContext_3006"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.AssemblyEventConnector_4007"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.AssemblyInfrastructureConnector_4008"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.EventChannel_3017"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.InfrastructureProvidedRole_3015"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.InfrastructureRequiredRole_3016"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.OperationProvidedRole_3011"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.OperationRequiredRole_3012"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.ProvidedDelegationConnector_4006"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.RequiredDelegationConnector_4005"/>
+         
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.AssemblyConnectorEditHelperAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.AssemblyContextEditHelperAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.AssemblyEventConnectorEditHelperAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.AssemblyInfrastructureConnectorEditHelperAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.EventChannelEditHelperAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.InfrastructureProvidedRoleEditHelperAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.InfrastructureRequiredRoleEditHelperAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.OperationProvidedRoleEditHelperAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.OperationRequiredRoleEditHelperAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.ProvidedDelegationConnectorEditHelperAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.composite.helper.edit.RequiredDelegationConnectorEditHelperAdvice">
+         </advice>
+         
+      </binding>
+   </extension>
+</plugin>
