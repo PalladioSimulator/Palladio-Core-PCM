@@ -12,12 +12,12 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
+import org.palladiosimulator.pcm.dialogs.selection.PalladioSelectEObjectDialog;
 
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.EventChannel;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-import de.uka.ipd.sdq.pcm.dialogs.selection.PalladioSelectEObjectDialog;
 
 /**
  * Edit helper advice for Allocation Context. Creates an dialog and initializes allocation contexts
