@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="resultdecorator"
-    nsURI="http://sdq.ipd.uka.de/ResultDecorator/1.0" nsPrefix="resultdecorator">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="resultdecorator" nsURI="http://palladiosimulator.org/PCM/ResultDecorator/1.0"
+    nsPrefix="resultdecorator">
   <eClassifiers xsi:type="ecore:EClass" name="ResultDecoratorRepository" eSuperTypes="../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/entity/NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="componentResults_ResultDecoratorRepository"
         ordered="false" upperBound="-1" eType="#//repositorydecorator/ComponentResult"
@@ -14,7 +13,7 @@
         ordered="false" upperBound="-1" eType="#//repositorydecorator/ServiceResult"
         containment="true"/>
   </eClassifiers>
-  <eSubpackages name="repositorydecorator" nsURI="http://sdq.ipd.uka.de/ResultDecorator/Repository/1.0"
+  <eSubpackages name="repositorydecorator" nsURI="http://palladiosimulator.org/PCM/ResultDecorator/Repository/1.0"
       nsPrefix="repositorydecorator">
     <eClassifiers xsi:type="ecore:EClass" name="InterfaceProvidingRequiringEntityResults"
         eSuperTypes="#//repositorydecorator/ComponentResult">
@@ -56,7 +55,7 @@
           ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//allocation/AllocationContext"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="resourceenvironmentdecorator" nsURI="http://sdq.ipd.uka.de/ResultDecorator/ResourceEnvironment/1.0"
+  <eSubpackages name="resourceenvironmentdecorator" nsURI="http://palladiosimulator.org/PCM/ResultDecorator/ResourceEnvironment/1.0"
       nsPrefix="resourceenvironmentdecorator">
     <eClassifiers xsi:type="ecore:EClass" name="LinkingResourceResults" eSuperTypes="#//resourceenvironmentdecorator/ActiveResourceUtilisationResult">
       <eStructuralFeatures xsi:type="ecore:EReference" name="linkingResource_LinkingResourceResults"

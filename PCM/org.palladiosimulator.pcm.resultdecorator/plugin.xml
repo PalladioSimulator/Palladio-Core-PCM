@@ -43,4 +43,41 @@
             class="de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.util.ResourceenvironmentdecoratorResourceFactoryImpl"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated resultdecorator -->
+      <package
+            uri="http://palladiosimulator.org/PCM/ResultDecorator/1.0"
+            class="org.palladiosimulator.pcm.resultdecorator.ResultdecoratorPackage"
+            genModel="model/resultdecorator.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated resultdecorator -->
+      <package
+            uri="http://palladiosimulator.org/PCM/ResultDecorator/Repository/1.0"
+            class="org.palladiosimulator.pcm.resultdecorator.repositorydecorator.RepositorydecoratorPackage"
+            genModel="model/resultdecorator.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated resultdecorator -->
+      <parser
+            type="repositorydecorator"
+            class="org.palladiosimulator.pcm.resultdecorator.repositorydecorator.util.RepositorydecoratorResourceFactoryImpl"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated resultdecorator -->
+      <package
+            uri="http://palladiosimulator.org/PCM/ResultDecorator/ResourceEnvironment/1.0"
+            class="org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.ResourceenvironmentdecoratorPackage"
+            genModel="model/resultdecorator.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated resultdecorator -->
+      <parser
+            type="resourceenvironmentdecorator"
+            class="org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.util.ResourceenvironmentdecoratorResourceFactoryImpl"/>
+   </extension>
 </plugin>
