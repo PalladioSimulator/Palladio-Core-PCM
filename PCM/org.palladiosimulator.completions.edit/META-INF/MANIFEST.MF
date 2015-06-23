@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: org.palladiosimulator.completions.edit;singleton:=true
+Bundle-SymbolicName: org.palladiosimulator.pcm.completions.edit;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: org.palladiosimulator.completions.provider.CompletionsEditPlugin$Implementation
@@ -10,7 +10,7 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.palladiosimulator.completions.provider
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.10.0",
- org.palladiosimulator.completions;bundle-version="1.0.0";visibility:=reexport,
+ org.palladiosimulator.pcm.completions;bundle-version="1.0.0";visibility:=reexport,
  org.eclipse.emf.edit;bundle-version="2.10.1";visibility:=reexport,
  de.uka.ipd.sdq.identifier;bundle-version="2.1.0";visibility:=reexport,
  de.uka.ipd.sdq.identifier.edit;bundle-version="2.1.0";visibility:=reexport,
