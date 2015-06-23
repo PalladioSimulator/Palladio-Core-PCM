@@ -366,6 +366,12 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
             typeAnnotation.put(object, TypeEnum.INT_PMF);
         } else if (object.getId().equals("Round")) {
             typeAnnotation.put(object, TypeEnum.INT_PMF);
+        } else if (object.getId().equals("Ceil")) {
+            typeAnnotation.put(object, TypeEnum.INT_PMF);
+        } else if (object.getId().equals("Log")) {
+            typeAnnotation.put(object, TypeEnum.INT_PMF);
+        } else if (object.getId().equals("Sqrt")) {
+            typeAnnotation.put(object, TypeEnum.INT_PMF);
         } else if (object.getId().equals("Min")) {
             if (object.getParameters_FunctionLiteral().size() > 0) {
                 typeAnnotation.put(object, typeAnnotation.get(object.getParameters_FunctionLiteral().get(0)));

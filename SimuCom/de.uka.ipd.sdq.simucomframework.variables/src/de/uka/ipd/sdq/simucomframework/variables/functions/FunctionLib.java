@@ -40,6 +40,9 @@ public class FunctionLib {
         myFunctions.put("UniInt", new UniIntDistFunction(randomGen, factory));
         myFunctions.put("Trunc", new TruncFunction());
         myFunctions.put(RoundFunction.ROUND_FUNCTION_NAME, new RoundFunction());
+        myFunctions.put(CeilFunction.CEIL_FUNCTION_NAME, new CeilFunction());
+        myFunctions.put(LogFunction.LOG_FUNCTION_NAME, new LogFunction());
+        myFunctions.put(SqrtFunction.SQRT_FUNCTION_NAME, new SqrtFunction());
         myFunctions.put(ProbfunctionHelper.LOGNORM, new LogNormDistFunction(randomGen, factory));
         myFunctions.put(ProbfunctionHelper.LOGNORM2, new LogNormDistFunctionFromMoments(randomGen, factory));
         myFunctions.put(ProbfunctionHelper.GAMMA, new GammaDistFunction(randomGen, factory));
