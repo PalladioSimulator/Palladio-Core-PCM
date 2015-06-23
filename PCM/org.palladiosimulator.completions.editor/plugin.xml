@@ -19,7 +19,7 @@
     <wizard
       id = "de.uka.ipd.sdq.completions.presentation.CompletionsModelWizardID"
       name = "%_UI_CompletionsModelWizard_label"
-      class = "de.uka.ipd.sdq.completions.presentation.CompletionsModelWizard"
+      class = "org.palladiosimulator.completions.presentation.CompletionsModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/CompletionsModelFile.gif">
       <description>%_UI_CompletionsModelWizard_description</description>
@@ -33,8 +33,8 @@
         name = "%_UI_CompletionsEditor_label"
         icon = "icons/full/obj16/CompletionsModelFile.gif"
         extensions = "completions"
-        class = "de.uka.ipd.sdq.completions.presentation.CompletionsEditor" 
-        contributorClass="de.uka.ipd.sdq.completions.presentation.CompletionsActionBarContributor" >
+        class = "org.palladiosimulator.completions.presentation.CompletionsEditor" 
+        contributorClass="org.palladiosimulator.completions.presentation.CompletionsActionBarContributor" >
     </editor>
   </extension>    
    <extension point="org.eclipse.ui.newWizards">
