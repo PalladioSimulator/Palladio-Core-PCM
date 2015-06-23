@@ -13,7 +13,7 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.pcm.gmf.usage,
  de.uka.ipd.sdq.pcm.gmf.repository,
  de.uka.ipd.sdq.pcm.gmf.composite,
- de.uka.ipd.sdq.pcm.editor,
+ org.palladiosimulator.pcm.editor,
  de.uka.ipd.sdq.pcm.gmf.resource;bundle-version="1.0.0"
 Bundle-Vendor: sdq.ipd.uka.de
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
