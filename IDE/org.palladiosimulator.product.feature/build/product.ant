@@ -1,7 +1,8 @@
 <project name="Palladio Product Packaging">
 	<property environment="env"/>
 	<property name="shared.TP" value="/var/lib/jenkins/jobs/Build Eclipse Target Platform/lastSuccessful/archive/targetPlatform" />
-    
+	<property name="luna.p2" value="file:/var/lib/jenkins/eclipse/p2.mirrors/luna" />
+	
 	<target name="create.product"> 
         <property name="product.install.directory" location="${sp:destination}"/>
         <delete dir="${product.install.directory}" includeemptydirs="true" failonerror="false"/>
@@ -19,8 +20,8 @@
         <echo message="Install Dir : ${product.install.directory}"/>
         <p2.director
             destination="${product.install.directory}"
-            metadataRepository="${product.repositories}"
-            artifactRepository="${product.repositories}"
+            metadataRepository="${product.repositories},${luna.p2}"
+            artifactRepository="${product.repositories},${luna.p2}"
             profile="${profile}"
             arch="${target.arch}"
             os="${target.os}"
