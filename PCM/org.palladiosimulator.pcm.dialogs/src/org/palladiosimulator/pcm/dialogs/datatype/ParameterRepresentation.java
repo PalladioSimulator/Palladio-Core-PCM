@@ -6,9 +6,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
-import de.uka.ipd.sdq.pcm.repository.DataType;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.repository.DataType;
+import org.palladiosimulator.pcm.repository.Parameter;
+import org.palladiosimulator.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 // TODO: Auto-generated Javadoc

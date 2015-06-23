@@ -4,8 +4,8 @@ package org.palladiosimulator.pcmmeasuringpoint;
 
 import org.eclipse.emf.cdo.CDOObject;
 
-import de.uka.ipd.sdq.pcm.repository.OperationSignature;
-import de.uka.ipd.sdq.pcm.repository.Role;
+import org.palladiosimulator.pcm.repository.OperationSignature;
+import org.palladiosimulator.pcm.repository.Role;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Operation Reference</b></em>

@@ -7,8 +7,8 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.palladiosimulator.pcm.dialogs.parameters.EditorContentsSelectionAction;
 
-import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
+import org.palladiosimulator.pcm.repository.CompositeDataType;
+import org.palladiosimulator.pcm.repository.InnerDeclaration;
 
 // TODO: Auto-generated Javadoc
 /**

@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.RepositorydecoratorPackage;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.ServiceResult;
 
-import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
+import org.palladiosimulator.pcm.seff.ServiceEffectSpecification;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Service Result</b></em>'.

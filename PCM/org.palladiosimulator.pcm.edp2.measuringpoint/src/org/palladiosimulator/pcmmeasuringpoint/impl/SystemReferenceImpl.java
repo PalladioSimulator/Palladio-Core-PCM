@@ -57,8 +57,8 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
      * @generated
      */
     @Override
-    public de.uka.ipd.sdq.pcm.system.System getSystem() {
-        return (de.uka.ipd.sdq.pcm.system.System) this.eDynamicGet(PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM,
+    public org.palladiosimulator.pcm.system.System getSystem() {
+        return (org.palladiosimulator.pcm.system.System) this.eDynamicGet(PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM,
                 PcmmeasuringpointPackage.Literals.SYSTEM_REFERENCE__SYSTEM, true, true);
     }
 
@@ -67,8 +67,8 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
      *
      * @generated
      */
-    public de.uka.ipd.sdq.pcm.system.System basicGetSystem() {
-        return (de.uka.ipd.sdq.pcm.system.System) this.eDynamicGet(PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM,
+    public org.palladiosimulator.pcm.system.System basicGetSystem() {
+        return (org.palladiosimulator.pcm.system.System) this.eDynamicGet(PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM,
                 PcmmeasuringpointPackage.Literals.SYSTEM_REFERENCE__SYSTEM, false, true);
     }
 
@@ -78,7 +78,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
      * @generated
      */
     @Override
-    public void setSystem(final de.uka.ipd.sdq.pcm.system.System newSystem) {
+    public void setSystem(final org.palladiosimulator.pcm.system.System newSystem) {
         this.eDynamicSet(PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM,
                 PcmmeasuringpointPackage.Literals.SYSTEM_REFERENCE__SYSTEM, newSystem);
     }
@@ -109,7 +109,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
     public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM:
-            this.setSystem((de.uka.ipd.sdq.pcm.system.System) newValue);
+            this.setSystem((org.palladiosimulator.pcm.system.System) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -124,7 +124,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
     public void eUnset(final int featureID) {
         switch (featureID) {
         case PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM:
-            this.setSystem((de.uka.ipd.sdq.pcm.system.System) null);
+            this.setSystem((org.palladiosimulator.pcm.system.System) null);
             return;
         }
         super.eUnset(featureID);

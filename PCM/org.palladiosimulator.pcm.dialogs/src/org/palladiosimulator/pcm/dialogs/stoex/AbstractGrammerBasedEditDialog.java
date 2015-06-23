@@ -52,8 +52,8 @@ import org.palladiosimulator.pcm.dialogs.DialogsImages;
 import org.palladiosimulator.pcm.dialogs.SWTResourceManager;
 
 import de.uka.ipd.sdq.errorhandling.IIssue;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.ErrorEntry;
+import org.palladiosimulator.pcm.repository.Parameter;
+import org.palladiosimulator.pcm.stochasticexpressions.parser.ErrorEntry;
 
 // TODO: Auto-generated Javadoc
 /**

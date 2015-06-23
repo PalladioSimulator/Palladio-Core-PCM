@@ -7,7 +7,7 @@ import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import org.palladiosimulator.pcm.core.composition.AssemblyContext;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Assembly Reference</b></em>

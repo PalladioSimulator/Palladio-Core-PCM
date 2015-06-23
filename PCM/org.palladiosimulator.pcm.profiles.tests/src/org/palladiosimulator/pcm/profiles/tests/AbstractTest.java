@@ -12,7 +12,7 @@ import org.modelversioning.emfprofile.Profile;
 import org.modelversioning.emfprofile.registry.IProfileRegistry;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 
-import de.uka.ipd.sdq.pcm.repository.Repository;
+import org.palladiosimulator.pcm.repository.Repository;
 
 /**
  * @author Sebastian Lehrig

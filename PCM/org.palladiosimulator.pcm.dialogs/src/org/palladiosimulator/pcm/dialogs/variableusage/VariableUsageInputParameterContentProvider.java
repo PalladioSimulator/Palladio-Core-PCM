@@ -2,11 +2,11 @@ package org.palladiosimulator.pcm.dialogs.variableusage;
 
 import java.util.ArrayList;
 
-import de.uka.ipd.sdq.pcm.repository.EventType;
-import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
-import de.uka.ipd.sdq.pcm.repository.OperationSignature;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.ParameterModifier;
+import org.palladiosimulator.pcm.repository.EventType;
+import org.palladiosimulator.pcm.repository.InfrastructureSignature;
+import org.palladiosimulator.pcm.repository.OperationSignature;
+import org.palladiosimulator.pcm.repository.Parameter;
+import org.palladiosimulator.pcm.repository.ParameterModifier;
 
 // TODO: Auto-generated Javadoc
 /**

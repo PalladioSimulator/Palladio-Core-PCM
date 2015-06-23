@@ -13,7 +13,7 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.palladiosimulator.pcm.completions.CompletionsPackage;
 
-import de.uka.ipd.sdq.pcm.seff.seff_performance.provider.ParametricResourceDemandItemProvider;
+import org.palladiosimulator.pcm.seff.seff_performance.provider.ParametricResourceDemandItemProvider;
 
 /**
  * This is the item provider adapter for a

@@ -11,8 +11,8 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 import org.palladiosimulator.pcmmeasuringpoint.SystemOperationMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.SystemReference;
 
-import de.uka.ipd.sdq.pcm.repository.OperationSignature;
-import de.uka.ipd.sdq.pcm.repository.Role;
+import org.palladiosimulator.pcm.repository.OperationSignature;
+import org.palladiosimulator.pcm.repository.Role;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -169,8 +169,8 @@ public class SystemOperationMeasuringPointImpl extends MeasuringPointImpl implem
      * @generated
      */
     @Override
-    public de.uka.ipd.sdq.pcm.system.System getSystem() {
-        return (de.uka.ipd.sdq.pcm.system.System) this.eDynamicGet(
+    public org.palladiosimulator.pcm.system.System getSystem() {
+        return (org.palladiosimulator.pcm.system.System) this.eDynamicGet(
                 PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__SYSTEM,
                 PcmmeasuringpointPackage.Literals.SYSTEM_REFERENCE__SYSTEM, true, true);
     }
@@ -180,8 +180,8 @@ public class SystemOperationMeasuringPointImpl extends MeasuringPointImpl implem
      *
      * @generated
      */
-    public de.uka.ipd.sdq.pcm.system.System basicGetSystem() {
-        return (de.uka.ipd.sdq.pcm.system.System) this.eDynamicGet(
+    public org.palladiosimulator.pcm.system.System basicGetSystem() {
+        return (org.palladiosimulator.pcm.system.System) this.eDynamicGet(
                 PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__SYSTEM,
                 PcmmeasuringpointPackage.Literals.SYSTEM_REFERENCE__SYSTEM, false, true);
     }
@@ -192,7 +192,7 @@ public class SystemOperationMeasuringPointImpl extends MeasuringPointImpl implem
      * @generated
      */
     @Override
-    public void setSystem(final de.uka.ipd.sdq.pcm.system.System newSystem) {
+    public void setSystem(final org.palladiosimulator.pcm.system.System newSystem) {
         this.eDynamicSet(PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__SYSTEM,
                 PcmmeasuringpointPackage.Literals.SYSTEM_REFERENCE__SYSTEM, newSystem);
     }
@@ -239,7 +239,7 @@ public class SystemOperationMeasuringPointImpl extends MeasuringPointImpl implem
             this.setOperationSignature((OperationSignature) newValue);
             return;
         case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__SYSTEM:
-            this.setSystem((de.uka.ipd.sdq.pcm.system.System) newValue);
+            this.setSystem((org.palladiosimulator.pcm.system.System) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -260,7 +260,7 @@ public class SystemOperationMeasuringPointImpl extends MeasuringPointImpl implem
             this.setOperationSignature((OperationSignature) null);
             return;
         case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__SYSTEM:
-            this.setSystem((de.uka.ipd.sdq.pcm.system.System) null);
+            this.setSystem((org.palladiosimulator.pcm.system.System) null);
             return;
         }
         super.eUnset(featureID);

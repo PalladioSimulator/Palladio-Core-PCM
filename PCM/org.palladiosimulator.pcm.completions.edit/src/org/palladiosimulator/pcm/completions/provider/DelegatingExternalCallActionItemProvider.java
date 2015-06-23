@@ -12,8 +12,8 @@ import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.palladiosimulator.pcm.completions.DelegatingExternalCallAction;
 
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-import de.uka.ipd.sdq.pcm.seff.provider.ExternalCallActionItemProvider;
+import org.palladiosimulator.pcm.seff.SeffPackage;
+import org.palladiosimulator.pcm.seff.provider.ExternalCallActionItemProvider;
 
 /**
  * This is the item provider adapter for a

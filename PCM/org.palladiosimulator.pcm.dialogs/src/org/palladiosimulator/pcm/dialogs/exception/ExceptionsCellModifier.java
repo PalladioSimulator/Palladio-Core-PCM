@@ -10,7 +10,7 @@ import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.TableItem;
 
-import de.uka.ipd.sdq.pcm.repository.ExceptionType;
+import org.palladiosimulator.pcm.repository.ExceptionType;
 
 // TODO: Auto-generated Javadoc
 /**

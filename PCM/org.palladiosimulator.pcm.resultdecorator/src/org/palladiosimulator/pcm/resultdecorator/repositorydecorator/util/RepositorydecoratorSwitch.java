@@ -12,7 +12,7 @@ import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.InterfacePr
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.RepositorydecoratorPackage;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.ServiceResult;
 
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import org.palladiosimulator.pcm.core.entity.NamedElement;
 
 /**
  * <!-- begin-user-doc --> The <b>Switch</b> for the model's inheritance hierarchy. It supports the

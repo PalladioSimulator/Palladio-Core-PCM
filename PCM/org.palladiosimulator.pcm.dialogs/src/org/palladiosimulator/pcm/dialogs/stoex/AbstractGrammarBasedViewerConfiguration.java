@@ -22,7 +22,7 @@ import org.eclipse.jface.text.source.IAnnotationModel;
 import org.eclipse.jface.text.source.ISourceViewer;
 import org.eclipse.jface.text.source.SourceViewerConfiguration;
 
-import de.uka.ipd.sdq.pcm.repository.Parameter;
+import org.palladiosimulator.pcm.repository.Parameter;
 
 // TODO: Auto-generated Javadoc
 /**

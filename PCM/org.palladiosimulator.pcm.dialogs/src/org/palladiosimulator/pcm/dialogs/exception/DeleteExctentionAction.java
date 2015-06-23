@@ -11,8 +11,8 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
-import de.uka.ipd.sdq.pcm.repository.ExceptionType;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import org.palladiosimulator.pcm.repository.ExceptionType;
+import org.palladiosimulator.pcm.repository.Signature;
 
 // TODO: Auto-generated Javadoc
 /**

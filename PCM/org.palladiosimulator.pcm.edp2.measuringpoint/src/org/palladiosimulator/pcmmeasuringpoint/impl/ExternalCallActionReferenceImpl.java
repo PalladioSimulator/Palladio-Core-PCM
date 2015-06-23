@@ -7,7 +7,7 @@ import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 
-import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
+import org.palladiosimulator.pcm.seff.ExternalCallAction;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '

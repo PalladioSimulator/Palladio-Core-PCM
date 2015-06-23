@@ -1,6 +1,6 @@
 package org.palladiosimulator.pcm.dialogs.datatype;
 
-import de.uka.ipd.sdq.pcm.repository.impl.InnerDeclarationImpl;
+import org.palladiosimulator.pcm.repository.impl.InnerDeclarationImpl;
 
 // TODO: Auto-generated Javadoc
 /**

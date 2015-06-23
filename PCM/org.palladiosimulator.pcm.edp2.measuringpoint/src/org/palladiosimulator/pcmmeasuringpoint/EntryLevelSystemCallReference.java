@@ -4,7 +4,7 @@ package org.palladiosimulator.pcmmeasuringpoint;
 
 import org.eclipse.emf.cdo.CDOObject;
 
-import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
+import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '

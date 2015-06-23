@@ -5,8 +5,8 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ItemProviderDecorator;
 
-import de.uka.ipd.sdq.pcm.repository.ExceptionType;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import org.palladiosimulator.pcm.repository.ExceptionType;
+import org.palladiosimulator.pcm.repository.Signature;
 
 // TODO: Auto-generated Javadoc
 /**

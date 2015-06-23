@@ -3,7 +3,7 @@ package org.palladiosimulator.pcm.dialogs.seff;
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.pcm.dialogs.OpenStoExDialog;
 
-import de.uka.ipd.sdq.pcm.seff.LoopAction;
+import org.palladiosimulator.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 

@@ -8,8 +8,7 @@ import org.eclipse.jface.text.TextAttribute;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.RGB;
-
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExLexer;
+import org.palladiosimulator.pcm.stochasticexpressions.parser.PCMStoExLexer;
 
 // TODO: Auto-generated Javadoc
 /**

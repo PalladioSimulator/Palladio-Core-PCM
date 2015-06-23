@@ -4,11 +4,11 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 
-import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
-import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
-import de.uka.ipd.sdq.pcm.repository.DataType;
-import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
+import org.palladiosimulator.pcm.repository.CollectionDataType;
+import org.palladiosimulator.pcm.repository.CompositeDataType;
+import org.palladiosimulator.pcm.repository.DataType;
+import org.palladiosimulator.pcm.repository.Repository;
+import org.palladiosimulator.pcm.repository.RepositoryFactory;
 
 // TODO: Auto-generated Javadoc
 /**

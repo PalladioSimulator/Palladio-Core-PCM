@@ -10,7 +10,7 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference;
 
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
+import org.palladiosimulator.pcm.usagemodel.UsageScenario;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '

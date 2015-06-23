@@ -5,10 +5,10 @@ package org.palladiosimulator.pcm.dialogs.parameters;
 
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
-import de.uka.ipd.sdq.pcm.repository.OperationSignature;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import org.palladiosimulator.pcm.repository.InfrastructureSignature;
+import org.palladiosimulator.pcm.repository.OperationSignature;
+import org.palladiosimulator.pcm.repository.Parameter;
+import org.palladiosimulator.pcm.repository.Signature;
 
 // TODO: Auto-generated Javadoc
 /**

@@ -10,9 +10,9 @@ import org.modelversioning.emfprofileapplication.StereotypeApplication;
 import org.palladiosimulator.mdsdprofiles.api.ProfileAPI;
 import org.palladiosimulator.mdsdprofiles.api.StereotypeAPI;
 
-import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.OperationInterface;
-import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
+import org.palladiosimulator.pcm.repository.BasicComponent;
+import org.palladiosimulator.pcm.repository.OperationInterface;
+import org.palladiosimulator.pcm.repository.OperationProvidedRole;
 
 /**
  * Tests stereotype methods by applying these to the component of the parent class' repository.

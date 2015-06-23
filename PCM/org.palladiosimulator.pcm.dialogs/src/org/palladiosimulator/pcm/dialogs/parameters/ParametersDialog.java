@@ -19,9 +19,9 @@ import org.eclipse.swt.widgets.Shell;
 import org.palladiosimulator.pcm.dialogs.Messages;
 
 import de.uka.ipd.sdq.dialogs.selection.FilteredItemsAdapterFactory;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.repository.Parameter;
+import org.palladiosimulator.pcm.repository.Signature;
+import org.palladiosimulator.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 // TODO: Auto-generated Javadoc

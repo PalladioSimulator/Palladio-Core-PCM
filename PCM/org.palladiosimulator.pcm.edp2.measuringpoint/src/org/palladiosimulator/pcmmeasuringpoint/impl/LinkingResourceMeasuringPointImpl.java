@@ -10,7 +10,7 @@ import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
+import org.palladiosimulator.pcm.resourceenvironment.LinkingResource;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '

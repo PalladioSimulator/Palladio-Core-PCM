@@ -7,7 +7,7 @@ import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '

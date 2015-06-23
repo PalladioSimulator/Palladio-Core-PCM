@@ -20,11 +20,11 @@ import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.Re
 import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.ResourceenvironmentdecoratorPackage;
 import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.UtilisationResult;
 
-import de.uka.ipd.sdq.pcm.PcmPackage;
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+import org.palladiosimulator.pcm.PcmPackage;
+import org.palladiosimulator.pcm.core.composition.CompositionPackage;
+import org.palladiosimulator.pcm.core.entity.EntityPackage;
+import org.palladiosimulator.pcm.repository.RepositoryPackage;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->

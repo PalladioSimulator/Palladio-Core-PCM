@@ -5,10 +5,10 @@ import org.eclipse.emf.common.util.EList;
 import org.palladiosimulator.pcm.dialogs.Messages;
 import org.palladiosimulator.pcm.dialogs.datatype.PalladioDataTypeDialog;
 
-import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import org.palladiosimulator.pcm.repository.CompositeDataType;
+import org.palladiosimulator.pcm.repository.InnerDeclaration;
+import org.palladiosimulator.pcm.repository.Parameter;
+import org.palladiosimulator.pcm.repository.Signature;
 
 // TODO: Auto-generated Javadoc
 /**

@@ -7,8 +7,8 @@ import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.swt.graphics.Image;
 
-import de.uka.ipd.sdq.pcm.repository.ExceptionType;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import org.palladiosimulator.pcm.repository.ExceptionType;
+import org.palladiosimulator.pcm.repository.Signature;
 
 // TODO: Auto-generated Javadoc
 /**

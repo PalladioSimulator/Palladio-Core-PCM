@@ -14,17 +14,17 @@ import org.eclipse.swt.widgets.Shell;
 
 import de.uka.ipd.sdq.dialogs.selection.FilteredItemsAdapterFactory;
 import de.uka.ipd.sdq.dialogs.selection.SelectEObjectDialog;
-import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.core.provider.CoreItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.seff.provider.SeffItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.system.provider.SystemItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 // TODO: Auto-generated Javadoc

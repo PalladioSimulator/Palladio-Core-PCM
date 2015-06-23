@@ -14,8 +14,8 @@ import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.impl.Reposi
 import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.ResourceenvironmentdecoratorPackage;
 import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.impl.ResourceenvironmentdecoratorPackageImpl;
 
-import de.uka.ipd.sdq.pcm.PcmPackage;
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import org.palladiosimulator.pcm.PcmPackage;
+import org.palladiosimulator.pcm.core.entity.EntityPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->

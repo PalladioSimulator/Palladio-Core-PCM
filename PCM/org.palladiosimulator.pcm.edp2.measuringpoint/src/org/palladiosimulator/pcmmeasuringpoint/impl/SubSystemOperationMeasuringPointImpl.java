@@ -11,9 +11,9 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 import org.palladiosimulator.pcmmeasuringpoint.SubSystemOperationMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.SubSystemReference;
 
-import de.uka.ipd.sdq.pcm.repository.OperationSignature;
-import de.uka.ipd.sdq.pcm.repository.Role;
-import de.uka.ipd.sdq.pcm.subsystem.SubSystem;
+import org.palladiosimulator.pcm.repository.OperationSignature;
+import org.palladiosimulator.pcm.repository.Role;
+import org.palladiosimulator.pcm.subsystem.SubSystem;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '

@@ -14,27 +14,11 @@ import org.palladiosimulator.pcm.completions.DelegatingExternalCallAction;
 import org.palladiosimulator.pcm.completions.NetworkDemandParametricResourceDemand;
 
 import de.uka.ipd.sdq.identifier.Identifier;
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
-import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
-import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
-import de.uka.ipd.sdq.pcm.seff.CallAction;
-import de.uka.ipd.sdq.pcm.seff.CallReturnAction;
-import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
 
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter
  * <code>createXXX</code> method for each class of the model. <!-- end-user-doc -->
- *
+ * 
  * @see org.palladiosimulator.pcm.completions.CompletionsPackage
  * @generated
  */
@@ -42,14 +26,14 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected static CompletionsPackage modelPackage;
 
     /**
      * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public CompletionsAdapterFactory() {
@@ -62,7 +46,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
      * Returns whether this factory is applicable for the type of the object. <!-- begin-user-doc
      * --> This implementation returns <code>true</code> if the object is either the model's package
      * or is an instance object of the model. <!-- end-user-doc -->
-     *
+     * 
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
@@ -80,7 +64,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
     /**
      * The switch that delegates to the <code>createXXX</code> methods. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CompletionsSwitch<Adapter> modelSwitch = new CompletionsSwitch<Adapter>() {
@@ -111,82 +95,90 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseNamedElement(final NamedElement object) {
+        public Adapter caseNamedElement(final de.uka.ipd.sdq.pcm.core.entity.NamedElement object) {
             return CompletionsAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(final Entity object) {
+        public Adapter caseEntity(final de.uka.ipd.sdq.pcm.core.entity.Entity object) {
             return CompletionsAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter caseComposedStructure(final ComposedStructure object) {
+        public Adapter caseComposedStructure(final de.uka.ipd.sdq.pcm.core.composition.ComposedStructure object) {
             return CompletionsAdapterFactory.this.createComposedStructureAdapter();
         }
 
         @Override
-        public Adapter caseInterfaceProvidingEntity(final InterfaceProvidingEntity object) {
+        public Adapter caseInterfaceProvidingEntity(
+                final de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity object) {
             return CompletionsAdapterFactory.this.createInterfaceProvidingEntityAdapter();
         }
 
         @Override
-        public Adapter caseResourceInterfaceRequiringEntity(final ResourceInterfaceRequiringEntity object) {
+        public Adapter caseResourceInterfaceRequiringEntity(
+                final de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity object) {
             return CompletionsAdapterFactory.this.createResourceInterfaceRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseInterfaceRequiringEntity(final InterfaceRequiringEntity object) {
+        public Adapter caseInterfaceRequiringEntity(
+                final de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity object) {
             return CompletionsAdapterFactory.this.createInterfaceRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseInterfaceProvidingRequiringEntity(final InterfaceProvidingRequiringEntity object) {
+        public Adapter caseInterfaceProvidingRequiringEntity(
+                final de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity object) {
             return CompletionsAdapterFactory.this.createInterfaceProvidingRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseComposedProvidingRequiringEntity(final ComposedProvidingRequiringEntity object) {
+        public Adapter caseComposedProvidingRequiringEntity(
+                final de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity object) {
             return CompletionsAdapterFactory.this.createComposedProvidingRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseRepositoryComponent(final RepositoryComponent object) {
+        public Adapter caseRepositoryComponent(final de.uka.ipd.sdq.pcm.repository.RepositoryComponent object) {
             return CompletionsAdapterFactory.this.createRepositoryComponentAdapter();
         }
 
         @Override
-        public Adapter caseImplementationComponentType(final ImplementationComponentType object) {
+        public Adapter caseImplementationComponentType(
+                final de.uka.ipd.sdq.pcm.repository.ImplementationComponentType object) {
             return CompletionsAdapterFactory.this.createImplementationComponentTypeAdapter();
         }
 
         @Override
-        public Adapter caseAbstractAction(final AbstractAction object) {
+        public Adapter caseAbstractAction(final de.uka.ipd.sdq.pcm.seff.AbstractAction object) {
             return CompletionsAdapterFactory.this.createAbstractActionAdapter();
         }
 
         @Override
-        public Adapter caseCallAction(final CallAction object) {
+        public Adapter caseCallAction(final de.uka.ipd.sdq.pcm.seff.CallAction object) {
             return CompletionsAdapterFactory.this.createCallActionAdapter();
         }
 
         @Override
-        public Adapter caseCallReturnAction(final CallReturnAction object) {
+        public Adapter caseCallReturnAction(final de.uka.ipd.sdq.pcm.seff.CallReturnAction object) {
             return CompletionsAdapterFactory.this.createCallReturnActionAdapter();
         }
 
         @Override
-        public Adapter caseFailureHandlingEntity(final FailureHandlingEntity object) {
+        public Adapter caseFailureHandlingEntity(
+                final de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity object) {
             return CompletionsAdapterFactory.this.createFailureHandlingEntityAdapter();
         }
 
         @Override
-        public Adapter caseExternalCallAction(final ExternalCallAction object) {
+        public Adapter caseExternalCallAction(final de.uka.ipd.sdq.pcm.seff.ExternalCallAction object) {
             return CompletionsAdapterFactory.this.createExternalCallActionAdapter();
         }
 
         @Override
-        public Adapter caseParametricResourceDemand(final ParametricResourceDemand object) {
+        public Adapter caseParametricResourceDemand(
+                final de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand object) {
             return CompletionsAdapterFactory.this.createParametricResourceDemandAdapter();
         }
 
@@ -198,7 +190,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param target
      *            the object to adapt.
      * @return the adapter for the <code>target</code>.
@@ -230,7 +222,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
      * <em>Completion Repository</em>}'. <!-- begin-user-doc --> This default implementation returns
      * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
      * catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.completions.CompletionRepository
      * @generated
@@ -245,7 +237,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
      * <em>Delegating External Call Action</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.completions.DelegatingExternalCallAction
      * @generated
@@ -260,7 +252,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
      * <em>Network Demand Parametric Resource Demand</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.completions.NetworkDemandParametricResourceDemand
      * @generated
@@ -274,7 +266,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
      * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.identifier.Identifier
      * @generated
@@ -285,13 +277,13 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link de.uka.ipd.sdq.pcm.core.entity.NamedElement <em>Named Element</em>}'. <!--
+     * {@link org.palladiosimulator.pcm.core.entity.NamedElement <em>Named Element</em>}'. <!--
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
      *
      * @return the new adapter.
-     * @see de.uka.ipd.sdq.pcm.core.entity.NamedElement
+     * @see org.palladiosimulator.pcm.core.entity.NamedElement
      * @generated
      */
     public Adapter createNamedElementAdapter() {
@@ -303,7 +295,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
      * <em>Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.entity.Entity
      * @generated
@@ -318,7 +310,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
      * @generated
@@ -333,7 +325,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
      * <em>Interface Providing Entity</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity
      * @generated
@@ -348,7 +340,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
      * <em>Resource Interface Requiring Entity</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity
      * @generated
@@ -363,7 +355,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
      * <em>Interface Requiring Entity</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity
      * @generated
@@ -378,7 +370,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
      * <em>Interface Providing Requiring Entity</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity
      * @generated
@@ -393,7 +385,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
      * <em>Composed Providing Requiring Entity</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
      * @generated
@@ -404,13 +396,13 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link de.uka.ipd.sdq.pcm.repository.RepositoryComponent <em>Component</em>}'. <!--
+     * {@link org.palladiosimulator.pcm.repository.RepositoryComponent <em>Component</em>}'. <!--
      * begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
      *
      * @return the new adapter.
-     * @see de.uka.ipd.sdq.pcm.repository.RepositoryComponent
+     * @see org.palladiosimulator.pcm.repository.RepositoryComponent
      * @generated
      */
     public Adapter createRepositoryComponentAdapter() {
@@ -423,7 +415,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
      * <em>Implementation Component Type</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.repository.ImplementationComponentType
      * @generated
@@ -437,7 +429,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
      * <em>Abstract Action</em>}'. <!-- begin-user-doc --> This default implementation returns null
      * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch
      * all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.AbstractAction
      * @generated
@@ -451,7 +443,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
      * <em>Call Action</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.CallAction
      * @generated
@@ -465,7 +457,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
      * <em>Call Return Action</em>}'. <!-- begin-user-doc --> This default implementation returns
      * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
      * catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.CallReturnAction
      * @generated
@@ -480,7 +472,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
      * <em>Failure Handling Entity</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity
      * @generated
@@ -491,13 +483,13 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction <em>External Call Action</em>}'. <!--
-     * begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * {@link org.palladiosimulator.pcm.seff.ExternalCallAction <em>External Call Action</em>}'.
+     * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
      *
      * @return the new adapter.
-     * @see de.uka.ipd.sdq.pcm.seff.ExternalCallAction
+     * @see org.palladiosimulator.pcm.seff.ExternalCallAction
      * @generated
      */
     public Adapter createExternalCallActionAdapter() {
@@ -510,7 +502,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
      * <em>Parametric Resource Demand</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand
      * @generated
@@ -522,7 +514,7 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
      * implementation returns null. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @generated
      */

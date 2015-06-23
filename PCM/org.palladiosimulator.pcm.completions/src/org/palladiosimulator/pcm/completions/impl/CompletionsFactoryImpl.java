@@ -17,14 +17,14 @@ import org.palladiosimulator.pcm.completions.NetworkDemandParametricResourceDema
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class CompletionsFactoryImpl extends EFactoryImpl implements CompletionsFactory {
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static CompletionsFactory init() {
@@ -42,7 +42,7 @@ public class CompletionsFactoryImpl extends EFactoryImpl implements CompletionsF
 
     /**
      * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public CompletionsFactoryImpl() {
@@ -51,7 +51,7 @@ public class CompletionsFactoryImpl extends EFactoryImpl implements CompletionsF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -72,7 +72,7 @@ public class CompletionsFactoryImpl extends EFactoryImpl implements CompletionsF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -83,7 +83,7 @@ public class CompletionsFactoryImpl extends EFactoryImpl implements CompletionsF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -94,7 +94,7 @@ public class CompletionsFactoryImpl extends EFactoryImpl implements CompletionsF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -105,7 +105,7 @@ public class CompletionsFactoryImpl extends EFactoryImpl implements CompletionsF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -116,7 +116,7 @@ public class CompletionsFactoryImpl extends EFactoryImpl implements CompletionsF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -126,7 +126,7 @@ public class CompletionsFactoryImpl extends EFactoryImpl implements CompletionsF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @deprecated
      * @generated
      */

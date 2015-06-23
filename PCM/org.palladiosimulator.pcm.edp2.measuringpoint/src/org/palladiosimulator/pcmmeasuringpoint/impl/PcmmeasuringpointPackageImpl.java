@@ -34,13 +34,13 @@ import org.palladiosimulator.pcmmeasuringpoint.SystemReference;
 import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference;
 
-import de.uka.ipd.sdq.pcm.PcmPackage;
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+import org.palladiosimulator.pcm.PcmPackage;
+import org.palladiosimulator.pcm.core.composition.CompositionPackage;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
+import org.palladiosimulator.pcm.seff.SeffPackage;
+import org.palladiosimulator.pcm.subsystem.SubsystemPackage;
+import org.palladiosimulator.pcm.system.SystemPackage;
+import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
@@ -722,8 +722,8 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         // Obtain other dependent packages
         final MeasuringpointPackage theMeasuringpointPackage = (MeasuringpointPackage) EPackage.Registry.INSTANCE
                 .getEPackage(MeasuringpointPackage.eNS_URI);
-        final de.uka.ipd.sdq.pcm.repository.RepositoryPackage theRepositoryPackage_1 = (de.uka.ipd.sdq.pcm.repository.RepositoryPackage) EPackage.Registry.INSTANCE
-                .getEPackage(de.uka.ipd.sdq.pcm.repository.RepositoryPackage.eNS_URI);
+        final org.palladiosimulator.pcm.repository.RepositoryPackage theRepositoryPackage_1 = (org.palladiosimulator.pcm.repository.RepositoryPackage) EPackage.Registry.INSTANCE
+                .getEPackage(org.palladiosimulator.pcm.repository.RepositoryPackage.eNS_URI);
         final CompositionPackage theCompositionPackage = (CompositionPackage) EPackage.Registry.INSTANCE
                 .getEPackage(CompositionPackage.eNS_URI);
         final SystemPackage theSystemPackage = (SystemPackage) EPackage.Registry.INSTANCE

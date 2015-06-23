@@ -7,7 +7,7 @@ import org.eclipse.emf.internal.cdo.CDOObjectImpl;
 import org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 
-import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
+import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '

@@ -17,9 +17,9 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.palladiosimulator.pcm.completions.Completion;
 import org.palladiosimulator.pcm.completions.CompletionsPackage;
 
-import de.uka.ipd.sdq.pcm.core.entity.provider.ComposedProvidingRequiringEntityItemProvider;
-import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import org.palladiosimulator.pcm.core.entity.provider.ComposedProvidingRequiringEntityItemProvider;
+import org.palladiosimulator.pcm.parameter.ParameterFactory;
+import org.palladiosimulator.pcm.repository.RepositoryPackage;
 
 /**
  * This is the item provider adapter for a {@link org.palladiosimulator.pcm.completions.Completion}

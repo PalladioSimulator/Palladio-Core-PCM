@@ -17,9 +17,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.uka.ipd.sdq.pcm.core.presentation.CoreModelWizardID"
+      id = "org.palladiosimulator.pcm.core.presentation.CoreModelWizardID"
       name = "%_UI_CoreModelWizard_label"
-      class = "de.uka.ipd.sdq.pcm.core.presentation.CoreModelWizard"
+      class = "org.palladiosimulator.pcm.core.presentation.CoreModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/CoreModelFile.gif">
       <description>%_UI_CoreModelWizard_description</description>
@@ -29,12 +29,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.uka.ipd.sdq.pcm.core.presentation.CoreEditorID"
+        id = "org.palladiosimulator.pcm.core.presentation.CoreEditorID"
         name = "%_UI_CoreEditor_label"
         icon = "icons/full/obj16/CoreModelFile.gif"
         extensions = "core"
-        class = "de.uka.ipd.sdq.pcm.core.presentation.CoreEditor" 
-        contributorClass="de.uka.ipd.sdq.pcm.core.presentation.CoreActionBarContributor" >
+        class = "org.palladiosimulator.pcm.core.presentation.CoreEditor" 
+        contributorClass="org.palladiosimulator.pcm.core.presentation.CoreActionBarContributor" >
     </editor>
   </extension>    
 
@@ -45,9 +45,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.uka.ipd.sdq.pcm.core.composition.presentation.CompositionModelWizardID"
+      id = "org.palladiosimulator.pcm.core.composition.presentation.CompositionModelWizardID"
       name = "%_UI_CompositionModelWizard_label"
-      class = "de.uka.ipd.sdq.pcm.core.composition.presentation.CompositionModelWizard"
+      class = "org.palladiosimulator.pcm.core.composition.presentation.CompositionModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/CompositionModelFile.gif">
       <description>%_UI_CompositionModelWizard_description</description>
@@ -57,12 +57,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.uka.ipd.sdq.pcm.core.composition.presentation.CompositionEditorID"
+        id = "org.palladiosimulator.pcm.core.composition.presentation.CompositionEditorID"
         name = "%_UI_CompositionEditor_label"
         icon = "icons/full/obj16/CompositionModelFile.gif"
         extensions = "composition"
-        class = "de.uka.ipd.sdq.pcm.core.composition.presentation.CompositionEditor" 
-        contributorClass="de.uka.ipd.sdq.pcm.core.composition.presentation.CompositionActionBarContributor" >
+        class = "org.palladiosimulator.pcm.core.composition.presentation.CompositionEditor" 
+        contributorClass="org.palladiosimulator.pcm.core.composition.presentation.CompositionActionBarContributor" >
     </editor>
   </extension>    
 
@@ -73,9 +73,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.uka.ipd.sdq.pcm.repository.presentation.RepositoryModelWizardID"
+      id = "org.palladiosimulator.pcm.repository.presentation.RepositoryModelWizardID"
       name = "%_UI_RepositoryModelWizard_label"
-      class = "de.uka.ipd.sdq.pcm.repository.presentation.RepositoryModelWizard"
+      class = "org.palladiosimulator.pcm.repository.presentation.RepositoryModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/RepositoryModelFile.gif">
       <description>%_UI_RepositoryModelWizard_description</description>
@@ -85,12 +85,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.uka.ipd.sdq.pcm.repository.presentation.RepositoryEditorID"
+        id = "org.palladiosimulator.pcm.repository.presentation.RepositoryEditorID"
         name = "%_UI_RepositoryEditor_label"
         icon = "icons/full/obj16/RepositoryModelFile.gif"
         extensions = "repository"
-        class = "de.uka.ipd.sdq.pcm.repository.presentation.RepositoryEditor" 
-        contributorClass="de.uka.ipd.sdq.pcm.repository.presentation.RepositoryActionBarContributor" >
+        class = "org.palladiosimulator.pcm.repository.presentation.RepositoryEditor" 
+        contributorClass="org.palladiosimulator.pcm.repository.presentation.RepositoryActionBarContributor" >
     </editor>
   </extension>    
 
@@ -101,9 +101,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.uka.ipd.sdq.pcm.parameter.presentation.ParameterModelWizardID"
+      id = "org.palladiosimulator.pcm.parameter.presentation.ParameterModelWizardID"
       name = "%_UI_ParameterModelWizard_label"
-      class = "de.uka.ipd.sdq.pcm.parameter.presentation.ParameterModelWizard"
+      class = "org.palladiosimulator.pcm.parameter.presentation.ParameterModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/ParameterModelFile.gif">
       <description>%_UI_ParameterModelWizard_description</description>
@@ -113,12 +113,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.uka.ipd.sdq.pcm.parameter.presentation.ParameterEditorID"
+        id = "org.palladiosimulator.pcm.parameter.presentation.ParameterEditorID"
         name = "%_UI_ParameterEditor_label"
         icon = "icons/full/obj16/ParameterModelFile.gif"
         extensions = "parameter"
-        class = "de.uka.ipd.sdq.pcm.parameter.presentation.ParameterEditor" 
-        contributorClass="de.uka.ipd.sdq.pcm.parameter.presentation.ParameterActionBarContributor" >
+        class = "org.palladiosimulator.pcm.parameter.presentation.ParameterEditor" 
+        contributorClass="org.palladiosimulator.pcm.parameter.presentation.ParameterActionBarContributor" >
     </editor>
   </extension>    
 
@@ -129,9 +129,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.uka.ipd.sdq.pcm.seff.presentation.SeffModelWizardID"
+      id = "org.palladiosimulator.pcm.seff.presentation.SeffModelWizardID"
       name = "%_UI_SeffModelWizard_label"
-      class = "de.uka.ipd.sdq.pcm.seff.presentation.SeffModelWizard"
+      class = "org.palladiosimulator.pcm.seff.presentation.SeffModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/SeffModelFile.gif">
       <description>%_UI_SeffModelWizard_description</description>
@@ -141,12 +141,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.uka.ipd.sdq.pcm.seff.presentation.SeffEditorID"
+        id = "org.palladiosimulator.pcm.seff.presentation.SeffEditorID"
         name = "%_UI_SeffEditor_label"
         icon = "icons/full/obj16/SeffModelFile.gif"
         extensions = "seff"
-        class = "de.uka.ipd.sdq.pcm.seff.presentation.SeffEditor" 
-        contributorClass="de.uka.ipd.sdq.pcm.seff.presentation.SeffActionBarContributor" >
+        class = "org.palladiosimulator.pcm.seff.presentation.SeffEditor" 
+        contributorClass="org.palladiosimulator.pcm.seff.presentation.SeffActionBarContributor" >
     </editor>
   </extension>    
 
@@ -157,9 +157,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.uka.ipd.sdq.pcm.seff.performance.presentation.PerformanceModelWizardID"
+      id = "org.palladiosimulator.pcm.seff.performance.presentation.PerformanceModelWizardID"
       name = "%_UI_PerformanceModelWizard_label"
-      class = "de.uka.ipd.sdq.pcm.seff.performance.presentation.PerformanceModelWizard"
+      class = "org.palladiosimulator.pcm.seff.performance.presentation.PerformanceModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/PerformanceModelFile.gif">
       <description>%_UI_PerformanceModelWizard_description</description>
@@ -169,12 +169,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.uka.ipd.sdq.pcm.seff.performance.presentation.PerformanceEditorID"
+        id = "org.palladiosimulator.pcm.seff.performance.presentation.PerformanceEditorID"
         name = "%_UI_PerformanceEditor_label"
         icon = "icons/full/obj16/PerformanceModelFile.gif"
         extensions = "performance"
-        class = "de.uka.ipd.sdq.pcm.seff.performance.presentation.PerformanceEditor" 
-        contributorClass="de.uka.ipd.sdq.pcm.seff.performance.presentation.PerformanceActionBarContributor" >
+        class = "org.palladiosimulator.pcm.seff.performance.presentation.PerformanceEditor" 
+        contributorClass="org.palladiosimulator.pcm.seff.performance.presentation.PerformanceActionBarContributor" >
     </editor>
   </extension>    
 
@@ -185,9 +185,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.uka.ipd.sdq.pcm.allocation.presentation.AllocationModelWizardID"
+      id = "org.palladiosimulator.pcm.allocation.presentation.AllocationModelWizardID"
       name = "%_UI_AllocationModelWizard_label"
-      class = "de.uka.ipd.sdq.pcm.allocation.presentation.AllocationModelWizard"
+      class = "org.palladiosimulator.pcm.allocation.presentation.AllocationModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/AllocationModelFile.gif">
       <description>%_UI_AllocationModelWizard_description</description>
@@ -197,12 +197,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.uka.ipd.sdq.pcm.allocation.presentation.AllocationEditorID"
+        id = "org.palladiosimulator.pcm.allocation.presentation.AllocationEditorID"
         name = "%_UI_AllocationEditor_label"
         icon = "icons/full/obj16/AllocationModelFile.gif"
         extensions = "allocation"
-        class = "de.uka.ipd.sdq.pcm.allocation.presentation.AllocationEditor" 
-        contributorClass="de.uka.ipd.sdq.pcm.allocation.presentation.AllocationActionBarContributor" >
+        class = "org.palladiosimulator.pcm.allocation.presentation.AllocationEditor" 
+        contributorClass="org.palladiosimulator.pcm.allocation.presentation.AllocationActionBarContributor" >
     </editor>
   </extension>    
 
@@ -213,9 +213,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.uka.ipd.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentModelWizardID"
+      id = "org.palladiosimulator.pcm.resourceenvironment.presentation.ResourceenvironmentModelWizardID"
       name = "%_UI_ResourceenvironmentModelWizard_label"
-      class = "de.uka.ipd.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentModelWizard"
+      class = "org.palladiosimulator.pcm.resourceenvironment.presentation.ResourceenvironmentModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/ResourceenvironmentModelFile.gif">
       <description>%_UI_ResourceenvironmentModelWizard_description</description>
@@ -225,12 +225,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.uka.ipd.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentEditorID"
+        id = "org.palladiosimulator.pcm.resourceenvironment.presentation.ResourceenvironmentEditorID"
         name = "%_UI_ResourceenvironmentEditor_label"
         icon = "icons/full/obj16/ResourceenvironmentModelFile.gif"
         extensions = "resourceenvironment"
-        class = "de.uka.ipd.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentEditor" 
-        contributorClass="de.uka.ipd.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentActionBarContributor" >
+        class = "org.palladiosimulator.pcm.resourceenvironment.presentation.ResourceenvironmentEditor" 
+        contributorClass="org.palladiosimulator.pcm.resourceenvironment.presentation.ResourceenvironmentActionBarContributor" >
     </editor>
   </extension>    
 
@@ -241,9 +241,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.uka.ipd.sdq.pcm.resourcetype.presentation.ResourcetypeModelWizardID"
+      id = "org.palladiosimulator.pcm.resourcetype.presentation.ResourcetypeModelWizardID"
       name = "%_UI_ResourcetypeModelWizard_label"
-      class = "de.uka.ipd.sdq.pcm.resourcetype.presentation.ResourcetypeModelWizard"
+      class = "org.palladiosimulator.pcm.resourcetype.presentation.ResourcetypeModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/ResourcetypeModelFile.gif">
       <description>%_UI_ResourcetypeModelWizard_description</description>
@@ -253,12 +253,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.uka.ipd.sdq.pcm.resourcetype.presentation.ResourcetypeEditorID"
+        id = "org.palladiosimulator.pcm.resourcetype.presentation.ResourcetypeEditorID"
         name = "%_UI_ResourcetypeEditor_label"
         icon = "icons/full/obj16/ResourcetypeModelFile.gif"
         extensions = "resourcetype"
-        class = "de.uka.ipd.sdq.pcm.resourcetype.presentation.ResourcetypeEditor" 
-        contributorClass="de.uka.ipd.sdq.pcm.resourcetype.presentation.ResourcetypeActionBarContributor" >
+        class = "org.palladiosimulator.pcm.resourcetype.presentation.ResourcetypeEditor" 
+        contributorClass="org.palladiosimulator.pcm.resourcetype.presentation.ResourcetypeActionBarContributor" >
     </editor>
   </extension>    
 
@@ -269,9 +269,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.uka.ipd.sdq.pcm.system.presentation.SystemModelWizardID"
+      id = "org.palladiosimulator.pcm.system.presentation.SystemModelWizardID"
       name = "%_UI_SystemModelWizard_label"
-      class = "de.uka.ipd.sdq.pcm.system.presentation.SystemModelWizard"
+      class = "org.palladiosimulator.pcm.system.presentation.SystemModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/SystemModelFile.gif">
       <description>%_UI_SystemModelWizard_description</description>
@@ -281,12 +281,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.uka.ipd.sdq.pcm.system.presentation.SystemEditorID"
+        id = "org.palladiosimulator.pcm.system.presentation.SystemEditorID"
         name = "%_UI_SystemEditor_label"
         icon = "icons/full/obj16/SystemModelFile.gif"
         extensions = "system"
-        class = "de.uka.ipd.sdq.pcm.system.presentation.SystemEditor" 
-        contributorClass="de.uka.ipd.sdq.pcm.system.presentation.SystemActionBarContributor" >
+        class = "org.palladiosimulator.pcm.system.presentation.SystemEditor" 
+        contributorClass="org.palladiosimulator.pcm.system.presentation.SystemActionBarContributor" >
     </editor>
   </extension>    
 
@@ -297,9 +297,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.uka.ipd.sdq.pcm.qosannotations.presentation.QosannotationsModelWizardID"
+      id = "org.palladiosimulator.pcm.qosannotations.presentation.QosannotationsModelWizardID"
       name = "%_UI_QosannotationsModelWizard_label"
-      class = "de.uka.ipd.sdq.pcm.qosannotations.presentation.QosannotationsModelWizard"
+      class = "org.palladiosimulator.pcm.qosannotations.presentation.QosannotationsModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/QosannotationsModelFile.gif">
       <description>%_UI_QosannotationsModelWizard_description</description>
@@ -309,12 +309,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.uka.ipd.sdq.pcm.qosannotations.presentation.QosannotationsEditorID"
+        id = "org.palladiosimulator.pcm.qosannotations.presentation.QosannotationsEditorID"
         name = "%_UI_QosannotationsEditor_label"
         icon = "icons/full/obj16/QosannotationsModelFile.gif"
         extensions = "qosannotations"
-        class = "de.uka.ipd.sdq.pcm.qosannotations.presentation.QosannotationsEditor" 
-        contributorClass="de.uka.ipd.sdq.pcm.qosannotations.presentation.QosannotationsActionBarContributor" >
+        class = "org.palladiosimulator.pcm.qosannotations.presentation.QosannotationsEditor" 
+        contributorClass="org.palladiosimulator.pcm.qosannotations.presentation.QosannotationsActionBarContributor" >
     </editor>
   </extension>    
 
@@ -325,9 +325,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.uka.ipd.sdq.pcm.qosannotations.performance.presentation.PerformanceModelWizardID"
+      id = "org.palladiosimulator.pcm.qosannotations.performance.presentation.PerformanceModelWizardID"
       name = "%_UI_PerformanceModelWizard_label"
-      class = "de.uka.ipd.sdq.pcm.qosannotations.performance.presentation.PerformanceModelWizard"
+      class = "org.palladiosimulator.pcm.qosannotations.performance.presentation.PerformanceModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/PerformanceModelFile.gif">
       <description>%_UI_PerformanceModelWizard_description</description>
@@ -337,12 +337,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.uka.ipd.sdq.pcm.qosannotations.performance.presentation.PerformanceEditorID"
+        id = "org.palladiosimulator.pcm.qosannotations.performance.presentation.PerformanceEditorID"
         name = "%_UI_PerformanceEditor_label"
         icon = "icons/full/obj16/PerformanceModelFile.gif"
         extensions = "performance"
-        class = "de.uka.ipd.sdq.pcm.qosannotations.performance.presentation.PerformanceEditor" 
-        contributorClass="de.uka.ipd.sdq.pcm.qosannotations.performance.presentation.PerformanceActionBarContributor" >
+        class = "org.palladiosimulator.pcm.qosannotations.performance.presentation.PerformanceEditor" 
+        contributorClass="org.palladiosimulator.pcm.qosannotations.performance.presentation.PerformanceActionBarContributor" >
     </editor>
   </extension>    
 
@@ -353,9 +353,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.uka.ipd.sdq.pcm.qosannotations.reliability.presentation.ReliabilityModelWizardID"
+      id = "org.palladiosimulator.pcm.qosannotations.reliability.presentation.ReliabilityModelWizardID"
       name = "%_UI_ReliabilityModelWizard_label"
-      class = "de.uka.ipd.sdq.pcm.qosannotations.reliability.presentation.ReliabilityModelWizard"
+      class = "org.palladiosimulator.pcm.qosannotations.reliability.presentation.ReliabilityModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/ReliabilityModelFile.gif">
       <description>%_UI_ReliabilityModelWizard_description</description>
@@ -365,12 +365,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.uka.ipd.sdq.pcm.qosannotations.reliability.presentation.ReliabilityEditorID"
+        id = "org.palladiosimulator.pcm.qosannotations.reliability.presentation.ReliabilityEditorID"
         name = "%_UI_ReliabilityEditor_label"
         icon = "icons/full/obj16/ReliabilityModelFile.gif"
         extensions = "reliability"
-        class = "de.uka.ipd.sdq.pcm.qosannotations.reliability.presentation.ReliabilityEditor" 
-        contributorClass="de.uka.ipd.sdq.pcm.qosannotations.reliability.presentation.ReliabilityActionBarContributor" >
+        class = "org.palladiosimulator.pcm.qosannotations.reliability.presentation.ReliabilityEditor" 
+        contributorClass="org.palladiosimulator.pcm.qosannotations.reliability.presentation.ReliabilityActionBarContributor" >
     </editor>
   </extension>    
 
@@ -381,9 +381,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.uka.ipd.sdq.pcm.usagemodel.presentation.UsagemodelModelWizardID"
+      id = "org.palladiosimulator.pcm.usagemodel.presentation.UsagemodelModelWizardID"
       name = "%_UI_UsagemodelModelWizard_label"
-      class = "de.uka.ipd.sdq.pcm.usagemodel.presentation.UsagemodelModelWizard"
+      class = "org.palladiosimulator.pcm.usagemodel.presentation.UsagemodelModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/UsagemodelModelFile.gif">
       <description>%_UI_UsagemodelModelWizard_description</description>
@@ -393,12 +393,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.uka.ipd.sdq.pcm.usagemodel.presentation.UsagemodelEditorID"
+        id = "org.palladiosimulator.pcm.usagemodel.presentation.UsagemodelEditorID"
         name = "%_UI_UsagemodelEditor_label"
         icon = "icons/full/obj16/UsagemodelModelFile.gif"
         extensions = "usagemodel"
-        class = "de.uka.ipd.sdq.pcm.usagemodel.presentation.UsagemodelEditor" 
-        contributorClass="de.uka.ipd.sdq.pcm.usagemodel.presentation.UsagemodelActionBarContributor" >
+        class = "org.palladiosimulator.pcm.usagemodel.presentation.UsagemodelEditor" 
+        contributorClass="org.palladiosimulator.pcm.usagemodel.presentation.UsagemodelActionBarContributor" >
     </editor>
   </extension>    
 
@@ -409,9 +409,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.uka.ipd.sdq.pcm.subsystem.presentation.SubsystemModelWizardID"
+      id = "org.palladiosimulator.pcm.subsystem.presentation.SubsystemModelWizardID"
       name = "%_UI_SubsystemModelWizard_label"
-      class = "de.uka.ipd.sdq.pcm.subsystem.presentation.SubsystemModelWizard"
+      class = "org.palladiosimulator.pcm.subsystem.presentation.SubsystemModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/SubsystemModelFile.gif">
       <description>%_UI_SubsystemModelWizard_description</description>
@@ -421,12 +421,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.uka.ipd.sdq.pcm.subsystem.presentation.SubsystemEditorID"
+        id = "org.palladiosimulator.pcm.subsystem.presentation.SubsystemEditorID"
         name = "%_UI_SubsystemEditor_label"
         icon = "icons/full/obj16/SubsystemModelFile.gif"
         extensions = "subsystem"
-        class = "de.uka.ipd.sdq.pcm.subsystem.presentation.SubsystemEditor" 
-        contributorClass="de.uka.ipd.sdq.pcm.subsystem.presentation.SubsystemActionBarContributor" >
+        class = "org.palladiosimulator.pcm.subsystem.presentation.SubsystemEditor" 
+        contributorClass="org.palladiosimulator.pcm.subsystem.presentation.SubsystemActionBarContributor" >
     </editor>
   </extension>    
    <extension point="org.eclipse.ui.newWizards">

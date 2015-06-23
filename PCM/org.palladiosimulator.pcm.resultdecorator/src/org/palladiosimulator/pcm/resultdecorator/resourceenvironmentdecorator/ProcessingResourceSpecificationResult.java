@@ -2,7 +2,7 @@
  */
 package org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
+import org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecification;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '

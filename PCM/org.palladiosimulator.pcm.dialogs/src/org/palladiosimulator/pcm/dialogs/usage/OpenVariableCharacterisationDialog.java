@@ -2,7 +2,7 @@ package org.palladiosimulator.pcm.dialogs.usage;
 
 import org.eclipse.emf.ecore.EObject;
 
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
+import org.palladiosimulator.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 
 // TODO: Auto-generated Javadoc

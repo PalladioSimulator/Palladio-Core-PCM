@@ -8,7 +8,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.ResourceenvironmentdecoratorPackage;
 import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.UtilisationResult;
 
-import de.uka.ipd.sdq.pcm.core.entity.impl.NamedElementImpl;
+import org.palladiosimulator.pcm.core.entity.impl.NamedElementImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Utilisation Result</b></em>

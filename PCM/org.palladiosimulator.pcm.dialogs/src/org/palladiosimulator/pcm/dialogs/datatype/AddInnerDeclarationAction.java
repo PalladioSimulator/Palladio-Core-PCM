@@ -5,9 +5,9 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
-import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
+import org.palladiosimulator.pcm.repository.CompositeDataType;
+import org.palladiosimulator.pcm.repository.InnerDeclaration;
+import org.palladiosimulator.pcm.repository.RepositoryFactory;
 
 // TODO: Auto-generated Javadoc
 /**

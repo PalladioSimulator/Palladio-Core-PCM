@@ -19,12 +19,12 @@ import org.palladiosimulator.pcm.dialogs.Messages;
 import org.palladiosimulator.pcm.dialogs.parameters.CreateEditorContents;
 import org.palladiosimulator.pcm.dialogs.parameters.UpDownButtonsValidator;
 
-import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
-import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
-import de.uka.ipd.sdq.pcm.repository.DataType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
-import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.repository.CollectionDataType;
+import org.palladiosimulator.pcm.repository.CompositeDataType;
+import org.palladiosimulator.pcm.repository.DataType;
+import org.palladiosimulator.pcm.repository.InnerDeclaration;
+import org.palladiosimulator.pcm.repository.Repository;
+import org.palladiosimulator.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 // TODO: Auto-generated Javadoc

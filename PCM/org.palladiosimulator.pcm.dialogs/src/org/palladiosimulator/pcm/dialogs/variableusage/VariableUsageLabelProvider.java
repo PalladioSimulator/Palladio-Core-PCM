@@ -9,12 +9,12 @@ import org.eclipse.emf.edit.provider.ItemProviderDecorator;
 import org.palladiosimulator.pcm.dialogs.datatype.DataTypeContainer;
 import org.palladiosimulator.pcm.dialogs.datatype.InnerDeclarationContainer;
 
-import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
-import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
-import de.uka.ipd.sdq.pcm.repository.DataType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
+import org.palladiosimulator.pcm.repository.CollectionDataType;
+import org.palladiosimulator.pcm.repository.CompositeDataType;
+import org.palladiosimulator.pcm.repository.DataType;
+import org.palladiosimulator.pcm.repository.InnerDeclaration;
+import org.palladiosimulator.pcm.repository.Parameter;
+import org.palladiosimulator.pcm.repository.PrimitiveDataType;
 
 // TODO: Auto-generated Javadoc
 /**

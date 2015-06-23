@@ -2,8 +2,8 @@
  */
 package org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.repository.PassiveResource;
+import org.palladiosimulator.pcm.core.composition.AssemblyContext;
+import org.palladiosimulator.pcm.repository.PassiveResource;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '

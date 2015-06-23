@@ -17,10 +17,10 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.ui.PlatformUI;
 import org.palladiosimulator.pcm.dialogs.selection.PalladioSelectEObjectDialog;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
+import org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecification;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
+import org.palladiosimulator.pcm.resourcetype.ProcessingResourceType;
+import org.palladiosimulator.pcm.resourcetype.ResourceRepository;
 
 // TODO: Auto-generated Javadoc
 /**

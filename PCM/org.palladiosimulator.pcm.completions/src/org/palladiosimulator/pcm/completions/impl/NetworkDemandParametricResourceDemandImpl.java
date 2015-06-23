@@ -11,9 +11,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.palladiosimulator.pcm.completions.CompletionsPackage;
 import org.palladiosimulator.pcm.completions.NetworkDemandParametricResourceDemand;
 
-import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.impl.ParametricResourceDemandImpl;
-
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>Network Demand Parametric Resource Demand</b></em>'. <!-- end-user-doc -->
@@ -28,7 +25,8 @@ import de.uka.ipd.sdq.pcm.seff.seff_performance.impl.ParametricResourceDemandImp
  *
  * @generated
  */
-public class NetworkDemandParametricResourceDemandImpl extends ParametricResourceDemandImpl
+public class NetworkDemandParametricResourceDemandImpl
+        extends de.uka.ipd.sdq.pcm.seff.seff_performance.impl.ParametricResourceDemandImpl
         implements NetworkDemandParametricResourceDemand {
 
     /**
@@ -41,11 +39,11 @@ public class NetworkDemandParametricResourceDemandImpl extends ParametricResourc
      * @generated
      * @ordered
      */
-    protected CommunicationLinkResourceType requiredCommunicationLinkResource_ParametricResourceDemand;
+    protected de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType requiredCommunicationLinkResource_ParametricResourceDemand;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected NetworkDemandParametricResourceDemandImpl() {
@@ -54,7 +52,7 @@ public class NetworkDemandParametricResourceDemandImpl extends ParametricResourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -64,18 +62,18 @@ public class NetworkDemandParametricResourceDemandImpl extends ParametricResourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
-    public CommunicationLinkResourceType getRequiredCommunicationLinkResource_ParametricResourceDemand() {
+    public de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType getRequiredCommunicationLinkResource_ParametricResourceDemand() {
         if (this.requiredCommunicationLinkResource_ParametricResourceDemand != null
                 && ((EObject) this.requiredCommunicationLinkResource_ParametricResourceDemand).eIsProxy()) {
             final InternalEObject oldRequiredCommunicationLinkResource_ParametricResourceDemand = (InternalEObject) this.requiredCommunicationLinkResource_ParametricResourceDemand;
-            this.requiredCommunicationLinkResource_ParametricResourceDemand = (CommunicationLinkResourceType) this
-                    .eResolveProxy(oldRequiredCommunicationLinkResource_ParametricResourceDemand);
+            this.requiredCommunicationLinkResource_ParametricResourceDemand = (de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType) eResolveProxy(
+                    oldRequiredCommunicationLinkResource_ParametricResourceDemand);
             if (this.requiredCommunicationLinkResource_ParametricResourceDemand != oldRequiredCommunicationLinkResource_ParametricResourceDemand) {
-                if (this.eNotificationRequired()) {
+                if (eNotificationRequired()) {
                     this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             CompletionsPackage.NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__REQUIRED_COMMUNICATION_LINK_RESOURCE_PARAMETRIC_RESOURCE_DEMAND,
                             oldRequiredCommunicationLinkResource_ParametricResourceDemand,
@@ -88,24 +86,23 @@ public class NetworkDemandParametricResourceDemandImpl extends ParametricResourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
-    public CommunicationLinkResourceType basicGetRequiredCommunicationLinkResource_ParametricResourceDemand() {
+    public de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType basicGetRequiredCommunicationLinkResource_ParametricResourceDemand() {
         return this.requiredCommunicationLinkResource_ParametricResourceDemand;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
-    @Override
     public void setRequiredCommunicationLinkResource_ParametricResourceDemand(
-            final CommunicationLinkResourceType newRequiredCommunicationLinkResource_ParametricResourceDemand) {
-        final CommunicationLinkResourceType oldRequiredCommunicationLinkResource_ParametricResourceDemand = this.requiredCommunicationLinkResource_ParametricResourceDemand;
+            final de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType newRequiredCommunicationLinkResource_ParametricResourceDemand) {
+        final de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType oldRequiredCommunicationLinkResource_ParametricResourceDemand = this.requiredCommunicationLinkResource_ParametricResourceDemand;
         this.requiredCommunicationLinkResource_ParametricResourceDemand = newRequiredCommunicationLinkResource_ParametricResourceDemand;
-        if (this.eNotificationRequired()) {
+        if (eNotificationRequired()) {
             this.eNotify(new ENotificationImpl(this, Notification.SET,
                     CompletionsPackage.NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__REQUIRED_COMMUNICATION_LINK_RESOURCE_PARAMETRIC_RESOURCE_DEMAND,
                     oldRequiredCommunicationLinkResource_ParametricResourceDemand,
@@ -115,7 +112,7 @@ public class NetworkDemandParametricResourceDemandImpl extends ParametricResourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -132,7 +129,7 @@ public class NetworkDemandParametricResourceDemandImpl extends ParametricResourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -140,7 +137,7 @@ public class NetworkDemandParametricResourceDemandImpl extends ParametricResourc
         switch (featureID) {
         case CompletionsPackage.NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__REQUIRED_COMMUNICATION_LINK_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
             this.setRequiredCommunicationLinkResource_ParametricResourceDemand(
-                    (CommunicationLinkResourceType) newValue);
+                    (de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -148,14 +145,15 @@ public class NetworkDemandParametricResourceDemandImpl extends ParametricResourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void eUnset(final int featureID) {
         switch (featureID) {
         case CompletionsPackage.NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__REQUIRED_COMMUNICATION_LINK_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
-            this.setRequiredCommunicationLinkResource_ParametricResourceDemand((CommunicationLinkResourceType) null);
+            this.setRequiredCommunicationLinkResource_ParametricResourceDemand(
+                    (de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType) null);
             return;
         }
         super.eUnset(featureID);
@@ -163,7 +161,7 @@ public class NetworkDemandParametricResourceDemandImpl extends ParametricResourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

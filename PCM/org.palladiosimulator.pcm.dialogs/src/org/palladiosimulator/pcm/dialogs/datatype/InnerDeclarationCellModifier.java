@@ -10,8 +10,8 @@ import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.swt.widgets.TableItem;
 import org.palladiosimulator.pcm.dialogs.parameters.CreateEditorContents;
 
-import de.uka.ipd.sdq.pcm.repository.DataType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
+import org.palladiosimulator.pcm.repository.DataType;
+import org.palladiosimulator.pcm.repository.InnerDeclaration;
 
 // TODO: Auto-generated Javadoc
 /**

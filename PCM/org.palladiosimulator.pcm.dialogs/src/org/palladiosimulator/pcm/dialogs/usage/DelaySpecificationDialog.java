@@ -2,7 +2,7 @@ package org.palladiosimulator.pcm.dialogs.usage;
 
 import org.eclipse.emf.ecore.EObject;
 
-import de.uka.ipd.sdq.pcm.usagemodel.Delay;
+import org.palladiosimulator.pcm.usagemodel.Delay;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 

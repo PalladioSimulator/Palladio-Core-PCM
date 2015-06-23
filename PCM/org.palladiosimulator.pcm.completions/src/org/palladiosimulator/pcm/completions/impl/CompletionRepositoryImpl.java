@@ -33,7 +33,7 @@ public class CompletionRepositoryImpl extends EObjectImpl implements CompletionR
      * The cached value of the '{@link #getCompletions_CompletionRepository()
      * <em>Completions Completion Repository</em>}' reference list. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #getCompletions_CompletionRepository()
      * @generated
      * @ordered
@@ -42,7 +42,7 @@ public class CompletionRepositoryImpl extends EObjectImpl implements CompletionR
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CompletionRepositoryImpl() {
@@ -51,7 +51,7 @@ public class CompletionRepositoryImpl extends EObjectImpl implements CompletionR
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -61,7 +61,7 @@ public class CompletionRepositoryImpl extends EObjectImpl implements CompletionR
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -75,7 +75,7 @@ public class CompletionRepositoryImpl extends EObjectImpl implements CompletionR
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -89,7 +89,7 @@ public class CompletionRepositoryImpl extends EObjectImpl implements CompletionR
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -106,7 +106,7 @@ public class CompletionRepositoryImpl extends EObjectImpl implements CompletionR
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -121,7 +121,7 @@ public class CompletionRepositoryImpl extends EObjectImpl implements CompletionR
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

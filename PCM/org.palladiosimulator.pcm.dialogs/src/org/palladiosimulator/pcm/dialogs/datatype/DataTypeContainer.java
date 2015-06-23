@@ -3,7 +3,7 @@
  */
 package org.palladiosimulator.pcm.dialogs.datatype;
 
-import de.uka.ipd.sdq.pcm.repository.impl.CollectionDataTypeImpl;
+import org.palladiosimulator.pcm.repository.impl.CollectionDataTypeImpl;
 
 // TODO: Auto-generated Javadoc
 /**

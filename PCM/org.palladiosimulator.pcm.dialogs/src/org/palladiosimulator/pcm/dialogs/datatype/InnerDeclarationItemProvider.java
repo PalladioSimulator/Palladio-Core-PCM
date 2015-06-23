@@ -6,7 +6,7 @@ import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ItemProviderDecorator;
 import org.palladiosimulator.pcm.dialogs.parameters.CreateEditorContents;
 
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
+import org.palladiosimulator.pcm.repository.InnerDeclaration;
 
 // TODO: Auto-generated Javadoc
 /**

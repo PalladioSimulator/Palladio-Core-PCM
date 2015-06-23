@@ -31,12 +31,12 @@ public interface SystemReference extends CDOObject {
      * <!-- end-user-doc -->
      *
      * @return the value of the '<em>System</em>' reference.
-     * @see #setSystem(de.uka.ipd.sdq.pcm.system.System)
+     * @see #setSystem(org.palladiosimulator.pcm.system.System)
      * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getSystemReference_System()
      * @model required="true"
      * @generated
      */
-    de.uka.ipd.sdq.pcm.system.System getSystem();
+    org.palladiosimulator.pcm.system.System getSystem();
 
     /**
      * Sets the value of the '
@@ -48,6 +48,6 @@ public interface SystemReference extends CDOObject {
      * @see #getSystem()
      * @generated
      */
-    void setSystem(de.uka.ipd.sdq.pcm.system.System value);
+    void setSystem(org.palladiosimulator.pcm.system.System value);
 
 } // SystemReference

@@ -2,7 +2,7 @@
  */
 package org.palladiosimulator.pcm.resultdecorator.repositorydecorator;
 
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
+import org.palladiosimulator.pcm.core.entity.InterfaceProvidingRequiringEntity;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '

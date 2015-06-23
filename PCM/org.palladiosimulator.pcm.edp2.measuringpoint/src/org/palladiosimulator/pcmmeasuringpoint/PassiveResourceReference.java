@@ -4,7 +4,7 @@ package org.palladiosimulator.pcmmeasuringpoint;
 
 import org.eclipse.emf.cdo.CDOObject;
 
-import de.uka.ipd.sdq.pcm.repository.PassiveResource;
+import org.palladiosimulator.pcm.repository.PassiveResource;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '

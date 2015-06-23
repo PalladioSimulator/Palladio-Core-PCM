@@ -4,7 +4,7 @@ package org.palladiosimulator.pcm.resultdecorator.repositorydecorator;
 
 import org.eclipse.emf.ecore.EObject;
 
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import org.palladiosimulator.pcm.core.entity.NamedElement;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Component Result</b></em>'.

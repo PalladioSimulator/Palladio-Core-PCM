@@ -8,7 +8,7 @@ import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.ComponentRe
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.ServiceResult;
 import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.UtilisationResult;
 
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import org.palladiosimulator.pcm.core.entity.NamedElement;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '

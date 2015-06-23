@@ -16,7 +16,7 @@ import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.ComponentRe
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.ServiceResult;
 import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.UtilisationResult;
 
-import de.uka.ipd.sdq.pcm.core.entity.impl.NamedElementImpl;
+import org.palladiosimulator.pcm.core.entity.impl.NamedElementImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '

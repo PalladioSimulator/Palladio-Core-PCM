@@ -4,7 +4,7 @@ package org.palladiosimulator.pcm.resultdecorator.repositorydecorator;
 
 import org.eclipse.emf.ecore.EObject;
 
-import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
+import org.palladiosimulator.pcm.seff.ServiceEffectSpecification;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Service Result</b></em>'.

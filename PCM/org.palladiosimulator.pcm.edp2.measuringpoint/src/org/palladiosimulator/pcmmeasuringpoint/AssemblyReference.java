@@ -4,7 +4,7 @@ package org.palladiosimulator.pcmmeasuringpoint;
 
 import org.eclipse.emf.cdo.CDOObject;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import org.palladiosimulator.pcm.core.composition.AssemblyContext;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Assembly Reference</b></em>

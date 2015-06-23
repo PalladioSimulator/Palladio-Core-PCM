@@ -16,7 +16,7 @@ import org.palladiosimulator.pcm.resultdecorator.provider.ResultdecoratorEditPlu
 import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.ResourceenvironmentdecoratorPackage;
 import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.UtilisationResult;
 
-import de.uka.ipd.sdq.pcm.core.entity.provider.NamedElementItemProvider;
+import org.palladiosimulator.pcm.core.entity.provider.NamedElementItemProvider;
 
 /**
  * This is the item provider adapter for a

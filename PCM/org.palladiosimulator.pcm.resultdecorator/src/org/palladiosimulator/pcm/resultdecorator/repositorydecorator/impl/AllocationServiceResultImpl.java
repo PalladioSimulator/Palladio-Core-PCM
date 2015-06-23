@@ -10,7 +10,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.AllocationServiceResult;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.RepositorydecoratorPackage;
 
-import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
+import org.palladiosimulator.pcm.allocation.AllocationContext;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '

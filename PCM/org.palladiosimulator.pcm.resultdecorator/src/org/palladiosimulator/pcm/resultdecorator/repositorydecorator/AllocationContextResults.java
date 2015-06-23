@@ -2,7 +2,7 @@
  */
 package org.palladiosimulator.pcm.resultdecorator.repositorydecorator;
 
-import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
+import org.palladiosimulator.pcm.allocation.AllocationContext;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '

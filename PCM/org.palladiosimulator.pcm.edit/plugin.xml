@@ -10,7 +10,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/5.0"
-            class="de.uka.ipd.sdq.pcm.provider.PcmItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.provider.PcmItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -22,7 +22,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/Core/5.0"
-            class="de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.core.provider.CoreItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -34,7 +34,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/5.0"
-            class="de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.core.entity.provider.EntityItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -46,7 +46,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0"
-            class="de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.core.composition.provider.CompositionItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -58,7 +58,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0"
-            class="de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -70,7 +70,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0"
-            class="de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.repository.provider.RepositoryItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -82,7 +82,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/5.0"
-            class="de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -94,7 +94,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/5.0"
-            class="de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.protocol.provider.ProtocolItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -106,7 +106,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0"
-            class="de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.parameter.provider.ParameterItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -118,7 +118,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/5.0"
-            class="de.uka.ipd.sdq.pcm.reliability.provider.ReliabilityItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.reliability.provider.ReliabilityItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -130,7 +130,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0"
-            class="de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.seff.provider.SeffItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -142,7 +142,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/5.0"
-            class="de.uka.ipd.sdq.pcm.seff.seff_performance.provider.SeffPerformanceItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.seff.seff_performance.provider.SeffPerformanceItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -154,7 +154,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0"
-            class="de.uka.ipd.sdq.pcm.seff.seff_reliability.provider.SeffReliabilityItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.seff.seff_reliability.provider.SeffReliabilityItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -166,7 +166,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/5.0"
-            class="de.uka.ipd.sdq.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -178,7 +178,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Performance/5.0"
-            class="de.uka.ipd.sdq.pcm.qosannotations.qos_performance.provider.QosPerformanceItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.qosannotations.qos_performance.provider.QosPerformanceItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -190,7 +190,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Reliability/5.0"
-            class="de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.provider.QosReliabilityItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.qosannotations.qos_reliability.provider.QosReliabilityItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -202,7 +202,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/System/5.0"
-            class="de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.system.provider.SystemItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -214,7 +214,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0"
-            class="de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -226,7 +226,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/5.0"
-            class="de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.allocation.provider.AllocationItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -238,7 +238,7 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <factory
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/5.0"
-            class="de.uka.ipd.sdq.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory"
+            class="org.palladiosimulator.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

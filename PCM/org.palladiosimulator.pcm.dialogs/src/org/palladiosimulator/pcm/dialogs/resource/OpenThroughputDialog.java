@@ -3,7 +3,7 @@ package org.palladiosimulator.pcm.dialogs.resource;
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.pcm.dialogs.OpenStoExDialog;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
+import org.palladiosimulator.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
