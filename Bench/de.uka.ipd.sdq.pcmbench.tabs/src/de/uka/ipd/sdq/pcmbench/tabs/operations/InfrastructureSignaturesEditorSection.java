@@ -14,7 +14,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.palladiosimulator.pcm.dialogs.parameters.ParametersDialog;
 
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import org.palladiosimulator.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection;
 import de.uka.ipd.sdq.pcmbench.tabs.generic.ObservableCellModifier;
 

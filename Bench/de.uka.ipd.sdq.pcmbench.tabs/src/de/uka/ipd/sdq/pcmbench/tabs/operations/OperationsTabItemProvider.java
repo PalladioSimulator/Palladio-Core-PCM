@@ -5,7 +5,7 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ItemProviderDecorator;
 
-import de.uka.ipd.sdq.pcm.repository.OperationSignature;
+import org.palladiosimulator.pcm.repository.OperationSignature;
 
 /**
  * @author Snowball

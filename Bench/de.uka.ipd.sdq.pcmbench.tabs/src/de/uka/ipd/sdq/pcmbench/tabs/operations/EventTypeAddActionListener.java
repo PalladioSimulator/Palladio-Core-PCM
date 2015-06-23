@@ -7,12 +7,12 @@ import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
-import de.uka.ipd.sdq.pcm.repository.EventGroup;
-import de.uka.ipd.sdq.pcm.repository.EventType;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
-import de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
+import org.palladiosimulator.pcm.repository.EventGroup;
+import org.palladiosimulator.pcm.repository.EventType;
+import org.palladiosimulator.pcm.repository.Parameter;
+import org.palladiosimulator.pcm.repository.PrimitiveDataType;
+import org.palladiosimulator.pcm.repository.PrimitiveTypeEnum;
+import org.palladiosimulator.pcm.repository.RepositoryFactory;
 
 /**
  * Event Listener for the creation of a new event type.

@@ -7,9 +7,9 @@ import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector;
-import de.uka.ipd.sdq.pcm.core.composition.Connector;
-import de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector;
+import org.palladiosimulator.pcm.core.composition.AssemblyEventConnector;
+import org.palladiosimulator.pcm.core.composition.Connector;
+import org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector;
 import de.uka.ipd.sdq.pcmbench.tabs.generic.SelectionChangedListener;
 
 public class EventFilterDeleteActionListener extends SelectionChangedListener implements SelectionListener {

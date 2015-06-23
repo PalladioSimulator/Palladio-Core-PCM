@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.pcmbench.tabs.parameters;
 
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import org.palladiosimulator.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**

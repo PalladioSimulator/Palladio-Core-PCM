@@ -9,7 +9,7 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.swt.widgets.TableItem;
 
-import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
+import org.palladiosimulator.pcm.repository.InfrastructureSignature;
 import de.uka.ipd.sdq.pcmbench.tabs.generic.ObservableCellModifier;
 
 /**Modifier for cells containing infrastructure signature descriptions.

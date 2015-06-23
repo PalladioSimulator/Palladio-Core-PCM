@@ -7,8 +7,8 @@ import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 
-import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface;
-import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
+import org.palladiosimulator.pcm.repository.InfrastructureInterface;
+import org.palladiosimulator.pcm.repository.InfrastructureSignature;
 import de.uka.ipd.sdq.pcmbench.tabs.generic.SelectionChangedListener;
 
 /**Removes selected signatures from an infrastructure interface.

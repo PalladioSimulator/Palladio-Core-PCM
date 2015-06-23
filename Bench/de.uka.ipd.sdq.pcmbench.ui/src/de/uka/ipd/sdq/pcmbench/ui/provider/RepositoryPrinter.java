@@ -1,8 +1,8 @@
 package de.uka.ipd.sdq.pcmbench.ui.provider;
 
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
-import de.uka.ipd.sdq.pcm.repository.util.RepositorySwitch;
+import org.palladiosimulator.pcm.repository.Parameter;
+import org.palladiosimulator.pcm.repository.PrimitiveDataType;
+import org.palladiosimulator.pcm.repository.util.RepositorySwitch;
 
 public class RepositoryPrinter extends RepositorySwitch {
 
@@ -11,7 +11,7 @@ public class RepositoryPrinter extends RepositorySwitch {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcm.repository.util.RepositorySwitch#caseParameter(de.uka.ipd.sdq.pcm.repository.Parameter)
+	 * @see org.palladiosimulator.pcm.repository.util.RepositorySwitch#caseParameter(org.palladiosimulator.pcm.repository.Parameter)
 	 */
 	@Override
 	public Object caseParameter(Parameter object) {
@@ -21,7 +21,7 @@ public class RepositoryPrinter extends RepositorySwitch {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcm.repository.util.RepositorySwitch#casePrimitiveDataType(de.uka.ipd.sdq.pcm.repository.PrimitiveDataType)
+	 * @see org.palladiosimulator.pcm.repository.util.RepositorySwitch#casePrimitiveDataType(org.palladiosimulator.pcm.repository.PrimitiveDataType)
 	 */
 	@Override
 	public Object casePrimitiveDataType(PrimitiveDataType object) {

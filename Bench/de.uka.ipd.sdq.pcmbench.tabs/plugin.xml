@@ -63,25 +63,25 @@
                class="de.uka.ipd.sdq.pcmbench.tabs.ComponentPropertySection"
                id="de.uka.ipd.sdq.pcmbench.componentTab.section"
                tab="de.uka.ipd.sdq.pcmbench.componentTab">
-            <input type="de.uka.ipd.sdq.pcm.repository.ProvidesComponentType"/>
+            <input type="org.palladiosimulator.pcm.repository.ProvidesComponentType"/>
          </propertySection>
          <propertySection 
                class="de.uka.ipd.sdq.pcmbench.tabs.InterfacePropertySection"
                id="de.uka.ipd.sdq.pcmbench.interfaceTab.section"
                tab="de.uka.ipd.sdq.pcmbench.interfaceTab">
-            <input type="de.uka.ipd.sdq.pcm.repository.Interface"/>
+            <input type="org.palladiosimulator.pcm.repository.Interface"/>
         </propertySection>
           <propertySection
                class="de.uka.ipd.sdq.pcmbench.tabs.OperationsPropertySection"
                id="de.uka.ipd.sdq.pcmbench.operationsTab.section"
                tab="de.uka.ipd.sdq.pcmbench.operationsTab">
-            <input type="de.uka.ipd.sdq.pcm.repository.OperationInterface"/>
+            <input type="org.palladiosimulator.pcm.repository.OperationInterface"/>
          </propertySection>
           <propertySection
                class="de.uka.ipd.sdq.pcmbench.tabs.EventTypesPropertySection"
                id="de.uka.ipd.sdq.pcmbench.eventTypesTab.section"
                tab="de.uka.ipd.sdq.pcmbench.eventTypesTab">
-            <input type="de.uka.ipd.sdq.pcm.repository.EventGroup"/>
+            <input type="org.palladiosimulator.pcm.repository.EventGroup"/>
          </propertySection>
          <propertySection
                class="de.uka.ipd.sdq.pcmbench.tabs.AdvancedPropertySection"
@@ -94,7 +94,7 @@
                id="de.uka.ipd.sdq.pcmbench.infrastructureSignaturesTab.section"
                tab="de.uka.ipd.sdq.pcmbench.infrastructureSignaturesTab">
             <input
-                  type="de.uka.ipd.sdq.pcm.repository.InfrastructureInterface">
+                  type="org.palladiosimulator.pcm.repository.InfrastructureInterface">
             </input>
          </propertySection>
          <propertySection
@@ -102,7 +102,7 @@
                id="de.uka.ipd.sdq.pcmbench.eventConnectors.section"
                tab="de.uka.ipd.sdq.pcmbench.eventConnectorsTab">
             <input
-                  type="de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector">
+                  type="org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector">
             </input>
          </propertySection>
 

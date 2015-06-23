@@ -10,7 +10,7 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 
-import de.uka.ipd.sdq.pcm.repository.OperationSignature;
+import org.palladiosimulator.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcmbench.tabs.generic.SelectionChangedListener;
 
 /**

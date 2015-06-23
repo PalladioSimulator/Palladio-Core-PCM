@@ -8,7 +8,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.ecore.EClass;
 
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import org.palladiosimulator.pcm.repository.RepositoryPackage;
 
 /**
  * @author Snowball

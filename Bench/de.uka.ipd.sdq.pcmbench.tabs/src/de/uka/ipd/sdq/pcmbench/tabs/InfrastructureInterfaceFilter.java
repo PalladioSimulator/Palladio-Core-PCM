@@ -4,8 +4,8 @@ import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.IFilter;
 
-import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface;
-import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
+import org.palladiosimulator.pcm.repository.InfrastructureInterface;
+import org.palladiosimulator.pcm.repository.InfrastructureSignature;
 
 /**
  * Filter to select only elements related to event groups and types.

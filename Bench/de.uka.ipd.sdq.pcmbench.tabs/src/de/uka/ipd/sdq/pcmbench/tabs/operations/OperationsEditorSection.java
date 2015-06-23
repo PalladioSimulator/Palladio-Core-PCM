@@ -20,9 +20,9 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.palladiosimulator.pcm.dialogs.datatype.CallDataTypeDialog;
 import org.palladiosimulator.pcm.dialogs.parameters.ParametersDialog;
 
-import de.uka.ipd.sdq.pcm.repository.DataType;
-import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import org.palladiosimulator.pcm.repository.DataType;
+import org.palladiosimulator.pcm.repository.Repository;
+import org.palladiosimulator.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection;
 import de.uka.ipd.sdq.pcmbench.tabs.generic.ObservableCellModifier;
 

@@ -16,10 +16,10 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
-import de.uka.ipd.sdq.pcm.repository.EventGroup;
-import de.uka.ipd.sdq.pcm.repository.EventType;
-import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.repository.EventGroup;
+import org.palladiosimulator.pcm.repository.EventType;
+import org.palladiosimulator.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.tabs.operations.EventTypesEditorSection;
 import de.uka.ipd.sdq.pcmbench.tabs.operations.EventTypesTabItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;

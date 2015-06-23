@@ -4,8 +4,8 @@ import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.IFilter;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector;
-import de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector;
+import org.palladiosimulator.pcm.core.composition.AssemblyEventConnector;
+import org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector;
 
 
 public class EventConnectorFilter implements IFilter {

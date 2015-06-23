@@ -4,8 +4,8 @@ import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.IFilter;
 
-import de.uka.ipd.sdq.pcm.repository.EventGroup;
-import de.uka.ipd.sdq.pcm.repository.EventType;
+import org.palladiosimulator.pcm.repository.EventGroup;
+import org.palladiosimulator.pcm.repository.EventType;
 
 /**
  * Filter to select only elements related to event groups and types.

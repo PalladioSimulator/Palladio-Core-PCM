@@ -23,9 +23,9 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.core.composition.AssemblyContext;
+import org.palladiosimulator.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.tabs.parameters.ComponentParametersEditorSection;
 import de.uka.ipd.sdq.pcmbench.tabs.parameters.ParameterContentProvider;
 import de.uka.ipd.sdq.pcmbench.tabs.parameters.ParametersTabItemProviderAdapterFactory;

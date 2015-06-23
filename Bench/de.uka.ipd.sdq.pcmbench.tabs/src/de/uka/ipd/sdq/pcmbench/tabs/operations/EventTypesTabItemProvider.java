@@ -5,7 +5,7 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ItemProviderDecorator;
 
-import de.uka.ipd.sdq.pcm.repository.EventType;
+import org.palladiosimulator.pcm.repository.EventType;
 
 /**
  * This class is a decorator for the generated EMF.Edit item providers. It
