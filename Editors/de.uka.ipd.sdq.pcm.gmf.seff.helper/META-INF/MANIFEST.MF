@@ -21,6 +21,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.edit.ui,
  de.uka.ipd.sdq.pcm.stochasticexpressions,
  de.uka.ipd.sdq.stoex.analyser,
- de.uka.ipd.sdq.pcm.dialogs
+ org.palladiosimulator.pcm.dialogs
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
