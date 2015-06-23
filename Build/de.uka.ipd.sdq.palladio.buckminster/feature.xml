@@ -24,7 +24,7 @@ PCM Core build.
          version="0.0.0"/>
 
    <includes
-         id="de.uka.ipd.sdq.pcm.resultdecorator.feature"
+         id="org.palladiosimulator.pcm.resultdecorator.feature"
          version="0.0.0"/>
 
    <includes
