@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.RepositorydecoratorPackage;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.ServiceResult;
-
 import org.palladiosimulator.pcm.seff.ServiceEffectSpecification;
 
 /**

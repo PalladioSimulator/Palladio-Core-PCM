@@ -7,6 +7,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.palladiosimulator.pcm.PcmPackage;
+import org.palladiosimulator.pcm.core.composition.CompositionPackage;
+import org.palladiosimulator.pcm.core.entity.EntityPackage;
+import org.palladiosimulator.pcm.repository.RepositoryPackage;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
 import org.palladiosimulator.pcm.resultdecorator.ResultdecoratorPackage;
 import org.palladiosimulator.pcm.resultdecorator.impl.ResultdecoratorPackageImpl;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.RepositorydecoratorPackage;
@@ -19,12 +24,6 @@ import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.Re
 import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.ResourceenvironmentdecoratorFactory;
 import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.ResourceenvironmentdecoratorPackage;
 import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.UtilisationResult;
-
-import org.palladiosimulator.pcm.PcmPackage;
-import org.palladiosimulator.pcm.core.composition.CompositionPackage;
-import org.palladiosimulator.pcm.core.entity.EntityPackage;
-import org.palladiosimulator.pcm.repository.RepositoryPackage;
-import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->

@@ -4,22 +4,21 @@ package org.palladiosimulator.pcmmeasuringpoint.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference;
-
-import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>Resource Environment Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentReferenceImpl#getResourceEnvironment
  * <em>Resource Environment</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

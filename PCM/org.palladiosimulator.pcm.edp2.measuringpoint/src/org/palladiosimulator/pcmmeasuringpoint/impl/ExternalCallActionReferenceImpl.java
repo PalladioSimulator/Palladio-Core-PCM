@@ -4,22 +4,21 @@ package org.palladiosimulator.pcmmeasuringpoint.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
+import org.palladiosimulator.pcm.seff.ExternalCallAction;
 import org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
-
-import org.palladiosimulator.pcm.seff.ExternalCallAction;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>External Call Action Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ExternalCallActionReferenceImpl#getExternalCall
  * <em>External Call</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

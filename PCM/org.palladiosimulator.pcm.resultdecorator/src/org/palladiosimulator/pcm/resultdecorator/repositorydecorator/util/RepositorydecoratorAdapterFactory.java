@@ -6,14 +6,13 @@ import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
+import org.palladiosimulator.pcm.core.entity.NamedElement;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.AllocationContextResults;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.AllocationServiceResult;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.ComponentResult;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.InterfaceProvidingRequiringEntityResults;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.RepositorydecoratorPackage;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.ServiceResult;
-
-import org.palladiosimulator.pcm.core.entity.NamedElement;
 
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter

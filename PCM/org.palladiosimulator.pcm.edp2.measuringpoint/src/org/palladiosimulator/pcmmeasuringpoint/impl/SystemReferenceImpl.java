@@ -12,11 +12,11 @@ import org.palladiosimulator.pcmmeasuringpoint.SystemReference;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemReferenceImpl#getSystem <em>System
- * </em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemReferenceImpl#getSystem
+ * <em>System</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -58,7 +58,8 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
      */
     @Override
     public org.palladiosimulator.pcm.system.System getSystem() {
-        return (org.palladiosimulator.pcm.system.System) this.eDynamicGet(PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM,
+        return (org.palladiosimulator.pcm.system.System) this.eDynamicGet(
+                PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM,
                 PcmmeasuringpointPackage.Literals.SYSTEM_REFERENCE__SYSTEM, true, true);
     }
 
@@ -68,7 +69,8 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
      * @generated
      */
     public org.palladiosimulator.pcm.system.System basicGetSystem() {
-        return (org.palladiosimulator.pcm.system.System) this.eDynamicGet(PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM,
+        return (org.palladiosimulator.pcm.system.System) this.eDynamicGet(
+                PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM,
                 PcmmeasuringpointPackage.Literals.SYSTEM_REFERENCE__SYSTEM, false, true);
     }
 

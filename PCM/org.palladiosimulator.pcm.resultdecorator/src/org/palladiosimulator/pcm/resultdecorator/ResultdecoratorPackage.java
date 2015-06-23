@@ -5,7 +5,6 @@ package org.palladiosimulator.pcm.resultdecorator;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.palladiosimulator.pcm.core.entity.EntityPackage;
 
 /**

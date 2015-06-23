@@ -21,17 +21,5 @@
           org.eclipse.emf.edit.provider.IItemPropertySource" />
   </extension>
 
-   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated Completions -->
-      <factory
-            uri="http://palladiosimulator.org/PCM/Completions/1.0"
-            class="org.palladiosimulator.pcm.completions.provider.CompletionsItemProviderAdapterFactory"
-            supportedTypes=
-              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
-               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
-               org.eclipse.emf.edit.provider.ITreeItemContentProvider
-               org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
-   </extension>
-
+null
 </plugin>

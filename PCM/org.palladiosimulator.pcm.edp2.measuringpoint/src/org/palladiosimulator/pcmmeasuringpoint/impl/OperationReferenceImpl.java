@@ -4,25 +4,24 @@ package org.palladiosimulator.pcmmeasuringpoint.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
-import org.palladiosimulator.pcmmeasuringpoint.OperationReference;
-import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
-
 import org.palladiosimulator.pcm.repository.OperationSignature;
 import org.palladiosimulator.pcm.repository.Role;
+import org.palladiosimulator.pcmmeasuringpoint.OperationReference;
+import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>Operation Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.OperationReferenceImpl#getRole <em>Role
- * </em>}</li>
+ * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.OperationReferenceImpl#getRole
+ * <em>Role</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.OperationReferenceImpl#getOperationSignature
  * <em>Operation Signature</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

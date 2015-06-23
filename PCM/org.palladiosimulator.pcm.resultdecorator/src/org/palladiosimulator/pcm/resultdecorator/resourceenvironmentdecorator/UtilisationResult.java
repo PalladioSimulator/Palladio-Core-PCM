@@ -3,7 +3,6 @@
 package org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.palladiosimulator.pcm.core.entity.NamedElement;
 
 /**

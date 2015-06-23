@@ -5,10 +5,9 @@ package org.palladiosimulator.pcm.resultdecorator.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.palladiosimulator.pcm.core.entity.NamedElement;
 import org.palladiosimulator.pcm.resultdecorator.ResultDecoratorRepository;
 import org.palladiosimulator.pcm.resultdecorator.ResultdecoratorPackage;
-
-import org.palladiosimulator.pcm.core.entity.NamedElement;
 
 /**
  * <!-- begin-user-doc --> The <b>Switch</b> for the model's inheritance hierarchy. It supports the

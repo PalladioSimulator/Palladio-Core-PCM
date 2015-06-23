@@ -116,12 +116,6 @@ import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
-import org.palladiosimulator.pcm.resultdecorator.presentation.ResultdecoratorEditorPlugin;
-import org.palladiosimulator.pcm.resultdecorator.provider.ResultdecoratorItemProviderAdapterFactory;
-import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.provider.RepositorydecoratorItemProviderAdapterFactory;
-import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.provider.ResourceenvironmentdecoratorItemProviderAdapterFactory;
-
-import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
@@ -136,12 +130,18 @@ import org.palladiosimulator.pcm.reliability.provider.ReliabilityItemProviderAda
 import org.palladiosimulator.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.resultdecorator.presentation.ResultdecoratorEditorPlugin;
+import org.palladiosimulator.pcm.resultdecorator.provider.ResultdecoratorItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.provider.RepositorydecoratorItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.provider.ResourceenvironmentdecoratorItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.seff.seff_performance.provider.SeffPerformanceItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.seff.seff_reliability.provider.SeffReliabilityItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.system.provider.SystemItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
+
+import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
 import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
@@ -158,7 +158,7 @@ public class RepositorydecoratorEditor extends MultiPageEditorPart
     /**
      * This keeps track of the editing domain that is used to track all changes to the model. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AdapterFactoryEditingDomain editingDomain;
@@ -233,7 +233,7 @@ public class RepositorydecoratorEditor extends MultiPageEditorPart
     /**
      * This shows how a table view works. A table can be used as a list with icons. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected TableViewer tableViewer;
@@ -295,7 +295,7 @@ public class RepositorydecoratorEditor extends MultiPageEditorPart
     /**
      * This listens for when the outline becomes active <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     protected IPartListener partListener = new IPartListener() {
@@ -384,7 +384,7 @@ public class RepositorydecoratorEditor extends MultiPageEditorPart
     /**
      * Adapter used to update the problem indication when resources are demanded loaded. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EContentAdapter problemIndicationAdapter = new EContentAdapter() {
@@ -927,7 +927,7 @@ public class RepositorydecoratorEditor extends MultiPageEditorPart
     /**
      * This returns the viewer as required by the {@link IViewerProvider} interface. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1437,7 +1437,7 @@ public class RepositorydecoratorEditor extends MultiPageEditorPart
     /**
      * This deals with how we want selection in the outliner to affect the other views. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public void handleContentOutlineSelection(final ISelection selection) {
@@ -1476,7 +1476,7 @@ public class RepositorydecoratorEditor extends MultiPageEditorPart
     /**
      * This is for implementing {@link IEditorPart} and simply tests the command stack. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -1487,7 +1487,7 @@ public class RepositorydecoratorEditor extends MultiPageEditorPart
     /**
      * This is for implementing {@link IEditorPart} and simply saves the model file. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

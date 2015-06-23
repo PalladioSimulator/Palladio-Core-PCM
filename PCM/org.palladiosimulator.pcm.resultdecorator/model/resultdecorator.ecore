@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="resultdecorator" nsURI="http://palladiosimulator.org/PCM/ResultDecorator/1.0"
     nsPrefix="resultdecorator">
-  <eClassifiers xsi:type="ecore:EClass" name="ResultDecoratorRepository" eSuperTypes="../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/entity/NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="ResultDecoratorRepository" eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="componentResults_ResultDecoratorRepository"
         ordered="false" upperBound="-1" eType="#//repositorydecorator/ComponentResult"
         containment="true"/>
@@ -18,9 +18,9 @@
     <eClassifiers xsi:type="ecore:EClass" name="InterfaceProvidingRequiringEntityResults"
         eSuperTypes="#//repositorydecorator/ComponentResult">
       <eStructuralFeatures xsi:type="ecore:EReference" name="interfaceProvidingRequiringEntity_InterfaceProvidingRequiringEntityResult"
-          ordered="false" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/entity/InterfaceProvidingRequiringEntity"/>
+          ordered="false" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/InterfaceProvidingRequiringEntity"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ComponentResult" abstract="true" eSuperTypes="../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/entity/NamedElement">
+    <eClassifiers xsi:type="ecore:EClass" name="ComponentResult" abstract="true" eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="normalisedResourceDemand"
           ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="normalisedResponseTime"
@@ -34,7 +34,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AllocationContextResults" eSuperTypes="#//repositorydecorator/ComponentResult">
       <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContext_AllocationContextResult"
-          ordered="false" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//allocation/AllocationContext"/>
+          ordered="false" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//allocation/AllocationContext"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ServiceResult" abstract="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -45,21 +45,21 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="throughput" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="serviceEffectSpecification_ServiceResult"
-          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ServiceEffectSpecification"/>
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//seff/ServiceEffectSpecification"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AllocationServiceResult" eSuperTypes="#//repositorydecorator/ServiceResult">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Performance results of one service within one AllocationContext. Thus, for one AllocationContext in the system there should only exist one AllocationServiceResult per ResultdecoratorRepostory (TODO: OCL constraint). In particular, this means that even if the system has several UsageScenarios, there is only one AllocationServiceResult."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContext_AllocationServiceResult"
-          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//allocation/AllocationContext"/>
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//allocation/AllocationContext"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="resourceenvironmentdecorator" nsURI="http://palladiosimulator.org/PCM/ResultDecorator/ResourceEnvironment/1.0"
       nsPrefix="resourceenvironmentdecorator">
     <eClassifiers xsi:type="ecore:EClass" name="LinkingResourceResults" eSuperTypes="#//resourceenvironmentdecorator/ActiveResourceUtilisationResult">
       <eStructuralFeatures xsi:type="ecore:EReference" name="linkingResource_LinkingResourceResults"
-          ordered="false" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourceenvironment/LinkingResource"/>
+          ordered="false" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/LinkingResource"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ActiveResourceUtilisationResult" abstract="true"
         eSuperTypes="#//resourceenvironmentdecorator/UtilisationResult">
@@ -78,7 +78,7 @@
       </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="UtilisationResult" abstract="true"
-        eSuperTypes="../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/entity/NamedElement">
+        eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/NamedElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="normalisedResourceUtilisation"
           ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -122,18 +122,18 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ResourceContainerResults" eSuperTypes="#//resourceenvironmentdecorator/ActiveResourceUtilisationResult">
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer_ResourceContainerResults"
-          ordered="false" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer"/>
+          ordered="false" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceSpecificationResult"
         eSuperTypes="#//resourceenvironmentdecorator/ActiveResourceUtilisationResult">
       <eStructuralFeatures xsi:type="ecore:EReference" name="processingResourceSpecification_ProcessingResourceSpecificationResult"
-          ordered="false" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourceenvironment/ProcessingResourceSpecification"/>
+          ordered="false" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ProcessingResourceSpecification"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PassiveResourceResult" eSuperTypes="#//resourceenvironmentdecorator/UtilisationResult">
       <eStructuralFeatures xsi:type="ecore:EReference" name="passiveResource_PassiveResourceResult"
-          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//repository/PassiveResource"/>
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/PassiveResource"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_PassiveResourceResult"
-          ordered="false" eType="ecore:EClass ../../de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/composition/AssemblyContext"/>
+          ordered="false" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//core/composition/AssemblyContext"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="averageHoldingTime" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>

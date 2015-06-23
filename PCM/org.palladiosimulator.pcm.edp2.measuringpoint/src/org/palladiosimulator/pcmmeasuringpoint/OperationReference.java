@@ -3,7 +3,6 @@
 package org.palladiosimulator.pcmmeasuringpoint;
 
 import org.eclipse.emf.cdo.CDOObject;
-
 import org.palladiosimulator.pcm.repository.OperationSignature;
 import org.palladiosimulator.pcm.repository.Role;
 
@@ -13,12 +12,12 @@ import org.palladiosimulator.pcm.repository.Role;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcmmeasuringpoint.OperationReference#getRole <em>Role</em>}</li>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.OperationReference#getOperationSignature <em>
- * Operation Signature</em>}</li>
+ * <li>{@link org.palladiosimulator.pcmmeasuringpoint.OperationReference#getOperationSignature
+ * <em>Operation Signature</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getOperationReference()
  * @model abstract="true"

@@ -4,22 +4,21 @@ package org.palladiosimulator.pcmmeasuringpoint.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
+import org.palladiosimulator.pcm.usagemodel.UsageScenario;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference;
-
-import org.palladiosimulator.pcm.usagemodel.UsageScenario;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>Usage Scenario Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.UsageScenarioReferenceImpl#getUsageScenario
  * <em>Usage Scenario</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

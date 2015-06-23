@@ -3,7 +3,6 @@
 package org.palladiosimulator.pcmmeasuringpoint;
 
 import org.eclipse.emf.cdo.CDOObject;
-
 import org.palladiosimulator.pcm.repository.PassiveResource;
 
 /**
@@ -12,11 +11,11 @@ import org.palladiosimulator.pcm.repository.PassiveResource;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcmmeasuringpoint.PassiveResourceReference#getPassiveResource
  * <em>Passive Resource</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getPassiveResourceReference()
  * @model abstract="true"

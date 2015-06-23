@@ -4,22 +4,21 @@ package org.palladiosimulator.pcmmeasuringpoint.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
+import org.palladiosimulator.pcm.repository.PassiveResource;
 import org.palladiosimulator.pcmmeasuringpoint.PassiveResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
-
-import org.palladiosimulator.pcm.repository.PassiveResource;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>Passive Resource Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.PassiveResourceReferenceImpl#getPassiveResource
  * <em>Passive Resource</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -61,8 +60,7 @@ public abstract class PassiveResourceReferenceImpl extends CDOObjectImpl impleme
      */
     @Override
     public PassiveResource getPassiveResource() {
-        return (PassiveResource) this.eDynamicGet(
-                PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE,
+        return (PassiveResource) this.eDynamicGet(PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE,
                 PcmmeasuringpointPackage.Literals.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE, true, true);
     }
 
@@ -72,8 +70,7 @@ public abstract class PassiveResourceReferenceImpl extends CDOObjectImpl impleme
      * @generated
      */
     public PassiveResource basicGetPassiveResource() {
-        return (PassiveResource) this.eDynamicGet(
-                PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE,
+        return (PassiveResource) this.eDynamicGet(PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE,
                 PcmmeasuringpointPackage.Literals.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE, false, true);
     }
 

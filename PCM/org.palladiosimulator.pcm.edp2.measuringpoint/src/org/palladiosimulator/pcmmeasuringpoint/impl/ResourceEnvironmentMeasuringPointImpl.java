@@ -6,28 +6,27 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference;
-
-import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>Resource Environment Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentMeasuringPointImpl#getResourceEnvironment
  * <em>Resource Environment</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class ResourceEnvironmentMeasuringPointImpl extends MeasuringPointImpl implements
-        ResourceEnvironmentMeasuringPoint {
+public class ResourceEnvironmentMeasuringPointImpl extends MeasuringPointImpl
+        implements ResourceEnvironmentMeasuringPoint {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

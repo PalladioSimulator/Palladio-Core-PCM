@@ -4,6 +4,7 @@
 package org.palladiosimulator.pcm.completions;
 
 import org.eclipse.emf.ecore.EObject;
+import org.palladiosimulator.pcm.seff.ExternalCallAction;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -14,5 +15,5 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface DelegatingExternalCallAction extends EObject, org.palladiosimulator.pcm.seff.ExternalCallAction {
+public interface DelegatingExternalCallAction extends EObject, ExternalCallAction {
 } // DelegatingExternalCallAction

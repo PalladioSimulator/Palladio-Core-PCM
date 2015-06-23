@@ -88,87 +88,9 @@
       </editor>
    </extension>
 
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated resultdecorator -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="org.palladiosimulator.pcm.resultdecorator.presentation.ResultdecoratorModelWizardID"
-            name="%_UI_ResultdecoratorModelWizard_label"
-            class="org.palladiosimulator.pcm.resultdecorator.presentation.ResultdecoratorModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/ResultdecoratorModelFile.gif">
-         <description>%_UI_ResultdecoratorModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated resultdecorator -->
-      <editor
-            id="org.palladiosimulator.pcm.resultdecorator.presentation.ResultdecoratorEditorID"
-            name="%_UI_ResultdecoratorEditor_label"
-            icon="icons/full/obj16/ResultdecoratorModelFile.gif"
-            extensions="resultdecorator"
-            class="org.palladiosimulator.pcm.resultdecorator.presentation.ResultdecoratorEditor"
-            contributorClass="org.palladiosimulator.pcm.resultdecorator.presentation.ResultdecoratorActionBarContributor">
-      </editor>
-   </extension>
-
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated resultdecorator -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="org.palladiosimulator.pcm.resultdecorator.repositorydecorator.presentation.RepositorydecoratorModelWizardID"
-            name="%_UI_RepositorydecoratorModelWizard_label"
-            class="org.palladiosimulator.pcm.resultdecorator.repositorydecorator.presentation.RepositorydecoratorModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/RepositorydecoratorModelFile.gif">
-         <description>%_UI_RepositorydecoratorModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated resultdecorator -->
-      <editor
-            id="org.palladiosimulator.pcm.resultdecorator.repositorydecorator.presentation.RepositorydecoratorEditorID"
-            name="%_UI_RepositorydecoratorEditor_label"
-            icon="icons/full/obj16/RepositorydecoratorModelFile.gif"
-            extensions="repositorydecorator"
-            class="org.palladiosimulator.pcm.resultdecorator.repositorydecorator.presentation.RepositorydecoratorEditor"
-            contributorClass="org.palladiosimulator.pcm.resultdecorator.repositorydecorator.presentation.RepositorydecoratorActionBarContributor">
-      </editor>
-   </extension>
-
-   <extension point="org.eclipse.ui.newWizards">
-      <!-- @generated resultdecorator -->
-      <category
-            id="org.eclipse.emf.ecore.Wizard.category.ID"
-            name="%_UI_Wizard_category"/>
-      <wizard
-            id="org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.presentation.ResourceenvironmentdecoratorModelWizardID"
-            name="%_UI_ResourceenvironmentdecoratorModelWizard_label"
-            class="org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.presentation.ResourceenvironmentdecoratorModelWizard"
-            category="org.eclipse.emf.ecore.Wizard.category.ID"
-            icon="icons/full/obj16/ResourceenvironmentdecoratorModelFile.gif">
-         <description>%_UI_ResourceenvironmentdecoratorModelWizard_description</description>
-         <selection class="org.eclipse.core.resources.IResource"/>
-      </wizard>
-   </extension>
-
-   <extension point="org.eclipse.ui.editors">
-      <!-- @generated resultdecorator -->
-      <editor
-            id="org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.presentation.ResourceenvironmentdecoratorEditorID"
-            name="%_UI_ResourceenvironmentdecoratorEditor_label"
-            icon="icons/full/obj16/ResourceenvironmentdecoratorModelFile.gif"
-            extensions="resourceenvironmentdecorator"
-            class="org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.presentation.ResourceenvironmentdecoratorEditor"
-            contributorClass="org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.presentation.ResourceenvironmentdecoratorActionBarContributor">
-      </editor>
-   </extension>
-</plugin>
+null
+null
+null
+null
+null
+null</plugin>

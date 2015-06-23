@@ -10,6 +10,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.palladiosimulator.pcm.completions.CompletionsPackage;
 import org.palladiosimulator.pcm.completions.NetworkDemandParametricResourceDemand;
+import org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType;
+import org.palladiosimulator.pcm.seff.seff_performance.impl.ParametricResourceDemandImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -25,8 +27,7 @@ import org.palladiosimulator.pcm.completions.NetworkDemandParametricResourceDema
  *
  * @generated
  */
-public class NetworkDemandParametricResourceDemandImpl
-        extends org.palladiosimulator.pcm.seff.seff_performance.impl.ParametricResourceDemandImpl
+public class NetworkDemandParametricResourceDemandImpl extends ParametricResourceDemandImpl
         implements NetworkDemandParametricResourceDemand {
 
     /**
@@ -39,11 +40,11 @@ public class NetworkDemandParametricResourceDemandImpl
      * @generated
      * @ordered
      */
-    protected org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType requiredCommunicationLinkResource_ParametricResourceDemand;
+    protected CommunicationLinkResourceType requiredCommunicationLinkResource_ParametricResourceDemand;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected NetworkDemandParametricResourceDemandImpl() {
@@ -52,7 +53,7 @@ public class NetworkDemandParametricResourceDemandImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -62,18 +63,18 @@ public class NetworkDemandParametricResourceDemandImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
-    public org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType getRequiredCommunicationLinkResource_ParametricResourceDemand() {
+    public CommunicationLinkResourceType getRequiredCommunicationLinkResource_ParametricResourceDemand() {
         if (this.requiredCommunicationLinkResource_ParametricResourceDemand != null
                 && ((EObject) this.requiredCommunicationLinkResource_ParametricResourceDemand).eIsProxy()) {
             final InternalEObject oldRequiredCommunicationLinkResource_ParametricResourceDemand = (InternalEObject) this.requiredCommunicationLinkResource_ParametricResourceDemand;
-            this.requiredCommunicationLinkResource_ParametricResourceDemand = (org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType) eResolveProxy(
-                    oldRequiredCommunicationLinkResource_ParametricResourceDemand);
+            this.requiredCommunicationLinkResource_ParametricResourceDemand = (CommunicationLinkResourceType) this
+                    .eResolveProxy(oldRequiredCommunicationLinkResource_ParametricResourceDemand);
             if (this.requiredCommunicationLinkResource_ParametricResourceDemand != oldRequiredCommunicationLinkResource_ParametricResourceDemand) {
-                if (eNotificationRequired()) {
+                if (this.eNotificationRequired()) {
                     this.eNotify(new ENotificationImpl(this, Notification.RESOLVE,
                             CompletionsPackage.NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__REQUIRED_COMMUNICATION_LINK_RESOURCE_PARAMETRIC_RESOURCE_DEMAND,
                             oldRequiredCommunicationLinkResource_ParametricResourceDemand,
@@ -86,23 +87,24 @@ public class NetworkDemandParametricResourceDemandImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    public org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType basicGetRequiredCommunicationLinkResource_ParametricResourceDemand() {
+    public CommunicationLinkResourceType basicGetRequiredCommunicationLinkResource_ParametricResourceDemand() {
         return this.requiredCommunicationLinkResource_ParametricResourceDemand;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
+    @Override
     public void setRequiredCommunicationLinkResource_ParametricResourceDemand(
-            final org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType newRequiredCommunicationLinkResource_ParametricResourceDemand) {
-        final org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType oldRequiredCommunicationLinkResource_ParametricResourceDemand = this.requiredCommunicationLinkResource_ParametricResourceDemand;
+            final CommunicationLinkResourceType newRequiredCommunicationLinkResource_ParametricResourceDemand) {
+        final CommunicationLinkResourceType oldRequiredCommunicationLinkResource_ParametricResourceDemand = this.requiredCommunicationLinkResource_ParametricResourceDemand;
         this.requiredCommunicationLinkResource_ParametricResourceDemand = newRequiredCommunicationLinkResource_ParametricResourceDemand;
-        if (eNotificationRequired()) {
+        if (this.eNotificationRequired()) {
             this.eNotify(new ENotificationImpl(this, Notification.SET,
                     CompletionsPackage.NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__REQUIRED_COMMUNICATION_LINK_RESOURCE_PARAMETRIC_RESOURCE_DEMAND,
                     oldRequiredCommunicationLinkResource_ParametricResourceDemand,
@@ -112,7 +114,7 @@ public class NetworkDemandParametricResourceDemandImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -129,7 +131,7 @@ public class NetworkDemandParametricResourceDemandImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -137,7 +139,7 @@ public class NetworkDemandParametricResourceDemandImpl
         switch (featureID) {
         case CompletionsPackage.NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__REQUIRED_COMMUNICATION_LINK_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
             this.setRequiredCommunicationLinkResource_ParametricResourceDemand(
-                    (org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType) newValue);
+                    (CommunicationLinkResourceType) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -145,15 +147,14 @@ public class NetworkDemandParametricResourceDemandImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
     public void eUnset(final int featureID) {
         switch (featureID) {
         case CompletionsPackage.NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__REQUIRED_COMMUNICATION_LINK_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
-            this.setRequiredCommunicationLinkResource_ParametricResourceDemand(
-                    (org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType) null);
+            this.setRequiredCommunicationLinkResource_ParametricResourceDemand((CommunicationLinkResourceType) null);
             return;
         }
         super.eUnset(featureID);
@@ -161,7 +162,7 @@ public class NetworkDemandParametricResourceDemandImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

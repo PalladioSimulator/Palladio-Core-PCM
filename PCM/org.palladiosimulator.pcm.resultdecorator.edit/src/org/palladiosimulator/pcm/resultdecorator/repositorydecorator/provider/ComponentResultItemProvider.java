@@ -12,11 +12,10 @@ import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.palladiosimulator.pcm.core.entity.provider.NamedElementItemProvider;
 import org.palladiosimulator.pcm.resultdecorator.provider.ResultdecoratorEditPlugin;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.ComponentResult;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.RepositorydecoratorPackage;
-
-import org.palladiosimulator.pcm.core.entity.provider.NamedElementItemProvider;
 
 /**
  * This is the item provider adapter for a

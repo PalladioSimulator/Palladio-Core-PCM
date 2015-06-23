@@ -18,7 +18,7 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * This is the item provider adapter for a
  * {@link org.palladiosimulator.pcmmeasuringpoint.AssemblyPassiveResourceMeasuringPoint} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class AssemblyPassiveResourceMeasuringPointItemProvider extends MeasuringPointItemProvider {
@@ -26,7 +26,7 @@ public class AssemblyPassiveResourceMeasuringPointItemProvider extends Measuring
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyPassiveResourceMeasuringPointItemProvider(final AdapterFactory adapterFactory) {
@@ -36,7 +36,7 @@ public class AssemblyPassiveResourceMeasuringPointItemProvider extends Measuring
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -53,38 +53,38 @@ public class AssemblyPassiveResourceMeasuringPointItemProvider extends Measuring
     /**
      * This adds a property descriptor for the Assembly feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addAssemblyPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_AssemblyReference_assembly_feature"), this.getString(
-                        "_UI_PropertyDescriptor_description", "_UI_AssemblyReference_assembly_feature",
-                        "_UI_AssemblyReference_type"), PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY,
-                        true, false, true, null, null, null));
+                this.getString("_UI_AssemblyReference_assembly_feature"),
+                this.getString("_UI_PropertyDescriptor_description", "_UI_AssemblyReference_assembly_feature",
+                        "_UI_AssemblyReference_type"),
+                PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, true, false, true, null, null, null));
     }
 
     /**
      * This adds a property descriptor for the Passive Resource feature. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addPassiveResourcePropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_PassiveResourceReference_passiveResource_feature"), this.getString(
-                        "_UI_PropertyDescriptor_description", "_UI_PassiveResourceReference_passiveResource_feature",
-                        "_UI_PassiveResourceReference_type"),
-                        PcmmeasuringpointPackage.Literals.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE, true, false, true,
-                        null, null, null));
+                this.getString("_UI_PassiveResourceReference_passiveResource_feature"),
+                this.getString("_UI_PropertyDescriptor_description",
+                        "_UI_PassiveResourceReference_passiveResource_feature", "_UI_PassiveResourceReference_type"),
+                PcmmeasuringpointPackage.Literals.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE, true, false, true, null,
+                null, null));
     }
 
     /**
      * This returns AssemblyPassiveResourceMeasuringPoint.gif. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -110,7 +110,7 @@ public class AssemblyPassiveResourceMeasuringPointItemProvider extends Measuring
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -122,7 +122,7 @@ public class AssemblyPassiveResourceMeasuringPointItemProvider extends Measuring
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -133,7 +133,7 @@ public class AssemblyPassiveResourceMeasuringPointItemProvider extends Measuring
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -3,7 +3,6 @@
 package org.palladiosimulator.pcmmeasuringpoint;
 
 import org.eclipse.emf.cdo.CDOObject;
-
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
 /**
@@ -12,12 +11,12 @@ import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference#getEntryLevelSystemCall
  * <em>Entry Level System Call</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getEntryLevelSystemCallReference()
  * @model abstract="true"

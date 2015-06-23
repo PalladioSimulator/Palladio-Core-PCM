@@ -7,6 +7,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.palladiosimulator.pcm.PcmPackage;
+import org.palladiosimulator.pcm.allocation.AllocationPackage;
+import org.palladiosimulator.pcm.core.entity.EntityPackage;
 import org.palladiosimulator.pcm.resultdecorator.ResultdecoratorPackage;
 import org.palladiosimulator.pcm.resultdecorator.impl.ResultdecoratorPackageImpl;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.AllocationContextResults;
@@ -18,10 +21,6 @@ import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.Repositoryd
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.ServiceResult;
 import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.ResourceenvironmentdecoratorPackage;
 import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.impl.ResourceenvironmentdecoratorPackageImpl;
-
-import org.palladiosimulator.pcm.PcmPackage;
-import org.palladiosimulator.pcm.allocation.AllocationPackage;
-import org.palladiosimulator.pcm.core.entity.EntityPackage;
 import org.palladiosimulator.pcm.seff.SeffPackage;
 
 /**

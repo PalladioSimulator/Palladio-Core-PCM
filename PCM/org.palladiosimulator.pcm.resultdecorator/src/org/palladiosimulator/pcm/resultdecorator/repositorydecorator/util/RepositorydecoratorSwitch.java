@@ -5,14 +5,13 @@ package org.palladiosimulator.pcm.resultdecorator.repositorydecorator.util;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+import org.palladiosimulator.pcm.core.entity.NamedElement;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.AllocationContextResults;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.AllocationServiceResult;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.ComponentResult;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.InterfaceProvidingRequiringEntityResults;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.RepositorydecoratorPackage;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.ServiceResult;
-
-import org.palladiosimulator.pcm.core.entity.NamedElement;
 
 /**
  * <!-- begin-user-doc --> The <b>Switch</b> for the model's inheritance hierarchy. It supports the

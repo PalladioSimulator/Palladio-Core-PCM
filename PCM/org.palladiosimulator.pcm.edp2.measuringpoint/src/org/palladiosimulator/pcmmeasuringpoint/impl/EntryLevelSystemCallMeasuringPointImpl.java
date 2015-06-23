@@ -6,28 +6,27 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
+import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 import org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
-
-import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>Entry Level System Call Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallMeasuringPointImpl#getEntryLevelSystemCall
  * <em>Entry Level System Call</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl implements
-        EntryLevelSystemCallMeasuringPoint {
+public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl
+        implements EntryLevelSystemCallMeasuringPoint {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

@@ -121,7 +121,8 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSEMBLY_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 1;
+    int ASSEMBLY_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT
+            + 1;
 
     /**
      * The feature id for the '<em><b>Assembly</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -207,7 +208,8 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__PASSIVE_RESOURCE = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 1;
+    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__PASSIVE_RESOURCE = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT
+            + 1;
 
     /**
      * The number of structural features of the '<em>Assembly Passive Resource Measuring Point</em>'
@@ -216,7 +218,8 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT_FEATURE_COUNT = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 2;
+    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT_FEATURE_COUNT = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT
+            + 2;
 
     /**
      * The meta object id for the '
@@ -661,7 +664,8 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_SYSTEM_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 2;
+    int SUB_SYSTEM_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT
+            + 2;
 
     /**
      * The number of structural features of the '<em>Sub System Operation Measuring Point</em>'
@@ -858,7 +862,8 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ENTRY_LEVEL_SYSTEM_CALL_MEASURING_POINT__ENTRY_LEVEL_SYSTEM_CALL = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 0;
+    int ENTRY_LEVEL_SYSTEM_CALL_MEASURING_POINT__ENTRY_LEVEL_SYSTEM_CALL = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT
+            + 0;
 
     /**
      * The number of structural features of the '<em>Entry Level System Call Measuring Point</em>'
@@ -1008,7 +1013,8 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 0;
+    int RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT
+            + 0;
 
     /**
      * The number of structural features of the '<em>Resource Environment Measuring Point</em>'
@@ -1471,7 +1477,8 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * <em>Assembly Passive Resource Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
-         * @see org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyPassiveResourceMeasuringPointImpl
+         * @see org.palladiosimulator.pcmmeasuringpoint.impl.
+         *      AssemblyPassiveResourceMeasuringPointImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getAssemblyPassiveResourceMeasuringPoint()
          * @generated
          */

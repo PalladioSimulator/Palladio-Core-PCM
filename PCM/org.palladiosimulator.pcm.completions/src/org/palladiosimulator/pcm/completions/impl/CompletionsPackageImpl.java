@@ -7,44 +7,50 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.palladiosimulator.pcm.PcmPackage;
 import org.palladiosimulator.pcm.completions.Completion;
 import org.palladiosimulator.pcm.completions.CompletionRepository;
 import org.palladiosimulator.pcm.completions.CompletionsFactory;
 import org.palladiosimulator.pcm.completions.CompletionsPackage;
 import org.palladiosimulator.pcm.completions.DelegatingExternalCallAction;
 import org.palladiosimulator.pcm.completions.NetworkDemandParametricResourceDemand;
+import org.palladiosimulator.pcm.core.entity.EntityPackage;
+import org.palladiosimulator.pcm.repository.RepositoryPackage;
+import org.palladiosimulator.pcm.resourcetype.ResourcetypePackage;
+import org.palladiosimulator.pcm.seff.SeffPackage;
+import org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class CompletionsPackageImpl extends EPackageImpl implements CompletionsPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass completionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass completionRepositoryEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass delegatingExternalCallActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private EClass networkDemandParametricResourceDemandEClass = null;
@@ -57,7 +63,7 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.palladiosimulator.pcm.completions.CompletionsPackage#eNS_URI
      * @see #init()
@@ -69,7 +75,7 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private static boolean isInited = false;
@@ -82,7 +88,7 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
      * This method is used to initialize {@link CompletionsPackage#eINSTANCE} when that field is
      * accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -101,7 +107,7 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
         isInited = true;
 
         // Initialize simple dependencies
-        de.uka.ipd.sdq.pcm.PcmPackage.eINSTANCE.eClass();
+        PcmPackage.eINSTANCE.eClass();
 
         // Create package meta-data objects
         theCompletionsPackage.createPackageContents();
@@ -119,7 +125,7 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -129,7 +135,7 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -139,7 +145,7 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -149,7 +155,7 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -159,7 +165,7 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -169,7 +175,7 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -179,7 +185,7 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -189,7 +195,7 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private boolean isCreated = false;
@@ -197,7 +203,7 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public void createPackageContents() {
@@ -222,7 +228,7 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     private boolean isInitialized = false;
@@ -230,7 +236,7 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public void initializePackageContents() {
@@ -245,16 +251,15 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
         this.setNsURI(eNS_URI);
 
         // Obtain other dependent packages
-        final org.palladiosimulator.pcm.core.entity.EntityPackage theEntityPackage = (org.palladiosimulator.pcm.core.entity.EntityPackage) EPackage.Registry.INSTANCE
-                .getEPackage(org.palladiosimulator.pcm.core.entity.EntityPackage.eNS_URI);
-        final org.palladiosimulator.pcm.repository.RepositoryPackage theRepositoryPackage = (org.palladiosimulator.pcm.repository.RepositoryPackage) EPackage.Registry.INSTANCE
-                .getEPackage(org.palladiosimulator.pcm.repository.RepositoryPackage.eNS_URI);
-        final org.palladiosimulator.pcm.seff.SeffPackage theSeffPackage = (org.palladiosimulator.pcm.seff.SeffPackage) EPackage.Registry.INSTANCE
-                .getEPackage(org.palladiosimulator.pcm.seff.SeffPackage.eNS_URI);
-        final org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage theSeffPerformancePackage = (org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage) EPackage.Registry.INSTANCE
-                .getEPackage(org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage.eNS_URI);
-        final org.palladiosimulator.pcm.resourcetype.ResourcetypePackage theResourcetypePackage = (org.palladiosimulator.pcm.resourcetype.ResourcetypePackage) EPackage.Registry.INSTANCE
-                .getEPackage(org.palladiosimulator.pcm.resourcetype.ResourcetypePackage.eNS_URI);
+        final EntityPackage theEntityPackage = (EntityPackage) EPackage.Registry.INSTANCE
+                .getEPackage(EntityPackage.eNS_URI);
+        final RepositoryPackage theRepositoryPackage = (RepositoryPackage) EPackage.Registry.INSTANCE
+                .getEPackage(RepositoryPackage.eNS_URI);
+        final SeffPackage theSeffPackage = (SeffPackage) EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
+        final SeffPerformancePackage theSeffPerformancePackage = (SeffPerformancePackage) EPackage.Registry.INSTANCE
+                .getEPackage(SeffPerformancePackage.eNS_URI);
+        final ResourcetypePackage theResourcetypePackage = (ResourcetypePackage) EPackage.Registry.INSTANCE
+                .getEPackage(ResourcetypePackage.eNS_URI);
 
         // Create type parameters
 

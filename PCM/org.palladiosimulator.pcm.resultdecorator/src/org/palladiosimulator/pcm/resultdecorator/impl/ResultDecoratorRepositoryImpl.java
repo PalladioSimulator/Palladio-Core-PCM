@@ -10,13 +10,12 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.palladiosimulator.pcm.core.entity.impl.NamedElementImpl;
 import org.palladiosimulator.pcm.resultdecorator.ResultDecoratorRepository;
 import org.palladiosimulator.pcm.resultdecorator.ResultdecoratorPackage;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.ComponentResult;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.ServiceResult;
 import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.UtilisationResult;
-
-import org.palladiosimulator.pcm.core.entity.impl.NamedElementImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '

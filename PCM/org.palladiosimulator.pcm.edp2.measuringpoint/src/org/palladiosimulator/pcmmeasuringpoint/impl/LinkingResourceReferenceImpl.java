@@ -4,22 +4,21 @@ package org.palladiosimulator.pcmmeasuringpoint.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
+import org.palladiosimulator.pcm.resourceenvironment.LinkingResource;
 import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
-
-import org.palladiosimulator.pcm.resourceenvironment.LinkingResource;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>Linking Resource Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.LinkingResourceReferenceImpl#getLinkingResource
  * <em>Linking Resource</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -61,8 +60,7 @@ public abstract class LinkingResourceReferenceImpl extends CDOObjectImpl impleme
      */
     @Override
     public LinkingResource getLinkingResource() {
-        return (LinkingResource) this.eDynamicGet(
-                PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE,
+        return (LinkingResource) this.eDynamicGet(PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE,
                 PcmmeasuringpointPackage.Literals.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE, true, true);
     }
 
@@ -72,8 +70,7 @@ public abstract class LinkingResourceReferenceImpl extends CDOObjectImpl impleme
      * @generated
      */
     public LinkingResource basicGetLinkingResource() {
-        return (LinkingResource) this.eDynamicGet(
-                PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE,
+        return (LinkingResource) this.eDynamicGet(PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE,
                 PcmmeasuringpointPackage.Literals.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE, false, true);
     }
 

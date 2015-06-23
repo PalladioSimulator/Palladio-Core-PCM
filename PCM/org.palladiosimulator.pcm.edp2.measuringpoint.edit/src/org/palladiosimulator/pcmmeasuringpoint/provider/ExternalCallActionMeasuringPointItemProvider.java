@@ -26,7 +26,7 @@ public class ExternalCallActionMeasuringPointItemProvider extends MeasuringPoint
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ExternalCallActionMeasuringPointItemProvider(final AdapterFactory adapterFactory) {
@@ -36,7 +36,7 @@ public class ExternalCallActionMeasuringPointItemProvider extends MeasuringPoint
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -52,17 +52,17 @@ public class ExternalCallActionMeasuringPointItemProvider extends MeasuringPoint
     /**
      * This adds a property descriptor for the External Call feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addExternalCallPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_ExternalCallActionReference_externalCall_feature"), this.getString(
-                        "_UI_PropertyDescriptor_description", "_UI_ExternalCallActionReference_externalCall_feature",
-                        "_UI_ExternalCallActionReference_type"),
-                        PcmmeasuringpointPackage.Literals.EXTERNAL_CALL_ACTION_REFERENCE__EXTERNAL_CALL, true, false, true,
-                        null, null, null));
+                this.getString("_UI_ExternalCallActionReference_externalCall_feature"),
+                this.getString("_UI_PropertyDescriptor_description",
+                        "_UI_ExternalCallActionReference_externalCall_feature", "_UI_ExternalCallActionReference_type"),
+                PcmmeasuringpointPackage.Literals.EXTERNAL_CALL_ACTION_REFERENCE__EXTERNAL_CALL, true, false, true,
+                null, null, null));
     }
 
     /**
@@ -94,7 +94,7 @@ public class ExternalCallActionMeasuringPointItemProvider extends MeasuringPoint
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -106,7 +106,7 @@ public class ExternalCallActionMeasuringPointItemProvider extends MeasuringPoint
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -117,7 +117,7 @@ public class ExternalCallActionMeasuringPointItemProvider extends MeasuringPoint
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

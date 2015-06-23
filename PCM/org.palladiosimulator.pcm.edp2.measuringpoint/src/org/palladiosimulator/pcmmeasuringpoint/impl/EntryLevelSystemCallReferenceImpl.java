@@ -4,22 +4,21 @@ package org.palladiosimulator.pcmmeasuringpoint.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
+import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 import org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
-
-import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>Entry Level System Call Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallReferenceImpl#getEntryLevelSystemCall
  * <em>Entry Level System Call</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

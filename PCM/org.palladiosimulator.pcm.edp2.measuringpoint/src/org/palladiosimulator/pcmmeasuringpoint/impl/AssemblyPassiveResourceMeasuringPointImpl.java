@@ -6,19 +6,19 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
+import org.palladiosimulator.pcm.core.composition.AssemblyContext;
+import org.palladiosimulator.pcm.repository.PassiveResource;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyPassiveResourceMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyReference;
 import org.palladiosimulator.pcmmeasuringpoint.PassiveResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
-
-import org.palladiosimulator.pcm.core.composition.AssemblyContext;
-import org.palladiosimulator.pcm.repository.PassiveResource;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>Assembly Passive Resource Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyPassiveResourceMeasuringPointImpl#getAssembly
@@ -27,12 +27,11 @@ import org.palladiosimulator.pcm.repository.PassiveResource;
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyPassiveResourceMeasuringPointImpl#getPassiveResource
  * <em>Passive Resource</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class AssemblyPassiveResourceMeasuringPointImpl extends MeasuringPointImpl implements
-        AssemblyPassiveResourceMeasuringPoint {
+public class AssemblyPassiveResourceMeasuringPointImpl extends MeasuringPointImpl
+        implements AssemblyPassiveResourceMeasuringPoint {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

@@ -5,10 +5,9 @@ package org.palladiosimulator.pcm.resultdecorator.repositorydecorator.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.palladiosimulator.pcm.core.entity.impl.NamedElementImpl;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.ComponentResult;
 import org.palladiosimulator.pcm.resultdecorator.repositorydecorator.RepositorydecoratorPackage;
-
-import org.palladiosimulator.pcm.core.entity.impl.NamedElementImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Component Result</b></em>'.

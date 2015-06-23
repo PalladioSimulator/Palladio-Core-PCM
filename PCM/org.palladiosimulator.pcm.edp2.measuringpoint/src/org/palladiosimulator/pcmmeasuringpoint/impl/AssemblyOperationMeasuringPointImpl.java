@@ -6,20 +6,20 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
+import org.palladiosimulator.pcm.core.composition.AssemblyContext;
+import org.palladiosimulator.pcm.repository.OperationSignature;
+import org.palladiosimulator.pcm.repository.Role;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyOperationMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyReference;
 import org.palladiosimulator.pcmmeasuringpoint.OperationReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
-
-import org.palladiosimulator.pcm.core.composition.AssemblyContext;
-import org.palladiosimulator.pcm.repository.OperationSignature;
-import org.palladiosimulator.pcm.repository.Role;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>Assembly Operation Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyOperationMeasuringPointImpl#getRole
@@ -31,7 +31,6 @@ import org.palladiosimulator.pcm.repository.Role;
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyOperationMeasuringPointImpl#getAssembly
  * <em>Assembly</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -129,8 +128,7 @@ public class AssemblyOperationMeasuringPointImpl extends MeasuringPointImpl impl
      */
     @Override
     public AssemblyContext getAssembly() {
-        return (AssemblyContext) this.eDynamicGet(
-                PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY,
+        return (AssemblyContext) this.eDynamicGet(PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY,
                 PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, true, true);
     }
 
@@ -140,8 +138,7 @@ public class AssemblyOperationMeasuringPointImpl extends MeasuringPointImpl impl
      * @generated
      */
     public AssemblyContext basicGetAssembly() {
-        return (AssemblyContext) this.eDynamicGet(
-                PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY,
+        return (AssemblyContext) this.eDynamicGet(PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY,
                 PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, false, true);
     }
 

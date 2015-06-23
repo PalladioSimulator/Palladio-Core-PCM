@@ -3,7 +3,6 @@
 package org.palladiosimulator.pcm.resultdecorator.repositorydecorator;
 
 import org.eclipse.emf.ecore.EObject;
-
 import org.palladiosimulator.pcm.seff.ServiceEffectSpecification;
 
 /**

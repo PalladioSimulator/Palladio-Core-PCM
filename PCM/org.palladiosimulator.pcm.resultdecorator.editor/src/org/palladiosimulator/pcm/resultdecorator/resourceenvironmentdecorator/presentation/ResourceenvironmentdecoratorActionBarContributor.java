@@ -38,7 +38,7 @@ import org.palladiosimulator.pcm.resultdecorator.presentation.ResultdecoratorEdi
 /**
  * This is the action bar contributor for the Resourceenvironmentdecorator model editor. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ResourceenvironmentdecoratorActionBarContributor extends EditingDomainActionBarContributor
@@ -54,7 +54,7 @@ public class ResourceenvironmentdecoratorActionBarContributor extends EditingDom
     /**
      * This keeps track of the current selection provider. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     protected ISelectionProvider selectionProvider;
@@ -109,7 +109,7 @@ public class ResourceenvironmentdecoratorActionBarContributor extends EditingDom
      * This will contain one {@link org.eclipse.emf.edit.ui.action.CreateChildAction} corresponding
      * to each descriptor generated for the current selection by the item provider. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Collection<IAction> createChildActions;
@@ -243,7 +243,7 @@ public class ResourceenvironmentdecoratorActionBarContributor extends EditingDom
      * {@link org.eclipse.jface.viewers.SelectionChangedEvent}s by querying for the children and
      * siblings that can be added to the selected object and updating the menus accordingly. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -380,7 +380,7 @@ public class ResourceenvironmentdecoratorActionBarContributor extends EditingDom
     /**
      * This populates the pop-up menu before it appears. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -417,7 +417,7 @@ public class ResourceenvironmentdecoratorActionBarContributor extends EditingDom
     /**
      * This ensures that a delete action will clean up all references to deleted objects. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

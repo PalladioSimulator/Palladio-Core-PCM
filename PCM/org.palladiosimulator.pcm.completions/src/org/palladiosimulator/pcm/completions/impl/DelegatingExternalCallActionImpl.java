@@ -6,6 +6,7 @@ package org.palladiosimulator.pcm.completions.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.palladiosimulator.pcm.completions.CompletionsPackage;
 import org.palladiosimulator.pcm.completions.DelegatingExternalCallAction;
+import org.palladiosimulator.pcm.seff.impl.ExternalCallActionImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -13,12 +14,11 @@ import org.palladiosimulator.pcm.completions.DelegatingExternalCallAction;
  *
  * @generated
  */
-public class DelegatingExternalCallActionImpl extends org.palladiosimulator.pcm.seff.impl.ExternalCallActionImpl
-        implements DelegatingExternalCallAction {
+public class DelegatingExternalCallActionImpl extends ExternalCallActionImpl implements DelegatingExternalCallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected DelegatingExternalCallActionImpl() {
@@ -27,7 +27,7 @@ public class DelegatingExternalCallActionImpl extends org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

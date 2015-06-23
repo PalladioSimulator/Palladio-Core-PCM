@@ -25,14 +25,13 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  *
  * @generated
  */
-public class ResourceEnvironmentReferenceItemProvider extends ItemProviderAdapter implements
-IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
-IItemPropertySource {
+public class ResourceEnvironmentReferenceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceEnvironmentReferenceItemProvider(final AdapterFactory adapterFactory) {
@@ -42,7 +41,7 @@ IItemPropertySource {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -58,18 +57,18 @@ IItemPropertySource {
     /**
      * This adds a property descriptor for the Resource Environment feature. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addResourceEnvironmentPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_ResourceEnvironmentReference_resourceEnvironment_feature"), this.getString(
-                        "_UI_PropertyDescriptor_description",
+                this.getString("_UI_ResourceEnvironmentReference_resourceEnvironment_feature"),
+                this.getString("_UI_PropertyDescriptor_description",
                         "_UI_ResourceEnvironmentReference_resourceEnvironment_feature",
                         "_UI_ResourceEnvironmentReference_type"),
-                        PcmmeasuringpointPackage.Literals.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT, true, false,
-                        true, null, null, null));
+                PcmmeasuringpointPackage.Literals.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT, true, false,
+                true, null, null, null));
     }
 
     /**
@@ -87,7 +86,7 @@ IItemPropertySource {
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -99,7 +98,7 @@ IItemPropertySource {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -110,7 +109,7 @@ IItemPropertySource {
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

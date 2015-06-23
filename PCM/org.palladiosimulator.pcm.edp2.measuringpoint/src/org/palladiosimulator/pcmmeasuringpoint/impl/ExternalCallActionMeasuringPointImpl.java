@@ -6,28 +6,27 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
+import org.palladiosimulator.pcm.seff.ExternalCallAction;
 import org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
-
-import org.palladiosimulator.pcm.seff.ExternalCallAction;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>External Call Action Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ExternalCallActionMeasuringPointImpl#getExternalCall
  * <em>External Call</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl implements
-        ExternalCallActionMeasuringPoint {
+public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl
+        implements ExternalCallActionMeasuringPoint {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -201,8 +200,8 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl imp
         result.append("ExternalCall ");
         result.append(this.getExternalCall().getEntityName());
         result.append(" from ");
-        result.append(this.getExternalCall().getRole_ExternalService().getRequiringEntity_RequiredRole()
-                .getEntityName());
+        result.append(
+                this.getExternalCall().getRole_ExternalService().getRequiringEntity_RequiredRole().getEntityName());
         result.append(" to ");
         result.append(this.getExternalCall().getRole_ExternalService().getEntityName());
         result.append("->");

@@ -6,20 +6,20 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
+import org.palladiosimulator.pcm.repository.OperationSignature;
+import org.palladiosimulator.pcm.repository.Role;
+import org.palladiosimulator.pcm.subsystem.SubSystem;
 import org.palladiosimulator.pcmmeasuringpoint.OperationReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 import org.palladiosimulator.pcmmeasuringpoint.SubSystemOperationMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.SubSystemReference;
-
-import org.palladiosimulator.pcm.repository.OperationSignature;
-import org.palladiosimulator.pcm.repository.Role;
-import org.palladiosimulator.pcm.subsystem.SubSystem;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>Sub System Operation Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SubSystemOperationMeasuringPointImpl#getSubsystem
@@ -31,12 +31,11 @@ import org.palladiosimulator.pcm.subsystem.SubSystem;
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SubSystemOperationMeasuringPointImpl#getOperationSignature
  * <em>Operation Signature</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl implements
-        SubSystemOperationMeasuringPoint {
+public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl
+        implements SubSystemOperationMeasuringPoint {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

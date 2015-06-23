@@ -16,7 +16,6 @@ import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.palladiosimulator.pcm.completions.Completion;
 import org.palladiosimulator.pcm.completions.CompletionsPackage;
-
 import org.palladiosimulator.pcm.core.entity.provider.ComposedProvidingRequiringEntityItemProvider;
 import org.palladiosimulator.pcm.parameter.ParameterFactory;
 import org.palladiosimulator.pcm.repository.RepositoryPackage;

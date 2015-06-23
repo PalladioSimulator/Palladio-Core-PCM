@@ -4,6 +4,8 @@
 package org.palladiosimulator.pcm.completions;
 
 import org.eclipse.emf.ecore.EObject;
+import org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType;
+import org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -22,8 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface NetworkDemandParametricResourceDemand
-        extends EObject, org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand {
+public interface NetworkDemandParametricResourceDemand extends EObject, ParametricResourceDemand {
 
     /**
      * Returns the value of the '
@@ -35,22 +36,22 @@ public interface NetworkDemandParametricResourceDemand
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '
      *         <em>Required Communication Link Resource Parametric Resource Demand</em>' reference.
-     * @see #setRequiredCommunicationLinkResource_ParametricResourceDemand(org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType)
+     * @see #setRequiredCommunicationLinkResource_ParametricResourceDemand(CommunicationLinkResourceType)
      * @see org.palladiosimulator.pcm.completions.CompletionsPackage#getNetworkDemandParametricResourceDemand_RequiredCommunicationLinkResource_ParametricResourceDemand()
      * @model required="true" ordered="false"
      * @generated
      */
-    org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType getRequiredCommunicationLinkResource_ParametricResourceDemand();
+    CommunicationLinkResourceType getRequiredCommunicationLinkResource_ParametricResourceDemand();
 
     /**
      * Sets the value of the '
      * {@link org.palladiosimulator.pcm.completions.NetworkDemandParametricResourceDemand#getRequiredCommunicationLinkResource_ParametricResourceDemand
      * <em>Required Communication Link Resource Parametric Resource Demand</em>}' reference. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '
      *            <em>Required Communication Link Resource Parametric Resource Demand</em>'
@@ -58,7 +59,6 @@ public interface NetworkDemandParametricResourceDemand
      * @see #getRequiredCommunicationLinkResource_ParametricResourceDemand()
      * @generated
      */
-    void setRequiredCommunicationLinkResource_ParametricResourceDemand(
-            org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType value);
+    void setRequiredCommunicationLinkResource_ParametricResourceDemand(CommunicationLinkResourceType value);
 
 } // NetworkDemandParametricResourceDemand

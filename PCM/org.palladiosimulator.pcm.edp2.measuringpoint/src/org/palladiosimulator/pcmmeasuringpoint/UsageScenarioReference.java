@@ -3,7 +3,6 @@
 package org.palladiosimulator.pcmmeasuringpoint;
 
 import org.eclipse.emf.cdo.CDOObject;
-
 import org.palladiosimulator.pcm.usagemodel.UsageScenario;
 
 /**
@@ -12,11 +11,11 @@ import org.palladiosimulator.pcm.usagemodel.UsageScenario;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference#getUsageScenario <em>
- * Usage Scenario</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference#getUsageScenario
+ * <em>Usage Scenario</em>}</li>
+ * </ul>
  *
  * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getUsageScenarioReference()
  * @model abstract="true"

@@ -5,10 +5,9 @@ package org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.i
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.palladiosimulator.pcm.core.entity.impl.NamedElementImpl;
 import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.ResourceenvironmentdecoratorPackage;
 import org.palladiosimulator.pcm.resultdecorator.resourceenvironmentdecorator.UtilisationResult;
-
-import org.palladiosimulator.pcm.core.entity.impl.NamedElementImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Utilisation Result</b></em>

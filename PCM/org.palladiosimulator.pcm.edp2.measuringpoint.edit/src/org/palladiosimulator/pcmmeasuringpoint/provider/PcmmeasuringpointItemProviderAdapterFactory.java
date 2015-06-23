@@ -37,11 +37,11 @@ import org.palladiosimulator.pcmmeasuringpoint.util.PcmmeasuringpointAdapterFact
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
+ *
  * @generated
  */
-public class PcmmeasuringpointItemProviderAdapterFactory extends PcmmeasuringpointAdapterFactory implements
-ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class PcmmeasuringpointItemProviderAdapterFactory extends PcmmeasuringpointAdapterFactory
+        implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 
     /**
      * This keeps track of the root adapter factory that delegates to this adapter factory. <!--
@@ -62,14 +62,14 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public PcmmeasuringpointItemProviderAdapterFactory() {
@@ -84,7 +84,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcmmeasuringpoint.AssemblyOperationMeasuringPoint} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AssemblyOperationMeasuringPointItemProvider assemblyOperationMeasuringPointItemProvider;
@@ -109,7 +109,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcmmeasuringpoint.AssemblyPassiveResourceMeasuringPoint}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AssemblyPassiveResourceMeasuringPointItemProvider assemblyPassiveResourceMeasuringPointItemProvider;
@@ -210,7 +210,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcmmeasuringpoint.SubSystemOperationMeasuringPoint} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SubSystemOperationMeasuringPointItemProvider subSystemOperationMeasuringPointItemProvider;
@@ -260,7 +260,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallMeasuringPoint} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EntryLevelSystemCallMeasuringPointItemProvider entryLevelSystemCallMeasuringPointItemProvider;
@@ -286,7 +286,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionMeasuringPoint} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ExternalCallActionMeasuringPointItemProvider externalCallActionMeasuringPointItemProvider;
@@ -311,7 +311,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceEnvironmentMeasuringPointItemProvider resourceEnvironmentMeasuringPointItemProvider;
@@ -326,7 +326,8 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
     @Override
     public Adapter createResourceEnvironmentMeasuringPointAdapter() {
         if (this.resourceEnvironmentMeasuringPointItemProvider == null) {
-            this.resourceEnvironmentMeasuringPointItemProvider = new ResourceEnvironmentMeasuringPointItemProvider(this);
+            this.resourceEnvironmentMeasuringPointItemProvider = new ResourceEnvironmentMeasuringPointItemProvider(
+                    this);
         }
 
         return this.resourceEnvironmentMeasuringPointItemProvider;
@@ -335,7 +336,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -346,7 +347,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -356,7 +357,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -377,7 +378,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -394,7 +395,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -404,7 +405,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -430,7 +431,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -470,7 +471,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
     /**
      * A child creation extender for the {@link MeasuringpointPackage}. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static class MeasuringpointChildCreationExtender implements IChildCreationExtender {
@@ -485,7 +486,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 
             /**
              * The child descriptors being populated. <!-- begin-user-doc --> <!-- end-user-doc -->
-             * 
+             *
              * @generated
              */
             protected List<Object> newChildDescriptors;
@@ -511,7 +512,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 
             /**
              * <!-- begin-user-doc --> <!-- end-user-doc -->
-             * 
+             *
              * @generated
              */
             @Override
@@ -561,7 +562,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 
             /**
              * <!-- begin-user-doc --> <!-- end-user-doc -->
-             * 
+             *
              * @generated
              */
             protected CommandParameter createChildParameter(final Object feature, final Object child) {
@@ -572,7 +573,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 
         /**
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         @Override
@@ -584,7 +585,7 @@ ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 
         /**
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
          * @generated
          */
         @Override

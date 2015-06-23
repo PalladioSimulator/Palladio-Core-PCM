@@ -4,21 +4,20 @@ package org.palladiosimulator.pcmmeasuringpoint.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
+import org.palladiosimulator.pcm.core.composition.AssemblyContext;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
-
-import org.palladiosimulator.pcm.core.composition.AssemblyContext;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Assembly Reference</b></em>
  * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyReferenceImpl#getAssembly <em>
- * Assembly</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyReferenceImpl#getAssembly
+ * <em>Assembly</em>}</li>
+ * </ul>
  *
  * @generated
  */
