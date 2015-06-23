@@ -2,18 +2,26 @@
 <feature
       id="org.palladiosimulator.pcm.edp2.measuringpoint.feature"
       label="EDP2 Measuring Points for the PCM"
-      version="1.0.0.qualifier">
+      version="4.0.0.qualifier"
+      license-feature="org.palladiosimulator.license"
+      license-feature-version="1.0.0">
 
-   <description url="http://www.example.com/description">
-      [Enter Feature Description here.]
+   <description url="http://www.palladio-simulator.com">
+      EDP2 measuring points for the PCM
    </description>
 
-   <copyright url="http://www.example.com/copyright">
-      [Enter Copyright Description here.]
-   </copyright>
+   <plugin
+         id="org.palladiosimulator.pcm.edp2.measuringpoint"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
-   <license url="http://www.example.com/license">
-      [Enter License Description here.]
-   </license>
+   <plugin
+         id="org.palladiosimulator.pcm.edp2.measuringpoint.edit"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
 </feature>
