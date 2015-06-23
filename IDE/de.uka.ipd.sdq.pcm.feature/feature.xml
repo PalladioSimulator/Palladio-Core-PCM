@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="de.uka.ipd.sdq.pcm.feature"
-      label="Palladio Component Model"
+      label="Palladio-Bench"
       version="4.0.0.qualifier"
       plugin="org.palladiosimulator.branding"
       license-feature="org.palladiosimulator.license"
       license-feature-version="1.0.0">
 
    <description url="http://www.palladio-simulator.com">
-      The Palladio Component Model (PCM) as an EMF-based metamodel.
-
-This feature allows to model, persist, and visualize instances of the PCM using tree editors.
+      The complete Palladio-Bench.
    </description>
 
    <url>
