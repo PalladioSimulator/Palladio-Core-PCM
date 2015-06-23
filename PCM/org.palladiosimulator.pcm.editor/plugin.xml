@@ -435,9 +435,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.presentation.PcmModelWizardID"
+            id="org.palladiosimulator.pcm.presentation.PcmModelWizardID"
             name="%_UI_PcmModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.presentation.PcmModelWizard"
+            class="org.palladiosimulator.pcm.presentation.PcmModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/PcmModelFile.gif">
          <description>%_UI_PcmModelWizard_description</description>
@@ -448,12 +448,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pcm -->
       <editor
-            id="de.uka.ipd.sdq.pcm.presentation.PcmEditorID"
+            id="org.palladiosimulator.pcm.presentation.PcmEditorID"
             name="%_UI_PcmEditor_label"
             icon="icons/full/obj16/PcmModelFile.gif"
             extensions="pcm"
-            class="de.uka.ipd.sdq.pcm.presentation.PcmEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.presentation.PcmActionBarContributor">
+            class="org.palladiosimulator.pcm.presentation.PcmEditor"
+            contributorClass="org.palladiosimulator.pcm.presentation.PcmActionBarContributor">
       </editor>
    </extension>
 
@@ -463,9 +463,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.core.presentation.CoreModelWizardID"
+            id="org.palladiosimulator.pcm.core.presentation.CoreModelWizardID"
             name="%_UI_CoreModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.core.presentation.CoreModelWizard"
+            class="org.palladiosimulator.pcm.core.presentation.CoreModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/CoreModelFile.gif">
          <description>%_UI_CoreModelWizard_description</description>
@@ -476,12 +476,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pcm -->
       <editor
-            id="de.uka.ipd.sdq.pcm.core.presentation.CoreEditorID"
+            id="org.palladiosimulator.pcm.core.presentation.CoreEditorID"
             name="%_UI_CoreEditor_label"
             icon="icons/full/obj16/CoreModelFile.gif"
             extensions="core"
-            class="de.uka.ipd.sdq.pcm.core.presentation.CoreEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.core.presentation.CoreActionBarContributor">
+            class="org.palladiosimulator.pcm.core.presentation.CoreEditor"
+            contributorClass="org.palladiosimulator.pcm.core.presentation.CoreActionBarContributor">
       </editor>
    </extension>
 
@@ -491,9 +491,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.core.entity.presentation.EntityModelWizardID"
+            id="org.palladiosimulator.pcm.core.entity.presentation.EntityModelWizardID"
             name="%_UI_EntityModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.core.entity.presentation.EntityModelWizard"
+            class="org.palladiosimulator.pcm.core.entity.presentation.EntityModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/EntityModelFile.gif">
          <description>%_UI_EntityModelWizard_description</description>
@@ -504,12 +504,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pcm -->
       <editor
-            id="de.uka.ipd.sdq.pcm.core.entity.presentation.EntityEditorID"
+            id="org.palladiosimulator.pcm.core.entity.presentation.EntityEditorID"
             name="%_UI_EntityEditor_label"
             icon="icons/full/obj16/EntityModelFile.gif"
             extensions="entity"
-            class="de.uka.ipd.sdq.pcm.core.entity.presentation.EntityEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.core.entity.presentation.EntityActionBarContributor">
+            class="org.palladiosimulator.pcm.core.entity.presentation.EntityEditor"
+            contributorClass="org.palladiosimulator.pcm.core.entity.presentation.EntityActionBarContributor">
       </editor>
    </extension>
 
@@ -519,9 +519,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.core.composition.presentation.CompositionModelWizardID"
+            id="org.palladiosimulator.pcm.core.composition.presentation.CompositionModelWizardID"
             name="%_UI_CompositionModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.core.composition.presentation.CompositionModelWizard"
+            class="org.palladiosimulator.pcm.core.composition.presentation.CompositionModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/CompositionModelFile.gif">
          <description>%_UI_CompositionModelWizard_description</description>
@@ -532,12 +532,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pcm -->
       <editor
-            id="de.uka.ipd.sdq.pcm.core.composition.presentation.CompositionEditorID"
+            id="org.palladiosimulator.pcm.core.composition.presentation.CompositionEditorID"
             name="%_UI_CompositionEditor_label"
             icon="icons/full/obj16/CompositionModelFile.gif"
             extensions="composition"
-            class="de.uka.ipd.sdq.pcm.core.composition.presentation.CompositionEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.core.composition.presentation.CompositionActionBarContributor">
+            class="org.palladiosimulator.pcm.core.composition.presentation.CompositionEditor"
+            contributorClass="org.palladiosimulator.pcm.core.composition.presentation.CompositionActionBarContributor">
       </editor>
    </extension>
 
@@ -547,9 +547,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.usagemodel.presentation.UsagemodelModelWizardID"
+            id="org.palladiosimulator.pcm.usagemodel.presentation.UsagemodelModelWizardID"
             name="%_UI_UsagemodelModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.usagemodel.presentation.UsagemodelModelWizard"
+            class="org.palladiosimulator.pcm.usagemodel.presentation.UsagemodelModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/UsagemodelModelFile.gif">
          <description>%_UI_UsagemodelModelWizard_description</description>
@@ -560,12 +560,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pcm -->
       <editor
-            id="de.uka.ipd.sdq.pcm.usagemodel.presentation.UsagemodelEditorID"
+            id="org.palladiosimulator.pcm.usagemodel.presentation.UsagemodelEditorID"
             name="%_UI_UsagemodelEditor_label"
             icon="icons/full/obj16/UsagemodelModelFile.gif"
             extensions="usagemodel"
-            class="de.uka.ipd.sdq.pcm.usagemodel.presentation.UsagemodelEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.usagemodel.presentation.UsagemodelActionBarContributor">
+            class="org.palladiosimulator.pcm.usagemodel.presentation.UsagemodelEditor"
+            contributorClass="org.palladiosimulator.pcm.usagemodel.presentation.UsagemodelActionBarContributor">
       </editor>
    </extension>
 
@@ -575,9 +575,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.repository.presentation.RepositoryModelWizardID"
+            id="org.palladiosimulator.pcm.repository.presentation.RepositoryModelWizardID"
             name="%_UI_RepositoryModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.repository.presentation.RepositoryModelWizard"
+            class="org.palladiosimulator.pcm.repository.presentation.RepositoryModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/RepositoryModelFile.gif">
          <description>%_UI_RepositoryModelWizard_description</description>
@@ -588,12 +588,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pcm -->
       <editor
-            id="de.uka.ipd.sdq.pcm.repository.presentation.RepositoryEditorID"
+            id="org.palladiosimulator.pcm.repository.presentation.RepositoryEditorID"
             name="%_UI_RepositoryEditor_label"
             icon="icons/full/obj16/RepositoryModelFile.gif"
             extensions="repository"
-            class="de.uka.ipd.sdq.pcm.repository.presentation.RepositoryEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.repository.presentation.RepositoryActionBarContributor">
+            class="org.palladiosimulator.pcm.repository.presentation.RepositoryEditor"
+            contributorClass="org.palladiosimulator.pcm.repository.presentation.RepositoryActionBarContributor">
       </editor>
    </extension>
 
@@ -603,9 +603,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.resourcetype.presentation.ResourcetypeModelWizardID"
+            id="org.palladiosimulator.pcm.resourcetype.presentation.ResourcetypeModelWizardID"
             name="%_UI_ResourcetypeModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.resourcetype.presentation.ResourcetypeModelWizard"
+            class="org.palladiosimulator.pcm.resourcetype.presentation.ResourcetypeModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/ResourcetypeModelFile.gif">
          <description>%_UI_ResourcetypeModelWizard_description</description>
@@ -616,12 +616,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pcm -->
       <editor
-            id="de.uka.ipd.sdq.pcm.resourcetype.presentation.ResourcetypeEditorID"
+            id="org.palladiosimulator.pcm.resourcetype.presentation.ResourcetypeEditorID"
             name="%_UI_ResourcetypeEditor_label"
             icon="icons/full/obj16/ResourcetypeModelFile.gif"
             extensions="resourcetype"
-            class="de.uka.ipd.sdq.pcm.resourcetype.presentation.ResourcetypeEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.resourcetype.presentation.ResourcetypeActionBarContributor">
+            class="org.palladiosimulator.pcm.resourcetype.presentation.ResourcetypeEditor"
+            contributorClass="org.palladiosimulator.pcm.resourcetype.presentation.ResourcetypeActionBarContributor">
       </editor>
    </extension>
 
@@ -631,9 +631,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.parameter.presentation.ParameterModelWizardID"
+            id="org.palladiosimulator.pcm.parameter.presentation.ParameterModelWizardID"
             name="%_UI_ParameterModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.parameter.presentation.ParameterModelWizard"
+            class="org.palladiosimulator.pcm.parameter.presentation.ParameterModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/ParameterModelFile.gif">
          <description>%_UI_ParameterModelWizard_description</description>
@@ -644,12 +644,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pcm -->
       <editor
-            id="de.uka.ipd.sdq.pcm.parameter.presentation.ParameterEditorID"
+            id="org.palladiosimulator.pcm.parameter.presentation.ParameterEditorID"
             name="%_UI_ParameterEditor_label"
             icon="icons/full/obj16/ParameterModelFile.gif"
             extensions="parameter"
-            class="de.uka.ipd.sdq.pcm.parameter.presentation.ParameterEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.parameter.presentation.ParameterActionBarContributor">
+            class="org.palladiosimulator.pcm.parameter.presentation.ParameterEditor"
+            contributorClass="org.palladiosimulator.pcm.parameter.presentation.ParameterActionBarContributor">
       </editor>
    </extension>
 
@@ -659,9 +659,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.reliability.presentation.ReliabilityModelWizardID"
+            id="org.palladiosimulator.pcm.reliability.presentation.ReliabilityModelWizardID"
             name="%_UI_ReliabilityModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.reliability.presentation.ReliabilityModelWizard"
+            class="org.palladiosimulator.pcm.reliability.presentation.ReliabilityModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/ReliabilityModelFile.gif">
          <description>%_UI_ReliabilityModelWizard_description</description>
@@ -672,12 +672,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pcm -->
       <editor
-            id="de.uka.ipd.sdq.pcm.reliability.presentation.ReliabilityEditorID"
+            id="org.palladiosimulator.pcm.reliability.presentation.ReliabilityEditorID"
             name="%_UI_ReliabilityEditor_label"
             icon="icons/full/obj16/ReliabilityModelFile.gif"
             extensions="reliability"
-            class="de.uka.ipd.sdq.pcm.reliability.presentation.ReliabilityEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.reliability.presentation.ReliabilityActionBarContributor">
+            class="org.palladiosimulator.pcm.reliability.presentation.ReliabilityEditor"
+            contributorClass="org.palladiosimulator.pcm.reliability.presentation.ReliabilityActionBarContributor">
       </editor>
    </extension>
 
@@ -687,9 +687,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.seff.presentation.SeffModelWizardID"
+            id="org.palladiosimulator.pcm.seff.presentation.SeffModelWizardID"
             name="%_UI_SeffModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.seff.presentation.SeffModelWizard"
+            class="org.palladiosimulator.pcm.seff.presentation.SeffModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/SeffModelFile.gif">
          <description>%_UI_SeffModelWizard_description</description>
@@ -700,12 +700,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pcm -->
       <editor
-            id="de.uka.ipd.sdq.pcm.seff.presentation.SeffEditorID"
+            id="org.palladiosimulator.pcm.seff.presentation.SeffEditorID"
             name="%_UI_SeffEditor_label"
             icon="icons/full/obj16/SeffModelFile.gif"
             extensions="seff"
-            class="de.uka.ipd.sdq.pcm.seff.presentation.SeffEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.seff.presentation.SeffActionBarContributor">
+            class="org.palladiosimulator.pcm.seff.presentation.SeffEditor"
+            contributorClass="org.palladiosimulator.pcm.seff.presentation.SeffActionBarContributor">
       </editor>
    </extension>
 
@@ -715,9 +715,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.seff.seff_performance.presentation.SeffPerformanceModelWizardID"
+            id="org.palladiosimulator.pcm.seff.seff_performance.presentation.SeffPerformanceModelWizardID"
             name="%_UI_SeffPerformanceModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.seff.seff_performance.presentation.SeffPerformanceModelWizard"
+            class="org.palladiosimulator.pcm.seff.seff_performance.presentation.SeffPerformanceModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/SeffPerformanceModelFile.gif">
          <description>%_UI_SeffPerformanceModelWizard_description</description>
@@ -728,12 +728,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pcm -->
       <editor
-            id="de.uka.ipd.sdq.pcm.seff.seff_performance.presentation.SeffPerformanceEditorID"
+            id="org.palladiosimulator.pcm.seff.seff_performance.presentation.SeffPerformanceEditorID"
             name="%_UI_SeffPerformanceEditor_label"
             icon="icons/full/obj16/SeffPerformanceModelFile.gif"
             extensions="seffperformance"
-            class="de.uka.ipd.sdq.pcm.seff.seff_performance.presentation.SeffPerformanceEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.seff.seff_performance.presentation.SeffPerformanceActionBarContributor">
+            class="org.palladiosimulator.pcm.seff.seff_performance.presentation.SeffPerformanceEditor"
+            contributorClass="org.palladiosimulator.pcm.seff.seff_performance.presentation.SeffPerformanceActionBarContributor">
       </editor>
    </extension>
 
@@ -743,9 +743,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.seff.seff_reliability.presentation.SeffReliabilityModelWizardID"
+            id="org.palladiosimulator.pcm.seff.seff_reliability.presentation.SeffReliabilityModelWizardID"
             name="%_UI_SeffReliabilityModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.seff.seff_reliability.presentation.SeffReliabilityModelWizard"
+            class="org.palladiosimulator.pcm.seff.seff_reliability.presentation.SeffReliabilityModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/SeffReliabilityModelFile.gif">
          <description>%_UI_SeffReliabilityModelWizard_description</description>
@@ -756,12 +756,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pcm -->
       <editor
-            id="de.uka.ipd.sdq.pcm.seff.seff_reliability.presentation.SeffReliabilityEditorID"
+            id="org.palladiosimulator.pcm.seff.seff_reliability.presentation.SeffReliabilityEditorID"
             name="%_UI_SeffReliabilityEditor_label"
             icon="icons/full/obj16/SeffReliabilityModelFile.gif"
             extensions="seffreliability"
-            class="de.uka.ipd.sdq.pcm.seff.seff_reliability.presentation.SeffReliabilityEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.seff.seff_reliability.presentation.SeffReliabilityActionBarContributor">
+            class="org.palladiosimulator.pcm.seff.seff_reliability.presentation.SeffReliabilityEditor"
+            contributorClass="org.palladiosimulator.pcm.seff.seff_reliability.presentation.SeffReliabilityActionBarContributor">
       </editor>
    </extension>
 
@@ -771,9 +771,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.qosannotations.presentation.QosannotationsModelWizardID"
+            id="org.palladiosimulator.pcm.qosannotations.presentation.QosannotationsModelWizardID"
             name="%_UI_QosannotationsModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.qosannotations.presentation.QosannotationsModelWizard"
+            class="org.palladiosimulator.pcm.qosannotations.presentation.QosannotationsModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/QosannotationsModelFile.gif">
          <description>%_UI_QosannotationsModelWizard_description</description>
@@ -784,12 +784,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pcm -->
       <editor
-            id="de.uka.ipd.sdq.pcm.qosannotations.presentation.QosannotationsEditorID"
+            id="org.palladiosimulator.pcm.qosannotations.presentation.QosannotationsEditorID"
             name="%_UI_QosannotationsEditor_label"
             icon="icons/full/obj16/QosannotationsModelFile.gif"
             extensions="qosannotations"
-            class="de.uka.ipd.sdq.pcm.qosannotations.presentation.QosannotationsEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.qosannotations.presentation.QosannotationsActionBarContributor">
+            class="org.palladiosimulator.pcm.qosannotations.presentation.QosannotationsEditor"
+            contributorClass="org.palladiosimulator.pcm.qosannotations.presentation.QosannotationsActionBarContributor">
       </editor>
    </extension>
 
@@ -799,9 +799,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.qosannotations.qos_performance.presentation.QosPerformanceModelWizardID"
+            id="org.palladiosimulator.pcm.qosannotations.qos_performance.presentation.QosPerformanceModelWizardID"
             name="%_UI_QosPerformanceModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.qosannotations.qos_performance.presentation.QosPerformanceModelWizard"
+            class="org.palladiosimulator.pcm.qosannotations.qos_performance.presentation.QosPerformanceModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/QosPerformanceModelFile.gif">
          <description>%_UI_QosPerformanceModelWizard_description</description>
@@ -812,12 +812,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pcm -->
       <editor
-            id="de.uka.ipd.sdq.pcm.qosannotations.qos_performance.presentation.QosPerformanceEditorID"
+            id="org.palladiosimulator.pcm.qosannotations.qos_performance.presentation.QosPerformanceEditorID"
             name="%_UI_QosPerformanceEditor_label"
             icon="icons/full/obj16/QosPerformanceModelFile.gif"
             extensions="qosperformance"
-            class="de.uka.ipd.sdq.pcm.qosannotations.qos_performance.presentation.QosPerformanceEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.qosannotations.qos_performance.presentation.QosPerformanceActionBarContributor">
+            class="org.palladiosimulator.pcm.qosannotations.qos_performance.presentation.QosPerformanceEditor"
+            contributorClass="org.palladiosimulator.pcm.qosannotations.qos_performance.presentation.QosPerformanceActionBarContributor">
       </editor>
    </extension>
 
@@ -827,9 +827,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.presentation.QosReliabilityModelWizardID"
+            id="org.palladiosimulator.pcm.qosannotations.qos_reliability.presentation.QosReliabilityModelWizardID"
             name="%_UI_QosReliabilityModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.presentation.QosReliabilityModelWizard"
+            class="org.palladiosimulator.pcm.qosannotations.qos_reliability.presentation.QosReliabilityModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/QosReliabilityModelFile.gif">
          <description>%_UI_QosReliabilityModelWizard_description</description>
@@ -840,12 +840,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pcm -->
       <editor
-            id="de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.presentation.QosReliabilityEditorID"
+            id="org.palladiosimulator.pcm.qosannotations.qos_reliability.presentation.QosReliabilityEditorID"
             name="%_UI_QosReliabilityEditor_label"
             icon="icons/full/obj16/QosReliabilityModelFile.gif"
             extensions="qosreliability"
-            class="de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.presentation.QosReliabilityEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.presentation.QosReliabilityActionBarContributor">
+            class="org.palladiosimulator.pcm.qosannotations.qos_reliability.presentation.QosReliabilityEditor"
+            contributorClass="org.palladiosimulator.pcm.qosannotations.qos_reliability.presentation.QosReliabilityActionBarContributor">
       </editor>
    </extension>
 
@@ -855,9 +855,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.system.presentation.SystemModelWizardID"
+            id="org.palladiosimulator.pcm.system.presentation.SystemModelWizardID"
             name="%_UI_SystemModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.system.presentation.SystemModelWizard"
+            class="org.palladiosimulator.pcm.system.presentation.SystemModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/SystemModelFile.gif">
          <description>%_UI_SystemModelWizard_description</description>
@@ -868,12 +868,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pcm -->
       <editor
-            id="de.uka.ipd.sdq.pcm.system.presentation.SystemEditorID"
+            id="org.palladiosimulator.pcm.system.presentation.SystemEditorID"
             name="%_UI_SystemEditor_label"
             icon="icons/full/obj16/SystemModelFile.gif"
             extensions="system"
-            class="de.uka.ipd.sdq.pcm.system.presentation.SystemEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.system.presentation.SystemActionBarContributor">
+            class="org.palladiosimulator.pcm.system.presentation.SystemEditor"
+            contributorClass="org.palladiosimulator.pcm.system.presentation.SystemActionBarContributor">
       </editor>
    </extension>
 
@@ -883,9 +883,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentModelWizardID"
+            id="org.palladiosimulator.pcm.resourceenvironment.presentation.ResourceenvironmentModelWizardID"
             name="%_UI_ResourceenvironmentModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentModelWizard"
+            class="org.palladiosimulator.pcm.resourceenvironment.presentation.ResourceenvironmentModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/ResourceenvironmentModelFile.gif">
          <description>%_UI_ResourceenvironmentModelWizard_description</description>
@@ -896,12 +896,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pcm -->
       <editor
-            id="de.uka.ipd.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentEditorID"
+            id="org.palladiosimulator.pcm.resourceenvironment.presentation.ResourceenvironmentEditorID"
             name="%_UI_ResourceenvironmentEditor_label"
             icon="icons/full/obj16/ResourceenvironmentModelFile.gif"
             extensions="resourceenvironment"
-            class="de.uka.ipd.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.resourceenvironment.presentation.ResourceenvironmentActionBarContributor">
+            class="org.palladiosimulator.pcm.resourceenvironment.presentation.ResourceenvironmentEditor"
+            contributorClass="org.palladiosimulator.pcm.resourceenvironment.presentation.ResourceenvironmentActionBarContributor">
       </editor>
    </extension>
 
@@ -911,9 +911,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.allocation.presentation.AllocationModelWizardID"
+            id="org.palladiosimulator.pcm.allocation.presentation.AllocationModelWizardID"
             name="%_UI_AllocationModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.allocation.presentation.AllocationModelWizard"
+            class="org.palladiosimulator.pcm.allocation.presentation.AllocationModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/AllocationModelFile.gif">
          <description>%_UI_AllocationModelWizard_description</description>
@@ -924,12 +924,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pcm -->
       <editor
-            id="de.uka.ipd.sdq.pcm.allocation.presentation.AllocationEditorID"
+            id="org.palladiosimulator.pcm.allocation.presentation.AllocationEditorID"
             name="%_UI_AllocationEditor_label"
             icon="icons/full/obj16/AllocationModelFile.gif"
             extensions="allocation"
-            class="de.uka.ipd.sdq.pcm.allocation.presentation.AllocationEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.allocation.presentation.AllocationActionBarContributor">
+            class="org.palladiosimulator.pcm.allocation.presentation.AllocationEditor"
+            contributorClass="org.palladiosimulator.pcm.allocation.presentation.AllocationActionBarContributor">
       </editor>
    </extension>
 
@@ -939,9 +939,9 @@
             id="org.eclipse.emf.ecore.Wizard.category.ID"
             name="%_UI_Wizard_category"/>
       <wizard
-            id="de.uka.ipd.sdq.pcm.subsystem.presentation.SubsystemModelWizardID"
+            id="org.palladiosimulator.pcm.subsystem.presentation.SubsystemModelWizardID"
             name="%_UI_SubsystemModelWizard_label"
-            class="de.uka.ipd.sdq.pcm.subsystem.presentation.SubsystemModelWizard"
+            class="org.palladiosimulator.pcm.subsystem.presentation.SubsystemModelWizard"
             category="org.eclipse.emf.ecore.Wizard.category.ID"
             icon="icons/full/obj16/SubsystemModelFile.gif">
          <description>%_UI_SubsystemModelWizard_description</description>
@@ -952,12 +952,12 @@
    <extension point="org.eclipse.ui.editors">
       <!-- @generated pcm -->
       <editor
-            id="de.uka.ipd.sdq.pcm.subsystem.presentation.SubsystemEditorID"
+            id="org.palladiosimulator.pcm.subsystem.presentation.SubsystemEditorID"
             name="%_UI_SubsystemEditor_label"
             icon="icons/full/obj16/SubsystemModelFile.gif"
             extensions="subsystem"
-            class="de.uka.ipd.sdq.pcm.subsystem.presentation.SubsystemEditor"
-            contributorClass="de.uka.ipd.sdq.pcm.subsystem.presentation.SubsystemActionBarContributor">
+            class="org.palladiosimulator.pcm.subsystem.presentation.SubsystemEditor"
+            contributorClass="org.palladiosimulator.pcm.subsystem.presentation.SubsystemActionBarContributor">
       </editor>
    </extension>
 </plugin>

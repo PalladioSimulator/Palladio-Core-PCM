@@ -14,48 +14,48 @@ of the PCM using tree editors.
    </description>
 
    <requires>
-      <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="org.eclipse.ocl"/>
-      <import plugin="org.eclipse.ocl.ecore"/>
-      <import plugin="org.eclipse.emf.cdo"/>
-      <import plugin="org.eclipse.emf.ecore.xmi"/>
-      <import plugin="de.uka.ipd.sdq.identifier"/>
-      <import plugin="de.uka.ipd.sdq.probfunction"/>
-      <import plugin="de.uka.ipd.sdq.stoex"/>
-      <import plugin="org.eclipse.uml2.types"/>
-      <import plugin="de.uka.ipd.sdq.units"/>
-      <import plugin="de.uka.ipd.sdq.errorhandling"/>
-      <import plugin="org.eclipse.ocl.ecore" version="1.2.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime" version="3.10.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.stoex" version="2.2.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.errorhandling" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ocl.ecore" version="1.2.1" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.stoex.analyser" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui"/>
-      <import plugin="de.uka.ipd.sdq.pcm" version="4.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm.stochasticexpressions" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.transaction"/>
       <import plugin="org.eclipse.jface.text"/>
       <import plugin="de.uka.ipd.sdq.dialogs" version="2.0.1" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.pcm.edit" version="3.6.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcmbench.ui" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
-      <import plugin="de.uka.ipd.sdq.errorhandling" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.osgi.util"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.ui" version="1.2.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.editors" version="3.7.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.edit"/>
-      <import plugin="de.uka.ipd.sdq.identifier.edit"/>
-      <import plugin="de.uka.ipd.sdq.probfunction.edit"/>
-      <import plugin="de.uka.ipd.sdq.stoex.edit"/>
-      <import plugin="de.uka.ipd.sdq.units.edit"/>
-      <import plugin="org.eclipse.emf.ecore.edit"/>
-      <import plugin="org.eclipse.uml2.common.edit"/>
-      <import plugin="org.eclipse.core.resources"/>
-      <import plugin="org.eclipse.ui.ide"/>
-      <import plugin="de.uka.ipd.sdq.pcmbench.propertytabs"/>
+      <import plugin="de.uka.ipd.sdq.pcm" version="4.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.databinding" version="1.4.2" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.databinding.property" version="1.4.200" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.mdsdprofiles.api"/>
-      <import plugin="org.eclipse.core.runtime" version="3.10.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.10.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ocl" version="3.4.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ocl.ecore" version="3.3.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.cdo" version="4.3.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore.xmi" version="2.10.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.identifier" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.probfunction" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.uml2.types" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.units" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.pcm" version="4.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.pcm.edit" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.edit" version="2.10.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.identifier.edit" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.probfunction.edit" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.stoex.edit" version="2.2.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.units.edit" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore.edit" version="2.9.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.uml2.common.edit" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.resources" version="3.9.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.pcm.edit" version="4.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.edit.ui" version="2.10.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.10.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.pcmbench.propertytabs" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.mdsdprofiles.api" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
