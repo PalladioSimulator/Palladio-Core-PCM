@@ -4,11 +4,11 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.palladiosimulator.pcm.completions.edit;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: org.palladiosimulator.completions.provider.CompletionsEditPlugin$Implementation
+Bundle-Activator: org.palladiosimulator.pcm.completions.provider.CompletionsEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.palladiosimulator.completions.provider
+Export-Package: org.palladiosimulator.pcm.completions.provider
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.10.0",
  org.palladiosimulator.pcm.completions;bundle-version="1.0.0";visibility:=reexport,
  org.eclipse.emf.edit;bundle-version="2.10.1";visibility:=reexport,

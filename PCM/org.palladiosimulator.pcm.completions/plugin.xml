@@ -13,15 +13,15 @@
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://palladiosimulator.org/Completions/1.0" 
-       class = "org.palladiosimulator.completions.CompletionsPackage"
+       class = "org.palladiosimulator.pcm.completions.CompletionsPackage"
        genModel = "model/Completions.genmodel" /> 
   </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated Completions -->
       <package
-            uri="http://palladiosimulator.org/Completions/1.0"
-            class="org.palladiosimulator.completions.CompletionsPackage"
+            uri="http://palladiosimulator.org/PCM/Completions/1.0"
+            class="org.palladiosimulator.pcm.completions.CompletionsPackage"
             genModel="model/Completions.genmodel"/>
    </extension>
 

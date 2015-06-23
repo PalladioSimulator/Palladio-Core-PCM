@@ -12,7 +12,7 @@
   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
     <factory 
        uri = "http://palladiosimulator.org/Completions/1.0" 
-       class = "org.palladiosimulator.completions.provider.CompletionsItemProviderAdapterFactory" 
+       class = "org.palladiosimulator.pcm.completions.provider.CompletionsItemProviderAdapterFactory" 
        supportedTypes = 
          "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
           org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -24,8 +24,8 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated Completions -->
       <factory
-            uri="http://palladiosimulator.org/Completions/1.0"
-            class="org.palladiosimulator.completions.provider.CompletionsItemProviderAdapterFactory"
+            uri="http://palladiosimulator.org/PCM/Completions/1.0"
+            class="org.palladiosimulator.pcm.completions.provider.CompletionsItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="completions" nsURI="http://palladiosimulator.org/Completions/1.0"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="completions" nsURI="http://palladiosimulator.org/PCM/Completions/1.0"
     nsPrefix="completions">
   <eClassifiers xsi:type="ecore:EClass" name="Completion" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/entity/ComposedProvidingRequiringEntity platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//repository/ImplementationComponentType"/>
   <eClassifiers xsi:type="ecore:EClass" name="CompletionRepository">
