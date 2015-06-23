@@ -66,7 +66,7 @@ of the PCM using tree editors.
          unpack="false"/>
 
    <plugin
-         id="de.uka.ipd.sdq.pcm.dialogs"
+         id="org.palladiosimulator.pcm.dialogs"
          download-size="0"
          install-size="0"
          version="0.0.0"

@@ -12,8 +12,8 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
+import org.palladiosimulator.pcm.dialogs.stoex.StoExCompletionProcessor;
 
-import de.uka.ipd.sdq.pcm.dialogs.stoex.StoExCompletionProcessor;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 
 /**

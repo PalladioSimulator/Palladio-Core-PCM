@@ -104,7 +104,7 @@
       <behaviour
           xsi:type="gmfgen:CustomBehaviour"
           key="EditPolicyRoles.OPEN_ROLE"
-          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.dialogs.OpenStoExDialog"/>
+          editPolicyQualifiedClassName="org.palladiosimulator.pcm.dialogs.OpenStoExDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation"/>
@@ -193,7 +193,7 @@
       <behaviour
           xsi:type="gmfgen:CustomBehaviour"
           key="EditPolicyRoles.OPEN_ROLE"
-          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.dialogs.OpenStoExDialog"/>
+          editPolicyQualifiedClassName="org.palladiosimulator.pcm.dialogs.OpenStoExDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation"/>
@@ -286,7 +286,7 @@
       <behaviour
           xsi:type="gmfgen:CustomBehaviour"
           key="EditPolicyRoles.OPEN_ROLE"
-          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.dialogs.OpenStoExDialog"/>
+          editPolicyQualifiedClassName="org.palladiosimulator.pcm.dialogs.OpenStoExDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation"/>
@@ -428,7 +428,7 @@
       <behaviour
           xsi:type="gmfgen:CustomBehaviour"
           key="EditPolicyRoles.OPEN_ROLE"
-          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.dialogs.seff.OpenLoopIterationsDialog"/>
+          editPolicyQualifiedClassName="org.palladiosimulator.pcm.dialogs.seff.OpenLoopIterationsDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/seff/LoopAction"/>
@@ -713,7 +713,7 @@
       <behaviour
           xsi:type="gmfgen:CustomBehaviour"
           key="EditPolicyRoles.OPEN_ROLE"
-          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.dialogs.OpenStoExDialog"/>
+          editPolicyQualifiedClassName="org.palladiosimulator.pcm.dialogs.OpenStoExDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation"/>
@@ -1455,7 +1455,7 @@
       <behaviour
           xsi:type="gmfgen:CustomBehaviour"
           key="EditPolicyRoles.OPEN_ROLE"
-          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.dialogs.OpenStoExDialog"/>
+          editPolicyQualifiedClassName="org.palladiosimulator.pcm.dialogs.OpenStoExDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation"/>
@@ -1551,7 +1551,7 @@
       <behaviour
           xsi:type="gmfgen:CustomBehaviour"
           key="EditPolicyRoles.OPEN_ROLE"
-          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.dialogs.seff.OpenBranchConditionDialog"/>
+          editPolicyQualifiedClassName="org.palladiosimulator.pcm.dialogs.seff.OpenBranchConditionDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/seff/GuardedBranchTransition"/>
@@ -1811,7 +1811,7 @@
       <behaviour
           xsi:type="gmfgen:CustomBehaviour"
           key="EditPolicyRoles.OPEN_ROLE"
-          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.dialogs.seff.OpenLoopIterationsDialog"/>
+          editPolicyQualifiedClassName="org.palladiosimulator.pcm.dialogs.seff.OpenLoopIterationsDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/seff/LoopAction"/>

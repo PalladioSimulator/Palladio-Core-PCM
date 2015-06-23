@@ -17,9 +17,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
+import org.palladiosimulator.pcm.dialogs.datatype.CallDataTypeDialog;
+import org.palladiosimulator.pcm.dialogs.parameters.ParametersDialog;
 
-import de.uka.ipd.sdq.pcm.dialogs.datatype.CallDataTypeDialog;
-import de.uka.ipd.sdq.pcm.dialogs.parameters.ParametersDialog;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.Signature;
