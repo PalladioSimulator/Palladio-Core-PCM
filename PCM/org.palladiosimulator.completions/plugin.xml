@@ -17,4 +17,12 @@
        genModel = "model/Completions.genmodel" /> 
   </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Completions -->
+      <package
+            uri="http://palladiosimulator.org/Completions/1.0"
+            class="org.palladiosimulator.completions.CompletionsPackage"
+            genModel="model/Completions.genmodel"/>
+   </extension>
+
 </plugin>

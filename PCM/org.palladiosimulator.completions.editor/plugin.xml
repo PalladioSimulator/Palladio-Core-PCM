@@ -37,4 +37,31 @@
         contributorClass="de.uka.ipd.sdq.completions.presentation.CompletionsActionBarContributor" >
     </editor>
   </extension>    
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated Completions -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.palladiosimulator.completions.presentation.CompletionsModelWizardID"
+            name="%_UI_CompletionsModelWizard_label"
+            class="org.palladiosimulator.completions.presentation.CompletionsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CompletionsModelFile.gif">
+         <description>%_UI_CompletionsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated Completions -->
+      <editor
+            id="org.palladiosimulator.completions.presentation.CompletionsEditorID"
+            name="%_UI_CompletionsEditor_label"
+            icon="icons/full/obj16/CompletionsModelFile.gif"
+            extensions="completions"
+            class="org.palladiosimulator.completions.presentation.CompletionsEditor"
+            contributorClass="org.palladiosimulator.completions.presentation.CompletionsActionBarContributor">
+      </editor>
+   </extension>
 </plugin>

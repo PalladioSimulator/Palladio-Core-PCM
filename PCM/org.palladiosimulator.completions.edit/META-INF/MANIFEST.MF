@@ -4,11 +4,11 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: org.palladiosimulator.completions.edit;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: de.uka.ipd.sdq.completions.provider.CompletionsEditPlugin$Implementation
+Bundle-Activator: org.palladiosimulator.completions.provider.CompletionsEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: de.uka.ipd.sdq.completions.provider
+Export-Package: org.palladiosimulator.completions.provider
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.10.0",
  org.palladiosimulator.completions;bundle-version="1.0.0";visibility:=reexport,
  org.eclipse.emf.edit;bundle-version="2.10.1";visibility:=reexport,
@@ -21,5 +21,6 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="3.10.0",
  de.uka.ipd.sdq.stoex;bundle-version="2.2.0";visibility:=reexport,
  de.uka.ipd.sdq.stoex.edit;bundle-version="2.2.0";visibility:=reexport,
  de.uka.ipd.sdq.units;bundle-version="2.1.0";visibility:=reexport,
- de.uka.ipd.sdq.units.edit;bundle-version="2.1.0";visibility:=reexport
+ de.uka.ipd.sdq.units.edit;bundle-version="2.1.0";visibility:=reexport,
+ org.eclipse.uml2.common.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
