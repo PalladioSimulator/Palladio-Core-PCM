@@ -21,10 +21,10 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.ConfigureElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.ui.PlatformUI;
+import org.palladiosimulator.pcm.dialogs.stoex.StochasticExpressionEditDialog;
 
 import de.uka.ipd.sdq.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-import de.uka.ipd.sdq.pcm.dialogs.stoex.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;

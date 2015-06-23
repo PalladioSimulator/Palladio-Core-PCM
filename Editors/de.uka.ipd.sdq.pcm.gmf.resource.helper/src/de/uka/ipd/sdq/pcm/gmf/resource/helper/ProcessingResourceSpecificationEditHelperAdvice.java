@@ -14,11 +14,11 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.ui.PlatformUI;
+import org.palladiosimulator.pcm.dialogs.selection.PalladioSelectEObjectDialog;
+import org.palladiosimulator.pcm.dialogs.stoex.StochasticExpressionEditDialog;
 
 import de.uka.ipd.sdq.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-import de.uka.ipd.sdq.pcm.dialogs.selection.PalladioSelectEObjectDialog;
-import de.uka.ipd.sdq.pcm.dialogs.stoex.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;

@@ -50,7 +50,7 @@ graphically.
       <import plugin="de.uka.ipd.sdq.stoex.analyser" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ocl.ecore"/>
       <import plugin="org.eclipse.ui.navigator.resources"/>
-      <import plugin="de.uka.ipd.sdq.pcm.dialogs" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.pcm.dialogs" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.gmf.runtime.common.core"/>
       <import plugin="org.eclipse.gmf.runtime.common.ui"/>
