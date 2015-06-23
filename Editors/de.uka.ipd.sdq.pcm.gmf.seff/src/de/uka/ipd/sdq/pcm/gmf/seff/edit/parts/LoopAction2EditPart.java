@@ -35,8 +35,8 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.palladiosimulator.pcm.dialogs.seff.OpenLoopIterationsDialog;
 
-import de.uka.ipd.sdq.pcm.dialogs.seff.OpenLoopIterationsDialog;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.LoopAction2CanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.LoopAction2ItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
