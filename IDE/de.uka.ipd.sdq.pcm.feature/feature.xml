@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="de.uka.ipd.sdq.pcm.feature"
-      label="Palladio Component Model Feature"
+      label="Palladio Component Model"
       version="4.0.0.qualifier"
       plugin="org.palladiosimulator.branding"
       license-feature="org.palladiosimulator.license"
       license-feature-version="1.0.0">
 
-   <description url="http://sdq.ipd.kit.edu">
-      This feature installed the Palladio Component Model based on
-EMF. With this feature it is possible to model, persist and visualize
-instances of the Palladio Component Model. A basic graphical
-Service Effect Editor is also provided.
+   <description url="http://www.palladio-simulator.com">
+      The Palladio Component Model (PCM) as an EMF-based metamodel.
+
+This feature allows to model, persist, and visualize instances of the PCM using tree editors.
    </description>
-   
+
    <url>
       <update label="Palladio Component Model Update Site" url="http://www.palladio-simulator.com/"/>
    </url>

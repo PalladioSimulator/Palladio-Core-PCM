@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="de.uka.ipd.sdq.pcm.diagram.feature"
-      label="Palladio Component Model Diagramming Feature"
+      label="Palladio Component Model - GMF Editors"
       version="4.0.0.qualifier"
       plugin="org.palladiosimulator.branding"
       license-feature="org.palladiosimulator.license"

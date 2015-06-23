@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.palladiosimulator.protocom.javaee.feature"
-      label="ProtoCom for the Java Enterprise Edition"
+      label="Palladio Component Model - Analyzer: ProtoCom for Java EE"
       version="1.0.0.qualifier"
       license-feature="org.palladiosimulator.license"
       license-feature-version="1.0.0">
 
    <description url="https://sdqweb.ipd.kit.edu/wiki/ProtoCom">
-      Code generator for PCM models for QoS performance prototypes
-or code stubs for Java EE (EJB) implementations, e.g., SAP HANA Cloud.
+      Code generator for performance prototypes and code stubs for Java EE (EJB) implementations, e.g., SAP HANA Cloud.
    </description>
 
    <requires>
