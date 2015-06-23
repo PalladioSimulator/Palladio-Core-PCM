@@ -46,14 +46,14 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ParametricResourceDemandImpl() {
@@ -62,7 +62,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -72,7 +72,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -82,7 +82,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -95,7 +95,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetSpecification_ParametericResourceDemand(
@@ -107,7 +107,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -120,7 +120,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -133,7 +133,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ProcessingResourceType basicGetRequiredResource_ParametricResourceDemand() {
@@ -145,7 +145,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -159,7 +159,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -172,7 +172,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetAction_ParametricResourceDemand(
@@ -184,7 +184,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -197,7 +197,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -224,7 +224,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -251,7 +251,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -268,7 +268,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -284,7 +284,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -305,7 +305,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -326,7 +326,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -347,7 +347,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

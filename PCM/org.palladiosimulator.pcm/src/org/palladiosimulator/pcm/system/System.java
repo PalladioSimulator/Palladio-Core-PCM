@@ -55,7 +55,7 @@ public interface System extends Entity, ComposedProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -81,7 +81,7 @@ public interface System extends Entity, ComposedProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not self.providedRoles_InterfaceProvidingEntity->isEmpty()'"
      * @generated

@@ -35,7 +35,7 @@ import org.palladiosimulator.pcm.usagemodel.util.UsagemodelAdapterFactory;
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
+ *
  * @generated
  */
 public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFactory
@@ -43,7 +43,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,7 +51,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This keeps track of the root adapter factory that delegates to this adapter factory. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ComposedAdapterFactory parentAdapterFactory;
@@ -59,14 +59,14 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
     /**
      * This helps manage the child creation extenders. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
@@ -75,14 +75,14 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public UsagemodelItemProviderAdapterFactory() {
@@ -97,7 +97,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.usagemodel.UsageScenario} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected UsageScenarioItemProvider usageScenarioItemProvider;
@@ -105,7 +105,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.usagemodel.UsageScenario}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -121,7 +121,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.usagemodel.UserData} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected UserDataItemProvider userDataItemProvider;
@@ -129,7 +129,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.usagemodel.UserData}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -145,7 +145,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.usagemodel.UsageModel} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected UsageModelItemProvider usageModelItemProvider;
@@ -153,7 +153,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.usagemodel.UsageModel}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -169,7 +169,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EntryLevelSystemCallItemProvider entryLevelSystemCallItemProvider;
@@ -178,7 +178,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -194,7 +194,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ScenarioBehaviourItemProvider scenarioBehaviourItemProvider;
@@ -202,7 +202,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -218,7 +218,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.usagemodel.BranchTransition} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected BranchTransitionItemProvider branchTransitionItemProvider;
@@ -226,7 +226,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.usagemodel.BranchTransition}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -242,7 +242,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.usagemodel.Branch} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected BranchItemProvider branchItemProvider;
@@ -250,7 +250,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.usagemodel.Branch}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -266,7 +266,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.usagemodel.Loop} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected LoopItemProvider loopItemProvider;
@@ -274,7 +274,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.usagemodel.Loop}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -290,7 +290,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.usagemodel.Stop} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected StopItemProvider stopItemProvider;
@@ -298,7 +298,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.usagemodel.Stop}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -314,7 +314,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.usagemodel.Start} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected StartItemProvider startItemProvider;
@@ -322,7 +322,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.usagemodel.Start}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -338,7 +338,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.usagemodel.OpenWorkload} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected OpenWorkloadItemProvider openWorkloadItemProvider;
@@ -346,7 +346,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.usagemodel.OpenWorkload}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -362,7 +362,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.usagemodel.Delay} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected DelayItemProvider delayItemProvider;
@@ -370,7 +370,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.usagemodel.Delay}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -386,7 +386,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ClosedWorkloadItemProvider closedWorkloadItemProvider;
@@ -394,7 +394,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -409,7 +409,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -420,7 +420,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -430,7 +430,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -441,7 +441,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This implementation substitutes the factory itself as the key for the adapter. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -451,7 +451,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -468,7 +468,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -477,7 +477,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -487,7 +487,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -497,7 +497,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -507,7 +507,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -518,7 +518,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -533,7 +533,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

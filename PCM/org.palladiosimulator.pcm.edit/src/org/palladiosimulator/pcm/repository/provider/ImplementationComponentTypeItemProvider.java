@@ -21,14 +21,14 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * This is the item provider adapter for a
  * {@link org.palladiosimulator.pcm.repository.ImplementationComponentType} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ImplementationComponentTypeItemProvider extends RepositoryComponentItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -36,7 +36,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ImplementationComponentTypeItemProvider(final AdapterFactory adapterFactory) {
@@ -46,7 +46,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -63,7 +63,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
     /**
      * This adds a property descriptor for the Parent Complete Component Types feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addParentCompleteComponentTypesPropertyDescriptor(final Object object) {
@@ -80,7 +80,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
     /**
      * This adds a property descriptor for the Component Type feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addComponentTypePropertyDescriptor(final Object object) {
@@ -100,7 +100,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
      * {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -115,7 +115,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -129,7 +129,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -143,7 +143,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -164,7 +164,7 @@ public class ImplementationComponentTypeItemProvider extends RepositoryComponent
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

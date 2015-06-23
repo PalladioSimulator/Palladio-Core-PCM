@@ -35,7 +35,7 @@ public interface BranchAction extends AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,7 +51,7 @@ public interface BranchAction extends AbstractInternalControlFlowAction {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Branches Branch</em>' containment reference list.
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getBranchAction_Branches_Branch()
      * @see org.palladiosimulator.pcm.seff.AbstractBranchTransition#getBranchAction_AbstractBranchTransition
@@ -62,7 +62,7 @@ public interface BranchAction extends AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition)) \nor self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition))'"
      * @generated
@@ -72,7 +72,7 @@ public interface BranchAction extends AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='if self.branches_Branch->forAll(oclIsTypeOf(ProbabilisticBranchTransition)) then \n\tself.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() > 0.9999 \n\tand self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() < 1.0001 \n\telse true \nendif'"
      * @generated

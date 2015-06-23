@@ -17,14 +17,14 @@ import org.palladiosimulator.pcm.seff.SeffPackage;
  * This is the item provider adapter for a
  * {@link org.palladiosimulator.pcm.seff.CollectionIteratorAction} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class CollectionIteratorActionItemProvider extends AbstractLoopActionItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -32,7 +32,7 @@ public class CollectionIteratorActionItemProvider extends AbstractLoopActionItem
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public CollectionIteratorActionItemProvider(final AdapterFactory adapterFactory) {
@@ -42,7 +42,7 @@ public class CollectionIteratorActionItemProvider extends AbstractLoopActionItem
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -58,7 +58,7 @@ public class CollectionIteratorActionItemProvider extends AbstractLoopActionItem
     /**
      * This adds a property descriptor for the Parameter Collection Iterator Action feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addParameter_CollectionIteratorActionPropertyDescriptor(final Object object) {
@@ -74,7 +74,7 @@ public class CollectionIteratorActionItemProvider extends AbstractLoopActionItem
 
     /**
      * This returns CollectionIteratorAction.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -85,7 +85,7 @@ public class CollectionIteratorActionItemProvider extends AbstractLoopActionItem
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -99,7 +99,7 @@ public class CollectionIteratorActionItemProvider extends AbstractLoopActionItem
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -111,7 +111,7 @@ public class CollectionIteratorActionItemProvider extends AbstractLoopActionItem
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

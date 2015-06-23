@@ -41,7 +41,7 @@ public interface ResourceCall extends CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -56,7 +56,7 @@ public interface ResourceCall extends CallAction {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Action Resource Call</em>' container reference.
      * @see #setAction__ResourceCall(AbstractInternalControlFlowAction)
      * @see org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage#getResourceCall_Action__ResourceCall()
@@ -71,7 +71,7 @@ public interface ResourceCall extends CallAction {
      * {@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getAction__ResourceCall
      * <em>Action Resource Call</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Action Resource Call</em>' container reference.
      * @see #getAction__ResourceCall()
@@ -87,7 +87,7 @@ public interface ResourceCall extends CallAction {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Resource Required Role Resource Call</em>' reference.
      * @see #setResourceRequiredRole__ResourceCall(ResourceRequiredRole)
      * @see org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage#getResourceCall_ResourceRequiredRole__ResourceCall()
@@ -101,7 +101,7 @@ public interface ResourceCall extends CallAction {
      * {@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getResourceRequiredRole__ResourceCall
      * <em>Resource Required Role Resource Call</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Resource Required Role Resource Call</em>' reference.
      * @see #getResourceRequiredRole__ResourceCall()
@@ -130,7 +130,7 @@ public interface ResourceCall extends CallAction {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getSignature__ResourceCall
      * <em>Signature Resource Call</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Signature Resource Call</em>' reference.
      * @see #getSignature__ResourceCall()
@@ -148,7 +148,7 @@ public interface ResourceCall extends CallAction {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Number Of Calls Resource Call</em>' containment reference.
      * @see #setNumberOfCalls__ResourceCall(PCMRandomVariable)
      * @see org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage#getResourceCall_NumberOfCalls__ResourceCall()
@@ -163,7 +163,7 @@ public interface ResourceCall extends CallAction {
      * {@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getNumberOfCalls__ResourceCall
      * <em>Number Of Calls Resource Call</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Number Of Calls Resource Call</em>' containment
      *            reference.
@@ -174,7 +174,7 @@ public interface ResourceCall extends CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.resourceSignatures__ResourceInterface->includes(self.signature__ResourceCall)'"
      * @generated
@@ -183,7 +183,7 @@ public interface ResourceCall extends CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::ResourceInterfaceRequiringEntity)).oclAsType(pcm::core::entity::ResourceInterfaceRequiringEntity).resourceRequiredRoles__ResourceInterfaceRequiringEntity->includes(self.resourceRequiredRole__ResourceCall)'"
      * @generated
@@ -192,7 +192,7 @@ public interface ResourceCall extends CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.action__ResourceCall.resourceCall__Action->select(call | call.resourceRequiredRole__ResourceCall=self.resourceRequiredRole__ResourceCall and call.signature__ResourceCall=self.signature__ResourceCall)->size() = 1'"
      * @generated

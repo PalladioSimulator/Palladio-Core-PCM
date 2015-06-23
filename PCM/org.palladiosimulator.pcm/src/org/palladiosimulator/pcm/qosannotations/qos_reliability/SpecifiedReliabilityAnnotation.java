@@ -40,7 +40,7 @@ public interface SpecifiedReliabilityAnnotation extends SpecifiedQoSAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -74,7 +74,7 @@ public interface SpecifiedReliabilityAnnotation extends SpecifiedQoSAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='(self.role_SpecifiedQoSAnnotation.oclIsTypeOf(pcm::repository::OperationRequiredRole)) and (self.role_SpecifiedQoSAnnotation.oclAsType(pcm::repository::OperationRequiredRole).requiringEntity_RequiredRole.oclIsTypeOf(pcm::system::System))\n\n\n'"
      * @generated
@@ -84,7 +84,7 @@ public interface SpecifiedReliabilityAnnotation extends SpecifiedQoSAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation.failureProbability.oclAsType(Real)->sum()<=1.0'"
      * @generated
@@ -94,7 +94,7 @@ public interface SpecifiedReliabilityAnnotation extends SpecifiedQoSAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation->forAll(x:pcm::reliability::ExternalFailureOccurrenceDescription,y:pcm::reliability::ExternalFailureOccurrenceDescription  | x<>y implies x.failureType__ExternalFailureOccurrenceDescription <> y.failureType__ExternalFailureOccurrenceDescription )'"
      * @generated

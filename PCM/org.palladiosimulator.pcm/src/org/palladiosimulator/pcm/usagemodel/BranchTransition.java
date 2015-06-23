@@ -38,7 +38,7 @@ public interface BranchTransition extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,7 +51,7 @@ public interface BranchTransition extends CDOObject {
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Branch Probability</em>' attribute.
      * @see #setBranchProbability(double)
      * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getBranchTransition_BranchProbability()
@@ -64,7 +64,7 @@ public interface BranchTransition extends CDOObject {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranchProbability
      * <em>Branch Probability</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Branch Probability</em>' attribute.
      * @see #getBranchProbability()
@@ -82,7 +82,7 @@ public interface BranchTransition extends CDOObject {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Branch Branch Transition</em>' container reference.
      * @see #setBranch_BranchTransition(Branch)
      * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getBranchTransition_Branch_BranchTransition()
@@ -97,7 +97,7 @@ public interface BranchTransition extends CDOObject {
      * {@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranch_BranchTransition
      * <em>Branch Branch Transition</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Branch Branch Transition</em>' container reference.
      * @see #getBranch_BranchTransition()
@@ -115,7 +115,7 @@ public interface BranchTransition extends CDOObject {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Branched Behaviour Branch Transition</em>' containment
      *         reference.
      * @see #setBranchedBehaviour_BranchTransition(ScenarioBehaviour)
@@ -131,7 +131,7 @@ public interface BranchTransition extends CDOObject {
      * {@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition
      * <em>Branched Behaviour Branch Transition</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Branched Behaviour Branch Transition</em>' containment
      *            reference.

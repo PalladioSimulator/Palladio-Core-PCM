@@ -35,7 +35,7 @@ import org.palladiosimulator.pcm.core.provider.PalladioComponentModelEditPlugin;
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
+ *
  * @generated
  */
 public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
@@ -43,7 +43,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,7 +51,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
     /**
      * This keeps track of the root adapter factory that delegates to this adapter factory. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ComposedAdapterFactory parentAdapterFactory;
@@ -59,14 +59,14 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
     /**
      * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
     /**
      * This helps manage the child creation extenders. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
@@ -75,14 +75,14 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public EntityItemProviderAdapterFactory() {
@@ -97,7 +97,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceProvidedRoleItemProvider resourceProvidedRoleItemProvider;
@@ -106,7 +106,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -122,7 +122,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceInterfaceRequiringEntityItemProvider resourceInterfaceRequiringEntityItemProvider;
@@ -131,7 +131,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -147,7 +147,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.core.entity.ResourceRequiredRole} instances. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceRequiredRoleItemProvider resourceRequiredRoleItemProvider;
@@ -156,7 +156,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.core.entity.ResourceRequiredRole}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -172,7 +172,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingEntity} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceInterfaceProvidingEntityItemProvider resourceInterfaceProvidingEntityItemProvider;
@@ -181,7 +181,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingEntity}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -197,7 +197,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingRequiringEntity}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceInterfaceProvidingRequiringEntityItemProvider resourceInterfaceProvidingRequiringEntityItemProvider;
@@ -206,7 +206,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingRequiringEntity}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -222,7 +222,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -233,7 +233,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -243,7 +243,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -254,7 +254,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
     /**
      * This implementation substitutes the factory itself as the key for the adapter. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -264,7 +264,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -281,7 +281,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -290,7 +290,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -300,7 +300,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -310,7 +310,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -320,7 +320,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -331,7 +331,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
     /**
      * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -346,7 +346,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -37,7 +37,7 @@ public interface Branch extends AbstractUserAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -54,7 +54,7 @@ public interface Branch extends AbstractUserAction {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Branch Transitions Branch</em>' containment reference list.
      * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getBranch_BranchTransitions_Branch()
      * @see org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranch_BranchTransition
@@ -65,7 +65,7 @@ public interface Branch extends AbstractUserAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self->collect(branchTransitions_Branch.branchProbability)->sum() > 0.999 and self->collect(branchTransitions_Branch.branchProbability)->sum() <1.001'"
      * @generated

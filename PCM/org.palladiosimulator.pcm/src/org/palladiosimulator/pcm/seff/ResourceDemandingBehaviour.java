@@ -49,7 +49,7 @@ public interface ResourceDemandingBehaviour extends Identifier {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -64,7 +64,7 @@ public interface ResourceDemandingBehaviour extends Identifier {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Abstract Loop Action Resource Demanding Behaviour</em>'
      *         container reference.
      * @see #setAbstractLoopAction_ResourceDemandingBehaviour(AbstractLoopAction)
@@ -100,7 +100,7 @@ public interface ResourceDemandingBehaviour extends Identifier {
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Abstract Branch Transition Resource Demanding Behaviour</em>'
      *         container reference.
      * @see #setAbstractBranchTransition_ResourceDemandingBehaviour(AbstractBranchTransition)
@@ -137,7 +137,7 @@ public interface ResourceDemandingBehaviour extends Identifier {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Steps Behaviour</em>' containment reference list.
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getResourceDemandingBehaviour_Steps_Behaviour()
      * @see org.palladiosimulator.pcm.seff.AbstractAction#getResourceDemandingBehaviour_AbstractAction
@@ -149,7 +149,7 @@ public interface ResourceDemandingBehaviour extends Identifier {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() = 1'"
      * @generated
@@ -158,7 +158,7 @@ public interface ResourceDemandingBehaviour extends Identifier {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.steps_Behaviour->select(s|s.oclIsTypeOf(StartAction))->size() = 1'"
      * @generated
@@ -167,7 +167,7 @@ public interface ResourceDemandingBehaviour extends Identifier {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined()) and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined())'"
      * @generated

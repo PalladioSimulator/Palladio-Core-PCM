@@ -50,14 +50,14 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceCallImpl() {
@@ -66,7 +66,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -76,7 +76,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -88,7 +88,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetAction__ResourceCall(
@@ -100,7 +100,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -111,7 +111,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -123,7 +123,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceRequiredRole basicGetResourceRequiredRole__ResourceCall() {
@@ -134,7 +134,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -147,7 +147,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -158,7 +158,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceSignature basicGetSignature__ResourceCall() {
@@ -168,7 +168,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -179,7 +179,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -190,7 +190,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetNumberOfCalls__ResourceCall(final PCMRandomVariable newNumberOfCalls__ResourceCall,
@@ -202,7 +202,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -214,7 +214,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -241,7 +241,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -268,7 +268,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -295,7 +295,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -320,7 +320,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -337,7 +337,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -353,7 +353,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -379,7 +379,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -403,7 +403,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -427,7 +427,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

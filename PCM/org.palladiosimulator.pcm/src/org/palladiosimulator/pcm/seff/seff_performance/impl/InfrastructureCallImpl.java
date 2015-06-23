@@ -50,14 +50,14 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InfrastructureCallImpl() {
@@ -66,7 +66,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -76,7 +76,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -88,7 +88,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public InfrastructureSignature basicGetSignature__InfrastructureCall() {
@@ -99,7 +99,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -111,7 +111,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -123,7 +123,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetNumberOfCalls__InfrastructureCall(
@@ -135,7 +135,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -147,7 +147,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -159,7 +159,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetAction__InfrastructureCall(
@@ -171,7 +171,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -183,7 +183,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -195,7 +195,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public InfrastructureRequiredRole basicGetRequiredRole__InfrastructureCall() {
@@ -206,7 +206,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -219,7 +219,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -246,7 +246,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -273,7 +273,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -300,7 +300,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -326,7 +326,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -343,7 +343,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -359,7 +359,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -385,7 +385,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -409,7 +409,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -433,7 +433,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -45,14 +45,14 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AssemblyConnectorImpl() {
@@ -61,7 +61,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -71,7 +71,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -84,7 +84,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetRequiringAssemblyContext_AssemblyConnector() {
@@ -96,7 +96,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -109,7 +109,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -122,7 +122,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetProvidingAssemblyContext_AssemblyConnector() {
@@ -134,7 +134,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -147,7 +147,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -159,7 +159,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public OperationProvidedRole basicGetProvidedRole_AssemblyConnector() {
@@ -170,7 +170,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -182,7 +182,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -194,7 +194,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public OperationRequiredRole basicGetRequiredRole_AssemblyConnector() {
@@ -205,7 +205,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -217,7 +217,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -245,7 +245,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -273,7 +273,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -300,7 +300,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -332,7 +332,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -356,7 +356,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -380,7 +380,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

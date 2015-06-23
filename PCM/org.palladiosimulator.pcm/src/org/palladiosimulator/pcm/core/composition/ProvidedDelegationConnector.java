@@ -38,7 +38,7 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,7 +51,7 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Inner Provided Role Provided Delegation Connector</em>'
      *         reference.
      * @see #setInnerProvidedRole_ProvidedDelegationConnector(OperationProvidedRole)
@@ -66,7 +66,7 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
      * {@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector
      * <em>Inner Provided Role Provided Delegation Connector</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Inner Provided Role Provided Delegation Connector</em>'
      *            reference.
@@ -83,7 +83,7 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Outer Provided Role Provided Delegation Connector</em>'
      *         reference.
      * @see #setOuterProvidedRole_ProvidedDelegationConnector(OperationProvidedRole)
@@ -98,7 +98,7 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
      * {@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getOuterProvidedRole_ProvidedDelegationConnector
      * <em>Outer Provided Role Provided Delegation Connector</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Outer Provided Role Provided Delegation Connector</em>'
      *            reference.
@@ -115,7 +115,7 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Assembly Context Provided Delegation Connector</em>' reference.
      * @see #setAssemblyContext_ProvidedDelegationConnector(AssemblyContext)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getProvidedDelegationConnector_AssemblyContext_ProvidedDelegationConnector()
@@ -129,7 +129,7 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
      * {@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getAssemblyContext_ProvidedDelegationConnector
      * <em>Assembly Context Provided Delegation Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Assembly Context Provided Delegation Connector</em>'
      *            reference.
@@ -140,7 +140,7 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.parentStructure__Connector = self.assemblyContext_ProvidedDelegationConnector.parentStructure__AssemblyContext'"
      * @generated
@@ -150,7 +150,7 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent__AssemblyContext'"
      * @generated

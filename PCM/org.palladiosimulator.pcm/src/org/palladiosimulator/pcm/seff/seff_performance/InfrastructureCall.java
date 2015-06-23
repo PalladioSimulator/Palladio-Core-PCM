@@ -42,7 +42,7 @@ public interface InfrastructureCall extends CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -87,7 +87,7 @@ public interface InfrastructureCall extends CallAction {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Number Of Calls Infrastructure Call</em>' containment
      *         reference.
      * @see #setNumberOfCalls__InfrastructureCall(PCMRandomVariable)
@@ -103,7 +103,7 @@ public interface InfrastructureCall extends CallAction {
      * {@link org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall#getNumberOfCalls__InfrastructureCall
      * <em>Number Of Calls Infrastructure Call</em>}' containment reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Number Of Calls Infrastructure Call</em>' containment
      *            reference.
@@ -122,7 +122,7 @@ public interface InfrastructureCall extends CallAction {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Action Infrastructure Call</em>' container reference.
      * @see #setAction__InfrastructureCall(AbstractInternalControlFlowAction)
      * @see org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage#getInfrastructureCall_Action__InfrastructureCall()
@@ -137,7 +137,7 @@ public interface InfrastructureCall extends CallAction {
      * {@link org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall#getAction__InfrastructureCall
      * <em>Action Infrastructure Call</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Action Infrastructure Call</em>' container reference.
      * @see #getAction__InfrastructureCall()
@@ -167,7 +167,7 @@ public interface InfrastructureCall extends CallAction {
      * {@link org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall#getRequiredRole__InfrastructureCall
      * <em>Required Role Infrastructure Call</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Required Role Infrastructure Call</em>' reference.
      * @see #getRequiredRole__InfrastructureCall()
@@ -177,7 +177,7 @@ public interface InfrastructureCall extends CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='signature__InfrastructureCall.infrastructureInterface__InfrastructureSignature = requiredRole__InfrastructureCall.requiredInterface__InfrastructureRequiredRole'"
      * @generated
@@ -186,7 +186,7 @@ public interface InfrastructureCall extends CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).oclAsType(pcm::core::entity::InterfaceRequiringEntity).requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole__InfrastructureCall)'"
      * @generated
@@ -195,7 +195,7 @@ public interface InfrastructureCall extends CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.action__InfrastructureCall.infrastructureCall__Action->select(call | call.requiredRole__InfrastructureCall = self.requiredRole__InfrastructureCall and call.signature__InfrastructureCall=self.signature__InfrastructureCall)->size() = 1'"
      * @generated

@@ -50,7 +50,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -64,7 +64,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Parent Complete Component Types</em>' reference list.
      * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getImplementationComponentType_ParentCompleteComponentTypes()
      * @model ordered="false"
@@ -98,7 +98,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Component Type</em>' attribute.
      * @see org.palladiosimulator.pcm.repository.ComponentType
      * @see #setComponentType(ComponentType)
@@ -112,7 +112,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcm.repository.ImplementationComponentType#getComponentType
      * <em>Component Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Component Type</em>' attribute.
      * @see org.palladiosimulator.pcm.repository.ComponentType
@@ -123,7 +123,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='-- ImplementationTypes required Interfaces have to be a subset\n-- of CompleteComponentType required Interfaces #\n--\n-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.\n--\n-- Recursive Query for parent Interface IDs\n-- see \'lpar2005.pdf\' (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #\n--let parentInterfaces : Bag(Interface) =\n--\tself.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc1 : Bag(Interface) = Bag{} |\n--\t\tacc1->union(pt.requiredRoles->iterate(r : RequiredRole; acc2 : Bag(Interface) = Bag{} |\n--\t\t\tacc2->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n--\t\t))\n--\t) in\n--let anchestorInterfaces : Bag(Interface) =\n--\tself.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc3 : Bag(Interface) = Bag{} |\n--\t\tacc3->union(pt.requiredRoles->iterate(r : RequiredRole; acc4 : Bag(Interface) = Bag{} |\n--\t\t\tacc4->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n--\t\t))\n--\t)->union( -- union with anchestors found in former recursion #\n--\t\tself.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc5 : Bag(Interface) = Bag{} |\n--\t\t\tacc5->union(pt.requiredRoles->iterate(r : RequiredRole; acc6 : Bag(Interface) = Bag{} |\n--\t\t\t\tacc6->union(r.requiredInterface.parentInterface.anchestorInterfaces) --already Set/Bag\n--\t\t\t))\n--\t\t)\n--\t) in\n-- Directly required interfaces need to be a subset of required anchestorInterfaces of Supertype #\n--anchestorInterfaces.identifier.id->includesAll(\n--\tself.requiredRoles->iterate(p : RequiredRole; acc7 : Bag(String) = Bag{} |\n--\t\tacc7->union(p.requiredInterface.identifier.id->asBag())\n--\t)\t\n--)\ntrue'"
      * @generated
@@ -132,7 +132,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='-- ### EXACT COPY FROM ABOVE ###\n-- ImplementationComponentTypes provided Interfaces have to be a superset\n-- of CompleteComponentType provided Interfaces #\n--\n-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.\n--\n-- Recursive Query for parent Interface IDs\n-- see \'lpar2005.pdf\' (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #\n--let parentInterfaces : Bag(Interface) =\n--\tself.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |\n--\t\tacc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n--\t) in\n--let anchestorInterfaces : Bag(Interface) =\n--\tself.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |\n--\t\tacc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n--\t)->union( -- union with anchestors found in former recursion #\n--\t\tself.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |\n--\t\t\tacc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag\n--\t\t)\n--\t) in\n\t-- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #\n--\tanchestorInterfaces.identifier.id->includesAll(\n--\t\tself.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |\n--\t\t\tpt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |\n--\t\t\t\tacc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #\n--\t\t\t)\n--\t\t)\n--\t)\ntrue'"
      * @generated
@@ -141,7 +141,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='-- assures that InfrastructureComponents only have InfrastructureInterfaces and that BusinessComponents only have OperationInterfaces or EventGroups\nif self.componentType = ComponentType::INFRASTRUCTURE_COMPONENT then\n\tself.providedRoles_InterfaceProvidingEntity->select(role | role.oclIsTypeOf(OperationInterface) or role.oclIsTypeOf(EventGroup))->size() = 0\nelse if self.componentType = ComponentType::BUSINESS_COMPONENT then\n\tself.providedRoles_InterfaceProvidingEntity->select(role | role.oclIsTypeOf(InfrastructureInterface))->size() = 0\nelse\n\t1 = 0\nendif\nendif'"
      * @generated
@@ -150,7 +150,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='-- ImplementationComponent has to provide the same or more interfaces like the CompleteComponentType (if set) #\n\tif\n\t\t -- apply constraint only for non-empty CompleteComponentTypes #\n\t\tself.parentCompleteComponentTypes->notEmpty()\n\tthen\n\t\tlet\n\t\t\t--own interfaces:\n\t\t\townInterfaces : Set(OperationInterface)\n\t\t\t  = self.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole)->asSet()\n    in    \n    \t--complete type interfaces:\n    \tself.parentCompleteComponentTypes->forAll\n      ( p : CompleteComponentType |\n        (\n        \tp.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole)->asSet()\n        \t-\n        \townInterfaces\n      \t)->isEmpty()\n    \t)\n\telse\n\t\ttrue\n\tendif'"
      * @generated
@@ -160,7 +160,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='-- ImplementationComponent has to require the same or fewer interfaces like the CompleteComponentType (if set) #\n\tif\n\t\t-- apply constraint only for non-empty CompleteComponentTypes #\n\t\tself.parentCompleteComponentTypes->notEmpty()\n\tthen\n\t    let\n\t      --own interfaces:\n\t      ownInterfaces : Set(OperationInterface) \n\t        = self.requiredRoles_InterfaceRequiringEntity->select(rr|rr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole)->asSet()\n\t    in\n\t      --complete type interfaces:\n\t      self.parentCompleteComponentTypes->forAll\n\t      ( p : CompleteComponentType |\n\t      \t(\n\t\t      \townInterfaces\n\t\t        -\n\t\t        p.requiredRoles_InterfaceRequiringEntity->select(rr|rr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole)->asSet()\n\t      \t)->isEmpty()\n\t    \t)\n\telse\n\t\ttrue\n\tendif'"
      * @generated

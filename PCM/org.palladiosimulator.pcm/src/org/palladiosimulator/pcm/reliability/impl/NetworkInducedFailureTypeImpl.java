@@ -37,14 +37,14 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected NetworkInducedFailureTypeImpl() {
@@ -53,7 +53,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -63,7 +63,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -76,7 +76,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public CommunicationLinkResourceType basicGetCommunicationLinkResourceType__NetworkInducedFailureType() {
@@ -88,7 +88,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetCommunicationLinkResourceType__NetworkInducedFailureType(
@@ -102,7 +102,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -116,7 +116,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -143,7 +143,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -165,7 +165,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -180,7 +180,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -197,7 +197,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -212,7 +212,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -227,7 +227,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

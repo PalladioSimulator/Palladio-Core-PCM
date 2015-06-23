@@ -19,14 +19,14 @@ import org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity;
  * This is the item provider adapter for a
  * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class ResourceInterfaceRequiringEntityItemProvider extends EntityItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -34,7 +34,7 @@ public class ResourceInterfaceRequiringEntityItemProvider extends EntityItemProv
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceInterfaceRequiringEntityItemProvider(final AdapterFactory adapterFactory) {
@@ -44,7 +44,7 @@ public class ResourceInterfaceRequiringEntityItemProvider extends EntityItemProv
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -62,7 +62,7 @@ public class ResourceInterfaceRequiringEntityItemProvider extends EntityItemProv
      * {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -77,7 +77,7 @@ public class ResourceInterfaceRequiringEntityItemProvider extends EntityItemProv
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -91,7 +91,7 @@ public class ResourceInterfaceRequiringEntityItemProvider extends EntityItemProv
     /**
      * This returns ResourceInterfaceRequiringEntity.gif. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -103,7 +103,7 @@ public class ResourceInterfaceRequiringEntityItemProvider extends EntityItemProv
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -117,7 +117,7 @@ public class ResourceInterfaceRequiringEntityItemProvider extends EntityItemProv
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -135,7 +135,7 @@ public class ResourceInterfaceRequiringEntityItemProvider extends EntityItemProv
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

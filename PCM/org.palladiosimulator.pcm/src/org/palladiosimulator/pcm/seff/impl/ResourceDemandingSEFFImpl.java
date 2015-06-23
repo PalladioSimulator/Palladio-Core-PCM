@@ -65,7 +65,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -82,7 +82,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceDemandingSEFFImpl() {
@@ -91,7 +91,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -101,7 +101,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -112,7 +112,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -123,7 +123,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -134,7 +134,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public Signature basicGetDescribedService__SEFF() {
@@ -144,7 +144,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -155,7 +155,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -168,7 +168,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetBasicComponent_ServiceEffectSpecification(
@@ -180,7 +180,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -193,7 +193,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -206,7 +206,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetAbstractLoopAction_ResourceDemandingBehaviour(
@@ -218,7 +218,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -231,7 +231,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -244,7 +244,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
@@ -257,7 +257,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -270,7 +270,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -282,7 +282,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -295,7 +295,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -323,7 +323,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -349,7 +349,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -375,7 +375,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -402,7 +402,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -437,7 +437,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -460,7 +460,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -483,7 +483,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -512,7 +512,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -549,7 +549,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -582,7 +582,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -609,7 +609,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -643,7 +643,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

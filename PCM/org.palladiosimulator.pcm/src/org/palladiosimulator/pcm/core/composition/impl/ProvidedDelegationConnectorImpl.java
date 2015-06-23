@@ -41,14 +41,14 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ProvidedDelegationConnectorImpl() {
@@ -57,7 +57,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -67,7 +67,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -80,7 +80,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public OperationProvidedRole basicGetInnerProvidedRole_ProvidedDelegationConnector() {
@@ -92,7 +92,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -106,7 +106,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -119,7 +119,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public OperationProvidedRole basicGetOuterProvidedRole_ProvidedDelegationConnector() {
@@ -131,7 +131,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -145,7 +145,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -158,7 +158,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext_ProvidedDelegationConnector() {
@@ -170,7 +170,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -184,7 +184,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -211,7 +211,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -238,7 +238,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -265,7 +265,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -286,7 +286,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -307,7 +307,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

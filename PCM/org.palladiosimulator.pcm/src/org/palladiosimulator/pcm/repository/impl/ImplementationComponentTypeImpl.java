@@ -48,7 +48,7 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -56,7 +56,7 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
     /**
      * The default value of the '{@link #getComponentType() <em>Component Type</em>}' attribute.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getComponentType()
      * @generated
      * @ordered
@@ -65,7 +65,7 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ImplementationComponentTypeImpl() {
@@ -74,7 +74,7 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -84,7 +84,7 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -97,7 +97,7 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -111,7 +111,7 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -122,7 +122,7 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -133,7 +133,7 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -160,7 +160,7 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -187,7 +187,7 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -214,7 +214,7 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -241,7 +241,7 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -268,7 +268,7 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -284,7 +284,7 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -302,7 +302,7 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -327,7 +327,7 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -348,7 +348,7 @@ public abstract class ImplementationComponentTypeImpl extends RepositoryComponen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

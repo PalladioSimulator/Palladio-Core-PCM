@@ -17,14 +17,14 @@ import org.palladiosimulator.pcm.core.composition.SourceDelegationConnector;
  * This is the item provider adapter for a
  * {@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class SourceDelegationConnectorItemProvider extends DelegationConnectorItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -32,7 +32,7 @@ public class SourceDelegationConnectorItemProvider extends DelegationConnectorIt
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SourceDelegationConnectorItemProvider(final AdapterFactory adapterFactory) {
@@ -42,7 +42,7 @@ public class SourceDelegationConnectorItemProvider extends DelegationConnectorIt
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -60,7 +60,7 @@ public class SourceDelegationConnectorItemProvider extends DelegationConnectorIt
     /**
      * This adds a property descriptor for the Inner Source Role Source Role feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addInnerSourceRole__SourceRolePropertyDescriptor(final Object object) {
@@ -77,7 +77,7 @@ public class SourceDelegationConnectorItemProvider extends DelegationConnectorIt
     /**
      * This adds a property descriptor for the Outer Source Role Source Role feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addOuterSourceRole__SourceRolePropertyDescriptor(final Object object) {
@@ -94,7 +94,7 @@ public class SourceDelegationConnectorItemProvider extends DelegationConnectorIt
     /**
      * This adds a property descriptor for the Assembly Context Source Delegation Connector feature.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addAssemblyContext__SourceDelegationConnectorPropertyDescriptor(final Object object) {
@@ -110,7 +110,7 @@ public class SourceDelegationConnectorItemProvider extends DelegationConnectorIt
 
     /**
      * This returns SourceDelegationConnector.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -121,7 +121,7 @@ public class SourceDelegationConnectorItemProvider extends DelegationConnectorIt
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -135,7 +135,7 @@ public class SourceDelegationConnectorItemProvider extends DelegationConnectorIt
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -147,7 +147,7 @@ public class SourceDelegationConnectorItemProvider extends DelegationConnectorIt
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

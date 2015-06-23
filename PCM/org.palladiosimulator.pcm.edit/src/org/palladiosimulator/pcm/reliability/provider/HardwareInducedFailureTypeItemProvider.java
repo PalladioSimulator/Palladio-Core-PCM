@@ -17,14 +17,14 @@ import org.palladiosimulator.pcm.reliability.ReliabilityPackage;
  * This is the item provider adapter for a
  * {@link org.palladiosimulator.pcm.reliability.HardwareInducedFailureType} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class HardwareInducedFailureTypeItemProvider extends FailureTypeItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -32,7 +32,7 @@ public class HardwareInducedFailureTypeItemProvider extends FailureTypeItemProvi
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public HardwareInducedFailureTypeItemProvider(final AdapterFactory adapterFactory) {
@@ -42,7 +42,7 @@ public class HardwareInducedFailureTypeItemProvider extends FailureTypeItemProvi
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -58,7 +58,7 @@ public class HardwareInducedFailureTypeItemProvider extends FailureTypeItemProvi
     /**
      * This adds a property descriptor for the Processing Resource Type Hardware Induced Failure
      * Type feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addProcessingResourceType__HardwareInducedFailureTypePropertyDescriptor(final Object object) {
@@ -75,7 +75,7 @@ public class HardwareInducedFailureTypeItemProvider extends FailureTypeItemProvi
 
     /**
      * This returns HardwareInducedFailureType.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -103,7 +103,7 @@ public class HardwareInducedFailureTypeItemProvider extends FailureTypeItemProvi
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -115,7 +115,7 @@ public class HardwareInducedFailureTypeItemProvider extends FailureTypeItemProvi
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

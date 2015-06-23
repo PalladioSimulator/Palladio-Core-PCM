@@ -18,14 +18,14 @@ import org.palladiosimulator.pcm.seff.SetVariableAction;
 /**
  * This is the item provider adapter for a {@link org.palladiosimulator.pcm.seff.SetVariableAction}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class SetVariableActionItemProvider extends AbstractInternalControlFlowActionItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -33,7 +33,7 @@ public class SetVariableActionItemProvider extends AbstractInternalControlFlowAc
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SetVariableActionItemProvider(final AdapterFactory adapterFactory) {
@@ -43,7 +43,7 @@ public class SetVariableActionItemProvider extends AbstractInternalControlFlowAc
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -61,7 +61,7 @@ public class SetVariableActionItemProvider extends AbstractInternalControlFlowAc
      * {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -76,7 +76,7 @@ public class SetVariableActionItemProvider extends AbstractInternalControlFlowAc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -89,7 +89,7 @@ public class SetVariableActionItemProvider extends AbstractInternalControlFlowAc
 
     /**
      * This returns SetVariableAction.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -100,7 +100,7 @@ public class SetVariableActionItemProvider extends AbstractInternalControlFlowAc
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -114,7 +114,7 @@ public class SetVariableActionItemProvider extends AbstractInternalControlFlowAc
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -132,7 +132,7 @@ public class SetVariableActionItemProvider extends AbstractInternalControlFlowAc
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -48,14 +48,14 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected QoSAnnotationsImpl() {
@@ -64,7 +64,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -74,7 +74,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -88,7 +88,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -100,7 +100,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetSystem_QoSAnnotations(
@@ -112,7 +112,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -123,7 +123,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -136,7 +136,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -163,7 +163,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -187,7 +187,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -207,7 +207,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -222,7 +222,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -240,7 +240,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -266,7 +266,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -287,7 +287,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

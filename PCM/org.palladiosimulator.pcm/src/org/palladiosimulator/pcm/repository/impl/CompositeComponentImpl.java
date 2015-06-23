@@ -53,7 +53,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -61,7 +61,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
     /**
      * The default value of the '{@link #getComponentType() <em>Component Type</em>}' attribute.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getComponentType()
      * @generated
      * @ordered
@@ -70,7 +70,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected CompositeComponentImpl() {
@@ -79,7 +79,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -89,7 +89,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -100,7 +100,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetRepository__RepositoryComponent(
@@ -112,7 +112,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -124,7 +124,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -137,7 +137,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -151,7 +151,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -162,7 +162,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -173,7 +173,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -200,7 +200,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -227,7 +227,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -254,7 +254,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -281,7 +281,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -308,7 +308,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -325,7 +325,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -343,7 +343,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -358,7 +358,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -378,7 +378,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -406,7 +406,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -430,7 +430,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -450,7 +450,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -480,7 +480,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -42,14 +42,14 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InternalFailureOccurrenceDescriptionImpl() {
@@ -58,7 +58,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -68,7 +68,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -81,7 +81,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetInternalAction__InternalFailureOccurrenceDescription(
@@ -94,7 +94,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -108,7 +108,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -121,7 +121,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SoftwareInducedFailureType basicGetSoftwareInducedFailureType__InternalFailureOccurrenceDescription() {
@@ -133,7 +133,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetSoftwareInducedFailureType__InternalFailureOccurrenceDescription(
@@ -148,7 +148,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -162,7 +162,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -190,7 +190,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -218,7 +218,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -235,7 +235,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -251,7 +251,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -270,7 +270,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -289,7 +289,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -307,7 +307,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -48,7 +48,7 @@ public interface ComposedStructure extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -65,7 +65,7 @@ public interface ComposedStructure extends Entity {
      * list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Assembly Contexts Composed Structure</em>' containment
      *         reference list.
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getComposedStructure_AssemblyContexts__ComposedStructure()
@@ -88,7 +88,7 @@ public interface ComposedStructure extends Entity {
      * containment reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Resource Required Delegation Connectors Composed Structure</em>
      *         ' containment reference list.
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getComposedStructure_ResourceRequiredDelegationConnectors_ComposedStructure()
@@ -111,7 +111,7 @@ public interface ComposedStructure extends Entity {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Event Channel Composed Structure</em>' containment reference
      *         list.
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getComposedStructure_EventChannel__ComposedStructure()
@@ -133,7 +133,7 @@ public interface ComposedStructure extends Entity {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Connectors Composed Structure</em>' containment reference list.
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getComposedStructure_Connectors__ComposedStructure()
      * @see org.palladiosimulator.pcm.core.composition.Connector#getParentStructure__Connector
@@ -144,7 +144,7 @@ public interface ComposedStructure extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->forAll( c1, c2 | c1 <> c2 implies c1.outerProvidedRole_ProvidedDelegationConnector <> c2.outerProvidedRole_ProvidedDelegationConnector)\n'"
      * @generated
@@ -153,7 +153,7 @@ public interface ComposedStructure extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::AssemblyConnector)).oclAsType(AssemblyConnector)->forAll( c1, c2 | ( (c1 <> c2) and ( c1.requiringAssemblyContext_AssemblyConnector = c2.requiringAssemblyContext_AssemblyConnector ) ) implies c1.requiredRole_AssemblyConnector <> c2.requiredRole_AssemblyConnector )\n'"
      * @generated

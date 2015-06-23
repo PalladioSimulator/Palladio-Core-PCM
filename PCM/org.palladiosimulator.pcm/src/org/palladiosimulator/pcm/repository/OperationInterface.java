@@ -33,7 +33,7 @@ public interface OperationInterface extends Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -59,7 +59,7 @@ public interface OperationInterface extends Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='-- full signature has to be unique \n-- (use of ocl-tupels) #\nlet sigs : Bag(\n\t-- parameters: Sequence of DataType, NOT name #\n\t-- exceptions have not to be considered #\n\tTuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) \n) = \nself.signatures__OperationInterface->collect(sig : OperationSignature |\n\tTuple{\n\t\treturnType : DataType = sig.returnType__OperationSignature,\n\t\tserviceName : String = sig.entityName,\n\t\tparameters : Sequence(DataType) = sig.parameters__OperationSignature.dataType__Parameter\n\t}\n)\nin\nsigs->isUnique(s|s)'"
      * @generated

@@ -25,14 +25,14 @@ import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
  * This is the item provider adapter for a
  * {@link org.palladiosimulator.pcm.resourceenvironment.CommunicationLinkResourceSpecification}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class CommunicationLinkResourceSpecificationItemProvider extends IdentifierItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -40,7 +40,7 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public CommunicationLinkResourceSpecificationItemProvider(final AdapterFactory adapterFactory) {
@@ -50,7 +50,7 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -67,7 +67,7 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
     /**
      * This adds a property descriptor for the Failure Probability feature. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addFailureProbabilityPropertyDescriptor(final Object object) {
@@ -84,7 +84,7 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
     /**
      * This adds a property descriptor for the Communication Link Resource Type Communication Link
      * Resource Specification feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addCommunicationLinkResourceType_CommunicationLinkResourceSpecificationPropertyDescriptor(
@@ -106,7 +106,7 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
      * {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -123,7 +123,7 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -137,7 +137,7 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
     /**
      * This returns CommunicationLinkResourceSpecification.gif. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -172,7 +172,7 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -194,7 +194,7 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -213,7 +213,7 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
     /**
      * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -235,7 +235,7 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

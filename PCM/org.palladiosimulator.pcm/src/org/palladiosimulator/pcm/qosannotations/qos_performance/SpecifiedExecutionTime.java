@@ -44,7 +44,7 @@ public interface SpecifiedExecutionTime extends SpecifiedQoSAnnotation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -59,7 +59,7 @@ public interface SpecifiedExecutionTime extends SpecifiedQoSAnnotation {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Specification Specified Execution Time</em>' containment
      *         reference.
      * @see #setSpecification_SpecifiedExecutionTime(PCMRandomVariable)
@@ -75,7 +75,7 @@ public interface SpecifiedExecutionTime extends SpecifiedQoSAnnotation {
      * {@link org.palladiosimulator.pcm.qosannotations.qos_performance.SpecifiedExecutionTime#getSpecification_SpecifiedExecutionTime
      * <em>Specification Specified Execution Time</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Specification Specified Execution Time</em>' containment
      *            reference.

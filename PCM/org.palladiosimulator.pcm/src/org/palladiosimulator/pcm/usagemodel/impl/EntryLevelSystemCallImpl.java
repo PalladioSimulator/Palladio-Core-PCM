@@ -52,7 +52,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -69,7 +69,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected EntryLevelSystemCallImpl() {
@@ -78,7 +78,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -88,7 +88,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -100,7 +100,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public OperationProvidedRole basicGetProvidedRole_EntryLevelSystemCall() {
@@ -111,7 +111,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -123,7 +123,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -136,7 +136,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public OperationSignature basicGetOperationSignature__EntryLevelSystemCall() {
@@ -148,7 +148,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -161,7 +161,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -175,7 +175,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -186,7 +186,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -197,7 +197,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -211,7 +211,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -238,7 +238,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -265,7 +265,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -285,7 +285,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -303,7 +303,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -331,7 +331,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -361,7 +361,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -388,7 +388,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

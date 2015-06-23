@@ -57,14 +57,14 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected RecoveryActionBehaviourImpl() {
@@ -73,7 +73,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -83,7 +83,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -96,7 +96,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetAbstractLoopAction_ResourceDemandingBehaviour(
@@ -109,7 +109,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -123,7 +123,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -136,7 +136,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
@@ -150,7 +150,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -164,7 +164,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -177,7 +177,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -191,7 +191,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -204,7 +204,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetRecoveryAction__RecoveryActionBehaviour(
@@ -216,7 +216,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -229,7 +229,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -255,7 +255,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -281,7 +281,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -308,7 +308,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -335,7 +335,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -362,7 +362,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -389,7 +389,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -421,7 +421,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -442,7 +442,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -465,7 +465,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -487,7 +487,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -518,7 +518,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -545,7 +545,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -567,7 +567,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -589,7 +589,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

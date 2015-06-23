@@ -38,7 +38,7 @@ public interface FailureOccurrenceDescription extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,7 +51,7 @@ public interface FailureOccurrenceDescription extends CDOObject {
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Failure Probability</em>' attribute.
      * @see #setFailureProbability(double)
      * @see org.palladiosimulator.pcm.reliability.ReliabilityPackage#getFailureOccurrenceDescription_FailureProbability()
@@ -64,7 +64,7 @@ public interface FailureOccurrenceDescription extends CDOObject {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcm.reliability.FailureOccurrenceDescription#getFailureProbability
      * <em>Failure Probability</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Failure Probability</em>' attribute.
      * @see #getFailureProbability()
@@ -74,7 +74,7 @@ public interface FailureOccurrenceDescription extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='(self.failureProbability.oclAsType(Real) <= 1.0) and (self.failureProbability.oclAsType(Real) >= 0.0)'"
      * @generated

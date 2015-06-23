@@ -21,7 +21,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 /**
  * This is the item provider adapter for a {@link org.palladiosimulator.pcm.DummyClass} object. <!--
  * begin-user-doc --> <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class DummyClassItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
@@ -29,7 +29,7 @@ public class DummyClassItemProvider extends ItemProviderAdapter implements IEdit
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -37,7 +37,7 @@ public class DummyClassItemProvider extends ItemProviderAdapter implements IEdit
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public DummyClassItemProvider(final AdapterFactory adapterFactory) {
@@ -47,7 +47,7 @@ public class DummyClassItemProvider extends ItemProviderAdapter implements IEdit
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -61,7 +61,7 @@ public class DummyClassItemProvider extends ItemProviderAdapter implements IEdit
 
     /**
      * This returns DummyClass.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -72,7 +72,7 @@ public class DummyClassItemProvider extends ItemProviderAdapter implements IEdit
     /**
      * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -84,7 +84,7 @@ public class DummyClassItemProvider extends ItemProviderAdapter implements IEdit
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -96,7 +96,7 @@ public class DummyClassItemProvider extends ItemProviderAdapter implements IEdit
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -107,7 +107,7 @@ public class DummyClassItemProvider extends ItemProviderAdapter implements IEdit
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

@@ -21,14 +21,14 @@ import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
  * This is the item provider adapter for a
  * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
+ *
  * @generated
  */
 public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -36,7 +36,7 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     public EntryLevelSystemCallItemProvider(final AdapterFactory adapterFactory) {
@@ -46,7 +46,7 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -64,7 +64,7 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
     /**
      * This adds a property descriptor for the Provided Role Entry Level System Call feature. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addProvidedRole_EntryLevelSystemCallPropertyDescriptor(final Object object) {
@@ -81,7 +81,7 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
     /**
      * This adds a property descriptor for the Operation Signature Entry Level System Call feature.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addOperationSignature__EntryLevelSystemCallPropertyDescriptor(final Object object) {
@@ -98,7 +98,7 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
     /**
      * This adds a property descriptor for the Priority feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected void addPriorityPropertyDescriptor(final Object object) {
@@ -117,7 +117,7 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
      * {@link org.eclipse.emf.edit.command.RemoveCommand} or
      * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -134,7 +134,7 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -147,7 +147,7 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
 
     /**
      * This returns EntryLevelSystemCall.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -174,7 +174,7 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -196,7 +196,7 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -215,7 +215,7 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
     /**
      * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

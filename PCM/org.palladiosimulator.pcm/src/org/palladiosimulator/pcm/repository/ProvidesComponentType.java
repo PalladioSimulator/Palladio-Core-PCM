@@ -35,14 +35,14 @@ public interface ProvidesComponentType extends RepositoryComponent {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.oclIsTypeOf(ProvidesComponentType)\nimplies\nself.providedRoles_InterfaceProvidingEntity->size() >= 1'"
      * @generated

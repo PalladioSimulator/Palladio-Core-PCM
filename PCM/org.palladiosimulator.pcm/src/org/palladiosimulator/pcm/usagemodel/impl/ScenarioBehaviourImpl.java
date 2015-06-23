@@ -52,14 +52,14 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ScenarioBehaviourImpl() {
@@ -68,7 +68,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -78,7 +78,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -89,7 +89,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetUsageScenario_SenarioBehaviour(
@@ -101,7 +101,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -113,7 +113,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -125,7 +125,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetBranchTransition_ScenarioBehaviour(
@@ -137,7 +137,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -149,7 +149,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -160,7 +160,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetLoop_ScenarioBehaviour(final Loop newLoop_ScenarioBehaviour,
@@ -172,7 +172,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -183,7 +183,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -196,7 +196,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -222,7 +222,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -248,7 +248,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -276,7 +276,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -307,7 +307,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -328,7 +328,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -350,7 +350,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -370,7 +370,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -396,7 +396,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -420,7 +420,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

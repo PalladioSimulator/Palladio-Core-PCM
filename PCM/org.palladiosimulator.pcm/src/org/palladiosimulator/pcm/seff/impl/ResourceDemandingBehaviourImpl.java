@@ -48,14 +48,14 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceDemandingBehaviourImpl() {
@@ -64,7 +64,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -74,7 +74,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -87,7 +87,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetAbstractLoopAction_ResourceDemandingBehaviour(
@@ -99,7 +99,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -112,7 +112,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -125,7 +125,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
@@ -139,7 +139,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -153,7 +153,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -165,7 +165,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -191,7 +191,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -217,7 +217,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -244,7 +244,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -271,7 +271,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -290,7 +290,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -309,7 +309,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -327,7 +327,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -350,7 +350,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -371,7 +371,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

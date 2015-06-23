@@ -45,7 +45,7 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -80,7 +80,7 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Recovery Action Recovery Action Behaviour</em>' container
      *         reference.
      * @see #setRecoveryAction__RecoveryActionBehaviour(RecoveryAction)
@@ -96,7 +96,7 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
      * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour
      * <em>Recovery Action Recovery Action Behaviour</em>}' container reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Recovery Action Recovery Action Behaviour</em>'
      *            container reference.
@@ -107,7 +107,7 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->\n\texists(x,y:RecoveryActionBehaviour | x<>y\n\t\tand x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)\n\t\tand y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))'"
      * @generated
@@ -116,7 +116,7 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not self.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)'"
      * @generated
@@ -125,7 +125,7 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @model annotation=
      *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not self.failureHandlingAlternatives__RecoveryActionBehaviour->\n\texists(x,y:RecoveryActionBehaviour | x<>y and\n\tx.failureTypes_FailureHandlingEntity->\n\t\texists(f:pcm::reliability::FailureType |\n\t\ty.failureTypes_FailureHandlingEntity->includes(f)))'"
      * @generated
