@@ -45,7 +45,7 @@ protected org.eclipse.emf.ecore.EObject getElementToEdit() {
 	// 	return null;
 	// }
 	org.eclipse.emf.ecore.resource.Resource resource = getElementToEdit().eResource();
-	de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer newElement = de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory.eINSTANCE.createResourceContainer();
+	org.palladiosimulator.pcm.resourceenvironment.ResourceContainer newElement = org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentFactory.eINSTANCE.createResourceContainer();
 
 	resource.getContents().add(newElement);
 
@@ -61,7 +61,7 @@ protected org.eclipse.emf.ecore.EObject getElementToEdit() {
 		/**
  * @generated
  */
-	protected void doConfigure(de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer newElement, org.eclipse.core.runtime.IProgressMonitor monitor, org.eclipse.core.runtime.IAdaptable info) throws org.eclipse.core.commands.ExecutionException {
+	protected void doConfigure(org.palladiosimulator.pcm.resourceenvironment.ResourceContainer newElement, org.eclipse.core.runtime.IProgressMonitor monitor, org.eclipse.core.runtime.IAdaptable info) throws org.eclipse.core.commands.ExecutionException {
 		org.eclipse.gmf.runtime.emf.type.core.IElementType elementType = ((org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest) getRequest()).getElementType();
 		org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest configureRequest = new org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest(getEditingDomain(), newElement, elementType);
 		configureRequest.setClientContext(((org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest) getRequest()).getClientContext());

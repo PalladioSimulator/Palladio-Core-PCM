@@ -12,7 +12,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.usagemodel.Loop;
+import org.palladiosimulator.pcm.usagemodel.Loop;
 
 /**
  * @generated

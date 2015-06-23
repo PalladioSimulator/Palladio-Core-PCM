@@ -9,10 +9,10 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
-import de.uka.ipd.sdq.pcm.core.CoreFactory;
-import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
+import org.palladiosimulator.pcm.core.CoreFactory;
+import org.palladiosimulator.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.InfrastructureCallCreateCommand;
-import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
+import org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction;
 
 /**
  * The customized infrastructure call create command class.
@@ -55,7 +55,7 @@ public class CustomInfrastructureCallCreateCommand extends InfrastructureCallCre
     @Override
     protected CommandResult doExecuteWithResult(final IProgressMonitor monitor, final IAdaptable info)
             throws ExecutionException {
-        final de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall newElement = de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformanceFactory.eINSTANCE
+        final org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall newElement = org.palladiosimulator.pcm.seff.seff_performance.SeffPerformanceFactory.eINSTANCE
                 .createInfrastructureCall();
         // add empty random variable
         final PCMRandomVariable numberOfCalls = CoreFactory.eINSTANCE.createPCMRandomVariable();

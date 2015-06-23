@@ -39,7 +39,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.OpenCompositeDiagramEditP
 import de.uka.ipd.sdq.pcm.gmf.repository.part.Messages;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelDiagramEditorUtil;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
-import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
+import org.palladiosimulator.pcm.repository.CompositeComponent;
 
 /**
  * A custom openCompositeDiagram EditPolicy.

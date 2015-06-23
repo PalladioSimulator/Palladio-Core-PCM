@@ -21,7 +21,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import org.palladiosimulator.pcm.dialogs.seff.OpenBranchConditionDialog;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart;
-import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
+import org.palladiosimulator.pcm.seff.GuardedBranchTransition;
 
 /**
  * The customized guarded branch transition id edit part class.

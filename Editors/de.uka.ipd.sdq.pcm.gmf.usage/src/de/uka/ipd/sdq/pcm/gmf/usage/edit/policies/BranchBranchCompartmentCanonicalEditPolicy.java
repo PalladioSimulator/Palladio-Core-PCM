@@ -13,7 +13,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.usagemodel.Branch;
+import org.palladiosimulator.pcm.usagemodel.Branch;
 
 /**
  * @generated

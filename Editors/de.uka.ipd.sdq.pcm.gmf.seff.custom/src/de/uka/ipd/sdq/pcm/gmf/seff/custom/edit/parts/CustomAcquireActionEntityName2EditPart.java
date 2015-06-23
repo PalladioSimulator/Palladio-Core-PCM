@@ -8,7 +8,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEntityName2EditPart;
-import de.uka.ipd.sdq.pcm.seff.AcquireAction;
+import org.palladiosimulator.pcm.seff.AcquireAction;
 
 /**
  * The customized acquire action entity name2 edit part class.

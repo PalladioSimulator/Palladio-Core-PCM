@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.pcm.gmf.allocation.part;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
 
 /**
  * This wizard page uses the regular resource selector page, but checks the type of the resource

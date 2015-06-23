@@ -14,10 +14,10 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 import org.palladiosimulator.pcm.dialogs.selection.PalladioSelectEObjectDialog;
 
-import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.core.composition.EventChannel;
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import org.palladiosimulator.pcm.allocation.AllocationPackage;
+import org.palladiosimulator.pcm.core.composition.AssemblyContext;
+import org.palladiosimulator.pcm.core.composition.EventChannel;
+import org.palladiosimulator.pcm.core.entity.EntityPackage;
 
 /**
  * Edit helper advice for Allocation Context. Creates an dialog and initializes allocation contexts
@@ -42,7 +42,7 @@ public class AllocationContextEditHelperAdvice extends AbstractEditHelperAdvice 
      */
     private PalladioSelectEObjectDialog constructDialog(final ConfigureRequest request) {
         final ArrayList<Object> filterList = new ArrayList<Object>();
-        filterList.add(de.uka.ipd.sdq.pcm.system.System.class);
+        filterList.add(org.palladiosimulator.pcm.system.System.class);
         filterList.add(AssemblyContext.class);
         filterList.add(EventChannel.class);
 

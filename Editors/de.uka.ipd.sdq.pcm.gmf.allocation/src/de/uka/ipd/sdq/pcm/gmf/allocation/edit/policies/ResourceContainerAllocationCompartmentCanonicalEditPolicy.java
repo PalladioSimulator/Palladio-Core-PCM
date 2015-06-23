@@ -24,7 +24,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+import org.palladiosimulator.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationContextEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelDiagramUpdater;
 import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelNodeDescriptor;

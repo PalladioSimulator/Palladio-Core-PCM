@@ -7,7 +7,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InfrastructureSignatureEditPart;
-import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
+import org.palladiosimulator.pcm.repository.InfrastructureSignature;
 import de.uka.ipd.sdq.pcmbench.ui.provider.SignaturePrinter;
 
 /**

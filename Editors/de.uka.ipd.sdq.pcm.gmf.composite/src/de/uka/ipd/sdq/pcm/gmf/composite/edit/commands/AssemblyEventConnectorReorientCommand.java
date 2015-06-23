@@ -11,11 +11,11 @@ import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector;
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
+import org.palladiosimulator.pcm.core.composition.AssemblyEventConnector;
+import org.palladiosimulator.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
-import de.uka.ipd.sdq.pcm.repository.SinkRole;
-import de.uka.ipd.sdq.pcm.repository.SourceRole;
+import org.palladiosimulator.pcm.repository.SinkRole;
+import org.palladiosimulator.pcm.repository.SourceRole;
 
 /**
  * @generated

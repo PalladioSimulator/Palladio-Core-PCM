@@ -175,7 +175,7 @@ public class PalladioComponentModelPaletteFactory {
                 Collections.singletonList(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002));
         entry.setId("createUsageFlow1CreationTool"); //$NON-NLS-1$
         entry.setSmallIcon(PalladioComponentModelUsageDiagramEditorPlugin
-                .findImageDescriptor("/de.uka.ipd.sdq.pcm.edit/icons/full/ctool16/ControlFlow.gif")); //$NON-NLS-1$
+                .findImageDescriptor("/org.palladiosimulator.pcm.edit/icons/full/ctool16/ControlFlow.gif")); //$NON-NLS-1$
         entry.setLargeIcon(entry.getSmallIcon());
         return entry;
     }

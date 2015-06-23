@@ -55,7 +55,7 @@ graphically.
       <import plugin="org.eclipse.gmf.runtime.common.core"/>
       <import plugin="org.eclipse.gmf.runtime.common.ui"/>
       <import plugin="org.eclipse.gmf.runtime.emf.type.core"/>
-      <import plugin="de.uka.ipd.sdq.pcm.editor"/>
+      <import plugin="org.palladiosimulator.pcm.editor"/>
       <import plugin="de.uka.ipd.sdq.pcm.gmf.resource" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.jface.text"/>
       <import plugin="org.eclipse.ui.editors" version="3.7.0" match="greaterOrEqual"/>
@@ -74,7 +74,7 @@ graphically.
       <import plugin="de.uka.ipd.sdq.pcm.gmf.seff" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm.gmf.allocation" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm" version="4.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.pcm.edit" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.pcm.edit" version="3.6.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.identifier" version="2.1.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.identifier.edit" version="2.1.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.probfunction" version="2.1.0" match="greaterOrEqual"/>

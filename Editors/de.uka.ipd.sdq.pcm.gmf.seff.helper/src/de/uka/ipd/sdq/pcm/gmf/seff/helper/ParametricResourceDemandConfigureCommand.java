@@ -18,10 +18,10 @@ import org.eclipse.ui.PlatformUI;
 import org.palladiosimulator.pcm.dialogs.selection.PalladioSelectEObjectDialog;
 import org.palladiosimulator.pcm.dialogs.stoex.StochasticExpressionEditDialog;
 
-import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
+import org.palladiosimulator.pcm.resourcetype.ProcessingResourceType;
+import org.palladiosimulator.pcm.resourcetype.ResourceRepository;
+import org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand;
+import org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 

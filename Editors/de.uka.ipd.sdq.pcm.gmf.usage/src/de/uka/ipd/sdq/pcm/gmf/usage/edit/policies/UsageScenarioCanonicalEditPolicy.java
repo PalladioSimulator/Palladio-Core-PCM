@@ -51,7 +51,7 @@ import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelDiagramUpdater;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelLinkDescriptor;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelNodeDescriptor;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
 
 /**
  * @generated

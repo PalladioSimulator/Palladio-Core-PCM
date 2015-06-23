@@ -13,7 +13,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelations
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
-import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
+import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
 
 /**
  * @generated

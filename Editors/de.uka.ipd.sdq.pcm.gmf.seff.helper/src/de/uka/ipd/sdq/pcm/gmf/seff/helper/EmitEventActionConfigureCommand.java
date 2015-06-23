@@ -13,9 +13,9 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 
-import de.uka.ipd.sdq.pcm.repository.EventType;
-import de.uka.ipd.sdq.pcm.repository.SourceRole;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import org.palladiosimulator.pcm.repository.EventType;
+import org.palladiosimulator.pcm.repository.SourceRole;
+import org.palladiosimulator.pcm.seff.SeffPackage;
 
 /**
  * Command to Configure an emit event action with the appropriate event type and source role.

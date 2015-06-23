@@ -53,10 +53,10 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 
-import de.uka.ipd.sdq.pcm.allocation.Allocation;
-import de.uka.ipd.sdq.pcm.allocation.AllocationFactory;
+import org.palladiosimulator.pcm.allocation.Allocation;
+import org.palladiosimulator.pcm.allocation.AllocationFactory;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationEditPart;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
 
 /**
  * @generated
@@ -247,7 +247,7 @@ public class PalladioComponentModelDiagramEditorUtil {
 	public static Resource createDiagram(
 			org.eclipse.emf.common.util.URI diagramURI,
 			org.eclipse.emf.common.util.URI modelURI,
-			final de.uka.ipd.sdq.pcm.system.System mySystem,
+			final org.palladiosimulator.pcm.system.System mySystem,
 			final ResourceEnvironment myResourceEnv,
 			IProgressMonitor progressMonitor) {
 		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE

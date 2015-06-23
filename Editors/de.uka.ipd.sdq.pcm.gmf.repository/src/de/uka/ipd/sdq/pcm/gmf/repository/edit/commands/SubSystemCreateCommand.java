@@ -15,9 +15,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.subsystem.SubSystem;
-import de.uka.ipd.sdq.pcm.subsystem.SubsystemFactory;
+import org.palladiosimulator.pcm.repository.Repository;
+import org.palladiosimulator.pcm.subsystem.SubSystem;
+import org.palladiosimulator.pcm.subsystem.SubsystemFactory;
 
 /**
  * @generated

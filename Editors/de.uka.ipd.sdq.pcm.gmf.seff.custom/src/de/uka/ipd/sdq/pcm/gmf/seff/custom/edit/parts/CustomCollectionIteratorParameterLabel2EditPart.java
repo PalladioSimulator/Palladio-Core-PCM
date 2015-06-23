@@ -9,7 +9,7 @@ import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabel2EditPart;
-import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
+import org.palladiosimulator.pcm.seff.CollectionIteratorAction;
 
 /**
  * The customized collection iterator parameter label2 edit part class.

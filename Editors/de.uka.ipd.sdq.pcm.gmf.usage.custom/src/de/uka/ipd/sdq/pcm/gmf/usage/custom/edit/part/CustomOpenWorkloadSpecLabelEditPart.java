@@ -9,7 +9,7 @@ import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadSpecLabelEditPart;
-import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
+import org.palladiosimulator.pcm.usagemodel.OpenWorkload;
 
 /**
  * The Class CustomOpenWorkloadSpecLabelEditPart.

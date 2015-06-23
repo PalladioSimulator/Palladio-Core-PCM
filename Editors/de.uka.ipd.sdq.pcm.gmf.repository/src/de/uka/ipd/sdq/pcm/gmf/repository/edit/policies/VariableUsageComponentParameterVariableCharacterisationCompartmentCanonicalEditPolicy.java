@@ -28,7 +28,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEdit
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelDiagramUpdater;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelNodeDescriptor;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import org.palladiosimulator.pcm.parameter.ParameterPackage;
 
 /**
  * @generated

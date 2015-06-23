@@ -10,9 +10,9 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
-import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
+import org.palladiosimulator.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.ComposedProvidingRequiringEntityCreateCommand;
-import de.uka.ipd.sdq.pcm.system.SystemFactory;
+import org.palladiosimulator.pcm.system.SystemFactory;
 
 /**
  * The Class CustomComposedProvidingRequiringEntityCreateCommand.

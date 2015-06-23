@@ -9,13 +9,13 @@ import org.eclipse.gef.commands.UnexecutableCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import org.palladiosimulator.pcm.core.composition.ComposedStructure;
+import org.palladiosimulator.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.commands.CustomAssemblyEventConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.commands.CustomEventChannelSinkConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.SinkRoleItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
-import de.uka.ipd.sdq.pcm.repository.SinkRole;
+import org.palladiosimulator.pcm.repository.SinkRole;
 
 /**
  * The Class CustomSinkRoleItemSemanticEditPolicy.

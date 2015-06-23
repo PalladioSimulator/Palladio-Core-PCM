@@ -9,7 +9,7 @@ import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadThinkTimeLabelEditPart;
-import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
+import org.palladiosimulator.pcm.usagemodel.ClosedWorkload;
 
 /**
  * The Class CustomClosedWorkloadThinkTimeLabelEditPart.

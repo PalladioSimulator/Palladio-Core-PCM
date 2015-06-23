@@ -38,7 +38,7 @@ import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelUsageDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
-import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
+import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
 
 /**
  * @generated

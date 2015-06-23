@@ -20,7 +20,7 @@ public class PalladioComponentModelParserProvider extends org.eclipse.gmf.runtim
 	private org.eclipse.gmf.runtime.common.ui.services.parser.IParser getResourceContainerEntityName_5008Parser() {
 		if (resourceContainerEntityName_5008Parser == null) {
 						org.eclipse.emf.ecore.EAttribute[] features = new org.eclipse.emf.ecore.EAttribute[] {
-				de.uka.ipd.sdq.pcm.core.entity.EntityPackage.eINSTANCE.getNamedElement_EntityName()
+				org.palladiosimulator.pcm.core.entity.EntityPackage.eINSTANCE.getNamedElement_EntityName()
 			};
 				de.uka.ipd.sdq.pcm.gmf.allocation.parsers.MessageFormatParser parser = new de.uka.ipd.sdq.pcm.gmf.allocation.parsers.MessageFormatParser(features);
 								resourceContainerEntityName_5008Parser = parser;
@@ -42,7 +42,7 @@ public class PalladioComponentModelParserProvider extends org.eclipse.gmf.runtim
 	private org.eclipse.gmf.runtime.common.ui.services.parser.IParser getAllocationContextEntityName_5006Parser() {
 		if (allocationContextEntityName_5006Parser == null) {
 						org.eclipse.emf.ecore.EAttribute[] features = new org.eclipse.emf.ecore.EAttribute[] {
-				de.uka.ipd.sdq.pcm.core.entity.EntityPackage.eINSTANCE.getNamedElement_EntityName()
+				org.palladiosimulator.pcm.core.entity.EntityPackage.eINSTANCE.getNamedElement_EntityName()
 			};
 				de.uka.ipd.sdq.pcm.gmf.allocation.parsers.MessageFormatParser parser = new de.uka.ipd.sdq.pcm.gmf.allocation.parsers.MessageFormatParser(features);
 								allocationContextEntityName_5006Parser = parser;

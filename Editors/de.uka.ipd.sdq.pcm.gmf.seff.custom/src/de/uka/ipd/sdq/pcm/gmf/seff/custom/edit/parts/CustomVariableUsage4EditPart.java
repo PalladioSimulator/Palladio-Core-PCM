@@ -13,7 +13,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage4EditPart;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import org.palladiosimulator.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**

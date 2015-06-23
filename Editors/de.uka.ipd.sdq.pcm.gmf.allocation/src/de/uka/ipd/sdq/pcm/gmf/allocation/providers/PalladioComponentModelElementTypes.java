@@ -149,13 +149,13 @@ public static org.eclipse.emf.ecore.ENamedElement getElement(org.eclipse.core.ru
 	if (elements == null) {
 		elements = new java.util.IdentityHashMap<org.eclipse.gmf.runtime.emf.type.core.IElementType, org.eclipse.emf.ecore.ENamedElement>();
 		
-	elements.put(Allocation_1000, de.uka.ipd.sdq.pcm.allocation.AllocationPackage.eINSTANCE.getAllocation());
+	elements.put(Allocation_1000, org.palladiosimulator.pcm.allocation.AllocationPackage.eINSTANCE.getAllocation());
 					
 	
-	elements.put(ResourceContainer_2003, de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage.eINSTANCE.getResourceContainer());
+	elements.put(ResourceContainer_2003, org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage.eINSTANCE.getResourceContainer());
 					
 	
-	elements.put(AllocationContext_3002, de.uka.ipd.sdq.pcm.allocation.AllocationPackage.eINSTANCE.getAllocationContext());
+	elements.put(AllocationContext_3002, org.palladiosimulator.pcm.allocation.AllocationPackage.eINSTANCE.getAllocationContext());
 					}
 	return (org.eclipse.emf.ecore.ENamedElement) elements.get(type);
 }

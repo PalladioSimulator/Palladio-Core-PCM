@@ -8,7 +8,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
+import org.palladiosimulator.pcm.seff.ReleaseAction;
 
 /**
  * The customized release action entity name edit part class.

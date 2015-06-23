@@ -9,7 +9,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.ui.PlatformUI;
 import org.palladiosimulator.pcm.dialogs.variablenames.SetOutputVariableNameDialog;
 
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import org.palladiosimulator.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 
 /**

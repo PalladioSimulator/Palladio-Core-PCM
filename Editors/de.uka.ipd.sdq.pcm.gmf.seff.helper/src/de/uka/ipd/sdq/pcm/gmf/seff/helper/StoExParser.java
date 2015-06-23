@@ -15,10 +15,11 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.palladiosimulator.pcm.dialogs.stoex.StoExCompletionProcessor;
 
-import de.uka.ipd.sdq.pcm.repository.Parameter;
+import org.palladiosimulator.pcm.repository.Parameter;
+import org.palladiosimulator.pcm.stochasticexpressions.parser.PCMStoExLexer;
+import org.palladiosimulator.pcm.stochasticexpressions.parser.PCMStoExParser;
+
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExLexer;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.StoexPackage;

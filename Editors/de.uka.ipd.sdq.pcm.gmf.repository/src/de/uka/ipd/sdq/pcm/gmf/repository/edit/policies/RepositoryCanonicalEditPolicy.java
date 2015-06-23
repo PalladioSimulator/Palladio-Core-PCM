@@ -54,7 +54,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelDiagramUpdat
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelLinkDescriptor;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelNodeDescriptor;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import org.palladiosimulator.pcm.repository.RepositoryPackage;
 
 /**
  * @generated

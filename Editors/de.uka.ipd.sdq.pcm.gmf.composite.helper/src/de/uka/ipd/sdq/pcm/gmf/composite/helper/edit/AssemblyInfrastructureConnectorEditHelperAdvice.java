@@ -9,8 +9,8 @@ import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector;
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector;
+import org.palladiosimulator.pcm.core.entity.EntityPackage;
 
 /**
  * @generated

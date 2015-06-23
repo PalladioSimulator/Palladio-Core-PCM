@@ -9,7 +9,7 @@ import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
+import org.palladiosimulator.pcm.seff.ExternalCallAction;
 
 /**
  * The customized external call action entity name edit part class.

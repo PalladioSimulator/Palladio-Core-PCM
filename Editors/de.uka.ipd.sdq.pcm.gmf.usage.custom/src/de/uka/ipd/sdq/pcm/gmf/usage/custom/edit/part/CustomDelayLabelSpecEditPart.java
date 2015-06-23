@@ -9,7 +9,7 @@ import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.DelayLabelSpecEditPart;
-import de.uka.ipd.sdq.pcm.usagemodel.Delay;
+import org.palladiosimulator.pcm.usagemodel.Delay;
 
 /**
  * The Class CustomDelayLabelSpecEditPart.

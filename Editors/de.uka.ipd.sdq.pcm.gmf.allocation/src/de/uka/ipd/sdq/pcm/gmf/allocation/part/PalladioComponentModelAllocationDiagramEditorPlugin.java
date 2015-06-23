@@ -88,26 +88,26 @@ public class PalladioComponentModelAllocationDiagramEditorPlugin extends org.ecl
  * @generated
  */
 	protected void fillItemProviderFactories(java.util.List<org.eclipse.emf.common.notify.AdapterFactory> factories) {
-		factories.add(new de.uka.ipd.sdq.pcm.provider.PcmItemProviderAdapterFactory());
-		factories.add(new de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory());
-		factories.add(new de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory());
-		factories.add(new de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory());
-		factories.add(new de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory());
-		factories.add(new de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory());
-		factories.add(new de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory());
-		factories.add(new de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory());
-		factories.add(new de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory());
-		factories.add(new de.uka.ipd.sdq.pcm.reliability.provider.ReliabilityItemProviderAdapterFactory());
-		factories.add(new de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory());
-		factories.add(new de.uka.ipd.sdq.pcm.seff.seff_performance.provider.SeffPerformanceItemProviderAdapterFactory());
-		factories.add(new de.uka.ipd.sdq.pcm.seff.seff_reliability.provider.SeffReliabilityItemProviderAdapterFactory());
-		factories.add(new de.uka.ipd.sdq.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory());
-		factories.add(new de.uka.ipd.sdq.pcm.qosannotations.qos_performance.provider.QosPerformanceItemProviderAdapterFactory());
-		factories.add(new de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.provider.QosReliabilityItemProviderAdapterFactory());
-		factories.add(new de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory());
-		factories.add(new de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory());
-		factories.add(new de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory());
-		factories.add(new de.uka.ipd.sdq.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.provider.PcmItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.core.provider.CoreItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.core.entity.provider.EntityItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.core.composition.provider.CompositionItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.repository.provider.RepositoryItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.protocol.provider.ProtocolItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.parameter.provider.ParameterItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.reliability.provider.ReliabilityItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.seff.provider.SeffItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.seff.seff_performance.provider.SeffPerformanceItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.seff.seff_reliability.provider.SeffReliabilityItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.qosannotations.qos_performance.provider.QosPerformanceItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.qosannotations.qos_reliability.provider.QosReliabilityItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.system.provider.SystemItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.allocation.provider.AllocationItemProviderAdapterFactory());
+		factories.add(new org.palladiosimulator.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory());
 		factories.add(new de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory());
 		factories.add(new de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory());
 		factories.add(new de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory());

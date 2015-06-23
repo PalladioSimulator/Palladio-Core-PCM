@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalFailureOccurrenceDescriptionEditPart;
-import de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription;
+import org.palladiosimulator.pcm.reliability.InternalFailureOccurrenceDescription;
 
 /**
  * The customized internal failure occurrence description edit part class.

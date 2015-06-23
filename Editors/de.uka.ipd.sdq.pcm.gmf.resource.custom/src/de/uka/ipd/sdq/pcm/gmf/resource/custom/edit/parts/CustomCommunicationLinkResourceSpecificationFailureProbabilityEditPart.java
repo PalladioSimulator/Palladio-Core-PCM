@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.pcm.gmf.resource.custom.edit.parts;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationFailureProbabilityEditPart;
-import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
+import org.palladiosimulator.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 
 /**
  * A custom edit part for the failure probability of a communication link.

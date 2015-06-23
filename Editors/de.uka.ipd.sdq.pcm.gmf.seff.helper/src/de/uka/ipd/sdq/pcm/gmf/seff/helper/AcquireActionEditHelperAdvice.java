@@ -18,9 +18,9 @@ import org.palladiosimulator.pcm.dialogs.selection.PalladioSelectEObjectDialog;
 
 import com.sun.corba.se.spi.activation.Repository;
 
-import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.PassiveResource;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import org.palladiosimulator.pcm.repository.BasicComponent;
+import org.palladiosimulator.pcm.repository.PassiveResource;
+import org.palladiosimulator.pcm.seff.SeffPackage;
 
 /**
  * The Class AcquireActionEditHelperAdvice.

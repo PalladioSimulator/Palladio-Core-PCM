@@ -74,7 +74,7 @@ public static int getDiagramVisualID(org.eclipse.emf.ecore.EObject domainElement
 	if (domainElement == null) {
 		return -1;
 	}
-	if (de.uka.ipd.sdq.pcm.allocation.AllocationPackage.eINSTANCE.getAllocation().isSuperTypeOf(domainElement.eClass()) && isDiagram((de.uka.ipd.sdq.pcm.allocation.Allocation) domainElement)) {
+	if (org.palladiosimulator.pcm.allocation.AllocationPackage.eINSTANCE.getAllocation().isSuperTypeOf(domainElement.eClass()) && isDiagram((org.palladiosimulator.pcm.allocation.Allocation) domainElement)) {
 	return de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationEditPart.VISUAL_ID;
 }
 	return -1;
@@ -103,12 +103,12 @@ public static int getNodeVisualID(org.eclipse.gmf.runtime.notation.View containe
 	}
 	switch (containerVisualID) {
 			case de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationEditPart.VISUAL_ID:
-	if (de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage.eINSTANCE.getResourceContainer().isSuperTypeOf(domainElement.eClass())) {
+	if (org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage.eINSTANCE.getResourceContainer().isSuperTypeOf(domainElement.eClass())) {
 	return de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.ResourceContainerEditPart.VISUAL_ID;
 }
 	break;
 				case de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.ResourceContainerAllocationCompartmentEditPart.VISUAL_ID:
-	if (de.uka.ipd.sdq.pcm.allocation.AllocationPackage.eINSTANCE.getAllocationContext().isSuperTypeOf(domainElement.eClass())) {
+	if (org.palladiosimulator.pcm.allocation.AllocationPackage.eINSTANCE.getAllocationContext().isSuperTypeOf(domainElement.eClass())) {
 	return de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationContextEditPart.VISUAL_ID;
 }
 	break;
@@ -181,7 +181,7 @@ public static int getLinkWithClassVisualID(org.eclipse.emf.ecore.EObject domainE
  * 
  * @generated
  */
-private static boolean isDiagram(de.uka.ipd.sdq.pcm.allocation.Allocation element) {
+private static boolean isDiagram(org.palladiosimulator.pcm.allocation.Allocation element) {
 	return true;
 }
 	

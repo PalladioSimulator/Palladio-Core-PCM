@@ -10,7 +10,7 @@ import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel3EditPart;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall;
+import org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall;
 
 /**
  * The customized infrastructure call target label edit part class.

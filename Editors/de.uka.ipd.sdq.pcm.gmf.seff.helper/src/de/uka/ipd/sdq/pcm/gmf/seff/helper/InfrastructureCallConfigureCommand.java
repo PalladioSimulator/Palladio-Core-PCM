@@ -15,14 +15,14 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 
-import de.uka.ipd.sdq.pcm.PcmFactory;
-import de.uka.ipd.sdq.pcm.core.CoreFactory;
+import org.palladiosimulator.pcm.PcmFactory;
+import org.palladiosimulator.pcm.core.CoreFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.PCMRandomVariableCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
-import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
-import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
+import org.palladiosimulator.pcm.repository.InfrastructureRequiredRole;
+import org.palladiosimulator.pcm.repository.InfrastructureSignature;
+import org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall;
+import org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage;
 import de.uka.ipd.sdq.stoex.StoexFactory;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 
