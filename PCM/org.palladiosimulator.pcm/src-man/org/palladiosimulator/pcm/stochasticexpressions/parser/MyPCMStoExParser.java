@@ -1,17 +1,20 @@
-package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
+package org.palladiosimulator.pcm.stochasticexpressions.parser;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-import org.antlr.runtime.CharStream;
 import org.antlr.runtime.RecognitionException;
+import org.antlr.runtime.TokenStream;
 
-public class MyPCMStoExLexer extends PCMStoExLexer {
+import org.palladiosimulator.pcm.stochasticexpressions.parser.ErrorEntry;
+import org.palladiosimulator.pcm.stochasticexpressions.parser.PCMStoExParser;
+
+public class MyPCMStoExParser extends PCMStoExParser {
 
     private ArrayList<ErrorEntry> list;
 
-    public MyPCMStoExLexer(CharStream input) {
+    public MyPCMStoExParser(TokenStream input) {
         super(input);
         list = new ArrayList<ErrorEntry>();
     }

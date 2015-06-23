@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
+package org.palladiosimulator.pcm.stochasticexpressions.parser;
 
 import org.antlr.runtime.RecognitionException;
 

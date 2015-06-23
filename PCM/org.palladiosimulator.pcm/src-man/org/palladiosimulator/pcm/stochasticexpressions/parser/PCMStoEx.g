@@ -4,17 +4,17 @@ grammar PCMStoEx;
 /*options { output=AST; defaultErrorHandler=false; k=2; }*/
  
 @header {  
-	package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
+	package org.palladiosimulator.pcm.stochasticexpressions.parser;
 	import de.uka.ipd.sdq.stoex.*;
 	import de.uka.ipd.sdq.probfunction.*;
-	import de.uka.ipd.sdq.pcm.parameter.*;
+	import org.palladiosimulator.pcm.parameter.*;
 	import java.util.ArrayList;
 	import java.util.Collection;
 	//import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 }
 
 @lexer::header {
-  package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
+  package org.palladiosimulator.pcm.stochasticexpressions.parser;
 }
 expression returns [Expression exp] 
 		:  
