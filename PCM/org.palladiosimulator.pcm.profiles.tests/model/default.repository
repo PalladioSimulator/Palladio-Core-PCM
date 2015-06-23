@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0" xmlns:seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0" id="_Mh6NQAOdEeW7RJF7nLqWPA" entityName="defaultRepository">
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.0" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0" id="_Mh6NQAOdEeW7RJF7nLqWPA" entityName="defaultRepository">
   <components__Repository xsi:type="repository:BasicComponent" id="_NknAYAOdEeW7RJF7nLqWPA" entityName="ExampleComponent">
     <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_Xk4ygAOdEeW7RJF7nLqWPA" entityName="Provided_ExampleInterface_ExampleComponent" providedInterface__OperationProvidedRole="_QYmyAAOdEeW7RJF7nLqWPA"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_Xk8c4AOdEeW7RJF7nLqWPA" describedService__SEFF="_Uo3tUAOdEeW7RJF7nLqWPA">

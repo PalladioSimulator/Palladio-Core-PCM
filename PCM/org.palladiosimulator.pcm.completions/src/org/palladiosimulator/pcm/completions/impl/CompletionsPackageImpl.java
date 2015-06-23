@@ -245,16 +245,16 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
         this.setNsURI(eNS_URI);
 
         // Obtain other dependent packages
-        final de.uka.ipd.sdq.pcm.core.entity.EntityPackage theEntityPackage = (de.uka.ipd.sdq.pcm.core.entity.EntityPackage) EPackage.Registry.INSTANCE
-                .getEPackage(de.uka.ipd.sdq.pcm.core.entity.EntityPackage.eNS_URI);
-        final de.uka.ipd.sdq.pcm.repository.RepositoryPackage theRepositoryPackage = (de.uka.ipd.sdq.pcm.repository.RepositoryPackage) EPackage.Registry.INSTANCE
-                .getEPackage(de.uka.ipd.sdq.pcm.repository.RepositoryPackage.eNS_URI);
-        final de.uka.ipd.sdq.pcm.seff.SeffPackage theSeffPackage = (de.uka.ipd.sdq.pcm.seff.SeffPackage) EPackage.Registry.INSTANCE
-                .getEPackage(de.uka.ipd.sdq.pcm.seff.SeffPackage.eNS_URI);
-        final de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage theSeffPerformancePackage = (de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage) EPackage.Registry.INSTANCE
-                .getEPackage(de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage.eNS_URI);
-        final de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage theResourcetypePackage = (de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage) EPackage.Registry.INSTANCE
-                .getEPackage(de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage.eNS_URI);
+        final org.palladiosimulator.pcm.core.entity.EntityPackage theEntityPackage = (org.palladiosimulator.pcm.core.entity.EntityPackage) EPackage.Registry.INSTANCE
+                .getEPackage(org.palladiosimulator.pcm.core.entity.EntityPackage.eNS_URI);
+        final org.palladiosimulator.pcm.repository.RepositoryPackage theRepositoryPackage = (org.palladiosimulator.pcm.repository.RepositoryPackage) EPackage.Registry.INSTANCE
+                .getEPackage(org.palladiosimulator.pcm.repository.RepositoryPackage.eNS_URI);
+        final org.palladiosimulator.pcm.seff.SeffPackage theSeffPackage = (org.palladiosimulator.pcm.seff.SeffPackage) EPackage.Registry.INSTANCE
+                .getEPackage(org.palladiosimulator.pcm.seff.SeffPackage.eNS_URI);
+        final org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage theSeffPerformancePackage = (org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage) EPackage.Registry.INSTANCE
+                .getEPackage(org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage.eNS_URI);
+        final org.palladiosimulator.pcm.resourcetype.ResourcetypePackage theResourcetypePackage = (org.palladiosimulator.pcm.resourcetype.ResourcetypePackage) EPackage.Registry.INSTANCE
+                .getEPackage(org.palladiosimulator.pcm.resourcetype.ResourcetypePackage.eNS_URI);
 
         // Create type parameters
 

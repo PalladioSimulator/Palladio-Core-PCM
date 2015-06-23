@@ -50,7 +50,7 @@ import org.palladiosimulator.pcm.completions.CompletionsPackage;
  *
  * @generated
  */
-public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.ComposedProvidingRequiringEntityImpl
+public class CompletionImpl extends org.palladiosimulator.pcm.core.entity.impl.ComposedProvidingRequiringEntityImpl
         implements Completion {
 
     /**
@@ -62,7 +62,7 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
      * @generated
      * @ordered
      */
-    protected EList<de.uka.ipd.sdq.pcm.repository.CompleteComponentType> parentCompleteComponentTypes;
+    protected EList<org.palladiosimulator.pcm.repository.CompleteComponentType> parentCompleteComponentTypes;
 
     /**
      * The cached value of the '{@link #getComponentParameterUsage_ImplementationComponentType()
@@ -73,7 +73,7 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
      * @generated
      * @ordered
      */
-    protected EList<de.uka.ipd.sdq.pcm.parameter.VariableUsage> componentParameterUsage_ImplementationComponentType;
+    protected EList<org.palladiosimulator.pcm.parameter.VariableUsage> componentParameterUsage_ImplementationComponentType;
 
     /**
      * The default value of the '{@link #getComponentType() <em>Component Type</em>}' attribute.
@@ -83,7 +83,7 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
      * @generated
      * @ordered
      */
-    protected static final de.uka.ipd.sdq.pcm.repository.ComponentType COMPONENT_TYPE_EDEFAULT = de.uka.ipd.sdq.pcm.repository.ComponentType.BUSINESS_COMPONENT;
+    protected static final org.palladiosimulator.pcm.repository.ComponentType COMPONENT_TYPE_EDEFAULT = org.palladiosimulator.pcm.repository.ComponentType.BUSINESS_COMPONENT;
 
     /**
      * The cached value of the '{@link #getComponentType() <em>Component Type</em>}' attribute. <!--
@@ -93,7 +93,7 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
      * @generated
      * @ordered
      */
-    protected de.uka.ipd.sdq.pcm.repository.ComponentType componentType = COMPONENT_TYPE_EDEFAULT;
+    protected org.palladiosimulator.pcm.repository.ComponentType componentType = COMPONENT_TYPE_EDEFAULT;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -120,11 +120,11 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
      * @generated
      */
     @Override
-    public de.uka.ipd.sdq.pcm.repository.Repository getRepository__RepositoryComponent() {
+    public org.palladiosimulator.pcm.repository.Repository getRepository__RepositoryComponent() {
         if (eContainerFeatureID() != CompletionsPackage.COMPLETION__REPOSITORY_REPOSITORY_COMPONENT) {
             return null;
         }
-        return (de.uka.ipd.sdq.pcm.repository.Repository) eInternalContainer();
+        return (org.palladiosimulator.pcm.repository.Repository) eInternalContainer();
     }
 
     /**
@@ -133,7 +133,7 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
      * @generated
      */
     public NotificationChain basicSetRepository__RepositoryComponent(
-            final de.uka.ipd.sdq.pcm.repository.Repository newRepository__RepositoryComponent, NotificationChain msgs) {
+            final org.palladiosimulator.pcm.repository.Repository newRepository__RepositoryComponent, NotificationChain msgs) {
         msgs = eBasicSetContainer((InternalEObject) newRepository__RepositoryComponent,
                 CompletionsPackage.COMPLETION__REPOSITORY_REPOSITORY_COMPONENT, msgs);
         return msgs;
@@ -145,7 +145,7 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
      * @generated
      */
     public void setRepository__RepositoryComponent(
-            final de.uka.ipd.sdq.pcm.repository.Repository newRepository__RepositoryComponent) {
+            final org.palladiosimulator.pcm.repository.Repository newRepository__RepositoryComponent) {
         if (newRepository__RepositoryComponent != eInternalContainer()
                 || (eContainerFeatureID() != CompletionsPackage.COMPLETION__REPOSITORY_REPOSITORY_COMPONENT
                         && newRepository__RepositoryComponent != null)) {
@@ -158,8 +158,8 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
             }
             if (newRepository__RepositoryComponent != null) {
                 msgs = ((InternalEObject) newRepository__RepositoryComponent).eInverseAdd(this,
-                        de.uka.ipd.sdq.pcm.repository.RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY,
-                        de.uka.ipd.sdq.pcm.repository.Repository.class, msgs);
+                        org.palladiosimulator.pcm.repository.RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY,
+                        org.palladiosimulator.pcm.repository.Repository.class, msgs);
             }
             msgs = this.basicSetRepository__RepositoryComponent(newRepository__RepositoryComponent, msgs);
             if (msgs != null) {
@@ -178,10 +178,10 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
      * @generated
      */
     @Override
-    public EList<de.uka.ipd.sdq.pcm.repository.CompleteComponentType> getParentCompleteComponentTypes() {
+    public EList<org.palladiosimulator.pcm.repository.CompleteComponentType> getParentCompleteComponentTypes() {
         if (this.parentCompleteComponentTypes == null) {
-            this.parentCompleteComponentTypes = new EObjectResolvingEList<de.uka.ipd.sdq.pcm.repository.CompleteComponentType>(
-                    de.uka.ipd.sdq.pcm.repository.CompleteComponentType.class, this,
+            this.parentCompleteComponentTypes = new EObjectResolvingEList<org.palladiosimulator.pcm.repository.CompleteComponentType>(
+                    org.palladiosimulator.pcm.repository.CompleteComponentType.class, this,
                     CompletionsPackage.COMPLETION__PARENT_COMPLETE_COMPONENT_TYPES);
         }
         return this.parentCompleteComponentTypes;
@@ -193,10 +193,10 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
      * @generated
      */
     @Override
-    public EList<de.uka.ipd.sdq.pcm.parameter.VariableUsage> getComponentParameterUsage_ImplementationComponentType() {
+    public EList<org.palladiosimulator.pcm.parameter.VariableUsage> getComponentParameterUsage_ImplementationComponentType() {
         if (this.componentParameterUsage_ImplementationComponentType == null) {
-            this.componentParameterUsage_ImplementationComponentType = new EObjectContainmentEList<de.uka.ipd.sdq.pcm.parameter.VariableUsage>(
-                    de.uka.ipd.sdq.pcm.parameter.VariableUsage.class, this,
+            this.componentParameterUsage_ImplementationComponentType = new EObjectContainmentEList<org.palladiosimulator.pcm.parameter.VariableUsage>(
+                    org.palladiosimulator.pcm.parameter.VariableUsage.class, this,
                     CompletionsPackage.COMPLETION__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE);
         }
         return this.componentParameterUsage_ImplementationComponentType;
@@ -208,7 +208,7 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
      * @generated
      */
     @Override
-    public de.uka.ipd.sdq.pcm.repository.ComponentType getComponentType() {
+    public org.palladiosimulator.pcm.repository.ComponentType getComponentType() {
         return this.componentType;
     }
 
@@ -217,8 +217,8 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
      * 
      * @generated
      */
-    public void setComponentType(final de.uka.ipd.sdq.pcm.repository.ComponentType newComponentType) {
-        final de.uka.ipd.sdq.pcm.repository.ComponentType oldComponentType = this.componentType;
+    public void setComponentType(final org.palladiosimulator.pcm.repository.ComponentType newComponentType) {
+        final org.palladiosimulator.pcm.repository.ComponentType oldComponentType = this.componentType;
         this.componentType = newComponentType == null ? COMPONENT_TYPE_EDEFAULT : newComponentType;
         if (eNotificationRequired()) {
             this.eNotify(new ENotificationImpl(this, Notification.SET, CompletionsPackage.COMPLETION__COMPONENT_TYPE,
@@ -283,7 +283,7 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
             final Map<Object, Object> context) {
         if (REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
-            helper.setContext(de.uka.ipd.sdq.pcm.repository.RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
+            helper.setContext(org.palladiosimulator.pcm.repository.RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
             try {
                 REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(
@@ -297,8 +297,8 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR,
-                                de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator.DIAGNOSTIC_SOURCE,
-                                de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE,
+                                org.palladiosimulator.pcm.repository.util.RepositoryValidator.DIAGNOSTIC_SOURCE,
+                                org.palladiosimulator.pcm.repository.util.RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE,
                                 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                         new Object[] { "RequiredInterfacesHaveToConformToCompleteType",
                                                 EObjectValidator.getObjectLabel(this, context) }),
@@ -366,7 +366,7 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
             final Map<Object, Object> context) {
         if (PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
-            helper.setContext(de.uka.ipd.sdq.pcm.repository.RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
+            helper.setContext(org.palladiosimulator.pcm.repository.RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
             try {
                 PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(
@@ -380,8 +380,8 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR,
-                                de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator.DIAGNOSTIC_SOURCE,
-                                de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE,
+                                org.palladiosimulator.pcm.repository.util.RepositoryValidator.DIAGNOSTIC_SOURCE,
+                                org.palladiosimulator.pcm.repository.util.RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE,
                                 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                         new Object[] { "providedInterfacesHaveToConformToCompleteType",
                                                 EObjectValidator.getObjectLabel(this, context) }),
@@ -433,7 +433,7 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
             final Map<Object, Object> context) {
         if (PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
-            helper.setContext(de.uka.ipd.sdq.pcm.repository.RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
+            helper.setContext(org.palladiosimulator.pcm.repository.RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
             try {
                 PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(
@@ -447,8 +447,8 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR,
-                                de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator.DIAGNOSTIC_SOURCE,
-                                de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE,
+                                org.palladiosimulator.pcm.repository.util.RepositoryValidator.DIAGNOSTIC_SOURCE,
+                                org.palladiosimulator.pcm.repository.util.RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE,
                                 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                         new Object[] { "ProvidedInterfaceHaveToConformToComponentType",
                                                 EObjectValidator.getObjectLabel(this, context) }),
@@ -504,7 +504,7 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
             final Map<Object, Object> context) {
         if (PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
-            helper.setContext(de.uka.ipd.sdq.pcm.repository.RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
+            helper.setContext(org.palladiosimulator.pcm.repository.RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
             try {
                 PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(
@@ -519,8 +519,8 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR,
-                                de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator.DIAGNOSTIC_SOURCE,
-                                de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE,
+                                org.palladiosimulator.pcm.repository.util.RepositoryValidator.DIAGNOSTIC_SOURCE,
+                                org.palladiosimulator.pcm.repository.util.RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE,
                                 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                         new Object[] { "ProvideSameOrMoreInterfacesAsCompleteComponentType",
                                                 EObjectValidator.getObjectLabel(this, context) }),
@@ -576,7 +576,7 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
             final Map<Object, Object> context) {
         if (REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
-            helper.setContext(de.uka.ipd.sdq.pcm.repository.RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
+            helper.setContext(org.palladiosimulator.pcm.repository.RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
             try {
                 REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(
@@ -592,8 +592,8 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR,
-                                de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator.DIAGNOSTIC_SOURCE,
-                                de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE,
+                                org.palladiosimulator.pcm.repository.util.RepositoryValidator.DIAGNOSTIC_SOURCE,
+                                org.palladiosimulator.pcm.repository.util.RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE,
                                 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                         new Object[] { "RequireSameOrFewerInterfacesAsCompleteComponentType",
                                                 EObjectValidator.getObjectLabel(this, context) }),
@@ -616,7 +616,7 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
             if (eInternalContainer() != null) {
                 msgs = eBasicRemoveFromContainer(msgs);
             }
-            return this.basicSetRepository__RepositoryComponent((de.uka.ipd.sdq.pcm.repository.Repository) otherEnd,
+            return this.basicSetRepository__RepositoryComponent((org.palladiosimulator.pcm.repository.Repository) otherEnd,
                     msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -650,8 +650,8 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
         switch (eContainerFeatureID()) {
         case CompletionsPackage.COMPLETION__REPOSITORY_REPOSITORY_COMPONENT:
             return eInternalContainer().eInverseRemove(this,
-                    de.uka.ipd.sdq.pcm.repository.RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY,
-                    de.uka.ipd.sdq.pcm.repository.Repository.class, msgs);
+                    org.palladiosimulator.pcm.repository.RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY,
+                    org.palladiosimulator.pcm.repository.Repository.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -686,20 +686,20 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
     public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case CompletionsPackage.COMPLETION__REPOSITORY_REPOSITORY_COMPONENT:
-            this.setRepository__RepositoryComponent((de.uka.ipd.sdq.pcm.repository.Repository) newValue);
+            this.setRepository__RepositoryComponent((org.palladiosimulator.pcm.repository.Repository) newValue);
             return;
         case CompletionsPackage.COMPLETION__PARENT_COMPLETE_COMPONENT_TYPES:
             this.getParentCompleteComponentTypes().clear();
             this.getParentCompleteComponentTypes()
-                    .addAll((Collection<? extends de.uka.ipd.sdq.pcm.repository.CompleteComponentType>) newValue);
+                    .addAll((Collection<? extends org.palladiosimulator.pcm.repository.CompleteComponentType>) newValue);
             return;
         case CompletionsPackage.COMPLETION__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
             this.getComponentParameterUsage_ImplementationComponentType().clear();
             this.getComponentParameterUsage_ImplementationComponentType()
-                    .addAll((Collection<? extends de.uka.ipd.sdq.pcm.parameter.VariableUsage>) newValue);
+                    .addAll((Collection<? extends org.palladiosimulator.pcm.parameter.VariableUsage>) newValue);
             return;
         case CompletionsPackage.COMPLETION__COMPONENT_TYPE:
-            this.setComponentType((de.uka.ipd.sdq.pcm.repository.ComponentType) newValue);
+            this.setComponentType((org.palladiosimulator.pcm.repository.ComponentType) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -714,7 +714,7 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
     public void eUnset(final int featureID) {
         switch (featureID) {
         case CompletionsPackage.COMPLETION__REPOSITORY_REPOSITORY_COMPONENT:
-            this.setRepository__RepositoryComponent((de.uka.ipd.sdq.pcm.repository.Repository) null);
+            this.setRepository__RepositoryComponent((org.palladiosimulator.pcm.repository.Repository) null);
             return;
         case CompletionsPackage.COMPLETION__PARENT_COMPLETE_COMPONENT_TYPES:
             this.getParentCompleteComponentTypes().clear();
@@ -757,22 +757,22 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == de.uka.ipd.sdq.pcm.repository.RepositoryComponent.class) {
+        if (baseClass == org.palladiosimulator.pcm.repository.RepositoryComponent.class) {
             switch (derivedFeatureID) {
             case CompletionsPackage.COMPLETION__REPOSITORY_REPOSITORY_COMPONENT:
-                return de.uka.ipd.sdq.pcm.repository.RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT;
+                return org.palladiosimulator.pcm.repository.RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT;
             default:
                 return -1;
             }
         }
-        if (baseClass == de.uka.ipd.sdq.pcm.repository.ImplementationComponentType.class) {
+        if (baseClass == org.palladiosimulator.pcm.repository.ImplementationComponentType.class) {
             switch (derivedFeatureID) {
             case CompletionsPackage.COMPLETION__PARENT_COMPLETE_COMPONENT_TYPES:
-                return de.uka.ipd.sdq.pcm.repository.RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES;
+                return org.palladiosimulator.pcm.repository.RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES;
             case CompletionsPackage.COMPLETION__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
-                return de.uka.ipd.sdq.pcm.repository.RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE;
+                return org.palladiosimulator.pcm.repository.RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE;
             case CompletionsPackage.COMPLETION__COMPONENT_TYPE:
-                return de.uka.ipd.sdq.pcm.repository.RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE;
+                return org.palladiosimulator.pcm.repository.RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE;
             default:
                 return -1;
             }
@@ -787,21 +787,21 @@ public class CompletionImpl extends de.uka.ipd.sdq.pcm.core.entity.impl.Composed
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == de.uka.ipd.sdq.pcm.repository.RepositoryComponent.class) {
+        if (baseClass == org.palladiosimulator.pcm.repository.RepositoryComponent.class) {
             switch (baseFeatureID) {
-            case de.uka.ipd.sdq.pcm.repository.RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
+            case org.palladiosimulator.pcm.repository.RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
                 return CompletionsPackage.COMPLETION__REPOSITORY_REPOSITORY_COMPONENT;
             default:
                 return -1;
             }
         }
-        if (baseClass == de.uka.ipd.sdq.pcm.repository.ImplementationComponentType.class) {
+        if (baseClass == org.palladiosimulator.pcm.repository.ImplementationComponentType.class) {
             switch (baseFeatureID) {
-            case de.uka.ipd.sdq.pcm.repository.RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES:
+            case org.palladiosimulator.pcm.repository.RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES:
                 return CompletionsPackage.COMPLETION__PARENT_COMPLETE_COMPONENT_TYPES;
-            case de.uka.ipd.sdq.pcm.repository.RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
+            case org.palladiosimulator.pcm.repository.RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
                 return CompletionsPackage.COMPLETION__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE;
-            case de.uka.ipd.sdq.pcm.repository.RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE:
+            case org.palladiosimulator.pcm.repository.RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_TYPE:
                 return CompletionsPackage.COMPLETION__COMPONENT_TYPE;
             default:
                 return -1;

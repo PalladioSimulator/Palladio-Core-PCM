@@ -69,7 +69,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPLETION__ID = de.uka.ipd.sdq.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__ID;
+    int COMPLETION__ID = org.palladiosimulator.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__ID;
 
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -78,7 +78,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPLETION__ENTITY_NAME = de.uka.ipd.sdq.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__ENTITY_NAME;
+    int COMPLETION__ENTITY_NAME = org.palladiosimulator.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__ENTITY_NAME;
 
     /**
      * The feature id for the '<em><b>Assembly Contexts Composed Structure</b></em>' containment
@@ -87,7 +87,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPLETION__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE = de.uka.ipd.sdq.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE;
+    int COMPLETION__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE = org.palladiosimulator.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE;
 
     /**
      * The feature id for the '
@@ -97,7 +97,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPLETION__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = de.uka.ipd.sdq.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+    int COMPLETION__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = org.palladiosimulator.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
 
     /**
      * The feature id for the '<em><b>Event Channel Composed Structure</b></em>' containment
@@ -106,7 +106,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPLETION__EVENT_CHANNEL_COMPOSED_STRUCTURE = de.uka.ipd.sdq.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__EVENT_CHANNEL_COMPOSED_STRUCTURE;
+    int COMPLETION__EVENT_CHANNEL_COMPOSED_STRUCTURE = org.palladiosimulator.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__EVENT_CHANNEL_COMPOSED_STRUCTURE;
 
     /**
      * The feature id for the '<em><b>Connectors Composed Structure</b></em>' containment reference
@@ -115,7 +115,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPLETION__CONNECTORS_COMPOSED_STRUCTURE = de.uka.ipd.sdq.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__CONNECTORS_COMPOSED_STRUCTURE;
+    int COMPLETION__CONNECTORS_COMPOSED_STRUCTURE = org.palladiosimulator.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__CONNECTORS_COMPOSED_STRUCTURE;
 
     /**
      * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>'
@@ -124,7 +124,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPLETION__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = de.uka.ipd.sdq.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
+    int COMPLETION__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = org.palladiosimulator.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
     /**
      * The feature id for the '
@@ -134,7 +134,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPLETION__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = de.uka.ipd.sdq.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY;
+    int COMPLETION__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = org.palladiosimulator.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY;
 
     /**
      * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>'
@@ -143,7 +143,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPLETION__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = de.uka.ipd.sdq.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY;
+    int COMPLETION__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = org.palladiosimulator.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY;
 
     /**
      * The feature id for the '<em><b>Repository Repository Component</b></em>' container reference.
@@ -152,7 +152,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPLETION__REPOSITORY_REPOSITORY_COMPONENT = de.uka.ipd.sdq.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
+    int COMPLETION__REPOSITORY_REPOSITORY_COMPONENT = org.palladiosimulator.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
             + 0;
 
     /**
@@ -162,7 +162,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPLETION__PARENT_COMPLETE_COMPONENT_TYPES = de.uka.ipd.sdq.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
+    int COMPLETION__PARENT_COMPLETE_COMPONENT_TYPES = org.palladiosimulator.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
             + 1;
 
     /**
@@ -173,7 +173,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPLETION__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE = de.uka.ipd.sdq.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
+    int COMPLETION__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE = org.palladiosimulator.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
             + 2;
 
     /**
@@ -183,7 +183,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPLETION__COMPONENT_TYPE = de.uka.ipd.sdq.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
+    int COMPLETION__COMPONENT_TYPE = org.palladiosimulator.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
             + 3;
 
     /**
@@ -193,7 +193,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPLETION_FEATURE_COUNT = de.uka.ipd.sdq.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
+    int COMPLETION_FEATURE_COUNT = org.palladiosimulator.pcm.core.entity.EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
             + 4;
 
     /**
@@ -244,7 +244,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DELEGATING_EXTERNAL_CALL_ACTION__ID = de.uka.ipd.sdq.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__ID;
+    int DELEGATING_EXTERNAL_CALL_ACTION__ID = org.palladiosimulator.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__ID;
 
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -253,7 +253,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DELEGATING_EXTERNAL_CALL_ACTION__ENTITY_NAME = de.uka.ipd.sdq.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__ENTITY_NAME;
+    int DELEGATING_EXTERNAL_CALL_ACTION__ENTITY_NAME = org.palladiosimulator.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__ENTITY_NAME;
 
     /**
      * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference. <!--
@@ -262,7 +262,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DELEGATING_EXTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION = de.uka.ipd.sdq.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION;
+    int DELEGATING_EXTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION = org.palladiosimulator.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION;
 
     /**
      * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference. <!--
@@ -271,7 +271,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DELEGATING_EXTERNAL_CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION = de.uka.ipd.sdq.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION;
+    int DELEGATING_EXTERNAL_CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION = org.palladiosimulator.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION;
 
     /**
      * The feature id for the '<em><b>Resource Demanding Behaviour Abstract Action</b></em>'
@@ -280,7 +280,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DELEGATING_EXTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION = de.uka.ipd.sdq.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION;
+    int DELEGATING_EXTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION = org.palladiosimulator.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION;
 
     /**
      * The feature id for the '<em><b>Input Variable Usages Call Action</b></em>' containment
@@ -289,7 +289,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DELEGATING_EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION = de.uka.ipd.sdq.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION;
+    int DELEGATING_EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION = org.palladiosimulator.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION;
 
     /**
      * The feature id for the '<em><b>Return Variable Usage Call Return Action</b></em>' containment
@@ -298,7 +298,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DELEGATING_EXTERNAL_CALL_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION = de.uka.ipd.sdq.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION;
+    int DELEGATING_EXTERNAL_CALL_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION = org.palladiosimulator.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION;
 
     /**
      * The feature id for the '<em><b>Failure Types Failure Handling Entity</b></em>' reference
@@ -307,7 +307,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DELEGATING_EXTERNAL_CALL_ACTION__FAILURE_TYPES_FAILURE_HANDLING_ENTITY = de.uka.ipd.sdq.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__FAILURE_TYPES_FAILURE_HANDLING_ENTITY;
+    int DELEGATING_EXTERNAL_CALL_ACTION__FAILURE_TYPES_FAILURE_HANDLING_ENTITY = org.palladiosimulator.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__FAILURE_TYPES_FAILURE_HANDLING_ENTITY;
 
     /**
      * The feature id for the '<em><b>Called Service External Service</b></em>' reference. <!--
@@ -316,7 +316,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DELEGATING_EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE = de.uka.ipd.sdq.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE;
+    int DELEGATING_EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE = org.palladiosimulator.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE;
 
     /**
      * The feature id for the '<em><b>Role External Service</b></em>' reference. <!-- begin-user-doc
@@ -325,7 +325,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DELEGATING_EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE = de.uka.ipd.sdq.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE;
+    int DELEGATING_EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE = org.palladiosimulator.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__ROLE_EXTERNAL_SERVICE;
 
     /**
      * The feature id for the '<em><b>Retry Count</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -334,7 +334,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DELEGATING_EXTERNAL_CALL_ACTION__RETRY_COUNT = de.uka.ipd.sdq.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__RETRY_COUNT;
+    int DELEGATING_EXTERNAL_CALL_ACTION__RETRY_COUNT = org.palladiosimulator.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION__RETRY_COUNT;
 
     /**
      * The number of structural features of the '<em>Delegating External Call Action</em>' class.
@@ -343,7 +343,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int DELEGATING_EXTERNAL_CALL_ACTION_FEATURE_COUNT = de.uka.ipd.sdq.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION_FEATURE_COUNT
+    int DELEGATING_EXTERNAL_CALL_ACTION_FEATURE_COUNT = org.palladiosimulator.pcm.seff.SeffPackage.EXTERNAL_CALL_ACTION_FEATURE_COUNT
             + 0;
 
     /**
@@ -365,7 +365,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND = de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND;
+    int NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND = org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND;
 
     /**
      * The feature id for the '<em><b>Required Resource Parametric Resource Demand</b></em>'
@@ -374,7 +374,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND = de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND;
+    int NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND = org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND;
 
     /**
      * The feature id for the '<em><b>Action Parametric Resource Demand</b></em>' container
@@ -383,7 +383,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND = de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND;
+    int NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND = org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND;
 
     /**
      * The feature id for the '
@@ -393,7 +393,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__REQUIRED_COMMUNICATION_LINK_RESOURCE_PARAMETRIC_RESOURCE_DEMAND = de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND_FEATURE_COUNT
+    int NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND__REQUIRED_COMMUNICATION_LINK_RESOURCE_PARAMETRIC_RESOURCE_DEMAND = org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND_FEATURE_COUNT
             + 0;
 
     /**
@@ -403,7 +403,7 @@ public interface CompletionsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND_FEATURE_COUNT = de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND_FEATURE_COUNT
+    int NETWORK_DEMAND_PARAMETRIC_RESOURCE_DEMAND_FEATURE_COUNT = org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND_FEATURE_COUNT
             + 1;
 
     /**

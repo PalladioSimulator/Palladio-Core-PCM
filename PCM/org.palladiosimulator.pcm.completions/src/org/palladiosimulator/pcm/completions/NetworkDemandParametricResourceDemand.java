@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface NetworkDemandParametricResourceDemand
-        extends EObject, de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand {
+        extends EObject, org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand {
 
     /**
      * Returns the value of the '
@@ -38,12 +38,12 @@ public interface NetworkDemandParametricResourceDemand
      * 
      * @return the value of the '
      *         <em>Required Communication Link Resource Parametric Resource Demand</em>' reference.
-     * @see #setRequiredCommunicationLinkResource_ParametricResourceDemand(de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType)
+     * @see #setRequiredCommunicationLinkResource_ParametricResourceDemand(org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType)
      * @see org.palladiosimulator.pcm.completions.CompletionsPackage#getNetworkDemandParametricResourceDemand_RequiredCommunicationLinkResource_ParametricResourceDemand()
      * @model required="true" ordered="false"
      * @generated
      */
-    de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType getRequiredCommunicationLinkResource_ParametricResourceDemand();
+    org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType getRequiredCommunicationLinkResource_ParametricResourceDemand();
 
     /**
      * Sets the value of the '
@@ -59,6 +59,6 @@ public interface NetworkDemandParametricResourceDemand
      * @generated
      */
     void setRequiredCommunicationLinkResource_ParametricResourceDemand(
-            de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType value);
+            org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType value);
 
 } // NetworkDemandParametricResourceDemand

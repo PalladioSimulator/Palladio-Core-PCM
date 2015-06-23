@@ -294,7 +294,7 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
       <?gmfgen generated="true"?>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.usage.UsageModel_1000"
                name="%metatype.name.UsageModel_1000"
@@ -304,7 +304,7 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
             <param name="semanticHint" value="1000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.usage.UsageScenario_2004"
                name="%metatype.name.UsageScenario_2004"
@@ -314,7 +314,7 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
             <param name="semanticHint" value="2004"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.usage.ScenarioBehaviour_3014"
                name="%metatype.name.ScenarioBehaviour_3014"
@@ -324,7 +324,7 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
             <param name="semanticHint" value="3014"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.usage.Start_3001"
                name="%metatype.name.Start_3001"
@@ -334,7 +334,7 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
             <param name="semanticHint" value="3001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.usage.Stop_3002"
                name="%metatype.name.Stop_3002"
@@ -344,7 +344,7 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
             <param name="semanticHint" value="3002"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.usage.EntryLevelSystemCall_3003"
                name="%metatype.name.EntryLevelSystemCall_3003"
@@ -354,7 +354,7 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
             <param name="semanticHint" value="3003"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/Parameter/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.usage.VariableUsage_3012"
                name="%metatype.name.VariableUsage_3012"
@@ -364,7 +364,7 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
             <param name="semanticHint" value="3012"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/Parameter/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.usage.VariableCharacterisation_3013"
                name="%metatype.name.VariableCharacterisation_3013"
@@ -374,7 +374,7 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
             <param name="semanticHint" value="3013"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.usage.Loop_3005"
                name="%metatype.name.Loop_3005"
@@ -384,7 +384,7 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
             <param name="semanticHint" value="3005"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.usage.ScenarioBehaviour_3007"
                name="%metatype.name.ScenarioBehaviour_3007"
@@ -394,7 +394,7 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
             <param name="semanticHint" value="3007"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.usage.Branch_3008"
                name="%metatype.name.Branch_3008"
@@ -404,7 +404,7 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
             <param name="semanticHint" value="3008"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.usage.BranchTransition_3009"
                name="%metatype.name.BranchTransition_3009"
@@ -414,7 +414,7 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
             <param name="semanticHint" value="3009"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.usage.ScenarioBehaviour_3010"
                name="%metatype.name.ScenarioBehaviour_3010"
@@ -424,7 +424,7 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
             <param name="semanticHint" value="3010"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.usage.Delay_3017"
                name="%metatype.name.Delay_3017"
@@ -434,7 +434,7 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
             <param name="semanticHint" value="3017"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.usage.ClosedWorkload_3015"
                name="%metatype.name.ClosedWorkload_3015"
@@ -444,7 +444,7 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
             <param name="semanticHint" value="3015"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.usage.OpenWorkload_3016"
                name="%metatype.name.OpenWorkload_3016"
@@ -454,7 +454,7 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
             <param name="semanticHint" value="3016"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.usage.AbstractUserActionSuccessor_4002"
                name="%metatype.name.AbstractUserActionSuccessor_4002"

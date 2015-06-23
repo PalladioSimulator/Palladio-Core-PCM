@@ -13,7 +13,7 @@ import org.palladiosimulator.pcm.completions.DelegatingExternalCallAction;
  *
  * @generated
  */
-public class DelegatingExternalCallActionImpl extends de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl
+public class DelegatingExternalCallActionImpl extends org.palladiosimulator.pcm.seff.impl.ExternalCallActionImpl
         implements DelegatingExternalCallAction {
 
     /**

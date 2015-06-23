@@ -14,6 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Completion extends EObject, de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity,
-        de.uka.ipd.sdq.pcm.repository.ImplementationComponentType {
+public interface Completion extends EObject, org.palladiosimulator.pcm.core.entity.ComposedProvidingRequiringEntity,
+        org.palladiosimulator.pcm.repository.ImplementationComponentType {
 } // Completion

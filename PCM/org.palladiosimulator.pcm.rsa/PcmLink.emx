@@ -6923,12 +6923,12 @@ source code.</body>
     </profileApplication>
   </uml:Model>
   <Default:Documentation xmi:id="_F-7WQVmzEd6DDpvRr99l1w" base_Comment="_F-7WQFmzEd6DDpvRr99l1w"/>
-  <Ecore:EPackage xmi:id="_pDvGYMUrEd6VlMAUqXPm5w" base_Package="_n2GOkMUrEd6VlMAUqXPm5w" packageName="loggerlink" nsPrefix="Link.Logger" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Link/Logger/0.8" basePackage="" prefix="LoggerLink"/>
-  <Ecore:EPackage xmi:id="_WZce0McKEd6VlMAUqXPm5w" base_Package="_PTww8FmuEd6DDpvRr99l1w" packageName="link" nsPrefix="Link" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Link/0.8" basePackage="de.uka.ipd.sdq.pcm" prefix="Link"/>
-  <Ecore:EPackage xmi:id="_4H0XUOJ8Ed6wU61SpJNpLg" base_Package="_zsPj4OJ8Ed6wU61SpJNpLg" packageName="gastlink" nsPrefix="Link.GAST" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Link/GAST/0.8" prefix="GastLink"/>
+  <Ecore:EPackage xmi:id="_pDvGYMUrEd6VlMAUqXPm5w" base_Package="_n2GOkMUrEd6VlMAUqXPm5w" packageName="loggerlink" nsPrefix="Link.Logger" nsURI="http://palladiosimulator.org/PalladioComponentModel/Link/Logger/0.8" basePackage="" prefix="LoggerLink"/>
+  <Ecore:EPackage xmi:id="_WZce0McKEd6VlMAUqXPm5w" base_Package="_PTww8FmuEd6DDpvRr99l1w" packageName="link" nsPrefix="Link" nsURI="http://palladiosimulator.org/PalladioComponentModel/Link/0.8" basePackage="de.uka.ipd.sdq.pcm" prefix="Link"/>
+  <Ecore:EPackage xmi:id="_4H0XUOJ8Ed6wU61SpJNpLg" base_Package="_zsPj4OJ8Ed6wU61SpJNpLg" packageName="gastlink" nsPrefix="Link.GAST" nsURI="http://palladiosimulator.org/PalladioComponentModel/Link/GAST/0.8" prefix="GastLink"/>
   <Default:Documentation xmi:id="_8Bu6cDDkEd-tfvT1lh6RMw" base_Comment="_8BlwgDDkEd-tfvT1lh6RMw"/>
   <Default:Documentation xmi:id="_qDi3cDm0Ed-OBL1WdoxzBQ" base_Comment="_qDZGcDm0Ed-OBL1WdoxzBQ"/>
-  <Ecore:EPackage xmi:id="_ha0eMDwREd-Dc9Rw_97E5Q" base_Package="_mRyyADwCEd-Dc9Rw_97E5Q" packageName="bycounterlink" nsPrefix="Link.Bycounter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Link/Bycounter/0.8" prefix="BycounterLink"/>
+  <Ecore:EPackage xmi:id="_ha0eMDwREd-Dc9Rw_97E5Q" base_Package="_mRyyADwCEd-Dc9Rw_97E5Q" packageName="bycounterlink" nsPrefix="Link.Bycounter" nsURI="http://palladiosimulator.org/PalladioComponentModel/Link/Bycounter/0.8" prefix="BycounterLink"/>
   <Default:Documentation xmi:id="_fQiNYOU3EeGf-OSOEORH7Q" base_Comment="_fMlhgOU3EeGf-OSOEORH7Q"/>
   <Default:Documentation xmi:id="_xZK_MPjqEeGCw7rrCTZ13A" base_Comment="_xY4EQPjqEeGCw7rrCTZ13A"/>
   <Default:Documentation xmi:id="_rr7kAfj0EeGCw7rrCTZ13A" base_Comment="_rr7kAPj0EeGCw7rrCTZ13A"/>

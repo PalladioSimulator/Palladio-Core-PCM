@@ -7,7 +7,7 @@
         <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eStructuralFeatures>
       <extensions xmi:type="emfprofile:Extension" xmi:id="_tLxMoAOjEeW7RJF7nLqWPA" lowerBound="1" upperBound="1">
-        <target xmi:type="ecore:EClass" href="http://sdq.ipd.uka.de/PalladioComponentModel/5.0#//repository/BasicComponent"/>
+        <target xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.0#//repository/BasicComponent"/>
       </extensions>
     </eClassifiers>
   </emfprofile:Profile>
@@ -40,7 +40,7 @@
       </children>
       <styles xmi:type="notation:DescriptionStyle" xmi:id="_qaWN4QOjEeW7RJF7nLqWPA"/>
       <styles xmi:type="notation:FontStyle" xmi:id="_qaWN4gOjEeW7RJF7nLqWPA" fontName=".Helvetica Neue DeskInterface"/>
-      <element xmi:type="ecore:EClass" href="http://sdq.ipd.uka.de/PalladioComponentModel/5.0#//repository/BasicComponent"/>
+      <element xmi:type="ecore:EClass" href="http://palladiosimulator.org/PalladioComponentModel/5.0#//repository/BasicComponent"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qaWN4wOjEeW7RJF7nLqWPA" x="112" y="84"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_Foz7IfpgEeSRjMxcTrWsAA"/>

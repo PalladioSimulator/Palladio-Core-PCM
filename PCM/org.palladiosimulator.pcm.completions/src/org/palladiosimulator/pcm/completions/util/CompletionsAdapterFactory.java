@@ -95,90 +95,90 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
         }
 
         @Override
-        public Adapter caseNamedElement(final de.uka.ipd.sdq.pcm.core.entity.NamedElement object) {
+        public Adapter caseNamedElement(final org.palladiosimulator.pcm.core.entity.NamedElement object) {
             return CompletionsAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(final de.uka.ipd.sdq.pcm.core.entity.Entity object) {
+        public Adapter caseEntity(final org.palladiosimulator.pcm.core.entity.Entity object) {
             return CompletionsAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter caseComposedStructure(final de.uka.ipd.sdq.pcm.core.composition.ComposedStructure object) {
+        public Adapter caseComposedStructure(final org.palladiosimulator.pcm.core.composition.ComposedStructure object) {
             return CompletionsAdapterFactory.this.createComposedStructureAdapter();
         }
 
         @Override
         public Adapter caseInterfaceProvidingEntity(
-                final de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity object) {
+                final org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity object) {
             return CompletionsAdapterFactory.this.createInterfaceProvidingEntityAdapter();
         }
 
         @Override
         public Adapter caseResourceInterfaceRequiringEntity(
-                final de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity object) {
+                final org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity object) {
             return CompletionsAdapterFactory.this.createResourceInterfaceRequiringEntityAdapter();
         }
 
         @Override
         public Adapter caseInterfaceRequiringEntity(
-                final de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity object) {
+                final org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity object) {
             return CompletionsAdapterFactory.this.createInterfaceRequiringEntityAdapter();
         }
 
         @Override
         public Adapter caseInterfaceProvidingRequiringEntity(
-                final de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity object) {
+                final org.palladiosimulator.pcm.core.entity.InterfaceProvidingRequiringEntity object) {
             return CompletionsAdapterFactory.this.createInterfaceProvidingRequiringEntityAdapter();
         }
 
         @Override
         public Adapter caseComposedProvidingRequiringEntity(
-                final de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity object) {
+                final org.palladiosimulator.pcm.core.entity.ComposedProvidingRequiringEntity object) {
             return CompletionsAdapterFactory.this.createComposedProvidingRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseRepositoryComponent(final de.uka.ipd.sdq.pcm.repository.RepositoryComponent object) {
+        public Adapter caseRepositoryComponent(final org.palladiosimulator.pcm.repository.RepositoryComponent object) {
             return CompletionsAdapterFactory.this.createRepositoryComponentAdapter();
         }
 
         @Override
         public Adapter caseImplementationComponentType(
-                final de.uka.ipd.sdq.pcm.repository.ImplementationComponentType object) {
+                final org.palladiosimulator.pcm.repository.ImplementationComponentType object) {
             return CompletionsAdapterFactory.this.createImplementationComponentTypeAdapter();
         }
 
         @Override
-        public Adapter caseAbstractAction(final de.uka.ipd.sdq.pcm.seff.AbstractAction object) {
+        public Adapter caseAbstractAction(final org.palladiosimulator.pcm.seff.AbstractAction object) {
             return CompletionsAdapterFactory.this.createAbstractActionAdapter();
         }
 
         @Override
-        public Adapter caseCallAction(final de.uka.ipd.sdq.pcm.seff.CallAction object) {
+        public Adapter caseCallAction(final org.palladiosimulator.pcm.seff.CallAction object) {
             return CompletionsAdapterFactory.this.createCallActionAdapter();
         }
 
         @Override
-        public Adapter caseCallReturnAction(final de.uka.ipd.sdq.pcm.seff.CallReturnAction object) {
+        public Adapter caseCallReturnAction(final org.palladiosimulator.pcm.seff.CallReturnAction object) {
             return CompletionsAdapterFactory.this.createCallReturnActionAdapter();
         }
 
         @Override
         public Adapter caseFailureHandlingEntity(
-                final de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity object) {
+                final org.palladiosimulator.pcm.seff.seff_reliability.FailureHandlingEntity object) {
             return CompletionsAdapterFactory.this.createFailureHandlingEntityAdapter();
         }
 
         @Override
-        public Adapter caseExternalCallAction(final de.uka.ipd.sdq.pcm.seff.ExternalCallAction object) {
+        public Adapter caseExternalCallAction(final org.palladiosimulator.pcm.seff.ExternalCallAction object) {
             return CompletionsAdapterFactory.this.createExternalCallActionAdapter();
         }
 
         @Override
         public Adapter caseParametricResourceDemand(
-                final de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand object) {
+                final org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand object) {
             return CompletionsAdapterFactory.this.createParametricResourceDemandAdapter();
         }
 
@@ -291,13 +291,13 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity
+     * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcm.core.entity.Entity
      * <em>Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
      * 
      * @return the new adapter.
-     * @see de.uka.ipd.sdq.pcm.core.entity.Entity
+     * @see org.palladiosimulator.pcm.core.entity.Entity
      * @generated
      */
     public Adapter createEntityAdapter() {
@@ -306,13 +306,13 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure <em>Composed Structure</em>}'.
+     * {@link org.palladiosimulator.pcm.core.composition.ComposedStructure <em>Composed Structure</em>}'.
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
      * 
      * @return the new adapter.
-     * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
+     * @see org.palladiosimulator.pcm.core.composition.ComposedStructure
      * @generated
      */
     public Adapter createComposedStructureAdapter() {
@@ -321,13 +321,13 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity
+     * {@link org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity
      * <em>Interface Providing Entity</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
      * 
      * @return the new adapter.
-     * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity
+     * @see org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity
      * @generated
      */
     public Adapter createInterfaceProvidingEntityAdapter() {
@@ -336,13 +336,13 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity
+     * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity
      * <em>Resource Interface Requiring Entity</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
      * 
      * @return the new adapter.
-     * @see de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity
+     * @see org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity
      * @generated
      */
     public Adapter createResourceInterfaceRequiringEntityAdapter() {
@@ -351,13 +351,13 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity
+     * {@link org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity
      * <em>Interface Requiring Entity</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
      * 
      * @return the new adapter.
-     * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity
+     * @see org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity
      * @generated
      */
     public Adapter createInterfaceRequiringEntityAdapter() {
@@ -366,13 +366,13 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity
+     * {@link org.palladiosimulator.pcm.core.entity.InterfaceProvidingRequiringEntity
      * <em>Interface Providing Requiring Entity</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
      * 
      * @return the new adapter.
-     * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity
+     * @see org.palladiosimulator.pcm.core.entity.InterfaceProvidingRequiringEntity
      * @generated
      */
     public Adapter createInterfaceProvidingRequiringEntityAdapter() {
@@ -381,13 +381,13 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
+     * {@link org.palladiosimulator.pcm.core.entity.ComposedProvidingRequiringEntity
      * <em>Composed Providing Requiring Entity</em>}'. <!-- begin-user-doc --> This default
      * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
      * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
      * 
      * @return the new adapter.
-     * @see de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
+     * @see org.palladiosimulator.pcm.core.entity.ComposedProvidingRequiringEntity
      * @generated
      */
     public Adapter createComposedProvidingRequiringEntityAdapter() {
@@ -411,13 +411,13 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType
+     * {@link org.palladiosimulator.pcm.repository.ImplementationComponentType
      * <em>Implementation Component Type</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
      * 
      * @return the new adapter.
-     * @see de.uka.ipd.sdq.pcm.repository.ImplementationComponentType
+     * @see org.palladiosimulator.pcm.repository.ImplementationComponentType
      * @generated
      */
     public Adapter createImplementationComponentTypeAdapter() {
@@ -425,13 +425,13 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.AbstractAction
+     * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcm.seff.AbstractAction
      * <em>Abstract Action</em>}'. <!-- begin-user-doc --> This default implementation returns null
      * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch
      * all the cases anyway. <!-- end-user-doc -->
      * 
      * @return the new adapter.
-     * @see de.uka.ipd.sdq.pcm.seff.AbstractAction
+     * @see org.palladiosimulator.pcm.seff.AbstractAction
      * @generated
      */
     public Adapter createAbstractActionAdapter() {
@@ -439,13 +439,13 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.CallAction
+     * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcm.seff.CallAction
      * <em>Call Action</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
      * 
      * @return the new adapter.
-     * @see de.uka.ipd.sdq.pcm.seff.CallAction
+     * @see org.palladiosimulator.pcm.seff.CallAction
      * @generated
      */
     public Adapter createCallActionAdapter() {
@@ -453,13 +453,13 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.CallReturnAction
+     * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcm.seff.CallReturnAction
      * <em>Call Return Action</em>}'. <!-- begin-user-doc --> This default implementation returns
      * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
      * catch all the cases anyway. <!-- end-user-doc -->
      * 
      * @return the new adapter.
-     * @see de.uka.ipd.sdq.pcm.seff.CallReturnAction
+     * @see org.palladiosimulator.pcm.seff.CallReturnAction
      * @generated
      */
     public Adapter createCallReturnActionAdapter() {
@@ -468,13 +468,13 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity
+     * {@link org.palladiosimulator.pcm.seff.seff_reliability.FailureHandlingEntity
      * <em>Failure Handling Entity</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
      * 
      * @return the new adapter.
-     * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity
+     * @see org.palladiosimulator.pcm.seff.seff_reliability.FailureHandlingEntity
      * @generated
      */
     public Adapter createFailureHandlingEntityAdapter() {
@@ -498,13 +498,13 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand
+     * {@link org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand
      * <em>Parametric Resource Demand</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
      * 
      * @return the new adapter.
-     * @see de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand
+     * @see org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand
      * @generated
      */
     public Adapter createParametricResourceDemandAdapter() {

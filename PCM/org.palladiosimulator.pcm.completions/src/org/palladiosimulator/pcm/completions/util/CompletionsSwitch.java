@@ -255,7 +255,7 @@ public class CompletionsSwitch<T> extends Switch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseNamedElement(final de.uka.ipd.sdq.pcm.core.entity.NamedElement object) {
+    public T caseNamedElement(final org.palladiosimulator.pcm.core.entity.NamedElement object) {
         return null;
     }
 
@@ -270,7 +270,7 @@ public class CompletionsSwitch<T> extends Switch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseEntity(final de.uka.ipd.sdq.pcm.core.entity.Entity object) {
+    public T caseEntity(final org.palladiosimulator.pcm.core.entity.Entity object) {
         return null;
     }
 
@@ -286,7 +286,7 @@ public class CompletionsSwitch<T> extends Switch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseComposedStructure(final de.uka.ipd.sdq.pcm.core.composition.ComposedStructure object) {
+    public T caseComposedStructure(final org.palladiosimulator.pcm.core.composition.ComposedStructure object) {
         return null;
     }
 
@@ -302,7 +302,7 @@ public class CompletionsSwitch<T> extends Switch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseInterfaceProvidingEntity(final de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity object) {
+    public T caseInterfaceProvidingEntity(final org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity object) {
         return null;
     }
 
@@ -319,7 +319,7 @@ public class CompletionsSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseResourceInterfaceRequiringEntity(
-            final de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity object) {
+            final org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity object) {
         return null;
     }
 
@@ -335,7 +335,7 @@ public class CompletionsSwitch<T> extends Switch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseInterfaceRequiringEntity(final de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity object) {
+    public T caseInterfaceRequiringEntity(final org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity object) {
         return null;
     }
 
@@ -352,7 +352,7 @@ public class CompletionsSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseInterfaceProvidingRequiringEntity(
-            final de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity object) {
+            final org.palladiosimulator.pcm.core.entity.InterfaceProvidingRequiringEntity object) {
         return null;
     }
 
@@ -369,7 +369,7 @@ public class CompletionsSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseComposedProvidingRequiringEntity(
-            final de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity object) {
+            final org.palladiosimulator.pcm.core.entity.ComposedProvidingRequiringEntity object) {
         return null;
     }
 
@@ -384,7 +384,7 @@ public class CompletionsSwitch<T> extends Switch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseRepositoryComponent(final de.uka.ipd.sdq.pcm.repository.RepositoryComponent object) {
+    public T caseRepositoryComponent(final org.palladiosimulator.pcm.repository.RepositoryComponent object) {
         return null;
     }
 
@@ -400,7 +400,7 @@ public class CompletionsSwitch<T> extends Switch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseImplementationComponentType(final de.uka.ipd.sdq.pcm.repository.ImplementationComponentType object) {
+    public T caseImplementationComponentType(final org.palladiosimulator.pcm.repository.ImplementationComponentType object) {
         return null;
     }
 
@@ -415,7 +415,7 @@ public class CompletionsSwitch<T> extends Switch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseAbstractAction(final de.uka.ipd.sdq.pcm.seff.AbstractAction object) {
+    public T caseAbstractAction(final org.palladiosimulator.pcm.seff.AbstractAction object) {
         return null;
     }
 
@@ -430,7 +430,7 @@ public class CompletionsSwitch<T> extends Switch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseCallAction(final de.uka.ipd.sdq.pcm.seff.CallAction object) {
+    public T caseCallAction(final org.palladiosimulator.pcm.seff.CallAction object) {
         return null;
     }
 
@@ -446,7 +446,7 @@ public class CompletionsSwitch<T> extends Switch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseCallReturnAction(final de.uka.ipd.sdq.pcm.seff.CallReturnAction object) {
+    public T caseCallReturnAction(final org.palladiosimulator.pcm.seff.CallReturnAction object) {
         return null;
     }
 
@@ -462,7 +462,7 @@ public class CompletionsSwitch<T> extends Switch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseFailureHandlingEntity(final de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity object) {
+    public T caseFailureHandlingEntity(final org.palladiosimulator.pcm.seff.seff_reliability.FailureHandlingEntity object) {
         return null;
     }
 
@@ -478,7 +478,7 @@ public class CompletionsSwitch<T> extends Switch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseExternalCallAction(final de.uka.ipd.sdq.pcm.seff.ExternalCallAction object) {
+    public T caseExternalCallAction(final org.palladiosimulator.pcm.seff.ExternalCallAction object) {
         return null;
     }
 
@@ -495,7 +495,7 @@ public class CompletionsSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseParametricResourceDemand(
-            final de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand object) {
+            final org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand object) {
         return null;
     }
 

@@ -4,7 +4,7 @@
   <extension
          point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
       <metamodel
-            nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0">
+            nsURI="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0">
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.usage.helper.CreateThinkTimeEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.usage.ThinkTimeActionAdvice"
