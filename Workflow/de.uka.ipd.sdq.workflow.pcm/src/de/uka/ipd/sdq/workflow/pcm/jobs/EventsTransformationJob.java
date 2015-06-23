@@ -39,7 +39,7 @@ public class EventsTransformationJob implements IBlackboardInteractingJob<MDSDBl
     private static final Logger LOGGER = Logger.getLogger(EventsTransformationJob.class);
 
     /** Path to the qvto transformation script */
-    protected static final String TRANSFORMATION_SCRIPT = "platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/transformation-psm.qvto";
+    protected static final String TRANSFORMATION_SCRIPT = "platform:/plugin/org.palladiosimulator.pcm.resources/transformations/events/transformation-psm.qvto";
 
     private static final String TRACESFOLDER = "traces";
 

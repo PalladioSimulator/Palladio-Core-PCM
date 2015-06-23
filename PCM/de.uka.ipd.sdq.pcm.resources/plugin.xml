@@ -5,11 +5,11 @@
      point="org.eclipse.emf.ecore.uri_mapping">
     <mapping
        source="pathmap://PCM_MODELS/"
-       target="platform:/plugin/de.uka.ipd.sdq.pcm.resources/defaultModels/">
+       target="platform:/plugin/org.palladiosimulator.pcm.resources/defaultModels/">
     </mapping>
     <mapping
        source="pathmap://PCM_TRANSFORMATIONS/EVENTS/"
-       target="platform:/plugin/de.uka.ipd.sdq.pcm.resources/transformations/events/">
+       target="platform:/plugin/org.palladiosimulator.pcm.resources/transformations/events/">
     </mapping>
   </extension>
 </plugin>
