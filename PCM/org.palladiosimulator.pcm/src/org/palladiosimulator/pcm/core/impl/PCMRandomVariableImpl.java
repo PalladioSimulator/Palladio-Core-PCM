@@ -38,14 +38,14 @@ import org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall;
 import org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand;
 import org.palladiosimulator.pcm.seff.seff_performance.ResourceCall;
 import org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage;
+import org.palladiosimulator.pcm.stochasticexpressions.parser.MyPCMStoExLexer;
+import org.palladiosimulator.pcm.stochasticexpressions.parser.MyPCMStoExParser;
 import org.palladiosimulator.pcm.usagemodel.ClosedWorkload;
 import org.palladiosimulator.pcm.usagemodel.Delay;
 import org.palladiosimulator.pcm.usagemodel.Loop;
 import org.palladiosimulator.pcm.usagemodel.OpenWorkload;
 import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
 
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.MyPCMStoExLexer;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.MyPCMStoExParser;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
 

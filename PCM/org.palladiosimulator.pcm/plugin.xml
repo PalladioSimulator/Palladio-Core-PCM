@@ -10,261 +10,261 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/5.0"
-            class="de.uka.ipd.sdq.pcm.PcmPackage"
+            class="org.palladiosimulator.pcm.PcmPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="pcm"
-            class="de.uka.ipd.sdq.pcm.util.PcmResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.util.PcmResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/Core/5.0"
-            class="de.uka.ipd.sdq.pcm.core.CorePackage"
+            class="org.palladiosimulator.pcm.core.CorePackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="core"
-            class="de.uka.ipd.sdq.pcm.core.util.CoreResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.core.util.CoreResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/5.0"
-            class="de.uka.ipd.sdq.pcm.core.entity.EntityPackage"
+            class="org.palladiosimulator.pcm.core.entity.EntityPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="entity"
-            class="de.uka.ipd.sdq.pcm.core.entity.util.EntityResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.core.entity.util.EntityResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0"
-            class="de.uka.ipd.sdq.pcm.core.composition.CompositionPackage"
+            class="org.palladiosimulator.pcm.core.composition.CompositionPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="composition"
-            class="de.uka.ipd.sdq.pcm.core.composition.util.CompositionResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.core.composition.util.CompositionResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0"
-            class="de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage"
+            class="org.palladiosimulator.pcm.usagemodel.UsagemodelPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="usagemodel"
-            class="de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.usagemodel.util.UsagemodelResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0"
-            class="de.uka.ipd.sdq.pcm.repository.RepositoryPackage"
+            class="org.palladiosimulator.pcm.repository.RepositoryPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="repository"
-            class="de.uka.ipd.sdq.pcm.repository.util.RepositoryResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.repository.util.RepositoryResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/5.0"
-            class="de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage"
+            class="org.palladiosimulator.pcm.resourcetype.ResourcetypePackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="resourcetype"
-            class="de.uka.ipd.sdq.pcm.resourcetype.util.ResourcetypeResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.resourcetype.util.ResourcetypeResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/5.0"
-            class="de.uka.ipd.sdq.pcm.protocol.ProtocolPackage"
+            class="org.palladiosimulator.pcm.protocol.ProtocolPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="protocol"
-            class="de.uka.ipd.sdq.pcm.protocol.util.ProtocolResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.protocol.util.ProtocolResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0"
-            class="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"
+            class="org.palladiosimulator.pcm.parameter.ParameterPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="parameter"
-            class="de.uka.ipd.sdq.pcm.parameter.util.ParameterResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.parameter.util.ParameterResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/5.0"
-            class="de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage"
+            class="org.palladiosimulator.pcm.reliability.ReliabilityPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="reliability"
-            class="de.uka.ipd.sdq.pcm.reliability.util.ReliabilityResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.reliability.util.ReliabilityResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0"
-            class="de.uka.ipd.sdq.pcm.seff.SeffPackage"
+            class="org.palladiosimulator.pcm.seff.SeffPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="seff"
-            class="de.uka.ipd.sdq.pcm.seff.util.SeffResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.seff.util.SeffResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/5.0"
-            class="de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage"
+            class="org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="seffperformance"
-            class="de.uka.ipd.sdq.pcm.seff.seff_performance.util.SeffPerformanceResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.seff.seff_performance.util.SeffPerformanceResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0"
-            class="de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage"
+            class="org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="seffreliability"
-            class="de.uka.ipd.sdq.pcm.seff.seff_reliability.util.SeffReliabilityResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.seff.seff_reliability.util.SeffReliabilityResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/5.0"
-            class="de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage"
+            class="org.palladiosimulator.pcm.qosannotations.QosannotationsPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="qosannotations"
-            class="de.uka.ipd.sdq.pcm.qosannotations.util.QosannotationsResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.qosannotations.util.QosannotationsResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Performance/5.0"
-            class="de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage"
+            class="org.palladiosimulator.pcm.qosannotations.qos_performance.QosPerformancePackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="qosperformance"
-            class="de.uka.ipd.sdq.pcm.qosannotations.qos_performance.util.QosPerformanceResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.qosannotations.qos_performance.util.QosPerformanceResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Reliability/5.0"
-            class="de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage"
+            class="org.palladiosimulator.pcm.qosannotations.qos_reliability.QosReliabilityPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="qosreliability"
-            class="de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.util.QosReliabilityResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.qosannotations.qos_reliability.util.QosReliabilityResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/System/5.0"
-            class="de.uka.ipd.sdq.pcm.system.SystemPackage"
+            class="org.palladiosimulator.pcm.system.SystemPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="system"
-            class="de.uka.ipd.sdq.pcm.system.util.SystemResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.system.util.SystemResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0"
-            class="de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage"
+            class="org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="resourceenvironment"
-            class="de.uka.ipd.sdq.pcm.resourceenvironment.util.ResourceenvironmentResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.resourceenvironment.util.ResourceenvironmentResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/5.0"
-            class="de.uka.ipd.sdq.pcm.allocation.AllocationPackage"
+            class="org.palladiosimulator.pcm.allocation.AllocationPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="allocation"
-            class="de.uka.ipd.sdq.pcm.allocation.util.AllocationResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.allocation.util.AllocationResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
             uri="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/5.0"
-            class="de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage"
+            class="org.palladiosimulator.pcm.subsystem.SubsystemPackage"
             genModel="model/pcm.genmodel"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.extension_parser">
       <parser
             type="subsystem"
-            class="de.uka.ipd.sdq.pcm.subsystem.util.SubsystemResourceFactoryImpl"/>
+            class="org.palladiosimulator.pcm.subsystem.util.SubsystemResourceFactoryImpl"/>
    </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
