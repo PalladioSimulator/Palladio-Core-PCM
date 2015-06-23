@@ -67,5 +67,5 @@
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_at_TMArJEdyeH8AJhDVfEA" base_Package="_7Iy5AArGEdyeH8AJhDVfEA" packageName="completions" nsPrefix="completions" nsURI="http://sdq.ipd.uka.de/Completions/1.0" basePackage="de.uka.ipd.sdq" prefix="de.uka.ipd.sdq"/>
+  <Ecore:EPackage xmi:id="_at_TMArJEdyeH8AJhDVfEA" base_Package="_7Iy5AArGEdyeH8AJhDVfEA" packageName="completions" nsPrefix="completions" nsURI="http://palladiosimulator.org/Completions/1.0" basePackage="de.uka.ipd.sdq" prefix="de.uka.ipd.sdq"/>
 </xmi:XMI>

@@ -12,7 +12,7 @@
 
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
-       uri = "http://sdq.ipd.uka.de/Completions/1.0" 
+       uri = "http://palladiosimulator.org/Completions/1.0" 
        class = "de.uka.ipd.sdq.completions.CompletionsPackage"
        genModel = "model/Completions.genmodel" /> 
   </extension>
