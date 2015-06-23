@@ -18,12 +18,12 @@ import org.eclipse.gmf.runtime.emf.type.core.edithelper.IEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.ui.PlatformUI;
+import org.palladiosimulator.pcm.dialogs.datatype.DataTypeContainer;
+import org.palladiosimulator.pcm.dialogs.datatype.InnerDeclarationContainer;
+import org.palladiosimulator.pcm.dialogs.selection.PalladioSelectEObjectDialog;
+import org.palladiosimulator.pcm.dialogs.variableusage.VariableUsageInputParameterContentProvider;
+import org.palladiosimulator.pcm.dialogs.variableusage.VariableUsageItemProviderAdapterFactory;
 
-import de.uka.ipd.sdq.pcm.dialogs.datatype.DataTypeContainer;
-import de.uka.ipd.sdq.pcm.dialogs.datatype.InnerDeclarationContainer;
-import de.uka.ipd.sdq.pcm.dialogs.selection.PalladioSelectEObjectDialog;
-import de.uka.ipd.sdq.pcm.dialogs.variableusage.VariableUsageInputParameterContentProvider;
-import de.uka.ipd.sdq.pcm.dialogs.variableusage.VariableUsageItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
