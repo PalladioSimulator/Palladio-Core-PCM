@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: de.uka.ipd.sdq.pcm.editor;singleton:=true
+Bundle-SymbolicName: org.palladiosimulator.pcm.editor;singleton:=true
 Bundle-Version: 4.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: de.uka.ipd.sdq.pcm.core.presentation.PalladioComponentModelEditorPlugin$Implementation
@@ -29,7 +29,7 @@ Export-Package: de.uka.ipd.sdq.pcm.allocation.presentation,
  de.uka.ipd.sdq.pcm.usagemodel.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
- de.uka.ipd.sdq.pcm.edit;visibility:=reexport,
+ org.palladiosimulator.pcm.edit;visibility:=reexport,
  org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,

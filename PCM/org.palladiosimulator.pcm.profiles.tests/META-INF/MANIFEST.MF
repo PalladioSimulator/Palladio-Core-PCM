@@ -7,6 +7,6 @@ Bundle-Vendor: palladiosimulator.org
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.palladiosimulator.commons;bundle-version="1.0.0",
  org.junit;bundle-version="4.11.0",
- de.uka.ipd.sdq.pcm;bundle-version="4.0.0",
+ org.palladiosimulator.pcm;bundle-version="4.0.0",
  org.modelversioning.emfprofile.registry;bundle-version="1.0.0",
  org.palladiosimulator.mdsdprofiles.api;bundle-version="1.0.0"
