@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pcm" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/5.0"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pcm" nsURI="http://palladiosimulator.org/PalladioComponentModel/5.0"
     nsPrefix="pcm">
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="This package is the root package of all packages of the Palladio Component Model (PCM)."/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="DummyClass"/>
-  <eSubpackages name="core" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/5.0"
+  <eSubpackages name="core" nsURI="http://palladiosimulator.org/PalladioComponentModel/Core/5.0"
       nsPrefix="core">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="This package contains the PCM Core meta-classes used throughout the PCM: entities carrying a  globally unique ID (GUID), an abstract model for entities which provide and require interfaces, and  an abstract model to describe entities composed from other entities."/>
@@ -74,7 +74,7 @@
           ordered="false" eType="#//resourceenvironment/CommunicationLinkResourceSpecification"
           eOpposite="#//resourceenvironment/CommunicationLinkResourceSpecification/latency_CommunicationLinkResourceSpecification"/>
     </eClassifiers>
-    <eSubpackages name="entity" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/5.0"
+    <eSubpackages name="entity" nsURI="http://palladiosimulator.org/PalladioComponentModel/Core/Entity/5.0"
         nsPrefix="entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This  set of abstract meta-classes gives a conceptual view on interfaces, entities and their relationships: Two roles can be identified a software entity can take relative to an interface. Any entity can claim to implement the functionality specified in an interface as well as to request that functionality. &#xD;&#xA;&#xD;&#xA;Base of the inheritance hierarchy are Identifier and NamedElement, both of which Entity and all inheriting classes are derived from. &#xD;&#xA;&#xD;&#xA;The relationship of Entities and Interfaces is described with the three meta classes InterfaceProvidingEntity, InterfaceRequiringEntity, and InterfaceProvidingRequiringEntity. The abstract meta-class InterfaceProvidingEntity is inherited by all entities which can potentially offer interface implementations. Similarly, the meta-class InterfaceRequiringEntity is inherited by all entities which are allowed to request functionality offer by entities providing this functionality. InterfaceProvidingRequiringEntity inherits from both of them and thus combines their properties. "/>
@@ -176,7 +176,7 @@
         </eAnnotations>
       </eClassifiers>
     </eSubpackages>
-    <eSubpackages name="composition" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0"
+    <eSubpackages name="composition" nsURI="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.0"
         nsPrefix="composition">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A package holding all composable entities"/>
@@ -589,7 +589,7 @@
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>
-  <eSubpackages name="usagemodel" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0"
+  <eSubpackages name="usagemodel" nsURI="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0"
       nsPrefix="usagemodel">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="TODO:&amp;nbsp;Put&amp;nbsp;the&amp;nbsp;3.2.2&amp;nbsp;Context&amp;nbsp;Model&amp;nbsp;chapter&amp;nbsp;of&amp;nbsp;Steffens&amp;nbsp;Diss&amp;nbsp;somewhere&amp;nbsp;so&amp;nbsp;that&amp;nbsp;it&amp;nbsp;can&amp;nbsp;be&amp;nbsp;referred&amp;nbsp;to&amp;nbsp;here.&amp;nbsp;It&amp;nbsp;provides&amp;nbsp;an&amp;nbsp;important&amp;nbsp;overview&amp;nbsp;on&amp;nbsp;why&amp;nbsp;we&amp;nbsp;have&amp;nbsp;the&amp;nbsp;usage&amp;nbsp;model.&amp;nbsp;&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;TODO:&amp;nbsp;Include&amp;nbsp;the&amp;nbsp;example&amp;nbsp;from&amp;nbsp;Heiko's&amp;nbsp;dissertation&amp;nbsp;here?&amp;nbsp;But&amp;nbsp;how&amp;nbsp;to&amp;nbsp;include&amp;nbsp;the&amp;nbsp;picture?&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;The&amp;nbsp;usage&amp;nbsp;of&amp;nbsp;a&amp;nbsp;software&amp;nbsp;system&amp;nbsp;by&amp;nbsp;external&amp;nbsp;clients&amp;nbsp;has&amp;nbsp;to&amp;nbsp;be&amp;nbsp;captured&amp;nbsp;in&amp;nbsp;models&amp;nbsp;to&amp;nbsp;enable&amp;nbsp;model-driven&lt;br />&#xD;&#xA;performance&amp;nbsp;predictions.&amp;nbsp;Here,&amp;nbsp;the&amp;nbsp;term&amp;nbsp;usage&amp;nbsp;refers&amp;nbsp;to&amp;nbsp;workload&amp;nbsp;(i.e.,&amp;nbsp;the&amp;nbsp;number&amp;nbsp;of&amp;nbsp;users&amp;nbsp;concurrently&lt;br />&#xD;&#xA;present&amp;nbsp;in&amp;nbsp;the&amp;nbsp;system),&amp;nbsp;usage&amp;nbsp;scenarios&amp;nbsp;(i.e.,&amp;nbsp;possible&amp;nbsp;sequences&amp;nbsp;of&amp;nbsp;invoking&amp;nbsp;services&amp;nbsp;at&amp;nbsp;system&amp;nbsp;provided&lt;br />&#xD;&#xA;roles),&amp;nbsp;waiting&amp;nbsp;delays&amp;nbsp;between&amp;nbsp;service&amp;nbsp;invocations,&amp;nbsp;and&amp;nbsp;values&amp;nbsp;for&amp;nbsp;parameters&amp;nbsp;and&amp;nbsp;component&amp;nbsp;configurations.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;This&amp;nbsp;package&amp;nbsp;contains&amp;nbsp;the&amp;nbsp;usage&amp;nbsp;specification&amp;nbsp;language,&amp;nbsp;which&amp;nbsp;(i)&amp;nbsp;provides&amp;nbsp;more&amp;nbsp;expressiveness&amp;nbsp;for&lt;br />&#xD;&#xA;characterising&amp;nbsp;parameter&amp;nbsp;instances&amp;nbsp;than&amp;nbsp;previous&amp;nbsp;models,&amp;nbsp;but&amp;nbsp;(ii)&amp;nbsp;at&amp;nbsp;the&amp;nbsp;same&amp;nbsp;time&amp;nbsp;is&amp;nbsp;restricted&amp;nbsp;to&amp;nbsp;concepts&lt;br />&#xD;&#xA;familiar&amp;nbsp;to&amp;nbsp;domain&amp;nbsp;experts&amp;nbsp;to&amp;nbsp;create&amp;nbsp;a&amp;nbsp;domain&amp;nbsp;specific&amp;nbsp;language.&amp;nbsp;The&amp;nbsp;language&amp;nbsp;is&amp;nbsp;called&amp;nbsp;PCM&amp;nbsp;usage&lt;br />&#xD;&#xA;model.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;The&amp;nbsp;UsageModel&amp;nbsp;specifies&amp;nbsp;the&amp;nbsp;whole&amp;nbsp;user&amp;nbsp;interaction&amp;nbsp;with&amp;nbsp;a&amp;nbsp;system&amp;nbsp;from&amp;nbsp;a&amp;nbsp;performance&amp;nbsp;viewpoint.&amp;nbsp;It&amp;nbsp;consists&amp;nbsp;of&amp;nbsp;a&amp;nbsp;number&amp;nbsp;of&amp;nbsp;concurrently&amp;nbsp;executed&amp;nbsp;UsageScenarios&amp;nbsp;and&amp;nbsp;a&amp;nbsp;set&amp;nbsp;of&amp;nbsp;global&amp;nbsp;UserData&amp;nbsp;specifications.&amp;nbsp;Each&amp;nbsp;UsageScenario&amp;nbsp;includes&amp;nbsp;a&amp;nbsp;workload&amp;nbsp;and&amp;nbsp;a&amp;nbsp;scenario&amp;nbsp;behaviour.&amp;nbsp;The&amp;nbsp;concepts&amp;nbsp;are&amp;nbsp;explained&amp;nbsp;for&amp;nbsp;the&amp;nbsp;single&amp;nbsp;meta&amp;nbsp;classes&amp;nbsp;included&amp;nbsp;in&amp;nbsp;this&amp;nbsp;package.&amp;nbsp;&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;Note&amp;nbsp;that&amp;nbsp;UsageModels&amp;nbsp;are&amp;nbsp;completely&amp;nbsp;decoupled&amp;nbsp;from&amp;nbsp;the&amp;nbsp;inner&amp;nbsp;contents&amp;nbsp;of&amp;nbsp;a&amp;nbsp;system,&amp;nbsp;which&amp;nbsp;consists&amp;nbsp;of&amp;nbsp;an&amp;nbsp;assembly&amp;nbsp;and&amp;nbsp;a&amp;nbsp;connected&amp;nbsp;resource&amp;nbsp;environment.&amp;nbsp;The&amp;nbsp;UsageModel&amp;nbsp;only&amp;nbsp;refers&amp;nbsp;to&amp;nbsp;services&amp;nbsp;of&amp;nbsp;system&amp;nbsp;provided&amp;nbsp;roles.&amp;nbsp;It&amp;nbsp;regards&amp;nbsp;the&amp;nbsp;component&lt;br />&#xD;&#xA;architecture&amp;nbsp;(i.e.,&amp;nbsp;the&amp;nbsp;assembly)&amp;nbsp;as&amp;nbsp;well&amp;nbsp;as&amp;nbsp;used&amp;nbsp;resources&amp;nbsp;(i.e.,&amp;nbsp;hardware&amp;nbsp;devices&amp;nbsp;such&amp;nbsp;as&amp;nbsp;CPUs&lt;br />&#xD;&#xA;and&amp;nbsp;harddisks&amp;nbsp;or&amp;nbsp;software&amp;nbsp;entities&amp;nbsp;such&amp;nbsp;as&amp;nbsp;threads,&amp;nbsp;semaphores)&amp;nbsp;as&amp;nbsp;hidden&amp;nbsp;in&amp;nbsp;the&amp;nbsp;system.&amp;nbsp;Thus,&amp;nbsp;the&amp;nbsp;UsageModel&amp;nbsp;only&amp;nbsp;captures&amp;nbsp;information&amp;nbsp;that&amp;nbsp;is&amp;nbsp;available&amp;nbsp;to&amp;nbsp;domain&amp;nbsp;experts&amp;nbsp;and&amp;nbsp;can&amp;nbsp;be&amp;nbsp;changed&amp;nbsp;by&amp;nbsp;them.&amp;nbsp;Resource&lt;br />&#xD;&#xA;environment&amp;nbsp;and&amp;nbsp;component&amp;nbsp;architecture&amp;nbsp;may&amp;nbsp;be&amp;nbsp;changed&amp;nbsp;independently&amp;nbsp;from&amp;nbsp;the&amp;nbsp;UsageModel&amp;nbsp;&lt;br />&#xD;&#xA;by&amp;nbsp;system&amp;nbsp;architects,&amp;nbsp;if&amp;nbsp;the&amp;nbsp;system's&amp;nbsp;ProvidedRoles&amp;nbsp;remain&amp;nbsp;unchanged.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;Discussion:&amp;nbsp;&lt;br />&#xD;&#xA;Notice,&amp;nbsp;that&amp;nbsp;unlike&amp;nbsp;other&amp;nbsp;behavioural&amp;nbsp;description&amp;nbsp;languages&amp;nbsp;for&amp;nbsp;performance&amp;nbsp;prediction&amp;nbsp;(e.g.,&amp;nbsp;[162,&amp;nbsp;187,&lt;br />&#xD;&#xA;78]),&amp;nbsp;the&amp;nbsp;PCM&amp;nbsp;usage&amp;nbsp;model&amp;nbsp;specifically&amp;nbsp;models&amp;nbsp;user&amp;nbsp;behaviour&amp;nbsp;and&amp;nbsp;for&amp;nbsp;example&amp;nbsp;does&amp;nbsp;not&amp;nbsp;refer&amp;nbsp;to&amp;nbsp;resources.&lt;br />&#xD;&#xA;Other&amp;nbsp;performance&amp;nbsp;meta-models&amp;nbsp;mix&amp;nbsp;up&amp;nbsp;the&amp;nbsp;specification&amp;nbsp;of&amp;nbsp;user&amp;nbsp;behaviour,&amp;nbsp;component&amp;nbsp;behaviour,&amp;nbsp;and&lt;br />&#xD;&#xA;resources,&amp;nbsp;so&amp;nbsp;that&amp;nbsp;a&amp;nbsp;single&amp;nbsp;developer&amp;nbsp;role&amp;nbsp;(i.e.,&amp;nbsp;a&amp;nbsp;performance&amp;nbsp;analyst)&amp;nbsp;needs&amp;nbsp;to&amp;nbsp;specify&amp;nbsp;the&amp;nbsp;performance&lt;br />&#xD;&#xA;model.&amp;nbsp;Opposed&amp;nbsp;to&amp;nbsp;this,&amp;nbsp;the&amp;nbsp;PCM&amp;nbsp;targets&amp;nbsp;a&amp;nbsp;division&amp;nbsp;of&amp;nbsp;work&amp;nbsp;for&amp;nbsp;multiple&amp;nbsp;developer&amp;nbsp;roles&amp;nbsp;(cf.&amp;nbsp;Section&amp;nbsp;3.1&amp;nbsp;of&amp;nbsp;Heiko&amp;nbsp;Koziolek's&amp;nbsp;dissertation).&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;Furthermore,&amp;nbsp;none&amp;nbsp;of&amp;nbsp;the&amp;nbsp;other&amp;nbsp;performance&amp;nbsp;meta-models&amp;nbsp;support&amp;nbsp;explicit&amp;nbsp;service&amp;nbsp;parameter&amp;nbsp;modelling.&lt;br />&#xD;&#xA;While&amp;nbsp;CSM&amp;nbsp;[162]&amp;nbsp;includes&amp;nbsp;a&amp;nbsp;meta-class&amp;nbsp;Message&amp;nbsp;to&amp;nbsp;specify&amp;nbsp;the&amp;nbsp;amount&amp;nbsp;of&amp;nbsp;data&amp;nbsp;transferred&amp;nbsp;between&lt;br />&#xD;&#xA;two&amp;nbsp;steps&amp;nbsp;in&amp;nbsp;the&amp;nbsp;performance&amp;nbsp;model,&amp;nbsp;and&amp;nbsp;KLAPER&amp;nbsp;[78]&amp;nbsp;allows&amp;nbsp;the&amp;nbsp;specification&amp;nbsp;of&amp;nbsp;parameter&amp;nbsp;values&lt;br />&#xD;&#xA;in&amp;nbsp;principle,&amp;nbsp;none&amp;nbsp;of&amp;nbsp;these&amp;nbsp;language&amp;nbsp;uses&amp;nbsp;the&amp;nbsp;information&amp;nbsp;to&amp;nbsp;parameterise&amp;nbsp;resource&amp;nbsp;demands&amp;nbsp;or&amp;nbsp;component&lt;br />&#xD;&#xA;behaviour.&amp;nbsp;Additionally,&amp;nbsp;they&amp;nbsp;do&amp;nbsp;not&amp;nbsp;provide&amp;nbsp;the&amp;nbsp;information&amp;nbsp;readily&amp;nbsp;analysable&amp;nbsp;by&amp;nbsp;MDSD&amp;nbsp;tools.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;The&amp;nbsp;PCM&amp;nbsp;usage&amp;nbsp;model&amp;nbsp;has&amp;nbsp;been&amp;nbsp;designed&amp;nbsp;based&amp;nbsp;on&amp;nbsp;meta&amp;nbsp;models&amp;nbsp;such&amp;nbsp;as&amp;nbsp;the&amp;nbsp;performance&amp;nbsp;domain&amp;nbsp;model&lt;br />&#xD;&#xA;of&amp;nbsp;the&amp;nbsp;UML&amp;nbsp;SPT&amp;nbsp;profile&amp;nbsp;[31],&amp;nbsp;the&amp;nbsp;Core&amp;nbsp;Scenario&amp;nbsp;Model&amp;nbsp;(CSM)&amp;nbsp;[162],&amp;nbsp;and&amp;nbsp;KLAPER&amp;nbsp;[78].&amp;nbsp;It&amp;nbsp;is&amp;nbsp;furthermore&lt;br />&#xD;&#xA;related&amp;nbsp;to&amp;nbsp;usage&amp;nbsp;models&amp;nbsp;used&amp;nbsp;in&amp;nbsp;statistical&amp;nbsp;testing&amp;nbsp;[34].&amp;nbsp;Although&amp;nbsp;the&amp;nbsp;concepts&amp;nbsp;included&amp;nbsp;in&amp;nbsp;the&amp;nbsp;PCM&amp;nbsp;usage&lt;br />&#xD;&#xA;model&amp;nbsp;are&amp;nbsp;quite&amp;nbsp;similar&amp;nbsp;to&amp;nbsp;the&amp;nbsp;modelling&amp;nbsp;capabilities&amp;nbsp;of&amp;nbsp;the&amp;nbsp;UML&amp;nbsp;SPT&amp;nbsp;profile,&amp;nbsp;there&amp;nbsp;are&amp;nbsp;some&amp;nbsp;subtle&lt;br />&#xD;&#xA;differences:&lt;br />&#xD;&#xA;-&#xD;&#xA;The&amp;nbsp;usage&amp;nbsp;model&amp;nbsp;is&amp;nbsp;aligned&amp;nbsp;with&amp;nbsp;the&amp;nbsp;role&amp;nbsp;of&amp;nbsp;the&amp;nbsp;domain&amp;nbsp;expert,&amp;nbsp;and&amp;nbsp;uses&amp;nbsp;only&amp;nbsp;concepts&amp;nbsp;known&amp;nbsp;to&lt;br />&#xD;&#xA;this&amp;nbsp;role.&amp;nbsp;It&amp;nbsp;is&amp;nbsp;a&amp;nbsp;domain&amp;nbsp;specific&amp;nbsp;language,&amp;nbsp;whereas&amp;nbsp;the&amp;nbsp;UML&amp;nbsp;SPT&amp;nbsp;performance&amp;nbsp;domain&amp;nbsp;model&amp;nbsp;is&lt;br />&#xD;&#xA;a&amp;nbsp;general&amp;nbsp;purpose&amp;nbsp;language&amp;nbsp;that&amp;nbsp;includes&amp;nbsp;information,&amp;nbsp;which&amp;nbsp;is&amp;nbsp;usually&amp;nbsp;spread&amp;nbsp;over&amp;nbsp;multiple&amp;nbsp;developer&lt;br />&#xD;&#xA;roles&amp;nbsp;such&amp;nbsp;as&amp;nbsp;the&amp;nbsp;component&amp;nbsp;assembler&amp;nbsp;and&amp;nbsp;the&amp;nbsp;system&amp;nbsp;deployer,&amp;nbsp;so&amp;nbsp;that&amp;nbsp;a&amp;nbsp;domain&amp;nbsp;expert&amp;nbsp;without&amp;nbsp;a&amp;nbsp;technical&amp;nbsp;background&amp;nbsp;could&amp;nbsp;not&amp;nbsp;specify&amp;nbsp;an&amp;nbsp;instance&amp;nbsp;of&amp;nbsp;it.&amp;nbsp;Nevertheless,&amp;nbsp;domain&amp;nbsp;experts&lt;br />&#xD;&#xA;should&amp;nbsp;be&amp;nbsp;able&amp;nbsp;to&amp;nbsp;create&amp;nbsp;PCM&amp;nbsp;usage&amp;nbsp;models&amp;nbsp;with&amp;nbsp;appropriate&amp;nbsp;tools&amp;nbsp;independently&amp;nbsp;from&amp;nbsp;other&amp;nbsp;developer&lt;br />&#xD;&#xA;roles,&amp;nbsp;because&amp;nbsp;such&amp;nbsp;models&amp;nbsp;only&amp;nbsp;contain&amp;nbsp;concepts&amp;nbsp;known&amp;nbsp;to&amp;nbsp;them.&lt;br />&#xD;&#xA;-&#xD;&#xA;The&amp;nbsp;number&amp;nbsp;of&amp;nbsp;loop&amp;nbsp;iterations&amp;nbsp;is&amp;nbsp;not&amp;nbsp;bound&amp;nbsp;to&amp;nbsp;a&amp;nbsp;constant&amp;nbsp;value,&amp;nbsp;but&amp;nbsp;can&amp;nbsp;be&amp;nbsp;specified&amp;nbsp;as&amp;nbsp;a&amp;nbsp;random&lt;br />&#xD;&#xA;variable.&lt;br />&#xD;&#xA;-&#xD;&#xA;The&amp;nbsp;control&amp;nbsp;flow&amp;nbsp;constructs&amp;nbsp;are&amp;nbsp;arranged&amp;nbsp;in&amp;nbsp;a&amp;nbsp;hierarchical&amp;nbsp;fashion&amp;nbsp;to&amp;nbsp;enable&amp;nbsp;easy&amp;nbsp;analyses.&lt;br />&#xD;&#xA;-&#xD;&#xA;Users&amp;nbsp;are&amp;nbsp;restricted&amp;nbsp;to&amp;nbsp;non-concurrent&amp;nbsp;behaviour,&amp;nbsp;as&amp;nbsp;it&amp;nbsp;is&amp;nbsp;assumed,&amp;nbsp;that&amp;nbsp;users&amp;nbsp;only&amp;nbsp;execute&amp;nbsp;the&lt;br />&#xD;&#xA;services&amp;nbsp;of&amp;nbsp;a&amp;nbsp;system&amp;nbsp;one&amp;nbsp;at&amp;nbsp;a&amp;nbsp;time.&lt;br />&#xD;&#xA;-&#xD;&#xA;System&amp;nbsp;service&amp;nbsp;invocations&amp;nbsp;can&amp;nbsp;be&amp;nbsp;enhanced&amp;nbsp;with&amp;nbsp;characterisations&amp;nbsp;of&amp;nbsp;parameters&amp;nbsp;values.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;[31]&amp;nbsp;Object&amp;nbsp;Management&amp;nbsp;Group&amp;nbsp;(OMG),&amp;nbsp;&quot;UML&amp;nbsp;Profile&amp;nbsp;for&amp;nbsp;Schedulability,&amp;nbsp;Performance&amp;nbsp;and&amp;nbsp;Time,&quot;&lt;br />&#xD;&#xA;http://www.omg.org/cgi-bin/doc?formal/2005-01-02,&amp;nbsp;January&amp;nbsp;2005.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;[34]&amp;nbsp;James&amp;nbsp;A.&amp;nbsp;Whittaker&amp;nbsp;and&amp;nbsp;Michael&amp;nbsp;G.&amp;nbsp;Thomason,&amp;nbsp;&quot;A&amp;nbsp;Markov&amp;nbsp;chain&amp;nbsp;model&amp;nbsp;for&amp;nbsp;statistical&amp;nbsp;software&lt;br />&#xD;&#xA;testing,&quot;&amp;nbsp;IEEE&amp;nbsp;Transactions&amp;nbsp;on&amp;nbsp;Software&amp;nbsp;Engineering,&amp;nbsp;vol.&amp;nbsp;20,&amp;nbsp;no.&amp;nbsp;10,&amp;nbsp;pp.&amp;nbsp;812-824,&amp;nbsp;Oct.&amp;nbsp;1994.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;[78]&amp;nbsp;V.&amp;nbsp;Grassi,&amp;nbsp;R.&amp;nbsp;Mirandola,&amp;nbsp;and&amp;nbsp;A.&amp;nbsp;Sabetta,&amp;nbsp;&quot;From&amp;nbsp;design&amp;nbsp;to&amp;nbsp;analysis&amp;nbsp;models:&amp;nbsp;a&amp;nbsp;kernel&amp;nbsp;language&lt;br />&#xD;&#xA;for&amp;nbsp;performance&amp;nbsp;and&amp;nbsp;reliability&amp;nbsp;analysis&amp;nbsp;of&amp;nbsp;component-based&amp;nbsp;systems,&quot;&amp;nbsp;in&amp;nbsp;Proc.&amp;nbsp;5th&amp;nbsp;International&lt;br />&#xD;&#xA;Workshop&amp;nbsp;on&amp;nbsp;Software&amp;nbsp;and&amp;nbsp;Performance&amp;nbsp;(WOSP&amp;nbsp;'05).&amp;nbsp;New&amp;nbsp;York,&amp;nbsp;NY,&amp;nbsp;USA:&amp;nbsp;ACM&amp;nbsp;Press,&amp;nbsp;2005,&lt;br />&#xD;&#xA;pp.&amp;nbsp;25-36.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;[162]&amp;nbsp;D.&amp;nbsp;B.&amp;nbsp;Petriu&amp;nbsp;and&amp;nbsp;M.&amp;nbsp;Woodside,&amp;nbsp;&quot;A&amp;nbsp;metamodel&amp;nbsp;for&amp;nbsp;generating&amp;nbsp;performance&amp;nbsp;models&amp;nbsp;from&amp;nbsp;UML&amp;nbsp;designs,&quot;&lt;br />&#xD;&#xA;in&amp;nbsp;UML&amp;nbsp;2004&amp;nbsp;-&amp;nbsp;The&amp;nbsp;Unified&amp;nbsp;Modeling&amp;nbsp;Language.&amp;nbsp;Model&amp;nbsp;Languages&amp;nbsp;and&amp;nbsp;Applications.&amp;nbsp;7th&lt;br />&#xD;&#xA;International&amp;nbsp;Conference,&amp;nbsp;Lisbon,&amp;nbsp;Portugal,&amp;nbsp;October&amp;nbsp;11-15,&amp;nbsp;2004,&amp;nbsp;Proceedings,&amp;nbsp;ser.&amp;nbsp;LNCS,&amp;nbsp;T.&amp;nbsp;Baar,&lt;br />&#xD;&#xA;A.&amp;nbsp;Strohmeier,&amp;nbsp;A.&amp;nbsp;Moreira,&amp;nbsp;and&amp;nbsp;S.&amp;nbsp;J.&amp;nbsp;Mellor,&amp;nbsp;Eds.,&amp;nbsp;vol.&amp;nbsp;3273.&amp;nbsp;Springer,&amp;nbsp;2004,&amp;nbsp;pp.&amp;nbsp;41-53.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;[187]&amp;nbsp;C.&amp;nbsp;U.&amp;nbsp;Smith,&amp;nbsp;C.&amp;nbsp;M.&amp;nbsp;Llado,&amp;nbsp;V.&amp;nbsp;Cortellessa,&amp;nbsp;A.&amp;nbsp;D.&amp;nbsp;Marco,&amp;nbsp;and&amp;nbsp;L.&amp;nbsp;G.&amp;nbsp;Williams,&amp;nbsp;&quot;From&amp;nbsp;UML&amp;nbsp;models&lt;br />&#xD;&#xA;to&amp;nbsp;software&amp;nbsp;performance&amp;nbsp;results:&amp;nbsp;an&amp;nbsp;SPE&amp;nbsp;process&amp;nbsp;based&amp;nbsp;on&amp;nbsp;XML&amp;nbsp;interchange&amp;nbsp;formats,&quot;&amp;nbsp;in&amp;nbsp;Proc.&amp;nbsp;5th&lt;br />&#xD;&#xA;international&amp;nbsp;workshop&amp;nbsp;on&amp;nbsp;Software&amp;nbsp;and&amp;nbsp;performance&amp;nbsp;(WOSP'05).&amp;nbsp;New&amp;nbsp;York,&amp;nbsp;NY,&amp;nbsp;USA:&amp;nbsp;ACM&lt;br />&#xD;&#xA;Press,&amp;nbsp;2005,&amp;nbsp;pp.&amp;nbsp;87-98.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;&lt;br />"/>
@@ -957,7 +957,7 @@
           eOpposite="#//core/PCMRandomVariable/closedWorkload_PCMRandomVariable"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="repository" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0"
+  <eSubpackages name="repository" nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.0"
       nsPrefix="repository">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="The main package contributing component types and interfaces."/>
@@ -1664,7 +1664,7 @@
       </eAnnotations>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="resourcetype" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/5.0"
+  <eSubpackages name="resourcetype" nsURI="http://palladiosimulator.org/PalladioComponentModel/ResourceType/5.0"
       nsPrefix="resourcetype">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Package containing all resource types supported by the PCM"/>
@@ -1735,7 +1735,7 @@
           containment="true" eOpposite="#//resourcetype/ResourceSignature/resourceInterface__ResourceSignature"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="protocol" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/5.0"
+  <eSubpackages name="protocol" nsURI="http://palladiosimulator.org/PalladioComponentModel/Protocol/5.0"
       nsPrefix="protocol">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="&lt;p>&#xD;&#xA;    The PCM is prepared to support interface protocols. This package contains a protocol stub. Multiple protocols following&#xD;&#xA;    different formalisms are supported by the PCM and distinguished by a protocol ID.&#xD;&#xA;&lt;/p>"/>
@@ -1752,7 +1752,7 @@
       </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="parameter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0"
+  <eSubpackages name="parameter" nsURI="http://palladiosimulator.org/PalladioComponentModel/Parameter/5.0"
       nsPrefix="parameter">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="The parameter package allows to model data dependent performance characteristics of software systems. It is mainly used to specify performance dependencies on input and output parameters of single service calls. It can also be used to describe dependencies on the state of components by the use of component parameters. The latter describe stochastically a component state which does not change over time. &#xD;&#xA;&#xD;&#xA;Parameters are described by the use of variable usages which on the one side contain a performance abstraction of the variable's value and on the other side the name of the variable for refering to the variable. Characterisations available include Structure (information on the data's internal structure like &quot;sorted&quot; or &quot;unsorted&quot; for an array), Number of Elements (size of a collection), Value (the actuall variable value), Bytesize (the variable's memory footprint), or type (the type of the variable in polymorphic cases).&#xD;&#xA;&#xD;&#xA;Example for variable usages may be a.NUMBER_OF_ELEMENTS = 10 (array &quot;a&quot; contains 10 elements), tree.STRUCTURE = &quot;balanced&quot; (tree &quot;tree&quot; is a balanced tree), and so on."/>
@@ -1853,7 +1853,7 @@
       </eLiterals>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="reliability" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/5.0"
+  <eSubpackages name="reliability" nsURI="http://palladiosimulator.org/PalladioComponentModel/Reliability/5.0"
       nsPrefix="reliability">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="This package contains reliability-relevant classes such as the definition of failure types."/>
@@ -2034,7 +2034,7 @@
           ordered="false" lowerBound="1" eType="#//repository/Repository" eOpposite="#//repository/Repository/failureTypes__Repository"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="seff" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0"
+  <eSubpackages name="seff" nsURI="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0"
       nsPrefix="seff">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Package containing the abstract behaviour model of components"/>
@@ -2547,7 +2547,7 @@
           ordered="false" upperBound="-1" eType="#//reliability/InternalFailureOccurrenceDescription"
           containment="true" eOpposite="#//reliability/InternalFailureOccurrenceDescription/internalAction__InternalFailureOccurrenceDescription"/>
     </eClassifiers>
-    <eSubpackages name="seff_performance" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/5.0"
+    <eSubpackages name="seff_performance" nsURI="http://palladiosimulator.org/PalladioComponentModel/SEFF/SEFF_Performance/5.0"
         nsPrefix="seff_performance">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Package capturing performance aspects of an RDSEFF"/>
@@ -2726,7 +2726,7 @@
             eOpposite="#//seff/AbstractInternalControlFlowAction/resourceDemand_Action"/>
       </eClassifiers>
     </eSubpackages>
-    <eSubpackages name="seff_reliability" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0"
+    <eSubpackages name="seff_reliability" nsURI="http://palladiosimulator.org/PalladioComponentModel/SEFF/SEFF_Reliability/5.0"
         nsPrefix="seff_reliability">
       <eClassifiers xsi:type="ecore:EClass" name="RecoveryActionBehaviour" eSuperTypes="#//seff/seff_reliability/FailureHandlingEntity #//seff/ResourceDemandingBehaviour">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2835,7 +2835,7 @@
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>
-  <eSubpackages name="qosannotations" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/5.0"
+  <eSubpackages name="qosannotations" nsURI="http://palladiosimulator.org/PalladioComponentModel/QoSAnnotations/5.0"
       nsPrefix="qosannotations">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="This package contains elements to specify fixed QoS attributes of system-external services."/>
@@ -2901,7 +2901,7 @@
           ordered="false" lowerBound="1" eType="#//qosannotations/QoSAnnotations"
           eOpposite="#//qosannotations/QoSAnnotations/specifiedOutputParameterAbstractions_QoSAnnotations"/>
     </eClassifiers>
-    <eSubpackages name="qos_performance" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Performance/5.0"
+    <eSubpackages name="qos_performance" nsURI="http://palladiosimulator.org/PalladioComponentModel/QoSAnnotations/QoS_Performance/5.0"
         nsPrefix="">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Performance aspects of QoS annotations."/>
@@ -2949,7 +2949,7 @@
             ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
       </eClassifiers>
     </eSubpackages>
-    <eSubpackages name="qos_reliability" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Reliability/5.0"
+    <eSubpackages name="qos_reliability" nsURI="http://palladiosimulator.org/PalladioComponentModel/QoSAnnotations/QoS_Reliability/5.0"
         nsPrefix="">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Reliability&amp;nbsp;aspects&amp;nbsp;of&amp;nbsp;QoS&amp;nbsp;annotations."/>
@@ -3025,7 +3025,7 @@
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>
-  <eSubpackages name="system" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/5.0"
+  <eSubpackages name="system" nsURI="http://palladiosimulator.org/PalladioComponentModel/System/5.0"
       nsPrefix="system">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="The system package holds only the System meta class. A system is the most high-level and out-most compositional entity of the PCM. It defines the boundaries of a modelled application. Only systems (more precisely provided services of a system) can be accessed from usage profile. Systems also can carry QoS-Annotations, a special means to express fixed QoS properties of services that are required at the system boundary."/>
@@ -3062,7 +3062,7 @@
       </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="resourceenvironment" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0"
+  <eSubpackages name="resourceenvironment" nsURI="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0"
       nsPrefix="resourceenvironment">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Package of entities representing the execution environment of a component based software system"/>
@@ -3181,7 +3181,7 @@
       </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="allocation" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/5.0"
+  <eSubpackages name="allocation" nsURI="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.0"
       nsPrefix="allocation">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="All PCM entities related to model allocation"/>
@@ -3273,7 +3273,7 @@
           containment="true" eOpposite="#//allocation/AllocationContext/allocation_AllocationContext"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="subsystem" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/5.0"
+  <eSubpackages name="subsystem" nsURI="http://palladiosimulator.org/PalladioComponentModel/SubSystem/5.0"
       nsPrefix="subsystem">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Package capturing the subsystem entity"/>

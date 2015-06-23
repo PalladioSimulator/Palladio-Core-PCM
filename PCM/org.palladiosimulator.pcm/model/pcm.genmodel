@@ -2,12 +2,16 @@
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel"
     copyrightText="Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany"
-    modelDirectory="/de.uka.ipd.sdq.pcm/src" modelPluginID="de.uka.ipd.sdq.pcm" templateDirectory="/de.uka.ipd.sdq.pcm/templates"
-    dynamicTemplates="true" redirection="" modelName="PalladioComponentModel" editPluginClass="de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin"
-    editorPluginClass="de.uka.ipd.sdq.pcm.core.presentation.PalladioComponentModelEditorPlugin"
+    modelDirectory="/org.palladiosimulator.pcm/src" editDirectory="/org.palladiosimulator.pcm.edit/src"
+    editorDirectory="/org.palladiosimulator.pcm.editor/src" modelPluginID="org.palladiosimulator.pcm"
+    templateDirectory="/org.palladiosimulator.pcm/templates" dynamicTemplates="true"
+    redirection="" modelName="PalladioComponentModel" editPluginClass="org.palladiosimulator.pcm.core.provider.PalladioComponentModelEditPlugin"
+    editorPluginClass="org.palladiosimulator.pcm.core.presentation.PalladioComponentModelEditorPlugin"
     rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
-    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic"
-    complianceLevel="6.0" runtimeVersion="2.5" language="en" usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units"
+    codeFormatting="true" testSuiteClass="org.palladiosimulator.pcm.tests.PalladioComponentModelAllTests"
+    importerID="org.eclipse.emf.importer.ecore" featureDelegation="Dynamic" complianceLevel="6.0"
+    editPluginID="org.palladiosimulator.pcm.edit" editorPluginID="org.palladiosimulator.pcm.editor"
+    runtimeVersion="2.5" language="en" usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units"
     cleanup="true">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
     <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
@@ -33,11 +37,11 @@
   <modelPluginVariables>OCL=org.eclipse.ocl</modelPluginVariables>
   <modelPluginVariables>EMF_OCL=org.eclipse.ocl.ecore</modelPluginVariables>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
-  <genPackages xsi:type="genmodel:GenPackage" prefix="Pcm" basePackage="de.uka.ipd.sdq"
+  <genPackages xsi:type="genmodel:GenPackage" prefix="Pcm" basePackage="org.palladiosimulator"
       resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
       ecorePackage="pcm.ecore#/">
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//DummyClass"/>
-    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Core" basePackage="de.uka.ipd.sdq.pcm"
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Core" basePackage="org.palladiosimulator.pcm"
         resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
         ecorePackage="pcm.ecore#//core">
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//core/PCMRandomVariable">
@@ -80,7 +84,7 @@
           <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//core/PCMRandomVariable/SpecificationMustNotBeNULL/context"/>
         </genOperations>
       </genClasses>
-      <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Entity" basePackage="de.uka.ipd.sdq.pcm.core"
+      <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Entity" basePackage="org.palladiosimulator.pcm.core"
           resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
           ecorePackage="pcm.ecore#//core/entity">
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//core/entity/ResourceProvidedRole">
@@ -124,7 +128,7 @@
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//core/entity/ResourceInterfaceProvidingRequiringEntity"/>
         <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//core/entity/Entity"/>
       </nestedGenPackages>
-      <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Composition" basePackage="de.uka.ipd.sdq.pcm.core"
+      <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Composition" basePackage="org.palladiosimulator.pcm.core"
           resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
           ecorePackage="pcm.ecore#//core/composition">
         <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//core/composition/DelegationConnector"/>
@@ -316,7 +320,7 @@
         </genClasses>
       </nestedGenPackages>
     </nestedGenPackages>
-    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Usagemodel" basePackage="de.uka.ipd.sdq.pcm"
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Usagemodel" basePackage="org.palladiosimulator.pcm"
         resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
         ecorePackage="pcm.ecore#//usagemodel">
       <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//usagemodel/Workload">
@@ -454,7 +458,7 @@
         </genOperations>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Repository" basePackage="de.uka.ipd.sdq.pcm"
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Repository" basePackage="org.palladiosimulator.pcm"
         resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
         ecorePackage="pcm.ecore#//repository">
       <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="pcm.ecore#//repository/ParameterModifier">
@@ -697,7 +701,7 @@
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//repository/Role"/>
     </nestedGenPackages>
-    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Resourcetype" basePackage="de.uka.ipd.sdq.pcm"
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Resourcetype" basePackage="org.palladiosimulator.pcm"
         resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
         ecorePackage="pcm.ecore#//resourcetype">
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//resourcetype/ResourceSignature">
@@ -738,14 +742,14 @@
             createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourcetype/ResourceInterface/resourceSignatures__ResourceInterface"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Protocol" basePackage="de.uka.ipd.sdq.pcm"
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Protocol" basePackage="org.palladiosimulator.pcm"
         resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
         ecorePackage="pcm.ecore#//protocol">
       <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//protocol/Protocol">
         <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//protocol/Protocol/protocolTypeID"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Parameter" basePackage="de.uka.ipd.sdq.pcm"
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Parameter" basePackage="org.palladiosimulator.pcm"
         resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
         ecorePackage="pcm.ecore#//parameter">
       <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="pcm.ecore#//parameter/VariableCharacterisationType">
@@ -790,7 +794,7 @@
         <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//parameter/CharacterisedVariable/characterisationType"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Reliability" basePackage="de.uka.ipd.sdq.pcm"
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Reliability" basePackage="org.palladiosimulator.pcm"
         resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
         ecorePackage="pcm.ecore#//reliability">
       <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//reliability/FailureOccurrenceDescription">
@@ -849,7 +853,7 @@
             createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//reliability/FailureType/repository__FailureType"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Seff" basePackage="de.uka.ipd.sdq.pcm"
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Seff" basePackage="org.palladiosimulator.pcm"
         resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
         ecorePackage="pcm.ecore#//seff">
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//seff/StopAction">
@@ -1039,7 +1043,7 @@
           <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/InternalAction/SumOfInternalActionFailureProbabilitiesMustNotExceed1/context"/>
         </genOperations>
       </genClasses>
-      <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="SeffPerformance" basePackage="de.uka.ipd.sdq.pcm.seff"
+      <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="SeffPerformance" basePackage="org.palladiosimulator.pcm.seff"
           resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
           ecorePackage="pcm.ecore#//seff/seff_performance">
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//seff/seff_performance/InfrastructureCall">
@@ -1099,7 +1103,7 @@
           </genOperations>
         </genClasses>
       </nestedGenPackages>
-      <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="SeffReliability" basePackage="de.uka.ipd.sdq.pcm.seff"
+      <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="SeffReliability" basePackage="org.palladiosimulator.pcm.seff"
           resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
           ecorePackage="pcm.ecore#//seff/seff_reliability">
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//seff/seff_reliability/RecoveryActionBehaviour">
@@ -1136,7 +1140,7 @@
         </genClasses>
       </nestedGenPackages>
     </nestedGenPackages>
-    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Qosannotations" basePackage="de.uka.ipd.sdq.pcm"
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Qosannotations" basePackage="org.palladiosimulator.pcm"
         resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
         ecorePackage="pcm.ecore#//qosannotations">
       <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//qosannotations/SpecifiedQoSAnnotation">
@@ -1169,7 +1173,7 @@
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
             createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/SpecifiedOutputParameterAbstraction/qosAnnotations_SpecifiedOutputParameterAbstraction"/>
       </genClasses>
-      <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="QosPerformance" basePackage="de.uka.ipd.sdq.pcm.qosannotations"
+      <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="QosPerformance" basePackage="org.palladiosimulator.qosannotations"
           resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
           ecorePackage="pcm.ecore#//qosannotations/qos_performance">
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//qosannotations/qos_performance/SystemSpecifiedExecutionTime">
@@ -1187,7 +1191,7 @@
               propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/qos_performance/ComponentSpecifiedExecutionTime/assemblyContext_ComponentSpecifiedExecutionTime"/>
         </genClasses>
       </nestedGenPackages>
-      <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="QosReliability" basePackage="de.uka.ipd.sdq.pcm.qosannotations"
+      <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="QosReliability" basePackage="org.palladiosimulator.qosannotations"
           resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
           ecorePackage="pcm.ecore#//qosannotations/qos_reliability">
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//qosannotations/qos_reliability/SpecifiedReliabilityAnnotation">
@@ -1208,7 +1212,7 @@
         </genClasses>
       </nestedGenPackages>
     </nestedGenPackages>
-    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="System" basePackage="de.uka.ipd.sdq.pcm"
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="System" basePackage="org.palladiosimulator.pcm"
         resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
         ecorePackage="pcm.ecore#//system">
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//system/System">
@@ -1221,7 +1225,7 @@
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Resourceenvironment"
-        basePackage="de.uka.ipd.sdq.pcm" resource="XMI" disposableProviderFactory="true"
+        basePackage="org.palladiosimulator.pcm" resource="XMI" disposableProviderFactory="true"
         extensibleProviderFactory="true" ecorePackage="pcm.ecore#//resourceenvironment">
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//resourceenvironment/ResourceEnvironment">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
@@ -1273,7 +1277,7 @@
             createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/throughput_CommunicationLinkResourceSpecification"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Allocation" basePackage="de.uka.ipd.sdq.pcm"
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Allocation" basePackage="org.palladiosimulator.pcm"
         resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
         ecorePackage="pcm.ecore#//allocation">
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//allocation/AllocationContext">
@@ -1307,7 +1311,7 @@
         </genOperations>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Subsystem" basePackage="de.uka.ipd.sdq.pcm"
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Subsystem" basePackage="org.palladiosimulator.pcm"
         resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
         ecorePackage="pcm.ecore#//subsystem">
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//subsystem/SubSystem"/>
