@@ -4,8 +4,8 @@ import java.util.HashMap;
 
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
+import org.palladiosimulator.pcm.parameter.CharacterisedVariable;
+import org.palladiosimulator.pcm.parameter.VariableCharacterisationType;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;

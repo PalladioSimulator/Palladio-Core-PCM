@@ -3,9 +3,9 @@
  */
 package de.uka.ipd.sdq.pcm.stochasticexpressions;
 
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcm.parameter.util.ParameterSwitch;
+import org.palladiosimulator.pcm.parameter.VariableCharacterisation;
+import org.palladiosimulator.pcm.parameter.VariableUsage;
+import org.palladiosimulator.pcm.parameter.util.ParameterSwitch;
 
 /**
  * Pretty Print Paramters in a StoEx
@@ -22,7 +22,7 @@ public class ParameterPrettyPrint extends ParameterSwitch<String> {
 
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcm.parameter.util.ParameterSwitch#caseVariableUsage(de.uka.ipd.sdq.pcm.parameter.VariableUsage)
+	 * @see org.palladiosimulator.pcm.parameter.util.ParameterSwitch#caseVariableUsage(org.palladiosimulator.pcm.parameter.VariableUsage)
 	 */
 	@Override
 	public String caseVariableUsage(VariableUsage object) {
@@ -39,7 +39,7 @@ public class ParameterPrettyPrint extends ParameterSwitch<String> {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcm.parameter.util.ParameterSwitch#caseVariableCharacterisation(de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation)
+	 * @see org.palladiosimulator.pcm.parameter.util.ParameterSwitch#caseVariableCharacterisation(org.palladiosimulator.pcm.parameter.VariableCharacterisation)
 	 */
 	@Override
 	public String caseVariableCharacterisation(VariableCharacterisation object) {

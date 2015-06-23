@@ -56,7 +56,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<StringBuilder> {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseCompareExpression(de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression)
+	 * @see org.palladiosimulator.pcm.core.stochastics.util.StochasticsSwitch#caseCompareExpression(org.palladiosimulator.pcm.core.stochastics.CompareExpression)
 	 */
 	@Override
 	public StringBuilder caseCompareExpression(CompareExpression object) {
@@ -91,7 +91,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<StringBuilder> {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseDoubleLiteral(de.uka.ipd.sdq.pcm.core.stochastics.DoubleLiteral)
+	 * @see org.palladiosimulator.pcm.core.stochastics.util.StochasticsSwitch#caseDoubleLiteral(org.palladiosimulator.pcm.core.stochastics.DoubleLiteral)
 	 */
 	@Override
 	public StringBuilder caseDoubleLiteral(DoubleLiteral object) {
@@ -100,7 +100,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<StringBuilder> {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseIntLiteral(de.uka.ipd.sdq.pcm.core.stochastics.IntLiteral)
+	 * @see org.palladiosimulator.pcm.core.stochastics.util.StochasticsSwitch#caseIntLiteral(org.palladiosimulator.pcm.core.stochastics.IntLiteral)
 	 */
 	@Override
 	public StringBuilder caseIntLiteral(IntLiteral object) {
@@ -109,7 +109,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<StringBuilder> {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseParantesis(de.uka.ipd.sdq.pcm.core.stochastics.Parantesis)
+	 * @see org.palladiosimulator.pcm.core.stochastics.util.StochasticsSwitch#caseParantesis(org.palladiosimulator.pcm.core.stochastics.Parantesis)
 	 */
 	@Override
 	public StringBuilder caseParenthesis(Parenthesis object) {
@@ -120,7 +120,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<StringBuilder> {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseProbabilityFunctionLiteral(de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral)
+	 * @see org.palladiosimulator.pcm.core.stochastics.util.StochasticsSwitch#caseProbabilityFunctionLiteral(org.palladiosimulator.pcm.core.stochastics.ProbabilityFunctionLiteral)
 	 */
 	@Override
 	public StringBuilder caseProbabilityFunctionLiteral(ProbabilityFunctionLiteral object) {
@@ -129,7 +129,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<StringBuilder> {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseProductExpression(de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression)
+	 * @see org.palladiosimulator.pcm.core.stochastics.util.StochasticsSwitch#caseProductExpression(org.palladiosimulator.pcm.core.stochastics.ProductExpression)
 	 */
 	@Override
 	public StringBuilder caseProductExpression(ProductExpression object) {
@@ -155,7 +155,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<StringBuilder> {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseTermExpression(de.uka.ipd.sdq.pcm.core.stochastics.TermExpression)
+	 * @see org.palladiosimulator.pcm.core.stochastics.util.StochasticsSwitch#caseTermExpression(org.palladiosimulator.pcm.core.stochastics.TermExpression)
 	 */
 	@Override
 	public StringBuilder caseTermExpression(TermExpression object) {
@@ -178,7 +178,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<StringBuilder> {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcm.parameter.util.ParameterSwitch#caseNamespaceReference(de.uka.ipd.sdq.pcm.parameter.NamespaceReference)
+	 * @see org.palladiosimulator.pcm.parameter.util.ParameterSwitch#caseNamespaceReference(org.palladiosimulator.pcm.parameter.NamespaceReference)
 	 */
 	@Override
 	public StringBuilder caseNamespaceReference(NamespaceReference object) {
@@ -189,7 +189,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<StringBuilder> {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcm.parameter.util.ParameterSwitch#caseVariableReference(de.uka.ipd.sdq.pcm.parameter.VariableReference)
+	 * @see org.palladiosimulator.pcm.parameter.util.ParameterSwitch#caseVariableReference(org.palladiosimulator.pcm.parameter.VariableReference)
 	 */
 	@Override
 	public StringBuilder caseVariableReference(VariableReference object) {
@@ -198,7 +198,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<StringBuilder> {
 	}
 
 	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseVariable(de.uka.ipd.sdq.pcm.core.stochastics.Variable)
+	 * @see org.palladiosimulator.pcm.core.stochastics.util.StochasticsSwitch#caseVariable(org.palladiosimulator.pcm.core.stochastics.Variable)
 	 */
 	@Override
 	public StringBuilder caseVariable(Variable object) {
