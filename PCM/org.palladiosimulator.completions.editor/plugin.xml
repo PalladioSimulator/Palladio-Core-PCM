@@ -17,7 +17,7 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.uka.ipd.sdq.completions.presentation.CompletionsModelWizardID"
+      id = "org.palladiosimulator.completions.presentation.CompletionsModelWizardID"
       name = "%_UI_CompletionsModelWizard_label"
       class = "org.palladiosimulator.completions.presentation.CompletionsModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
@@ -29,7 +29,7 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.uka.ipd.sdq.completions.presentation.CompletionsEditorID"
+        id = "org.palladiosimulator.completions.presentation.CompletionsEditorID"
         name = "%_UI_CompletionsEditor_label"
         icon = "icons/full/obj16/CompletionsModelFile.gif"
         extensions = "completions"
