@@ -60,7 +60,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElement
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelParserProvider;
 import org.palladiosimulator.pcm.repository.InfrastructureSignature;
 import org.palladiosimulator.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcmbench.ui.provider.SignaturePrinter;
+import org.palladiosimulator.pcm.ui.provider.SignaturePrinter;
 
 /**
  * @generated
