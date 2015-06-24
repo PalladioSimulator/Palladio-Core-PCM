@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: PCM Dialogs
-Bundle-SymbolicName: org.palladiosimulator.pcm.dialogs
+Bundle-SymbolicName: org.palladiosimulator.editors.dialogs
 Bundle-Version: 1.0.0.qualifier
 Export-Package: org.palladiosimulator.pcm.dialogs,
  org.palladiosimulator.pcm.dialogs.datatype,
