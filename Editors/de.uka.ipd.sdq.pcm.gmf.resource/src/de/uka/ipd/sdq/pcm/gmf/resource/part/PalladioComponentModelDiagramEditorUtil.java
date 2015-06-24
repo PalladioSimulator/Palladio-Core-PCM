@@ -51,10 +51,10 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentFactory;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
 
 /**
  * @generated

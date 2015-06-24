@@ -9,6 +9,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationFailureProbabilityEditPart;
@@ -35,8 +37,6 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceConta
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabel6EditPart;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 /**
  * @generated

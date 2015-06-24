@@ -15,6 +15,12 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
+import org.palladiosimulator.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
+import org.palladiosimulator.pcm.resourceenvironment.LinkingResource;
+import org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecification;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceConnectedResourceContainers_LinkingResourceEditPart;
@@ -29,12 +35,6 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceConta
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelElementTypes;
-import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
-import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 /**
  * @generated

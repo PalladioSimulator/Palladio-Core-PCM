@@ -11,7 +11,6 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IAdaptable;
@@ -33,8 +32,9 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
-
 import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
+
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
@@ -45,7 +45,6 @@ import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelDiagramUpdater
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelLinkDescriptor;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelNodeDescriptor;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 /**
  * @generated

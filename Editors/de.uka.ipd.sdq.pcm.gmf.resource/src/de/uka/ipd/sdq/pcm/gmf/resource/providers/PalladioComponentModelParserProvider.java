@@ -15,8 +15,9 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
+import org.palladiosimulator.pcm.core.entity.EntityPackage;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
 
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationFailureProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTFEditPart;
@@ -26,7 +27,6 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEntityName2Ed
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.parsers.MessageFormatParser;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 /**
  * @generated

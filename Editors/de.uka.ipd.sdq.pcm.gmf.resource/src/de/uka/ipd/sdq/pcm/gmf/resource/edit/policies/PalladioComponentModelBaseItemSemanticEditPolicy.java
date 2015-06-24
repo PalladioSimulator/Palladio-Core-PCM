@@ -34,12 +34,12 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
+import org.palladiosimulator.pcm.resourceenvironment.LinkingResource;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelElementTypes;
-import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 
 /**
  * @generated

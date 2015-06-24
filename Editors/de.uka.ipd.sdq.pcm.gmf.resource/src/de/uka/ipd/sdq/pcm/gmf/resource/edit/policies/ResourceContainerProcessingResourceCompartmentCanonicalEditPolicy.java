@@ -23,12 +23,12 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelDiagramUpdater;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelNodeDescriptor;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 /**
  * @generated

@@ -18,6 +18,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceConnectedResourceContainers_LinkingResourceEditPart;
@@ -27,7 +28,6 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainer2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelDiagramEditorPlugin;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 /**
  * @generated

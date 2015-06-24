@@ -18,6 +18,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonLabelProvider;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationFailureProbabilityEditPart;
@@ -35,7 +36,6 @@ import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelDiagramEditorP
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelParserProvider;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 
 /**
  * @generated

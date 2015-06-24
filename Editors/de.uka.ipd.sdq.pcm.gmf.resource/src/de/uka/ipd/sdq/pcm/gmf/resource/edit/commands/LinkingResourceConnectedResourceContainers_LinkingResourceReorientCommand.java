@@ -11,10 +11,10 @@ import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
+import org.palladiosimulator.pcm.resourceenvironment.LinkingResource;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
-import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 
 /**
  * @generated
