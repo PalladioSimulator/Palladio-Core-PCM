@@ -18,9 +18,10 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
-import org.palladiosimulator.pcm.dialogs.resource.OpenProcessingRateDialog;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationProcessingRateLabelEditPart;
+
+import org.palladiosimulator.editors.dialogs.resource.OpenProcessingRateDialog;
 import org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecification;
 
 // TODO: Auto-generated Javadoc

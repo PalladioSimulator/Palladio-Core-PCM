@@ -10,8 +10,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
-import org.palladiosimulator.pcm.dialogs.stoex.StochasticExpressionEditDialog;
-
+import org.palladiosimulator.editors.dialogs.stoex.StochasticExpressionEditDialog;
 import org.palladiosimulator.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection;

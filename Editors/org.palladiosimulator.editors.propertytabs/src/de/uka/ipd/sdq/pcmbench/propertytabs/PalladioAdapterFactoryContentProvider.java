@@ -14,8 +14,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySource;
-import org.palladiosimulator.pcm.dialogs.stoex.StochasticExpressionEditDialog;
-
+import org.palladiosimulator.editors.dialogs.stoex.StochasticExpressionEditDialog;
 import org.palladiosimulator.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.RandomVariable;

@@ -19,9 +19,10 @@ import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Image;
-import org.palladiosimulator.pcm.dialogs.resource.OpenThroughputDialog;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationThroughputLabelEditPart;
+
+import org.palladiosimulator.editors.dialogs.resource.OpenThroughputDialog;
 import org.palladiosimulator.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 
 // TODO: Auto-generated Javadoc

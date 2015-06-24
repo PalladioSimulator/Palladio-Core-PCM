@@ -21,15 +21,16 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
-import org.palladiosimulator.pcm.dialogs.datatype.DataTypeContainer;
-import org.palladiosimulator.pcm.dialogs.datatype.InnerDeclarationContainer;
-import org.palladiosimulator.pcm.dialogs.selection.PalladioSelectEObjectDialog;
-import org.palladiosimulator.pcm.dialogs.variablenames.SetOutputVariableNameDialog;
-import org.palladiosimulator.pcm.dialogs.variableusage.VariableUsageInputParameterContentProvider;
-import org.palladiosimulator.pcm.dialogs.variableusage.VariableUsageItemProviderAdapterFactory;
-import org.palladiosimulator.pcm.dialogs.variableusage.VariableUsageOutputParameterContentProvider;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
+
+import org.palladiosimulator.editors.dialogs.datatype.DataTypeContainer;
+import org.palladiosimulator.editors.dialogs.datatype.InnerDeclarationContainer;
+import org.palladiosimulator.editors.dialogs.selection.PalladioSelectEObjectDialog;
+import org.palladiosimulator.editors.dialogs.variablenames.SetOutputVariableNameDialog;
+import org.palladiosimulator.editors.dialogs.variableusage.VariableUsageInputParameterContentProvider;
+import org.palladiosimulator.editors.dialogs.variableusage.VariableUsageItemProviderAdapterFactory;
+import org.palladiosimulator.editors.dialogs.variableusage.VariableUsageOutputParameterContentProvider;
 import org.palladiosimulator.pcm.parameter.ParameterPackage;
 import org.palladiosimulator.pcm.repository.InfrastructureInterface;
 import org.palladiosimulator.pcm.repository.InfrastructureSignature;

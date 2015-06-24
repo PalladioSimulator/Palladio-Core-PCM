@@ -46,7 +46,7 @@ import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
-import org.palladiosimulator.pcm.dialogs.resource.OpenSchedulingPolicyDialog;
+import org.palladiosimulator.editors.dialogs.resource.OpenSchedulingPolicyDialog;
 import org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecification;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.PalladioComponentModelTextSelectionEditPolicy;

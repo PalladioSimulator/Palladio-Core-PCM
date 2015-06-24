@@ -14,10 +14,10 @@ import org.eclipse.gmf.runtime.emf.type.core.edithelper.IEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.ui.PlatformUI;
-import org.palladiosimulator.pcm.dialogs.selection.PalladioSelectEObjectDialog;
 
 import com.sun.corba.se.spi.activation.Repository;
 
+import org.palladiosimulator.editors.dialogs.selection.PalladioSelectEObjectDialog;
 import org.palladiosimulator.pcm.repository.BasicComponent;
 import org.palladiosimulator.pcm.repository.PassiveResource;
 import org.palladiosimulator.pcm.seff.SeffPackage;

@@ -50,8 +50,8 @@ import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
+import org.palladiosimulator.editors.dialogs.usage.OpenVariableCharacterisationDialog;
 
-import org.palladiosimulator.pcm.dialogs.usage.OpenVariableCharacterisationDialog;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.PalladioComponentModelTextNonResizableEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.VariableCharacterisationItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;

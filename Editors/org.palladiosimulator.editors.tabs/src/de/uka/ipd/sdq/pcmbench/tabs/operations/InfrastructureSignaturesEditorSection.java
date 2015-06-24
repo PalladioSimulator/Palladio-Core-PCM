@@ -12,8 +12,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
-import org.palladiosimulator.pcm.dialogs.parameters.ParametersDialog;
-
+import org.palladiosimulator.editors.dialogs.parameters.ParametersDialog;
 import org.palladiosimulator.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcmbench.tabs.generic.EditorSection;
 import de.uka.ipd.sdq.pcmbench.tabs.generic.ObservableCellModifier;

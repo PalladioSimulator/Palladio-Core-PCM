@@ -15,8 +15,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
-import org.palladiosimulator.pcm.dialogs.datatype.CallDataTypeDialog;
-
+import org.palladiosimulator.editors.dialogs.datatype.CallDataTypeDialog;
 import org.palladiosimulator.pcm.repository.DataType;
 import org.palladiosimulator.pcm.repository.EventType;
 import org.palladiosimulator.pcm.repository.Repository;

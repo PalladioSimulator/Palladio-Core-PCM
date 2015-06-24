@@ -21,8 +21,7 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.ConfigureElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.ui.PlatformUI;
-import org.palladiosimulator.pcm.dialogs.stoex.StochasticExpressionEditDialog;
-
+import org.palladiosimulator.editors.dialogs.stoex.StochasticExpressionEditDialog;
 import org.palladiosimulator.pcm.core.CoreFactory;
 import org.palladiosimulator.pcm.core.PCMRandomVariable;
 import org.palladiosimulator.pcm.resourceenvironment.CommunicationLinkResourceSpecification;

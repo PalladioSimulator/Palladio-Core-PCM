@@ -13,8 +13,7 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
 import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
-import org.palladiosimulator.pcm.dialogs.stoex.StoExCompletionProcessor;
-
+import org.palladiosimulator.editors.dialogs.stoex.StoExCompletionProcessor;
 import org.palladiosimulator.pcm.repository.Parameter;
 import org.palladiosimulator.pcm.stochasticexpressions.parser.PCMStoExLexer;
 import org.palladiosimulator.pcm.stochasticexpressions.parser.PCMStoExParser;

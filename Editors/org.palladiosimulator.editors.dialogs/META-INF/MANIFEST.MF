@@ -3,18 +3,18 @@ Bundle-ManifestVersion: 2
 Bundle-Name: PCM Dialogs
 Bundle-SymbolicName: org.palladiosimulator.editors.dialogs
 Bundle-Version: 1.0.0.qualifier
-Export-Package: org.palladiosimulator.pcm.dialogs,
- org.palladiosimulator.pcm.dialogs.datatype,
- org.palladiosimulator.pcm.dialogs.exception,
- org.palladiosimulator.pcm.dialogs.parameters,
- org.palladiosimulator.pcm.dialogs.repository,
- org.palladiosimulator.pcm.dialogs.resource,
- org.palladiosimulator.pcm.dialogs.seff,
- org.palladiosimulator.pcm.dialogs.selection,
- org.palladiosimulator.pcm.dialogs.stoex,
- org.palladiosimulator.pcm.dialogs.usage,
- org.palladiosimulator.pcm.dialogs.variablenames,
- org.palladiosimulator.pcm.dialogs.variableusage
+Export-Package: org.palladiosimulator.editors.dialogs,
+ org.palladiosimulator.editors.dialogs.datatype,
+ org.palladiosimulator.editors.dialogs.exception,
+ org.palladiosimulator.editors.dialogs.parameters,
+ org.palladiosimulator.editors.dialogs.repository,
+ org.palladiosimulator.editors.dialogs.resource,
+ org.palladiosimulator.editors.dialogs.seff,
+ org.palladiosimulator.editors.dialogs.selection,
+ org.palladiosimulator.editors.dialogs.stoex,
+ org.palladiosimulator.editors.dialogs.usage,
+ org.palladiosimulator.editors.dialogs.variablenames,
+ org.palladiosimulator.editors.dialogs.variableusage
 Require-Bundle: de.uka.ipd.sdq.stoex;bundle-version="2.2.0",
  de.uka.ipd.sdq.stoex.analyser;bundle-version="2.0.0",
  org.eclipse.ui,
@@ -32,5 +32,5 @@ Require-Bundle: de.uka.ipd.sdq.stoex;bundle-version="2.2.0",
  org.eclipse.ui.editors;bundle-version="3.7.0"
 Bundle-Vendor: palladiosimulator.org
 Bundle-ActivationPolicy: lazy
-Bundle-Activator: org.palladiosimulator.pcm.dialogs.PCMDialogPluginActivator
+Bundle-Activator: org.palladiosimulator.editors.dialogs.PCMDialogPluginActivator
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

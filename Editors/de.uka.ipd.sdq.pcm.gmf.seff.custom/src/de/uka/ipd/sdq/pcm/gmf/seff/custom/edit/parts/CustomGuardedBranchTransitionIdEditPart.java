@@ -19,8 +19,9 @@ import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 
-import org.palladiosimulator.pcm.dialogs.seff.OpenBranchConditionDialog;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart;
+
+import org.palladiosimulator.editors.dialogs.seff.OpenBranchConditionDialog;
 import org.palladiosimulator.pcm.seff.GuardedBranchTransition;
 
 /**
