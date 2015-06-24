@@ -6,7 +6,7 @@
   <rm:locator pattern="^org\.palladiosimulator\.pcm.*" searchPathRef="editors" failOnError="false"/>
   
   <rm:redirect pattern=".*"
-		href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/PCM/org.palladiosimulator.pcm.buckminster/pcm.rmap" />
+		href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/Editors/org.palladiosimulator.pcm.buckminster/editors.rmap" />
 
   <rm:searchPath name="editors">
     <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="svn" source="true">
