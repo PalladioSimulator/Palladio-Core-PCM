@@ -15,7 +15,6 @@
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="de.uka.ipd.sdq.identifier"/>
-      <import plugin="de.uka.ipd.sdq.pcm"/>
       <import plugin="de.uka.ipd.sdq.probfunction"/>
       <import plugin="de.uka.ipd.sdq.stoex"/>
       <import plugin="de.uka.ipd.sdq.units"/>
@@ -28,6 +27,14 @@
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.ui.ide"/>
+      <import plugin="org.palladiosimulator.pcm"/>
+      <import plugin="org.eclipse.uml2.common.edit"/>
+      <import plugin="org.palladiosimulator.pcm.resultdecorator.edit" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.identifier.edit" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.pcm.edit" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.probfunction.edit" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.stoex.edit" version="2.2.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.units.edit" version="2.1.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
