@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g 2012-09-27 09:54:49
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g 2012-09-27 09:54:49
 
 package org.palladiosimulator.pcm.stochasticexpressions.parser;
 
@@ -86,7 +86,7 @@ public class PCMStoExLexer extends Lexer {
 
     @Override
     public String getGrammarFileName() {
-        return "/Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g";
+        return "/Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g";
     }
 
     // $ANTLR start "T__55"
@@ -94,9 +94,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = T__55;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:7:7:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:7:7:
             // ( '?' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:7:9:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:7:9:
             // '?'
             {
                 match('?');
@@ -116,9 +116,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = T__56;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:8:7:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:8:7:
             // ( ':' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:8:9:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:8:9:
             // ':'
             {
                 match(':');
@@ -138,9 +138,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = OR;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:391:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:391:2:
             // ( 'OR' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:391:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:391:4:
             // 'OR'
             {
                 match("OR");
@@ -160,9 +160,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = XOR;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:395:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:395:2:
             // ( 'XOR' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:395:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:395:4:
             // 'XOR'
             {
                 match("XOR");
@@ -182,9 +182,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = AND;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:399:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:399:2:
             // ( 'AND' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:399:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:399:4:
             // 'AND'
             {
                 match("AND");
@@ -204,9 +204,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = NOT;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:403:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:403:2:
             // ( 'NOT' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:403:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:403:4:
             // 'NOT'
             {
                 match("NOT");
@@ -226,9 +226,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = INTPMF;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:407:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:407:2:
             // ( 'IntPMF' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:407:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:407:4:
             // 'IntPMF'
             {
                 match("IntPMF");
@@ -248,9 +248,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = DOUBLEPMF;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:411:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:411:2:
             // ( 'DoublePMF' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:411:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:411:4:
             // 'DoublePMF'
             {
                 match("DoublePMF");
@@ -270,9 +270,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = ENUMPMF;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:415:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:415:2:
             // ( 'EnumPMF' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:415:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:415:4:
             // 'EnumPMF'
             {
                 match("EnumPMF");
@@ -292,9 +292,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = DOUBLEPDF;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:419:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:419:2:
             // ( 'DoublePDF' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:419:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:419:4:
             // 'DoublePDF'
             {
                 match("DoublePDF");
@@ -314,9 +314,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = BOOLPMF;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:423:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:423:2:
             // ( 'BoolPMF' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:423:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:423:4:
             // 'BoolPMF'
             {
                 match("BoolPMF");
@@ -336,9 +336,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = UNIT;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:427:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:427:2:
             // ( 'unit' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:427:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:427:4:
             // 'unit'
             {
                 match("unit");
@@ -358,9 +358,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = BOOL;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:431:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:431:2:
             // ( '\"bool\"' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:431:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:431:4:
             // '\"bool\"'
             {
                 match("\"bool\"");
@@ -380,9 +380,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = FALSE;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:435:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:435:2:
             // ( 'false' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:435:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:435:4:
             // 'false'
             {
                 match("false");
@@ -402,9 +402,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = TRUE;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:439:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:439:2:
             // ( 'true' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:439:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:439:4:
             // 'true'
             {
                 match("true");
@@ -424,9 +424,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = BYTESIZE;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:443:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:443:2:
             // ( 'BYTESIZE' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:443:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:443:4:
             // 'BYTESIZE'
             {
                 match("BYTESIZE");
@@ -446,9 +446,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = STRUCTURE;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:447:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:447:2:
             // ( 'STRUCTURE' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:447:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:447:4:
             // 'STRUCTURE'
             {
                 match("STRUCTURE");
@@ -468,9 +468,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = NUMBER_OF_ELEMENTS;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:451:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:451:2:
             // ( 'NUMBER_OF_ELEMENTS' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:451:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:451:4:
             // 'NUMBER_OF_ELEMENTS'
             {
                 match("NUMBER_OF_ELEMENTS");
@@ -490,9 +490,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = TYPE;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:455:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:455:2:
             // ( 'TYPE' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:455:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:455:4:
             // 'TYPE'
             {
                 match("TYPE");
@@ -512,9 +512,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = VALUE;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:459:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:459:2:
             // ( 'VALUE' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:459:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:459:4:
             // 'VALUE'
             {
                 match("VALUE");
@@ -534,9 +534,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = INNER;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:463:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:463:2:
             // ( 'INNER' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:463:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:463:4:
             // 'INNER'
             {
                 match("INNER");
@@ -556,9 +556,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = PLUS;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:466:7:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:466:7:
             // ( '+' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:466:9:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:466:9:
             // '+'
             {
                 match('+');
@@ -578,9 +578,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = MINUS;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:467:7:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:467:7:
             // ( '-' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:467:9:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:467:9:
             // '-'
             {
                 match('-');
@@ -600,9 +600,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = MUL;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:468:7:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:468:7:
             // ( '*' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:468:9:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:468:9:
             // '*'
             {
                 match('*');
@@ -622,9 +622,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = DIV;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:469:7:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:469:7:
             // ( '/' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:469:9:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:469:9:
             // '/'
             {
                 match('/');
@@ -644,9 +644,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = MOD;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:470:7:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:470:7:
             // ( '%' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:470:9:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:470:9:
             // '%'
             {
                 match('%');
@@ -666,9 +666,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = POW;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:471:7:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:471:7:
             // ( '^' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:471:9:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:471:9:
             // '^'
             {
                 match('^');
@@ -688,9 +688,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = LPAREN;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:472:7:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:472:7:
             // ( '(' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:472:9:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:472:9:
             // '('
             {
                 match('(');
@@ -710,9 +710,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = RPAREN;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:473:7:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:473:7:
             // ( ')' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:473:9:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:473:9:
             // ')'
             {
                 match(')');
@@ -732,9 +732,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = SEMI;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:474:7:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:474:7:
             // ( ';' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:474:9:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:474:9:
             // ';'
             {
                 match(';');
@@ -754,9 +754,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = COLON;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:475:8:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:475:8:
             // ( ',' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:475:10:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:475:10:
             // ','
             {
                 match(',');
@@ -776,9 +776,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = DEFINITION;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:476:12:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:476:12:
             // ( '=' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:476:14:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:476:14:
             // '='
             {
                 match('=');
@@ -798,9 +798,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = ORDERED_DEF;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:478:2:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:478:2:
             // ( 'ordered' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:478:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:478:4:
             // 'ordered'
             {
                 match("ordered");
@@ -820,9 +820,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = EQUAL;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:479:7:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:479:7:
             // ( '==' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:479:9:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:479:9:
             // '=='
             {
                 match("==");
@@ -842,9 +842,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = SQUARE_PAREN_L;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:480:16:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:480:16:
             // ( '[' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:480:18:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:480:18:
             // '['
             {
                 match('[');
@@ -864,9 +864,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = SQUARE_PAREN_R;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:481:16:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:481:16:
             // ( ']' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:481:18:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:481:18:
             // ']'
             {
                 match(']');
@@ -884,9 +884,9 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR start "DIGIT"
     public final void mDIGIT() throws RecognitionException {
         try {
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:482:16:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:482:16:
             // ( '0' .. '9' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:482:18:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:482:18:
             // '0' .. '9'
             {
                 matchRange('0', '9');
@@ -904,12 +904,12 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = NUMBER;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:8:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:8:
             // ( ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )? )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:11:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:11:
             // ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )?
             {
-                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:11:
+                // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:11:
                 // ( DIGIT )+
                 int cnt1 = 0;
                 loop1: do {
@@ -922,7 +922,7 @@ public class PCMStoExLexer extends Lexer {
 
                     switch (alt1) {
                     case 1:
-                    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:12:
+                    // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:12:
                     // DIGIT
                     {
                         mDIGIT();
@@ -940,7 +940,7 @@ public class PCMStoExLexer extends Lexer {
                     cnt1++;
                 } while (true);
 
-                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:20:
+                // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:20:
                 // ( '.' ( DIGIT )+ )?
                 int alt3 = 2;
                 final int LA3_0 = this.input.LA(1);
@@ -950,11 +950,11 @@ public class PCMStoExLexer extends Lexer {
                 }
                 switch (alt3) {
                 case 1:
-                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:21:
+                // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:21:
                 // '.' ( DIGIT )+
                 {
                     match('.');
-                    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:25:
+                    // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:25:
                     // ( DIGIT )+
                     int cnt2 = 0;
                     loop2: do {
@@ -967,7 +967,7 @@ public class PCMStoExLexer extends Lexer {
 
                         switch (alt2) {
                         case 1:
-                        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:26:
+                        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:26:
                         // DIGIT
                         {
                             mDIGIT();
@@ -990,7 +990,7 @@ public class PCMStoExLexer extends Lexer {
 
                 }
 
-                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:36:
+                // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:36:
                 // ( Exponent )?
                 int alt4 = 2;
                 final int LA4_0 = this.input.LA(1);
@@ -1000,7 +1000,7 @@ public class PCMStoExLexer extends Lexer {
                 }
                 switch (alt4) {
                 case 1:
-                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:36:
+                // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:483:36:
                 // Exponent
                 {
                     mExponent();
@@ -1023,9 +1023,9 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR start "Exponent"
     public final void mExponent() throws RecognitionException {
         try {
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:10:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:10:
             // ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:12:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:12:
             // ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
             {
                 if (this.input.LA(1) == 'E' || this.input.LA(1) == 'e') {
@@ -1037,7 +1037,7 @@ public class PCMStoExLexer extends Lexer {
                     throw mse;
                 }
 
-                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:22:
+                // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:22:
                 // ( '+' | '-' )?
                 int alt5 = 2;
                 final int LA5_0 = this.input.LA(1);
@@ -1047,7 +1047,7 @@ public class PCMStoExLexer extends Lexer {
                 }
                 switch (alt5) {
                 case 1:
-                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
+                // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
                 {
                     if (this.input.LA(1) == '+' || this.input.LA(1) == '-') {
                         this.input.consume();
@@ -1063,7 +1063,7 @@ public class PCMStoExLexer extends Lexer {
 
                 }
 
-                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:33:
+                // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:33:
                 // ( '0' .. '9' )+
                 int cnt6 = 0;
                 loop6: do {
@@ -1076,7 +1076,7 @@ public class PCMStoExLexer extends Lexer {
 
                     switch (alt6) {
                     case 1:
-                    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:34:
+                    // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:485:34:
                     // '0' .. '9'
                     {
                         matchRange('0', '9');
@@ -1105,9 +1105,9 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR start "ALPHA"
     public final void mALPHA() throws RecognitionException {
         try {
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:486:16:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:486:16:
             // ( 'a' .. 'z' | 'A' .. 'Z' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
             {
                 if ((this.input.LA(1) >= 'A' && this.input.LA(1) <= 'Z')
                         || (this.input.LA(1) >= 'a' && this.input.LA(1) <= 'z')) {
@@ -1132,9 +1132,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = NOTEQUAL;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:487:10:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:487:10:
             // ( '<>' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:487:12:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:487:12:
             // '<>'
             {
                 match("<>");
@@ -1154,9 +1154,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = GREATER;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:488:9:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:488:9:
             // ( '>' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:488:11:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:488:11:
             // '>'
             {
                 match('>');
@@ -1176,9 +1176,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = LESS;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:489:6:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:489:6:
             // ( '<' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:489:8:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:489:8:
             // '<'
             {
                 match('<');
@@ -1198,9 +1198,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = GREATEREQUAL;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:490:14:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:490:14:
             // ( '>=' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:490:16:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:490:16:
             // '>='
             {
                 match(">=");
@@ -1220,9 +1220,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = LESSEQUAL;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:491:11:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:491:11:
             // ( '<=' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:491:13:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:491:13:
             // '<='
             {
                 match("<=");
@@ -1242,13 +1242,13 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = STRING_LITERAL;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:492:16:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:492:16:
             // ( '\\\"' ( ALPHA | '_' | ' ' | DIGIT )+ '\\\"' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:492:18:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:492:18:
             // '\\\"' ( ALPHA | '_' | ' ' | DIGIT )+ '\\\"'
             {
                 match('\"');
-                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:492:23:
+                // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:492:23:
                 // ( ALPHA | '_' | ' ' | DIGIT )+
                 int cnt7 = 0;
                 loop7: do {
@@ -1262,7 +1262,7 @@ public class PCMStoExLexer extends Lexer {
 
                     switch (alt7) {
                     case 1:
-                    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
+                    // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
                     {
                         if (this.input.LA(1) == ' ' || (this.input.LA(1) >= '0' && this.input.LA(1) <= '9')
                                 || (this.input.LA(1) >= 'A' && this.input.LA(1) <= 'Z') || this.input.LA(1) == '_'
@@ -1305,9 +1305,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = DOT;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:493:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:493:4:
             // ( '.' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:493:6:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:493:6:
             // '.'
             {
                 match('.');
@@ -1327,13 +1327,13 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = ID;
             final int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:496:4:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:496:4:
             // ( IDSTART ( IDPART )* )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:496:6:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:496:6:
             // IDSTART ( IDPART )*
             {
                 mIDSTART();
-                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:496:14:
+                // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:496:14:
                 // ( IDPART )*
                 loop8: do {
                     int alt8 = 2;
@@ -1346,7 +1346,7 @@ public class PCMStoExLexer extends Lexer {
 
                     switch (alt8) {
                     case 1:
-                    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:496:14:
+                    // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:496:14:
                     // IDPART
                     {
                         mIDPART();
@@ -1372,9 +1372,9 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR start "IDSTART"
     public final void mIDSTART() throws RecognitionException {
         try {
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:497:18:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:497:18:
             // ( ALPHA | '_' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
             {
                 if ((this.input.LA(1) >= 'A' && this.input.LA(1) <= 'Z') || this.input.LA(1) == '_'
                         || (this.input.LA(1) >= 'a' && this.input.LA(1) <= 'z')) {
@@ -1397,9 +1397,9 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR start "IDPART"
     public final void mIDPART() throws RecognitionException {
         try {
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:498:17:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:498:17:
             // ( IDSTART | DIGIT )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
             {
                 if ((this.input.LA(1) >= '0' && this.input.LA(1) <= '9')
                         || (this.input.LA(1) >= 'A' && this.input.LA(1) <= 'Z') || this.input.LA(1) == '_'
@@ -1425,9 +1425,9 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:500:5:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:500:5:
             // ( ( ' ' | '\\r' | '\\t' | '\ ' | '\\n' ) )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:500:8:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:500:8:
             // ( ' ' | '\\r' | '\\t' | '\ ' | '\\n' )
             {
                 if ((this.input.LA(1) >= '\t' && this.input.LA(1) <= '\n')
@@ -1457,14 +1457,14 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:504:5:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:504:5:
             // ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:504:9:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:504:9:
             // '/*' ( options {greedy=false; } : . )* '*/'
             {
                 match("/*");
 
-                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:504:14:
+                // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:504:14:
                 // ( options {greedy=false; } : . )*
                 loop9: do {
                     int alt9 = 2;
@@ -1485,7 +1485,7 @@ public class PCMStoExLexer extends Lexer {
 
                     switch (alt9) {
                     case 1:
-                    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:504:42:
+                    // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:504:42:
                     // .
                     {
                         matchAny();
@@ -1517,14 +1517,14 @@ public class PCMStoExLexer extends Lexer {
         try {
             final int _type = LINE_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:5:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:5:
             // ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF ) )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:7:
+            // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:7:
             // '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? ( '\\n' | EOF )
             {
                 match("//");
 
-                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:12:
+                // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:12:
                 // (~ ( '\\n' | '\\r' ) )*
                 loop10: do {
                     int alt10 = 2;
@@ -1537,7 +1537,7 @@ public class PCMStoExLexer extends Lexer {
 
                     switch (alt10) {
                     case 1:
-                    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:12:
+                    // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:12:
                     // ~ ( '\\n' | '\\r' )
                     {
                         if ((this.input.LA(1) >= '\u0000' && this.input.LA(1) <= '\t')
@@ -1559,7 +1559,7 @@ public class PCMStoExLexer extends Lexer {
                     }
                 } while (true);
 
-                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:26:
+                // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:26:
                 // ( '\\r' )?
                 int alt11 = 2;
                 final int LA11_0 = this.input.LA(1);
@@ -1569,7 +1569,7 @@ public class PCMStoExLexer extends Lexer {
                 }
                 switch (alt11) {
                 case 1:
-                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:26:
+                // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:26:
                 // '\\r'
                 {
                     match('\r');
@@ -1579,7 +1579,7 @@ public class PCMStoExLexer extends Lexer {
 
                 }
 
-                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:32:
+                // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:32:
                 // ( '\\n' | EOF )
                 int alt12 = 2;
                 final int LA12_0 = this.input.LA(1);
@@ -1591,7 +1591,7 @@ public class PCMStoExLexer extends Lexer {
                 }
                 switch (alt12) {
                 case 1:
-                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:33:
+                // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:33:
                 // '\\n'
                 {
                     match('\n');
@@ -1599,7 +1599,7 @@ public class PCMStoExLexer extends Lexer {
                 }
                     break;
                 case 2:
-                // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:38:
+                // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:508:38:
                 // EOF
                 {
                     match(EOF);
@@ -1623,7 +1623,7 @@ public class PCMStoExLexer extends Lexer {
 
     @Override
     public void mTokens() throws RecognitionException {
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:8:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:8:
         // ( T__55 | T__56 | OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF |
         // BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE |
         // VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON |
@@ -1634,7 +1634,7 @@ public class PCMStoExLexer extends Lexer {
         alt13 = this.dfa13.predict(this.input);
         switch (alt13) {
         case 1:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:10:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:10:
         // T__55
         {
             mT__55();
@@ -1642,7 +1642,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 2:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:16:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:16:
         // T__56
         {
             mT__56();
@@ -1650,7 +1650,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 3:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:22:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:22:
         // OR
         {
             mOR();
@@ -1658,7 +1658,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 4:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:25:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:25:
         // XOR
         {
             mXOR();
@@ -1666,7 +1666,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 5:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:29:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:29:
         // AND
         {
             mAND();
@@ -1674,7 +1674,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 6:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:33:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:33:
         // NOT
         {
             mNOT();
@@ -1682,7 +1682,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 7:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:37:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:37:
         // INTPMF
         {
             mINTPMF();
@@ -1690,7 +1690,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 8:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:44:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:44:
         // DOUBLEPMF
         {
             mDOUBLEPMF();
@@ -1698,7 +1698,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 9:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:54:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:54:
         // ENUMPMF
         {
             mENUMPMF();
@@ -1706,7 +1706,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 10:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:62:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:62:
         // DOUBLEPDF
         {
             mDOUBLEPDF();
@@ -1714,7 +1714,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 11:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:72:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:72:
         // BOOLPMF
         {
             mBOOLPMF();
@@ -1722,7 +1722,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 12:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:80:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:80:
         // UNIT
         {
             mUNIT();
@@ -1730,7 +1730,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 13:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:85:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:85:
         // BOOL
         {
             mBOOL();
@@ -1738,7 +1738,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 14:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:90:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:90:
         // FALSE
         {
             mFALSE();
@@ -1746,7 +1746,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 15:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:96:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:96:
         // TRUE
         {
             mTRUE();
@@ -1754,7 +1754,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 16:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:101:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:101:
         // BYTESIZE
         {
             mBYTESIZE();
@@ -1762,7 +1762,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 17:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:110:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:110:
         // STRUCTURE
         {
             mSTRUCTURE();
@@ -1770,7 +1770,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 18:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:120:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:120:
         // NUMBER_OF_ELEMENTS
         {
             mNUMBER_OF_ELEMENTS();
@@ -1778,7 +1778,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 19:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:139:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:139:
         // TYPE
         {
             mTYPE();
@@ -1786,7 +1786,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 20:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:144:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:144:
         // VALUE
         {
             mVALUE();
@@ -1794,7 +1794,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 21:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:150:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:150:
         // INNER
         {
             mINNER();
@@ -1802,7 +1802,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 22:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:156:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:156:
         // PLUS
         {
             mPLUS();
@@ -1810,7 +1810,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 23:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:161:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:161:
         // MINUS
         {
             mMINUS();
@@ -1818,7 +1818,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 24:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:167:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:167:
         // MUL
         {
             mMUL();
@@ -1826,7 +1826,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 25:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:171:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:171:
         // DIV
         {
             mDIV();
@@ -1834,7 +1834,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 26:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:175:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:175:
         // MOD
         {
             mMOD();
@@ -1842,7 +1842,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 27:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:179:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:179:
         // POW
         {
             mPOW();
@@ -1850,7 +1850,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 28:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:183:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:183:
         // LPAREN
         {
             mLPAREN();
@@ -1858,7 +1858,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 29:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:190:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:190:
         // RPAREN
         {
             mRPAREN();
@@ -1866,7 +1866,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 30:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:197:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:197:
         // SEMI
         {
             mSEMI();
@@ -1874,7 +1874,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 31:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:202:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:202:
         // COLON
         {
             mCOLON();
@@ -1882,7 +1882,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 32:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:208:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:208:
         // DEFINITION
         {
             mDEFINITION();
@@ -1890,7 +1890,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 33:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:219:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:219:
         // ORDERED_DEF
         {
             mORDERED_DEF();
@@ -1898,7 +1898,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 34:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:231:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:231:
         // EQUAL
         {
             mEQUAL();
@@ -1906,7 +1906,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 35:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:237:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:237:
         // SQUARE_PAREN_L
         {
             mSQUARE_PAREN_L();
@@ -1914,7 +1914,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 36:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:252:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:252:
         // SQUARE_PAREN_R
         {
             mSQUARE_PAREN_R();
@@ -1922,7 +1922,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 37:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:267:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:267:
         // NUMBER
         {
             mNUMBER();
@@ -1930,7 +1930,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 38:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:274:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:274:
         // NOTEQUAL
         {
             mNOTEQUAL();
@@ -1938,7 +1938,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 39:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:283:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:283:
         // GREATER
         {
             mGREATER();
@@ -1946,7 +1946,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 40:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:291:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:291:
         // LESS
         {
             mLESS();
@@ -1954,7 +1954,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 41:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:296:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:296:
         // GREATEREQUAL
         {
             mGREATEREQUAL();
@@ -1962,7 +1962,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 42:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:309:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:309:
         // LESSEQUAL
         {
             mLESSEQUAL();
@@ -1970,7 +1970,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 43:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:319:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:319:
         // STRING_LITERAL
         {
             mSTRING_LITERAL();
@@ -1978,7 +1978,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 44:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:334:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:334:
         // DOT
         {
             mDOT();
@@ -1986,7 +1986,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 45:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:338:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:338:
         // ID
         {
             mID();
@@ -1994,7 +1994,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 46:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:341:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:341:
         // WS
         {
             mWS();
@@ -2002,7 +2002,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 47:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:344:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:344:
         // COMMENT
         {
             mCOMMENT();
@@ -2010,7 +2010,7 @@ public class PCMStoExLexer extends Lexer {
         }
             break;
         case 48:
-        // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:352:
+        // /Users/joerg/Documents/work/palladio-dev/org.palladiosimulator.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:1:352:
         // LINE_COMMENT
         {
             mLINE_COMMENT();
