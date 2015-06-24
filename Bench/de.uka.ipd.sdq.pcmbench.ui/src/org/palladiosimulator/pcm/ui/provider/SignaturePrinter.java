@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.pcmbench.ui.provider;
+package org.palladiosimulator.pcm.ui.provider;
 
 import org.palladiosimulator.pcm.repository.CollectionDataType;
 import org.palladiosimulator.pcm.repository.CompositeDataType;

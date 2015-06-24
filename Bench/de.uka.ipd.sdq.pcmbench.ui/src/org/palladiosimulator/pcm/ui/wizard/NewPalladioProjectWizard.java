@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.pcmbench.wizard.pcm;
+package org.palladiosimulator.pcm.ui.wizard;
 
 import java.io.IOException;
 import java.io.InputStream;

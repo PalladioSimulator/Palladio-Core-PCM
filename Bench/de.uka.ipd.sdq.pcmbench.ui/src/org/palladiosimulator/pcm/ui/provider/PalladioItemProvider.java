@@ -1,7 +1,7 @@
 /**
  *
  */
-package de.uka.ipd.sdq.pcmbench.ui.provider;
+package org.palladiosimulator.pcm.ui.provider;
 
 import java.util.Collection;
 
@@ -27,7 +27,7 @@ import org.palladiosimulator.pcm.core.composition.AssemblyContext;
 import org.palladiosimulator.pcm.core.entity.Entity;
 import org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecification;
 import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF;
-import de.uka.ipd.sdq.pcmbench.ui.PCMBenchUIPlugin;
+import org.palladiosimulator.pcm.ui.PCMBenchUIPlugin;
 
 /**
  * @author Snowball

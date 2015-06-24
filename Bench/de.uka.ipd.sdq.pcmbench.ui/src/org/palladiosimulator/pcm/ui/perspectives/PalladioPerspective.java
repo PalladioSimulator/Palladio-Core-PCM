@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.pcmbench.ui.perspectives;
+package org.palladiosimulator.pcm.ui.perspectives;
 
 import org.eclipse.debug.ui.IDebugUIConstants;
 import org.eclipse.ui.IFolderLayout;

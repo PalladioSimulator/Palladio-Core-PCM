@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.pcmbench.ui;
+package org.palladiosimulator.pcm.ui;
 
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;

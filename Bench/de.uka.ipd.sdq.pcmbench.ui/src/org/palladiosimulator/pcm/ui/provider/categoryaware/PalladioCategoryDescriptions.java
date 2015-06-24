@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware;
+package org.palladiosimulator.pcm.ui.provider.categoryaware;
 
 import java.util.ArrayList;
 import java.util.Collection;

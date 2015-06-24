@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.pcmbench.wizard.pcm;
+package org.palladiosimulator.pcm.ui.wizard;
 
 import org.eclipse.jface.viewers.IBaseLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;

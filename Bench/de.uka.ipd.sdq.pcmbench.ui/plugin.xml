@@ -3,7 +3,7 @@
 <plugin>
 <extension point="org.eclipse.ui.perspectives">
       <perspective
-            class="de.uka.ipd.sdq.pcmbench.ui.perspectives.PalladioPerspective"
+            class="org.palladiosimulator.pcm.ui.perspectives.PalladioPerspective"
             icon="icons/palladio-icon.ico"
             id="de.uka.ipd.sdq.pcmbench.perspectives.palladio"
             name="Palladio">
@@ -15,7 +15,7 @@
          point="org.eclipse.ui.newWizards">
       <wizard
             category="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
-            class="de.uka.ipd.sdq.pcmbench.wizard.pcm.NewPalladioProjectWizard"
+            class="org.palladiosimulator.pcm.ui.wizard.NewPalladioProjectWizard"
             finalPerspective="de.uka.ipd.sdq.pcmbench.perspectives.palladio"
             hasPages="true"
             icon="icons/palladio-icon.ico"

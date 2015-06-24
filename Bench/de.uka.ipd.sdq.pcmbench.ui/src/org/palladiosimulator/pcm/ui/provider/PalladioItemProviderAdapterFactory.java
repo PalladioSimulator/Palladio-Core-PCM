@@ -1,7 +1,7 @@
 /**
  *
  */
-package de.uka.ipd.sdq.pcmbench.ui.provider;
+package org.palladiosimulator.pcm.ui.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
