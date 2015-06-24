@@ -3127,7 +3127,7 @@ network-induced).</body>
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_X6xliyhrEeC0T6vqkOXNLA" base_Package="_X6ZynihrEeC0T6vqkOXNLA" packageName="sensitivity" nsPrefix="sensitivity" nsURI="http://sdq.ipd.uka.de/Sensitivity/1.0" basePackage="de.uka.ipd.sdq" prefix="Sensitivity"/>
+  <Ecore:EPackage xmi:id="_X6xliyhrEeC0T6vqkOXNLA" base_Package="_X6ZynihrEeC0T6vqkOXNLA" packageName="sensitivity" nsPrefix="sensitivity" nsURI="http://palladiosimulator.org/Reliability/Sensitivity/1.0" basePackage="de.uka.ipd.sdq" prefix="Sensitivity"/>
   <Default:Documentation xmi:id="_X6yLqShrEeC0T6vqkOXNLA" base_Comment="_X6aZpihrEeC0T6vqkOXNLA"/>
   <Default:Documentation xmi:id="_nR6mIChuEeCMt6B0BIb0hg" base_Comment="_nR3i0ChuEeCMt6B0BIb0hg"/>
   <Default:Documentation xmi:id="_ewfDsCiGEeCMt6B0BIb0hg" base_Comment="_ewdOgCiGEeCMt6B0BIb0hg"/>
