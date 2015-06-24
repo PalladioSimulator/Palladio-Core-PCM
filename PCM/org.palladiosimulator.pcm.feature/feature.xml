@@ -34,6 +34,14 @@ of the PCM using tree editors.
       <import plugin="de.uka.ipd.sdq.probfunction.math" version="2.0.2" match="greaterOrEqual"/>
       <import plugin="org.apache.log4j"/>
       <import plugin="org.palladiosimulator.pcm" version="4.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui" version="3.106.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.console" version="3.5.300" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.debug.ui" version="3.10.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.edit" version="2.10.1" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf" version="2.6.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.edit.ui" version="2.10.2" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.forms" version="3.6.100" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ui.ide" version="3.10.2" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -66,6 +74,13 @@ of the PCM using tree editors.
 
    <plugin
          id="de.uka.ipd.sdq.stoex.analyser"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.palladiosimulator.pcm.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
