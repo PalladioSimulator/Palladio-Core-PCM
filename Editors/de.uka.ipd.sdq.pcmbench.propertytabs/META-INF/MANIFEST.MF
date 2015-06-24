@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Propertytabs Plug-in
-Bundle-SymbolicName: de.uka.ipd.sdq.pcmbench.propertytabs
+Bundle-SymbolicName: org.palladiosimulator.editors.propertytabs
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.pcmbench.propertytabs.Activator
 Bundle-Vendor: sdq.ipd.uka.de
