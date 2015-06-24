@@ -3,19 +3,12 @@
       id="org.palladiosimulator.product.feature"
       label="Palladio Product Feature"
       version="1.0.0.qualifier"
-      provider-name="palladiosimulator.org">
+      license-feature="org.palladiosimulator.license"
+      license-feature-version="1.0.0">
 
-   <description url="http://www.example.com/description">
-      [Enter Feature Description here.]
+   <description url="http://www.palladiosimulator.org">
+      This is the Palladio Bench Feature
    </description>
-
-   <copyright url="http://www.example.com/copyright">
-      [Enter Copyright Description here.]
-   </copyright>
-
-   <license url="http://www.example.com/license">
-      [Enter License Description here.]
-   </license>
 
    <includes
          id="org.eclipse.epp.package.modeling.feature"
