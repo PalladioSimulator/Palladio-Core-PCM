@@ -44,7 +44,8 @@ import org.palladiosimulator.pcm.seff.InternalAction;
 import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF;
 import org.palladiosimulator.pcm.seff.SetVariableAction;
 import org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall;
-import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.ui.provider.PalladioItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
 import de.uka.ipd.sdq.stoex.StoexFactory;

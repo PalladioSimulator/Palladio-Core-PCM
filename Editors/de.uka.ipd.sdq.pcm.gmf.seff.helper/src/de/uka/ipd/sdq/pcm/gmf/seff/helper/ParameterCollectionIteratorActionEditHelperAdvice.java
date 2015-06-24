@@ -24,7 +24,7 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
 import org.palladiosimulator.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF;
 import org.palladiosimulator.pcm.seff.SeffPackage;
-import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.ui.provider.PalladioItemProviderAdapterFactory;
 
 /**
  * The Class ParameterCollectionIteratorActionEditHelperAdvice allows the selection of a parameter
