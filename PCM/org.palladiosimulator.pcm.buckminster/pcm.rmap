@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rm:rmap xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
 
-  <rm:locator pattern="^org\.palladiosimulator\.pcm.*" searchPathRef="pcm" failOnError="true"/>
-  <rm:locator pattern="^de\.uka\.ipd\.sdq\.pcm.*" searchPathRef="pcm" failOnError="true"/>
-  <rm:locator pattern="^de\.uka\.ipd\.sdq\.stoex\.analyser.*" searchPathRef="pcm" failOnError="true"/>
+  <rm:locator pattern="^org\.palladiosimulator\.pcm.*" searchPathRef="PCM" failOnError="true"/>
+  <rm:locator pattern="^de\.uka\.ipd\.sdq\.pcm.*" searchPathRef="PCM" failOnError="true"/>
+  <rm:locator pattern="^de\.uka\.ipd\.sdq\.stoex\.analyser.*" searchPathRef="PCM" failOnError="true"/>
   <rm:locator pattern="^org\.palladiosimulator\.mdsdprofiles.*" searchPathRef="MDSDProfiles" failOnError="true"/>
   <rm:locator pattern="^org\.modelversioning\.emfprofile.*" searchPathRef="EMFProfiles" failOnError="true"/>
   
   <rm:redirect pattern=".*"
 		href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Build/trunk/org.palladiosimulator.targetPlatformBuild/recorderframework.rmap" />
 
-  <rm:searchPath name="pcm">
-    <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="svn" source="true">
-      <rm:uri format="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/PCM#{0}">
-      	<bc:propertyRef key="buckminster.component" />
-      </rm:uri>
+  <rm:searchPath name="PCM">
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/palladio/core/pcm/nightly/"/>
     </rm:provider>
   </rm:searchPath>
 

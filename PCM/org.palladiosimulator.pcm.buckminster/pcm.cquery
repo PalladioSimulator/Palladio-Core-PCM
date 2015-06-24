@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><cq:componentQuery xmlns:cq="http://www.eclipse.org/buckminster/CQuery-1.0" resourceMap="pcm.rmap">
+<?xml version="1.0" encoding="UTF-8"?><cq:componentQuery xmlns:cq="http://www.eclipse.org/buckminster/CQuery-1.0" resourceMap="pcm_source.rmap">
     <cq:rootRequest name="org.palladiosimulator.pcm.buckminster" componentType="eclipse.feature"/>
     <cq:advisorNode namePattern="^org\.palladiosimulator\.pcm.*" useWorkspace="false"/>
     <cq:advisorNode namePattern="^de\.uka\.ipd\.sdq\.pcm.*" useWorkspace="false"/>
