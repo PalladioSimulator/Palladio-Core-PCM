@@ -6,7 +6,7 @@
   <rm:locator pattern="^org\.modelversioning\.emfprofile.*" searchPathRef="EMFProfiles" failOnError="true"/>
   
   <rm:redirect pattern=".*"
-		href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Build/trunk/org.palladiosimulator.targetPlatformBuild/commons.rmap" />
+		href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Build/trunk/org.palladiosimulator.targetPlatformBuild/recorderframework.rmap" />
 
   <rm:searchPath name="pcm">
     <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="svn" source="true">
