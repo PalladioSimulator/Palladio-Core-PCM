@@ -18,15 +18,7 @@
    </license>
 
    <includes
-         id="de.uka.ipd.sdq.pcm.feature"
-         version="0.0.0"/>
-
-   <includes
          id="org.eclipse.epp.package.modeling.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uka.ipd.sdq.pcm.diagram.feature"
          version="0.0.0"/>
 
    <includes
@@ -47,6 +39,14 @@
 
    <includes
          id="de.uka.ipd.sdq.dsexplore.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.palladiosimulator.pcm.editors.gmf.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.palladiosimulator.pcm.feature"
          version="0.0.0"/>
 
 </feature>

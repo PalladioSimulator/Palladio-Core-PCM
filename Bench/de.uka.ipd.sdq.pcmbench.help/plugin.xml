@@ -2,21 +2,21 @@
 <?eclipse version="3.2"?>
 <plugin>
   <extension point="org.eclipse.ui.intro">
-  <intro class="org.eclipse.ui.intro.config.CustomizableIntroPart" icon="icons/palladio-logo.gif" id="de.uka.ipd.sdq.pcmbench.intro" /> 
-  <introProductBinding introId="de.uka.ipd.sdq.pcmbench.intro" productId="de.uka.ipd.sdq.pcmbench.product" /> 
+  	<intro class="org.eclipse.ui.intro.config.CustomizableIntroPart" icon="icons/palladio-logo.gif" id="org.palladiosimulator.pcmbench.intro" /> 
+  	<introProductBinding introId="org.palladiosimulator.pcmbench.intro" productId="org.eclipse.sdk.ide" /> 
   </extension>
   <extension point="org.eclipse.ui.intro.config">
-  <config introId="de.uka.ipd.sdq.pcmbench.intro" content="introContent.xml" id="de.uka.ipd.sdq.pcmbench.configId">
-  <presentation home-page-id="root">
-  <implementation kind="html" os="win32,linux,macosx" /> 
-  </presentation>
-  </config>
+  	<config introId="org.palladiosimulator.pcmbench.intro" content="introContent.xml" id="org.palladiosimulator.pcmbench.configId">
+  		<presentation home-page-id="root">
+  			<implementation kind="html" os="win32,linux,macosx" /> 
+  		</presentation>
+  	</config>
   </extension>
   <extension point="org.eclipse.help.toc">
-  <toc file="toc.xml" primary="true" /> 
-  <toc file="tocgettingstarted.xml" /> 
-  <toc file="tocreference.xml" /> 
-  <toc file="tocsamples.xml" /> 
+	<toc file="toc.xml" primary="true" /> 
+  	<toc file="tocgettingstarted.xml" /> 
+  	<toc file="tocreference.xml" /> 
+  	<toc file="tocsamples.xml" /> 
   </extension>
   <extension
         point="org.eclipse.help.contexts">
