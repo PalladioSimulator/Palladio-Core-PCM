@@ -483,5 +483,5 @@
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_at_TMArJEdyeH8AJhDVfEA" base_Package="_7Iy5AArGEdyeH8AJhDVfEA" packageName="completions" nsPrefix="completions" nsURI="http://palladiosimulator.org/PCM/Completions/1.0" basePackage="org.palladiosimulator" prefix="de.uka.ipd.sdq"/>
+  <Ecore:EPackage xmi:id="_at_TMArJEdyeH8AJhDVfEA" base_Package="_7Iy5AArGEdyeH8AJhDVfEA" packageName="completions" nsPrefix="completions" nsURI="http://palladiosimulator.org/AnalyzerFramework/Completions/1.0" basePackage="org.palladiosimulator" prefix="de.uka.ipd.sdq"/>
 </xmi:XMI>
