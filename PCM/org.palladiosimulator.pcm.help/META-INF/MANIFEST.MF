@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: PCMBench Help Plug-in
-Bundle-SymbolicName: org.palladiosimulator.product.help;singleton:=true
+Bundle-SymbolicName: org.palladiosimulator.pcm.help;singleton:=true
 Bundle-Version: 2.1.0.qualifier
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: org.eclipse.ui;bundle-version="3.106.1",
