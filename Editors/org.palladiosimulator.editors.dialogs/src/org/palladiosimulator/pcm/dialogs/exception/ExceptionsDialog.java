@@ -39,7 +39,7 @@ import de.uka.ipd.sdq.dialogs.selection.FilteredItemsAdapterFactory;
 import org.palladiosimulator.pcm.repository.ExceptionType;
 import org.palladiosimulator.pcm.repository.Signature;
 import org.palladiosimulator.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.ui.provider.PalladioItemProviderAdapterFactory;
 
 // TODO: Auto-generated Javadoc
 /**

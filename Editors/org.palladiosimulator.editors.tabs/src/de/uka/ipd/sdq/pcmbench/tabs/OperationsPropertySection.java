@@ -20,9 +20,10 @@ import org.palladiosimulator.pcm.repository.OperationInterface;
 import org.palladiosimulator.pcm.repository.OperationSignature;
 import org.palladiosimulator.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.seff.provider.SeffItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.ui.provider.PalladioItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.pcmbench.tabs.operations.OperationsEditorSection;
 import de.uka.ipd.sdq.pcmbench.tabs.operations.OperationsTabItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 /**
  * "Operations" Property Section - signature editor

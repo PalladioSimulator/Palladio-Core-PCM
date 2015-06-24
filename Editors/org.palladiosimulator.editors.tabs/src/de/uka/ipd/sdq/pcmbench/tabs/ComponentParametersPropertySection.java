@@ -26,11 +26,12 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import org.palladiosimulator.pcm.core.composition.AssemblyContext;
 import org.palladiosimulator.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.seff.provider.SeffItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.ui.provider.PalladioItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.pcmbench.tabs.parameters.ComponentParametersEditorSection;
 import de.uka.ipd.sdq.pcmbench.tabs.parameters.ParameterContentProvider;
 import de.uka.ipd.sdq.pcmbench.tabs.parameters.ParametersTabItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.tabs.parameters.VariableUsageWrapper;
-import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 /**
  * @author Roman Andrej

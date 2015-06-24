@@ -20,9 +20,10 @@ import org.palladiosimulator.pcm.repository.EventGroup;
 import org.palladiosimulator.pcm.repository.EventType;
 import org.palladiosimulator.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.seff.provider.SeffItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.ui.provider.PalladioItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.pcmbench.tabs.operations.EventTypesEditorSection;
 import de.uka.ipd.sdq.pcmbench.tabs.operations.EventTypesTabItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 /**
  * "EventTypes" Property Section - event type editor
