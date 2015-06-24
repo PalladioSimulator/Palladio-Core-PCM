@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rm:rmap xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
 
-  <rm:locator pattern="^de\.uka\.ipd\.sdq\.gmf*" searchPathRef="editors" failOnError="true"/>
+  <rm:locator pattern="^de\.uka\.ipd\.sdq\.pcm\.gmf*" searchPathRef="editors" failOnError="true"/>
   <rm:locator pattern="^org\.palladiosimulator\.editors.*" searchPathRef="editors" failOnError="true"/>
   <rm:locator pattern="^org\.palladiosimulator\.pcm.*" searchPathRef="editors" failOnError="false"/>
   
