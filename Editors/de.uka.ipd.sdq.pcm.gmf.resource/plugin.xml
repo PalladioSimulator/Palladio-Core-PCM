@@ -281,7 +281,7 @@
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes" id="element-types">
       <?gmfgen generated="true"?>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.resource.ResourceEnvironment_1000"
                name="%metatype.name.ResourceEnvironment_1000"
@@ -291,7 +291,7 @@
             <param name="semanticHint" value="1000"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.resource.ResourceContainer_2004"
                name="%metatype.name.ResourceContainer_2004"
@@ -301,7 +301,7 @@
             <param name="semanticHint" value="2004"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.resource.LinkingResource_2005"
                name="%metatype.name.LinkingResource_2005"
@@ -311,7 +311,7 @@
             <param name="semanticHint" value="2005"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.resource.ProcessingResourceSpecification_3003"
                name="%metatype.name.ProcessingResourceSpecification_3003"
@@ -321,7 +321,7 @@
             <param name="semanticHint" value="3003"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.resource.ResourceContainer_3005"
                name="%metatype.name.ResourceContainer_3005"
@@ -330,7 +330,7 @@
             <param name="semanticHint" value="3005"/>
          </specializationType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.resource.CommunicationLinkResourceSpecification_3004"
                name="%metatype.name.CommunicationLinkResourceSpecification_3004"
@@ -340,7 +340,7 @@
             <param name="semanticHint" value="3004"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.resource.LinkingResourceConnectedResourceContainers_LinkingResource_4003"
                name="%metatype.name.LinkingResourceConnectedResourceContainers_LinkingResource_4003"

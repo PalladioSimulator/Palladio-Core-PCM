@@ -93,25 +93,25 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
         switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
         case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?CommunicationLinkResourceSpecification", PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3004); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0?CommunicationLinkResourceSpecification", PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3004); //$NON-NLS-1$
         case LinkingResourceEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?LinkingResource", PalladioComponentModelElementTypes.LinkingResource_2005); //$NON-NLS-1$
+                    "Navigator?TopLevelNode?http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0?LinkingResource", PalladioComponentModelElementTypes.LinkingResource_2005); //$NON-NLS-1$
         case ProcessingResourceSpecificationEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?ProcessingResourceSpecification", PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0?ProcessingResourceSpecification", PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003); //$NON-NLS-1$
         case ResourceContainer2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?ResourceContainer", PalladioComponentModelElementTypes.ResourceContainer_3005); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0?ResourceContainer", PalladioComponentModelElementTypes.ResourceContainer_3005); //$NON-NLS-1$
         case ResourceContainerEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?ResourceContainer", PalladioComponentModelElementTypes.ResourceContainer_2004); //$NON-NLS-1$
+                    "Navigator?TopLevelNode?http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0?ResourceContainer", PalladioComponentModelElementTypes.ResourceContainer_2004); //$NON-NLS-1$
         case LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?LinkingResource?connectedResourceContainers_LinkingResource", PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4003); //$NON-NLS-1$
+                    "Navigator?Link?http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0?LinkingResource?connectedResourceContainers_LinkingResource", PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4003); //$NON-NLS-1$
         case ResourceEnvironmentEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Diagram?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?ResourceEnvironment", PalladioComponentModelElementTypes.ResourceEnvironment_1000); //$NON-NLS-1$
+                    "Navigator?Diagram?http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0?ResourceEnvironment", PalladioComponentModelElementTypes.ResourceEnvironment_1000); //$NON-NLS-1$
         }
         return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
     }

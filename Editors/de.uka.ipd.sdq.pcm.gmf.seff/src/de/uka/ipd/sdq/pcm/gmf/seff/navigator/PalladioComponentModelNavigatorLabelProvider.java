@@ -168,160 +168,160 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
         switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
         case ReleaseAction2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?ReleaseAction", PalladioComponentModelElementTypes.ReleaseAction_3020); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?ReleaseAction", PalladioComponentModelElementTypes.ReleaseAction_3020); //$NON-NLS-1$
         case SynchronisationPointEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?SynchronisationPoint", PalladioComponentModelElementTypes.SynchronisationPoint_3038); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?SynchronisationPoint", PalladioComponentModelElementTypes.SynchronisationPoint_3038); //$NON-NLS-1$
         case InternalFailureOccurrenceDescriptionEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/5.0?InternalFailureOccurrenceDescription", PalladioComponentModelElementTypes.InternalFailureOccurrenceDescription_3050); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/Reliability/5.0?InternalFailureOccurrenceDescription", PalladioComponentModelElementTypes.InternalFailureOccurrenceDescription_3050); //$NON-NLS-1$
         case EmitEventAction2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?EmitEventAction", PalladioComponentModelElementTypes.EmitEventAction_3046); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?EmitEventAction", PalladioComponentModelElementTypes.EmitEventAction_3046); //$NON-NLS-1$
         case VariableCharacterisation5EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3055); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/Parameter/5.0?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3055); //$NON-NLS-1$
         case RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0?RecoveryActionBehaviour?failureHandlingAlternatives__RecoveryActionBehaviour", PalladioComponentModelElementTypes.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004); //$NON-NLS-1$
+                    "Navigator?Link?http://palladiosimulator.org/PalladioComponentModel/SEFF/SEFF_Reliability/5.0?RecoveryActionBehaviour?failureHandlingAlternatives__RecoveryActionBehaviour", PalladioComponentModelElementTypes.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004); //$NON-NLS-1$
         case CollectionIteratorActionEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?CollectionIteratorAction", PalladioComponentModelElementTypes.CollectionIteratorAction_2007); //$NON-NLS-1$
+                    "Navigator?TopLevelNode?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?CollectionIteratorAction", PalladioComponentModelElementTypes.CollectionIteratorAction_2007); //$NON-NLS-1$
         case InfrastructureCallEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/5.0?InfrastructureCall", PalladioComponentModelElementTypes.InfrastructureCall_3053); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/SEFF_Performance/5.0?InfrastructureCall", PalladioComponentModelElementTypes.InfrastructureCall_3053); //$NON-NLS-1$
         case AcquireAction2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?AcquireAction", PalladioComponentModelElementTypes.AcquireAction_3026); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?AcquireAction", PalladioComponentModelElementTypes.AcquireAction_3026); //$NON-NLS-1$
         case BranchAction2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?BranchAction", PalladioComponentModelElementTypes.BranchAction_3009); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?BranchAction", PalladioComponentModelElementTypes.BranchAction_3009); //$NON-NLS-1$
         case ExternalCallActionEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?ExternalCallAction", PalladioComponentModelElementTypes.ExternalCallAction_2003); //$NON-NLS-1$
+                    "Navigator?TopLevelNode?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?ExternalCallAction", PalladioComponentModelElementTypes.ExternalCallAction_2003); //$NON-NLS-1$
         case LoopActionEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?LoopAction", PalladioComponentModelElementTypes.LoopAction_2004); //$NON-NLS-1$
+                    "Navigator?TopLevelNode?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?LoopAction", PalladioComponentModelElementTypes.LoopAction_2004); //$NON-NLS-1$
         case ForkAction2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?ForkAction", PalladioComponentModelElementTypes.ForkAction_3023); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?ForkAction", PalladioComponentModelElementTypes.ForkAction_3023); //$NON-NLS-1$
         case SetVariableActionEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?SetVariableAction", PalladioComponentModelElementTypes.SetVariableAction_2008); //$NON-NLS-1$
+                    "Navigator?TopLevelNode?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?SetVariableAction", PalladioComponentModelElementTypes.SetVariableAction_2008); //$NON-NLS-1$
         case GuardedBranchTransitionEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?GuardedBranchTransition", PalladioComponentModelElementTypes.GuardedBranchTransition_3017); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?GuardedBranchTransition", PalladioComponentModelElementTypes.GuardedBranchTransition_3017); //$NON-NLS-1$
         case VariableUsage2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3049); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/Parameter/5.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3049); //$NON-NLS-1$
         case StartAction2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?StartAction", PalladioComponentModelElementTypes.StartAction_3004); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?StartAction", PalladioComponentModelElementTypes.StartAction_3004); //$NON-NLS-1$
         case VariableCharacterisation4EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3048); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/Parameter/5.0?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3048); //$NON-NLS-1$
         case VariableUsage3EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3036); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/Parameter/5.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3036); //$NON-NLS-1$
         case VariableUsageEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3042); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/Parameter/5.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3042); //$NON-NLS-1$
         case ForkedBehaviourEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?ForkedBehaviour", PalladioComponentModelElementTypes.ForkedBehaviour_3027); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?ForkedBehaviour", PalladioComponentModelElementTypes.ForkedBehaviour_3027); //$NON-NLS-1$
         case ForkActionEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?ForkAction", PalladioComponentModelElementTypes.ForkAction_2011); //$NON-NLS-1$
+                    "Navigator?TopLevelNode?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?ForkAction", PalladioComponentModelElementTypes.ForkAction_2011); //$NON-NLS-1$
         case RecoveryActionBehaviourEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0?RecoveryActionBehaviour", PalladioComponentModelElementTypes.RecoveryActionBehaviour_3062); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/SEFF_Reliability/5.0?RecoveryActionBehaviour", PalladioComponentModelElementTypes.RecoveryActionBehaviour_3062); //$NON-NLS-1$
         case StopActionEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?StopAction", PalladioComponentModelElementTypes.StopAction_2002); //$NON-NLS-1$
+                    "Navigator?TopLevelNode?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?StopAction", PalladioComponentModelElementTypes.StopAction_2002); //$NON-NLS-1$
         case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?ResourceDemandingBehaviour", PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3011); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?ResourceDemandingBehaviour", PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3011); //$NON-NLS-1$
         case VariableUsage4EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3047); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/Parameter/5.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3047); //$NON-NLS-1$
         case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?AbstractAction?successor_AbstractAction", PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001); //$NON-NLS-1$
+                    "Navigator?Link?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?AbstractAction?successor_AbstractAction", PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001); //$NON-NLS-1$
         case InternalAction2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?InternalAction", PalladioComponentModelElementTypes.InternalAction_3007); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?InternalAction", PalladioComponentModelElementTypes.InternalAction_3007); //$NON-NLS-1$
         case VariableUsage5EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3054); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/Parameter/5.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3054); //$NON-NLS-1$
         case StopAction2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?StopAction", PalladioComponentModelElementTypes.StopAction_3005); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?StopAction", PalladioComponentModelElementTypes.StopAction_3005); //$NON-NLS-1$
         case RecoveryAction2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0?RecoveryAction", PalladioComponentModelElementTypes.RecoveryAction_3061); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/SEFF_Reliability/5.0?RecoveryAction", PalladioComponentModelElementTypes.RecoveryAction_3061); //$NON-NLS-1$
         case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?ProbabilisticBranchTransition", PalladioComponentModelElementTypes.ProbabilisticBranchTransition_3010); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?ProbabilisticBranchTransition", PalladioComponentModelElementTypes.ProbabilisticBranchTransition_3010); //$NON-NLS-1$
         case LoopAction2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?LoopAction", PalladioComponentModelElementTypes.LoopAction_3006); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?LoopAction", PalladioComponentModelElementTypes.LoopAction_3006); //$NON-NLS-1$
         case VariableCharacterisation2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3035); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/Parameter/5.0?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3035); //$NON-NLS-1$
         case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?ResourceDemandingBehaviour", PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3018); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?ResourceDemandingBehaviour", PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3018); //$NON-NLS-1$
         case ResourceDemandingSEFFEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Diagram?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?ResourceDemandingSEFF", PalladioComponentModelElementTypes.ResourceDemandingSEFF_1000); //$NON-NLS-1$
+                    "Navigator?Diagram?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?ResourceDemandingSEFF", PalladioComponentModelElementTypes.ResourceDemandingSEFF_1000); //$NON-NLS-1$
         case ForkedBehaviour2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?ForkedBehaviour", PalladioComponentModelElementTypes.ForkedBehaviour_3039); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?ForkedBehaviour", PalladioComponentModelElementTypes.ForkedBehaviour_3039); //$NON-NLS-1$
         case RecoveryActionEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0?RecoveryAction", PalladioComponentModelElementTypes.RecoveryAction_2017); //$NON-NLS-1$
+                    "Navigator?TopLevelNode?http://palladiosimulator.org/PalladioComponentModel/SEFF/SEFF_Reliability/5.0?RecoveryAction", PalladioComponentModelElementTypes.RecoveryAction_2017); //$NON-NLS-1$
         case InternalActionEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?InternalAction", PalladioComponentModelElementTypes.InternalAction_2006); //$NON-NLS-1$
+                    "Navigator?TopLevelNode?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?InternalAction", PalladioComponentModelElementTypes.InternalAction_2006); //$NON-NLS-1$
         case EmitEventActionEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?EmitEventAction", PalladioComponentModelElementTypes.EmitEventAction_2013); //$NON-NLS-1$
+                    "Navigator?TopLevelNode?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?EmitEventAction", PalladioComponentModelElementTypes.EmitEventAction_2013); //$NON-NLS-1$
         case AcquireActionEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?AcquireAction", PalladioComponentModelElementTypes.AcquireAction_2012); //$NON-NLS-1$
+                    "Navigator?TopLevelNode?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?AcquireAction", PalladioComponentModelElementTypes.AcquireAction_2012); //$NON-NLS-1$
         case VariableCharacterisationEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3033); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/Parameter/5.0?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3033); //$NON-NLS-1$
         case CollectionIteratorAction2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?CollectionIteratorAction", PalladioComponentModelElementTypes.CollectionIteratorAction_3013); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?CollectionIteratorAction", PalladioComponentModelElementTypes.CollectionIteratorAction_3013); //$NON-NLS-1$
         case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?ResourceDemandingBehaviour", PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?ResourceDemandingBehaviour", PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014); //$NON-NLS-1$
         case ReleaseActionEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?ReleaseAction", PalladioComponentModelElementTypes.ReleaseAction_2010); //$NON-NLS-1$
+                    "Navigator?TopLevelNode?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?ReleaseAction", PalladioComponentModelElementTypes.ReleaseAction_2010); //$NON-NLS-1$
         case ResourceDemandingBehaviourEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?ResourceDemandingBehaviour", PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3003); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?ResourceDemandingBehaviour", PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3003); //$NON-NLS-1$
         case ExternalCallAction2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?ExternalCallAction", PalladioComponentModelElementTypes.ExternalCallAction_3012); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?ExternalCallAction", PalladioComponentModelElementTypes.ExternalCallAction_3012); //$NON-NLS-1$
         case StartActionEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?StartAction", PalladioComponentModelElementTypes.StartAction_2001); //$NON-NLS-1$
+                    "Navigator?TopLevelNode?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?StartAction", PalladioComponentModelElementTypes.StartAction_2001); //$NON-NLS-1$
         case VariableCharacterisation3EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3037); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/Parameter/5.0?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3037); //$NON-NLS-1$
         case SetVariableAction2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?SetVariableAction", PalladioComponentModelElementTypes.SetVariableAction_3024); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?SetVariableAction", PalladioComponentModelElementTypes.SetVariableAction_3024); //$NON-NLS-1$
         case BranchActionEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0?BranchAction", PalladioComponentModelElementTypes.BranchAction_2005); //$NON-NLS-1$
+                    "Navigator?TopLevelNode?http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0?BranchAction", PalladioComponentModelElementTypes.BranchAction_2005); //$NON-NLS-1$
         case ParametricResourceDemandEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/5.0?ParametricResourceDemand", PalladioComponentModelElementTypes.ParametricResourceDemand_3051); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/SEFF/SEFF_Performance/5.0?ParametricResourceDemand", PalladioComponentModelElementTypes.ParametricResourceDemand_3051); //$NON-NLS-1$
         }
         return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
     }
