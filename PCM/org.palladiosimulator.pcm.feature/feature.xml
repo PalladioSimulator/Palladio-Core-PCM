@@ -73,4 +73,11 @@ of the PCM using tree editors.
          version="0.0.0"
          unpack="false"/>
 
+   <plugin
+         id="org.palladiosimulator.pcm.edp2.measuringpoint"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
 </feature>
