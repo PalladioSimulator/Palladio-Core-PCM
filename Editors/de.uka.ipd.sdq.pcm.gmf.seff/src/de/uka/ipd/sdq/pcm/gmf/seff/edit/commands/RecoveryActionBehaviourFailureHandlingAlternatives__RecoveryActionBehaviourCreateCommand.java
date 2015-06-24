@@ -47,11 +47,11 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
             return false;
         }
         if (source != null
-                && false == source instanceof de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour) {
+                && false == source instanceof org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour) {
             return false;
         }
         if (target != null
-                && false == target instanceof de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour) {
+                && false == target instanceof org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour) {
             return false;
         }
         if (getSource() == null) {
@@ -88,14 +88,14 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     /**
      * @generated
      */
-    protected de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour getSource() {
-        return (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour) source;
+    protected org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour getSource() {
+        return (org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour) source;
     }
 
     /**
      * @generated
      */
-    protected de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour getTarget() {
-        return (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour) target;
+    protected org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour getTarget() {
+        return (org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour) target;
     }
 }

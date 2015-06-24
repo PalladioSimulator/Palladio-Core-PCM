@@ -16,8 +16,10 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.parsers.EnumParser;
+import org.palladiosimulator.pcm.core.entity.EntityPackage;
+import org.palladiosimulator.pcm.parameter.ParameterPackage;
+import org.palladiosimulator.pcm.seff.SeffPackage;
 
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityName2EditPart;
@@ -51,8 +53,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation5EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.parsers.MessageFormatParser;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * @generated

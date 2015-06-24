@@ -23,6 +23,7 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
+import org.palladiosimulator.pcm.seff.SeffPackage;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchAction2EditPart;
@@ -40,7 +41,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelDiagramUpdater;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelNodeDescriptor;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * @generated

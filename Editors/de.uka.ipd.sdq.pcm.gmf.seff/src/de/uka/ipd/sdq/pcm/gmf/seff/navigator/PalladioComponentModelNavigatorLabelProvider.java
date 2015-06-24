@@ -18,6 +18,11 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.IMemento;
 import org.eclipse.ui.navigator.ICommonContentExtensionSite;
 import org.eclipse.ui.navigator.ICommonLabelProvider;
+import org.palladiosimulator.pcm.seff.ForkedBehaviour;
+import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour;
+import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF;
+import org.palladiosimulator.pcm.seff.StartAction;
+import org.palladiosimulator.pcm.seff.StopAction;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireAction2EditPart;
@@ -106,11 +111,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorP
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelParserProvider;
-import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
-import de.uka.ipd.sdq.pcm.seff.StartAction;
-import de.uka.ipd.sdq.pcm.seff.StopAction;
 
 /**
  * @generated

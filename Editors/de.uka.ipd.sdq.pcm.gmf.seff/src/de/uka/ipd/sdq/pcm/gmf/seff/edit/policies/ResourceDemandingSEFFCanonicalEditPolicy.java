@@ -31,6 +31,7 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
+import org.palladiosimulator.pcm.seff.SeffPackage;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEditPart;
@@ -79,7 +80,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelDiagramUpdater;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelLinkDescriptor;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelNodeDescriptor;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * @generated

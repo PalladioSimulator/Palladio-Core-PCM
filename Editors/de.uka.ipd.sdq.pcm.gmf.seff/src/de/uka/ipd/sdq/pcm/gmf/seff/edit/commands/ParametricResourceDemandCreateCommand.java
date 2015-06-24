@@ -14,8 +14,7 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
-
-import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
+import org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction;
 
 /**
  * @generated
@@ -52,7 +51,7 @@ public class ParametricResourceDemandCreateCommand extends EditElementCommand {
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-        de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand newElement = de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformanceFactory.eINSTANCE
+        org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand newElement = org.palladiosimulator.pcm.seff.seff_performance.SeffPerformanceFactory.eINSTANCE
                 .createParametricResourceDemand();
 
         AbstractInternalControlFlowAction owner = (AbstractInternalControlFlowAction) getElementToEdit();
@@ -67,7 +66,7 @@ public class ParametricResourceDemandCreateCommand extends EditElementCommand {
     /**
      * @generated
      */
-    protected void doConfigure(de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand newElement,
+    protected void doConfigure(org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand newElement,
             IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
         IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
         ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);

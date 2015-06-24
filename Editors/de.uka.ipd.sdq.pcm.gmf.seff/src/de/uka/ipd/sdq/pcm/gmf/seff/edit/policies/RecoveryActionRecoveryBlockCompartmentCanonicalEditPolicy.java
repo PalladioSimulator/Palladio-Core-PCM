@@ -51,7 +51,7 @@ public class RecoveryActionRecoveryBlockCompartmentCanonicalEditPolicy extends C
      * @generated
      */
     protected EStructuralFeature getFeatureToSynchronize() {
-        return de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
+        return org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
                 .getRecoveryAction_RecoveryActionBehaviours__RecoveryAction();
     }
 

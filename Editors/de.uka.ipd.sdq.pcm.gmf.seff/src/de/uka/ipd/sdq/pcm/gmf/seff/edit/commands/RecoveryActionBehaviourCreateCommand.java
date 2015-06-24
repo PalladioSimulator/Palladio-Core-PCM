@@ -50,10 +50,10 @@ public class RecoveryActionBehaviourCreateCommand extends EditElementCommand {
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-        de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour newElement = de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityFactory.eINSTANCE
+        org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour newElement = org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityFactory.eINSTANCE
                 .createRecoveryActionBehaviour();
 
-        de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction owner = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction) getElementToEdit();
+        org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction owner = (org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction) getElementToEdit();
         owner.getRecoveryActionBehaviours__RecoveryAction().add(newElement);
 
         doConfigure(newElement, monitor, info);
@@ -65,7 +65,7 @@ public class RecoveryActionBehaviourCreateCommand extends EditElementCommand {
     /**
      * @generated
      */
-    protected void doConfigure(de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour newElement,
+    protected void doConfigure(org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour newElement,
             IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
         IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
         ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);

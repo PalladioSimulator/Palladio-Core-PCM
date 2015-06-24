@@ -51,10 +51,10 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
+import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF;
+import org.palladiosimulator.pcm.seff.SeffFactory;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
-import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 
 /**
  * @generated

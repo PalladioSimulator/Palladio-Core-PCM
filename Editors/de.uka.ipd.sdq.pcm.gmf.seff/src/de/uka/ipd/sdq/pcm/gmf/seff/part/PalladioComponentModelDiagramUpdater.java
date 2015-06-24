@@ -15,6 +15,30 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
+import org.palladiosimulator.pcm.parameter.VariableCharacterisation;
+import org.palladiosimulator.pcm.parameter.VariableUsage;
+import org.palladiosimulator.pcm.reliability.InternalFailureOccurrenceDescription;
+import org.palladiosimulator.pcm.seff.AbstractAction;
+import org.palladiosimulator.pcm.seff.AbstractBranchTransition;
+import org.palladiosimulator.pcm.seff.AcquireAction;
+import org.palladiosimulator.pcm.seff.BranchAction;
+import org.palladiosimulator.pcm.seff.CollectionIteratorAction;
+import org.palladiosimulator.pcm.seff.EmitEventAction;
+import org.palladiosimulator.pcm.seff.ExternalCallAction;
+import org.palladiosimulator.pcm.seff.ForkAction;
+import org.palladiosimulator.pcm.seff.ForkedBehaviour;
+import org.palladiosimulator.pcm.seff.GuardedBranchTransition;
+import org.palladiosimulator.pcm.seff.InternalAction;
+import org.palladiosimulator.pcm.seff.LoopAction;
+import org.palladiosimulator.pcm.seff.ProbabilisticBranchTransition;
+import org.palladiosimulator.pcm.seff.ReleaseAction;
+import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour;
+import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF;
+import org.palladiosimulator.pcm.seff.SeffPackage;
+import org.palladiosimulator.pcm.seff.SetVariableAction;
+import org.palladiosimulator.pcm.seff.StartAction;
+import org.palladiosimulator.pcm.seff.StopAction;
+import org.palladiosimulator.pcm.seff.SynchronisationPoint;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireAction2EditPart;
@@ -103,30 +127,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisat
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisation5EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription;
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
-import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
-import de.uka.ipd.sdq.pcm.seff.AcquireAction;
-import de.uka.ipd.sdq.pcm.seff.BranchAction;
-import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
-import de.uka.ipd.sdq.pcm.seff.EmitEventAction;
-import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
-import de.uka.ipd.sdq.pcm.seff.ForkAction;
-import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
-import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
-import de.uka.ipd.sdq.pcm.seff.InternalAction;
-import de.uka.ipd.sdq.pcm.seff.LoopAction;
-import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
-import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
-import de.uka.ipd.sdq.pcm.seff.StartAction;
-import de.uka.ipd.sdq.pcm.seff.StopAction;
-import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
 
 /**
  * @generated
@@ -136,7 +136,7 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelNodeDescriptor> getSemanticChildren(View view) {
+    public static List<PalladioComponentModelNodeDescriptor> getSemanticChildren(final View view) {
         switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
         case ResourceDemandingSEFFEditPart.VISUAL_ID:
             return getResourceDemandingSEFF_1000SemanticChildren(view);
@@ -227,15 +227,15 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelNodeDescriptor> getLoopAction_2004SemanticChildren(View view) {
+    public static List<PalladioComponentModelNodeDescriptor> getLoopAction_2004SemanticChildren(final View view) {
         if (!view.isSetElement()) {
             return Collections.emptyList();
         }
-        LoopAction modelElement = (LoopAction) view.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        final LoopAction modelElement = (LoopAction) view.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
         {
-            ResourceDemandingBehaviour childElement = modelElement.getBodyBehaviour_Loop();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+            final ResourceDemandingBehaviour childElement = modelElement.getBodyBehaviour_Loop();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == ResourceDemandingBehaviourEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
             }
@@ -246,15 +246,16 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelNodeDescriptor> getCollectionIteratorAction_2007SemanticChildren(View view) {
+    public static List<PalladioComponentModelNodeDescriptor> getCollectionIteratorAction_2007SemanticChildren(
+            final View view) {
         if (!view.isSetElement()) {
             return Collections.emptyList();
         }
-        CollectionIteratorAction modelElement = (CollectionIteratorAction) view.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        final CollectionIteratorAction modelElement = (CollectionIteratorAction) view.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
         {
-            ResourceDemandingBehaviour childElement = modelElement.getBodyBehaviour_Loop();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+            final ResourceDemandingBehaviour childElement = modelElement.getBodyBehaviour_Loop();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == ResourceDemandingBehaviour3EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
             }
@@ -265,15 +266,15 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelNodeDescriptor> getLoopAction_3006SemanticChildren(View view) {
+    public static List<PalladioComponentModelNodeDescriptor> getLoopAction_3006SemanticChildren(final View view) {
         if (!view.isSetElement()) {
             return Collections.emptyList();
         }
-        LoopAction modelElement = (LoopAction) view.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        final LoopAction modelElement = (LoopAction) view.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
         {
-            ResourceDemandingBehaviour childElement = modelElement.getBodyBehaviour_Loop();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+            final ResourceDemandingBehaviour childElement = modelElement.getBodyBehaviour_Loop();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == ResourceDemandingBehaviourEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
             }
@@ -285,15 +286,15 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getProbabilisticBranchTransition_3010SemanticChildren(
-            View view) {
+            final View view) {
         if (!view.isSetElement()) {
             return Collections.emptyList();
         }
-        ProbabilisticBranchTransition modelElement = (ProbabilisticBranchTransition) view.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        final ProbabilisticBranchTransition modelElement = (ProbabilisticBranchTransition) view.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
         {
-            ResourceDemandingBehaviour childElement = modelElement.getBranchBehaviour_BranchTransition();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+            final ResourceDemandingBehaviour childElement = modelElement.getBranchBehaviour_BranchTransition();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == ResourceDemandingBehaviour2EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
             }
@@ -304,15 +305,16 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelNodeDescriptor> getCollectionIteratorAction_3013SemanticChildren(View view) {
+    public static List<PalladioComponentModelNodeDescriptor> getCollectionIteratorAction_3013SemanticChildren(
+            final View view) {
         if (!view.isSetElement()) {
             return Collections.emptyList();
         }
-        CollectionIteratorAction modelElement = (CollectionIteratorAction) view.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        final CollectionIteratorAction modelElement = (CollectionIteratorAction) view.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
         {
-            ResourceDemandingBehaviour childElement = modelElement.getBodyBehaviour_Loop();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+            final ResourceDemandingBehaviour childElement = modelElement.getBodyBehaviour_Loop();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == ResourceDemandingBehaviour3EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
             }
@@ -323,15 +325,16 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelNodeDescriptor> getGuardedBranchTransition_3017SemanticChildren(View view) {
+    public static List<PalladioComponentModelNodeDescriptor> getGuardedBranchTransition_3017SemanticChildren(
+            final View view) {
         if (!view.isSetElement()) {
             return Collections.emptyList();
         }
-        GuardedBranchTransition modelElement = (GuardedBranchTransition) view.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        final GuardedBranchTransition modelElement = (GuardedBranchTransition) view.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
         {
-            ResourceDemandingBehaviour childElement = modelElement.getBranchBehaviour_BranchTransition();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+            final ResourceDemandingBehaviour childElement = modelElement.getBranchBehaviour_BranchTransition();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == ResourceDemandingBehaviour4EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
             }
@@ -343,19 +346,19 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getExternalCallActionInputVariableUsage_7001SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        ExternalCallAction modelElement = (ExternalCallAction) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getInputVariableUsages__CallAction().iterator(); it.hasNext();) {
-            VariableUsage childElement = (VariableUsage) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final ExternalCallAction modelElement = (ExternalCallAction) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getInputVariableUsages__CallAction().iterator(); it.hasNext();) {
+            final VariableUsage childElement = (VariableUsage) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == VariableUsageEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -368,19 +371,19 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getExternalCallActionOutputVariableUsage_7021SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        ExternalCallAction modelElement = (ExternalCallAction) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getReturnVariableUsage__CallReturnAction().iterator(); it.hasNext();) {
-            VariableUsage childElement = (VariableUsage) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final ExternalCallAction modelElement = (ExternalCallAction) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getReturnVariableUsage__CallReturnAction().iterator(); it.hasNext();) {
+            final VariableUsage childElement = (VariableUsage) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == VariableUsage2EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -393,19 +396,20 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getVariableUsageVariableCharacterisation_7037SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        VariableUsage modelElement = (VariableUsage) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getVariableCharacterisation_VariableUsage().iterator(); it.hasNext();) {
-            VariableCharacterisation childElement = (VariableCharacterisation) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final VariableUsage modelElement = (VariableUsage) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getVariableCharacterisation_VariableUsage().iterator(); it
+                .hasNext();) {
+            final VariableCharacterisation childElement = (VariableCharacterisation) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == VariableCharacterisationEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -418,19 +422,20 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getVariableUsageVariableCharacterisation_7044SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        VariableUsage modelElement = (VariableUsage) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getVariableCharacterisation_VariableUsage().iterator(); it.hasNext();) {
-            VariableCharacterisation childElement = (VariableCharacterisation) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final VariableUsage modelElement = (VariableUsage) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getVariableCharacterisation_VariableUsage().iterator(); it
+                .hasNext();) {
+            final VariableCharacterisation childElement = (VariableCharacterisation) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == VariableCharacterisation2EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -443,19 +448,19 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getEmitEventActionInputVariableUsageEvent_7042SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        EmitEventAction modelElement = (EmitEventAction) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getInputVariableUsages__CallAction().iterator(); it.hasNext();) {
-            VariableUsage childElement = (VariableUsage) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final EmitEventAction modelElement = (EmitEventAction) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getInputVariableUsages__CallAction().iterator(); it.hasNext();) {
+            final VariableUsage childElement = (VariableUsage) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == VariableUsage4EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -468,19 +473,20 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getVariableUsageVariableCharacterisation_7043SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        VariableUsage modelElement = (VariableUsage) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getVariableCharacterisation_VariableUsage().iterator(); it.hasNext();) {
-            VariableCharacterisation childElement = (VariableCharacterisation) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final VariableUsage modelElement = (VariableUsage) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getVariableCharacterisation_VariableUsage().iterator(); it
+                .hasNext();) {
+            final VariableCharacterisation childElement = (VariableCharacterisation) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == VariableCharacterisation3EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -493,19 +499,19 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getResourceDemandingBehaviourBehaviourCompartment_7004SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        ResourceDemandingBehaviour modelElement = (ResourceDemandingBehaviour) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getSteps_Behaviour().iterator(); it.hasNext();) {
-            AbstractAction childElement = (AbstractAction) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final ResourceDemandingBehaviour modelElement = (ResourceDemandingBehaviour) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getSteps_Behaviour().iterator(); it.hasNext();) {
+            final AbstractAction childElement = (AbstractAction) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == StartAction2EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -566,20 +572,20 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getInternalActionResourceDemands_7006SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        InternalAction modelElement = (InternalAction) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getResourceDemand_Action().iterator(); it.hasNext();) {
-            de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand childElement = (de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand) it
+        final InternalAction modelElement = (InternalAction) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getResourceDemand_Action().iterator(); it.hasNext();) {
+            final org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand childElement = (org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand) it
                     .next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == ParametricResourceDemandEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -592,20 +598,20 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getInternalActionFailureOccurrenceDescriptions_7045SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        InternalAction modelElement = (InternalAction) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getInternalFailureOccurrenceDescriptions__InternalAction().iterator(); it
-                .hasNext();) {
-            InternalFailureOccurrenceDescription childElement = (InternalFailureOccurrenceDescription) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final InternalAction modelElement = (InternalAction) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getInternalFailureOccurrenceDescriptions__InternalAction()
+                .iterator(); it.hasNext();) {
+            final InternalFailureOccurrenceDescription childElement = (InternalFailureOccurrenceDescription) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == InternalFailureOccurrenceDescriptionEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -618,20 +624,20 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getInternalActionInfrastructureCallsCompartment_7048SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        InternalAction modelElement = (InternalAction) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getInfrastructureCall__Action().iterator(); it.hasNext();) {
-            de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall childElement = (de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall) it
+        final InternalAction modelElement = (InternalAction) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getInfrastructureCall__Action().iterator(); it.hasNext();) {
+            final org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall childElement = (org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall) it
                     .next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == InfrastructureCallEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -644,20 +650,20 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getInfrastructureCallInfrastructureCallInputVariableUsages_7057SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall modelElement = (de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall) containerView
+        final org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall modelElement = (org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall) containerView
                 .getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getInputVariableUsages__CallAction().iterator(); it.hasNext();) {
-            VariableUsage childElement = (VariableUsage) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getInputVariableUsages__CallAction().iterator(); it.hasNext();) {
+            final VariableUsage childElement = (VariableUsage) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == VariableUsage5EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -670,19 +676,20 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getVariableUsageVariableCharacterisation_7050SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        VariableUsage modelElement = (VariableUsage) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getVariableCharacterisation_VariableUsage().iterator(); it.hasNext();) {
-            VariableCharacterisation childElement = (VariableCharacterisation) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final VariableUsage modelElement = (VariableUsage) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getVariableCharacterisation_VariableUsage().iterator(); it
+                .hasNext();) {
+            final VariableCharacterisation childElement = (VariableCharacterisation) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == VariableCharacterisation4EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -695,19 +702,19 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getBranchActionBranchTransitionCompartment_7007SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        BranchAction modelElement = (BranchAction) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getBranches_Branch().iterator(); it.hasNext();) {
-            AbstractBranchTransition childElement = (AbstractBranchTransition) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final BranchAction modelElement = (BranchAction) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getBranches_Branch().iterator(); it.hasNext();) {
+            final AbstractBranchTransition childElement = (AbstractBranchTransition) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == ProbabilisticBranchTransitionEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -724,19 +731,19 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getResourceDemandingBehaviourBehaviourCompartment_7009SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        ResourceDemandingBehaviour modelElement = (ResourceDemandingBehaviour) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getSteps_Behaviour().iterator(); it.hasNext();) {
-            AbstractAction childElement = (AbstractAction) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final ResourceDemandingBehaviour modelElement = (ResourceDemandingBehaviour) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getSteps_Behaviour().iterator(); it.hasNext();) {
+            final AbstractAction childElement = (AbstractAction) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == StartAction2EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -797,19 +804,19 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getExternalCallActionInputVariableUsage_7010SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        ExternalCallAction modelElement = (ExternalCallAction) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getInputVariableUsages__CallAction().iterator(); it.hasNext();) {
-            VariableUsage childElement = (VariableUsage) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final ExternalCallAction modelElement = (ExternalCallAction) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getInputVariableUsages__CallAction().iterator(); it.hasNext();) {
+            final VariableUsage childElement = (VariableUsage) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == VariableUsageEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -822,19 +829,19 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getExternalCallActionOutputVariableUsage_7023SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        ExternalCallAction modelElement = (ExternalCallAction) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getReturnVariableUsage__CallReturnAction().iterator(); it.hasNext();) {
-            VariableUsage childElement = (VariableUsage) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final ExternalCallAction modelElement = (ExternalCallAction) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getReturnVariableUsage__CallReturnAction().iterator(); it.hasNext();) {
+            final VariableUsage childElement = (VariableUsage) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == VariableUsage2EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -847,19 +854,19 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getEmitEventActionInputVariableUsageEvent_7041SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        EmitEventAction modelElement = (EmitEventAction) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getInputVariableUsages__CallAction().iterator(); it.hasNext();) {
-            VariableUsage childElement = (VariableUsage) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final EmitEventAction modelElement = (EmitEventAction) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getInputVariableUsages__CallAction().iterator(); it.hasNext();) {
+            final VariableUsage childElement = (VariableUsage) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == VariableUsage4EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -872,27 +879,28 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getForkActionForkedBehaviours_7024SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        ForkAction modelElement = (ForkAction) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getAsynchronousForkedBehaviours_ForkAction().iterator(); it.hasNext();) {
-            ForkedBehaviour childElement = (ForkedBehaviour) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final ForkAction modelElement = (ForkAction) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getAsynchronousForkedBehaviours_ForkAction().iterator(); it
+                .hasNext();) {
+            final ForkedBehaviour childElement = (ForkedBehaviour) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == ForkedBehaviourEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
             }
         }
         {
-            SynchronisationPoint childElement = modelElement.getSynchronisingBehaviours_ForkAction();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+            final SynchronisationPoint childElement = modelElement.getSynchronisingBehaviours_ForkAction();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == SynchronisationPointEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
             }
@@ -904,19 +912,19 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getForkedBehaviourBehaviourCompartment_7026SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        ForkedBehaviour modelElement = (ForkedBehaviour) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getSteps_Behaviour().iterator(); it.hasNext();) {
-            AbstractAction childElement = (AbstractAction) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final ForkedBehaviour modelElement = (ForkedBehaviour) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getSteps_Behaviour().iterator(); it.hasNext();) {
+            final AbstractAction childElement = (AbstractAction) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == StartAction2EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -973,19 +981,19 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getResourceDemandingBehaviourBehaviourCompartment_7014SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        ResourceDemandingBehaviour modelElement = (ResourceDemandingBehaviour) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getSteps_Behaviour().iterator(); it.hasNext();) {
-            AbstractAction childElement = (AbstractAction) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final ResourceDemandingBehaviour modelElement = (ResourceDemandingBehaviour) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getSteps_Behaviour().iterator(); it.hasNext();) {
+            final AbstractAction childElement = (AbstractAction) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == StartAction2EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -1042,21 +1050,22 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getRecoveryActionRecoveryBlockCompartment_7058SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction) containerView
+        final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction modelElement = (org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction) containerView
                 .getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getRecoveryActionBehaviours__RecoveryAction().iterator(); it.hasNext();) {
-            de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour childElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour) it
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getRecoveryActionBehaviours__RecoveryAction().iterator(); it
+                .hasNext();) {
+            final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour childElement = (org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour) it
                     .next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == RecoveryActionBehaviourEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -1069,20 +1078,20 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getRecoveryActionBehaviourAlternativeBehaviourCompartment_7059SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour) containerView
+        final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour modelElement = (org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour) containerView
                 .getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getSteps_Behaviour().iterator(); it.hasNext();) {
-            AbstractAction childElement = (AbstractAction) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getSteps_Behaviour().iterator(); it.hasNext();) {
+            final AbstractAction childElement = (AbstractAction) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == StartAction2EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -1143,20 +1152,20 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getSynchronisationPointSynchronisationPoint_7034SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        SynchronisationPoint modelElement = (SynchronisationPoint) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getSynchronousForkedBehaviours_SynchronisationPoint().iterator(); it
+        final SynchronisationPoint modelElement = (SynchronisationPoint) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getSynchronousForkedBehaviours_SynchronisationPoint().iterator(); it
                 .hasNext();) {
-            ForkedBehaviour childElement = (ForkedBehaviour) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+            final ForkedBehaviour childElement = (ForkedBehaviour) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == ForkedBehaviour2EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -1169,19 +1178,19 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getForkedBehaviourBehaviourCompartment_7033SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        ForkedBehaviour modelElement = (ForkedBehaviour) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getSteps_Behaviour().iterator(); it.hasNext();) {
-            AbstractAction childElement = (AbstractAction) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final ForkedBehaviour modelElement = (ForkedBehaviour) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getSteps_Behaviour().iterator(); it.hasNext();) {
+            final AbstractAction childElement = (AbstractAction) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == StartAction2EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -1238,19 +1247,19 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getSetVariableActionVariableSetter_7025SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        SetVariableAction modelElement = (SetVariableAction) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getLocalVariableUsages_SetVariableAction().iterator(); it.hasNext();) {
-            VariableUsage childElement = (VariableUsage) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final SetVariableAction modelElement = (SetVariableAction) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getLocalVariableUsages_SetVariableAction().iterator(); it.hasNext();) {
+            final VariableUsage childElement = (VariableUsage) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == VariableUsage3EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -1263,19 +1272,20 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getVariableUsageVariableCharacterisation_7032SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        VariableUsage modelElement = (VariableUsage) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getVariableCharacterisation_VariableUsage().iterator(); it.hasNext();) {
-            VariableCharacterisation childElement = (VariableCharacterisation) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final VariableUsage modelElement = (VariableUsage) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getVariableCharacterisation_VariableUsage().iterator(); it
+                .hasNext();) {
+            final VariableCharacterisation childElement = (VariableCharacterisation) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == VariableCharacterisation5EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -1288,19 +1298,19 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getResourceDemandingBehaviourBehaviourCompartment_7018SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        ResourceDemandingBehaviour modelElement = (ResourceDemandingBehaviour) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getSteps_Behaviour().iterator(); it.hasNext();) {
-            AbstractAction childElement = (AbstractAction) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final ResourceDemandingBehaviour modelElement = (ResourceDemandingBehaviour) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getSteps_Behaviour().iterator(); it.hasNext();) {
+            final AbstractAction childElement = (AbstractAction) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == StartAction2EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -1361,19 +1371,19 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getBranchActionBranchTransitionCompartment_7011SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        BranchAction modelElement = (BranchAction) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getBranches_Branch().iterator(); it.hasNext();) {
-            AbstractBranchTransition childElement = (AbstractBranchTransition) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final BranchAction modelElement = (BranchAction) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getBranches_Branch().iterator(); it.hasNext();) {
+            final AbstractBranchTransition childElement = (AbstractBranchTransition) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == ProbabilisticBranchTransitionEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -1390,20 +1400,20 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getInternalActionResourceDemands_7012SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        InternalAction modelElement = (InternalAction) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getResourceDemand_Action().iterator(); it.hasNext();) {
-            de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand childElement = (de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand) it
+        final InternalAction modelElement = (InternalAction) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getResourceDemand_Action().iterator(); it.hasNext();) {
+            final org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand childElement = (org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand) it
                     .next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == ParametricResourceDemandEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -1416,20 +1426,20 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getInternalActionFailureOccurrenceDescriptions_7046SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        InternalAction modelElement = (InternalAction) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getInternalFailureOccurrenceDescriptions__InternalAction().iterator(); it
-                .hasNext();) {
-            InternalFailureOccurrenceDescription childElement = (InternalFailureOccurrenceDescription) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final InternalAction modelElement = (InternalAction) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getInternalFailureOccurrenceDescriptions__InternalAction()
+                .iterator(); it.hasNext();) {
+            final InternalFailureOccurrenceDescription childElement = (InternalFailureOccurrenceDescription) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == InternalFailureOccurrenceDescriptionEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -1442,20 +1452,20 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getInternalActionInfrastructureCallsCompartment_7051SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        InternalAction modelElement = (InternalAction) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getInfrastructureCall__Action().iterator(); it.hasNext();) {
-            de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall childElement = (de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall) it
+        final InternalAction modelElement = (InternalAction) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getInfrastructureCall__Action().iterator(); it.hasNext();) {
+            final org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall childElement = (org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall) it
                     .next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == InfrastructureCallEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -1468,19 +1478,19 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getSetVariableActionVariableSetter_7016SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        SetVariableAction modelElement = (SetVariableAction) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getLocalVariableUsages_SetVariableAction().iterator(); it.hasNext();) {
-            VariableUsage childElement = (VariableUsage) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final SetVariableAction modelElement = (SetVariableAction) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getLocalVariableUsages_SetVariableAction().iterator(); it.hasNext();) {
+            final VariableUsage childElement = (VariableUsage) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == VariableUsage3EditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -1493,27 +1503,28 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getForkActionForkedBehaviours_7019SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        ForkAction modelElement = (ForkAction) containerView.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getAsynchronousForkedBehaviours_ForkAction().iterator(); it.hasNext();) {
-            ForkedBehaviour childElement = (ForkedBehaviour) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final ForkAction modelElement = (ForkAction) containerView.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getAsynchronousForkedBehaviours_ForkAction().iterator(); it
+                .hasNext();) {
+            final ForkedBehaviour childElement = (ForkedBehaviour) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == ForkedBehaviourEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
             }
         }
         {
-            SynchronisationPoint childElement = modelElement.getSynchronisingBehaviours_ForkAction();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+            final SynchronisationPoint childElement = modelElement.getSynchronisingBehaviours_ForkAction();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == SynchronisationPointEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
             }
@@ -1525,21 +1536,22 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelNodeDescriptor> getRecoveryActionRecoveryBlockCompartment_7060SemanticChildren(
-            View view) {
+            final View view) {
         if (false == view.eContainer() instanceof View) {
             return Collections.emptyList();
         }
-        View containerView = (View) view.eContainer();
+        final View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
             return Collections.emptyList();
         }
-        de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction) containerView
+        final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction modelElement = (org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction) containerView
                 .getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getRecoveryActionBehaviours__RecoveryAction().iterator(); it.hasNext();) {
-            de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour childElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour) it
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getRecoveryActionBehaviours__RecoveryAction().iterator(); it
+                .hasNext();) {
+            final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour childElement = (org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour) it
                     .next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == RecoveryActionBehaviourEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -1551,15 +1563,16 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelNodeDescriptor> getResourceDemandingSEFF_1000SemanticChildren(View view) {
+    public static List<PalladioComponentModelNodeDescriptor> getResourceDemandingSEFF_1000SemanticChildren(
+            final View view) {
         if (!view.isSetElement()) {
             return Collections.emptyList();
         }
-        ResourceDemandingSEFF modelElement = (ResourceDemandingSEFF) view.getElement();
-        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
-        for (Iterator<?> it = modelElement.getSteps_Behaviour().iterator(); it.hasNext();) {
-            AbstractAction childElement = (AbstractAction) it.next();
-            int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
+        final ResourceDemandingSEFF modelElement = (ResourceDemandingSEFF) view.getElement();
+        final LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (final Iterator<?> it = modelElement.getSteps_Behaviour().iterator(); it.hasNext();) {
+            final AbstractAction childElement = (AbstractAction) it.next();
+            final int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == StartActionEditPart.VISUAL_ID) {
                 result.add(new PalladioComponentModelNodeDescriptor(childElement, visualID));
                 continue;
@@ -1619,7 +1632,7 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getContainedLinks(final View view) {
         switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
         case ResourceDemandingSEFFEditPart.VISUAL_ID:
             return getResourceDemandingSEFF_1000ContainedLinks(view);
@@ -1728,7 +1741,7 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getIncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getIncomingLinks(final View view) {
         switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
         case StartActionEditPart.VISUAL_ID:
             return getStartAction_2001IncomingLinks(view);
@@ -1835,7 +1848,7 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getOutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getOutgoingLinks(final View view) {
         switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
         case StartActionEditPart.VISUAL_ID:
             return getStartAction_2001OutgoingLinks(view);
@@ -1942,16 +1955,17 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingSEFF_1000ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingSEFF_1000ContainedLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getStartAction_2001ContainedLinks(View view) {
-        StartAction modelElement = (StartAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getStartAction_2001ContainedLinks(final View view) {
+        final StartAction modelElement = (StartAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -1959,9 +1973,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getStopAction_2002ContainedLinks(View view) {
-        StopAction modelElement = (StopAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getStopAction_2002ContainedLinks(final View view) {
+        final StopAction modelElement = (StopAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -1969,9 +1983,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getExternalCallAction_2003ContainedLinks(View view) {
-        ExternalCallAction modelElement = (ExternalCallAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getExternalCallAction_2003ContainedLinks(final View view) {
+        final ExternalCallAction modelElement = (ExternalCallAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -1979,9 +1993,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getEmitEventAction_2013ContainedLinks(View view) {
-        EmitEventAction modelElement = (EmitEventAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getEmitEventAction_2013ContainedLinks(final View view) {
+        final EmitEventAction modelElement = (EmitEventAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -1989,9 +2003,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getLoopAction_2004ContainedLinks(View view) {
-        LoopAction modelElement = (LoopAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getLoopAction_2004ContainedLinks(final View view) {
+        final LoopAction modelElement = (LoopAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -1999,9 +2013,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getBranchAction_2005ContainedLinks(View view) {
-        BranchAction modelElement = (BranchAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getBranchAction_2005ContainedLinks(final View view) {
+        final BranchAction modelElement = (BranchAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2009,9 +2023,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getInternalAction_2006ContainedLinks(View view) {
-        InternalAction modelElement = (InternalAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getInternalAction_2006ContainedLinks(final View view) {
+        final InternalAction modelElement = (InternalAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2019,9 +2033,10 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getCollectionIteratorAction_2007ContainedLinks(View view) {
-        CollectionIteratorAction modelElement = (CollectionIteratorAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getCollectionIteratorAction_2007ContainedLinks(
+            final View view) {
+        final CollectionIteratorAction modelElement = (CollectionIteratorAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2029,9 +2044,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getSetVariableAction_2008ContainedLinks(View view) {
-        SetVariableAction modelElement = (SetVariableAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getSetVariableAction_2008ContainedLinks(final View view) {
+        final SetVariableAction modelElement = (SetVariableAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2039,9 +2054,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getAcquireAction_2012ContainedLinks(View view) {
-        AcquireAction modelElement = (AcquireAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getAcquireAction_2012ContainedLinks(final View view) {
+        final AcquireAction modelElement = (AcquireAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2049,9 +2064,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getReleaseAction_2010ContainedLinks(View view) {
-        ReleaseAction modelElement = (ReleaseAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getReleaseAction_2010ContainedLinks(final View view) {
+        final ReleaseAction modelElement = (ReleaseAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2059,9 +2074,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getForkAction_2011ContainedLinks(View view) {
-        ForkAction modelElement = (ForkAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getForkAction_2011ContainedLinks(final View view) {
+        final ForkAction modelElement = (ForkAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2069,10 +2084,10 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getRecoveryAction_2017ContainedLinks(View view) {
-        de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction) view
+    public static List<PalladioComponentModelLinkDescriptor> getRecoveryAction_2017ContainedLinks(final View view) {
+        final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction modelElement = (org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction) view
                 .getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2080,51 +2095,54 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3042ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3042ContainedLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3033ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3033ContainedLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3049ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3049ContainedLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3035ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3035ContainedLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3047ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3047ContainedLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3003ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3003ContainedLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getStartAction_3004ContainedLinks(View view) {
-        StartAction modelElement = (StartAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getStartAction_3004ContainedLinks(final View view) {
+        final StartAction modelElement = (StartAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2132,9 +2150,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getStopAction_3005ContainedLinks(View view) {
-        StopAction modelElement = (StopAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getStopAction_3005ContainedLinks(final View view) {
+        final StopAction modelElement = (StopAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2142,9 +2160,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getLoopAction_3006ContainedLinks(View view) {
-        LoopAction modelElement = (LoopAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getLoopAction_3006ContainedLinks(final View view) {
+        final LoopAction modelElement = (LoopAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2152,9 +2170,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getInternalAction_3007ContainedLinks(View view) {
-        InternalAction modelElement = (InternalAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getInternalAction_3007ContainedLinks(final View view) {
+        final InternalAction modelElement = (InternalAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2162,7 +2180,8 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getParametricResourceDemand_3051ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getParametricResourceDemand_3051ContainedLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
@@ -2170,30 +2189,30 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelLinkDescriptor> getInternalFailureOccurrenceDescription_3050ContainedLinks(
-            View view) {
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getInfrastructureCall_3053ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getInfrastructureCall_3053ContainedLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3054ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3054ContainedLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getBranchAction_3009ContainedLinks(View view) {
-        BranchAction modelElement = (BranchAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getBranchAction_3009ContainedLinks(final View view) {
+        final BranchAction modelElement = (BranchAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2202,23 +2221,24 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelLinkDescriptor> getProbabilisticBranchTransition_3010ContainedLinks(
-            View view) {
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3011ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3011ContainedLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getExternalCallAction_3012ContainedLinks(View view) {
-        ExternalCallAction modelElement = (ExternalCallAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getExternalCallAction_3012ContainedLinks(final View view) {
+        final ExternalCallAction modelElement = (ExternalCallAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2226,9 +2246,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getEmitEventAction_3046ContainedLinks(View view) {
-        EmitEventAction modelElement = (EmitEventAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getEmitEventAction_3046ContainedLinks(final View view) {
+        final EmitEventAction modelElement = (EmitEventAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2236,9 +2256,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getAcquireAction_3026ContainedLinks(View view) {
-        AcquireAction modelElement = (AcquireAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getAcquireAction_3026ContainedLinks(final View view) {
+        final AcquireAction modelElement = (AcquireAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2246,9 +2266,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getReleaseAction_3020ContainedLinks(View view) {
-        ReleaseAction modelElement = (ReleaseAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getReleaseAction_3020ContainedLinks(final View view) {
+        final ReleaseAction modelElement = (ReleaseAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2256,9 +2276,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getForkAction_3023ContainedLinks(View view) {
-        ForkAction modelElement = (ForkAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getForkAction_3023ContainedLinks(final View view) {
+        final ForkAction modelElement = (ForkAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2266,16 +2286,17 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getForkedBehaviour_3027ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getForkedBehaviour_3027ContainedLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getCollectionIteratorAction_3013ContainedLinks(View view) {
-        CollectionIteratorAction modelElement = (CollectionIteratorAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getCollectionIteratorAction_3013ContainedLinks(
+            final View view) {
+        final CollectionIteratorAction modelElement = (CollectionIteratorAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2283,17 +2304,18 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3014ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3014ContainedLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getRecoveryAction_3061ContainedLinks(View view) {
-        de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction) view
+    public static List<PalladioComponentModelLinkDescriptor> getRecoveryAction_3061ContainedLinks(final View view) {
+        final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction modelElement = (org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction) view
                 .getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2301,34 +2323,38 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getRecoveryActionBehaviour_3062ContainedLinks(View view) {
-        de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour) view
+    public static List<PalladioComponentModelLinkDescriptor> getRecoveryActionBehaviour_3062ContainedLinks(
+            final View view) {
+        final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour modelElement = (org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour) view
                 .getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
-        result.addAll(getOutgoingFeatureModelFacetLinks_RecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour_4004(modelElement));
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        result.addAll(
+                getOutgoingFeatureModelFacetLinks_RecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour_4004(
+                        modelElement));
         return result;
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getSynchronisationPoint_3038ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getSynchronisationPoint_3038ContainedLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getForkedBehaviour_3039ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getForkedBehaviour_3039ContainedLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getSetVariableAction_3024ContainedLinks(View view) {
-        SetVariableAction modelElement = (SetVariableAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getSetVariableAction_3024ContainedLinks(final View view) {
+        final SetVariableAction modelElement = (SetVariableAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2336,53 +2362,58 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3036ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3036ContainedLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3055ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3055ContainedLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3048ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3048ContainedLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3037ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3037ContainedLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getGuardedBranchTransition_3017ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getGuardedBranchTransition_3017ContainedLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3018ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3018ContainedLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getStartAction_2001IncomingLinks(View view) {
-        StartAction modelElement = (StartAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getStartAction_2001IncomingLinks(final View view) {
+        final StartAction modelElement = (StartAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2391,11 +2422,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getStopAction_2002IncomingLinks(View view) {
-        StopAction modelElement = (StopAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getStopAction_2002IncomingLinks(final View view) {
+        final StopAction modelElement = (StopAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2404,11 +2435,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getExternalCallAction_2003IncomingLinks(View view) {
-        ExternalCallAction modelElement = (ExternalCallAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getExternalCallAction_2003IncomingLinks(final View view) {
+        final ExternalCallAction modelElement = (ExternalCallAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2417,11 +2448,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getEmitEventAction_2013IncomingLinks(View view) {
-        EmitEventAction modelElement = (EmitEventAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getEmitEventAction_2013IncomingLinks(final View view) {
+        final EmitEventAction modelElement = (EmitEventAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2430,11 +2461,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getLoopAction_2004IncomingLinks(View view) {
-        LoopAction modelElement = (LoopAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getLoopAction_2004IncomingLinks(final View view) {
+        final LoopAction modelElement = (LoopAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2443,11 +2474,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getBranchAction_2005IncomingLinks(View view) {
-        BranchAction modelElement = (BranchAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getBranchAction_2005IncomingLinks(final View view) {
+        final BranchAction modelElement = (BranchAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2456,11 +2487,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getInternalAction_2006IncomingLinks(View view) {
-        InternalAction modelElement = (InternalAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getInternalAction_2006IncomingLinks(final View view) {
+        final InternalAction modelElement = (InternalAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2469,11 +2500,12 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getCollectionIteratorAction_2007IncomingLinks(View view) {
-        CollectionIteratorAction modelElement = (CollectionIteratorAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getCollectionIteratorAction_2007IncomingLinks(
+            final View view) {
+        final CollectionIteratorAction modelElement = (CollectionIteratorAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2482,11 +2514,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getSetVariableAction_2008IncomingLinks(View view) {
-        SetVariableAction modelElement = (SetVariableAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getSetVariableAction_2008IncomingLinks(final View view) {
+        final SetVariableAction modelElement = (SetVariableAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2495,11 +2527,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getAcquireAction_2012IncomingLinks(View view) {
-        AcquireAction modelElement = (AcquireAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getAcquireAction_2012IncomingLinks(final View view) {
+        final AcquireAction modelElement = (AcquireAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2508,11 +2540,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getReleaseAction_2010IncomingLinks(View view) {
-        ReleaseAction modelElement = (ReleaseAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getReleaseAction_2010IncomingLinks(final View view) {
+        final ReleaseAction modelElement = (ReleaseAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2521,11 +2553,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getForkAction_2011IncomingLinks(View view) {
-        ForkAction modelElement = (ForkAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getForkAction_2011IncomingLinks(final View view) {
+        final ForkAction modelElement = (ForkAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2534,12 +2566,12 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getRecoveryAction_2017IncomingLinks(View view) {
-        de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction) view
+    public static List<PalladioComponentModelLinkDescriptor> getRecoveryAction_2017IncomingLinks(final View view) {
+        final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction modelElement = (org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction) view
                 .getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2548,53 +2580,56 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3042IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3042IncomingLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3033IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3033IncomingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3049IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3049IncomingLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3035IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3035IncomingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3047IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3047IncomingLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3003IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3003IncomingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getStartAction_3004IncomingLinks(View view) {
-        StartAction modelElement = (StartAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getStartAction_3004IncomingLinks(final View view) {
+        final StartAction modelElement = (StartAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2603,11 +2638,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getStopAction_3005IncomingLinks(View view) {
-        StopAction modelElement = (StopAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getStopAction_3005IncomingLinks(final View view) {
+        final StopAction modelElement = (StopAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2616,11 +2651,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getLoopAction_3006IncomingLinks(View view) {
-        LoopAction modelElement = (LoopAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getLoopAction_3006IncomingLinks(final View view) {
+        final LoopAction modelElement = (LoopAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2629,11 +2664,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getInternalAction_3007IncomingLinks(View view) {
-        InternalAction modelElement = (InternalAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getInternalAction_3007IncomingLinks(final View view) {
+        final InternalAction modelElement = (InternalAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2642,7 +2677,8 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getParametricResourceDemand_3051IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getParametricResourceDemand_3051IncomingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
@@ -2650,32 +2686,32 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelLinkDescriptor> getInternalFailureOccurrenceDescription_3050IncomingLinks(
-            View view) {
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getInfrastructureCall_3053IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getInfrastructureCall_3053IncomingLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3054IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3054IncomingLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getBranchAction_3009IncomingLinks(View view) {
-        BranchAction modelElement = (BranchAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getBranchAction_3009IncomingLinks(final View view) {
+        final BranchAction modelElement = (BranchAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2685,25 +2721,26 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelLinkDescriptor> getProbabilisticBranchTransition_3010IncomingLinks(
-            View view) {
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3011IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3011IncomingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getExternalCallAction_3012IncomingLinks(View view) {
-        ExternalCallAction modelElement = (ExternalCallAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getExternalCallAction_3012IncomingLinks(final View view) {
+        final ExternalCallAction modelElement = (ExternalCallAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2712,11 +2749,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getEmitEventAction_3046IncomingLinks(View view) {
-        EmitEventAction modelElement = (EmitEventAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getEmitEventAction_3046IncomingLinks(final View view) {
+        final EmitEventAction modelElement = (EmitEventAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2725,11 +2762,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getAcquireAction_3026IncomingLinks(View view) {
-        AcquireAction modelElement = (AcquireAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getAcquireAction_3026IncomingLinks(final View view) {
+        final AcquireAction modelElement = (AcquireAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2738,11 +2775,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getReleaseAction_3020IncomingLinks(View view) {
-        ReleaseAction modelElement = (ReleaseAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getReleaseAction_3020IncomingLinks(final View view) {
+        final ReleaseAction modelElement = (ReleaseAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2751,11 +2788,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getForkAction_3023IncomingLinks(View view) {
-        ForkAction modelElement = (ForkAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getForkAction_3023IncomingLinks(final View view) {
+        final ForkAction modelElement = (ForkAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2764,18 +2801,19 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getForkedBehaviour_3027IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getForkedBehaviour_3027IncomingLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getCollectionIteratorAction_3013IncomingLinks(View view) {
-        CollectionIteratorAction modelElement = (CollectionIteratorAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getCollectionIteratorAction_3013IncomingLinks(
+            final View view) {
+        final CollectionIteratorAction modelElement = (CollectionIteratorAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2784,19 +2822,20 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3014IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3014IncomingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getRecoveryAction_3061IncomingLinks(View view) {
-        de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction) view
+    public static List<PalladioComponentModelLinkDescriptor> getRecoveryAction_3061IncomingLinks(final View view) {
+        final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction modelElement = (org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction) view
                 .getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2805,39 +2844,42 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getRecoveryActionBehaviour_3062IncomingLinks(View view) {
-        de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour) view
+    public static List<PalladioComponentModelLinkDescriptor> getRecoveryActionBehaviour_3062IncomingLinks(
+            final View view) {
+        final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour modelElement = (org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour) view
                 .getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
-        result.addAll(getIncomingFeatureModelFacetLinks_RecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour_4004(
-                modelElement, crossReferences));
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        result.addAll(
+                getIncomingFeatureModelFacetLinks_RecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour_4004(
+                        modelElement, crossReferences));
         return result;
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getSynchronisationPoint_3038IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getSynchronisationPoint_3038IncomingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getForkedBehaviour_3039IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getForkedBehaviour_3039IncomingLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getSetVariableAction_3024IncomingLinks(View view) {
-        SetVariableAction modelElement = (SetVariableAction) view.getElement();
-        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
-                .eResource().getResourceSet().getResources());
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getSetVariableAction_3024IncomingLinks(final View view) {
+        final SetVariableAction modelElement = (SetVariableAction) view.getElement();
+        final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer
+                .find(view.eResource().getResourceSet().getResources());
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement,
                 crossReferences));
         return result;
@@ -2846,51 +2888,56 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3036IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3036IncomingLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3055IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3055IncomingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3048IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3048IncomingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3037IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3037IncomingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getGuardedBranchTransition_3017IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getGuardedBranchTransition_3017IncomingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3018IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3018IncomingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getStartAction_2001OutgoingLinks(View view) {
-        StartAction modelElement = (StartAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getStartAction_2001OutgoingLinks(final View view) {
+        final StartAction modelElement = (StartAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2898,9 +2945,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getStopAction_2002OutgoingLinks(View view) {
-        StopAction modelElement = (StopAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getStopAction_2002OutgoingLinks(final View view) {
+        final StopAction modelElement = (StopAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2908,9 +2955,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getExternalCallAction_2003OutgoingLinks(View view) {
-        ExternalCallAction modelElement = (ExternalCallAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getExternalCallAction_2003OutgoingLinks(final View view) {
+        final ExternalCallAction modelElement = (ExternalCallAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2918,9 +2965,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getEmitEventAction_2013OutgoingLinks(View view) {
-        EmitEventAction modelElement = (EmitEventAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getEmitEventAction_2013OutgoingLinks(final View view) {
+        final EmitEventAction modelElement = (EmitEventAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2928,9 +2975,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getLoopAction_2004OutgoingLinks(View view) {
-        LoopAction modelElement = (LoopAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getLoopAction_2004OutgoingLinks(final View view) {
+        final LoopAction modelElement = (LoopAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2938,9 +2985,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getBranchAction_2005OutgoingLinks(View view) {
-        BranchAction modelElement = (BranchAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getBranchAction_2005OutgoingLinks(final View view) {
+        final BranchAction modelElement = (BranchAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2948,9 +2995,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getInternalAction_2006OutgoingLinks(View view) {
-        InternalAction modelElement = (InternalAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getInternalAction_2006OutgoingLinks(final View view) {
+        final InternalAction modelElement = (InternalAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2958,9 +3005,10 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getCollectionIteratorAction_2007OutgoingLinks(View view) {
-        CollectionIteratorAction modelElement = (CollectionIteratorAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getCollectionIteratorAction_2007OutgoingLinks(
+            final View view) {
+        final CollectionIteratorAction modelElement = (CollectionIteratorAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2968,9 +3016,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getSetVariableAction_2008OutgoingLinks(View view) {
-        SetVariableAction modelElement = (SetVariableAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getSetVariableAction_2008OutgoingLinks(final View view) {
+        final SetVariableAction modelElement = (SetVariableAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2978,9 +3026,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getAcquireAction_2012OutgoingLinks(View view) {
-        AcquireAction modelElement = (AcquireAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getAcquireAction_2012OutgoingLinks(final View view) {
+        final AcquireAction modelElement = (AcquireAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2988,9 +3036,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getReleaseAction_2010OutgoingLinks(View view) {
-        ReleaseAction modelElement = (ReleaseAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getReleaseAction_2010OutgoingLinks(final View view) {
+        final ReleaseAction modelElement = (ReleaseAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -2998,9 +3046,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getForkAction_2011OutgoingLinks(View view) {
-        ForkAction modelElement = (ForkAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getForkAction_2011OutgoingLinks(final View view) {
+        final ForkAction modelElement = (ForkAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -3008,10 +3056,10 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getRecoveryAction_2017OutgoingLinks(View view) {
-        de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction) view
+    public static List<PalladioComponentModelLinkDescriptor> getRecoveryAction_2017OutgoingLinks(final View view) {
+        final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction modelElement = (org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction) view
                 .getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -3019,51 +3067,54 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3042OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3042OutgoingLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3033OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3033OutgoingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3049OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3049OutgoingLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3035OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3035OutgoingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3047OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3047OutgoingLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3003OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3003OutgoingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getStartAction_3004OutgoingLinks(View view) {
-        StartAction modelElement = (StartAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getStartAction_3004OutgoingLinks(final View view) {
+        final StartAction modelElement = (StartAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -3071,9 +3122,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getStopAction_3005OutgoingLinks(View view) {
-        StopAction modelElement = (StopAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getStopAction_3005OutgoingLinks(final View view) {
+        final StopAction modelElement = (StopAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -3081,9 +3132,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getLoopAction_3006OutgoingLinks(View view) {
-        LoopAction modelElement = (LoopAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getLoopAction_3006OutgoingLinks(final View view) {
+        final LoopAction modelElement = (LoopAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -3091,9 +3142,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getInternalAction_3007OutgoingLinks(View view) {
-        InternalAction modelElement = (InternalAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getInternalAction_3007OutgoingLinks(final View view) {
+        final InternalAction modelElement = (InternalAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -3101,7 +3152,8 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getParametricResourceDemand_3051OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getParametricResourceDemand_3051OutgoingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
@@ -3109,30 +3161,30 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelLinkDescriptor> getInternalFailureOccurrenceDescription_3050OutgoingLinks(
-            View view) {
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getInfrastructureCall_3053OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getInfrastructureCall_3053OutgoingLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3054OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3054OutgoingLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getBranchAction_3009OutgoingLinks(View view) {
-        BranchAction modelElement = (BranchAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getBranchAction_3009OutgoingLinks(final View view) {
+        final BranchAction modelElement = (BranchAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -3141,23 +3193,24 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static List<PalladioComponentModelLinkDescriptor> getProbabilisticBranchTransition_3010OutgoingLinks(
-            View view) {
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3011OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3011OutgoingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getExternalCallAction_3012OutgoingLinks(View view) {
-        ExternalCallAction modelElement = (ExternalCallAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getExternalCallAction_3012OutgoingLinks(final View view) {
+        final ExternalCallAction modelElement = (ExternalCallAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -3165,9 +3218,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getEmitEventAction_3046OutgoingLinks(View view) {
-        EmitEventAction modelElement = (EmitEventAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getEmitEventAction_3046OutgoingLinks(final View view) {
+        final EmitEventAction modelElement = (EmitEventAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -3175,9 +3228,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getAcquireAction_3026OutgoingLinks(View view) {
-        AcquireAction modelElement = (AcquireAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getAcquireAction_3026OutgoingLinks(final View view) {
+        final AcquireAction modelElement = (AcquireAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -3185,9 +3238,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getReleaseAction_3020OutgoingLinks(View view) {
-        ReleaseAction modelElement = (ReleaseAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getReleaseAction_3020OutgoingLinks(final View view) {
+        final ReleaseAction modelElement = (ReleaseAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -3195,9 +3248,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getForkAction_3023OutgoingLinks(View view) {
-        ForkAction modelElement = (ForkAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getForkAction_3023OutgoingLinks(final View view) {
+        final ForkAction modelElement = (ForkAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -3205,16 +3258,17 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getForkedBehaviour_3027OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getForkedBehaviour_3027OutgoingLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getCollectionIteratorAction_3013OutgoingLinks(View view) {
-        CollectionIteratorAction modelElement = (CollectionIteratorAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getCollectionIteratorAction_3013OutgoingLinks(
+            final View view) {
+        final CollectionIteratorAction modelElement = (CollectionIteratorAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -3222,17 +3276,18 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3014OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3014OutgoingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getRecoveryAction_3061OutgoingLinks(View view) {
-        de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction) view
+    public static List<PalladioComponentModelLinkDescriptor> getRecoveryAction_3061OutgoingLinks(final View view) {
+        final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction modelElement = (org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction) view
                 .getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -3240,34 +3295,38 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getRecoveryActionBehaviour_3062OutgoingLinks(View view) {
-        de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour modelElement = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour) view
+    public static List<PalladioComponentModelLinkDescriptor> getRecoveryActionBehaviour_3062OutgoingLinks(
+            final View view) {
+        final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour modelElement = (org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour) view
                 .getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
-        result.addAll(getOutgoingFeatureModelFacetLinks_RecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour_4004(modelElement));
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        result.addAll(
+                getOutgoingFeatureModelFacetLinks_RecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour_4004(
+                        modelElement));
         return result;
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getSynchronisationPoint_3038OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getSynchronisationPoint_3038OutgoingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getForkedBehaviour_3039OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getForkedBehaviour_3039OutgoingLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getSetVariableAction_3024OutgoingLinks(View view) {
-        SetVariableAction modelElement = (SetVariableAction) view.getElement();
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+    public static List<PalladioComponentModelLinkDescriptor> getSetVariableAction_3024OutgoingLinks(final View view) {
+        final SetVariableAction modelElement = (SetVariableAction) view.getElement();
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(modelElement));
         return result;
     }
@@ -3275,42 +3334,47 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3036OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3036OutgoingLinks(final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3055OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3055OutgoingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3048OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3048OutgoingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3037OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3037OutgoingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getGuardedBranchTransition_3017OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getGuardedBranchTransition_3017OutgoingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3018OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingBehaviour_3018OutgoingLinks(
+            final View view) {
         return Collections.emptyList();
     }
 
@@ -3318,10 +3382,10 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     private static Collection<PalladioComponentModelLinkDescriptor> getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(
-            AbstractAction target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
-        Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
-        for (EStructuralFeature.Setting setting : settings) {
+            final AbstractAction target, final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        final Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+        for (final EStructuralFeature.Setting setting : settings) {
             if (setting.getEStructuralFeature() == SeffPackage.eINSTANCE.getAbstractAction_Successor_AbstractAction()) {
                 result.add(new PalladioComponentModelLinkDescriptor(setting.getEObject(), target,
                         PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001,
@@ -3335,16 +3399,15 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     private static Collection<PalladioComponentModelLinkDescriptor> getIncomingFeatureModelFacetLinks_RecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour_4004(
-            de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour target,
-            Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
-        Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
-        for (EStructuralFeature.Setting setting : settings) {
-            if (setting.getEStructuralFeature() == de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
-                    .getRecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour()) {
-                result.add(new PalladioComponentModelLinkDescriptor(
-                        setting.getEObject(),
-                        target,
+            final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour target,
+            final Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        final Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+        for (final EStructuralFeature.Setting setting : settings) {
+            if (setting
+                    .getEStructuralFeature() == org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
+                            .getRecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour()) {
+                result.add(new PalladioComponentModelLinkDescriptor(setting.getEObject(), target,
                         PalladioComponentModelElementTypes.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004,
                         RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID));
             }
@@ -3356,9 +3419,9 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     private static Collection<PalladioComponentModelLinkDescriptor> getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(
-            AbstractAction source) {
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
-        AbstractAction destination = source.getSuccessor_AbstractAction();
+            final AbstractAction source) {
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        final AbstractAction destination = source.getSuccessor_AbstractAction();
         if (destination == null) {
             return result;
         }
@@ -3372,15 +3435,13 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     private static Collection<PalladioComponentModelLinkDescriptor> getOutgoingFeatureModelFacetLinks_RecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour_4004(
-            de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour source) {
-        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
-        for (Iterator<?> destinations = source.getFailureHandlingAlternatives__RecoveryActionBehaviour().iterator(); destinations
-                .hasNext();) {
-            de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour destination = (de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour) destinations
+            final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour source) {
+        final LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        for (final Iterator<?> destinations = source.getFailureHandlingAlternatives__RecoveryActionBehaviour()
+                .iterator(); destinations.hasNext();) {
+            final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour destination = (org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour) destinations
                     .next();
-            result.add(new PalladioComponentModelLinkDescriptor(
-                    source,
-                    destination,
+            result.add(new PalladioComponentModelLinkDescriptor(source, destination,
                     PalladioComponentModelElementTypes.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004,
                     RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.VISUAL_ID));
         }
@@ -3391,11 +3452,12 @@ public class PalladioComponentModelDiagramUpdater {
      * @generated
      */
     public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
+
         /**
          * @generated
          */
         @Override
-        public List<PalladioComponentModelNodeDescriptor> getSemanticChildren(View view) {
+        public List<PalladioComponentModelNodeDescriptor> getSemanticChildren(final View view) {
             return PalladioComponentModelDiagramUpdater.getSemanticChildren(view);
         }
 
@@ -3403,7 +3465,7 @@ public class PalladioComponentModelDiagramUpdater {
          * @generated
          */
         @Override
-        public List<PalladioComponentModelLinkDescriptor> getContainedLinks(View view) {
+        public List<PalladioComponentModelLinkDescriptor> getContainedLinks(final View view) {
             return PalladioComponentModelDiagramUpdater.getContainedLinks(view);
         }
 
@@ -3411,7 +3473,7 @@ public class PalladioComponentModelDiagramUpdater {
          * @generated
          */
         @Override
-        public List<PalladioComponentModelLinkDescriptor> getIncomingLinks(View view) {
+        public List<PalladioComponentModelLinkDescriptor> getIncomingLinks(final View view) {
             return PalladioComponentModelDiagramUpdater.getIncomingLinks(view);
         }
 
@@ -3419,7 +3481,7 @@ public class PalladioComponentModelDiagramUpdater {
          * @generated
          */
         @Override
-        public List<PalladioComponentModelLinkDescriptor> getOutgoingLinks(View view) {
+        public List<PalladioComponentModelLinkDescriptor> getOutgoingLinks(final View view) {
             return PalladioComponentModelDiagramUpdater.getOutgoingLinks(view);
         }
     };

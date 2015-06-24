@@ -37,13 +37,13 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
+import org.palladiosimulator.pcm.seff.AbstractAction;
+import org.palladiosimulator.pcm.seff.SeffPackage;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.expressions.PalladioComponentModelOCLFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * @generated
@@ -63,18 +63,19 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     /**
      * @generated
      */
-    protected PalladioComponentModelBaseItemSemanticEditPolicy(IElementType elementType) {
-        myElementType = elementType;
+    protected PalladioComponentModelBaseItemSemanticEditPolicy(final IElementType elementType) {
+        this.myElementType = elementType;
     }
 
     /**
      * @generated
      */
-    public Command getCommand(Request request) {
+    @Override
+    public Command getCommand(final Request request) {
         if (request instanceof ReconnectRequest) {
-            Object view = ((ReconnectRequest) request).getConnectionEditPart().getModel();
+            final Object view = ((ReconnectRequest) request).getConnectionEditPart().getModel();
             if (view instanceof View) {
-                Integer id = new Integer(PalladioComponentModelVisualIDRegistry.getVisualID((View) view));
+                final Integer id = new Integer(PalladioComponentModelVisualIDRegistry.getVisualID((View) view));
                 request.getExtendedData().put(VISUAL_ID_KEY, id);
             }
         }
@@ -84,20 +85,21 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     /**
      * @generated
      */
-    protected int getVisualID(IEditCommandRequest request) {
-        Object id = request.getParameter(VISUAL_ID_KEY);
+    protected int getVisualID(final IEditCommandRequest request) {
+        final Object id = request.getParameter(VISUAL_ID_KEY);
         return id instanceof Integer ? ((Integer) id).intValue() : -1;
     }
 
     /**
      * @generated
      */
-    protected Command getSemanticCommand(IEditCommandRequest request) {
-        IEditCommandRequest completedRequest = completeRequest(request);
+    @Override
+    protected Command getSemanticCommand(final IEditCommandRequest request) {
+        final IEditCommandRequest completedRequest = completeRequest(request);
         Command semanticCommand = getSemanticCommandSwitch(completedRequest);
         semanticCommand = getEditHelperCommand(completedRequest, semanticCommand);
         if (completedRequest instanceof DestroyRequest) {
-            DestroyRequest destroyRequest = (DestroyRequest) completedRequest;
+            final DestroyRequest destroyRequest = (DestroyRequest) completedRequest;
             return shouldProceed(destroyRequest) ? addDeleteViewCommand(semanticCommand, destroyRequest) : null;
         }
         return semanticCommand;
@@ -106,21 +108,22 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     /**
      * @generated
      */
-    protected Command addDeleteViewCommand(Command mainCommand, DestroyRequest completedRequest) {
-        Command deleteViewCommand = getGEFWrapper(new DeleteCommand(getEditingDomain(), (View) getHost().getModel()));
+    protected Command addDeleteViewCommand(final Command mainCommand, final DestroyRequest completedRequest) {
+        final Command deleteViewCommand = getGEFWrapper(
+                new DeleteCommand(getEditingDomain(), (View) getHost().getModel()));
         return mainCommand == null ? deleteViewCommand : mainCommand.chain(deleteViewCommand);
     }
 
     /**
      * @generated
      */
-    private Command getEditHelperCommand(IEditCommandRequest request, Command editPolicyCommand) {
+    private Command getEditHelperCommand(final IEditCommandRequest request, final Command editPolicyCommand) {
         if (editPolicyCommand != null) {
-            ICommand command = editPolicyCommand instanceof ICommandProxy ? ((ICommandProxy) editPolicyCommand)
-                    .getICommand() : new CommandProxy(editPolicyCommand);
+            final ICommand command = editPolicyCommand instanceof ICommandProxy
+                    ? ((ICommandProxy) editPolicyCommand).getICommand() : new CommandProxy(editPolicyCommand);
             request.setParameter(GeneratedEditHelperBase.EDIT_POLICY_COMMAND, command);
         }
-        IElementType requestContextElementType = getContextElementType(request);
+        final IElementType requestContextElementType = getContextElementType(request);
         request.setParameter(GeneratedEditHelperBase.CONTEXT_ELEMENT_TYPE, requestContextElementType);
         ICommand command = requestContextElementType.getEditCommand(request);
         request.setParameter(GeneratedEditHelperBase.EDIT_POLICY_COMMAND, null);
@@ -137,16 +140,16 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     /**
      * @generated
      */
-    private IElementType getContextElementType(IEditCommandRequest request) {
-        IElementType requestContextElementType = PalladioComponentModelElementTypes
+    private IElementType getContextElementType(final IEditCommandRequest request) {
+        final IElementType requestContextElementType = PalladioComponentModelElementTypes
                 .getElementType(getVisualID(request));
-        return requestContextElementType != null ? requestContextElementType : myElementType;
+        return requestContextElementType != null ? requestContextElementType : this.myElementType;
     }
 
     /**
      * @generated
      */
-    protected Command getSemanticCommandSwitch(IEditCommandRequest req) {
+    protected Command getSemanticCommandSwitch(final IEditCommandRequest req) {
         if (req instanceof CreateRelationshipRequest) {
             return getCreateRelationshipCommand((CreateRelationshipRequest) req);
         } else if (req instanceof CreateElementRequest) {
@@ -176,84 +179,84 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     /**
      * @generated
      */
-    protected Command getConfigureCommand(ConfigureRequest req) {
+    protected Command getConfigureCommand(final ConfigureRequest req) {
         return null;
     }
 
     /**
      * @generated
      */
-    protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
+    protected Command getCreateRelationshipCommand(final CreateRelationshipRequest req) {
         return null;
     }
 
     /**
      * @generated
      */
-    protected Command getCreateCommand(CreateElementRequest req) {
+    protected Command getCreateCommand(final CreateElementRequest req) {
         return null;
     }
 
     /**
      * @generated
      */
-    protected Command getSetCommand(SetRequest req) {
+    protected Command getSetCommand(final SetRequest req) {
         return null;
     }
 
     /**
      * @generated
      */
-    protected Command getEditContextCommand(GetEditContextRequest req) {
+    protected Command getEditContextCommand(final GetEditContextRequest req) {
         return null;
     }
 
     /**
      * @generated
      */
-    protected Command getDestroyElementCommand(DestroyElementRequest req) {
+    protected Command getDestroyElementCommand(final DestroyElementRequest req) {
         return null;
     }
 
     /**
      * @generated
      */
-    protected Command getDestroyReferenceCommand(DestroyReferenceRequest req) {
+    protected Command getDestroyReferenceCommand(final DestroyReferenceRequest req) {
         return null;
     }
 
     /**
      * @generated
      */
-    protected Command getDuplicateCommand(DuplicateElementsRequest req) {
+    protected Command getDuplicateCommand(final DuplicateElementsRequest req) {
         return null;
     }
 
     /**
      * @generated
      */
-    protected Command getMoveCommand(MoveRequest req) {
+    protected Command getMoveCommand(final MoveRequest req) {
         return null;
     }
 
     /**
      * @generated
      */
-    protected Command getReorientReferenceRelationshipCommand(ReorientReferenceRelationshipRequest req) {
+    protected Command getReorientReferenceRelationshipCommand(final ReorientReferenceRelationshipRequest req) {
         return UnexecutableCommand.INSTANCE;
     }
 
     /**
      * @generated
      */
-    protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {
+    protected Command getReorientRelationshipCommand(final ReorientRelationshipRequest req) {
         return UnexecutableCommand.INSTANCE;
     }
 
     /**
      * @generated
      */
-    protected final Command getGEFWrapper(ICommand cmd) {
+    protected final Command getGEFWrapper(final ICommand cmd) {
         return new ICommandProxy(cmd);
     }
 
@@ -267,11 +270,12 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     /**
      * @generated
      */
-    protected void addDestroyShortcutsCommand(ICompositeCommand cmd, View view) {
+    protected void addDestroyShortcutsCommand(final ICompositeCommand cmd, final View view) {
         assert view.getEAnnotation("Shortcut") == null; //$NON-NLS-1$
-        for (Iterator it = view.getDiagram().getChildren().iterator(); it.hasNext();) {
-            View nextView = (View) it.next();
-            if (nextView.getEAnnotation("Shortcut") == null || !nextView.isSetElement() || nextView.getElement() != view.getElement()) { //$NON-NLS-1$
+        for (final Iterator it = view.getDiagram().getChildren().iterator(); it.hasNext();) {
+            final View nextView = (View) it.next();
+            if (nextView.getEAnnotation("Shortcut") == null || !nextView.isSetElement() //$NON-NLS-1$
+                    || nextView.getElement() != view.getElement()) {
                 continue;
             }
             cmd.add(new DeleteCommand(getEditingDomain(), nextView));
@@ -284,8 +288,8 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     public static LinkConstraints getLinkConstraints() {
         LinkConstraints cached = PalladioComponentModelSeffDiagramEditorPlugin.getInstance().getLinkConstraints();
         if (cached == null) {
-            PalladioComponentModelSeffDiagramEditorPlugin.getInstance().setLinkConstraints(
-                    cached = new LinkConstraints());
+            PalladioComponentModelSeffDiagramEditorPlugin.getInstance()
+                    .setLinkConstraints(cached = new LinkConstraints());
         }
         return cached;
     }
@@ -305,7 +309,8 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
         /**
          * @generated
          */
-        public boolean canCreateAbstractActionSuccessor_AbstractAction_4001(AbstractAction source, AbstractAction target) {
+        public boolean canCreateAbstractActionSuccessor_AbstractAction_4001(final AbstractAction source,
+                final AbstractAction target) {
             if (source != null) {
                 if (source.getSuccessor_AbstractAction() != null) {
                     return false;
@@ -322,8 +327,8 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
          * @generated
          */
         public boolean canCreateRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004(
-                de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour source,
-                de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour target) {
+                final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour source,
+                final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour target) {
             if (source != null) {
                 if (source.getFailureHandlingAlternatives__RecoveryActionBehaviour().contains(target)) {
                     return false;
@@ -337,16 +342,17 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
         /**
          * @generated
          */
-        public boolean canExistAbstractActionSuccessor_AbstractAction_4001(AbstractAction source, AbstractAction target) {
+        public boolean canExistAbstractActionSuccessor_AbstractAction_4001(final AbstractAction source,
+                final AbstractAction target) {
             try {
                 if (source == null) {
                     return true;
                 } else {
-                    Map<String, EClassifier> env = Collections.<String, EClassifier> singletonMap(
-                            "oppositeEnd", SeffPackage.eINSTANCE.getAbstractAction()); //$NON-NLS-1$
-                    Object sourceVal = PalladioComponentModelOCLFactory.getExpression(0,
-                            SeffPackage.eINSTANCE.getAbstractAction(), env).evaluate(source,
-                            Collections.singletonMap("oppositeEnd", target)); //$NON-NLS-1$
+                    final Map<String, EClassifier> env = Collections.<String, EClassifier> singletonMap("oppositeEnd", //$NON-NLS-1$
+                            SeffPackage.eINSTANCE.getAbstractAction());
+                    final Object sourceVal = PalladioComponentModelOCLFactory
+                            .getExpression(0, SeffPackage.eINSTANCE.getAbstractAction(), env)
+                            .evaluate(source, Collections.singletonMap("oppositeEnd", target)); //$NON-NLS-1$
                     if (false == sourceVal instanceof Boolean || !((Boolean) sourceVal).booleanValue()) {
                         return false;
                     } // else fall-through
@@ -354,19 +360,19 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
                 if (target == null) {
                     return true;
                 } else {
-                    Map<String, EClassifier> env = Collections.<String, EClassifier> singletonMap(
-                            "oppositeEnd", SeffPackage.eINSTANCE.getAbstractAction()); //$NON-NLS-1$
-                    Object targetVal = PalladioComponentModelOCLFactory.getExpression(1,
-                            SeffPackage.eINSTANCE.getAbstractAction(), env).evaluate(target,
-                            Collections.singletonMap("oppositeEnd", source)); //$NON-NLS-1$
+                    final Map<String, EClassifier> env = Collections.<String, EClassifier> singletonMap("oppositeEnd", //$NON-NLS-1$
+                            SeffPackage.eINSTANCE.getAbstractAction());
+                    final Object targetVal = PalladioComponentModelOCLFactory
+                            .getExpression(1, SeffPackage.eINSTANCE.getAbstractAction(), env)
+                            .evaluate(target, Collections.singletonMap("oppositeEnd", source)); //$NON-NLS-1$
                     if (false == targetVal instanceof Boolean || !((Boolean) targetVal).booleanValue()) {
                         return false;
                     } // else fall-through
                 }
                 return true;
-            } catch (Exception e) {
-                PalladioComponentModelSeffDiagramEditorPlugin.getInstance().logError(
-                        "Link constraint evaluation error", e); //$NON-NLS-1$
+            } catch (final Exception e) {
+                PalladioComponentModelSeffDiagramEditorPlugin.getInstance().logError("Link constraint evaluation error", //$NON-NLS-1$
+                        e);
                 return false;
             }
         }
@@ -375,20 +381,21 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
          * @generated
          */
         public boolean canExistRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004(
-                de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour source,
-                de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour target) {
+                final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour source,
+                final org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour target) {
             try {
                 if (source == null) {
                     return true;
                 } else {
-                    Map<String, EClassifier> env = Collections
-                            .<String, EClassifier> singletonMap(
-                                    "oppositeEnd", de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE.getRecoveryActionBehaviour()); //$NON-NLS-1$
-                    Object sourceVal = PalladioComponentModelOCLFactory.getExpression(
-                            2,
-                            de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
-                                    .getRecoveryActionBehaviour(), env).evaluate(source,
-                            Collections.singletonMap("oppositeEnd", target)); //$NON-NLS-1$
+                    final Map<String, EClassifier> env = Collections.<String, EClassifier> singletonMap("oppositeEnd", //$NON-NLS-1$
+                            org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
+                                    .getRecoveryActionBehaviour());
+                    final Object sourceVal = PalladioComponentModelOCLFactory
+                            .getExpression(2,
+                                    org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
+                                            .getRecoveryActionBehaviour(),
+                                    env)
+                            .evaluate(source, Collections.singletonMap("oppositeEnd", target)); //$NON-NLS-1$
                     if (false == sourceVal instanceof Boolean || !((Boolean) sourceVal).booleanValue()) {
                         return false;
                     } // else fall-through
@@ -396,22 +403,23 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
                 if (target == null) {
                     return true;
                 } else {
-                    Map<String, EClassifier> env = Collections
-                            .<String, EClassifier> singletonMap(
-                                    "oppositeEnd", de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE.getRecoveryActionBehaviour()); //$NON-NLS-1$
-                    Object targetVal = PalladioComponentModelOCLFactory.getExpression(
-                            3,
-                            de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
-                                    .getRecoveryActionBehaviour(), env).evaluate(target,
-                            Collections.singletonMap("oppositeEnd", source)); //$NON-NLS-1$
+                    final Map<String, EClassifier> env = Collections.<String, EClassifier> singletonMap("oppositeEnd", //$NON-NLS-1$
+                            org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
+                                    .getRecoveryActionBehaviour());
+                    final Object targetVal = PalladioComponentModelOCLFactory
+                            .getExpression(3,
+                                    org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
+                                            .getRecoveryActionBehaviour(),
+                                    env)
+                            .evaluate(target, Collections.singletonMap("oppositeEnd", source)); //$NON-NLS-1$
                     if (false == targetVal instanceof Boolean || !((Boolean) targetVal).booleanValue()) {
                         return false;
                     } // else fall-through
                 }
                 return true;
-            } catch (Exception e) {
-                PalladioComponentModelSeffDiagramEditorPlugin.getInstance().logError(
-                        "Link constraint evaluation error", e); //$NON-NLS-1$
+            } catch (final Exception e) {
+                PalladioComponentModelSeffDiagramEditorPlugin.getInstance().logError("Link constraint evaluation error", //$NON-NLS-1$
+                        e);
                 return false;
             }
         }

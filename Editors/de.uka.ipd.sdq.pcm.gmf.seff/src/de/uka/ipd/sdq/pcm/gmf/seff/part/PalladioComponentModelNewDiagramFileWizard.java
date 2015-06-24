@@ -42,10 +42,10 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
+import org.palladiosimulator.pcm.repository.BasicComponent;
+import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
-import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 
 /**
  * @generated

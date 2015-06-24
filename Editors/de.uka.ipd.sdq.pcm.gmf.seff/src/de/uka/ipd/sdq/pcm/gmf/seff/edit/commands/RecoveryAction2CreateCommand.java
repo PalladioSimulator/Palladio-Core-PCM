@@ -14,8 +14,7 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
-
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
+import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour;
 
 /**
  * @generated
@@ -52,7 +51,7 @@ public class RecoveryAction2CreateCommand extends EditElementCommand {
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-        de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction newElement = de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityFactory.eINSTANCE
+        org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction newElement = org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityFactory.eINSTANCE
                 .createRecoveryAction();
 
         ResourceDemandingBehaviour owner = (ResourceDemandingBehaviour) getElementToEdit();
@@ -67,7 +66,7 @@ public class RecoveryAction2CreateCommand extends EditElementCommand {
     /**
      * @generated
      */
-    protected void doConfigure(de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction newElement,
+    protected void doConfigure(org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction newElement,
             IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
         IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
         ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);

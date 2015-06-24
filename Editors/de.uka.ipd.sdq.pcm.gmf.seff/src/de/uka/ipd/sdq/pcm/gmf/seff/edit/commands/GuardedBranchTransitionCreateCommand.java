@@ -14,10 +14,9 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
-
-import de.uka.ipd.sdq.pcm.seff.BranchAction;
-import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
-import de.uka.ipd.sdq.pcm.seff.SeffFactory;
+import org.palladiosimulator.pcm.seff.BranchAction;
+import org.palladiosimulator.pcm.seff.GuardedBranchTransition;
+import org.palladiosimulator.pcm.seff.SeffFactory;
 
 /**
  * @generated

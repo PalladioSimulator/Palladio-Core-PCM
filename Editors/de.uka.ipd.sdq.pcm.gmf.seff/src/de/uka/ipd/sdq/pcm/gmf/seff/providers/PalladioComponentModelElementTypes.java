@@ -18,6 +18,9 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
+import org.palladiosimulator.pcm.parameter.ParameterPackage;
+import org.palladiosimulator.pcm.reliability.ReliabilityPackage;
+import org.palladiosimulator.pcm.seff.SeffPackage;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireAction2EditPart;
@@ -72,9 +75,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage4EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage5EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorPlugin;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * @generated
@@ -494,7 +494,7 @@ public class PalladioComponentModelElementTypes {
             elements.put(ForkAction_2011, SeffPackage.eINSTANCE.getForkAction());
 
             elements.put(RecoveryAction_2017,
-                    de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE.getRecoveryAction());
+                    org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE.getRecoveryAction());
 
             elements.put(VariableUsage_3042, ParameterPackage.eINSTANCE.getVariableUsage());
 
@@ -519,14 +519,14 @@ public class PalladioComponentModelElementTypes {
             elements.put(InternalAction_3007, SeffPackage.eINSTANCE.getInternalAction());
 
             elements.put(ParametricResourceDemand_3051,
-                    de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage.eINSTANCE
+                    org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage.eINSTANCE
                             .getParametricResourceDemand());
 
             elements.put(InternalFailureOccurrenceDescription_3050,
                     ReliabilityPackage.eINSTANCE.getInternalFailureOccurrenceDescription());
 
             elements.put(InfrastructureCall_3053,
-                    de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage.eINSTANCE.getInfrastructureCall());
+                    org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage.eINSTANCE.getInfrastructureCall());
 
             elements.put(VariableUsage_3054, ParameterPackage.eINSTANCE.getVariableUsage());
 
@@ -555,10 +555,10 @@ public class PalladioComponentModelElementTypes {
             elements.put(ResourceDemandingBehaviour_3014, SeffPackage.eINSTANCE.getResourceDemandingBehaviour());
 
             elements.put(RecoveryAction_3061,
-                    de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE.getRecoveryAction());
+                    org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE.getRecoveryAction());
 
             elements.put(RecoveryActionBehaviour_3062,
-                    de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
+                    org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
                             .getRecoveryActionBehaviour());
 
             elements.put(SetVariableAction_3024, SeffPackage.eINSTANCE.getSetVariableAction());
@@ -579,7 +579,7 @@ public class PalladioComponentModelElementTypes {
                     SeffPackage.eINSTANCE.getAbstractAction_Successor_AbstractAction());
 
             elements.put(RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004,
-                    de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
+                    org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
                             .getRecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour());
         }
         return (ENamedElement) elements.get(type);

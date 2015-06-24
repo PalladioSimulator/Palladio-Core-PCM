@@ -14,10 +14,9 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
-
-import de.uka.ipd.sdq.pcm.seff.InternalAction;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
-import de.uka.ipd.sdq.pcm.seff.SeffFactory;
+import org.palladiosimulator.pcm.seff.InternalAction;
+import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour;
+import org.palladiosimulator.pcm.seff.SeffFactory;
 
 /**
  * @generated

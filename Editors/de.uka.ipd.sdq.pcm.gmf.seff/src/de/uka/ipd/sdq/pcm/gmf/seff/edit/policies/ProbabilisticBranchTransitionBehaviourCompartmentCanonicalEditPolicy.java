@@ -9,10 +9,10 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
+import org.palladiosimulator.pcm.seff.AbstractBranchTransition;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 
 /**
  * @generated

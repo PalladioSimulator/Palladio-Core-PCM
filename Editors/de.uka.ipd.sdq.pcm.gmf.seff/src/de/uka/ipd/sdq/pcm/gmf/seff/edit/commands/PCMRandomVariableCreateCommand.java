@@ -14,9 +14,8 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
-
-import de.uka.ipd.sdq.pcm.core.CoreFactory;
-import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
+import org.palladiosimulator.pcm.core.CoreFactory;
+import org.palladiosimulator.pcm.core.PCMRandomVariable;
 
 /**
  * @generated
@@ -45,7 +44,7 @@ public class PCMRandomVariableCreateCommand extends EditElementCommand {
      * @generated
      */
     public boolean canExecute() {
-        de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall container = (de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall) getElementToEdit();
+        org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall container = (org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall) getElementToEdit();
         if (container.getNumberOfCalls__InfrastructureCall() != null) {
             return false;
         }
@@ -59,7 +58,7 @@ public class PCMRandomVariableCreateCommand extends EditElementCommand {
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
         PCMRandomVariable newElement = CoreFactory.eINSTANCE.createPCMRandomVariable();
 
-        de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall owner = (de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall) getElementToEdit();
+        org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall owner = (org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall) getElementToEdit();
         owner.setNumberOfCalls__InfrastructureCall(newElement);
 
         doConfigure(newElement, monitor, info);

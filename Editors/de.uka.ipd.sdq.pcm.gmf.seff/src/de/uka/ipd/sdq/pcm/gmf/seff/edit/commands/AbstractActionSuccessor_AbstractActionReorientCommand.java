@@ -11,9 +11,9 @@ import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
+import org.palladiosimulator.pcm.seff.AbstractAction;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 
 /**
  * @generated
@@ -43,25 +43,26 @@ public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditE
     /**
      * @generated
      */
-    public AbstractActionSuccessor_AbstractActionReorientCommand(ReorientReferenceRelationshipRequest request) {
+    public AbstractActionSuccessor_AbstractActionReorientCommand(final ReorientReferenceRelationshipRequest request) {
         super(request.getLabel(), null, request);
-        reorientDirection = request.getDirection();
-        referenceOwner = request.getReferenceOwner();
-        oldEnd = request.getOldRelationshipEnd();
-        newEnd = request.getNewRelationshipEnd();
+        this.reorientDirection = request.getDirection();
+        this.referenceOwner = request.getReferenceOwner();
+        this.oldEnd = request.getOldRelationshipEnd();
+        this.newEnd = request.getNewRelationshipEnd();
     }
 
     /**
      * @generated
      */
+    @Override
     public boolean canExecute() {
-        if (false == referenceOwner instanceof AbstractAction) {
+        if (false == this.referenceOwner instanceof AbstractAction) {
             return false;
         }
-        if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
+        if (this.reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
             return canReorientSource();
         }
-        if (reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
+        if (this.reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
             return canReorientTarget();
         }
         return false;
@@ -71,7 +72,7 @@ public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditE
      * @generated
      */
     protected boolean canReorientSource() {
-        if (!(oldEnd instanceof AbstractAction && newEnd instanceof AbstractAction)) {
+        if (!(this.oldEnd instanceof AbstractAction && this.newEnd instanceof AbstractAction)) {
             return false;
         }
         return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
@@ -82,7 +83,7 @@ public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditE
      * @generated
      */
     protected boolean canReorientTarget() {
-        if (!(oldEnd instanceof AbstractAction && newEnd instanceof AbstractAction)) {
+        if (!(this.oldEnd instanceof AbstractAction && this.newEnd instanceof AbstractAction)) {
             return false;
         }
         return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
@@ -92,14 +93,16 @@ public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditE
     /**
      * @generated
      */
-    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+    @Override
+    protected CommandResult doExecuteWithResult(final IProgressMonitor monitor, final IAdaptable info)
+            throws ExecutionException {
         if (!canExecute()) {
             throw new ExecutionException("Invalid arguments in reorient link command"); //$NON-NLS-1$
         }
-        if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
+        if (this.reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
             return reorientSource();
         }
-        if (reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
+        if (this.reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
             return reorientTarget();
         }
         throw new IllegalStateException();
@@ -111,7 +114,7 @@ public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditE
     protected CommandResult reorientSource() throws ExecutionException {
         getOldSource().setSuccessor_AbstractAction(null);
         getNewSource().setSuccessor_AbstractAction(getOldTarget());
-        return CommandResult.newOKCommandResult(referenceOwner);
+        return CommandResult.newOKCommandResult(this.referenceOwner);
     }
 
     /**
@@ -119,34 +122,34 @@ public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditE
      */
     protected CommandResult reorientTarget() throws ExecutionException {
         getOldSource().setSuccessor_AbstractAction(getNewTarget());
-        return CommandResult.newOKCommandResult(referenceOwner);
+        return CommandResult.newOKCommandResult(this.referenceOwner);
     }
 
     /**
      * @generated
      */
     protected AbstractAction getOldSource() {
-        return (AbstractAction) referenceOwner;
+        return (AbstractAction) this.referenceOwner;
     }
 
     /**
      * @generated
      */
     protected AbstractAction getNewSource() {
-        return (AbstractAction) newEnd;
+        return (AbstractAction) this.newEnd;
     }
 
     /**
      * @generated
      */
     protected AbstractAction getOldTarget() {
-        return (AbstractAction) oldEnd;
+        return (AbstractAction) this.oldEnd;
     }
 
     /**
      * @generated
      */
     protected AbstractAction getNewTarget() {
-        return (AbstractAction) newEnd;
+        return (AbstractAction) this.newEnd;
     }
 }

@@ -14,10 +14,9 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
-
-import de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription;
-import de.uka.ipd.sdq.pcm.reliability.ReliabilityFactory;
-import de.uka.ipd.sdq.pcm.seff.InternalAction;
+import org.palladiosimulator.pcm.reliability.InternalFailureOccurrenceDescription;
+import org.palladiosimulator.pcm.reliability.ReliabilityFactory;
+import org.palladiosimulator.pcm.seff.InternalAction;
 
 /**
  * @generated

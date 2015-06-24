@@ -10,9 +10,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
+import org.palladiosimulator.pcm.seff.AbstractAction;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 
 /**
  * @generated
@@ -32,8 +32,8 @@ public class AbstractActionSuccessor_AbstractActionCreateCommand extends EditEle
     /**
      * @generated
      */
-    public AbstractActionSuccessor_AbstractActionCreateCommand(CreateRelationshipRequest request, EObject source,
-            EObject target) {
+    public AbstractActionSuccessor_AbstractActionCreateCommand(final CreateRelationshipRequest request,
+            final EObject source, final EObject target) {
         super(request.getLabel(), null, request);
         this.source = source;
         this.target = target;
@@ -42,14 +42,15 @@ public class AbstractActionSuccessor_AbstractActionCreateCommand extends EditEle
     /**
      * @generated
      */
+    @Override
     public boolean canExecute() {
-        if (source == null && target == null) {
+        if (this.source == null && this.target == null) {
             return false;
         }
-        if (source != null && false == source instanceof AbstractAction) {
+        if (this.source != null && false == this.source instanceof AbstractAction) {
             return false;
         }
-        if (target != null && false == target instanceof AbstractAction) {
+        if (this.target != null && false == this.target instanceof AbstractAction) {
             return false;
         }
         if (getSource() == null) {
@@ -63,7 +64,9 @@ public class AbstractActionSuccessor_AbstractActionCreateCommand extends EditEle
     /**
      * @generated
      */
-    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+    @Override
+    protected CommandResult doExecuteWithResult(final IProgressMonitor monitor, final IAdaptable info)
+            throws ExecutionException {
         if (!canExecute()) {
             throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
         }
@@ -78,7 +81,8 @@ public class AbstractActionSuccessor_AbstractActionCreateCommand extends EditEle
     /**
      * @generated
      */
-    protected void setElementToEdit(EObject element) {
+    @Override
+    protected void setElementToEdit(final EObject element) {
         throw new UnsupportedOperationException();
     }
 
@@ -86,13 +90,13 @@ public class AbstractActionSuccessor_AbstractActionCreateCommand extends EditEle
      * @generated
      */
     protected AbstractAction getSource() {
-        return (AbstractAction) source;
+        return (AbstractAction) this.source;
     }
 
     /**
      * @generated
      */
     protected AbstractAction getTarget() {
-        return (AbstractAction) target;
+        return (AbstractAction) this.target;
     }
 }
