@@ -30,8 +30,9 @@ import org.palladiosimulator.pcm.repository.Parameter;
 import org.palladiosimulator.pcm.repository.Repository;
 import org.palladiosimulator.pcm.repository.Signature;
 import org.palladiosimulator.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
+import org.palladiosimulator.pcm.ui.provider.PalladioItemProviderAdapterFactory;
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
-import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
 import de.uka.ipd.sdq.stoex.StoexFactory;
