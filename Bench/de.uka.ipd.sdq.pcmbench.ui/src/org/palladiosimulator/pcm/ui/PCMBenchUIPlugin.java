@@ -9,7 +9,7 @@ import org.eclipse.emf.common.util.ResourceLocator;
 public class PCMBenchUIPlugin extends EMFPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "de.uka.ipd.sdq.pcmbench.ui";
+	public static final String PLUGIN_ID = "org.palladiosimulator.pcm.ui";
 
 	// The shared instance
 	private static Implementation plugin;

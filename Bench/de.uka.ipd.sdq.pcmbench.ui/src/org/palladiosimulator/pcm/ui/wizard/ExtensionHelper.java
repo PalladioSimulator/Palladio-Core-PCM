@@ -18,7 +18,7 @@ import org.eclipse.core.runtime.Platform;
 public class ExtensionHelper {
 
     /** The Constant for the palladio model extension point id. */
-    private static final String TemplateExtensionPointId = "de.uka.ipd.sdq.pcmbench.ui.wizard.template";
+    private static final String TemplateExtensionPointId = "org.palladiosimulator.pcm.ui.wizard.template";
 
     /** The name attribute of the template extension point. */
     private static final String TemplateExtensionPointAttribute_Name = "name";

@@ -60,7 +60,7 @@
       <import plugin="org.palladiosimulator.pcm.dialogs" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.transaction" version="1.8.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.jface.text" version="3.9.2" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.pcmbench.ui" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.pcm.ui" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.osgi.util" version="3.3.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.gmf.runtime.diagram.ui" version="1.2.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.editors" version="3.7.0" match="greaterOrEqual"/>
@@ -73,7 +73,7 @@
    </requires>
 
    <plugin
-         id="de.uka.ipd.sdq.pcmbench.ui"
+         id="org.palladiosimulator.pcm.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"

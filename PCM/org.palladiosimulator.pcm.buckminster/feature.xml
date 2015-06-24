@@ -21,6 +21,13 @@ PCM Metamodel build.
       <import plugin="org.palladiosimulator.pcm" version="4.0.0" match="greaterOrEqual"/>
       <import plugin="org.modelversioning.emfprofile.registry" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.mdsdprofiles.api" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="de.uka.ipd.sdq.pcm.stochasticexpressions"/>
+      <import plugin="de.uka.ipd.sdq.stoex"/>
+      <import plugin="de.uka.ipd.sdq.stoex.analyser"/>
+      <import plugin="de.uka.ipd.sdq.pcm"/>
+      <import plugin="de.uka.ipd.sdq.probfunction.math"/>
+      <import plugin="org.apache.commons.math"/>
    </requires>
 
    <plugin

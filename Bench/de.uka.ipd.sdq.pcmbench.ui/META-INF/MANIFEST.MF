@@ -4,7 +4,7 @@ Bundle-Name: Palladio UI
 Bundle-SymbolicName: org.palladiosimulator.pcm.ui;singleton:=true
 Bundle-Version: 2.0.0.qualifier
 Bundle-Activator: org.palladiosimulator.pcm.ui.PCMBenchUIPlugin
-Bundle-Vendor: sdq.ipd.uka.de
+Bundle-Vendor: palladiosimulator.org
 Require-Bundle: org.eclipse.ui;bundle-version="3.106.1",
  org.eclipse.ui.console;bundle-version="3.5.300",
  org.eclipse.debug.ui;bundle-version="3.10.2",

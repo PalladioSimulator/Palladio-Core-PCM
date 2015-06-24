@@ -52,7 +52,7 @@ This feature brings GMF-based editors to Palladio.
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.gmf.runtime.common.core"/>
       <import plugin="org.eclipse.gmf.runtime.common.ui"/>
-      <import plugin="de.uka.ipd.sdq.pcmbench.ui"/>
+      <import plugin="org.palladiosimulator.pcm.ui"/>
       <import plugin="de.uka.ipd.sdq.dialogs"/>
       <import plugin="org.eclipse.core.expressions"/>
       <import plugin="org.eclipse.ui.navigator"/>
@@ -60,7 +60,7 @@ This feature brings GMF-based editors to Palladio.
       <import plugin="org.eclipse.emf.validation"/>
       <import plugin="org.eclipse.gmf.runtime.draw2d.ui"/>
       <import plugin="org.palladiosimulator.editors.tabs" version="2.0.1" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.pcmbench.ui" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.pcm.ui" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.editors.dialogs" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.gmf.runtime.notation.providers"/>
       <import plugin="de.uka.ipd.sdq.stoex.analyser" version="2.0.0" match="greaterOrEqual"/>
