@@ -71,7 +71,7 @@ public interface AbstractAction extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -86,12 +86,12 @@ public interface AbstractAction extends Entity {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Predecessor Abstract Action</em>' reference.
      * @see #setPredecessor_AbstractAction(AbstractAction)
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getAbstractAction_Predecessor_AbstractAction()
      * @see org.palladiosimulator.pcm.seff.AbstractAction#getSuccessor_AbstractAction
-     * @model opposite="successor_AbstractAction"
+     * @model opposite="successor_AbstractAction" ordered="false"
      * @generated
      */
     AbstractAction getPredecessor_AbstractAction();
@@ -119,12 +119,12 @@ public interface AbstractAction extends Entity {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Successor Abstract Action</em>' reference.
      * @see #setSuccessor_AbstractAction(AbstractAction)
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getAbstractAction_Successor_AbstractAction()
      * @see org.palladiosimulator.pcm.seff.AbstractAction#getPredecessor_AbstractAction
-     * @model opposite="predecessor_AbstractAction"
+     * @model opposite="predecessor_AbstractAction" ordered="false"
      * @generated
      */
     AbstractAction getSuccessor_AbstractAction();
@@ -133,7 +133,7 @@ public interface AbstractAction extends Entity {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcm.seff.AbstractAction#getSuccessor_AbstractAction
      * <em>Successor Abstract Action</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Successor Abstract Action</em>' reference.
      * @see #getSuccessor_AbstractAction()
@@ -151,13 +151,13 @@ public interface AbstractAction extends Entity {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Resource Demanding Behaviour Abstract Action</em>' container
      *         reference.
      * @see #setResourceDemandingBehaviour_AbstractAction(ResourceDemandingBehaviour)
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getAbstractAction_ResourceDemandingBehaviour_AbstractAction()
      * @see org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getSteps_Behaviour
-     * @model opposite="steps_Behaviour" transient="false"
+     * @model opposite="steps_Behaviour" transient="false" ordered="false"
      * @generated
      */
     ResourceDemandingBehaviour getResourceDemandingBehaviour_AbstractAction();

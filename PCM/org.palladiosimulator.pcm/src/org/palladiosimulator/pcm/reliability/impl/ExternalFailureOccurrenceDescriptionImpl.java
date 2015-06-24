@@ -13,6 +13,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.qosannotations.qos_reliability.QosReliabilityPackage;
 import org.palladiosimulator.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation;
 import org.palladiosimulator.pcm.reliability.ExternalFailureOccurrenceDescription;
@@ -42,14 +45,14 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ExternalFailureOccurrenceDescriptionImpl() {
@@ -58,7 +61,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -68,7 +71,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -81,7 +84,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription(
@@ -96,7 +99,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -110,7 +113,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -123,7 +126,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public FailureType basicGetFailureType__ExternalFailureOccurrenceDescription() {
@@ -135,7 +138,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -148,18 +151,53 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>No Resource Timeout Failure Allowed For External Failure Occurrence Description</em>}'
+     * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "not self.failureType__ExternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>No Resource Timeout Failure Allowed For External Failure Occurrence Description</em>}'
+     * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription(
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(ReliabilityPackage.Literals.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION);
+            try {
+                NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(
+                        NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, ReliabilityValidator.DIAGNOSTIC_SOURCE,
@@ -177,7 +215,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -195,7 +233,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -210,7 +248,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -226,7 +264,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -245,7 +283,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -264,7 +302,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -283,7 +321,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

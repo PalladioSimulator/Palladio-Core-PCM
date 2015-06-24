@@ -34,7 +34,7 @@ public interface UsageScenario extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -49,12 +49,12 @@ public interface UsageScenario extends Entity {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Usage Model Usage Scenario</em>' container reference.
      * @see #setUsageModel_UsageScenario(UsageModel)
      * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getUsageScenario_UsageModel_UsageScenario()
      * @see org.palladiosimulator.pcm.usagemodel.UsageModel#getUsageScenario_UsageModel
-     * @model opposite="usageScenario_UsageModel" required="true" transient="false"
+     * @model opposite="usageScenario_UsageModel" required="true" transient="false" ordered="false"
      * @generated
      */
     UsageModel getUsageModel_UsageScenario();
@@ -64,7 +64,7 @@ public interface UsageScenario extends Entity {
      * {@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getUsageModel_UsageScenario
      * <em>Usage Model Usage Scenario</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Usage Model Usage Scenario</em>' container reference.
      * @see #getUsageModel_UsageScenario()
@@ -82,12 +82,13 @@ public interface UsageScenario extends Entity {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Scenario Behaviour Usage Scenario</em>' containment reference.
      * @see #setScenarioBehaviour_UsageScenario(ScenarioBehaviour)
      * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getUsageScenario_ScenarioBehaviour_UsageScenario()
      * @see org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getUsageScenario_SenarioBehaviour
      * @model opposite="usageScenario_SenarioBehaviour" containment="true" required="true"
+     *        ordered="false"
      * @generated
      */
     ScenarioBehaviour getScenarioBehaviour_UsageScenario();
@@ -97,7 +98,7 @@ public interface UsageScenario extends Entity {
      * {@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getScenarioBehaviour_UsageScenario
      * <em>Scenario Behaviour Usage Scenario</em>}' containment reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Scenario Behaviour Usage Scenario</em>' containment
      *            reference.
@@ -116,12 +117,12 @@ public interface UsageScenario extends Entity {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Workload Usage Scenario</em>' containment reference.
      * @see #setWorkload_UsageScenario(Workload)
      * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getUsageScenario_Workload_UsageScenario()
      * @see org.palladiosimulator.pcm.usagemodel.Workload#getUsageScenario_Workload
-     * @model opposite="usageScenario_Workload" containment="true" required="true"
+     * @model opposite="usageScenario_Workload" containment="true" required="true" ordered="false"
      * @generated
      */
     Workload getWorkload_UsageScenario();
@@ -131,7 +132,7 @@ public interface UsageScenario extends Entity {
      * {@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario
      * <em>Workload Usage Scenario</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Workload Usage Scenario</em>' containment reference.
      * @see #getWorkload_UsageScenario()

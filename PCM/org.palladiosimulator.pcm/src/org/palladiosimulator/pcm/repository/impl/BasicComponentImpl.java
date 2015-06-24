@@ -16,6 +16,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.repository.BasicComponent;
 import org.palladiosimulator.pcm.repository.PassiveResource;
 import org.palladiosimulator.pcm.repository.RepositoryPackage;
@@ -43,14 +46,14 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected BasicComponentImpl() {
@@ -59,7 +62,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -69,7 +72,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -82,7 +85,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -94,17 +97,46 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>No Seff Type Used Twice</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String NO_SEFF_TYPE_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |\n"
+            + "  p1 <> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID <> p2.seffTypeID))";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>No Seff Type Used Twice</em>}' invariant operation. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @see #NoSeffTypeUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint NO_SEFF_TYPE_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean NoSeffTypeUsedTwice(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (NO_SEFF_TYPE_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(RepositoryPackage.Literals.BASIC_COMPONENT);
+            try {
+                NO_SEFF_TYPE_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(NO_SEFF_TYPE_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV.createQuery(NO_SEFF_TYPE_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, RepositoryValidator.DIAGNOSTIC_SOURCE,
@@ -121,7 +153,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -141,7 +173,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -159,7 +191,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -175,7 +207,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -197,7 +229,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -215,7 +247,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

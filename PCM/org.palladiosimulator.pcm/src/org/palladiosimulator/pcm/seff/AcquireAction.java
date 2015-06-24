@@ -60,7 +60,7 @@ public interface AcquireAction extends AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -87,7 +87,7 @@ public interface AcquireAction extends AbstractInternalControlFlowAction {
      * {@link org.palladiosimulator.pcm.seff.AcquireAction#getPassiveresource_AcquireAction
      * <em>Passiveresource Acquire Action</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Passiveresource Acquire Action</em>' reference.
      * @see #getPassiveresource_AcquireAction()
@@ -139,7 +139,7 @@ public interface AcquireAction extends AbstractInternalControlFlowAction {
     /**
      * Sets the value of the '{@link org.palladiosimulator.pcm.seff.AcquireAction#isTimeout
      * <em>Timeout</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Timeout</em>' attribute.
      * @see #isTimeout()
@@ -167,7 +167,7 @@ public interface AcquireAction extends AbstractInternalControlFlowAction {
     /**
      * Sets the value of the '{@link org.palladiosimulator.pcm.seff.AcquireAction#getTimeoutValue
      * <em>Timeout Value</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Timeout Value</em>' attribute.
      * @see #getTimeoutValue()
@@ -176,10 +176,14 @@ public interface AcquireAction extends AbstractInternalControlFlowAction {
     void setTimeoutValue(double value);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.timeoutValue.oclAsType(Real) >= 0.0'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.timeoutValue.oclAsType(Real) >= 0.0'"
      * @generated
      */
     boolean TimeoutValueOfAcquireActionMustNotBeNegative(DiagnosticChain diagnostics, Map<Object, Object> context);

@@ -24,7 +24,7 @@ public interface InfrastructureRequiredRole extends RequiredRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -37,12 +37,12 @@ public interface InfrastructureRequiredRole extends RequiredRole {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Required Interface Infrastructure Required Role</em>'
      *         reference.
      * @see #setRequiredInterface__InfrastructureRequiredRole(InfrastructureInterface)
      * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getInfrastructureRequiredRole_RequiredInterface__InfrastructureRequiredRole()
-     * @model required="true"
+     * @model required="true" ordered="false"
      * @generated
      */
     InfrastructureInterface getRequiredInterface__InfrastructureRequiredRole();
@@ -52,7 +52,7 @@ public interface InfrastructureRequiredRole extends RequiredRole {
      * {@link org.palladiosimulator.pcm.repository.InfrastructureRequiredRole#getRequiredInterface__InfrastructureRequiredRole
      * <em>Required Interface Infrastructure Required Role</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Required Interface Infrastructure Required Role</em>'
      *            reference.

@@ -66,70 +66,70 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass failureOccurrenceDescriptionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass hardwareInducedFailureTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass softwareInducedFailureTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass internalFailureOccurrenceDescriptionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass networkInducedFailureTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass externalFailureOccurrenceDescriptionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceTimeoutFailureTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass failureTypeEClass = null;
@@ -142,7 +142,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.palladiosimulator.pcm.reliability.ReliabilityPackage#eNS_URI
      * @see #init()
@@ -154,7 +154,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -167,7 +167,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
      * This method is used to initialize {@link ReliabilityPackage#eINSTANCE} when that field is
      * accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -324,7 +324,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -334,7 +334,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -344,7 +344,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -354,7 +354,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -364,7 +364,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -374,7 +374,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -384,7 +384,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -394,7 +394,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -404,7 +404,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -414,7 +414,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -424,7 +424,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -434,7 +434,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -444,7 +444,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -454,7 +454,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -464,7 +464,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -474,7 +474,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -484,7 +484,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -494,7 +494,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -504,7 +504,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -514,7 +514,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isCreated = false;
@@ -522,7 +522,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void createPackageContents() {
@@ -570,7 +570,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isInitialized = false;
@@ -578,7 +578,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void initializePackageContents() {
@@ -621,7 +621,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
                 "FailureOccurrenceDescription", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getFailureOccurrenceDescription_FailureProbability(), this.ecorePackage.getEDouble(),
                 "failureProbability", null, 1, 1, FailureOccurrenceDescription.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         EOperation op = this.addEOperation(this.failureOccurrenceDescriptionEClass, this.ecorePackage.getEBoolean(),
                 "EnsureValidFailureProbabilityRange", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -640,7 +640,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
                 theResourcetypePackage.getProcessingResourceType_HardwareInducedFailureType__ProcessingResourceType(),
                 "processingResourceType__HardwareInducedFailureType", null, 1, 1, HardwareInducedFailureType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.hardwareInducedFailureTypeEClass, this.ecorePackage.getEBoolean(),
                 "HardwareInducedFailureTypeHasProcessingResourceType", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -670,14 +670,14 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
                 theSeffPackage.getInternalAction_InternalFailureOccurrenceDescriptions__InternalAction(),
                 "internalAction__InternalFailureOccurrenceDescription", null, 1, 1,
                 InternalFailureOccurrenceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getInternalFailureOccurrenceDescription_SoftwareInducedFailureType__InternalFailureOccurrenceDescription(),
                 this.getSoftwareInducedFailureType(),
                 this.getSoftwareInducedFailureType_InternalFailureOccurrenceDescriptions__SoftwareInducedFailureType(),
                 "softwareInducedFailureType__InternalFailureOccurrenceDescription", null, 1, 1,
                 InternalFailureOccurrenceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.internalFailureOccurrenceDescriptionEClass, this.ecorePackage.getEBoolean(),
                 "NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -698,7 +698,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
                         .getCommunicationLinkResourceType_NetworkInducedFailureType__CommunicationLinkResourceType(),
                 "communicationLinkResourceType__NetworkInducedFailureType", null, 1, 1, NetworkInducedFailureType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.networkInducedFailureTypeEClass, this.ecorePackage.getEBoolean(),
                 "NetworkInducedFailureTypeHasCommunicationLinkResourceType", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -719,12 +719,12 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
                         .getSpecifiedReliabilityAnnotation_ExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation(),
                 "specifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription", null, 1, 1,
                 ExternalFailureOccurrenceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getExternalFailureOccurrenceDescription_FailureType__ExternalFailureOccurrenceDescription(),
                 this.getFailureType(), null, "failureType__ExternalFailureOccurrenceDescription", null, 1, 1,
                 ExternalFailureOccurrenceDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.externalFailureOccurrenceDescriptionEClass, this.ecorePackage.getEBoolean(),
                 "NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -743,57 +743,14 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
                 theRepositoryPackage.getPassiveResource_ResourceTimeoutFailureType__PassiveResource(),
                 "passiveResource__ResourceTimeoutFailureType", null, 1, 1, ResourceTimeoutFailureType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.failureTypeEClass, FailureType.class, "FailureType", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getFailureType_Repository__FailureType(), theRepositoryPackage.getRepository(),
                 theRepositoryPackage.getRepository_FailureTypes__Repository(), "repository__FailureType", null, 1, 1,
                 FailureType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-        // Create annotations
-        // http://www.eclipse.org/emf/2002/Ecore
-        this.createEcoreAnnotations();
-        // http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
-        this.createPivotAnnotations();
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createEcoreAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore";
-        this.addAnnotation(this, source,
-                new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                        "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "validationDelegates",
-                        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" });
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createPivotAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
-        this.addAnnotation(this.failureOccurrenceDescriptionEClass.getEOperations().get(0), source, new String[] {
-                "body",
-                "(self.failureProbability.oclAsType(Real) <= 1.0) and (self.failureProbability.oclAsType(Real) >= 0.0)" });
-        this.addAnnotation(this.hardwareInducedFailureTypeEClass.getEOperations().get(0), source, new String[] { "body",
-                "( self.processingResourceType__HardwareInducedFailureType <> null ) and ( not ( self.processingResourceType__HardwareInducedFailureType.oclIsTypeOf( pcm::resourcetype::CommunicationLinkResourceType ) ) )" });
-        this.addAnnotation(this.internalFailureOccurrenceDescriptionEClass.getEOperations().get(0), source,
-                new String[] { "body",
-                        "not self.softwareInducedFailureType__InternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)" });
-        this.addAnnotation(this.networkInducedFailureTypeEClass.getEOperations().get(0), source,
-                new String[] { "body", "self.communicationLinkResourceType__NetworkInducedFailureType <> null" });
-        this.addAnnotation(this.externalFailureOccurrenceDescriptionEClass.getEOperations().get(0), source,
-                new String[] { "body",
-                        "not self.failureType__ExternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)" });
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
     }
 
 } // ReliabilityPackageImpl

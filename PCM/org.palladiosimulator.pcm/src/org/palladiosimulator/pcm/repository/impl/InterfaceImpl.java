@@ -16,6 +16,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
 import org.palladiosimulator.pcm.protocol.Protocol;
 import org.palladiosimulator.pcm.repository.Interface;
@@ -47,14 +50,14 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected InterfaceImpl() {
@@ -63,7 +66,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -73,7 +76,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -85,7 +88,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -97,7 +100,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -110,7 +113,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -121,7 +124,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetRepository__Interface(final Repository newRepository__Interface,
@@ -133,7 +136,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -143,17 +146,47 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #NoProtocolTypeIDUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>No Protocol Type ID Used Twice</em>}' operation. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @see #NoProtocolTypeIDUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String NO_PROTOCOL_TYPE_ID_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.protocols__Interface->forAll(p1, p2 |\n"
+            + "p1.protocolTypeID <> p2.protocolTypeID)\n" + "";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #NoProtocolTypeIDUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>No Protocol Type ID Used Twice</em>}' invariant operation. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @see #NoProtocolTypeIDUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint NO_PROTOCOL_TYPE_ID_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean NoProtocolTypeIDUsedTwice(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (NO_PROTOCOL_TYPE_ID_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(RepositoryPackage.Literals.INTERFACE);
+            try {
+                NO_PROTOCOL_TYPE_ID_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(NO_PROTOCOL_TYPE_ID_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV.createQuery(NO_PROTOCOL_TYPE_ID_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, RepositoryValidator.DIAGNOSTIC_SOURCE,
@@ -170,7 +203,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -191,7 +224,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -210,7 +243,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -225,7 +258,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -245,7 +278,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -273,7 +306,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -297,7 +330,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -314,5 +347,14 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
         }
         return super.eIsSet(featureID);
     }
+
+    /**
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } // InterfaceImpl

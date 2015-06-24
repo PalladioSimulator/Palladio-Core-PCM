@@ -13,6 +13,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.core.PCMRandomVariable;
 import org.palladiosimulator.pcm.usagemodel.ClosedWorkload;
 import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
@@ -38,7 +41,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -55,7 +58,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ClosedWorkloadImpl() {
@@ -64,7 +67,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -74,7 +77,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -85,7 +88,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -96,7 +99,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -107,7 +110,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetThinkTime_ClosedWorkload(final PCMRandomVariable newThinkTime_ClosedWorkload,
@@ -119,7 +122,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -129,18 +132,52 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the '
+     * {@link #PopulationInClosedWorkloadNeedsToBeSpecified(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Population In Closed Workload Needs To Be Specified</em>}' operation. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     * 
+     * @see #PopulationInClosedWorkloadNeedsToBeSpecified(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String POPULATION_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "not self.population.oclIsUndefined() and self.population <> ''";
+
+    /**
+     * The cached OCL invariant for the '
+     * {@link #PopulationInClosedWorkloadNeedsToBeSpecified(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Population In Closed Workload Needs To Be Specified</em>}' invariant operation. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
+     * @see #PopulationInClosedWorkloadNeedsToBeSpecified(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint POPULATION_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean PopulationInClosedWorkloadNeedsToBeSpecified(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (POPULATION_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(UsagemodelPackage.Literals.CLOSED_WORKLOAD);
+            try {
+                POPULATION_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                POPULATION_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV.createQuery(POPULATION_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
@@ -156,18 +193,52 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the '
+     * {@link #ThinkTimeInClosedWorkloadNeedsToBeSpecified(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Think Time In Closed Workload Needs To Be Specified</em>}' operation. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     * 
+     * @see #ThinkTimeInClosedWorkloadNeedsToBeSpecified(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String THINK_TIME_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "not self.thinkTime_ClosedWorkload.oclIsUndefined() and self.thinkTime_ClosedWorkload.specification <> ''";
+
+    /**
+     * The cached OCL invariant for the '
+     * {@link #ThinkTimeInClosedWorkloadNeedsToBeSpecified(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Think Time In Closed Workload Needs To Be Specified</em>}' invariant operation. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
+     * @see #ThinkTimeInClosedWorkloadNeedsToBeSpecified(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint THINK_TIME_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean ThinkTimeInClosedWorkloadNeedsToBeSpecified(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (THINK_TIME_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(UsagemodelPackage.Literals.CLOSED_WORKLOAD);
+            try {
+                THINK_TIME_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                THINK_TIME_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV.createQuery(THINK_TIME_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
@@ -184,7 +255,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -204,7 +275,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -219,7 +290,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -235,7 +306,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -253,7 +324,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -271,7 +342,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -284,5 +355,14 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
         }
         return super.eIsSet(featureID);
     }
+
+    /**
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } // ClosedWorkloadImpl

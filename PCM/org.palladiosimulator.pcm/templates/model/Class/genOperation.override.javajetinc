@@ -7,7 +7,7 @@
 	 * @generated
 	 * @ordered
 	 */
-	protected static final <%=genModel.getImportedName("java.lang.String")%> <%=UML2GenModelUtil.getUpperName(genOperation.getName())%><%=genOperation.getGenParameters().size() == 0 ? "" : "__" + UML2GenModelUtil.getUpperName(genOperation.getParameterTypes("_", false))%>__EOCL_EXP = "<%=genOperation.getEcoreOperation().getEAnnotation("http://www.eclipse.org/uml2/1.1.0/GenModel").getDetails().get("body").replace("\"","'").replace(genOperation.getGenModel().getLineDelimiter(),"\\n\"+\"")%>";<%=genModel.getNonNLS()%>
+	protected static final <%=genModel.getImportedName("java.lang.String")%> <%=UML2GenModelUtil.getUpperName(genOperation.getName())%><%=genOperation.getGenParameters().size() == 0 ? "" : "__" + UML2GenModelUtil.getUpperName(genOperation.getParameterTypes("_", false))%>__EOCL_EXP = "<%=genOperation.getEcoreOperation().getEAnnotation("http://www.eclipse.org/uml2/1.1.0/GenModel").getDetails().get("body").replace("\"","'").replace("\r","").replace(genOperation.getGenModel().getLineDelimiter(),"\\n\"+\"")%>";<%=genModel.getNonNLS()%>
 
   <%if (genOperation.isInvariant()) {%>
 	/**

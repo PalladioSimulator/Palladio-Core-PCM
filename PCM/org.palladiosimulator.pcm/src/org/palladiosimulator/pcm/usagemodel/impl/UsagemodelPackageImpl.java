@@ -73,119 +73,119 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass workloadEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass usageScenarioEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass userDataEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass usageModelEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass entryLevelSystemCallEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass abstractUserActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass scenarioBehaviourEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass branchTransitionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass branchEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass loopEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass stopEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass startEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass openWorkloadEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass delayEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass closedWorkloadEClass = null;
@@ -198,7 +198,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#eNS_URI
      * @see #init()
@@ -210,7 +210,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -223,7 +223,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
      * This method is used to initialize {@link UsagemodelPackage#eINSTANCE} when that field is
      * accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -380,7 +380,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -390,7 +390,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -400,7 +400,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -410,7 +410,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -420,7 +420,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -430,7 +430,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -440,7 +440,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -450,7 +450,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -460,7 +460,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -470,7 +470,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -480,7 +480,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -490,7 +490,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -500,7 +500,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -510,7 +510,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -520,7 +520,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -530,7 +530,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -540,7 +540,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -550,7 +550,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -560,7 +560,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -570,7 +570,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -580,7 +580,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -590,7 +590,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -600,7 +600,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -610,7 +610,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -620,7 +620,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -630,7 +630,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -640,7 +640,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -650,7 +650,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -660,7 +660,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -670,7 +670,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -680,7 +680,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -690,7 +690,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -700,7 +700,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -710,7 +710,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -720,7 +720,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -730,7 +730,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -740,7 +740,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -750,7 +750,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -760,7 +760,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -770,7 +770,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -780,7 +780,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -790,7 +790,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -800,7 +800,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -810,7 +810,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -820,7 +820,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -830,7 +830,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -840,7 +840,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -850,7 +850,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isCreated = false;
@@ -858,7 +858,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void createPackageContents() {
@@ -937,7 +937,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isInitialized = false;
@@ -945,7 +945,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void initializePackageContents() {
@@ -993,32 +993,32 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
         this.initEReference(this.getWorkload_UsageScenario_Workload(), this.getUsageScenario(),
                 this.getUsageScenario_Workload_UsageScenario(), "usageScenario_Workload", null, 1, 1, Workload.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.usageScenarioEClass, UsageScenario.class, "UsageScenario", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getUsageScenario_UsageModel_UsageScenario(), this.getUsageModel(),
                 this.getUsageModel_UsageScenario_UsageModel(), "usageModel_UsageScenario", null, 1, 1,
                 UsageScenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getUsageScenario_ScenarioBehaviour_UsageScenario(), this.getScenarioBehaviour(),
                 this.getScenarioBehaviour_UsageScenario_SenarioBehaviour(), "scenarioBehaviour_UsageScenario", null, 1,
                 1, UsageScenario.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getUsageScenario_Workload_UsageScenario(), this.getWorkload(),
                 this.getWorkload_UsageScenario_Workload(), "workload_UsageScenario", null, 1, 1, UsageScenario.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.userDataEClass, UserData.class, "UserData", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getUserData_AssemblyContext_userData(), theCompositionPackage.getAssemblyContext(),
                 null, "assemblyContext_userData", null, 1, 1, UserData.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getUserData_UsageModel_UserData(), this.getUsageModel(),
                 this.getUsageModel_UserData_UsageModel(), "usageModel_UserData", null, 1, 1, UserData.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getUserData_UserDataParameterUsages_UserData(), theParameterPackage.getVariableUsage(),
                 theParameterPackage.getVariableUsage_UserData_VariableUsage(), "userDataParameterUsages_UserData", null,
                 0, -1, UserData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
@@ -1040,11 +1040,11 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
         this.initEReference(this.getEntryLevelSystemCall_ProvidedRole_EntryLevelSystemCall(),
                 theRepositoryPackage.getOperationProvidedRole(), null, "providedRole_EntryLevelSystemCall", null, 1, 1,
                 EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getEntryLevelSystemCall_OperationSignature__EntryLevelSystemCall(),
                 theRepositoryPackage.getOperationSignature(), null, "operationSignature__EntryLevelSystemCall", null, 1,
                 1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getEntryLevelSystemCall_OutputParameterUsages_EntryLevelSystemCall(),
                 theParameterPackage.getVariableUsage(),
                 theParameterPackage.getVariableUsage_EntryLevelSystemCall_OutputParameterUsage(),
@@ -1053,7 +1053,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
                 !IS_ORDERED);
         this.initEAttribute(this.getEntryLevelSystemCall_Priority(), this.ecorePackage.getEInt(), "priority", null, 1,
                 1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall(),
                 theParameterPackage.getVariableUsage(),
                 theParameterPackage.getVariableUsage_EntryLevelSystemCall_InputParameterUsage(),
@@ -1086,31 +1086,31 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
         this.initEReference(this.getAbstractUserAction_Successor(), this.getAbstractUserAction(),
                 this.getAbstractUserAction_Predecessor(), "successor", null, 0, 1, AbstractUserAction.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAbstractUserAction_Predecessor(), this.getAbstractUserAction(),
                 this.getAbstractUserAction_Successor(), "predecessor", null, 0, 1, AbstractUserAction.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAbstractUserAction_ScenarioBehaviour_AbstractUserAction(),
                 this.getScenarioBehaviour(), this.getScenarioBehaviour_Actions_ScenarioBehaviour(),
                 "scenarioBehaviour_AbstractUserAction", null, 1, 1, AbstractUserAction.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
 
         this.initEClass(this.scenarioBehaviourEClass, ScenarioBehaviour.class, "ScenarioBehaviour", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getScenarioBehaviour_UsageScenario_SenarioBehaviour(), this.getUsageScenario(),
                 this.getUsageScenario_ScenarioBehaviour_UsageScenario(), "usageScenario_SenarioBehaviour", null, 0, 1,
                 ScenarioBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getScenarioBehaviour_BranchTransition_ScenarioBehaviour(), this.getBranchTransition(),
                 this.getBranchTransition_BranchedBehaviour_BranchTransition(), "branchTransition_ScenarioBehaviour",
                 null, 0, 1, ScenarioBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getScenarioBehaviour_Loop_ScenarioBehaviour(), this.getLoop(),
                 this.getLoop_BodyBehaviour_Loop(), "loop_ScenarioBehaviour", null, 0, 1, ScenarioBehaviour.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getScenarioBehaviour_Actions_ScenarioBehaviour(), this.getAbstractUserAction(),
                 this.getAbstractUserAction_ScenarioBehaviour_AbstractUserAction(), "actions_ScenarioBehaviour", null, 0,
                 -1, ScenarioBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
@@ -1150,15 +1150,15 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getBranchTransition_BranchProbability(), this.ecorePackage.getEDouble(),
                 "branchProbability", null, 1, 1, BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getBranchTransition_Branch_BranchTransition(), this.getBranch(),
                 this.getBranch_BranchTransitions_Branch(), "branch_BranchTransition", null, 1, 1,
                 BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getBranchTransition_BranchedBehaviour_BranchTransition(), this.getScenarioBehaviour(),
                 this.getScenarioBehaviour_BranchTransition_ScenarioBehaviour(), "branchedBehaviour_BranchTransition",
                 null, 1, 1, BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.branchEClass, Branch.class, "Branch", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
@@ -1181,11 +1181,11 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
         this.initEReference(this.getLoop_LoopIteration_Loop(), theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_Loop_LoopIteration(), "loopIteration_Loop", null, 1, 1, Loop.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getLoop_BodyBehaviour_Loop(), this.getScenarioBehaviour(),
                 this.getScenarioBehaviour_Loop_ScenarioBehaviour(), "bodyBehaviour_Loop", null, 1, 1, Loop.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.stopEClass, Stop.class, "Stop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1217,7 +1217,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
         this.initEReference(this.getOpenWorkload_InterArrivalTime_OpenWorkload(), theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_OpenWorkload_PCMRandomVariable(), "interArrivalTime_OpenWorkload",
                 null, 1, 1, OpenWorkload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.openWorkloadEClass, this.ecorePackage.getEBoolean(),
                 "InterArrivalTimeInOpenWorkloadNeedsToBeSpecified", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1234,17 +1234,17 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
         this.initEReference(this.getDelay_TimeSpecification_Delay(), theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_Delay_TimeSpecification(), "timeSpecification_Delay", null, 1, 1,
                 Delay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.closedWorkloadEClass, ClosedWorkload.class, "ClosedWorkload", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getClosedWorkload_Population(), this.ecorePackage.getEInt(), "population", null, 1, 1,
                 ClosedWorkload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED);
+                !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getClosedWorkload_ThinkTime_ClosedWorkload(), theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_ClosedWorkload_PCMRandomVariable(), "thinkTime_ClosedWorkload",
                 null, 1, 1, ClosedWorkload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.closedWorkloadEClass, this.ecorePackage.getEBoolean(),
                 "PopulationInClosedWorkloadNeedsToBeSpecified", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1265,58 +1265,6 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
         g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-        // Create annotations
-        // http://www.eclipse.org/emf/2002/Ecore
-        this.createEcoreAnnotations();
-        // http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
-        this.createPivotAnnotations();
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createEcoreAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore";
-        this.addAnnotation(this, source,
-                new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                        "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "validationDelegates",
-                        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" });
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createPivotAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
-        this.addAnnotation(this.entryLevelSystemCallEClass.getEOperations().get(0), source, new String[] { "body",
-                "self.providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.oclIsTypeOf(pcm::system::System)" });
-        this.addAnnotation(this.entryLevelSystemCallEClass.getEOperations().get(1), source, new String[] { "body",
-                "self.providedRole_EntryLevelSystemCall.providedInterface__OperationProvidedRole.signatures__OperationInterface->includes(self.operationSignature__EntryLevelSystemCall)" });
-        this.addAnnotation(this.scenarioBehaviourEClass.getEOperations().get(0), source,
-                new String[] { "body", "self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Start))->size() = 1" });
-        this.addAnnotation(this.scenarioBehaviourEClass.getEOperations().get(1), source,
-                new String[] { "body", "self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Stop))->size() = 1" });
-        this.addAnnotation(this.scenarioBehaviourEClass.getEOperations().get(2), source, new String[] { "body",
-                "not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).predecessor.oclIsUndefined()) and not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).successor.oclIsUndefined())" });
-        this.addAnnotation(this.branchEClass.getEOperations().get(0), source, new String[] { "body",
-                "self->collect(branchTransitions_Branch.branchProbability)->sum() > 0.999 and self->collect(branchTransitions_Branch.branchProbability)->sum() <1.001" });
-        this.addAnnotation(this.stopEClass.getEOperations().get(0), source,
-                new String[] { "body", "self.successor.oclIsUndefined()" });
-        this.addAnnotation(this.startEClass.getEOperations().get(0), source,
-                new String[] { "body", "self.predecessor.oclIsUndefined()" });
-        this.addAnnotation(this.openWorkloadEClass.getEOperations().get(0), source, new String[] { "body",
-                "not self.interArrivalTime_OpenWorkload.oclIsUndefined() and self.interArrivalTime_OpenWorkload.specification <> \'\'" });
-        this.addAnnotation(this.closedWorkloadEClass.getEOperations().get(0), source,
-                new String[] { "body", "not self.population.oclIsUndefined() and self.population <> \'\'" });
-        this.addAnnotation(this.closedWorkloadEClass.getEOperations().get(1), source, new String[] { "body",
-                "not self.thinkTime_ClosedWorkload.oclIsUndefined() and self.thinkTime_ClosedWorkload.specification <> \'\'" });
     }
 
 } // UsagemodelPackageImpl

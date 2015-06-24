@@ -14,6 +14,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.core.PCMRandomVariable;
 import org.palladiosimulator.pcm.resourcetype.ProcessingResourceType;
 import org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction;
@@ -46,14 +49,14 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ParametricResourceDemandImpl() {
@@ -62,7 +65,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -72,7 +75,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -82,7 +85,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -95,7 +98,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSpecification_ParametericResourceDemand(
@@ -107,7 +110,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -120,7 +123,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -133,7 +136,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ProcessingResourceType basicGetRequiredResource_ParametricResourceDemand() {
@@ -145,7 +148,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -159,7 +162,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -172,7 +175,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAction_ParametricResourceDemand(
@@ -184,7 +187,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -196,18 +199,53 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Demanded Processing Resource Must Be Unique Within Abstract Internal Control Flow Action</em>
+     * }' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.action_ParametricResourceDemand.resourceDemand_Action->select(prd | prd.requiredResource_ParametricResourceDemand=self.requiredResource_ParametricResourceDemand)->size() = 1";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Demanded Processing Resource Must Be Unique Within Abstract Internal Control Flow Action</em>
+     * }' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(SeffPerformancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND);
+            try {
+                DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(
+                        DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
                         SeffPerformanceValidator.PARAMETRIC_RESOURCE_DEMAND__DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION,
@@ -224,7 +262,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -251,7 +289,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -268,7 +306,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -284,7 +322,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -305,7 +343,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -326,7 +364,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -347,7 +385,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -362,5 +400,14 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
         }
         return super.eIsSet(featureID);
     }
+
+    /**
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } // ParametricResourceDemandImpl

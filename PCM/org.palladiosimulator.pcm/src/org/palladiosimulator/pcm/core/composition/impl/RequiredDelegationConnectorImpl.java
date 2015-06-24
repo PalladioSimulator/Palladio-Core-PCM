@@ -11,6 +11,9 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.core.composition.AssemblyContext;
 import org.palladiosimulator.pcm.core.composition.CompositionPackage;
 import org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector;
@@ -41,14 +44,14 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected RequiredDelegationConnectorImpl() {
@@ -57,7 +60,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -67,7 +70,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -80,7 +83,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationRequiredRole basicGetInnerRequiredRole_RequiredDelegationConnector() {
@@ -92,7 +95,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -106,7 +109,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -119,7 +122,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationRequiredRole basicGetOuterRequiredRole_RequiredDelegationConnector() {
@@ -131,7 +134,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -145,7 +148,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -158,7 +161,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext_RequiredDelegationConnector() {
@@ -170,7 +173,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -183,18 +186,53 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Required Delegation Connectorandtheconnected Componentmustbepartofthesamecompositestructure</em>
+     * }' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String REQUIRED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.parentStructure__Connector = self.assemblyContext_RequiredDelegationConnector.parentStructure__AssemblyContext";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Required Delegation Connectorandtheconnected Componentmustbepartofthesamecompositestructure</em>
+     * }' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint REQUIRED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (REQUIRED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(CompositionPackage.Literals.REQUIRED_DELEGATION_CONNECTOR);
+            try {
+                REQUIRED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                REQUIRED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(
+                        REQUIRED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, CompositionValidator.DIAGNOSTIC_SOURCE,
                         CompositionValidator.REQUIRED_DELEGATION_CONNECTOR__REQUIRED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE,
@@ -210,18 +248,53 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Component Of Assembly Context And Inner Role Requiring Component Need To Be The Same</em>
+     * }' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_REQUIRING_COMPONENT_NEED_TO_BE_THE_SAME__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.assemblyContext_RequiredDelegationConnector.encapsulatedComponent__AssemblyContext";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Component Of Assembly Context And Inner Role Requiring Component Need To Be The Same</em>
+     * }' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_REQUIRING_COMPONENT_NEED_TO_BE_THE_SAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_REQUIRING_COMPONENT_NEED_TO_BE_THE_SAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(CompositionPackage.Literals.REQUIRED_DELEGATION_CONNECTOR);
+            try {
+                COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_REQUIRING_COMPONENT_NEED_TO_BE_THE_SAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_REQUIRING_COMPONENT_NEED_TO_BE_THE_SAME__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(
+                        COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_REQUIRING_COMPONENT_NEED_TO_BE_THE_SAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, CompositionValidator.DIAGNOSTIC_SOURCE,
                         CompositionValidator.REQUIRED_DELEGATION_CONNECTOR__COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_REQUIRING_COMPONENT_NEED_TO_BE_THE_SAME,
@@ -237,18 +310,53 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Requiring Entity Of Outer Required Role Must Be The Same As The Parent Of The Required Delegation Connector</em>
+     * }' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String REQUIRING_ENTITY_OF_OUTER_REQUIRED_ROLE_MUST_BE_THE_SAME_AS_THE_PARENT_OF_THE_REQUIRED_DELEGATION_CONNECTOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.outerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole=self.parentStructure__Connector";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Requiring Entity Of Outer Required Role Must Be The Same As The Parent Of The Required Delegation Connector</em>
+     * }' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint REQUIRING_ENTITY_OF_OUTER_REQUIRED_ROLE_MUST_BE_THE_SAME_AS_THE_PARENT_OF_THE_REQUIRED_DELEGATION_CONNECTOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector(
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (REQUIRING_ENTITY_OF_OUTER_REQUIRED_ROLE_MUST_BE_THE_SAME_AS_THE_PARENT_OF_THE_REQUIRED_DELEGATION_CONNECTOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(CompositionPackage.Literals.REQUIRED_DELEGATION_CONNECTOR);
+            try {
+                REQUIRING_ENTITY_OF_OUTER_REQUIRED_ROLE_MUST_BE_THE_SAME_AS_THE_PARENT_OF_THE_REQUIRED_DELEGATION_CONNECTOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                REQUIRING_ENTITY_OF_OUTER_REQUIRED_ROLE_MUST_BE_THE_SAME_AS_THE_PARENT_OF_THE_REQUIRED_DELEGATION_CONNECTOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(
+                        REQUIRING_ENTITY_OF_OUTER_REQUIRED_ROLE_MUST_BE_THE_SAME_AS_THE_PARENT_OF_THE_REQUIRED_DELEGATION_CONNECTOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, CompositionValidator.DIAGNOSTIC_SOURCE,
                         CompositionValidator.REQUIRED_DELEGATION_CONNECTOR__REQUIRING_ENTITY_OF_OUTER_REQUIRED_ROLE_MUST_BE_THE_SAME_AS_THE_PARENT_OF_THE_REQUIRED_DELEGATION_CONNECTOR,
@@ -265,7 +373,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -292,7 +400,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -313,7 +421,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -334,7 +442,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -349,5 +457,14 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
         }
         return super.eIsSet(featureID);
     }
+
+    /**
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } // RequiredDelegationConnectorImpl

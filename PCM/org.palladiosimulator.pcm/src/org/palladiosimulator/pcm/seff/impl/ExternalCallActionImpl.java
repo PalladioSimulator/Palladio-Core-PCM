@@ -16,6 +16,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.parameter.VariableUsage;
 import org.palladiosimulator.pcm.reliability.FailureType;
 import org.palladiosimulator.pcm.repository.OperationRequiredRole;
@@ -59,7 +62,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -76,7 +79,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ExternalCallActionImpl() {
@@ -85,7 +88,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -95,7 +98,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -108,7 +111,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -121,7 +124,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -135,7 +138,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -146,7 +149,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationSignature basicGetCalledService_ExternalService() {
@@ -156,7 +159,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -168,7 +171,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -179,7 +182,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationRequiredRole basicGetRole_ExternalService() {
@@ -189,7 +192,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -200,7 +203,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -211,7 +214,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -221,17 +224,46 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #SignatureBelongsToRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Signature Belongs To Role</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #SignatureBelongsToRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String SIGNATURE_BELONGS_TO_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.role_ExternalService.requiredInterface__OperationRequiredRole.signatures__OperationInterface->includes(self.calledService_ExternalService)";
+
+    /**
+     * The cached OCL invariant for the '
+     * {@link #SignatureBelongsToRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Signature Belongs To Role</em>}' invariant operation. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @see #SignatureBelongsToRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint SIGNATURE_BELONGS_TO_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean SignatureBelongsToRole(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (SIGNATURE_BELONGS_TO_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(SeffPackage.Literals.EXTERNAL_CALL_ACTION);
+            try {
+                SIGNATURE_BELONGS_TO_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(SIGNATURE_BELONGS_TO_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV.createQuery(SIGNATURE_BELONGS_TO_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
@@ -247,18 +279,53 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the '
+     * {@link #OperationRequiredRoleMustBeReferencedByContainer(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Operation Required Role Must Be Referenced By Container</em>}' operation. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
+     * @see #OperationRequiredRoleMustBeReferencedByContainer(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).oclAsType(pcm::core::entity::InterfaceRequiringEntity).requiredRoles_InterfaceRequiringEntity->includes(self.role_ExternalService)";
+
+    /**
+     * The cached OCL invariant for the '
+     * {@link #OperationRequiredRoleMustBeReferencedByContainer(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Operation Required Role Must Be Referenced By Container</em>}' invariant operation. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #OperationRequiredRoleMustBeReferencedByContainer(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean OperationRequiredRoleMustBeReferencedByContainer(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(SeffPackage.Literals.EXTERNAL_CALL_ACTION);
+            try {
+                OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
@@ -275,7 +342,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -295,7 +362,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -312,7 +379,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -342,7 +409,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -376,7 +443,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -406,7 +473,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -430,7 +497,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -464,7 +531,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -495,5 +562,14 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
         }
         return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
     }
+
+    /**
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } // ExternalCallActionImpl

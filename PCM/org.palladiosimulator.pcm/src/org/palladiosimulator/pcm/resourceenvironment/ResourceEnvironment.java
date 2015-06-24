@@ -36,7 +36,7 @@ public interface ResourceEnvironment extends NamedElement {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -53,7 +53,7 @@ public interface ResourceEnvironment extends NamedElement {
      * list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Linking Resources Resource Environment</em>' containment
      *         reference list.
      * @see org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage#getResourceEnvironment_LinkingResources__ResourceEnvironment()
@@ -75,7 +75,7 @@ public interface ResourceEnvironment extends NamedElement {
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Resource Container Resource Environment</em>' containment
      *         reference list.
      * @see org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage#getResourceEnvironment_ResourceContainer_ResourceEnvironment()

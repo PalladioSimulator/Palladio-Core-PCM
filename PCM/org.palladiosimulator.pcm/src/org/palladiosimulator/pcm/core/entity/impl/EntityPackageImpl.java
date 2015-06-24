@@ -69,91 +69,91 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceProvidedRoleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass interfaceProvidingRequiringEntityEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass interfaceProvidingEntityEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass interfaceRequiringEntityEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceInterfaceRequiringEntityEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceRequiredRoleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceInterfaceProvidingEntityEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass composedProvidingRequiringEntityEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass namedElementEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceInterfaceProvidingRequiringEntityEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass entityEClass = null;
@@ -166,7 +166,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.palladiosimulator.pcm.core.entity.EntityPackage#eNS_URI
      * @see #init()
@@ -178,7 +178,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -191,7 +191,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
      * This method is used to initialize {@link EntityPackage#eINSTANCE} when that field is
      * accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -349,7 +349,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -359,7 +359,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -369,7 +369,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -379,7 +379,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -389,7 +389,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -399,7 +399,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -409,7 +409,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -419,7 +419,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -429,7 +429,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -439,7 +439,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -449,7 +449,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -459,7 +459,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -469,7 +469,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -479,7 +479,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -489,7 +489,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -499,7 +499,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -509,7 +509,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -519,7 +519,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -529,7 +529,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -539,7 +539,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -549,7 +549,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -559,7 +559,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isCreated = false;
@@ -567,7 +567,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void createPackageContents() {
@@ -620,7 +620,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isInitialized = false;
@@ -628,7 +628,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void initializePackageContents() {
@@ -683,11 +683,11 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
                 this.getResourceInterfaceProvidingEntity_ResourceProvidedRoles__ResourceInterfaceProvidingEntity(),
                 "resourceInterfaceProvidingEntity__ResourceProvidedRole", null, 1, 1, ResourceProvidedRole.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getResourceProvidedRole_ProvidedResourceInterface__ResourceProvidedRole(),
                 theResourcetypePackage.getResourceInterface(), null, "providedResourceInterface__ResourceProvidedRole",
                 null, 1, 1, ResourceProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.interfaceProvidingRequiringEntityEClass, InterfaceProvidingRequiringEntity.class,
                 "InterfaceProvidingRequiringEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -725,13 +725,13 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
         this.initEReference(this.getResourceRequiredRole_RequiredResourceInterface__ResourceRequiredRole(),
                 theResourcetypePackage.getResourceInterface(), null, "requiredResourceInterface__ResourceRequiredRole",
                 null, 1, 1, ResourceRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getResourceRequiredRole_ResourceInterfaceRequiringEntity__ResourceRequiredRole(),
                 this.getResourceInterfaceRequiringEntity(),
                 this.getResourceInterfaceRequiringEntity_ResourceRequiredRoles__ResourceInterfaceRequiringEntity(),
                 "resourceInterfaceRequiringEntity__ResourceRequiredRole", null, 1, 1, ResourceRequiredRole.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.resourceInterfaceProvidingEntityEClass, ResourceInterfaceProvidingEntity.class,
                 "ResourceInterfaceProvidingEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -760,7 +760,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getNamedElement_EntityName(), this.ecorePackage.getEString(), "entityName", "aName", 1,
                 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED);
+                !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.resourceInterfaceProvidingRequiringEntityEClass,
                 ResourceInterfaceProvidingRequiringEntity.class, "ResourceInterfaceProvidingRequiringEntity",
@@ -768,39 +768,6 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
         this.initEClass(this.entityEClass, Entity.class, "Entity", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-
-        // Create annotations
-        // http://www.eclipse.org/emf/2002/Ecore
-        this.createEcoreAnnotations();
-        // http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
-        this.createPivotAnnotations();
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createEcoreAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore";
-        this.addAnnotation(this, source,
-                new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                        "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "validationDelegates",
-                        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" });
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createPivotAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
-        this.addAnnotation(this.composedProvidingRequiringEntityEClass.getEOperations().get(0), source, new String[] {
-                "body",
-                "self.providedRoles_InterfaceProvidingEntity->forAll(role|self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector = role))\n\n" });
     }
 
 } // EntityPackageImpl

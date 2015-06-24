@@ -16,6 +16,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.seff.impl.AbstractInternalControlFlowActionImpl;
 import org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction;
 import org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour;
@@ -43,14 +46,14 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected RecoveryActionImpl() {
@@ -59,7 +62,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -69,7 +72,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -81,7 +84,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public RecoveryActionBehaviour basicGetPrimaryBehaviour__RecoveryAction() {
@@ -92,7 +95,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -104,7 +107,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -117,18 +120,51 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the '
+     * {@link #PrimaryBehaviourOfRecoveryActionMustBeSet(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Primary Behaviour Of Recovery Action Must Be Set</em>}' operation. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     * 
+     * @see #PrimaryBehaviourOfRecoveryActionMustBeSet(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String PRIMARY_BEHAVIOUR_OF_RECOVERY_ACTION_MUST_BE_SET__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.primaryBehaviour__RecoveryAction <> null";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #PrimaryBehaviourOfRecoveryActionMustBeSet(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Primary Behaviour Of Recovery Action Must Be Set</em>}' invariant operation. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
+     * @see #PrimaryBehaviourOfRecoveryActionMustBeSet(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint PRIMARY_BEHAVIOUR_OF_RECOVERY_ACTION_MUST_BE_SET__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean PrimaryBehaviourOfRecoveryActionMustBeSet(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (PRIMARY_BEHAVIOUR_OF_RECOVERY_ACTION_MUST_BE_SET__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(SeffReliabilityPackage.Literals.RECOVERY_ACTION);
+            try {
+                PRIMARY_BEHAVIOUR_OF_RECOVERY_ACTION_MUST_BE_SET__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                PRIMARY_BEHAVIOUR_OF_RECOVERY_ACTION_MUST_BE_SET__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV.createQuery(PRIMARY_BEHAVIOUR_OF_RECOVERY_ACTION_MUST_BE_SET__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, SeffReliabilityValidator.DIAGNOSTIC_SOURCE,
@@ -145,7 +181,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -162,7 +198,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -177,7 +213,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -196,7 +232,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -217,7 +253,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -235,7 +271,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -248,5 +284,14 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
         }
         return super.eIsSet(featureID);
     }
+
+    /**
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } // RecoveryActionImpl

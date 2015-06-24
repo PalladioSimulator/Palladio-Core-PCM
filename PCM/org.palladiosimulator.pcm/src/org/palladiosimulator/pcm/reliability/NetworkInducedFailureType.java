@@ -37,7 +37,7 @@ public interface NetworkInducedFailureType extends FailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -54,13 +54,14 @@ public interface NetworkInducedFailureType extends FailureType {
      * ' reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '
      *         <em>Communication Link Resource Type Network Induced Failure Type</em>' reference.
      * @see #setCommunicationLinkResourceType__NetworkInducedFailureType(CommunicationLinkResourceType)
      * @see org.palladiosimulator.pcm.reliability.ReliabilityPackage#getNetworkInducedFailureType_CommunicationLinkResourceType__NetworkInducedFailureType()
      * @see org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType#getNetworkInducedFailureType__CommunicationLinkResourceType
      * @model opposite="networkInducedFailureType__CommunicationLinkResourceType" required="true"
+     *        ordered="false"
      * @generated
      */
     CommunicationLinkResourceType getCommunicationLinkResourceType__NetworkInducedFailureType();
@@ -80,10 +81,14 @@ public interface NetworkInducedFailureType extends FailureType {
     void setCommunicationLinkResourceType__NetworkInducedFailureType(CommunicationLinkResourceType value);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.communicationLinkResourceType__NetworkInducedFailureType <> null'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.communicationLinkResourceType__NetworkInducedFailureType <> null'"
      * @generated
      */
     boolean NetworkInducedFailureTypeHasCommunicationLinkResourceType(DiagnosticChain diagnostics,

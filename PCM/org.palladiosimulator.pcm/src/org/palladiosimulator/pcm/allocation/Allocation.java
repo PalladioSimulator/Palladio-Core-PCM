@@ -38,7 +38,7 @@ public interface Allocation extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,11 +51,11 @@ public interface Allocation extends Entity {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Target Resource Environment Allocation</em>' reference.
      * @see #setTargetResourceEnvironment_Allocation(ResourceEnvironment)
      * @see org.palladiosimulator.pcm.allocation.AllocationPackage#getAllocation_TargetResourceEnvironment_Allocation()
-     * @model
+     * @model ordered="false"
      * @generated
      */
     ResourceEnvironment getTargetResourceEnvironment_Allocation();
@@ -65,7 +65,7 @@ public interface Allocation extends Entity {
      * {@link org.palladiosimulator.pcm.allocation.Allocation#getTargetResourceEnvironment_Allocation
      * <em>Target Resource Environment Allocation</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Target Resource Environment Allocation</em>' reference.
      * @see #getTargetResourceEnvironment_Allocation()
@@ -81,11 +81,11 @@ public interface Allocation extends Entity {
      * be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>System Allocation</em>' reference.
      * @see #setSystem_Allocation(org.palladiosimulator.pcm.system.System)
      * @see org.palladiosimulator.pcm.allocation.AllocationPackage#getAllocation_System_Allocation()
-     * @model required="true"
+     * @model required="true" ordered="false"
      * @generated
      */
     org.palladiosimulator.pcm.system.System getSystem_Allocation();
@@ -94,7 +94,7 @@ public interface Allocation extends Entity {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcm.allocation.Allocation#getSystem_Allocation
      * <em>System Allocation</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>System Allocation</em>' reference.
      * @see #getSystem_Allocation()
@@ -114,7 +114,7 @@ public interface Allocation extends Entity {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Allocation Contexts Allocation</em>' containment reference
      *         list.
      * @see org.palladiosimulator.pcm.allocation.AllocationPackage#getAllocation_AllocationContexts_Allocation()
@@ -148,10 +148,14 @@ public interface Allocation extends Entity {
             Map<Object, Object> context);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.allocationContexts_Allocation->forAll(a | self.allocationContexts_Allocation->forAll(b | \n    --- if a and b are not on the same server\n    (a.resourceContainer_AllocationContext <> b.resourceContainer_AllocationContext \n    and\n    --  and if the assembly contexts of a and b are connected\n      self.system_Allocation.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::AssemblyConnector)).oclAsType(pcm::core::composition::AssemblyConnector)->exists(conn | \n         (conn.providingAssemblyContext_AssemblyConnector = a.assemblyContext_AllocationContext  \n         and \n         conn.requiringAssemblyContext_AssemblyConnector = b.assemblyContext_AllocationContext )\n         or \n          (conn.providingAssemblyContext_AssemblyConnector = b.assemblyContext_AllocationContext  \n         and \n         conn.requiringAssemblyContext_AssemblyConnector = a.assemblyContext_AllocationContext )\n       )\n     )\n     -- then the servers have to be connected by a linking resource\n     implies \n     self.targetResourceEnvironment_Allocation.linkingResources__ResourceEnvironment->exists(l | \n        -- l connects the two\n        l.connectedResourceContainers_LinkingResource->includes(a.resourceContainer_AllocationContext)\n        and \n        l.connectedResourceContainers_LinkingResource->includes(b.resourceContainer_AllocationContext)\n     )\n  ))'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.allocationContexts_Allocation->forAll(a | self.allocationContexts_Allocation->forAll(b | \r\n    --- if a and b are not on the same server\r\n    (a.resourceContainer_AllocationContext <> b.resourceContainer_AllocationContext \r\n    and\r\n    --  and if the assembly contexts of a and b are connected\r\n      self.system_Allocation.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::AssemblyConnector)).oclAsType(pcm::core::composition::AssemblyConnector)->exists(conn | \r\n         (conn.providingAssemblyContext_AssemblyConnector = a.assemblyContext_AllocationContext  \r\n         and \r\n         conn.requiringAssemblyContext_AssemblyConnector = b.assemblyContext_AllocationContext )\r\n         or \r\n          (conn.providingAssemblyContext_AssemblyConnector = b.assemblyContext_AllocationContext  \r\n         and \r\n         conn.requiringAssemblyContext_AssemblyConnector = a.assemblyContext_AllocationContext )\r\n       )\r\n     )\r\n     -- then the servers have to be connected by a linking resource\r\n     implies \r\n     self.targetResourceEnvironment_Allocation.linkingResources__ResourceEnvironment->exists(l | \r\n        -- l connects the two\r\n        l.connectedResourceContainers_LinkingResource->includes(a.resourceContainer_AllocationContext)\r\n        and \r\n        l.connectedResourceContainers_LinkingResource->includes(b.resourceContainer_AllocationContext)\r\n     )\r\n  ))'"
      * @generated
      */
     boolean CommunicatingServersHaveToBeConnectedByLinkingResource(DiagnosticChain diagnostics,

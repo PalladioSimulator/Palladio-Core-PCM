@@ -16,6 +16,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.core.CorePackage;
 import org.palladiosimulator.pcm.core.PCMRandomVariable;
 import org.palladiosimulator.pcm.core.composition.AssemblyEventConnector;
@@ -113,14 +116,14 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMRandomVariableImpl() {
@@ -129,7 +132,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -139,7 +142,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -150,7 +153,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetClosedWorkload_PCMRandomVariable(
@@ -162,7 +165,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -174,7 +177,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -186,7 +189,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetPassiveResource_capacity_PCMRandomVariable(
@@ -198,7 +201,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -211,7 +214,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -223,7 +226,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetVariableCharacterisation_Specification(
@@ -235,7 +238,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -248,7 +251,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -260,7 +263,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetInfrastructureCall__PCMRandomVariable(
@@ -272,7 +275,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -285,7 +288,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -296,7 +299,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceCall__PCMRandomVariable(
@@ -308,7 +311,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -320,7 +323,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -332,7 +335,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetParametricResourceDemand_PCMRandomVariable(
@@ -344,7 +347,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -357,7 +360,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -368,7 +371,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetLoopAction_PCMRandomVariable(final LoopAction newLoopAction_PCMRandomVariable,
@@ -380,7 +383,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -392,7 +395,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -404,7 +407,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetGuardedBranchTransition_PCMRandomVariable(
@@ -416,7 +419,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -429,7 +432,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -441,7 +444,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSpecifiedExecutionTime_PCMRandomVariable(
@@ -453,7 +456,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -466,7 +469,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -478,7 +481,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetEventChannelSinkConnector__FilterCondition(
@@ -490,7 +493,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -503,7 +506,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -515,7 +518,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAssemblyEventConnector__FilterCondition(
@@ -527,7 +530,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -540,7 +543,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -551,7 +554,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetLoop_LoopIteration(final Loop newLoop_LoopIteration, NotificationChain msgs) {
@@ -562,7 +565,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -573,7 +576,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -584,7 +587,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetOpenWorkload_PCMRandomVariable(
@@ -596,7 +599,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -608,7 +611,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -619,7 +622,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetDelay_TimeSpecification(final Delay newDelay_TimeSpecification,
@@ -631,7 +634,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -642,7 +645,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -655,7 +658,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable(
@@ -670,7 +673,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -684,7 +687,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -697,7 +700,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetProcessingResourceSpecification_processingRate_PCMRandomVariable(
@@ -712,7 +715,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -726,7 +729,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -739,7 +742,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetCommunicationLinkResourceSpecification_latency_PCMRandomVariable(
@@ -754,7 +757,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -767,17 +770,46 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #SpecificationMustNotBeNULL(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Specification Must Not Be NULL</em>}' operation. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @see #SpecificationMustNotBeNULL(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String SPECIFICATION_MUST_NOT_BE_NULL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "not self.specification.oclIsUndefined() and self.specification <> ''";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #SpecificationMustNotBeNULL(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Specification Must Not Be NULL</em>}' invariant operation. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @see #SpecificationMustNotBeNULL(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint SPECIFICATION_MUST_NOT_BE_NULL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean SpecificationMustNotBeNULL(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (SPECIFICATION_MUST_NOT_BE_NULL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(CorePackage.Literals.PCM_RANDOM_VARIABLE);
+            try {
+                SPECIFICATION_MUST_NOT_BE_NULL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(SPECIFICATION_MUST_NOT_BE_NULL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV.createQuery(SPECIFICATION_MUST_NOT_BE_NULL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, CoreValidator.DIAGNOSTIC_SOURCE,
@@ -794,7 +826,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -894,7 +926,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -941,7 +973,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1014,7 +1046,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1060,7 +1092,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1126,7 +1158,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1192,7 +1224,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1236,6 +1268,14 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
         return super.eIsSet(featureID);
     }
 
+    /**
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    protected static final OCL EOCL_ENV = OCL.newInstance();
     /**
      * Cached version of specification to decide if re-parsing is required.
      *

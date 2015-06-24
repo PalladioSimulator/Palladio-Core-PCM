@@ -11,6 +11,9 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.qosannotations.qos_performance.QosPerformancePackage;
 import org.palladiosimulator.pcm.qosannotations.qos_performance.SystemSpecifiedExecutionTime;
 import org.palladiosimulator.pcm.qosannotations.qos_performance.util.QosPerformanceValidator;
@@ -26,14 +29,14 @@ public class SystemSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SystemSpecifiedExecutionTimeImpl() {
@@ -42,7 +45,7 @@ public class SystemSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -51,18 +54,54 @@ public class SystemSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeImpl
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>System Specified Execution Time Must Reference Required Role Of ASystem</em>}' operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @see #SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String SYSTEM_SPECIFIED_EXECUTION_TIME_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "(self.role_SpecifiedQoSAnnotation.oclIsTypeOf(pcm::repository::OperationRequiredRole)) and (self.role_SpecifiedQoSAnnotation.oclAsType(pcm::repository::OperationRequiredRole).requiringEntity_RequiredRole.oclIsTypeOf(pcm::system::System))\n"
+            + "";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>System Specified Execution Time Must Reference Required Role Of ASystem</em>}' invariant
+     * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint SYSTEM_SPECIFIED_EXECUTION_TIME_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (SYSTEM_SPECIFIED_EXECUTION_TIME_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(QosPerformancePackage.Literals.SYSTEM_SPECIFIED_EXECUTION_TIME);
+            try {
+                SYSTEM_SPECIFIED_EXECUTION_TIME_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                SYSTEM_SPECIFIED_EXECUTION_TIME_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(
+                        SYSTEM_SPECIFIED_EXECUTION_TIME_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, QosPerformanceValidator.DIAGNOSTIC_SOURCE,
@@ -76,5 +115,14 @@ public class SystemSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeImpl
         }
         return true;
     }
+
+    /**
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } // SystemSpecifiedExecutionTimeImpl

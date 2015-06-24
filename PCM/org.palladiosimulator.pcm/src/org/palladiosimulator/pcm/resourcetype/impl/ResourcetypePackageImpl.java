@@ -62,63 +62,63 @@ import de.uka.ipd.sdq.units.UnitsPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class ResourcetypePackageImpl extends EPackageImpl implements ResourcetypePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceSignatureEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass processingResourceTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceRepositoryEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass schedulingPolicyEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass communicationLinkResourceTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceInterfaceEClass = null;
@@ -131,7 +131,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#eNS_URI
      * @see #init()
@@ -143,7 +143,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -156,7 +156,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
      * This method is used to initialize {@link ResourcetypePackage#eINSTANCE} when that field is
      * accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -304,7 +304,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -314,7 +314,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -324,7 +324,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -334,7 +334,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -344,7 +344,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -354,7 +354,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -364,7 +364,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -374,7 +374,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -384,7 +384,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -394,7 +394,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -404,7 +404,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -414,7 +414,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -424,7 +424,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -434,7 +434,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -444,7 +444,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -454,7 +454,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -464,7 +464,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -474,7 +474,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -484,7 +484,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -494,7 +494,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -504,7 +504,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isCreated = false;
@@ -512,7 +512,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void createPackageContents() {
@@ -556,7 +556,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isInitialized = false;
@@ -564,7 +564,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void initializePackageContents() {
@@ -611,12 +611,12 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
                 IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEAttribute(this.getResourceSignature_ResourceServiceId(), this.ecorePackage.getEInt(),
                 "resourceServiceId", null, 1, 1, ResourceSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getResourceSignature_ResourceInterface__ResourceSignature(),
                 this.getResourceInterface(), this.getResourceInterface_ResourceSignatures__ResourceInterface(),
                 "resourceInterface__ResourceSignature", null, 1, 1, ResourceSignature.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
 
         this.initEClass(this.processingResourceTypeEClass, ProcessingResourceType.class, "ProcessingResourceType",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -626,14 +626,14 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
                         .getHardwareInducedFailureType_ProcessingResourceType__HardwareInducedFailureType(),
                 "hardwareInducedFailureType__ProcessingResourceType", null, 0, 1, ProcessingResourceType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.resourceTypeEClass, ResourceType.class, "ResourceType", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getResourceType_ResourceRepository_ResourceType(), this.getResourceRepository(),
                 this.getResourceRepository_AvailableResourceTypes_ResourceRepository(),
                 "resourceRepository_ResourceType", null, 1, 1, ResourceType.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.resourceRepositoryEClass, ResourceRepository.class, "ResourceRepository", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -658,7 +658,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
         this.initEReference(this.getSchedulingPolicy_ResourceRepository__SchedulingPolicy(),
                 this.getResourceRepository(), this.getResourceRepository_SchedulingPolicies__ResourceRepository(),
                 "resourceRepository__SchedulingPolicy", null, 1, 1, SchedulingPolicy.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.communicationLinkResourceTypeEClass, CommunicationLinkResourceType.class,
                 "CommunicationLinkResourceType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -669,7 +669,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
                         .getNetworkInducedFailureType_CommunicationLinkResourceType__NetworkInducedFailureType(),
                 "networkInducedFailureType__CommunicationLinkResourceType", null, 0, 1,
                 CommunicationLinkResourceType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.resourceInterfaceEClass, ResourceInterface.class, "ResourceInterface", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -677,7 +677,7 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
                 this.getResourceRepository(), this.getResourceRepository_ResourceInterfaces__ResourceRepository(),
                 "resourceRepository__ResourceInterface", null, 1, 1, ResourceInterface.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
         this.initEReference(this.getResourceInterface_ResourceSignatures__ResourceInterface(),
                 this.getResourceSignature(), this.getResourceSignature_ResourceInterface__ResourceSignature(),
                 "resourceSignatures__ResourceInterface", null, 0, -1, ResourceInterface.class, !IS_TRANSIENT,

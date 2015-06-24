@@ -125,7 +125,7 @@ public interface ParametricResourceDemand extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -140,14 +140,14 @@ public interface ParametricResourceDemand extends CDOObject {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Specification Parameteric Resource Demand</em>' containment
      *         reference.
      * @see #setSpecification_ParametericResourceDemand(PCMRandomVariable)
      * @see org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage#getParametricResourceDemand_Specification_ParametericResourceDemand()
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getParametricResourceDemand_PCMRandomVariable
      * @model opposite="parametricResourceDemand_PCMRandomVariable" containment="true"
-     *        required="true"
+     *        required="true" ordered="false"
      * @generated
      */
     PCMRandomVariable getSpecification_ParametericResourceDemand();
@@ -174,11 +174,11 @@ public interface ParametricResourceDemand extends CDOObject {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Required Resource Parametric Resource Demand</em>' reference.
      * @see #setRequiredResource_ParametricResourceDemand(ProcessingResourceType)
      * @see org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage#getParametricResourceDemand_RequiredResource_ParametricResourceDemand()
-     * @model required="true"
+     * @model required="true" ordered="false"
      * @generated
      */
     ProcessingResourceType getRequiredResource_ParametricResourceDemand();
@@ -188,7 +188,7 @@ public interface ParametricResourceDemand extends CDOObject {
      * {@link org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand#getRequiredResource_ParametricResourceDemand
      * <em>Required Resource Parametric Resource Demand</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Required Resource Parametric Resource Demand</em>'
      *            reference.
@@ -207,12 +207,12 @@ public interface ParametricResourceDemand extends CDOObject {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Action Parametric Resource Demand</em>' container reference.
      * @see #setAction_ParametricResourceDemand(AbstractInternalControlFlowAction)
      * @see org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage#getParametricResourceDemand_Action_ParametricResourceDemand()
      * @see org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction#getResourceDemand_Action
-     * @model opposite="resourceDemand_Action" required="true" transient="false"
+     * @model opposite="resourceDemand_Action" required="true" transient="false" ordered="false"
      * @generated
      */
     AbstractInternalControlFlowAction getAction_ParametricResourceDemand();
@@ -222,7 +222,7 @@ public interface ParametricResourceDemand extends CDOObject {
      * {@link org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand#getAction_ParametricResourceDemand
      * <em>Action Parametric Resource Demand</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Action Parametric Resource Demand</em>' container
      *            reference.
@@ -232,10 +232,14 @@ public interface ParametricResourceDemand extends CDOObject {
     void setAction_ParametricResourceDemand(AbstractInternalControlFlowAction value);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.action_ParametricResourceDemand.resourceDemand_Action->select(prd | prd.requiredResource_ParametricResourceDemand=self.requiredResource_ParametricResourceDemand)->size() = 1'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.action_ParametricResourceDemand.resourceDemand_Action->select(prd | prd.requiredResource_ParametricResourceDemand=self.requiredResource_ParametricResourceDemand)->size() = 1'"
      * @generated
      */
     boolean DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(DiagnosticChain diagnostics,

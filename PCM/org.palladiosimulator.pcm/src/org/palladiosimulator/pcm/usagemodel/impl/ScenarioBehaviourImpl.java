@@ -16,6 +16,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
 import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
 import org.palladiosimulator.pcm.usagemodel.BranchTransition;
@@ -52,14 +55,14 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ScenarioBehaviourImpl() {
@@ -68,7 +71,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -78,7 +81,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -89,7 +92,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetUsageScenario_SenarioBehaviour(
@@ -101,7 +104,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -113,7 +116,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -125,7 +128,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetBranchTransition_ScenarioBehaviour(
@@ -137,7 +140,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -149,7 +152,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -160,7 +163,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetLoop_ScenarioBehaviour(final Loop newLoop_ScenarioBehaviour,
@@ -172,7 +175,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -183,7 +186,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -195,17 +198,44 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #Exactlyonestart(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Exactlyonestart</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #Exactlyonestart(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String EXACTLYONESTART__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Start))->size() = 1";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #Exactlyonestart(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Exactlyonestart</em>}' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #Exactlyonestart(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint EXACTLYONESTART__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean Exactlyonestart(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (EXACTLYONESTART__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(UsagemodelPackage.Literals.SCENARIO_BEHAVIOUR);
+            try {
+                EXACTLYONESTART__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(EXACTLYONESTART__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV.createQuery(EXACTLYONESTART__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
@@ -221,17 +251,44 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #Exactlyonestop(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Exactlyonestop</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #Exactlyonestop(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String EXACTLYONESTOP__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Stop))->size() = 1";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #Exactlyonestop(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Exactlyonestop</em>}' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #Exactlyonestop(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint EXACTLYONESTOP__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean Exactlyonestop(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (EXACTLYONESTOP__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(UsagemodelPackage.Literals.SCENARIO_BEHAVIOUR);
+            try {
+                EXACTLYONESTOP__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(EXACTLYONESTOP__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV.createQuery(EXACTLYONESTOP__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
@@ -247,18 +304,53 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the '
+     * {@link #EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Eachuseractionexcept Startand Stopmusthaveapredecessorandsuccessor</em>}' operation. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
+     * @see #EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).predecessor.oclIsUndefined()) and not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).successor.oclIsUndefined())";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Eachuseractionexcept Startand Stopmusthaveapredecessorandsuccessor</em>}' invariant
+     * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(UsagemodelPackage.Literals.SCENARIO_BEHAVIOUR);
+            try {
+                EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(
+                        EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
@@ -276,7 +368,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -307,7 +399,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -328,7 +420,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -350,7 +442,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -370,7 +462,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -396,7 +488,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -420,7 +512,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -437,5 +529,14 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
         }
         return super.eIsSet(featureID);
     }
+
+    /**
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } // ScenarioBehaviourImpl

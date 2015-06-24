@@ -36,7 +36,7 @@ public interface EventChannelSinkConnector extends Connector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -49,11 +49,11 @@ public interface EventChannelSinkConnector extends Connector {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Sink Role Event Channel Sink Connector</em>' reference.
      * @see #setSinkRole__EventChannelSinkConnector(SinkRole)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getEventChannelSinkConnector_SinkRole__EventChannelSinkConnector()
-     * @model required="true"
+     * @model required="true" ordered="false"
      * @generated
      */
     SinkRole getSinkRole__EventChannelSinkConnector();
@@ -63,7 +63,7 @@ public interface EventChannelSinkConnector extends Connector {
      * {@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getSinkRole__EventChannelSinkConnector
      * <em>Sink Role Event Channel Sink Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Sink Role Event Channel Sink Connector</em>' reference.
      * @see #getSinkRole__EventChannelSinkConnector()
@@ -81,13 +81,14 @@ public interface EventChannelSinkConnector extends Connector {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Filter Condition Event Channel Sink Connector</em>' containment
      *         reference.
      * @see #setFilterCondition__EventChannelSinkConnector(PCMRandomVariable)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getEventChannelSinkConnector_FilterCondition__EventChannelSinkConnector()
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getEventChannelSinkConnector__FilterCondition
      * @model opposite="eventChannelSinkConnector__FilterCondition" containment="true"
+     *        ordered="false"
      * @generated
      */
     PCMRandomVariable getFilterCondition__EventChannelSinkConnector();
@@ -114,11 +115,11 @@ public interface EventChannelSinkConnector extends Connector {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Assembly Context Event Channel Sink Connector</em>' reference.
      * @see #setAssemblyContext__EventChannelSinkConnector(AssemblyContext)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getEventChannelSinkConnector_AssemblyContext__EventChannelSinkConnector()
-     * @model required="true"
+     * @model required="true" ordered="false"
      * @generated
      */
     AssemblyContext getAssemblyContext__EventChannelSinkConnector();
@@ -128,7 +129,7 @@ public interface EventChannelSinkConnector extends Connector {
      * {@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getAssemblyContext__EventChannelSinkConnector
      * <em>Assembly Context Event Channel Sink Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Assembly Context Event Channel Sink Connector</em>'
      *            reference.
@@ -147,12 +148,12 @@ public interface EventChannelSinkConnector extends Connector {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Event Channel Event Channel Sink Connector</em>' reference.
      * @see #setEventChannel__EventChannelSinkConnector(EventChannel)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getEventChannelSinkConnector_EventChannel__EventChannelSinkConnector()
      * @see org.palladiosimulator.pcm.core.composition.EventChannel#getEventChannelSinkConnector__EventChannel
-     * @model opposite="eventChannelSinkConnector__EventChannel" required="true"
+     * @model opposite="eventChannelSinkConnector__EventChannel" required="true" ordered="false"
      * @generated
      */
     EventChannel getEventChannel__EventChannelSinkConnector();
@@ -162,7 +163,7 @@ public interface EventChannelSinkConnector extends Connector {
      * {@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getEventChannel__EventChannelSinkConnector
      * <em>Event Channel Event Channel Sink Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Event Channel Event Channel Sink Connector</em>'
      *            reference.

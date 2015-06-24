@@ -85,203 +85,203 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass stopActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass abstractInternalControlFlowActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass abstractActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceDemandingBehaviourEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass abstractLoopActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass abstractBranchTransitionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass branchActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass callActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass startActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass serviceEffectSpecificationEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceDemandingSEFFEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceDemandingInternalBehaviourEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass releaseActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass loopActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass forkActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass forkedBehaviourEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass synchronisationPointEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass externalCallActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass callReturnActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass probabilisticBranchTransitionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass acquireActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass collectionIteratorActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass guardedBranchTransitionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass setVariableActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass internalCallActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass emitEventActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass internalActionEClass = null;
@@ -294,7 +294,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.palladiosimulator.pcm.seff.SeffPackage#eNS_URI
      * @see #init()
@@ -306,7 +306,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -319,7 +319,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
      * This method is used to initialize {@link SeffPackage#eINSTANCE} when that field is accessed.
      * Clients should not invoke it directly. Instead, they should simply access that field to
      * obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -477,7 +477,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -487,7 +487,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -497,7 +497,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -507,7 +507,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -517,7 +517,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -527,7 +527,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -537,7 +537,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -547,7 +547,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -557,7 +557,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -567,7 +567,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -577,7 +577,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -587,7 +587,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -597,7 +597,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -607,7 +607,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -617,7 +617,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -627,7 +627,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -637,7 +637,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -647,7 +647,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -657,7 +657,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -667,7 +667,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -677,7 +677,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -687,7 +687,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -697,7 +697,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -707,7 +707,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -717,7 +717,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -727,7 +727,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -737,7 +737,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -747,7 +747,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -757,7 +757,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -767,7 +767,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -777,7 +777,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -787,7 +787,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -797,7 +797,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -807,7 +807,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -817,7 +817,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -827,7 +827,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -837,7 +837,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -847,7 +847,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -857,7 +857,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -867,7 +867,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -877,7 +877,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -887,7 +887,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -897,7 +897,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -907,7 +907,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -917,7 +917,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -927,7 +927,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -937,7 +937,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -947,7 +947,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -957,7 +957,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -967,7 +967,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -977,7 +977,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -987,7 +987,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -997,7 +997,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1007,7 +1007,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1017,7 +1017,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1027,7 +1027,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1037,7 +1037,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1047,7 +1047,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1057,7 +1057,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1067,7 +1067,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1077,7 +1077,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1087,7 +1087,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1097,7 +1097,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1107,7 +1107,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1117,7 +1117,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1127,7 +1127,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1137,7 +1137,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1147,7 +1147,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1157,7 +1157,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1167,7 +1167,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1177,7 +1177,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1187,7 +1187,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isCreated = false;
@@ -1195,7 +1195,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void createPackageContents() {
@@ -1326,7 +1326,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isInitialized = false;
@@ -1334,7 +1334,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void initializePackageContents() {
@@ -1446,16 +1446,16 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.initEReference(this.getAbstractAction_Predecessor_AbstractAction(), this.getAbstractAction(),
                 this.getAbstractAction_Successor_AbstractAction(), "predecessor_AbstractAction", null, 0, 1,
                 AbstractAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAbstractAction_Successor_AbstractAction(), this.getAbstractAction(),
                 this.getAbstractAction_Predecessor_AbstractAction(), "successor_AbstractAction", null, 0, 1,
                 AbstractAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAbstractAction_ResourceDemandingBehaviour_AbstractAction(),
                 this.getResourceDemandingBehaviour(), this.getResourceDemandingBehaviour_Steps_Behaviour(),
                 "resourceDemandingBehaviour_AbstractAction", null, 0, 1, AbstractAction.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
 
         this.initEClass(this.resourceDemandingBehaviourEClass, ResourceDemandingBehaviour.class,
                 "ResourceDemandingBehaviour", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1463,12 +1463,12 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
                 this.getAbstractLoopAction(), this.getAbstractLoopAction_BodyBehaviour_Loop(),
                 "abstractLoopAction_ResourceDemandingBehaviour", null, 0, 1, ResourceDemandingBehaviour.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getResourceDemandingBehaviour_AbstractBranchTransition_ResourceDemandingBehaviour(),
                 this.getAbstractBranchTransition(), this.getAbstractBranchTransition_BranchBehaviour_BranchTransition(),
                 "abstractBranchTransition_ResourceDemandingBehaviour", null, 0, 1, ResourceDemandingBehaviour.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getResourceDemandingBehaviour_Steps_Behaviour(), this.getAbstractAction(),
                 this.getAbstractAction_ResourceDemandingBehaviour_AbstractAction(), "steps_Behaviour", null, 0, -1,
                 ResourceDemandingBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
@@ -1510,20 +1510,20 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.initEReference(this.getAbstractLoopAction_BodyBehaviour_Loop(), this.getResourceDemandingBehaviour(),
                 this.getResourceDemandingBehaviour_AbstractLoopAction_ResourceDemandingBehaviour(),
                 "bodyBehaviour_Loop", null, 1, 1, AbstractLoopAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.abstractBranchTransitionEClass, AbstractBranchTransition.class, "AbstractBranchTransition",
                 IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getAbstractBranchTransition_BranchAction_AbstractBranchTransition(),
                 this.getBranchAction(), this.getBranchAction_Branches_Branch(), "branchAction_AbstractBranchTransition",
                 null, 1, 1, AbstractBranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAbstractBranchTransition_BranchBehaviour_BranchTransition(),
                 this.getResourceDemandingBehaviour(),
                 this.getResourceDemandingBehaviour_AbstractBranchTransition_ResourceDemandingBehaviour(),
                 "branchBehaviour_BranchTransition", null, 1, 1, AbstractBranchTransition.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
 
         this.initEClass(this.branchActionEClass, BranchAction.class, "BranchAction", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
@@ -1577,17 +1577,17 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
                 "ServiceEffectSpecification", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getServiceEffectSpecification_SeffTypeID(), this.ecorePackage.getEString(),
                 "seffTypeID", "1", 1, 1, ServiceEffectSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getServiceEffectSpecification_DescribedService__SEFF(),
                 theRepositoryPackage.getSignature(), null, "describedService__SEFF", null, 1, 1,
                 ServiceEffectSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getServiceEffectSpecification_BasicComponent_ServiceEffectSpecification(),
                 theRepositoryPackage.getBasicComponent(),
                 theRepositoryPackage.getBasicComponent_ServiceEffectSpecifications__BasicComponent(),
                 "basicComponent_ServiceEffectSpecification", null, 1, 1, ServiceEffectSpecification.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.serviceEffectSpecificationEClass, this.ecorePackage.getEBoolean(),
                 "ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1615,21 +1615,21 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
                 this.getResourceDemandingSEFF(), this.getResourceDemandingSEFF_ResourceDemandingInternalBehaviours(),
                 "resourceDemandingSEFF_ResourceDemandingInternalBehaviour", null, 1, 1,
                 ResourceDemandingInternalBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.releaseActionEClass, ReleaseAction.class, "ReleaseAction", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getReleaseAction_PassiveResource_ReleaseAction(),
                 theRepositoryPackage.getPassiveResource(), null, "passiveResource_ReleaseAction", null, 1, 1,
                 ReleaseAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.loopActionEClass, LoopAction.class, "LoopAction", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getLoopAction_IterationCount_LoopAction(), theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_LoopAction_PCMRandomVariable(), "iterationCount_LoopAction", null,
                 1, 1, LoopAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.forkActionEClass, ForkAction.class, "ForkAction", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
@@ -1640,7 +1640,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.initEReference(this.getForkAction_SynchronisingBehaviours_ForkAction(), this.getSynchronisationPoint(),
                 this.getSynchronisationPoint_ForkAction_SynchronisationPoint(), "synchronisingBehaviours_ForkAction",
                 null, 0, 1, ForkAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.forkedBehaviourEClass, ForkedBehaviour.class, "ForkedBehaviour", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1648,11 +1648,11 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
                 this.getSynchronisationPoint(),
                 this.getSynchronisationPoint_SynchronousForkedBehaviours_SynchronisationPoint(),
                 "synchronisationPoint_ForkedBehaviour", null, 0, 1, ForkedBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getForkedBehaviour_ForkAction_ForkedBehaivour(), this.getForkAction(),
                 this.getForkAction_AsynchronousForkedBehaviours_ForkAction(), "forkAction_ForkedBehaivour", null, 0, 1,
                 ForkedBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.synchronisationPointEClass, SynchronisationPoint.class, "SynchronisationPoint",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1665,7 +1665,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.initEReference(this.getSynchronisationPoint_ForkAction_SynchronisationPoint(), this.getForkAction(),
                 this.getForkAction_SynchronisingBehaviours_ForkAction(), "forkAction_SynchronisationPoint", null, 1, 1,
                 SynchronisationPoint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getSynchronisationPoint_SynchronousForkedBehaviours_SynchronisationPoint(),
                 this.getForkedBehaviour(), this.getForkedBehaviour_SynchronisationPoint_ForkedBehaviour(),
                 "synchronousForkedBehaviours_SynchronisationPoint", null, 1, -1, SynchronisationPoint.class,
@@ -1677,14 +1677,14 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.initEReference(this.getExternalCallAction_CalledService_ExternalService(),
                 theRepositoryPackage.getOperationSignature(), null, "calledService_ExternalService", null, 1, 1,
                 ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getExternalCallAction_Role_ExternalService(),
                 theRepositoryPackage.getOperationRequiredRole(), null, "role_ExternalService", null, 1, 1,
                 ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEAttribute(this.getExternalCallAction_RetryCount(), this.ecorePackage.getEInt(), "retryCount", null, 1,
                 1, ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.externalCallActionEClass, this.ecorePackage.getEBoolean(),
                 "SignatureBelongsToRole", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1719,20 +1719,20 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
                 "ProbabilisticBranchTransition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getProbabilisticBranchTransition_BranchProbability(), this.ecorePackage.getEDouble(),
                 "branchProbability", null, 1, 1, ProbabilisticBranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.acquireActionEClass, AcquireAction.class, "AcquireAction", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getAcquireAction_Passiveresource_AcquireAction(),
                 theRepositoryPackage.getPassiveResource(), null, "passiveresource_AcquireAction", null, 1, 1,
                 AcquireAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEAttribute(this.getAcquireAction_Timeout(), this.ecorePackage.getEBoolean(), "timeout", null, 1, 1,
                 AcquireAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED);
+                !IS_DERIVED, !IS_ORDERED);
         this.initEAttribute(this.getAcquireAction_TimeoutValue(), this.ecorePackage.getEDouble(), "timeoutValue", null,
                 1, 1, AcquireAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.acquireActionEClass, this.ecorePackage.getEBoolean(),
                 "TimeoutValueOfAcquireActionMustNotBeNegative", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1749,7 +1749,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.initEReference(this.getCollectionIteratorAction_Parameter_CollectionIteratorAction(),
                 theRepositoryPackage.getParameter(), null, "parameter_CollectionIteratorAction", null, 1, 1,
                 CollectionIteratorAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.guardedBranchTransitionEClass, GuardedBranchTransition.class, "GuardedBranchTransition",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1758,7 +1758,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
                 theCorePackage.getPCMRandomVariable_GuardedBranchTransition_PCMRandomVariable(),
                 "branchCondition_GuardedBranchTransition", null, 1, 1, GuardedBranchTransition.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
 
         this.initEClass(this.setVariableActionEClass, SetVariableAction.class, "SetVariableAction", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1774,16 +1774,16 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.initEReference(this.getInternalCallAction_CalledResourceDemandingInternalBehaviour(),
                 this.getResourceDemandingInternalBehaviour(), null, "calledResourceDemandingInternalBehaviour", null, 1,
                 1, InternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.emitEventActionEClass, EmitEventAction.class, "EmitEventAction", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getEmitEventAction_EventType__EmitEventAction(), theRepositoryPackage.getEventType(),
                 null, "eventType__EmitEventAction", null, 1, 1, EmitEventAction.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getEmitEventAction_SourceRole__EmitEventAction(), theRepositoryPackage.getSourceRole(),
                 null, "sourceRole__EmitEventAction", null, 1, 1, EmitEventAction.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.internalActionEClass, InternalAction.class, "InternalAction", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
@@ -1814,62 +1814,6 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-        // Create annotations
-        // http://www.eclipse.org/emf/2002/Ecore
-        this.createEcoreAnnotations();
-        // http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
-        this.createPivotAnnotations();
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createEcoreAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore";
-        this.addAnnotation(this, source,
-                new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                        "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "validationDelegates",
-                        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" });
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createPivotAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
-        this.addAnnotation(this.stopActionEClass.getEOperations().get(0), source,
-                new String[] { "body", "self.successor_AbstractAction.oclIsUndefined()" });
-        this.addAnnotation(this.resourceDemandingBehaviourEClass.getEOperations().get(0), source,
-                new String[] { "body", "self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() = 1" });
-        this.addAnnotation(this.resourceDemandingBehaviourEClass.getEOperations().get(1), source,
-                new String[] { "body", "self.steps_Behaviour->select(s|s.oclIsTypeOf(StartAction))->size() = 1" });
-        this.addAnnotation(this.resourceDemandingBehaviourEClass.getEOperations().get(2), source, new String[] { "body",
-                "not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined()) and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined())" });
-        this.addAnnotation(this.branchActionEClass.getEOperations().get(0), source, new String[] { "body",
-                "self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition)) \nor self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition))" });
-        this.addAnnotation(this.branchActionEClass.getEOperations().get(1), source, new String[] { "body",
-                "if self.branches_Branch->forAll(oclIsTypeOf(ProbabilisticBranchTransition)) then \n\tself.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() > 0.9999 \n\tand self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() < 1.0001 \n\telse true \nendif" });
-        this.addAnnotation(this.startActionEClass.getEOperations().get(0), source,
-                new String[] { "body", "self.predecessor_AbstractAction.oclIsUndefined()" });
-        this.addAnnotation(this.serviceEffectSpecificationEClass.getEOperations().get(0), source, new String[] { "body",
-                "if self.describedService__SEFF.oclIsKindOf(pcm::repository::OperationSignature) then\n\tself.basicComponent_ServiceEffectSpecification.providedRoles_InterfaceProvidingEntity->exists(p | p.oclIsKindOf(pcm::repository::OperationProvidedRole) and (p.oclAsType(pcm::repository::OperationProvidedRole).providedInterface__OperationProvidedRole = self.describedService__SEFF.oclAsType(pcm::repository::OperationSignature).interface__OperationSignature))\nelse\n\tif self.describedService__SEFF.oclIsKindOf(pcm::repository::EventType) then\n\t\tself.basicComponent_ServiceEffectSpecification.providedRoles_InterfaceProvidingEntity->exists(p | p.oclIsKindOf(pcm::repository::SinkRole) and (p.oclAsType(pcm::repository::SinkRole).eventGroup__SinkRole = self.describedService__SEFF.oclAsType(pcm::repository::EventType).eventGroup__EventType))\n\telse\n\t\ttrue\n\tendif\nendif" });
-        this.addAnnotation(this.externalCallActionEClass.getEOperations().get(0), source, new String[] { "body",
-                "self.role_ExternalService.requiredInterface__OperationRequiredRole.signatures__OperationInterface->includes(self.calledService_ExternalService)" });
-        this.addAnnotation(this.externalCallActionEClass.getEOperations().get(1), source, new String[] { "body",
-                "self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).oclAsType(pcm::core::entity::InterfaceRequiringEntity).requiredRoles_InterfaceRequiringEntity->includes(self.role_ExternalService)" });
-        this.addAnnotation(this.acquireActionEClass.getEOperations().get(0), source,
-                new String[] { "body", "self.timeoutValue.oclAsType(Real) >= 0.0" });
-        this.addAnnotation(this.internalActionEClass.getEOperations().get(0), source, new String[] { "body",
-                "self.internalFailureOccurrenceDescriptions__InternalAction->forAll(x:pcm::reliability::InternalFailureOccurrenceDescription,y:pcm::reliability::InternalFailureOccurrenceDescription  | x<>y implies x.softwareInducedFailureType__InternalFailureOccurrenceDescription <> y.softwareInducedFailureType__InternalFailureOccurrenceDescription )\n" });
-        this.addAnnotation(this.internalActionEClass.getEOperations().get(1), source, new String[] { "body",
-                "self.internalFailureOccurrenceDescriptions__InternalAction.failureProbability.oclAsType(Real)->sum()<=1.0\n" });
     }
 
 } // SeffPackageImpl

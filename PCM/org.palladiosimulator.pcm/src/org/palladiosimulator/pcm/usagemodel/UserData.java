@@ -43,7 +43,7 @@ public interface UserData extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -88,12 +88,12 @@ public interface UserData extends CDOObject {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Usage Model User Data</em>' container reference.
      * @see #setUsageModel_UserData(UsageModel)
      * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getUserData_UsageModel_UserData()
      * @see org.palladiosimulator.pcm.usagemodel.UsageModel#getUserData_UsageModel
-     * @model opposite="userData_UsageModel" required="true" transient="false"
+     * @model opposite="userData_UsageModel" required="true" transient="false" ordered="false"
      * @generated
      */
     UsageModel getUsageModel_UserData();
@@ -103,7 +103,7 @@ public interface UserData extends CDOObject {
      * {@link org.palladiosimulator.pcm.usagemodel.UserData#getUsageModel_UserData
      * <em>Usage Model User Data</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Usage Model User Data</em>' container reference.
      * @see #getUsageModel_UserData()
@@ -123,7 +123,7 @@ public interface UserData extends CDOObject {
      * list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>User Data Parameter Usages User Data</em>' containment
      *         reference list.
      * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getUserData_UserDataParameterUsages_UserData()

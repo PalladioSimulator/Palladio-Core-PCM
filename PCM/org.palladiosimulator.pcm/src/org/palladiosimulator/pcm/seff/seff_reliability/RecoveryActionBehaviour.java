@@ -45,7 +45,7 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -80,13 +80,14 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Recovery Action Recovery Action Behaviour</em>' container
      *         reference.
      * @see #setRecoveryAction__RecoveryActionBehaviour(RecoveryAction)
      * @see org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage#getRecoveryActionBehaviour_RecoveryAction__RecoveryActionBehaviour()
      * @see org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction#getRecoveryActionBehaviours__RecoveryAction
      * @model opposite="recoveryActionBehaviours__RecoveryAction" required="true" transient="false"
+     *        ordered="false"
      * @generated
      */
     RecoveryAction getRecoveryAction__RecoveryActionBehaviour();
@@ -96,7 +97,7 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
      * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour
      * <em>Recovery Action Recovery Action Behaviour</em>}' container reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Recovery Action Recovery Action Behaviour</em>'
      *            container reference.
@@ -106,28 +107,40 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
     void setRecoveryAction__RecoveryActionBehaviour(RecoveryAction value);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->\n\texists(x,y:RecoveryActionBehaviour | x<>y\n\t\tand x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)\n\t\tand y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->\r\n\texists(x,y:RecoveryActionBehaviour | x<>y\r\n\t\tand x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)\r\n\t\tand y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))'"
      * @generated
      */
     boolean RecoveryActionBehaviourHasOnlyOnePredecessor(DiagnosticChain diagnostics, Map<Object, Object> context);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not self.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)'"
      * @generated
      */
     boolean RecoveryActionBehaviourIsNotSuccessorOfItself(DiagnosticChain diagnostics, Map<Object, Object> context);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not self.failureHandlingAlternatives__RecoveryActionBehaviour->\n\texists(x,y:RecoveryActionBehaviour | x<>y and\n\tx.failureTypes_FailureHandlingEntity->\n\t\texists(f:pcm::reliability::FailureType |\n\t\ty.failureTypes_FailureHandlingEntity->includes(f)))'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.failureHandlingAlternatives__RecoveryActionBehaviour->\r\n\texists(x,y:RecoveryActionBehaviour | x<>y and\r\n\tx.failureTypes_FailureHandlingEntity->\r\n\t\texists(f:pcm::reliability::FailureType |\r\n\t\ty.failureTypes_FailureHandlingEntity->includes(f)))'"
      * @generated
      */
     boolean SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(DiagnosticChain diagnostics,

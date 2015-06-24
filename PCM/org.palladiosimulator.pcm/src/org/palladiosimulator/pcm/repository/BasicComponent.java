@@ -38,7 +38,7 @@ public interface BasicComponent extends ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -72,7 +72,7 @@ public interface BasicComponent extends ImplementationComponentType {
      * <em>Basic Component Passive Resource</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * <!-- begin-model-doc --> This property represents the passive resources, e.g., semaphores,
      * that are owned by this basic component. <!-- end-model-doc -->
-     *
+     * 
      * @return the value of the '<em>Passive Resource Basic Component</em>' containment reference
      *         list.
      * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getBasicComponent_PassiveResource_BasicComponent()
@@ -83,10 +83,14 @@ public interface BasicComponent extends ImplementationComponentType {
     EList<PassiveResource> getPassiveResource_BasicComponent();
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |\n  p1 <> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID <> p2.seffTypeID))'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |\r\n  p1 <> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID <> p2.seffTypeID))'"
      * @generated
      */
     boolean NoSeffTypeUsedTwice(DiagnosticChain diagnostics, Map<Object, Object> context);

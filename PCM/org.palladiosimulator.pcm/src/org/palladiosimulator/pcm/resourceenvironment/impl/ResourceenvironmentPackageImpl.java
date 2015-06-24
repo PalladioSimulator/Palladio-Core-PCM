@@ -59,49 +59,49 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class ResourceenvironmentPackageImpl extends EPackageImpl implements ResourceenvironmentPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceEnvironmentEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass linkingResourceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceContainerEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass processingResourceSpecificationEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass communicationLinkResourceSpecificationEClass = null;
@@ -114,7 +114,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage#eNS_URI
      * @see #init()
@@ -126,7 +126,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -139,7 +139,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
      * This method is used to initialize {@link ResourceenvironmentPackage#eINSTANCE} when that
      * field is accessed. Clients should not invoke it directly. Instead, they should simply access
      * that field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -288,7 +288,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -298,7 +298,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -308,7 +308,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -318,7 +318,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -328,7 +328,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -338,7 +338,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -348,7 +348,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -358,7 +358,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -368,7 +368,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -378,7 +378,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -388,7 +388,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -398,7 +398,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -408,7 +408,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -418,7 +418,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -428,7 +428,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -438,7 +438,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -448,7 +448,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -458,7 +458,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -468,7 +468,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -478,7 +478,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -488,7 +488,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -498,7 +498,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -508,7 +508,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -518,7 +518,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -528,7 +528,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -538,7 +538,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -548,7 +548,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -558,7 +558,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -568,7 +568,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isCreated = false;
@@ -576,7 +576,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void createPackageContents() {
@@ -641,7 +641,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isInitialized = false;
@@ -649,7 +649,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void initializePackageContents() {
@@ -708,11 +708,11 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
                 this.getCommunicationLinkResourceSpecification_LinkingResource_CommunicationLinkResourceSpecification(),
                 "communicationLinkResourceSpecifications_LinkingResource", null, 1, 1, LinkingResource.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getLinkingResource_ResourceEnvironment_LinkingResource(),
                 this.getResourceEnvironment(), this.getResourceEnvironment_LinkingResources__ResourceEnvironment(),
                 "resourceEnvironment_LinkingResource", null, 1, 1, LinkingResource.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.resourceContainerEClass, ResourceContainer.class, "ResourceContainer", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -726,7 +726,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
                 this.getResourceEnvironment(), this.getResourceEnvironment_ResourceContainer_ResourceEnvironment(),
                 "resourceEnvironment_ResourceContainer", null, 0, 1, ResourceContainer.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
         this.initEReference(this.getResourceContainer_NestedResourceContainers__ResourceContainer(),
                 this.getResourceContainer(), this.getResourceContainer_ParentResourceContainer__ResourceContainer(),
                 "nestedResourceContainers__ResourceContainer", null, 0, -1, ResourceContainer.class, !IS_TRANSIENT,
@@ -736,43 +736,43 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
                 this.getResourceContainer(), this.getResourceContainer_NestedResourceContainers__ResourceContainer(),
                 "parentResourceContainer__ResourceContainer", null, 0, 1, ResourceContainer.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
 
         this.initEClass(this.processingResourceSpecificationEClass, ProcessingResourceSpecification.class,
                 "ProcessingResourceSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getProcessingResourceSpecification_MTTR(), this.ecorePackage.getEDouble(), "MTTR",
                 "0.0", 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEAttribute(this.getProcessingResourceSpecification_MTTF(), this.ecorePackage.getEDouble(), "MTTF",
                 "0.0", 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEAttribute(this.getProcessingResourceSpecification_RequiredByContainer(),
                 this.ecorePackage.getEBoolean(), "requiredByContainer", null, 1, 1,
                 ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
-                !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getProcessingResourceSpecification_SchedulingPolicy(),
                 theResourcetypePackage.getSchedulingPolicy(), null, "schedulingPolicy", null, 1, 1,
                 ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getProcessingResourceSpecification_ActiveResourceType_ActiveResourceSpecification(),
                 theResourcetypePackage.getProcessingResourceType(), null,
                 "activeResourceType_ActiveResourceSpecification", null, 1, 1, ProcessingResourceSpecification.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getProcessingResourceSpecification_ProcessingRate_ProcessingResourceSpecification(),
                 theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_ProcessingResourceSpecification_processingRate_PCMRandomVariable(),
                 "processingRate_ProcessingResourceSpecification", null, 1, 1, ProcessingResourceSpecification.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEAttribute(this.getProcessingResourceSpecification_NumberOfReplicas(), this.ecorePackage.getEInt(),
                 "numberOfReplicas", "1", 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getProcessingResourceSpecification_ResourceContainer_ProcessingResourceSpecification(),
                 this.getResourceContainer(), this.getResourceContainer_ActiveResourceSpecifications_ResourceContainer(),
                 "resourceContainer_ProcessingResourceSpecification", null, 1, 1, ProcessingResourceSpecification.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.communicationLinkResourceSpecificationEClass, CommunicationLinkResourceSpecification.class,
                 "CommunicationLinkResourceSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -782,24 +782,24 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
                 this.getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource(),
                 "linkingResource_CommunicationLinkResourceSpecification", null, 1, 1,
                 CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEAttribute(this.getCommunicationLinkResourceSpecification_FailureProbability(),
                 this.ecorePackage.getEDouble(), "failureProbability", "0.0", 1, 1,
                 CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getCommunicationLinkResourceSpecification_CommunicationLinkResourceType_CommunicationLinkResourceSpecification(),
                 theResourcetypePackage.getCommunicationLinkResourceType(), null,
                 "communicationLinkResourceType_CommunicationLinkResourceSpecification", null, 1, 1,
                 CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getCommunicationLinkResourceSpecification_Latency_CommunicationLinkResourceSpecification(),
                 theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_CommunicationLinkResourceSpecification_latency_PCMRandomVariable(),
                 "latency_CommunicationLinkResourceSpecification", null, 1, 1,
                 CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getCommunicationLinkResourceSpecification_Throughput_CommunicationLinkResourceSpecification(),
                 theCorePackage.getPCMRandomVariable(),
@@ -807,7 +807,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
                         .getPCMRandomVariable_CommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable(),
                 "throughput_CommunicationLinkResourceSpecification", null, 1, 1,
                 CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
     }
 
 } // ResourceenvironmentPackageImpl

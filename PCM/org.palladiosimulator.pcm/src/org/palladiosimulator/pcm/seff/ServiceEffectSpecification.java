@@ -55,7 +55,7 @@ public interface ServiceEffectSpecification extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -68,11 +68,11 @@ public interface ServiceEffectSpecification extends CDOObject {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Seff Type ID</em>' attribute.
      * @see #setSeffTypeID(String)
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getServiceEffectSpecification_SeffTypeID()
-     * @model default="1" required="true"
+     * @model default="1" required="true" ordered="false"
      * @generated
      */
     String getSeffTypeID();
@@ -81,7 +81,7 @@ public interface ServiceEffectSpecification extends CDOObject {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getSeffTypeID
      * <em>Seff Type ID</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Seff Type ID</em>' attribute.
      * @see #getSeffTypeID()
@@ -110,7 +110,7 @@ public interface ServiceEffectSpecification extends CDOObject {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF
      * <em>Described Service SEFF</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Described Service SEFF</em>' reference.
      * @see #getDescribedService__SEFF()
@@ -128,14 +128,14 @@ public interface ServiceEffectSpecification extends CDOObject {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Basic Component Service Effect Specification</em>' container
      *         reference.
      * @see #setBasicComponent_ServiceEffectSpecification(BasicComponent)
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getServiceEffectSpecification_BasicComponent_ServiceEffectSpecification()
      * @see org.palladiosimulator.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent
      * @model opposite="serviceEffectSpecifications__BasicComponent" required="true"
-     *        transient="false"
+     *        transient="false" ordered="false"
      * @generated
      */
     BasicComponent getBasicComponent_ServiceEffectSpecification();
@@ -155,10 +155,14 @@ public interface ServiceEffectSpecification extends CDOObject {
     void setBasicComponent_ServiceEffectSpecification(BasicComponent value);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='if self.describedService__SEFF.oclIsKindOf(pcm::repository::OperationSignature) then\n\tself.basicComponent_ServiceEffectSpecification.providedRoles_InterfaceProvidingEntity->exists(p | p.oclIsKindOf(pcm::repository::OperationProvidedRole) and (p.oclAsType(pcm::repository::OperationProvidedRole).providedInterface__OperationProvidedRole = self.describedService__SEFF.oclAsType(pcm::repository::OperationSignature).interface__OperationSignature))\nelse\n\tif self.describedService__SEFF.oclIsKindOf(pcm::repository::EventType) then\n\t\tself.basicComponent_ServiceEffectSpecification.providedRoles_InterfaceProvidingEntity->exists(p | p.oclIsKindOf(pcm::repository::SinkRole) and (p.oclAsType(pcm::repository::SinkRole).eventGroup__SinkRole = self.describedService__SEFF.oclAsType(pcm::repository::EventType).eventGroup__EventType))\n\telse\n\t\ttrue\n\tendif\nendif'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='if self.describedService__SEFF.oclIsKindOf(pcm::repository::OperationSignature) then\r\n\tself.basicComponent_ServiceEffectSpecification.providedRoles_InterfaceProvidingEntity->exists(p | p.oclIsKindOf(pcm::repository::OperationProvidedRole) and (p.oclAsType(pcm::repository::OperationProvidedRole).providedInterface__OperationProvidedRole = self.describedService__SEFF.oclAsType(pcm::repository::OperationSignature).interface__OperationSignature))\r\nelse\r\n\tif self.describedService__SEFF.oclIsKindOf(pcm::repository::EventType) then\r\n\t\tself.basicComponent_ServiceEffectSpecification.providedRoles_InterfaceProvidingEntity->exists(p | p.oclIsKindOf(pcm::repository::SinkRole) and (p.oclAsType(pcm::repository::SinkRole).eventGroup__SinkRole = self.describedService__SEFF.oclAsType(pcm::repository::EventType).eventGroup__EventType))\r\n\telse\r\n\t\ttrue\r\n\tendif\r\nendif'"
      * @generated
      */
     boolean ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(DiagnosticChain diagnostics,

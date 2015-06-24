@@ -105,7 +105,7 @@ public interface PCMRandomVariable extends RandomVariable {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -120,12 +120,12 @@ public interface PCMRandomVariable extends RandomVariable {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Closed Workload PCM Random Variable</em>' container reference.
      * @see #setClosedWorkload_PCMRandomVariable(ClosedWorkload)
      * @see org.palladiosimulator.pcm.core.CorePackage#getPCMRandomVariable_ClosedWorkload_PCMRandomVariable()
      * @see org.palladiosimulator.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload
-     * @model opposite="thinkTime_ClosedWorkload" transient="false"
+     * @model opposite="thinkTime_ClosedWorkload" transient="false" ordered="false"
      * @generated
      */
     ClosedWorkload getClosedWorkload_PCMRandomVariable();
@@ -135,7 +135,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getClosedWorkload_PCMRandomVariable
      * <em>Closed Workload PCM Random Variable</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Closed Workload PCM Random Variable</em>' container
      *            reference.
@@ -154,13 +154,13 @@ public interface PCMRandomVariable extends RandomVariable {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Passive Resource capacity PCM Random Variable</em>' container
      *         reference.
      * @see #setPassiveResource_capacity_PCMRandomVariable(PassiveResource)
      * @see org.palladiosimulator.pcm.core.CorePackage#getPCMRandomVariable_PassiveResource_capacity_PCMRandomVariable()
      * @see org.palladiosimulator.pcm.repository.PassiveResource#getCapacity_PassiveResource
-     * @model opposite="capacity_PassiveResource" transient="false"
+     * @model opposite="capacity_PassiveResource" transient="false" ordered="false"
      * @generated
      */
     PassiveResource getPassiveResource_capacity_PCMRandomVariable();
@@ -189,13 +189,13 @@ public interface PCMRandomVariable extends RandomVariable {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Variable Characterisation Specification</em>' container
      *         reference.
      * @see #setVariableCharacterisation_Specification(VariableCharacterisation)
      * @see org.palladiosimulator.pcm.core.CorePackage#getPCMRandomVariable_VariableCharacterisation_Specification()
      * @see org.palladiosimulator.pcm.parameter.VariableCharacterisation#getSpecification_VariableCharacterisation
-     * @model opposite="specification_VariableCharacterisation" transient="false"
+     * @model opposite="specification_VariableCharacterisation" transient="false" ordered="false"
      * @generated
      */
     VariableCharacterisation getVariableCharacterisation_Specification();
@@ -205,7 +205,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getVariableCharacterisation_Specification
      * <em>Variable Characterisation Specification</em>}' container reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Variable Characterisation Specification</em>' container
      *            reference.
@@ -224,13 +224,13 @@ public interface PCMRandomVariable extends RandomVariable {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Infrastructure Call PCM Random Variable</em>' container
      *         reference.
      * @see #setInfrastructureCall__PCMRandomVariable(InfrastructureCall)
      * @see org.palladiosimulator.pcm.core.CorePackage#getPCMRandomVariable_InfrastructureCall__PCMRandomVariable()
      * @see org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall#getNumberOfCalls__InfrastructureCall
-     * @model opposite="numberOfCalls__InfrastructureCall" transient="false"
+     * @model opposite="numberOfCalls__InfrastructureCall" transient="false" ordered="false"
      * @generated
      */
     InfrastructureCall getInfrastructureCall__PCMRandomVariable();
@@ -240,7 +240,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getInfrastructureCall__PCMRandomVariable
      * <em>Infrastructure Call PCM Random Variable</em>}' container reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Infrastructure Call PCM Random Variable</em>' container
      *            reference.
@@ -259,12 +259,12 @@ public interface PCMRandomVariable extends RandomVariable {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Resource Call PCM Random Variable</em>' container reference.
      * @see #setResourceCall__PCMRandomVariable(ResourceCall)
      * @see org.palladiosimulator.pcm.core.CorePackage#getPCMRandomVariable_ResourceCall__PCMRandomVariable()
      * @see org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getNumberOfCalls__ResourceCall
-     * @model opposite="numberOfCalls__ResourceCall" transient="false"
+     * @model opposite="numberOfCalls__ResourceCall" transient="false" ordered="false"
      * @generated
      */
     ResourceCall getResourceCall__PCMRandomVariable();
@@ -274,7 +274,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getResourceCall__PCMRandomVariable
      * <em>Resource Call PCM Random Variable</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Resource Call PCM Random Variable</em>' container
      *            reference.
@@ -293,13 +293,13 @@ public interface PCMRandomVariable extends RandomVariable {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Parametric Resource Demand PCM Random Variable</em>' container
      *         reference.
      * @see #setParametricResourceDemand_PCMRandomVariable(ParametricResourceDemand)
      * @see org.palladiosimulator.pcm.core.CorePackage#getPCMRandomVariable_ParametricResourceDemand_PCMRandomVariable()
      * @see org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand#getSpecification_ParametericResourceDemand
-     * @model opposite="specification_ParametericResourceDemand" transient="false"
+     * @model opposite="specification_ParametericResourceDemand" transient="false" ordered="false"
      * @generated
      */
     ParametricResourceDemand getParametricResourceDemand_PCMRandomVariable();
@@ -328,12 +328,12 @@ public interface PCMRandomVariable extends RandomVariable {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Loop Action PCM Random Variable</em>' container reference.
      * @see #setLoopAction_PCMRandomVariable(LoopAction)
      * @see org.palladiosimulator.pcm.core.CorePackage#getPCMRandomVariable_LoopAction_PCMRandomVariable()
      * @see org.palladiosimulator.pcm.seff.LoopAction#getIterationCount_LoopAction
-     * @model opposite="iterationCount_LoopAction" transient="false"
+     * @model opposite="iterationCount_LoopAction" transient="false" ordered="false"
      * @generated
      */
     LoopAction getLoopAction_PCMRandomVariable();
@@ -343,7 +343,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getLoopAction_PCMRandomVariable
      * <em>Loop Action PCM Random Variable</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Loop Action PCM Random Variable</em>' container
      *            reference.
@@ -362,13 +362,13 @@ public interface PCMRandomVariable extends RandomVariable {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Guarded Branch Transition PCM Random Variable</em>' container
      *         reference.
      * @see #setGuardedBranchTransition_PCMRandomVariable(GuardedBranchTransition)
      * @see org.palladiosimulator.pcm.core.CorePackage#getPCMRandomVariable_GuardedBranchTransition_PCMRandomVariable()
      * @see org.palladiosimulator.pcm.seff.GuardedBranchTransition#getBranchCondition_GuardedBranchTransition
-     * @model opposite="branchCondition_GuardedBranchTransition" transient="false"
+     * @model opposite="branchCondition_GuardedBranchTransition" transient="false" ordered="false"
      * @generated
      */
     GuardedBranchTransition getGuardedBranchTransition_PCMRandomVariable();
@@ -397,13 +397,13 @@ public interface PCMRandomVariable extends RandomVariable {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Specified Execution Time PCM Random Variable</em>' container
      *         reference.
      * @see #setSpecifiedExecutionTime_PCMRandomVariable(SpecifiedExecutionTime)
      * @see org.palladiosimulator.pcm.core.CorePackage#getPCMRandomVariable_SpecifiedExecutionTime_PCMRandomVariable()
      * @see org.palladiosimulator.pcm.qosannotations.qos_performance.SpecifiedExecutionTime#getSpecification_SpecifiedExecutionTime
-     * @model opposite="specification_SpecifiedExecutionTime" transient="false"
+     * @model opposite="specification_SpecifiedExecutionTime" transient="false" ordered="false"
      * @generated
      */
     SpecifiedExecutionTime getSpecifiedExecutionTime_PCMRandomVariable();
@@ -432,13 +432,14 @@ public interface PCMRandomVariable extends RandomVariable {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Event Channel Sink Connector Filter Condition</em>' container
      *         reference.
      * @see #setEventChannelSinkConnector__FilterCondition(EventChannelSinkConnector)
      * @see org.palladiosimulator.pcm.core.CorePackage#getPCMRandomVariable_EventChannelSinkConnector__FilterCondition()
      * @see org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getFilterCondition__EventChannelSinkConnector
      * @model opposite="filterCondition__EventChannelSinkConnector" transient="false"
+     *        ordered="false"
      * @generated
      */
     EventChannelSinkConnector getEventChannelSinkConnector__FilterCondition();
@@ -467,13 +468,13 @@ public interface PCMRandomVariable extends RandomVariable {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Assembly Event Connector Filter Condition</em>' container
      *         reference.
      * @see #setAssemblyEventConnector__FilterCondition(AssemblyEventConnector)
      * @see org.palladiosimulator.pcm.core.CorePackage#getPCMRandomVariable_AssemblyEventConnector__FilterCondition()
      * @see org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getFilterCondition__AssemblyEventConnector
-     * @model opposite="filterCondition__AssemblyEventConnector" transient="false"
+     * @model opposite="filterCondition__AssemblyEventConnector" transient="false" ordered="false"
      * @generated
      */
     AssemblyEventConnector getAssemblyEventConnector__FilterCondition();
@@ -483,7 +484,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getAssemblyEventConnector__FilterCondition
      * <em>Assembly Event Connector Filter Condition</em>}' container reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Assembly Event Connector Filter Condition</em>'
      *            container reference.
@@ -502,12 +503,12 @@ public interface PCMRandomVariable extends RandomVariable {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Loop Loop Iteration</em>' container reference.
      * @see #setLoop_LoopIteration(Loop)
      * @see org.palladiosimulator.pcm.core.CorePackage#getPCMRandomVariable_Loop_LoopIteration()
      * @see org.palladiosimulator.pcm.usagemodel.Loop#getLoopIteration_Loop
-     * @model opposite="loopIteration_Loop" transient="false"
+     * @model opposite="loopIteration_Loop" transient="false" ordered="false"
      * @generated
      */
     Loop getLoop_LoopIteration();
@@ -535,12 +536,12 @@ public interface PCMRandomVariable extends RandomVariable {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Open Workload PCM Random Variable</em>' container reference.
      * @see #setOpenWorkload_PCMRandomVariable(OpenWorkload)
      * @see org.palladiosimulator.pcm.core.CorePackage#getPCMRandomVariable_OpenWorkload_PCMRandomVariable()
      * @see org.palladiosimulator.pcm.usagemodel.OpenWorkload#getInterArrivalTime_OpenWorkload
-     * @model opposite="interArrivalTime_OpenWorkload" transient="false"
+     * @model opposite="interArrivalTime_OpenWorkload" transient="false" ordered="false"
      * @generated
      */
     OpenWorkload getOpenWorkload_PCMRandomVariable();
@@ -550,7 +551,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getOpenWorkload_PCMRandomVariable
      * <em>Open Workload PCM Random Variable</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Open Workload PCM Random Variable</em>' container
      *            reference.
@@ -569,12 +570,12 @@ public interface PCMRandomVariable extends RandomVariable {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Delay Time Specification</em>' container reference.
      * @see #setDelay_TimeSpecification(Delay)
      * @see org.palladiosimulator.pcm.core.CorePackage#getPCMRandomVariable_Delay_TimeSpecification()
      * @see org.palladiosimulator.pcm.usagemodel.Delay#getTimeSpecification_Delay
-     * @model opposite="timeSpecification_Delay" transient="false"
+     * @model opposite="timeSpecification_Delay" transient="false" ordered="false"
      * @generated
      */
     Delay getDelay_TimeSpecification();
@@ -584,7 +585,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getDelay_TimeSpecification
      * <em>Delay Time Specification</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Delay Time Specification</em>' container reference.
      * @see #getDelay_TimeSpecification()
@@ -604,7 +605,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '
      *         <em>Communication Link Resource Specifcation throughput PCM Random Variable</em>'
      *         container reference.
@@ -612,6 +613,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * @see org.palladiosimulator.pcm.core.CorePackage#getPCMRandomVariable_CommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable()
      * @see org.palladiosimulator.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput_CommunicationLinkResourceSpecification
      * @model opposite="throughput_CommunicationLinkResourceSpecification" transient="false"
+     *        ordered="false"
      * @generated
      */
     CommunicationLinkResourceSpecification getCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable();
@@ -621,7 +623,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable
      * <em>Communication Link Resource Specifcation throughput PCM Random Variable</em>}' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '
      *            <em>Communication Link Resource Specifcation throughput PCM Random Variable</em>'
@@ -644,7 +646,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '
      *         <em>Processing Resource Specification processing Rate PCM Random Variable</em>'
      *         container reference.
@@ -652,6 +654,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * @see org.palladiosimulator.pcm.core.CorePackage#getPCMRandomVariable_ProcessingResourceSpecification_processingRate_PCMRandomVariable()
      * @see org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate_ProcessingResourceSpecification
      * @model opposite="processingRate_ProcessingResourceSpecification" transient="false"
+     *        ordered="false"
      * @generated
      */
     ProcessingResourceSpecification getProcessingResourceSpecification_processingRate_PCMRandomVariable();
@@ -661,7 +664,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getProcessingResourceSpecification_processingRate_PCMRandomVariable
      * <em>Processing Resource Specification processing Rate PCM Random Variable</em>}' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '
      *            <em>Processing Resource Specification processing Rate PCM Random Variable</em>'
@@ -683,7 +686,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '
      *         <em>Communication Link Resource Specification latency PCM Random Variable</em>'
      *         container reference.
@@ -691,6 +694,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * @see org.palladiosimulator.pcm.core.CorePackage#getPCMRandomVariable_CommunicationLinkResourceSpecification_latency_PCMRandomVariable()
      * @see org.palladiosimulator.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLatency_CommunicationLinkResourceSpecification
      * @model opposite="latency_CommunicationLinkResourceSpecification" transient="false"
+     *        ordered="false"
      * @generated
      */
     CommunicationLinkResourceSpecification getCommunicationLinkResourceSpecification_latency_PCMRandomVariable();
@@ -700,7 +704,7 @@ public interface PCMRandomVariable extends RandomVariable {
      * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getCommunicationLinkResourceSpecification_latency_PCMRandomVariable
      * <em>Communication Link Resource Specification latency PCM Random Variable</em>}' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '
      *            <em>Communication Link Resource Specification latency PCM Random Variable</em>'
@@ -712,10 +716,14 @@ public interface PCMRandomVariable extends RandomVariable {
             CommunicationLinkResourceSpecification value);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not self.specification.oclIsUndefined() and self.specification <> \'\''"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.specification.oclIsUndefined() and self.specification <> \'\''"
      * @generated
      */
     boolean SpecificationMustNotBeNULL(DiagnosticChain diagnostics, Map<Object, Object> context);

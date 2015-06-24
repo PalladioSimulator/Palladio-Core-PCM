@@ -36,7 +36,7 @@ public interface ResourceRequiredDelegationConnector extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,13 +51,13 @@ public interface ResourceRequiredDelegationConnector extends CDOObject {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '
      *         <em>Inner Resource Required Role Resource Required Delegation Connector</em>'
      *         reference.
      * @see #setInnerResourceRequiredRole_ResourceRequiredDelegationConnector(ResourceRequiredRole)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getResourceRequiredDelegationConnector_InnerResourceRequiredRole_ResourceRequiredDelegationConnector()
-     * @model required="true"
+     * @model required="true" ordered="false"
      * @generated
      */
     ResourceRequiredRole getInnerResourceRequiredRole_ResourceRequiredDelegationConnector();
@@ -67,7 +67,7 @@ public interface ResourceRequiredDelegationConnector extends CDOObject {
      * {@link org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getInnerResourceRequiredRole_ResourceRequiredDelegationConnector
      * <em>Inner Resource Required Role Resource Required Delegation Connector</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '
      *            <em>Inner Resource Required Role Resource Required Delegation Connector</em>'
@@ -87,13 +87,13 @@ public interface ResourceRequiredDelegationConnector extends CDOObject {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '
      *         <em>Outer Resource Required Role Resource Required Delegation Connector</em>'
      *         reference.
      * @see #setOuterResourceRequiredRole_ResourceRequiredDelegationConnector(ResourceRequiredRole)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getResourceRequiredDelegationConnector_OuterResourceRequiredRole_ResourceRequiredDelegationConnector()
-     * @model required="true"
+     * @model required="true" ordered="false"
      * @generated
      */
     ResourceRequiredRole getOuterResourceRequiredRole_ResourceRequiredDelegationConnector();
@@ -103,7 +103,7 @@ public interface ResourceRequiredDelegationConnector extends CDOObject {
      * {@link org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getOuterResourceRequiredRole_ResourceRequiredDelegationConnector
      * <em>Outer Resource Required Role Resource Required Delegation Connector</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '
      *            <em>Outer Resource Required Role Resource Required Delegation Connector</em>'
@@ -125,14 +125,14 @@ public interface ResourceRequiredDelegationConnector extends CDOObject {
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Parent Structure Resource Required Delegation Connector</em>'
      *         container reference.
      * @see #setParentStructure_ResourceRequiredDelegationConnector(ComposedStructure)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getResourceRequiredDelegationConnector_ParentStructure_ResourceRequiredDelegationConnector()
      * @see org.palladiosimulator.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure
      * @model opposite="resourceRequiredDelegationConnectors_ComposedStructure" required="true"
-     *        transient="false"
+     *        transient="false" ordered="false"
      * @generated
      */
     ComposedStructure getParentStructure_ResourceRequiredDelegationConnector();

@@ -29,7 +29,7 @@ public interface ResourceDemandingInternalBehaviour extends ResourceDemandingBeh
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -45,7 +45,7 @@ public interface ResourceDemandingInternalBehaviour extends ResourceDemandingBeh
      * ' container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '
      *         <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em>' container
      *         reference.
@@ -53,6 +53,7 @@ public interface ResourceDemandingInternalBehaviour extends ResourceDemandingBeh
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getResourceDemandingInternalBehaviour_ResourceDemandingSEFF_ResourceDemandingInternalBehaviour()
      * @see org.palladiosimulator.pcm.seff.ResourceDemandingSEFF#getResourceDemandingInternalBehaviours
      * @model opposite="resourceDemandingInternalBehaviours" required="true" transient="false"
+     *        ordered="false"
      * @generated
      */
     ResourceDemandingSEFF getResourceDemandingSEFF_ResourceDemandingInternalBehaviour();
@@ -62,7 +63,7 @@ public interface ResourceDemandingInternalBehaviour extends ResourceDemandingBeh
      * {@link org.palladiosimulator.pcm.seff.ResourceDemandingInternalBehaviour#getResourceDemandingSEFF_ResourceDemandingInternalBehaviour
      * <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em>}' container reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '
      *            <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em>' container

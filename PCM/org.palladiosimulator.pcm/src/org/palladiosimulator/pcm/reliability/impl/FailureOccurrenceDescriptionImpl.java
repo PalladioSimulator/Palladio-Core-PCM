@@ -12,6 +12,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.reliability.FailureOccurrenceDescription;
 import org.palladiosimulator.pcm.reliability.ReliabilityPackage;
 import org.palladiosimulator.pcm.reliability.util.ReliabilityValidator;
@@ -34,7 +37,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -42,7 +45,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
     /**
      * The default value of the '{@link #getFailureProbability() <em>Failure Probability</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getFailureProbability()
      * @generated
      * @ordered
@@ -51,7 +54,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected FailureOccurrenceDescriptionImpl() {
@@ -60,7 +63,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -70,7 +73,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -80,7 +83,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -91,7 +94,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -101,18 +104,50 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #EnsureValidFailureProbabilityRange(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Ensure Valid Failure Probability Range</em>}' operation. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @see #EnsureValidFailureProbabilityRange(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String ENSURE_VALID_FAILURE_PROBABILITY_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "(self.failureProbability.oclAsType(Real) <= 1.0) and (self.failureProbability.oclAsType(Real) >= 0.0)";
+
+    /**
+     * The cached OCL invariant for the '
+     * {@link #EnsureValidFailureProbabilityRange(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Ensure Valid Failure Probability Range</em>}' invariant operation. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     * 
+     * @see #EnsureValidFailureProbabilityRange(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint ENSURE_VALID_FAILURE_PROBABILITY_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean EnsureValidFailureProbabilityRange(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (ENSURE_VALID_FAILURE_PROBABILITY_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(ReliabilityPackage.Literals.FAILURE_OCCURRENCE_DESCRIPTION);
+            try {
+                ENSURE_VALID_FAILURE_PROBABILITY_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(ENSURE_VALID_FAILURE_PROBABILITY_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV.createQuery(ENSURE_VALID_FAILURE_PROBABILITY_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, ReliabilityValidator.DIAGNOSTIC_SOURCE,
@@ -129,7 +164,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -143,7 +178,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -158,7 +193,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -173,7 +208,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -184,5 +219,14 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
         }
         return super.eIsSet(featureID);
     }
+
+    /**
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } // FailureOccurrenceDescriptionImpl

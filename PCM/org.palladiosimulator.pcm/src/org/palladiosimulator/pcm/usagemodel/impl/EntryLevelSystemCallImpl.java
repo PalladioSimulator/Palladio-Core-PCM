@@ -16,6 +16,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.parameter.VariableUsage;
 import org.palladiosimulator.pcm.repository.OperationProvidedRole;
 import org.palladiosimulator.pcm.repository.OperationSignature;
@@ -52,7 +55,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -69,7 +72,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EntryLevelSystemCallImpl() {
@@ -78,7 +81,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -88,7 +91,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -100,7 +103,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationProvidedRole basicGetProvidedRole_EntryLevelSystemCall() {
@@ -111,7 +114,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -123,7 +126,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -136,7 +139,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationSignature basicGetOperationSignature__EntryLevelSystemCall() {
@@ -148,7 +151,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -161,7 +164,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -175,7 +178,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -186,7 +189,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -197,7 +200,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -210,18 +213,54 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the '
+     * {@link #EntryLevelSystemCallMustReferenceProvidedRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Entry Level System Call Must Reference Provided Role Of ASystem</em>}' operation. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
+     * @see #EntryLevelSystemCallMustReferenceProvidedRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String ENTRY_LEVEL_SYSTEM_CALL_MUST_REFERENCE_PROVIDED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.oclIsTypeOf(pcm::system::System)";
+
+    /**
+     * The cached OCL invariant for the '
+     * {@link #EntryLevelSystemCallMustReferenceProvidedRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Entry Level System Call Must Reference Provided Role Of ASystem</em>}' invariant
+     * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #EntryLevelSystemCallMustReferenceProvidedRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint ENTRY_LEVEL_SYSTEM_CALL_MUST_REFERENCE_PROVIDED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean EntryLevelSystemCallMustReferenceProvidedRoleOfASystem(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (ENTRY_LEVEL_SYSTEM_CALL_MUST_REFERENCE_PROVIDED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL);
+            try {
+                ENTRY_LEVEL_SYSTEM_CALL_MUST_REFERENCE_PROVIDED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                ENTRY_LEVEL_SYSTEM_CALL_MUST_REFERENCE_PROVIDED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(
+                        ENTRY_LEVEL_SYSTEM_CALL_MUST_REFERENCE_PROVIDED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
@@ -237,18 +276,54 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the '
+     * {@link #EntryLevelSystemCallSignatureMustMatchItsProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Entry Level System Call Signature Must Match Its Provided Role</em>}' operation. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
+     * @see #EntryLevelSystemCallSignatureMustMatchItsProvidedRole(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String ENTRY_LEVEL_SYSTEM_CALL_SIGNATURE_MUST_MATCH_ITS_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.providedRole_EntryLevelSystemCall.providedInterface__OperationProvidedRole.signatures__OperationInterface->includes(self.operationSignature__EntryLevelSystemCall)";
+
+    /**
+     * The cached OCL invariant for the '
+     * {@link #EntryLevelSystemCallSignatureMustMatchItsProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Entry Level System Call Signature Must Match Its Provided Role</em>}' invariant
+     * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #EntryLevelSystemCallSignatureMustMatchItsProvidedRole(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint ENTRY_LEVEL_SYSTEM_CALL_SIGNATURE_MUST_MATCH_ITS_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean EntryLevelSystemCallSignatureMustMatchItsProvidedRole(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (ENTRY_LEVEL_SYSTEM_CALL_SIGNATURE_MUST_MATCH_ITS_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL);
+            try {
+                ENTRY_LEVEL_SYSTEM_CALL_SIGNATURE_MUST_MATCH_ITS_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                ENTRY_LEVEL_SYSTEM_CALL_SIGNATURE_MUST_MATCH_ITS_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(
+                        ENTRY_LEVEL_SYSTEM_CALL_SIGNATURE_MUST_MATCH_ITS_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
@@ -265,7 +340,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -285,7 +360,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -303,7 +378,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -331,7 +406,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -361,7 +436,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -388,7 +463,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -407,5 +482,14 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
         }
         return super.eIsSet(featureID);
     }
+
+    /**
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } // EntryLevelSystemCallImpl

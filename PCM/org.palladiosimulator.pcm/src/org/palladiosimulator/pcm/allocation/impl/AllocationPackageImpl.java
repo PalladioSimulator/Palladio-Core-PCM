@@ -59,28 +59,28 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class AllocationPackageImpl extends EPackageImpl implements AllocationPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass allocationContextEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass allocationEClass = null;
@@ -93,7 +93,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.palladiosimulator.pcm.allocation.AllocationPackage#eNS_URI
      * @see #init()
@@ -105,7 +105,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -118,7 +118,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
      * This method is used to initialize {@link AllocationPackage#eINSTANCE} when that field is
      * accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -275,7 +275,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -285,7 +285,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -295,7 +295,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -305,7 +305,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -315,7 +315,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -325,7 +325,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -335,7 +335,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -345,7 +345,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -355,7 +355,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -365,7 +365,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -375,7 +375,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isCreated = false;
@@ -383,7 +383,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void createPackageContents() {
@@ -407,7 +407,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isInitialized = false;
@@ -415,7 +415,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void initializePackageContents() {
@@ -453,19 +453,19 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
         this.initEReference(this.getAllocationContext_ResourceContainer_AllocationContext(),
                 theResourceenvironmentPackage.getResourceContainer(), null, "resourceContainer_AllocationContext", null,
                 1, 1, AllocationContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAllocationContext_AssemblyContext_AllocationContext(),
                 theCompositionPackage.getAssemblyContext(), null, "assemblyContext_AllocationContext", null, 0, 1,
                 AllocationContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAllocationContext_Allocation_AllocationContext(), this.getAllocation(),
                 this.getAllocation_AllocationContexts_Allocation(), "allocation_AllocationContext", null, 1, 1,
                 AllocationContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAllocationContext_EventChannel__AllocationContext(),
                 theCompositionPackage.getEventChannel(), null, "eventChannel__AllocationContext", null, 0, 1,
                 AllocationContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         EOperation op = this.addEOperation(this.allocationContextEClass, this.ecorePackage.getEBoolean(),
                 "OneAssemblyContextOrOneEventChannelShouldBeReferred", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -482,10 +482,10 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
         this.initEReference(this.getAllocation_TargetResourceEnvironment_Allocation(),
                 theResourceenvironmentPackage.getResourceEnvironment(), null, "targetResourceEnvironment_Allocation",
                 null, 0, 1, Allocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAllocation_System_Allocation(), theSystemPackage.getSystem(), null,
                 "system_Allocation", null, 1, 1, Allocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAllocation_AllocationContexts_Allocation(), this.getAllocationContext(),
                 this.getAllocationContext_Allocation_AllocationContext(), "allocationContexts_Allocation", null, 0, -1,
                 Allocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
@@ -510,42 +510,6 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
         g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-        // Create annotations
-        // http://www.eclipse.org/emf/2002/Ecore
-        this.createEcoreAnnotations();
-        // http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
-        this.createPivotAnnotations();
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createEcoreAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore";
-        this.addAnnotation(this, source,
-                new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                        "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "validationDelegates",
-                        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" });
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createPivotAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
-        this.addAnnotation(this.allocationContextEClass.getEOperations().get(0), source, new String[] { "body",
-                "not(self.assemblyContext_AllocationContext.oclIsUndefined()) xor not(self.eventChannel__AllocationContext.oclIsUndefined())" });
-        this.addAnnotation(this.allocationEClass.getEOperations().get(0), source, new String[] { "body",
-                "-- Get all AssemblyContexts used by this system, that is \n-- 1) the AssemblyContexts directly used in the system and \nself.system_Allocation.assemblyContexts__ComposedStructure\n-- 2) the AssemblyContexts used by SubSystems in the System. Note that if a SubSystem also contains other Subsystems,\n-- we need to get those AssemblyContexts too: Thus, we use a closure here\n->union(self.system_Allocation.assemblyContexts__ComposedStructure->closure(\nencapsulatedComponent__AssemblyContext->select(composites|composites.oclIsTypeOf(pcm::subsystem::SubSystem)).oclAsType(pcm::subsystem::SubSystem)\n.assemblyContexts__ComposedStructure))\n--Now, after we collected all AssemblyContexts somehow used, we check whether they need to be allocated \n--and if yes, if they are allocated.\n->forAll(assemblyCtx|\n--AssemblyContexts that contain SubSystems do not need to be allocated\nassemblyCtx.encapsulatedComponent__AssemblyContext.oclIsTypeOf(pcm::subsystem::SubSystem) or\n--All others need to be allocated. \nself.allocationContexts_Allocation->select(allocationCtx|\nallocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)" });
-        this.addAnnotation(this.allocationEClass.getEOperations().get(1), source, new String[] { "body",
-                "self.allocationContexts_Allocation->forAll(a | self.allocationContexts_Allocation->forAll(b | \n    --- if a and b are not on the same server\n    (a.resourceContainer_AllocationContext <> b.resourceContainer_AllocationContext \n    and\n    --  and if the assembly contexts of a and b are connected\n      self.system_Allocation.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::AssemblyConnector)).oclAsType(pcm::core::composition::AssemblyConnector)->exists(conn | \n         (conn.providingAssemblyContext_AssemblyConnector = a.assemblyContext_AllocationContext  \n         and \n         conn.requiringAssemblyContext_AssemblyConnector = b.assemblyContext_AllocationContext )\n         or \n          (conn.providingAssemblyContext_AssemblyConnector = b.assemblyContext_AllocationContext  \n         and \n         conn.requiringAssemblyContext_AssemblyConnector = a.assemblyContext_AllocationContext )\n       )\n     )\n     -- then the servers have to be connected by a linking resource\n     implies \n     self.targetResourceEnvironment_Allocation.linkingResources__ResourceEnvironment->exists(l | \n        -- l connects the two\n        l.connectedResourceContainers_LinkingResource->includes(a.resourceContainer_AllocationContext)\n        and \n        l.connectedResourceContainers_LinkingResource->includes(b.resourceContainer_AllocationContext)\n     )\n  ))" });
     }
 
 } // AllocationPackageImpl

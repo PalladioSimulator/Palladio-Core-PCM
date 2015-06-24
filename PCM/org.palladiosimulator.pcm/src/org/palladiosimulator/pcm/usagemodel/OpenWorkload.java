@@ -34,7 +34,7 @@ public interface OpenWorkload extends Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -49,12 +49,13 @@ public interface OpenWorkload extends Workload {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Inter Arrival Time Open Workload</em>' containment reference.
      * @see #setInterArrivalTime_OpenWorkload(PCMRandomVariable)
      * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getOpenWorkload_InterArrivalTime_OpenWorkload()
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getOpenWorkload_PCMRandomVariable
      * @model opposite="openWorkload_PCMRandomVariable" containment="true" required="true"
+     *        ordered="false"
      * @generated
      */
     PCMRandomVariable getInterArrivalTime_OpenWorkload();
@@ -64,7 +65,7 @@ public interface OpenWorkload extends Workload {
      * {@link org.palladiosimulator.pcm.usagemodel.OpenWorkload#getInterArrivalTime_OpenWorkload
      * <em>Inter Arrival Time Open Workload</em>}' containment reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Inter Arrival Time Open Workload</em>' containment
      *            reference.
@@ -74,10 +75,14 @@ public interface OpenWorkload extends Workload {
     void setInterArrivalTime_OpenWorkload(PCMRandomVariable value);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not self.interArrivalTime_OpenWorkload.oclIsUndefined() and self.interArrivalTime_OpenWorkload.specification <> \'\''"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.interArrivalTime_OpenWorkload.oclIsUndefined() and self.interArrivalTime_OpenWorkload.specification <> \'\''"
      * @generated
      */
     boolean InterArrivalTimeInOpenWorkloadNeedsToBeSpecified(DiagnosticChain diagnostics, Map<Object, Object> context);

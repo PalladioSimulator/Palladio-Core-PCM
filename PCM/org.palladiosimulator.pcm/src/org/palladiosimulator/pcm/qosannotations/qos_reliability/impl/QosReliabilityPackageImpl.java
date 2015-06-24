@@ -58,21 +58,21 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliabilityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass specifiedReliabilityAnnotationEClass = null;
@@ -85,7 +85,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.palladiosimulator.pcm.qosannotations.qos_reliability.QosReliabilityPackage#eNS_URI
      * @see #init()
@@ -97,7 +97,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -110,7 +110,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
      * This method is used to initialize {@link QosReliabilityPackage#eINSTANCE} when that field is
      * accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -267,7 +267,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -277,7 +277,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -287,7 +287,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -297,7 +297,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isCreated = false;
@@ -305,7 +305,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void createPackageContents() {
@@ -322,7 +322,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isInitialized = false;
@@ -330,7 +330,7 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void initializePackageContents() {
@@ -399,45 +399,6 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
         g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-        // Create annotations
-        // http://www.eclipse.org/emf/2002/Ecore
-        this.createEcoreAnnotations();
-        // http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
-        this.createPivotAnnotations();
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createEcoreAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore";
-        this.addAnnotation(this, source,
-                new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                        "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "validationDelegates",
-                        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" });
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createPivotAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
-        this.addAnnotation(this.specifiedReliabilityAnnotationEClass.getEOperations().get(0), source, new String[] {
-                "body",
-                "(self.role_SpecifiedQoSAnnotation.oclIsTypeOf(pcm::repository::OperationRequiredRole)) and (self.role_SpecifiedQoSAnnotation.oclAsType(pcm::repository::OperationRequiredRole).requiringEntity_RequiredRole.oclIsTypeOf(pcm::system::System))\n\n\n" });
-        this.addAnnotation(this.specifiedReliabilityAnnotationEClass.getEOperations().get(1), source, new String[] {
-                "body",
-                "self.externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation.failureProbability.oclAsType(Real)->sum()<=1.0" });
-        this.addAnnotation(this.specifiedReliabilityAnnotationEClass.getEOperations().get(2), source, new String[] {
-                "body",
-                "self.externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation->forAll(x:pcm::reliability::ExternalFailureOccurrenceDescription,y:pcm::reliability::ExternalFailureOccurrenceDescription  | x<>y implies x.failureType__ExternalFailureOccurrenceDescription <> y.failureType__ExternalFailureOccurrenceDescription )" });
     }
 
 } // QosReliabilityPackageImpl

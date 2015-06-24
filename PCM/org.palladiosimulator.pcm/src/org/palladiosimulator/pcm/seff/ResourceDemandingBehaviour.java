@@ -49,7 +49,7 @@ public interface ResourceDemandingBehaviour extends Identifier {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -64,13 +64,13 @@ public interface ResourceDemandingBehaviour extends Identifier {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Abstract Loop Action Resource Demanding Behaviour</em>'
      *         container reference.
      * @see #setAbstractLoopAction_ResourceDemandingBehaviour(AbstractLoopAction)
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getResourceDemandingBehaviour_AbstractLoopAction_ResourceDemandingBehaviour()
      * @see org.palladiosimulator.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop
-     * @model opposite="bodyBehaviour_Loop" transient="false"
+     * @model opposite="bodyBehaviour_Loop" transient="false" ordered="false"
      * @generated
      */
     AbstractLoopAction getAbstractLoopAction_ResourceDemandingBehaviour();
@@ -100,13 +100,13 @@ public interface ResourceDemandingBehaviour extends Identifier {
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Abstract Branch Transition Resource Demanding Behaviour</em>'
      *         container reference.
      * @see #setAbstractBranchTransition_ResourceDemandingBehaviour(AbstractBranchTransition)
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getResourceDemandingBehaviour_AbstractBranchTransition_ResourceDemandingBehaviour()
      * @see org.palladiosimulator.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition
-     * @model opposite="branchBehaviour_BranchTransition" transient="false"
+     * @model opposite="branchBehaviour_BranchTransition" transient="false" ordered="false"
      * @generated
      */
     AbstractBranchTransition getAbstractBranchTransition_ResourceDemandingBehaviour();
@@ -137,7 +137,7 @@ public interface ResourceDemandingBehaviour extends Identifier {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Steps Behaviour</em>' containment reference list.
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getResourceDemandingBehaviour_Steps_Behaviour()
      * @see org.palladiosimulator.pcm.seff.AbstractAction#getResourceDemandingBehaviour_AbstractAction
@@ -148,28 +148,40 @@ public interface ResourceDemandingBehaviour extends Identifier {
     EList<AbstractAction> getSteps_Behaviour();
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() = 1'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() = 1'"
      * @generated
      */
     boolean ExactlyOneStopAction(DiagnosticChain diagnostics, Map<Object, Object> context);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.steps_Behaviour->select(s|s.oclIsTypeOf(StartAction))->size() = 1'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.steps_Behaviour->select(s|s.oclIsTypeOf(StartAction))->size() = 1'"
      * @generated
      */
     boolean ExactlyOneStartAction(DiagnosticChain diagnostics, Map<Object, Object> context);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined()) and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined())'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined()) and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined())'"
      * @generated
      */
     boolean EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(DiagnosticChain diagnostics,

@@ -95,266 +95,266 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass passiveResourceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass basicComponentEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass implementationComponentTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass repositoryComponentEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass providedRoleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass parameterEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass dataTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass repositoryEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass interfaceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass requiredCharacterisationEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass eventGroupEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass eventTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass signatureEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass exceptionTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass infrastructureSignatureEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass infrastructureInterfaceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass infrastructureRequiredRoleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass requiredRoleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass operationSignatureEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass operationInterfaceEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass operationRequiredRoleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass sourceRoleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass sinkRoleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass operationProvidedRoleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass infrastructureProvidedRoleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass completeComponentTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass providesComponentTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass compositeComponentEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass primitiveDataTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass collectionDataTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass compositeDataTypeEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass innerDeclarationEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass roleEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EEnum parameterModifierEEnum = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EEnum componentTypeEEnum = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EEnum primitiveTypeEnumEEnum = null;
@@ -367,7 +367,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.palladiosimulator.pcm.repository.RepositoryPackage#eNS_URI
      * @see #init()
@@ -379,7 +379,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -392,7 +392,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
      * This method is used to initialize {@link RepositoryPackage#eINSTANCE} when that field is
      * accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -549,7 +549,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -559,7 +559,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -569,7 +569,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -579,7 +579,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -589,7 +589,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -599,7 +599,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -609,7 +609,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -619,7 +619,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -629,7 +629,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -639,7 +639,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -649,7 +649,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -659,7 +659,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -669,7 +669,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -679,7 +679,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -689,7 +689,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -699,7 +699,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -709,7 +709,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -719,7 +719,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -729,7 +729,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -739,7 +739,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -749,7 +749,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -759,7 +759,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -769,7 +769,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -779,7 +779,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -789,7 +789,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -799,7 +799,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -809,7 +809,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -819,7 +819,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -829,7 +829,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -839,7 +839,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -849,7 +849,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -859,7 +859,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -869,7 +869,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -879,7 +879,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -889,7 +889,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -899,7 +899,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -909,7 +909,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -919,7 +919,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -929,7 +929,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -939,7 +939,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -949,7 +949,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -959,7 +959,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -969,7 +969,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -979,7 +979,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -989,7 +989,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -999,7 +999,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1009,7 +1009,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1019,7 +1019,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1029,7 +1029,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1039,7 +1039,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1049,7 +1049,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1059,7 +1059,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1069,7 +1069,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1079,7 +1079,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1089,7 +1089,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1099,7 +1099,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1109,7 +1109,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1119,7 +1119,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1129,7 +1129,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1139,7 +1139,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1149,7 +1149,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1159,7 +1159,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1169,7 +1169,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1179,7 +1179,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1189,7 +1189,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1199,7 +1199,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1209,7 +1209,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1219,7 +1219,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1229,7 +1229,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1239,7 +1239,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1249,7 +1249,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1259,7 +1259,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1269,7 +1269,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1279,7 +1279,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1289,7 +1289,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1299,7 +1299,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1309,7 +1309,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1319,7 +1319,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1329,7 +1329,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1339,7 +1339,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1349,7 +1349,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1359,7 +1359,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1369,7 +1369,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1379,7 +1379,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1389,7 +1389,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1399,7 +1399,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1409,7 +1409,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1419,7 +1419,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1429,7 +1429,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1439,7 +1439,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1449,7 +1449,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1459,7 +1459,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1469,7 +1469,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1479,7 +1479,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1489,7 +1489,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1499,7 +1499,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isCreated = false;
@@ -1507,7 +1507,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void createPackageContents() {
@@ -1662,7 +1662,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isInitialized = false;
@@ -1670,7 +1670,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void initializePackageContents() {
@@ -1742,17 +1742,17 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
         this.initEReference(this.getPassiveResource_Capacity_PassiveResource(), theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_PassiveResource_capacity_PCMRandomVariable(),
                 "capacity_PassiveResource", null, 1, 1, PassiveResource.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getPassiveResource_BasicComponent_PassiveResource(), this.getBasicComponent(),
                 this.getBasicComponent_PassiveResource_BasicComponent(), "basicComponent_PassiveResource", null, 1, 1,
                 PassiveResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getPassiveResource_ResourceTimeoutFailureType__PassiveResource(),
                 theReliabilityPackage.getResourceTimeoutFailureType(),
                 theReliabilityPackage.getResourceTimeoutFailureType_PassiveResource__ResourceTimeoutFailureType(),
                 "resourceTimeoutFailureType__PassiveResource", null, 0, 1, PassiveResource.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
 
         this.initEClass(this.basicComponentEClass, BasicComponent.class, "BasicComponent", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
@@ -1789,7 +1789,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEAttribute(this.getImplementationComponentType_ComponentType(), this.getComponentType(),
                 "componentType", "BUSINESS_COMPONENT", 1, 1, ImplementationComponentType.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.implementationComponentTypeEClass, this.ecorePackage.getEBoolean(),
                 "RequiredInterfacesHaveToConformToCompleteType", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1846,7 +1846,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
         this.initEReference(this.getRepositoryComponent_Repository__RepositoryComponent(), this.getRepository(),
                 this.getRepository_Components__Repository(), "repository__RepositoryComponent", null, 1, 1,
                 RepositoryComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.providedRoleEClass, ProvidedRole.class, "ProvidedRole", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
@@ -1854,49 +1854,49 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
                 theEntityPackage.getInterfaceProvidingEntity(),
                 theEntityPackage.getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity(),
                 "providingEntity_ProvidedRole", null, 1, 1, ProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getParameter_DataType__Parameter(), this.getDataType(), null, "dataType__Parameter",
                 null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getParameter_InfrastructureSignature__Parameter(), this.getInfrastructureSignature(),
                 this.getInfrastructureSignature_Parameters__InfrastructureSignature(),
                 "infrastructureSignature__Parameter", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getParameter_OperationSignature__Parameter(), this.getOperationSignature(),
                 this.getOperationSignature_Parameters__OperationSignature(), "operationSignature__Parameter", null, 0,
                 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getParameter_EventType__Parameter(), this.getEventType(),
                 this.getEventType_Parameter__EventType(), "eventType__Parameter", null, 0, 1, Parameter.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEAttribute(this.getParameter_ParameterName(), this.ecorePackage.getEString(), "parameterName", null, 1,
                 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED);
+                !IS_DERIVED, !IS_ORDERED);
         this.initEAttribute(this.getParameter_Modifier__Parameter(), this.getParameterModifier(), "modifier__Parameter",
                 null, 1, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getParameter_ResourceSignature__Parameter(),
                 theResourcetypePackage.getResourceSignature(),
                 theResourcetypePackage.getResourceSignature_Parameter__ResourceSignature(),
                 "resourceSignature__Parameter", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.dataTypeEClass, DataType.class, "DataType", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getDataType_Repository__DataType(), this.getRepository(),
                 this.getRepository_DataTypes__Repository(), "repository__DataType", null, 1, 1, DataType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.repositoryEClass, Repository.class, "Repository", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getRepository_RepositoryDescription(), this.ecorePackage.getEString(),
                 "repositoryDescription", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getRepository_Components__Repository(), this.getRepositoryComponent(),
                 this.getRepositoryComponent_Repository__RepositoryComponent(), "components__Repository", null, 0, -1,
                 Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
@@ -1929,7 +1929,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
         this.initEReference(this.getInterface_Repository__Interface(), this.getRepository(),
                 this.getRepository_Interfaces__Repository(), "repository__Interface", null, 1, 1, Interface.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.interfaceEClass, this.ecorePackage.getEBoolean(), "NoProtocolTypeIDUsedTwice", 0,
                 1, IS_UNIQUE, IS_ORDERED);
@@ -1946,14 +1946,14 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
         this.initEAttribute(this.getRequiredCharacterisation_Type(),
                 theParameterPackage.getVariableCharacterisationType(), "type", null, 1, 1,
                 RequiredCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getRequiredCharacterisation_Parameter(), this.getParameter(), null, "parameter", null,
                 1, 1, RequiredCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getRequiredCharacterisation_Interface_RequiredCharacterisation(), this.getInterface(),
                 this.getInterface_RequiredCharacterisations(), "interface_RequiredCharacterisation", null, 1, 1,
                 RequiredCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.eventGroupEClass, EventGroup.class, "EventGroup", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
@@ -1967,11 +1967,11 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
         this.initEReference(this.getEventType_Parameter__EventType(), this.getParameter(),
                 this.getParameter_EventType__Parameter(), "parameter__EventType", null, 1, 1, EventType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getEventType_EventGroup__EventType(), this.getEventGroup(),
                 this.getEventGroup_EventTypes__EventGroup(), "eventGroup__EventType", null, 1, 1, EventType.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.signatureEClass, Signature.class, "Signature", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
@@ -1986,10 +1986,10 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getExceptionType_ExceptionName(), this.ecorePackage.getEString(), "exceptionName",
                 null, 1, 1, ExceptionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEAttribute(this.getExceptionType_ExceptionMessage(), this.ecorePackage.getEString(),
                 "exceptionMessage", null, 1, 1, ExceptionType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.infrastructureSignatureEClass, InfrastructureSignature.class, "InfrastructureSignature",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2002,7 +2002,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
                 this.getInfrastructureInterface_InfrastructureSignatures__InfrastructureInterface(),
                 "infrastructureInterface__InfrastructureSignature", null, 1, 1, InfrastructureSignature.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.infrastructureInterfaceEClass, InfrastructureInterface.class, "InfrastructureInterface",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2018,7 +2018,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
         this.initEReference(this.getInfrastructureRequiredRole_RequiredInterface__InfrastructureRequiredRole(),
                 this.getInfrastructureInterface(), null, "requiredInterface__InfrastructureRequiredRole", null, 1, 1,
                 InfrastructureRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.requiredRoleEClass, RequiredRole.class, "RequiredRole", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
@@ -2026,21 +2026,21 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
                 theEntityPackage.getInterfaceRequiringEntity(),
                 theEntityPackage.getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity(),
                 "requiringEntity_RequiredRole", null, 1, 1, RequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.operationSignatureEClass, OperationSignature.class, "OperationSignature", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getOperationSignature_Interface__OperationSignature(), this.getOperationInterface(),
                 this.getOperationInterface_Signatures__OperationInterface(), "interface__OperationSignature", null, 1,
                 1, OperationSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getOperationSignature_Parameters__OperationSignature(), this.getParameter(),
                 this.getParameter_OperationSignature__Parameter(), "parameters__OperationSignature", null, 0, -1,
                 OperationSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getOperationSignature_ReturnType__OperationSignature(), this.getDataType(), null,
                 "returnType__OperationSignature", null, 0, 1, OperationSignature.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.operationSignatureEClass, this.ecorePackage.getEBoolean(),
                 "ParameterNamesHaveToBeUniqueForASignature", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2074,33 +2074,33 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
         this.initEReference(this.getOperationRequiredRole_RequiredInterface__OperationRequiredRole(),
                 this.getOperationInterface(), null, "requiredInterface__OperationRequiredRole", null, 1, 1,
                 OperationRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.sourceRoleEClass, SourceRole.class, "SourceRole", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getSourceRole_EventGroup__SourceRole(), this.getEventGroup(), null,
                 "eventGroup__SourceRole", null, 1, 1, SourceRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.sinkRoleEClass, SinkRole.class, "SinkRole", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getSinkRole_EventGroup__SinkRole(), this.getEventGroup(), null, "eventGroup__SinkRole",
                 null, 1, 1, SinkRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.operationProvidedRoleEClass, OperationProvidedRole.class, "OperationProvidedRole",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getOperationProvidedRole_ProvidedInterface__OperationProvidedRole(),
                 this.getOperationInterface(), null, "providedInterface__OperationProvidedRole", null, 1, 1,
                 OperationProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.infrastructureProvidedRoleEClass, InfrastructureProvidedRole.class,
                 "InfrastructureProvidedRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getInfrastructureProvidedRole_ProvidedInterface__InfrastructureProvidedRole(),
                 this.getInfrastructureInterface(), null, "providedInterface__InfrastructureProvidedRole", null, 1, 1,
                 InfrastructureProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.completeComponentTypeEClass, CompleteComponentType.class, "CompleteComponentType",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2150,13 +2150,13 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getPrimitiveDataType_Type(), this.getPrimitiveTypeEnum(), "type", null, 1, 1,
                 PrimitiveDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, IS_ORDERED);
+                !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.collectionDataTypeEClass, CollectionDataType.class, "CollectionDataType", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getCollectionDataType_InnerType_CollectionDataType(), this.getDataType(), null,
                 "innerType_CollectionDataType", null, 1, 1, CollectionDataType.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.compositeDataTypeEClass, CompositeDataType.class, "CompositeDataType", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -2172,11 +2172,11 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getInnerDeclaration_Datatype_InnerDeclaration(), this.getDataType(), null,
                 "datatype_InnerDeclaration", null, 1, 1, InnerDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getInnerDeclaration_CompositeDataType_InnerDeclaration(), this.getCompositeDataType(),
                 this.getCompositeDataType_InnerDeclaration_CompositeDataType(), "compositeDataType_InnerDeclaration",
                 null, 1, 1, InnerDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.roleEClass, Role.class, "Role", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2199,65 +2199,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
         this.addEEnumLiteral(this.primitiveTypeEnumEEnum, PrimitiveTypeEnum.CHAR);
         this.addEEnumLiteral(this.primitiveTypeEnumEEnum, PrimitiveTypeEnum.BYTE);
         this.addEEnumLiteral(this.primitiveTypeEnumEEnum, PrimitiveTypeEnum.LONG);
-
-        // Create annotations
-        // http://www.eclipse.org/emf/2002/Ecore
-        this.createEcoreAnnotations();
-        // http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
-        this.createPivotAnnotations();
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createEcoreAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore";
-        this.addAnnotation(this, source,
-                new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                        "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "validationDelegates",
-                        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" });
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createPivotAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
-        this.addAnnotation(this.basicComponentEClass.getEOperations().get(0), source, new String[] { "body",
-                "self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |\n  p1 <> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID <> p2.seffTypeID))" });
-        this.addAnnotation(this.implementationComponentTypeEClass.getEOperations().get(0), source, new String[] {
-                "body",
-                "-- ImplementationTypes required Interfaces have to be a subset\n-- of CompleteComponentType required Interfaces #\n--\n-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.\n--\n-- Recursive Query for parent Interface IDs\n-- see \'lpar2005.pdf\' (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #\n--let parentInterfaces : Bag(Interface) =\n--\tself.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc1 : Bag(Interface) = Bag{} |\n--\t\tacc1->union(pt.requiredRoles->iterate(r : RequiredRole; acc2 : Bag(Interface) = Bag{} |\n--\t\t\tacc2->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n--\t\t))\n--\t) in\n--let anchestorInterfaces : Bag(Interface) =\n--\tself.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc3 : Bag(Interface) = Bag{} |\n--\t\tacc3->union(pt.requiredRoles->iterate(r : RequiredRole; acc4 : Bag(Interface) = Bag{} |\n--\t\t\tacc4->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n--\t\t))\n--\t)->union( -- union with anchestors found in former recursion #\n--\t\tself.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc5 : Bag(Interface) = Bag{} |\n--\t\t\tacc5->union(pt.requiredRoles->iterate(r : RequiredRole; acc6 : Bag(Interface) = Bag{} |\n--\t\t\t\tacc6->union(r.requiredInterface.parentInterface.anchestorInterfaces) --already Set/Bag\n--\t\t\t))\n--\t\t)\n--\t) in\n-- Directly required interfaces need to be a subset of required anchestorInterfaces of Supertype #\n--anchestorInterfaces.identifier.id->includesAll(\n--\tself.requiredRoles->iterate(p : RequiredRole; acc7 : Bag(String) = Bag{} |\n--\t\tacc7->union(p.requiredInterface.identifier.id->asBag())\n--\t)\t\n--)\ntrue" });
-        this.addAnnotation(this.implementationComponentTypeEClass.getEOperations().get(1), source, new String[] {
-                "body",
-                "-- ### EXACT COPY FROM ABOVE ###\n-- ImplementationComponentTypes provided Interfaces have to be a superset\n-- of CompleteComponentType provided Interfaces #\n--\n-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.\n--\n-- Recursive Query for parent Interface IDs\n-- see \'lpar2005.pdf\' (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #\n--let parentInterfaces : Bag(Interface) =\n--\tself.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |\n--\t\tacc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n--\t) in\n--let anchestorInterfaces : Bag(Interface) =\n--\tself.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |\n--\t\tacc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n--\t)->union( -- union with anchestors found in former recursion #\n--\t\tself.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |\n--\t\t\tacc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag\n--\t\t)\n--\t) in\n\t-- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #\n--\tanchestorInterfaces.identifier.id->includesAll(\n--\t\tself.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |\n--\t\t\tpt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |\n--\t\t\t\tacc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #\n--\t\t\t)\n--\t\t)\n--\t)\ntrue" });
-        this.addAnnotation(this.implementationComponentTypeEClass.getEOperations().get(2), source, new String[] {
-                "body",
-                "-- assures that InfrastructureComponents only have InfrastructureInterfaces and that BusinessComponents only have OperationInterfaces or EventGroups\nif self.componentType = ComponentType::INFRASTRUCTURE_COMPONENT then\n\tself.providedRoles_InterfaceProvidingEntity->select(role | role.oclIsTypeOf(OperationInterface) or role.oclIsTypeOf(EventGroup))->size() = 0\nelse if self.componentType = ComponentType::BUSINESS_COMPONENT then\n\tself.providedRoles_InterfaceProvidingEntity->select(role | role.oclIsTypeOf(InfrastructureInterface))->size() = 0\nelse\n\t1 = 0\nendif\nendif" });
-        this.addAnnotation(this.implementationComponentTypeEClass.getEOperations().get(3), source, new String[] {
-                "body",
-                "-- ImplementationComponent has to provide the same or more interfaces like the CompleteComponentType (if set) #\n\tif\n\t\t -- apply constraint only for non-empty CompleteComponentTypes #\n\t\tself.parentCompleteComponentTypes->notEmpty()\n\tthen\n\t\tlet\n\t\t\t--own interfaces:\n\t\t\townInterfaces : Set(OperationInterface)\n\t\t\t  = self.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole)->asSet()\n    in    \n    \t--complete type interfaces:\n    \tself.parentCompleteComponentTypes->forAll\n      ( p : CompleteComponentType |\n        (\n        \tp.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole)->asSet()\n        \t-\n        \townInterfaces\n      \t)->isEmpty()\n    \t)\n\telse\n\t\ttrue\n\tendif" });
-        this.addAnnotation(this.implementationComponentTypeEClass.getEOperations().get(4), source, new String[] {
-                "body",
-                "-- ImplementationComponent has to require the same or fewer interfaces like the CompleteComponentType (if set) #\n\tif\n\t\t-- apply constraint only for non-empty CompleteComponentTypes #\n\t\tself.parentCompleteComponentTypes->notEmpty()\n\tthen\n\t    let\n\t      --own interfaces:\n\t      ownInterfaces : Set(OperationInterface) \n\t        = self.requiredRoles_InterfaceRequiringEntity->select(rr|rr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole)->asSet()\n\t    in\n\t      --complete type interfaces:\n\t      self.parentCompleteComponentTypes->forAll\n\t      ( p : CompleteComponentType |\n\t      \t(\n\t\t      \townInterfaces\n\t\t        -\n\t\t        p.requiredRoles_InterfaceRequiringEntity->select(rr|rr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole)->asSet()\n\t      \t)->isEmpty()\n\t    \t)\n\telse\n\t\ttrue\n\tendif" });
-        this.addAnnotation(this.interfaceEClass.getEOperations().get(0), source, new String[] { "body",
-                "self.protocols__Interface->forAll(p1, p2 |\np1.protocolTypeID <> p2.protocolTypeID)\n" });
-        this.addAnnotation(this.operationSignatureEClass.getEOperations().get(0), source, new String[] { "body",
-                "self.parameters__OperationSignature->isUnique(p : Parameter |\n\tp.parameterName\n)" });
-        this.addAnnotation(this.operationInterfaceEClass.getEOperations().get(0), source, new String[] { "body",
-                "-- full signature has to be unique \n-- (use of ocl-tupels) #\nlet sigs : Bag(\n\t-- parameters: Sequence of DataType, NOT name #\n\t-- exceptions have not to be considered #\n\tTuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) \n) = \nself.signatures__OperationInterface->collect(sig : OperationSignature |\n\tTuple{\n\t\treturnType : DataType = sig.returnType__OperationSignature,\n\t\tserviceName : String = sig.entityName,\n\t\tparameters : Sequence(DataType) = sig.parameters__OperationSignature.dataType__Parameter\n\t}\n)\nin\nsigs->isUnique(s|s)" });
-        this.addAnnotation(this.completeComponentTypeEClass.getEOperations().get(0), source, new String[] { "body",
-                "(\n\tself.oclIsTypeOf(CompleteComponentType)\n\tor\n\tself.oclIsTypeOf(ImplementationComponentType)\n\tor\n\tself.oclIsTypeOf(CompositeComponent)\n\tor\n\tself.oclIsTypeOf(BasicComponent)\n)\nimplies\n(\n\tself.providedRoles_InterfaceProvidingEntity->size() >= 1\n\tor\n\tself.requiredRoles_InterfaceRequiringEntity->size() >= 1\n)" });
-        this.addAnnotation(this.completeComponentTypeEClass.getEOperations().get(1), source, new String[] { "body",
-                "-- CompleteTypes provided Interfaces have to be a superset\n-- of ProvidesComponentType provided Interfaces #\n--\n-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.\n--\n-- Recursive Query for parent Interface IDs\n-- see \"lpar2005.pdf\" (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #\n--let parentInterfaces : Bag(Interface) =\n--\tself.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |\n--\t\tacc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n--\t) in\n--let anchestorInterfaces : Bag(Interface) =\n--\tself.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |\n--\t\tacc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n--\t)->union( -- union with anchestors found in former recursion #\n--\t\tself.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |\n--\t\t\tacc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag\n--\t\t)\n--\t) in\n--\t-- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #\n--\tanchestorInterfaces.identifier.id->includesAll(\n--\t\tself.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |\n--\t\t\tpt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |\n--\t\t\t\tacc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #\n--\t\t\t)\n--\t\t)\n--\t)\ntrue" });
-        this.addAnnotation(this.providesComponentTypeEClass.getEOperations().get(0), source, new String[] { "body",
-                "self.oclIsTypeOf(ProvidesComponentType)\nimplies\nself.providedRoles_InterfaceProvidingEntity->size() >= 1" });
     }
 
 } // RepositoryPackageImpl

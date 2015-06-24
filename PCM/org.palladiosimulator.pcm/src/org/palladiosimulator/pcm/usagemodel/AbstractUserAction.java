@@ -36,7 +36,7 @@ public interface AbstractUserAction extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -50,12 +50,12 @@ public interface AbstractUserAction extends Entity {
      * of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Successor</em>' reference.
      * @see #setSuccessor(AbstractUserAction)
      * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getAbstractUserAction_Successor()
      * @see org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getPredecessor
-     * @model opposite="predecessor"
+     * @model opposite="predecessor" ordered="false"
      * @generated
      */
     AbstractUserAction getSuccessor();
@@ -64,7 +64,7 @@ public interface AbstractUserAction extends Entity {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getSuccessor
      * <em>Successor</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Successor</em>' reference.
      * @see #getSuccessor()
@@ -81,12 +81,12 @@ public interface AbstractUserAction extends Entity {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Predecessor</em>' reference.
      * @see #setPredecessor(AbstractUserAction)
      * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getAbstractUserAction_Predecessor()
      * @see org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getSuccessor
-     * @model opposite="successor"
+     * @model opposite="successor" ordered="false"
      * @generated
      */
     AbstractUserAction getPredecessor();
@@ -95,7 +95,7 @@ public interface AbstractUserAction extends Entity {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getPredecessor
      * <em>Predecessor</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Predecessor</em>' reference.
      * @see #getPredecessor()
@@ -113,13 +113,13 @@ public interface AbstractUserAction extends Entity {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Scenario Behaviour Abstract User Action</em>' container
      *         reference.
      * @see #setScenarioBehaviour_AbstractUserAction(ScenarioBehaviour)
      * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getAbstractUserAction_ScenarioBehaviour_AbstractUserAction()
      * @see org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getActions_ScenarioBehaviour
-     * @model opposite="actions_ScenarioBehaviour" required="true" transient="false"
+     * @model opposite="actions_ScenarioBehaviour" required="true" transient="false" ordered="false"
      * @generated
      */
     ScenarioBehaviour getScenarioBehaviour_AbstractUserAction();
@@ -129,7 +129,7 @@ public interface AbstractUserAction extends Entity {
      * {@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getScenarioBehaviour_AbstractUserAction
      * <em>Scenario Behaviour Abstract User Action</em>}' container reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Scenario Behaviour Abstract User Action</em>' container
      *            reference.

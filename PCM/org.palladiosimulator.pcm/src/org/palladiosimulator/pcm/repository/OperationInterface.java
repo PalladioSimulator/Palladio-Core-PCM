@@ -33,7 +33,7 @@ public interface OperationInterface extends Interface {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -58,10 +58,14 @@ public interface OperationInterface extends Interface {
     EList<OperationSignature> getSignatures__OperationInterface();
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='-- full signature has to be unique \n-- (use of ocl-tupels) #\nlet sigs : Bag(\n\t-- parameters: Sequence of DataType, NOT name #\n\t-- exceptions have not to be considered #\n\tTuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) \n) = \nself.signatures__OperationInterface->collect(sig : OperationSignature |\n\tTuple{\n\t\treturnType : DataType = sig.returnType__OperationSignature,\n\t\tserviceName : String = sig.entityName,\n\t\tparameters : Sequence(DataType) = sig.parameters__OperationSignature.dataType__Parameter\n\t}\n)\nin\nsigs->isUnique(s|s)'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='-- full signature has to be unique \r\n-- (use of ocl-tupels) #\r\nlet sigs : Bag(\r\n\t-- parameters: Sequence of DataType, NOT name #\r\n\t-- exceptions have not to be considered #\r\n\tTuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) \r\n) = \r\nself.signatures__OperationInterface->collect(sig : OperationSignature |\r\n\tTuple{\r\n\t\treturnType : DataType = sig.returnType__OperationSignature,\r\n\t\tserviceName : String = sig.entityName,\r\n\t\tparameters : Sequence(DataType) = sig.parameters__OperationSignature.dataType__Parameter\r\n\t}\r\n)\r\nin\r\nsigs->isUnique(s|s)'"
      * @generated
      */
     boolean SignaturesHaveToBeUniqueForAnInterface(DiagnosticChain diagnostics, Map<Object, Object> context);

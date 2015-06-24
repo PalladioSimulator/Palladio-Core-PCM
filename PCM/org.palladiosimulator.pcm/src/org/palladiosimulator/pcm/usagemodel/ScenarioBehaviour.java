@@ -55,7 +55,7 @@ public interface ScenarioBehaviour extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -70,12 +70,12 @@ public interface ScenarioBehaviour extends Entity {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Usage Scenario Senario Behaviour</em>' container reference.
      * @see #setUsageScenario_SenarioBehaviour(UsageScenario)
      * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getScenarioBehaviour_UsageScenario_SenarioBehaviour()
      * @see org.palladiosimulator.pcm.usagemodel.UsageScenario#getScenarioBehaviour_UsageScenario
-     * @model opposite="scenarioBehaviour_UsageScenario" transient="false"
+     * @model opposite="scenarioBehaviour_UsageScenario" transient="false" ordered="false"
      * @generated
      */
     UsageScenario getUsageScenario_SenarioBehaviour();
@@ -85,7 +85,7 @@ public interface ScenarioBehaviour extends Entity {
      * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getUsageScenario_SenarioBehaviour
      * <em>Usage Scenario Senario Behaviour</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Usage Scenario Senario Behaviour</em>' container
      *            reference.
@@ -104,12 +104,12 @@ public interface ScenarioBehaviour extends Entity {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Branch Transition Scenario Behaviour</em>' container reference.
      * @see #setBranchTransition_ScenarioBehaviour(BranchTransition)
      * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getScenarioBehaviour_BranchTransition_ScenarioBehaviour()
      * @see org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition
-     * @model opposite="branchedBehaviour_BranchTransition" transient="false"
+     * @model opposite="branchedBehaviour_BranchTransition" transient="false" ordered="false"
      * @generated
      */
     BranchTransition getBranchTransition_ScenarioBehaviour();
@@ -119,7 +119,7 @@ public interface ScenarioBehaviour extends Entity {
      * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getBranchTransition_ScenarioBehaviour
      * <em>Branch Transition Scenario Behaviour</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Branch Transition Scenario Behaviour</em>' container
      *            reference.
@@ -138,12 +138,12 @@ public interface ScenarioBehaviour extends Entity {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Loop Scenario Behaviour</em>' container reference.
      * @see #setLoop_ScenarioBehaviour(Loop)
      * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getScenarioBehaviour_Loop_ScenarioBehaviour()
      * @see org.palladiosimulator.pcm.usagemodel.Loop#getBodyBehaviour_Loop
-     * @model opposite="bodyBehaviour_Loop" transient="false"
+     * @model opposite="bodyBehaviour_Loop" transient="false" ordered="false"
      * @generated
      */
     Loop getLoop_ScenarioBehaviour();
@@ -153,7 +153,7 @@ public interface ScenarioBehaviour extends Entity {
      * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getLoop_ScenarioBehaviour
      * <em>Loop Scenario Behaviour</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Loop Scenario Behaviour</em>' container reference.
      * @see #getLoop_ScenarioBehaviour()
@@ -173,7 +173,7 @@ public interface ScenarioBehaviour extends Entity {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Actions Scenario Behaviour</em>' containment reference list.
      * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getScenarioBehaviour_Actions_ScenarioBehaviour()
      * @see org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getScenarioBehaviour_AbstractUserAction
@@ -183,28 +183,40 @@ public interface ScenarioBehaviour extends Entity {
     EList<AbstractUserAction> getActions_ScenarioBehaviour();
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Start))->size() = 1'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Start))->size() = 1'"
      * @generated
      */
     boolean Exactlyonestart(DiagnosticChain diagnostics, Map<Object, Object> context);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Stop))->size() = 1'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Stop))->size() = 1'"
      * @generated
      */
     boolean Exactlyonestop(DiagnosticChain diagnostics, Map<Object, Object> context);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).predecessor.oclIsUndefined()) and not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).successor.oclIsUndefined())'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).predecessor.oclIsUndefined()) and not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).successor.oclIsUndefined())'"
      * @generated
      */
     boolean EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(DiagnosticChain diagnostics,

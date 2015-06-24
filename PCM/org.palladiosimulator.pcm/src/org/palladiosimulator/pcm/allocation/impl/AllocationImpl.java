@@ -16,6 +16,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.allocation.Allocation;
 import org.palladiosimulator.pcm.allocation.AllocationContext;
 import org.palladiosimulator.pcm.allocation.AllocationPackage;
@@ -46,14 +49,14 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AllocationImpl() {
@@ -62,7 +65,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -72,7 +75,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -84,7 +87,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceEnvironment basicGetTargetResourceEnvironment_Allocation() {
@@ -95,7 +98,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -108,7 +111,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -120,7 +123,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public org.palladiosimulator.pcm.system.System basicGetSystem_Allocation() {
@@ -131,7 +134,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -142,7 +145,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -153,18 +156,66 @@ public class AllocationImpl extends EntityImpl implements Allocation {
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Each Assembly Context Within System Has To Be Allocated Exactly Once</em>}' operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @see #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "-- Get all AssemblyContexts used by this system, that is \n"
+            + "-- 1) the AssemblyContexts directly used in the system and \n"
+            + "self.system_Allocation.assemblyContexts__ComposedStructure\n"
+            + "-- 2) the AssemblyContexts used by SubSystems in the System. Note that if a SubSystem also contains other Subsystems,\n"
+            + "-- we need to get those AssemblyContexts too: Thus, we use a closure here\n"
+            + "->union(self.system_Allocation.assemblyContexts__ComposedStructure->closure(\n"
+            + "encapsulatedComponent__AssemblyContext->select(composites|composites.oclIsTypeOf(pcm::subsystem::SubSystem)).oclAsType(pcm::subsystem::SubSystem)\n"
+            + ".assemblyContexts__ComposedStructure))\n"
+            + "--Now, after we collected all AssemblyContexts somehow used, we check whether they need to be allocated \n"
+            + "--and if yes, if they are allocated.\n" + "->forAll(assemblyCtx|\n"
+            + "--AssemblyContexts that contain SubSystems do not need to be allocated\n"
+            + "assemblyCtx.encapsulatedComponent__AssemblyContext.oclIsTypeOf(pcm::subsystem::SubSystem) or\n"
+            + "--All others need to be allocated. \n" + "self.allocationContexts_Allocation->select(allocationCtx|\n"
+            + "allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Each Assembly Context Within System Has To Be Allocated Exactly Once</em>}' invariant
+     * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(AllocationPackage.Literals.ALLOCATION);
+            try {
+                EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(
+                        EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, AllocationValidator.DIAGNOSTIC_SOURCE,
@@ -180,18 +231,72 @@ public class AllocationImpl extends EntityImpl implements Allocation {
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the '
+     * {@link #CommunicatingServersHaveToBeConnectedByLinkingResource(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Communicating Servers Have To Be Connected By Linking Resource</em>}' operation. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
+     * @see #CommunicatingServersHaveToBeConnectedByLinkingResource(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String COMMUNICATING_SERVERS_HAVE_TO_BE_CONNECTED_BY_LINKING_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.allocationContexts_Allocation->forAll(a | self.allocationContexts_Allocation->forAll(b | \n"
+            + "    --- if a and b are not on the same server\n"
+            + "    (a.resourceContainer_AllocationContext <> b.resourceContainer_AllocationContext \n" + "    and\n"
+            + "    --  and if the assembly contexts of a and b are connected\n"
+            + "      self.system_Allocation.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::AssemblyConnector)).oclAsType(pcm::core::composition::AssemblyConnector)->exists(conn | \n"
+            + "         (conn.providingAssemblyContext_AssemblyConnector = a.assemblyContext_AllocationContext  \n"
+            + "         and \n"
+            + "         conn.requiringAssemblyContext_AssemblyConnector = b.assemblyContext_AllocationContext )\n"
+            + "         or \n"
+            + "          (conn.providingAssemblyContext_AssemblyConnector = b.assemblyContext_AllocationContext  \n"
+            + "         and \n"
+            + "         conn.requiringAssemblyContext_AssemblyConnector = a.assemblyContext_AllocationContext )\n"
+            + "       )\n" + "     )\n" + "     -- then the servers have to be connected by a linking resource\n"
+            + "     implies \n"
+            + "     self.targetResourceEnvironment_Allocation.linkingResources__ResourceEnvironment->exists(l | \n"
+            + "        -- l connects the two\n"
+            + "        l.connectedResourceContainers_LinkingResource->includes(a.resourceContainer_AllocationContext)\n"
+            + "        and \n"
+            + "        l.connectedResourceContainers_LinkingResource->includes(b.resourceContainer_AllocationContext)\n"
+            + "     )\n" + "  ))";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #CommunicatingServersHaveToBeConnectedByLinkingResource(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Communicating Servers Have To Be Connected By Linking Resource</em>}' invariant
+     * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #CommunicatingServersHaveToBeConnectedByLinkingResource(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint COMMUNICATING_SERVERS_HAVE_TO_BE_CONNECTED_BY_LINKING_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean CommunicatingServersHaveToBeConnectedByLinkingResource(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (COMMUNICATING_SERVERS_HAVE_TO_BE_CONNECTED_BY_LINKING_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(AllocationPackage.Literals.ALLOCATION);
+            try {
+                COMMUNICATING_SERVERS_HAVE_TO_BE_CONNECTED_BY_LINKING_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                COMMUNICATING_SERVERS_HAVE_TO_BE_CONNECTED_BY_LINKING_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(
+                        COMMUNICATING_SERVERS_HAVE_TO_BE_CONNECTED_BY_LINKING_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, AllocationValidator.DIAGNOSTIC_SOURCE,
@@ -208,7 +313,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -225,7 +330,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -240,7 +345,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -264,7 +369,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -287,7 +392,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -308,7 +413,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -323,5 +428,14 @@ public class AllocationImpl extends EntityImpl implements Allocation {
         }
         return super.eIsSet(featureID);
     }
+
+    /**
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } // AllocationImpl

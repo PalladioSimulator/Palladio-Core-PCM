@@ -16,6 +16,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl;
 import org.palladiosimulator.pcm.qosannotations.qos_reliability.QosReliabilityPackage;
 import org.palladiosimulator.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation;
@@ -41,14 +44,14 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SpecifiedReliabilityAnnotationImpl() {
@@ -57,7 +60,7 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -67,7 +70,7 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -80,18 +83,54 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Specified Reliability Annotation Must Reference Required Role Of ASystem</em>}'
+     * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String SPECIFIED_RELIABILITY_ANNOTATION_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "(self.role_SpecifiedQoSAnnotation.oclIsTypeOf(pcm::repository::OperationRequiredRole)) and (self.role_SpecifiedQoSAnnotation.oclAsType(pcm::repository::OperationRequiredRole).requiringEntity_RequiredRole.oclIsTypeOf(pcm::system::System))\n"
+            + "\n" + "\n" + "";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Specified Reliability Annotation Must Reference Required Role Of ASystem</em>}' invariant
+     * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint SPECIFIED_RELIABILITY_ANNOTATION_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (SPECIFIED_RELIABILITY_ANNOTATION_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(QosReliabilityPackage.Literals.SPECIFIED_RELIABILITY_ANNOTATION);
+            try {
+                SPECIFIED_RELIABILITY_ANNOTATION_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                SPECIFIED_RELIABILITY_ANNOTATION_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(
+                        SPECIFIED_RELIABILITY_ANNOTATION_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, QosReliabilityValidator.DIAGNOSTIC_SOURCE,
@@ -108,18 +147,53 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Sum Of Reliability Annotation Failure Probabilities Must Not Exceed1</em>}' operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @see #SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String SUM_OF_RELIABILITY_ANNOTATION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation.failureProbability.oclAsType(Real)->sum()<=1.0";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Sum Of Reliability Annotation Failure Probabilities Must Not Exceed1</em>}' invariant
+     * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint SUM_OF_RELIABILITY_ANNOTATION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (SUM_OF_RELIABILITY_ANNOTATION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(QosReliabilityPackage.Literals.SPECIFIED_RELIABILITY_ANNOTATION);
+            try {
+                SUM_OF_RELIABILITY_ANNOTATION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                SUM_OF_RELIABILITY_ANNOTATION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(
+                        SUM_OF_RELIABILITY_ANNOTATION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, QosReliabilityValidator.DIAGNOSTIC_SOURCE,
@@ -135,18 +209,53 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Multiple External Occurrence Descriptions Per Failure Type Not Allowed</em>}' operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @see #MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String MULTIPLE_EXTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.externalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation->forAll(x:pcm::reliability::ExternalFailureOccurrenceDescription,y:pcm::reliability::ExternalFailureOccurrenceDescription  | x<>y implies x.failureType__ExternalFailureOccurrenceDescription <> y.failureType__ExternalFailureOccurrenceDescription )";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Multiple External Occurrence Descriptions Per Failure Type Not Allowed</em>}' invariant
+     * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint MULTIPLE_EXTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (MULTIPLE_EXTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(QosReliabilityPackage.Literals.SPECIFIED_RELIABILITY_ANNOTATION);
+            try {
+                MULTIPLE_EXTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                MULTIPLE_EXTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(
+                        MULTIPLE_EXTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, QosReliabilityValidator.DIAGNOSTIC_SOURCE,
@@ -163,7 +272,7 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -181,7 +290,7 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -197,7 +306,7 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -211,7 +320,7 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -229,7 +338,7 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -244,7 +353,7 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -255,5 +364,14 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
         }
         return super.eIsSet(featureID);
     }
+
+    /**
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } // SpecifiedReliabilityAnnotationImpl

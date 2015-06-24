@@ -11,6 +11,9 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.repository.PassiveResource;
 import org.palladiosimulator.pcm.seff.AcquireAction;
 import org.palladiosimulator.pcm.seff.SeffPackage;
@@ -36,7 +39,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -63,7 +66,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AcquireActionImpl() {
@@ -72,7 +75,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -82,7 +85,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -93,7 +96,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public PassiveResource basicGetPassiveresource_AcquireAction() {
@@ -103,7 +106,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -114,7 +117,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -125,7 +128,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -135,7 +138,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -146,7 +149,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -156,18 +159,52 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the '
+     * {@link #TimeoutValueOfAcquireActionMustNotBeNegative(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Timeout Value Of Acquire Action Must Not Be Negative</em>}' operation. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
+     * @see #TimeoutValueOfAcquireActionMustNotBeNegative(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.timeoutValue.oclAsType(Real) >= 0.0";
+
+    /**
+     * The cached OCL invariant for the '
+     * {@link #TimeoutValueOfAcquireActionMustNotBeNegative(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Timeout Value Of Acquire Action Must Not Be Negative</em>}' invariant operation. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #TimeoutValueOfAcquireActionMustNotBeNegative(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean TimeoutValueOfAcquireActionMustNotBeNegative(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(SeffPackage.Literals.ACQUIRE_ACTION);
+            try {
+                TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV.createQuery(TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
@@ -184,7 +221,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -205,7 +242,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -226,7 +263,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -247,7 +284,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -262,5 +299,14 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
         }
         return super.eIsSet(featureID);
     }
+
+    /**
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } // AcquireActionImpl

@@ -30,7 +30,7 @@ public interface ResourceType extends Entity, UnitCarryingElement, ResourceInter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -45,12 +45,13 @@ public interface ResourceType extends Entity, UnitCarryingElement, ResourceInter
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Resource Repository Resource Type</em>' container reference.
      * @see #setResourceRepository_ResourceType(ResourceRepository)
      * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#getResourceType_ResourceRepository_ResourceType()
      * @see org.palladiosimulator.pcm.resourcetype.ResourceRepository#getAvailableResourceTypes_ResourceRepository
      * @model opposite="availableResourceTypes_ResourceRepository" required="true" transient="false"
+     *        ordered="false"
      * @generated
      */
     ResourceRepository getResourceRepository_ResourceType();
@@ -60,7 +61,7 @@ public interface ResourceType extends Entity, UnitCarryingElement, ResourceInter
      * {@link org.palladiosimulator.pcm.resourcetype.ResourceType#getResourceRepository_ResourceType
      * <em>Resource Repository Resource Type</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Resource Repository Resource Type</em>' container
      *            reference.

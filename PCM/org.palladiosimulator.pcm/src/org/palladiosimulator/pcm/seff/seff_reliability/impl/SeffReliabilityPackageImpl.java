@@ -60,35 +60,35 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReliabilityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass recoveryActionBehaviourEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass recoveryActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass failureHandlingEntityEClass = null;
@@ -101,7 +101,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage#eNS_URI
      * @see #init()
@@ -113,7 +113,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -126,7 +126,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
      * This method is used to initialize {@link SeffReliabilityPackage#eINSTANCE} when that field is
      * accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -283,7 +283,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -293,7 +293,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -303,7 +303,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -313,7 +313,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -323,7 +323,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -333,7 +333,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -343,7 +343,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -353,7 +353,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -363,7 +363,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -373,7 +373,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isCreated = false;
@@ -381,7 +381,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void createPackageContents() {
@@ -408,7 +408,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isInitialized = false;
@@ -416,7 +416,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void initializePackageContents() {
@@ -458,7 +458,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
                 this.getRecoveryAction(), this.getRecoveryAction_RecoveryActionBehaviours__RecoveryAction(),
                 "recoveryAction__RecoveryActionBehaviour", null, 1, 1, RecoveryActionBehaviour.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
 
         EOperation op = this.addEOperation(this.recoveryActionBehaviourEClass, this.ecorePackage.getEBoolean(),
                 "RecoveryActionBehaviourHasOnlyOnePredecessor", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -495,7 +495,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
         this.initEReference(this.getRecoveryAction_PrimaryBehaviour__RecoveryAction(),
                 this.getRecoveryActionBehaviour(), null, "primaryBehaviour__RecoveryAction", null, 1, 1,
                 RecoveryAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getRecoveryAction_RecoveryActionBehaviours__RecoveryAction(),
                 this.getRecoveryActionBehaviour(),
                 this.getRecoveryActionBehaviour_RecoveryAction__RecoveryActionBehaviour(),
@@ -519,44 +519,6 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
                 theReliabilityPackage.getFailureType(), null, "failureTypes_FailureHandlingEntity", null, 0, -1,
                 FailureHandlingEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-        // Create annotations
-        // http://www.eclipse.org/emf/2002/Ecore
-        this.createEcoreAnnotations();
-        // http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
-        this.createPivotAnnotations();
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createEcoreAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore";
-        this.addAnnotation(this, source,
-                new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                        "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "validationDelegates",
-                        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" });
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createPivotAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
-        this.addAnnotation(this.recoveryActionBehaviourEClass.getEOperations().get(0), source, new String[] { "body",
-                "not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->\n\texists(x,y:RecoveryActionBehaviour | x<>y\n\t\tand x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)\n\t\tand y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))" });
-        this.addAnnotation(this.recoveryActionBehaviourEClass.getEOperations().get(1), source, new String[] { "body",
-                "not self.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)" });
-        this.addAnnotation(this.recoveryActionBehaviourEClass.getEOperations().get(2), source, new String[] { "body",
-                "not self.failureHandlingAlternatives__RecoveryActionBehaviour->\n\texists(x,y:RecoveryActionBehaviour | x<>y and\n\tx.failureTypes_FailureHandlingEntity->\n\t\texists(f:pcm::reliability::FailureType |\n\t\ty.failureTypes_FailureHandlingEntity->includes(f)))" });
-        this.addAnnotation(this.recoveryActionEClass.getEOperations().get(0), source,
-                new String[] { "body", "self.primaryBehaviour__RecoveryAction <> null" });
     }
 
 } // SeffReliabilityPackageImpl

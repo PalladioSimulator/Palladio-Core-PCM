@@ -53,7 +53,7 @@ public interface Interface extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -94,7 +94,7 @@ public interface Interface extends Entity {
      * <em>Interface Required Characterisation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * <!-- begin-model-doc --> documentation of required variable characterisations <!--
      * end-model-doc -->
-     *
+     * 
      * @return the value of the '<em>Required Characterisations</em>' containment reference list.
      * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getInterface_RequiredCharacterisations()
      * @see org.palladiosimulator.pcm.repository.RequiredCharacterisation#getInterface_RequiredCharacterisation
@@ -125,7 +125,7 @@ public interface Interface extends Entity {
      * {@link org.palladiosimulator.pcm.repository.Interface#getRepository__Interface
      * <em>Repository Interface</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Repository Interface</em>' container reference.
      * @see #getRepository__Interface()
@@ -134,10 +134,14 @@ public interface Interface extends Entity {
     void setRepository__Interface(Repository value);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.protocols__Interface->forAll(p1, p2 |\np1.protocolTypeID <> p2.protocolTypeID)\n'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.protocols__Interface->forAll(p1, p2 |\r\np1.protocolTypeID <> p2.protocolTypeID)\r\n'"
      * @generated
      */
     boolean NoProtocolTypeIDUsedTwice(DiagnosticChain diagnostics, Map<Object, Object> context);

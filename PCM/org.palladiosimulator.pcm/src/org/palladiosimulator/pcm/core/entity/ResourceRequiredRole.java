@@ -33,7 +33,7 @@ public interface ResourceRequiredRole extends Role {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -46,12 +46,12 @@ public interface ResourceRequiredRole extends Role {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Required Resource Interface Resource Required Role</em>'
      *         reference.
      * @see #setRequiredResourceInterface__ResourceRequiredRole(ResourceInterface)
      * @see org.palladiosimulator.pcm.core.entity.EntityPackage#getResourceRequiredRole_RequiredResourceInterface__ResourceRequiredRole()
-     * @model required="true"
+     * @model required="true" ordered="false"
      * @generated
      */
     ResourceInterface getRequiredResourceInterface__ResourceRequiredRole();
@@ -61,7 +61,7 @@ public interface ResourceRequiredRole extends Role {
      * {@link org.palladiosimulator.pcm.core.entity.ResourceRequiredRole#getRequiredResourceInterface__ResourceRequiredRole
      * <em>Required Resource Interface Resource Required Role</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Required Resource Interface Resource Required Role</em>'
      *            reference.
@@ -82,14 +82,14 @@ public interface ResourceRequiredRole extends Role {
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Resource Interface Requiring Entity Resource Required Role</em>
      *         ' container reference.
      * @see #setResourceInterfaceRequiringEntity__ResourceRequiredRole(ResourceInterfaceRequiringEntity)
      * @see org.palladiosimulator.pcm.core.entity.EntityPackage#getResourceRequiredRole_ResourceInterfaceRequiringEntity__ResourceRequiredRole()
      * @see org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity#getResourceRequiredRoles__ResourceInterfaceRequiringEntity
      * @model opposite="resourceRequiredRoles__ResourceInterfaceRequiringEntity" required="true"
-     *        transient="false"
+     *        transient="false" ordered="false"
      * @generated
      */
     ResourceInterfaceRequiringEntity getResourceInterfaceRequiringEntity__ResourceRequiredRole();
@@ -99,7 +99,7 @@ public interface ResourceRequiredRole extends Role {
      * {@link org.palladiosimulator.pcm.core.entity.ResourceRequiredRole#getResourceInterfaceRequiringEntity__ResourceRequiredRole
      * <em>Resource Interface Requiring Entity Resource Required Role</em>}' container reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '
      *            <em>Resource Interface Requiring Entity Resource Required Role</em>' container

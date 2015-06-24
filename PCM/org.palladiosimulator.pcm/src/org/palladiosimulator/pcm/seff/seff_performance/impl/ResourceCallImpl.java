@@ -13,6 +13,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.core.PCMRandomVariable;
 import org.palladiosimulator.pcm.core.entity.ResourceRequiredRole;
 import org.palladiosimulator.pcm.resourcetype.ResourceSignature;
@@ -50,14 +53,14 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceCallImpl() {
@@ -66,7 +69,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -76,7 +79,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -88,7 +91,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAction__ResourceCall(
@@ -100,7 +103,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -111,7 +114,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -123,7 +126,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceRequiredRole basicGetResourceRequiredRole__ResourceCall() {
@@ -134,7 +137,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -147,7 +150,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -158,7 +161,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceSignature basicGetSignature__ResourceCall() {
@@ -168,7 +171,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -179,7 +182,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -190,7 +193,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetNumberOfCalls__ResourceCall(final PCMRandomVariable newNumberOfCalls__ResourceCall,
@@ -202,7 +205,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -213,18 +216,51 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the '
+     * {@link #ResourceSignatureBelongsToResourceRequiredRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Resource Signature Belongs To Resource Required Role</em>}' operation. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
+     * @see #ResourceSignatureBelongsToResourceRequiredRole(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.resourceSignatures__ResourceInterface->includes(self.signature__ResourceCall)";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #ResourceSignatureBelongsToResourceRequiredRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Resource Signature Belongs To Resource Required Role</em>}' invariant operation. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #ResourceSignatureBelongsToResourceRequiredRole(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean ResourceSignatureBelongsToResourceRequiredRole(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(SeffPerformancePackage.Literals.RESOURCE_CALL);
+            try {
+                RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV.createQuery(RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
@@ -240,18 +276,52 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the '
+     * {@link #ResourceRequiredRoleMustBeReferencedByComponent(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Resource Required Role Must Be Referenced By Component</em>}' operation. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
+     * @see #ResourceRequiredRoleMustBeReferencedByComponent(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String RESOURCE_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::ResourceInterfaceRequiringEntity)).oclAsType(pcm::core::entity::ResourceInterfaceRequiringEntity).resourceRequiredRoles__ResourceInterfaceRequiringEntity->includes(self.resourceRequiredRole__ResourceCall)";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #ResourceRequiredRoleMustBeReferencedByComponent(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Resource Required Role Must Be Referenced By Component</em>}' invariant operation. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #ResourceRequiredRoleMustBeReferencedByComponent(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint RESOURCE_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean ResourceRequiredRoleMustBeReferencedByComponent(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (RESOURCE_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(SeffPerformancePackage.Literals.RESOURCE_CALL);
+            try {
+                RESOURCE_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                RESOURCE_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(RESOURCE_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
@@ -267,18 +337,53 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Signature Role Combination Must Be Unique Within Abstract Internal Control Flow Action</em>
+     * }' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.action__ResourceCall.resourceCall__Action->select(call | call.resourceRequiredRole__ResourceCall=self.resourceRequiredRole__ResourceCall and call.signature__ResourceCall=self.signature__ResourceCall)->size() = 1";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Signature Role Combination Must Be Unique Within Abstract Internal Control Flow Action</em>
+     * }' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(SeffPerformancePackage.Literals.RESOURCE_CALL);
+            try {
+                SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(
+                        SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
                         SeffPerformanceValidator.RESOURCE_CALL__SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION,
@@ -295,7 +400,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -320,7 +425,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -337,7 +442,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -353,7 +458,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -379,7 +484,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -403,7 +508,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -427,7 +532,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -444,5 +549,14 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
         }
         return super.eIsSet(featureID);
     }
+
+    /**
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } // ResourceCallImpl

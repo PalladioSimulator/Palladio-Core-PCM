@@ -75,140 +75,140 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class CompositionPackageImpl extends EPackageImpl implements CompositionPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass delegationConnectorEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass connectorEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass composedStructureEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceRequiredDelegationConnectorEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass eventChannelEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass eventChannelSourceConnectorEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass eventChannelSinkConnectorEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass providedDelegationConnectorEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass requiredDelegationConnectorEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass assemblyConnectorEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass assemblyEventConnectorEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass sourceDelegationConnectorEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass sinkDelegationConnectorEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass assemblyInfrastructureConnectorEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass providedInfrastructureDelegationConnectorEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass requiredInfrastructureDelegationConnectorEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass requiredResourceDelegationConnectorEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass assemblyContextEClass = null;
@@ -221,7 +221,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#eNS_URI
      * @see #init()
@@ -233,7 +233,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -246,7 +246,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
      * This method is used to initialize {@link CompositionPackage#eINSTANCE} when that field is
      * accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -403,7 +403,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -413,7 +413,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -423,7 +423,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -433,7 +433,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -443,7 +443,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -453,7 +453,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -463,7 +463,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -473,7 +473,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -483,7 +483,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -493,7 +493,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -503,7 +503,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -513,7 +513,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -523,7 +523,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -533,7 +533,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -543,7 +543,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -553,7 +553,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -563,7 +563,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -573,7 +573,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -583,7 +583,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -593,7 +593,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -603,7 +603,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -613,7 +613,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -623,7 +623,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -633,7 +633,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -643,7 +643,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -653,7 +653,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -663,7 +663,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -673,7 +673,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -683,7 +683,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -693,7 +693,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -703,7 +703,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -713,7 +713,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -723,7 +723,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -733,7 +733,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -743,7 +743,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -753,7 +753,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -763,7 +763,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -773,7 +773,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -783,7 +783,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -793,7 +793,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -803,7 +803,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -813,7 +813,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -823,7 +823,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -833,7 +833,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -843,7 +843,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -853,7 +853,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -863,7 +863,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -873,7 +873,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -883,7 +883,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -893,7 +893,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -903,7 +903,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -913,7 +913,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -923,7 +923,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -933,7 +933,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -943,7 +943,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -953,7 +953,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -963,7 +963,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -973,7 +973,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -983,7 +983,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -993,7 +993,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1003,7 +1003,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1013,7 +1013,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1023,7 +1023,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1033,7 +1033,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1043,7 +1043,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1053,7 +1053,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1063,7 +1063,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1073,7 +1073,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1083,7 +1083,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1093,7 +1093,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1103,7 +1103,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1113,7 +1113,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1123,7 +1123,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1133,7 +1133,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1143,7 +1143,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -1153,7 +1153,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isCreated = false;
@@ -1161,7 +1161,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void createPackageContents() {
@@ -1309,7 +1309,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isInitialized = false;
@@ -1317,7 +1317,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void initializePackageContents() {
@@ -1372,7 +1372,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
         this.initEReference(this.getConnector_ParentStructure__Connector(), this.getComposedStructure(),
                 this.getComposedStructure_Connectors__ComposedStructure(), "parentStructure__Connector", null, 1, 1,
                 Connector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.composedStructureEClass, ComposedStructure.class, "ComposedStructure", IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1422,26 +1422,26 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
                 theEntityPackage.getResourceRequiredRole(), null,
                 "innerResourceRequiredRole_ResourceRequiredDelegationConnector", null, 1, 1,
                 ResourceRequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getResourceRequiredDelegationConnector_OuterResourceRequiredRole_ResourceRequiredDelegationConnector(),
                 theEntityPackage.getResourceRequiredRole(), null,
                 "outerResourceRequiredRole_ResourceRequiredDelegationConnector", null, 1, 1,
                 ResourceRequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getResourceRequiredDelegationConnector_ParentStructure_ResourceRequiredDelegationConnector(),
                 this.getComposedStructure(),
                 this.getComposedStructure_ResourceRequiredDelegationConnectors_ComposedStructure(),
                 "parentStructure_ResourceRequiredDelegationConnector", null, 1, 1,
                 ResourceRequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.eventChannelEClass, EventChannel.class, "EventChannel", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getEventChannel_EventGroup__EventChannel(), theRepositoryPackage.getEventGroup(), null,
                 "eventGroup__EventChannel", null, 1, 1, EventChannel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getEventChannel_EventChannelSourceConnector__EventChannel(),
                 this.getEventChannelSourceConnector(),
                 this.getEventChannelSourceConnector_EventChannel__EventChannelSourceConnector(),
@@ -1456,60 +1456,60 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
         this.initEReference(this.getEventChannel_ParentStructure__EventChannel(), this.getComposedStructure(),
                 this.getComposedStructure_EventChannel__ComposedStructure(), "parentStructure__EventChannel", null, 1,
                 1, EventChannel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.eventChannelSourceConnectorEClass, EventChannelSourceConnector.class,
                 "EventChannelSourceConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getEventChannelSourceConnector_SourceRole__EventChannelSourceRole(),
                 theRepositoryPackage.getSourceRole(), null, "sourceRole__EventChannelSourceRole", null, 1, 1,
                 EventChannelSourceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getEventChannelSourceConnector_AssemblyContext__EventChannelSourceConnector(),
                 this.getAssemblyContext(), null, "assemblyContext__EventChannelSourceConnector", null, 1, 1,
                 EventChannelSourceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getEventChannelSourceConnector_EventChannel__EventChannelSourceConnector(),
                 this.getEventChannel(), this.getEventChannel_EventChannelSourceConnector__EventChannel(),
                 "eventChannel__EventChannelSourceConnector", null, 1, 1, EventChannelSourceConnector.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.eventChannelSinkConnectorEClass, EventChannelSinkConnector.class,
                 "EventChannelSinkConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getEventChannelSinkConnector_SinkRole__EventChannelSinkConnector(),
                 theRepositoryPackage.getSinkRole(), null, "sinkRole__EventChannelSinkConnector", null, 1, 1,
                 EventChannelSinkConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getEventChannelSinkConnector_FilterCondition__EventChannelSinkConnector(),
                 theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_EventChannelSinkConnector__FilterCondition(),
                 "filterCondition__EventChannelSinkConnector", null, 0, 1, EventChannelSinkConnector.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getEventChannelSinkConnector_AssemblyContext__EventChannelSinkConnector(),
                 this.getAssemblyContext(), null, "assemblyContext__EventChannelSinkConnector", null, 1, 1,
                 EventChannelSinkConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getEventChannelSinkConnector_EventChannel__EventChannelSinkConnector(),
                 this.getEventChannel(), this.getEventChannel_EventChannelSinkConnector__EventChannel(),
                 "eventChannel__EventChannelSinkConnector", null, 1, 1, EventChannelSinkConnector.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
 
         this.initEClass(this.providedDelegationConnectorEClass, ProvidedDelegationConnector.class,
                 "ProvidedDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getProvidedDelegationConnector_InnerProvidedRole_ProvidedDelegationConnector(),
                 theRepositoryPackage.getOperationProvidedRole(), null, "innerProvidedRole_ProvidedDelegationConnector",
                 null, 1, 1, ProvidedDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getProvidedDelegationConnector_OuterProvidedRole_ProvidedDelegationConnector(),
                 theRepositoryPackage.getOperationProvidedRole(), null, "outerProvidedRole_ProvidedDelegationConnector",
                 null, 1, 1, ProvidedDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getProvidedDelegationConnector_AssemblyContext_ProvidedDelegationConnector(),
                 this.getAssemblyContext(), null, "assemblyContext_ProvidedDelegationConnector", null, 1, 1,
                 ProvidedDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.providedDelegationConnectorEClass, this.ecorePackage.getEBoolean(),
                 "ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure", 0, 1,
@@ -1537,15 +1537,15 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
         this.initEReference(this.getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector(),
                 theRepositoryPackage.getOperationRequiredRole(), null, "innerRequiredRole_RequiredDelegationConnector",
                 null, 1, 1, RequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector(),
                 theRepositoryPackage.getOperationRequiredRole(), null, "outerRequiredRole_RequiredDelegationConnector",
                 null, 1, 1, RequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getRequiredDelegationConnector_AssemblyContext_RequiredDelegationConnector(),
                 this.getAssemblyContext(), null, "assemblyContext_RequiredDelegationConnector", null, 1, 1,
                 RequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.requiredDelegationConnectorEClass, this.ecorePackage.getEBoolean(),
                 "RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure", 0, 1,
@@ -1584,19 +1584,19 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
         this.initEReference(this.getAssemblyConnector_RequiringAssemblyContext_AssemblyConnector(),
                 this.getAssemblyContext(), null, "requiringAssemblyContext_AssemblyConnector", null, 1, 1,
                 AssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAssemblyConnector_ProvidingAssemblyContext_AssemblyConnector(),
                 this.getAssemblyContext(), null, "providingAssemblyContext_AssemblyConnector", null, 1, 1,
                 AssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAssemblyConnector_ProvidedRole_AssemblyConnector(),
                 theRepositoryPackage.getOperationProvidedRole(), null, "providedRole_AssemblyConnector", null, 1, 1,
                 AssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAssemblyConnector_RequiredRole_AssemblyConnector(),
                 theRepositoryPackage.getOperationRequiredRole(), null, "requiredRole_AssemblyConnector", null, 1, 1,
                 AssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.assemblyConnectorEClass, this.ecorePackage.getEBoolean(),
                 "AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1633,55 +1633,55 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
         this.initEReference(this.getAssemblyEventConnector_SinkRole__AssemblyEventConnector(),
                 theRepositoryPackage.getSinkRole(), null, "sinkRole__AssemblyEventConnector", null, 1, 1,
                 AssemblyEventConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAssemblyEventConnector_SourceRole__AssemblyEventConnector(),
                 theRepositoryPackage.getSourceRole(), null, "sourceRole__AssemblyEventConnector", null, 1, 1,
                 AssemblyEventConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAssemblyEventConnector_SinkAssemblyContext__AssemblyEventConnector(),
                 this.getAssemblyContext(), null, "sinkAssemblyContext__AssemblyEventConnector", null, 1, 1,
                 AssemblyEventConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAssemblyEventConnector_SourceAssemblyContext__AssemblyEventConnector(),
                 this.getAssemblyContext(), null, "sourceAssemblyContext__AssemblyEventConnector", null, 1, 1,
                 AssemblyEventConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAssemblyEventConnector_FilterCondition__AssemblyEventConnector(),
                 theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_AssemblyEventConnector__FilterCondition(),
                 "filterCondition__AssemblyEventConnector", null, 0, 1, AssemblyEventConnector.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
 
         this.initEClass(this.sourceDelegationConnectorEClass, SourceDelegationConnector.class,
                 "SourceDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getSourceDelegationConnector_InnerSourceRole__SourceRole(),
                 theRepositoryPackage.getSourceRole(), null, "innerSourceRole__SourceRole", null, 1, 1,
                 SourceDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getSourceDelegationConnector_OuterSourceRole__SourceRole(),
                 theRepositoryPackage.getSourceRole(), null, "outerSourceRole__SourceRole", null, 1, 1,
                 SourceDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getSourceDelegationConnector_AssemblyContext__SourceDelegationConnector(),
                 this.getAssemblyContext(), null, "assemblyContext__SourceDelegationConnector", null, 1, 1,
                 SourceDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.sinkDelegationConnectorEClass, SinkDelegationConnector.class, "SinkDelegationConnector",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getSinkDelegationConnector_AssemblyContext__SinkDelegationConnector(),
                 this.getAssemblyContext(), null, "assemblyContext__SinkDelegationConnector", null, 1, 1,
                 SinkDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getSinkDelegationConnector_InnerSinkRole__SinkRole(),
                 theRepositoryPackage.getSinkRole(), null, "innerSinkRole__SinkRole", null, 1, 1,
                 SinkDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getSinkDelegationConnector_OuterSinkRole__SinkRole(),
                 theRepositoryPackage.getSinkRole(), null, "outerSinkRole__SinkRole", null, 1, 1,
                 SinkDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.assemblyInfrastructureConnectorEClass, AssemblyInfrastructureConnector.class,
                 "AssemblyInfrastructureConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1689,22 +1689,22 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
                 theRepositoryPackage.getInfrastructureProvidedRole(), null,
                 "providedRole__AssemblyInfrastructureConnector", null, 1, 1, AssemblyInfrastructureConnector.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAssemblyInfrastructureConnector_RequiredRole__AssemblyInfrastructureConnector(),
                 theRepositoryPackage.getInfrastructureRequiredRole(), null,
                 "requiredRole__AssemblyInfrastructureConnector", null, 1, 1, AssemblyInfrastructureConnector.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getAssemblyInfrastructureConnector_ProvidingAssemblyContext__AssemblyInfrastructureConnector(),
                 this.getAssemblyContext(), null, "providingAssemblyContext__AssemblyInfrastructureConnector", null, 1,
                 1, AssemblyInfrastructureConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getAssemblyInfrastructureConnector_RequiringAssemblyContext__AssemblyInfrastructureConnector(),
                 this.getAssemblyContext(), null, "requiringAssemblyContext__AssemblyInfrastructureConnector", null, 0,
                 1, AssemblyInfrastructureConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.providedInfrastructureDelegationConnectorEClass,
                 ProvidedInfrastructureDelegationConnector.class, "ProvidedInfrastructureDelegationConnector",
@@ -1714,18 +1714,18 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
                 theRepositoryPackage.getInfrastructureProvidedRole(), null,
                 "innerProvidedRole__ProvidedInfrastructureDelegationConnector", null, 1, 1,
                 ProvidedInfrastructureDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getProvidedInfrastructureDelegationConnector_OuterProvidedRole__ProvidedInfrastructureDelegationConnector(),
                 theRepositoryPackage.getInfrastructureProvidedRole(), null,
                 "outerProvidedRole__ProvidedInfrastructureDelegationConnector", null, 1, 1,
                 ProvidedInfrastructureDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getProvidedInfrastructureDelegationConnector_AssemblyContext__ProvidedInfrastructureDelegationConnector(),
                 this.getAssemblyContext(), null, "assemblyContext__ProvidedInfrastructureDelegationConnector", null, 1,
                 1, ProvidedInfrastructureDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.requiredInfrastructureDelegationConnectorEClass,
                 RequiredInfrastructureDelegationConnector.class, "RequiredInfrastructureDelegationConnector",
@@ -1735,18 +1735,18 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
                 theRepositoryPackage.getInfrastructureRequiredRole(), null,
                 "innerRequiredRole__RequiredInfrastructureDelegationConnector", null, 1, 1,
                 RequiredInfrastructureDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getRequiredInfrastructureDelegationConnector_OuterRequiredRole__RequiredInfrastructureDelegationConnector(),
                 theRepositoryPackage.getInfrastructureRequiredRole(), null,
                 "outerRequiredRole__RequiredInfrastructureDelegationConnector", null, 1, 1,
                 RequiredInfrastructureDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getRequiredInfrastructureDelegationConnector_AssemblyContext__RequiredInfrastructureDelegationConnector(),
                 this.getAssemblyContext(), null, "assemblyContext__RequiredInfrastructureDelegationConnector", null, 1,
                 1, RequiredInfrastructureDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.requiredResourceDelegationConnectorEClass, RequiredResourceDelegationConnector.class,
                 "RequiredResourceDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1754,91 +1754,36 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
                 this.getRequiredResourceDelegationConnector_AssemblyContext__RequiredResourceDelegationConnector(),
                 this.getAssemblyContext(), null, "assemblyContext__RequiredResourceDelegationConnector", null, 1, 1,
                 RequiredResourceDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getRequiredResourceDelegationConnector_InnerRequiredRole__RequiredResourceDelegationConnector(),
                 theEntityPackage.getResourceRequiredRole(), null,
                 "innerRequiredRole__RequiredResourceDelegationConnector", null, 1, 1,
                 RequiredResourceDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getRequiredResourceDelegationConnector_OuterRequiredRole__RequiredResourceDelegationConnector(),
                 theEntityPackage.getResourceRequiredRole(), null,
                 "outerRequiredRole__RequiredResourceDelegationConnector", null, 1, 1,
                 RequiredResourceDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.assemblyContextEClass, AssemblyContext.class, "AssemblyContext", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getAssemblyContext_ParentStructure__AssemblyContext(), this.getComposedStructure(),
                 this.getComposedStructure_AssemblyContexts__ComposedStructure(), "parentStructure__AssemblyContext",
                 null, 1, 1, AssemblyContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAssemblyContext_EncapsulatedComponent__AssemblyContext(),
                 theRepositoryPackage.getRepositoryComponent(), null, "encapsulatedComponent__AssemblyContext", null, 1,
                 1, AssemblyContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAssemblyContext_ConfigParameterUsages__AssemblyContext(),
                 theParameterPackage.getVariableUsage(),
                 theParameterPackage.getVariableUsage_AssemblyContext__VariableUsage(),
                 "configParameterUsages__AssemblyContext", null, 0, -1, AssemblyContext.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
-
-        // Create annotations
-        // http://www.eclipse.org/emf/2002/Ecore
-        this.createEcoreAnnotations();
-        // http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
-        this.createPivotAnnotations();
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createEcoreAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore";
-        this.addAnnotation(this, source,
-                new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                        "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "validationDelegates",
-                        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" });
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createPivotAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
-        this.addAnnotation(this.composedStructureEClass.getEOperations().get(0), source, new String[] { "body",
-                "self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->forAll( c1, c2 | c1 <> c2 implies c1.outerProvidedRole_ProvidedDelegationConnector <> c2.outerProvidedRole_ProvidedDelegationConnector)\n" });
-        this.addAnnotation(this.composedStructureEClass.getEOperations().get(1), source, new String[] { "body",
-                "self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::AssemblyConnector)).oclAsType(AssemblyConnector)->forAll( c1, c2 | ( (c1 <> c2) and ( c1.requiringAssemblyContext_AssemblyConnector = c2.requiringAssemblyContext_AssemblyConnector ) ) implies c1.requiredRole_AssemblyConnector <> c2.requiredRole_AssemblyConnector )\n" });
-        this.addAnnotation(this.providedDelegationConnectorEClass.getEOperations().get(0), source, new String[] {
-                "body",
-                "self.parentStructure__Connector = self.assemblyContext_ProvidedDelegationConnector.parentStructure__AssemblyContext" });
-        this.addAnnotation(this.providedDelegationConnectorEClass.getEOperations().get(1), source, new String[] {
-                "body",
-                "self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent__AssemblyContext" });
-        this.addAnnotation(this.requiredDelegationConnectorEClass.getEOperations().get(0), source, new String[] {
-                "body",
-                "self.parentStructure__Connector = self.assemblyContext_RequiredDelegationConnector.parentStructure__AssemblyContext" });
-        this.addAnnotation(this.requiredDelegationConnectorEClass.getEOperations().get(1), source, new String[] {
-                "body",
-                "self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.assemblyContext_RequiredDelegationConnector.encapsulatedComponent__AssemblyContext" });
-        this.addAnnotation(this.requiredDelegationConnectorEClass.getEOperations().get(2), source, new String[] {
-                "body",
-                "self.outerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole=self.parentStructure__Connector" });
-        this.addAnnotation(this.assemblyConnectorEClass.getEOperations().get(0), source, new String[] { "body",
-                "self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)\n\n" });
-        this.addAnnotation(this.assemblyConnectorEClass.getEOperations().get(1), source, new String[] { "body",
-                "self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)\n\n" });
-        this.addAnnotation(this.assemblyConnectorEClass.getEOperations().get(2), source, new String[] { "body",
-                "self.providedRole_AssemblyConnector.providedInterface__OperationProvidedRole = self.requiredRole_AssemblyConnector.requiredInterface__OperationRequiredRole" });
     }
 
 } // CompositionPackageImpl

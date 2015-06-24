@@ -16,6 +16,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
 import org.palladiosimulator.pcm.qosannotations.QoSAnnotations;
 import org.palladiosimulator.pcm.qosannotations.QosannotationsPackage;
@@ -48,14 +51,14 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected QoSAnnotationsImpl() {
@@ -64,7 +67,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -74,7 +77,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -88,7 +91,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -100,7 +103,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSystem_QoSAnnotations(
@@ -112,7 +115,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -123,7 +126,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -135,18 +138,53 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the '
+     * {@link #MultipleReliabilityAnnotationsPerExternalCallNotAllowed(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Multiple Reliability Annotations Per External Call Not Allowed</em>}' operation. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
+     * @see #MultipleReliabilityAnnotationsPerExternalCallNotAllowed(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String MULTIPLE_RELIABILITY_ANNOTATIONS_PER_EXTERNAL_CALL_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.specifiedQoSAnnotations_QoSAnnotations->select(oclIsTypeOf(pcm::qosannotations::qos_reliability::SpecifiedReliabilityAnnotation))->forAll( x, y | ( x<>y ) implies ( ( x.role_SpecifiedQoSAnnotation <> y.role_SpecifiedQoSAnnotation )  or ( x.signature_SpecifiedQoSAnnation <> y.signature_SpecifiedQoSAnnation ) ) )";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #MultipleReliabilityAnnotationsPerExternalCallNotAllowed(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Multiple Reliability Annotations Per External Call Not Allowed</em>}' invariant
+     * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #MultipleReliabilityAnnotationsPerExternalCallNotAllowed(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint MULTIPLE_RELIABILITY_ANNOTATIONS_PER_EXTERNAL_CALL_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean MultipleReliabilityAnnotationsPerExternalCallNotAllowed(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (MULTIPLE_RELIABILITY_ANNOTATIONS_PER_EXTERNAL_CALL_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(QosannotationsPackage.Literals.QO_SANNOTATIONS);
+            try {
+                MULTIPLE_RELIABILITY_ANNOTATIONS_PER_EXTERNAL_CALL_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                MULTIPLE_RELIABILITY_ANNOTATIONS_PER_EXTERNAL_CALL_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(
+                        MULTIPLE_RELIABILITY_ANNOTATIONS_PER_EXTERNAL_CALL_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, QosannotationsValidator.DIAGNOSTIC_SOURCE,
@@ -163,7 +201,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -187,7 +225,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -207,7 +245,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -222,7 +260,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -240,7 +278,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -266,7 +304,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -287,7 +325,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -302,5 +340,14 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
         }
         return super.eIsSet(featureID);
     }
+
+    /**
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } // QoSAnnotationsImpl

@@ -59,42 +59,42 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class ParameterPackageImpl extends EPackageImpl implements ParameterPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass variableUsageEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass variableCharacterisationEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass characterisedVariableEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EEnum variableCharacterisationTypeEEnum = null;
@@ -107,7 +107,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.palladiosimulator.pcm.parameter.ParameterPackage#eNS_URI
      * @see #init()
@@ -119,7 +119,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -132,7 +132,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
      * This method is used to initialize {@link ParameterPackage#eINSTANCE} when that field is
      * accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -280,7 +280,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -290,7 +290,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -300,7 +300,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -310,7 +310,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -320,7 +320,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -330,7 +330,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -340,7 +340,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -350,7 +350,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -360,7 +360,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -370,7 +370,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -380,7 +380,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -390,7 +390,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -400,7 +400,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -410,7 +410,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -420,7 +420,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -430,7 +430,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -440,7 +440,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -450,7 +450,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -460,7 +460,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -470,7 +470,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -480,7 +480,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isCreated = false;
@@ -488,7 +488,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void createPackageContents() {
@@ -528,7 +528,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isInitialized = false;
@@ -536,7 +536,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void initializePackageContents() {
@@ -580,26 +580,26 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
         this.initEReference(this.getVariableUsage_UserData_VariableUsage(), theUsagemodelPackage.getUserData(),
                 theUsagemodelPackage.getUserData_UserDataParameterUsages_UserData(), "userData_VariableUsage", null, 0,
                 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getVariableUsage_CallAction__VariableUsage(), theSeffPackage.getCallAction(),
                 theSeffPackage.getCallAction_InputVariableUsages__CallAction(), "callAction__VariableUsage", null, 0, 1,
                 VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getVariableUsage_SynchronisationPoint_VariableUsage(),
                 theSeffPackage.getSynchronisationPoint(),
                 theSeffPackage.getSynchronisationPoint_OutputParameterUsage_SynchronisationPoint(),
                 "synchronisationPoint_VariableUsage", null, 0, 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getVariableUsage_CallReturnAction__VariableUsage(),
                 theSeffPackage.getCallReturnAction(),
                 theSeffPackage.getCallReturnAction_ReturnVariableUsage__CallReturnAction(),
                 "callReturnAction__VariableUsage", null, 0, 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getVariableUsage_SetVariableAction_VariableUsage(),
                 theSeffPackage.getSetVariableAction(),
                 theSeffPackage.getSetVariableAction_LocalVariableUsages_SetVariableAction(),
                 "setVariableAction_VariableUsage", null, 0, 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getVariableUsage_SpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage(),
                 theQosannotationsPackage.getSpecifiedOutputParameterAbstraction(),
@@ -607,51 +607,52 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
                         .getSpecifiedOutputParameterAbstraction_ExpectedExternalOutputs_SpecifiedOutputParameterAbstraction(),
                 "specifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage", null, 0, 1,
                 VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getVariableUsage_AssemblyContext__VariableUsage(),
                 theCompositionPackage.getAssemblyContext(),
                 theCompositionPackage.getAssemblyContext_ConfigParameterUsages__AssemblyContext(),
                 "assemblyContext__VariableUsage", null, 0, 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getVariableUsage_EntryLevelSystemCall_InputParameterUsage(),
                 theUsagemodelPackage.getEntryLevelSystemCall(),
                 theUsagemodelPackage.getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall(),
                 "entryLevelSystemCall_InputParameterUsage", null, 0, 1, VariableUsage.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
         this.initEReference(this.getVariableUsage_EntryLevelSystemCall_OutputParameterUsage(),
                 theUsagemodelPackage.getEntryLevelSystemCall(),
                 theUsagemodelPackage.getEntryLevelSystemCall_OutputParameterUsages_EntryLevelSystemCall(),
                 "entryLevelSystemCall_OutputParameterUsage", null, 0, 1, VariableUsage.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
         this.initEReference(this.getVariableUsage_NamedReference__VariableUsage(),
                 theStoexPackage.getAbstractNamedReference(), null, "namedReference__VariableUsage", null, 1, 1,
                 VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.variableCharacterisationEClass, VariableCharacterisation.class, "VariableCharacterisation",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getVariableCharacterisation_Type(), this.getVariableCharacterisationType(), "type",
                 null, 1, 1, VariableCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
-                !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getVariableCharacterisation_Specification_VariableCharacterisation(),
                 theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_VariableCharacterisation_Specification(),
                 "specification_VariableCharacterisation", null, 1, 1, VariableCharacterisation.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
         this.initEReference(this.getVariableCharacterisation_VariableUsage_VariableCharacterisation(),
                 this.getVariableUsage(), this.getVariableUsage_VariableCharacterisation_VariableUsage(),
                 "variableUsage_VariableCharacterisation", null, 0, 1, VariableCharacterisation.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
 
         this.initEClass(this.characterisedVariableEClass, CharacterisedVariable.class, "CharacterisedVariable",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getCharacterisedVariable_CharacterisationType(),
                 this.getVariableCharacterisationType(), "characterisationType", null, 1, 1, CharacterisedVariable.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                !IS_ORDERED);
 
         // Initialize enums and add enum literals
         this.initEEnum(this.variableCharacterisationTypeEEnum, VariableCharacterisationType.class,

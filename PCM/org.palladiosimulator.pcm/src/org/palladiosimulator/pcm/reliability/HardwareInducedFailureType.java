@@ -38,7 +38,7 @@ public interface HardwareInducedFailureType extends FailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -54,13 +54,14 @@ public interface HardwareInducedFailureType extends FailureType {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Processing Resource Type Hardware Induced Failure Type</em>'
      *         reference.
      * @see #setProcessingResourceType__HardwareInducedFailureType(ProcessingResourceType)
      * @see org.palladiosimulator.pcm.reliability.ReliabilityPackage#getHardwareInducedFailureType_ProcessingResourceType__HardwareInducedFailureType()
      * @see org.palladiosimulator.pcm.resourcetype.ProcessingResourceType#getHardwareInducedFailureType__ProcessingResourceType
      * @model opposite="hardwareInducedFailureType__ProcessingResourceType" required="true"
+     *        ordered="false"
      * @generated
      */
     ProcessingResourceType getProcessingResourceType__HardwareInducedFailureType();
@@ -80,10 +81,14 @@ public interface HardwareInducedFailureType extends FailureType {
     void setProcessingResourceType__HardwareInducedFailureType(ProcessingResourceType value);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='( self.processingResourceType__HardwareInducedFailureType <> null ) and ( not ( self.processingResourceType__HardwareInducedFailureType.oclIsTypeOf( pcm::resourcetype::CommunicationLinkResourceType ) ) )'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='( self.processingResourceType__HardwareInducedFailureType <> null ) and ( not ( self.processingResourceType__HardwareInducedFailureType.oclIsTypeOf( pcm::resourcetype::CommunicationLinkResourceType ) ) )'"
      * @generated
      */
     boolean HardwareInducedFailureTypeHasProcessingResourceType(DiagnosticChain diagnostics,

@@ -38,7 +38,7 @@ public interface RequiredDelegationConnector extends DelegationConnector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,12 +51,12 @@ public interface RequiredDelegationConnector extends DelegationConnector {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Inner Required Role Required Delegation Connector</em>'
      *         reference.
      * @see #setInnerRequiredRole_RequiredDelegationConnector(OperationRequiredRole)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector()
-     * @model required="true"
+     * @model required="true" ordered="false"
      * @generated
      */
     OperationRequiredRole getInnerRequiredRole_RequiredDelegationConnector();
@@ -66,7 +66,7 @@ public interface RequiredDelegationConnector extends DelegationConnector {
      * {@link org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector#getInnerRequiredRole_RequiredDelegationConnector
      * <em>Inner Required Role Required Delegation Connector</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Inner Required Role Required Delegation Connector</em>'
      *            reference.
@@ -83,12 +83,12 @@ public interface RequiredDelegationConnector extends DelegationConnector {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Outer Required Role Required Delegation Connector</em>'
      *         reference.
      * @see #setOuterRequiredRole_RequiredDelegationConnector(OperationRequiredRole)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector()
-     * @model required="true"
+     * @model required="true" ordered="false"
      * @generated
      */
     OperationRequiredRole getOuterRequiredRole_RequiredDelegationConnector();
@@ -98,7 +98,7 @@ public interface RequiredDelegationConnector extends DelegationConnector {
      * {@link org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector#getOuterRequiredRole_RequiredDelegationConnector
      * <em>Outer Required Role Required Delegation Connector</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Outer Required Role Required Delegation Connector</em>'
      *            reference.
@@ -115,11 +115,11 @@ public interface RequiredDelegationConnector extends DelegationConnector {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Assembly Context Required Delegation Connector</em>' reference.
      * @see #setAssemblyContext_RequiredDelegationConnector(AssemblyContext)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getRequiredDelegationConnector_AssemblyContext_RequiredDelegationConnector()
-     * @model required="true"
+     * @model required="true" ordered="false"
      * @generated
      */
     AssemblyContext getAssemblyContext_RequiredDelegationConnector();
@@ -129,7 +129,7 @@ public interface RequiredDelegationConnector extends DelegationConnector {
      * {@link org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector#getAssemblyContext_RequiredDelegationConnector
      * <em>Assembly Context Required Delegation Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Assembly Context Required Delegation Connector</em>'
      *            reference.
@@ -139,30 +139,42 @@ public interface RequiredDelegationConnector extends DelegationConnector {
     void setAssemblyContext_RequiredDelegationConnector(AssemblyContext value);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.parentStructure__Connector = self.assemblyContext_RequiredDelegationConnector.parentStructure__AssemblyContext'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.parentStructure__Connector = self.assemblyContext_RequiredDelegationConnector.parentStructure__AssemblyContext'"
      * @generated
      */
     boolean RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(
             DiagnosticChain diagnostics, Map<Object, Object> context);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.assemblyContext_RequiredDelegationConnector.encapsulatedComponent__AssemblyContext'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.assemblyContext_RequiredDelegationConnector.encapsulatedComponent__AssemblyContext'"
      * @generated
      */
     boolean ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(DiagnosticChain diagnostics,
             Map<Object, Object> context);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.outerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole=self.parentStructure__Connector'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.outerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole=self.parentStructure__Connector'"
      * @generated
      */
     boolean RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector(

@@ -58,21 +58,21 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass pcmRandomVariableEClass = null;
@@ -85,7 +85,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.palladiosimulator.pcm.core.CorePackage#eNS_URI
      * @see #init()
@@ -97,7 +97,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -110,7 +110,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
      * This method is used to initialize {@link CorePackage#eINSTANCE} when that field is accessed.
      * Clients should not invoke it directly. Instead, they should simply access that field to
      * obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -268,7 +268,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -278,7 +278,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -288,7 +288,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -298,7 +298,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -308,7 +308,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -318,7 +318,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -328,7 +328,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -338,7 +338,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -348,7 +348,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -358,7 +358,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -368,7 +368,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -378,7 +378,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -388,7 +388,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -398,7 +398,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -408,7 +408,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -418,7 +418,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -428,7 +428,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -438,7 +438,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -448,7 +448,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -458,7 +458,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isCreated = false;
@@ -466,7 +466,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void createPackageContents() {
@@ -509,7 +509,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isInitialized = false;
@@ -517,7 +517,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void initializePackageContents() {
@@ -570,77 +570,77 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
                 theUsagemodelPackage.getClosedWorkload(),
                 theUsagemodelPackage.getClosedWorkload_ThinkTime_ClosedWorkload(), "closedWorkload_PCMRandomVariable",
                 null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getPCMRandomVariable_PassiveResource_capacity_PCMRandomVariable(),
                 theRepositoryPackage.getPassiveResource(),
                 theRepositoryPackage.getPassiveResource_Capacity_PassiveResource(),
                 "passiveResource_capacity_PCMRandomVariable", null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
         this.initEReference(this.getPCMRandomVariable_VariableCharacterisation_Specification(),
                 theParameterPackage.getVariableCharacterisation(),
                 theParameterPackage.getVariableCharacterisation_Specification_VariableCharacterisation(),
                 "variableCharacterisation_Specification", null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
         this.initEReference(this.getPCMRandomVariable_InfrastructureCall__PCMRandomVariable(),
                 theSeffPerformancePackage.getInfrastructureCall(),
                 theSeffPerformancePackage.getInfrastructureCall_NumberOfCalls__InfrastructureCall(),
                 "infrastructureCall__PCMRandomVariable", null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
         this.initEReference(this.getPCMRandomVariable_ResourceCall__PCMRandomVariable(),
                 theSeffPerformancePackage.getResourceCall(),
                 theSeffPerformancePackage.getResourceCall_NumberOfCalls__ResourceCall(),
                 "resourceCall__PCMRandomVariable", null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getPCMRandomVariable_ParametricResourceDemand_PCMRandomVariable(),
                 theSeffPerformancePackage.getParametricResourceDemand(),
                 theSeffPerformancePackage.getParametricResourceDemand_Specification_ParametericResourceDemand(),
                 "parametricResourceDemand_PCMRandomVariable", null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
         this.initEReference(this.getPCMRandomVariable_LoopAction_PCMRandomVariable(), theSeffPackage.getLoopAction(),
                 theSeffPackage.getLoopAction_IterationCount_LoopAction(), "loopAction_PCMRandomVariable", null, 0, 1,
                 PCMRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getPCMRandomVariable_GuardedBranchTransition_PCMRandomVariable(),
                 theSeffPackage.getGuardedBranchTransition(),
                 theSeffPackage.getGuardedBranchTransition_BranchCondition_GuardedBranchTransition(),
                 "guardedBranchTransition_PCMRandomVariable", null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
         this.initEReference(this.getPCMRandomVariable_SpecifiedExecutionTime_PCMRandomVariable(),
                 theQosPerformancePackage.getSpecifiedExecutionTime(),
                 theQosPerformancePackage.getSpecifiedExecutionTime_Specification_SpecifiedExecutionTime(),
                 "specifiedExecutionTime_PCMRandomVariable", null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
         this.initEReference(this.getPCMRandomVariable_EventChannelSinkConnector__FilterCondition(),
                 theCompositionPackage.getEventChannelSinkConnector(),
                 theCompositionPackage.getEventChannelSinkConnector_FilterCondition__EventChannelSinkConnector(),
                 "eventChannelSinkConnector__FilterCondition", null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
         this.initEReference(this.getPCMRandomVariable_AssemblyEventConnector__FilterCondition(),
                 theCompositionPackage.getAssemblyEventConnector(),
                 theCompositionPackage.getAssemblyEventConnector_FilterCondition__AssemblyEventConnector(),
                 "assemblyEventConnector__FilterCondition", null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
         this.initEReference(this.getPCMRandomVariable_Loop_LoopIteration(), theUsagemodelPackage.getLoop(),
                 theUsagemodelPackage.getLoop_LoopIteration_Loop(), "loop_LoopIteration", null, 0, 1,
                 PCMRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getPCMRandomVariable_OpenWorkload_PCMRandomVariable(),
                 theUsagemodelPackage.getOpenWorkload(),
                 theUsagemodelPackage.getOpenWorkload_InterArrivalTime_OpenWorkload(), "openWorkload_PCMRandomVariable",
                 null, 0, 1, PCMRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getPCMRandomVariable_Delay_TimeSpecification(), theUsagemodelPackage.getDelay(),
                 theUsagemodelPackage.getDelay_TimeSpecification_Delay(), "delay_TimeSpecification", null, 0, 1,
                 PCMRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getPCMRandomVariable_CommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable(),
                 theResourceenvironmentPackage.getCommunicationLinkResourceSpecification(),
@@ -648,7 +648,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
                         .getCommunicationLinkResourceSpecification_Throughput_CommunicationLinkResourceSpecification(),
                 "communicationLinkResourceSpecifcation_throughput_PCMRandomVariable", null, 0, 1,
                 PCMRandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getPCMRandomVariable_ProcessingResourceSpecification_processingRate_PCMRandomVariable(),
                 theResourceenvironmentPackage.getProcessingResourceSpecification(),
@@ -656,7 +656,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
                         .getProcessingResourceSpecification_ProcessingRate_ProcessingResourceSpecification(),
                 "processingResourceSpecification_processingRate_PCMRandomVariable", null, 0, 1, PCMRandomVariable.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getPCMRandomVariable_CommunicationLinkResourceSpecification_latency_PCMRandomVariable(),
                 theResourceenvironmentPackage.getCommunicationLinkResourceSpecification(),
@@ -664,7 +664,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
                         .getCommunicationLinkResourceSpecification_Latency_CommunicationLinkResourceSpecification(),
                 "communicationLinkResourceSpecification_latency_PCMRandomVariable", null, 0, 1, PCMRandomVariable.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         final EOperation op = this.addEOperation(this.pcmRandomVariableEClass, this.ecorePackage.getEBoolean(),
                 "SpecificationMustNotBeNULL", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -675,38 +675,6 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
         g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-        // Create annotations
-        // http://www.eclipse.org/emf/2002/Ecore
-        this.createEcoreAnnotations();
-        // http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
-        this.createPivotAnnotations();
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createEcoreAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore";
-        this.addAnnotation(this, source,
-                new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                        "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "validationDelegates",
-                        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" });
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createPivotAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
-        this.addAnnotation(this.pcmRandomVariableEClass.getEOperations().get(0), source,
-                new String[] { "body", "not self.specification.oclIsUndefined() and self.specification <> \'\'" });
     }
 
 } // CorePackageImpl

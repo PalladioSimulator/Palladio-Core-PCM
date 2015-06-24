@@ -60,35 +60,35 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerformancePackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass infrastructureCallEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass resourceCallEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass parametricResourceDemandEClass = null;
@@ -101,7 +101,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage#eNS_URI
      * @see #init()
@@ -113,7 +113,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -126,7 +126,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
      * This method is used to initialize {@link SeffPerformancePackage#eINSTANCE} when that field is
      * accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -283,7 +283,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -293,7 +293,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -303,7 +303,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -313,7 +313,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -323,7 +323,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -333,7 +333,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -343,7 +343,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -353,7 +353,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -363,7 +363,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -373,7 +373,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -383,7 +383,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -393,7 +393,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -403,7 +403,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -413,7 +413,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -423,7 +423,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -433,7 +433,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isCreated = false;
@@ -441,7 +441,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void createPackageContents() {
@@ -474,7 +474,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isInitialized = false;
@@ -482,7 +482,7 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void initializePackageContents() {
@@ -520,21 +520,21 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
         this.initEReference(this.getInfrastructureCall_Signature__InfrastructureCall(),
                 theRepositoryPackage.getInfrastructureSignature(), null, "signature__InfrastructureCall", null, 1, 1,
                 InfrastructureCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getInfrastructureCall_NumberOfCalls__InfrastructureCall(),
                 theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_InfrastructureCall__PCMRandomVariable(),
                 "numberOfCalls__InfrastructureCall", null, 1, 1, InfrastructureCall.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getInfrastructureCall_Action__InfrastructureCall(),
                 theSeffPackage.getAbstractInternalControlFlowAction(),
                 theSeffPackage.getAbstractInternalControlFlowAction_InfrastructureCall__Action(),
                 "action__InfrastructureCall", null, 1, 1, InfrastructureCall.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getInfrastructureCall_RequiredRole__InfrastructureCall(),
                 theRepositoryPackage.getInfrastructureRequiredRole(), null, "requiredRole__InfrastructureCall", null, 1,
                 1, InfrastructureCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         EOperation op = this.addEOperation(this.infrastructureCallEClass, this.ecorePackage.getEBoolean(),
                 "SignatureMustBelongToUsedRequiredRole", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -573,19 +573,19 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
                 theSeffPackage.getAbstractInternalControlFlowAction(),
                 theSeffPackage.getAbstractInternalControlFlowAction_ResourceCall__Action(), "action__ResourceCall",
                 null, 1, 1, ResourceCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getResourceCall_ResourceRequiredRole__ResourceCall(),
                 theEntityPackage.getResourceRequiredRole(), null, "resourceRequiredRole__ResourceCall", null, 1, 1,
                 ResourceCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getResourceCall_Signature__ResourceCall(),
                 theResourcetypePackage.getResourceSignature(), null, "signature__ResourceCall", null, 1, 1,
                 ResourceCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getResourceCall_NumberOfCalls__ResourceCall(), theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_ResourceCall__PCMRandomVariable(), "numberOfCalls__ResourceCall",
                 null, 1, 1, ResourceCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.resourceCallEClass, this.ecorePackage.getEBoolean(),
                 "ResourceSignatureBelongsToResourceRequiredRole", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -625,17 +625,17 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
                 theCorePackage.getPCMRandomVariable_ParametricResourceDemand_PCMRandomVariable(),
                 "specification_ParametericResourceDemand", null, 1, 1, ParametricResourceDemand.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
         this.initEReference(this.getParametricResourceDemand_RequiredResource_ParametricResourceDemand(),
                 theResourcetypePackage.getProcessingResourceType(), null, "requiredResource_ParametricResourceDemand",
                 null, 1, 1, ParametricResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getParametricResourceDemand_Action_ParametricResourceDemand(),
                 theSeffPackage.getAbstractInternalControlFlowAction(),
                 theSeffPackage.getAbstractInternalControlFlowAction_ResourceDemand_Action(),
                 "action_ParametricResourceDemand", null, 1, 1, ParametricResourceDemand.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                IS_ORDERED);
+                !IS_ORDERED);
 
         op = this.addEOperation(this.parametricResourceDemandEClass, this.ecorePackage.getEBoolean(),
                 "DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction", 0, 1, IS_UNIQUE,
@@ -647,50 +647,6 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
         g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
         g1.getETypeArguments().add(g2);
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-        // Create annotations
-        // http://www.eclipse.org/emf/2002/Ecore
-        this.createEcoreAnnotations();
-        // http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
-        this.createPivotAnnotations();
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createEcoreAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore";
-        this.addAnnotation(this, source,
-                new String[] { "invocationDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot",
-                        "settingDelegates", "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot", "validationDelegates",
-                        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot" });
-    }
-
-    /**
-     * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     */
-    protected void createPivotAnnotations() {
-        final String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
-        this.addAnnotation(this.infrastructureCallEClass.getEOperations().get(0), source, new String[] { "body",
-                "signature__InfrastructureCall.infrastructureInterface__InfrastructureSignature = requiredRole__InfrastructureCall.requiredInterface__InfrastructureRequiredRole" });
-        this.addAnnotation(this.infrastructureCallEClass.getEOperations().get(1), source, new String[] { "body",
-                "self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).oclAsType(pcm::core::entity::InterfaceRequiringEntity).requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole__InfrastructureCall)" });
-        this.addAnnotation(this.infrastructureCallEClass.getEOperations().get(2), source, new String[] { "body",
-                "self.action__InfrastructureCall.infrastructureCall__Action->select(call | call.requiredRole__InfrastructureCall = self.requiredRole__InfrastructureCall and call.signature__InfrastructureCall=self.signature__InfrastructureCall)->size() = 1" });
-        this.addAnnotation(this.resourceCallEClass.getEOperations().get(0), source, new String[] { "body",
-                "self.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.resourceSignatures__ResourceInterface->includes(self.signature__ResourceCall)" });
-        this.addAnnotation(this.resourceCallEClass.getEOperations().get(1), source, new String[] { "body",
-                "self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::ResourceInterfaceRequiringEntity)).oclAsType(pcm::core::entity::ResourceInterfaceRequiringEntity).resourceRequiredRoles__ResourceInterfaceRequiringEntity->includes(self.resourceRequiredRole__ResourceCall)" });
-        this.addAnnotation(this.resourceCallEClass.getEOperations().get(2), source, new String[] { "body",
-                "self.action__ResourceCall.resourceCall__Action->select(call | call.resourceRequiredRole__ResourceCall=self.resourceRequiredRole__ResourceCall and call.signature__ResourceCall=self.signature__ResourceCall)->size() = 1" });
-        this.addAnnotation(this.parametricResourceDemandEClass.getEOperations().get(0), source, new String[] { "body",
-                "self.action_ParametricResourceDemand.resourceDemand_Action->select(prd | prd.requiredResource_ParametricResourceDemand=self.requiredResource_ParametricResourceDemand)->size() = 1" });
     }
 
 } // SeffPerformancePackageImpl

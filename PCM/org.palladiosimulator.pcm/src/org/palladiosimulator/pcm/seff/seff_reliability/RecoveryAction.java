@@ -39,7 +39,7 @@ public interface RecoveryAction extends AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -66,7 +66,7 @@ public interface RecoveryAction extends AbstractInternalControlFlowAction {
      * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction
      * <em>Primary Behaviour Recovery Action</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Primary Behaviour Recovery Action</em>' reference.
      * @see #getPrimaryBehaviour__RecoveryAction()
@@ -86,7 +86,7 @@ public interface RecoveryAction extends AbstractInternalControlFlowAction {
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Recovery Action Behaviours Recovery Action</em>' containment
      *         reference list.
      * @see org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage#getRecoveryAction_RecoveryActionBehaviours__RecoveryAction()
@@ -98,10 +98,14 @@ public interface RecoveryAction extends AbstractInternalControlFlowAction {
     EList<RecoveryActionBehaviour> getRecoveryActionBehaviours__RecoveryAction();
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.primaryBehaviour__RecoveryAction <> null'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.primaryBehaviour__RecoveryAction <> null'"
      * @generated
      */
     boolean PrimaryBehaviourOfRecoveryActionMustBeSet(DiagnosticChain diagnostics, Map<Object, Object> context);

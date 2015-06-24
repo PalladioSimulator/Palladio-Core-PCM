@@ -11,6 +11,9 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.core.composition.AssemblyConnector;
 import org.palladiosimulator.pcm.core.composition.AssemblyContext;
 import org.palladiosimulator.pcm.core.composition.CompositionPackage;
@@ -45,14 +48,14 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AssemblyConnectorImpl() {
@@ -61,7 +64,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -71,7 +74,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -84,7 +87,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetRequiringAssemblyContext_AssemblyConnector() {
@@ -96,7 +99,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -109,7 +112,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -122,7 +125,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetProvidingAssemblyContext_AssemblyConnector() {
@@ -134,7 +137,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -147,7 +150,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -159,7 +162,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationProvidedRole basicGetProvidedRole_AssemblyConnector() {
@@ -170,7 +173,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -182,7 +185,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -194,7 +197,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationRequiredRole basicGetRequiredRole_AssemblyConnector() {
@@ -205,7 +208,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -216,18 +219,54 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Assembly Connectors Referenced Provided Roles And Child Context Must Match</em>}'
+     * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)\n"
+            + "\n" + "";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Assembly Connectors Referenced Provided Roles And Child Context Must Match</em>}'
+     * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(CompositionPackage.Literals.ASSEMBLY_CONNECTOR);
+            try {
+                ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(
+                        ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, CompositionValidator.DIAGNOSTIC_SOURCE,
@@ -244,18 +283,54 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Assembly Connectors Referenced Required Role And Child Context Must Match</em>}'
+     * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)\n"
+            + "\n" + "";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Assembly Connectors Referenced Required Role And Child Context Must Match</em>}'
+     * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(CompositionPackage.Literals.ASSEMBLY_CONNECTOR);
+            try {
+                ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(
+                        ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, CompositionValidator.DIAGNOSTIC_SOURCE,
@@ -272,18 +347,51 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the '
+     * {@link #AssemblyConnectorsReferencedInterfacesMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Assembly Connectors Referenced Interfaces Must Match</em>}' operation. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
+     * @see #AssemblyConnectorsReferencedInterfacesMustMatch(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.providedRole_AssemblyConnector.providedInterface__OperationProvidedRole = self.requiredRole_AssemblyConnector.requiredInterface__OperationRequiredRole";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #AssemblyConnectorsReferencedInterfacesMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Assembly Connectors Referenced Interfaces Must Match</em>}' invariant operation. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see #AssemblyConnectorsReferencedInterfacesMustMatch(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean AssemblyConnectorsReferencedInterfacesMustMatch(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(CompositionPackage.Literals.ASSEMBLY_CONNECTOR);
+            try {
+                ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV.createQuery(ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, CompositionValidator.DIAGNOSTIC_SOURCE,
@@ -300,7 +408,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -332,7 +440,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -356,7 +464,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -380,7 +488,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -397,5 +505,14 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
         }
         return super.eIsSet(featureID);
     }
+
+    /**
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } // AssemblyConnectorImpl

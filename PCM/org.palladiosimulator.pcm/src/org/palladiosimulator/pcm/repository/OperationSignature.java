@@ -38,7 +38,7 @@ public interface OperationSignature extends Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -65,7 +65,7 @@ public interface OperationSignature extends Signature {
      * {@link org.palladiosimulator.pcm.repository.OperationSignature#getInterface__OperationSignature
      * <em>Interface Operation Signature</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Interface Operation Signature</em>' container reference.
      * @see #getInterface__OperationSignature()
@@ -109,7 +109,7 @@ public interface OperationSignature extends Signature {
      * {@link org.palladiosimulator.pcm.repository.OperationSignature#getReturnType__OperationSignature
      * <em>Return Type Operation Signature</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Return Type Operation Signature</em>' reference.
      * @see #getReturnType__OperationSignature()
@@ -118,10 +118,14 @@ public interface OperationSignature extends Signature {
     void setReturnType__OperationSignature(DataType value);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.parameters__OperationSignature->isUnique(p : Parameter |\n\tp.parameterName\n)'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.parameters__OperationSignature->isUnique(p : Parameter |\r\n\tp.parameterName\r\n)'"
      * @generated
      */
     boolean ParameterNamesHaveToBeUniqueForASignature(DiagnosticChain diagnostics, Map<Object, Object> context);

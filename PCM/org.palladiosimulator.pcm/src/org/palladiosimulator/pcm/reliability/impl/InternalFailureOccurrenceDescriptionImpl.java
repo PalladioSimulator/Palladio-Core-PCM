@@ -13,6 +13,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.reliability.InternalFailureOccurrenceDescription;
 import org.palladiosimulator.pcm.reliability.ReliabilityPackage;
 import org.palladiosimulator.pcm.reliability.SoftwareInducedFailureType;
@@ -42,14 +45,14 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected InternalFailureOccurrenceDescriptionImpl() {
@@ -58,7 +61,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -68,7 +71,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -81,7 +84,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetInternalAction__InternalFailureOccurrenceDescription(
@@ -94,7 +97,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -108,7 +111,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -121,7 +124,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SoftwareInducedFailureType basicGetSoftwareInducedFailureType__InternalFailureOccurrenceDescription() {
@@ -133,7 +136,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSoftwareInducedFailureType__InternalFailureOccurrenceDescription(
@@ -148,7 +151,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -161,18 +164,53 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
     }
 
     /**
+     * The cached OCL expression body for the '
+     * {@link #NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>No Resource Timeout Failure Allowed For Internal Failure Occurrence Description</em>}'
+     * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "not self.softwareInducedFailureType__InternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>No Resource Timeout Failure Allowed For Internal Failure Occurrence Description</em>}'
+     * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(ReliabilityPackage.Literals.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION);
+            try {
+                NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV
+                .createQuery(
+                        NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, ReliabilityValidator.DIAGNOSTIC_SOURCE,
@@ -190,7 +228,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -218,7 +256,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -235,7 +273,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -251,7 +289,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -270,7 +308,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -289,7 +327,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -307,7 +345,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

@@ -30,7 +30,7 @@ public interface ForkedBehaviour extends ResourceDemandingBehaviour {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -45,13 +45,14 @@ public interface ForkedBehaviour extends ResourceDemandingBehaviour {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Synchronisation Point Forked Behaviour</em>' container
      *         reference.
      * @see #setSynchronisationPoint_ForkedBehaviour(SynchronisationPoint)
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getForkedBehaviour_SynchronisationPoint_ForkedBehaviour()
      * @see org.palladiosimulator.pcm.seff.SynchronisationPoint#getSynchronousForkedBehaviours_SynchronisationPoint
      * @model opposite="synchronousForkedBehaviours_SynchronisationPoint" transient="false"
+     *        ordered="false"
      * @generated
      */
     SynchronisationPoint getSynchronisationPoint_ForkedBehaviour();
@@ -61,7 +62,7 @@ public interface ForkedBehaviour extends ResourceDemandingBehaviour {
      * {@link org.palladiosimulator.pcm.seff.ForkedBehaviour#getSynchronisationPoint_ForkedBehaviour
      * <em>Synchronisation Point Forked Behaviour</em>}' container reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Synchronisation Point Forked Behaviour</em>' container
      *            reference.
@@ -80,12 +81,12 @@ public interface ForkedBehaviour extends ResourceDemandingBehaviour {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Fork Action Forked Behaivour</em>' container reference.
      * @see #setForkAction_ForkedBehaivour(ForkAction)
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getForkedBehaviour_ForkAction_ForkedBehaivour()
      * @see org.palladiosimulator.pcm.seff.ForkAction#getAsynchronousForkedBehaviours_ForkAction
-     * @model opposite="asynchronousForkedBehaviours_ForkAction" transient="false"
+     * @model opposite="asynchronousForkedBehaviours_ForkAction" transient="false" ordered="false"
      * @generated
      */
     ForkAction getForkAction_ForkedBehaivour();
@@ -95,7 +96,7 @@ public interface ForkedBehaviour extends ResourceDemandingBehaviour {
      * {@link org.palladiosimulator.pcm.seff.ForkedBehaviour#getForkAction_ForkedBehaivour
      * <em>Fork Action Forked Behaivour</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Fork Action Forked Behaivour</em>' container reference.
      * @see #getForkAction_ForkedBehaivour()

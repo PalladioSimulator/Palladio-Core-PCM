@@ -50,7 +50,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -64,7 +64,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Parent Complete Component Types</em>' reference list.
      * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getImplementationComponentType_ParentCompleteComponentTypes()
      * @model ordered="false"
@@ -98,12 +98,12 @@ public interface ImplementationComponentType extends RepositoryComponent {
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Component Type</em>' attribute.
      * @see org.palladiosimulator.pcm.repository.ComponentType
      * @see #setComponentType(ComponentType)
      * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getImplementationComponentType_ComponentType()
-     * @model default="BUSINESS_COMPONENT" required="true"
+     * @model default="BUSINESS_COMPONENT" required="true" ordered="false"
      * @generated
      */
     ComponentType getComponentType();
@@ -112,7 +112,7 @@ public interface ImplementationComponentType extends RepositoryComponent {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcm.repository.ImplementationComponentType#getComponentType
      * <em>Component Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Component Type</em>' attribute.
      * @see org.palladiosimulator.pcm.repository.ComponentType
@@ -122,47 +122,67 @@ public interface ImplementationComponentType extends RepositoryComponent {
     void setComponentType(ComponentType value);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='-- ImplementationTypes required Interfaces have to be a subset\n-- of CompleteComponentType required Interfaces #\n--\n-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.\n--\n-- Recursive Query for parent Interface IDs\n-- see \'lpar2005.pdf\' (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #\n--let parentInterfaces : Bag(Interface) =\n--\tself.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc1 : Bag(Interface) = Bag{} |\n--\t\tacc1->union(pt.requiredRoles->iterate(r : RequiredRole; acc2 : Bag(Interface) = Bag{} |\n--\t\t\tacc2->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n--\t\t))\n--\t) in\n--let anchestorInterfaces : Bag(Interface) =\n--\tself.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc3 : Bag(Interface) = Bag{} |\n--\t\tacc3->union(pt.requiredRoles->iterate(r : RequiredRole; acc4 : Bag(Interface) = Bag{} |\n--\t\t\tacc4->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n--\t\t))\n--\t)->union( -- union with anchestors found in former recursion #\n--\t\tself.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc5 : Bag(Interface) = Bag{} |\n--\t\t\tacc5->union(pt.requiredRoles->iterate(r : RequiredRole; acc6 : Bag(Interface) = Bag{} |\n--\t\t\t\tacc6->union(r.requiredInterface.parentInterface.anchestorInterfaces) --already Set/Bag\n--\t\t\t))\n--\t\t)\n--\t) in\n-- Directly required interfaces need to be a subset of required anchestorInterfaces of Supertype #\n--anchestorInterfaces.identifier.id->includesAll(\n--\tself.requiredRoles->iterate(p : RequiredRole; acc7 : Bag(String) = Bag{} |\n--\t\tacc7->union(p.requiredInterface.identifier.id->asBag())\n--\t)\t\n--)\ntrue'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='-- ImplementationTypes required Interfaces have to be a subset\r\n-- of CompleteComponentType required Interfaces #\r\n--\r\n-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.\r\n--\r\n-- Recursive Query for parent Interface IDs\r\n-- see \'lpar2005.pdf\' (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #\r\n--let parentInterfaces : Bag(Interface) =\r\n--\tself.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc1 : Bag(Interface) = Bag{} |\r\n--\t\tacc1->union(pt.requiredRoles->iterate(r : RequiredRole; acc2 : Bag(Interface) = Bag{} |\r\n--\t\t\tacc2->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\r\n--\t\t))\r\n--\t) in\r\n--let anchestorInterfaces : Bag(Interface) =\r\n--\tself.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc3 : Bag(Interface) = Bag{} |\r\n--\t\tacc3->union(pt.requiredRoles->iterate(r : RequiredRole; acc4 : Bag(Interface) = Bag{} |\r\n--\t\t\tacc4->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\r\n--\t\t))\r\n--\t)->union( -- union with anchestors found in former recursion #\r\n--\t\tself.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc5 : Bag(Interface) = Bag{} |\r\n--\t\t\tacc5->union(pt.requiredRoles->iterate(r : RequiredRole; acc6 : Bag(Interface) = Bag{} |\r\n--\t\t\t\tacc6->union(r.requiredInterface.parentInterface.anchestorInterfaces) --already Set/Bag\r\n--\t\t\t))\r\n--\t\t)\r\n--\t) in\r\n-- Directly required interfaces need to be a subset of required anchestorInterfaces of Supertype #\r\n--anchestorInterfaces.identifier.id->includesAll(\r\n--\tself.requiredRoles->iterate(p : RequiredRole; acc7 : Bag(String) = Bag{} |\r\n--\t\tacc7->union(p.requiredInterface.identifier.id->asBag())\r\n--\t)\t\r\n--)\r\ntrue'"
      * @generated
      */
     boolean RequiredInterfacesHaveToConformToCompleteType(DiagnosticChain diagnostics, Map<Object, Object> context);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='-- ### EXACT COPY FROM ABOVE ###\n-- ImplementationComponentTypes provided Interfaces have to be a superset\n-- of CompleteComponentType provided Interfaces #\n--\n-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.\n--\n-- Recursive Query for parent Interface IDs\n-- see \'lpar2005.pdf\' (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #\n--let parentInterfaces : Bag(Interface) =\n--\tself.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |\n--\t\tacc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n--\t) in\n--let anchestorInterfaces : Bag(Interface) =\n--\tself.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |\n--\t\tacc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n--\t)->union( -- union with anchestors found in former recursion #\n--\t\tself.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |\n--\t\t\tacc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag\n--\t\t)\n--\t) in\n\t-- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #\n--\tanchestorInterfaces.identifier.id->includesAll(\n--\t\tself.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |\n--\t\t\tpt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |\n--\t\t\t\tacc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #\n--\t\t\t)\n--\t\t)\n--\t)\ntrue'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='-- ### EXACT COPY FROM ABOVE ###\r\n-- ImplementationComponentTypes provided Interfaces have to be a superset\r\n-- of CompleteComponentType provided Interfaces #\r\n--\r\n-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.\r\n--\r\n-- Recursive Query for parent Interface IDs\r\n-- see \'lpar2005.pdf\' (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #\r\n--let parentInterfaces : Bag(Interface) =\r\n--\tself.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |\r\n--\t\tacc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\r\n--\t) in\r\n--let anchestorInterfaces : Bag(Interface) =\r\n--\tself.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |\r\n--\t\tacc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\r\n--\t)->union( -- union with anchestors found in former recursion #\r\n--\t\tself.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |\r\n--\t\t\tacc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag\r\n--\t\t)\r\n--\t) in\r\n\t-- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #\r\n--\tanchestorInterfaces.identifier.id->includesAll(\r\n--\t\tself.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |\r\n--\t\t\tpt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |\r\n--\t\t\t\tacc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #\r\n--\t\t\t)\r\n--\t\t)\r\n--\t)\r\ntrue'"
      * @generated
      */
     boolean providedInterfacesHaveToConformToCompleteType(DiagnosticChain diagnostics, Map<Object, Object> context);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='-- assures that InfrastructureComponents only have InfrastructureInterfaces and that BusinessComponents only have OperationInterfaces or EventGroups\nif self.componentType = ComponentType::INFRASTRUCTURE_COMPONENT then\n\tself.providedRoles_InterfaceProvidingEntity->select(role | role.oclIsTypeOf(OperationInterface) or role.oclIsTypeOf(EventGroup))->size() = 0\nelse if self.componentType = ComponentType::BUSINESS_COMPONENT then\n\tself.providedRoles_InterfaceProvidingEntity->select(role | role.oclIsTypeOf(InfrastructureInterface))->size() = 0\nelse\n\t1 = 0\nendif\nendif'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='-- assures that InfrastructureComponents only have InfrastructureInterfaces and that BusinessComponents only have OperationInterfaces or EventGroups\r\nif self.componentType = ComponentType::INFRASTRUCTURE_COMPONENT then\r\n\tself.providedRoles_InterfaceProvidingEntity->select(role | role.oclIsTypeOf(OperationInterface) or role.oclIsTypeOf(EventGroup))->size() = 0\r\nelse if self.componentType = ComponentType::BUSINESS_COMPONENT then\r\n\tself.providedRoles_InterfaceProvidingEntity->select(role | role.oclIsTypeOf(InfrastructureInterface))->size() = 0\r\nelse\r\n\t1 = 0\r\nendif\r\nendif'"
      * @generated
      */
     boolean ProvidedInterfaceHaveToConformToComponentType(DiagnosticChain diagnostics, Map<Object, Object> context);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='-- ImplementationComponent has to provide the same or more interfaces like the CompleteComponentType (if set) #\n\tif\n\t\t -- apply constraint only for non-empty CompleteComponentTypes #\n\t\tself.parentCompleteComponentTypes->notEmpty()\n\tthen\n\t\tlet\n\t\t\t--own interfaces:\n\t\t\townInterfaces : Set(OperationInterface)\n\t\t\t  = self.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole)->asSet()\n    in    \n    \t--complete type interfaces:\n    \tself.parentCompleteComponentTypes->forAll\n      ( p : CompleteComponentType |\n        (\n        \tp.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole)->asSet()\n        \t-\n        \townInterfaces\n      \t)->isEmpty()\n    \t)\n\telse\n\t\ttrue\n\tendif'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='-- ImplementationComponent has to provide the same or more interfaces like the CompleteComponentType (if set) #\r\n\tif\r\n\t\t -- apply constraint only for non-empty CompleteComponentTypes #\r\n\t\tself.parentCompleteComponentTypes->notEmpty()\r\n\tthen\r\n\t\tlet\r\n\t\t\t--own interfaces:\r\n\t\t\townInterfaces : Set(OperationInterface)\r\n\t\t\t  = self.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole)->asSet()\r\n    in    \r\n    \t--complete type interfaces:\r\n    \tself.parentCompleteComponentTypes->forAll\r\n      ( p : CompleteComponentType |\r\n        (\r\n        \tp.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole)->asSet()\r\n        \t-\r\n        \townInterfaces\r\n      \t)->isEmpty()\r\n    \t)\r\n\telse\r\n\t\ttrue\r\n\tendif'"
      * @generated
      */
     boolean ProvideSameOrMoreInterfacesAsCompleteComponentType(DiagnosticChain diagnostics,
             Map<Object, Object> context);
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
      *
+     * @param diagnostics
+     *            The chain of diagnostics to which problems are to be appended.
+     * @param context
+     *            The cache of context-specific information. <!-- end-model-doc -->
      * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='-- ImplementationComponent has to require the same or fewer interfaces like the CompleteComponentType (if set) #\n\tif\n\t\t-- apply constraint only for non-empty CompleteComponentTypes #\n\t\tself.parentCompleteComponentTypes->notEmpty()\n\tthen\n\t    let\n\t      --own interfaces:\n\t      ownInterfaces : Set(OperationInterface) \n\t        = self.requiredRoles_InterfaceRequiringEntity->select(rr|rr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole)->asSet()\n\t    in\n\t      --complete type interfaces:\n\t      self.parentCompleteComponentTypes->forAll\n\t      ( p : CompleteComponentType |\n\t      \t(\n\t\t      \townInterfaces\n\t\t        -\n\t\t        p.requiredRoles_InterfaceRequiringEntity->select(rr|rr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole)->asSet()\n\t      \t)->isEmpty()\n\t    \t)\n\telse\n\t\ttrue\n\tendif'"
+     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='-- ImplementationComponent has to require the same or fewer interfaces like the CompleteComponentType (if set) #\r\n\tif\r\n\t\t-- apply constraint only for non-empty CompleteComponentTypes #\r\n\t\tself.parentCompleteComponentTypes->notEmpty()\r\n\tthen\r\n\t    let\r\n\t      --own interfaces:\r\n\t      ownInterfaces : Set(OperationInterface) \r\n\t        = self.requiredRoles_InterfaceRequiringEntity->select(rr|rr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole)->asSet()\r\n\t    in\r\n\t      --complete type interfaces:\r\n\t      self.parentCompleteComponentTypes->forAll\r\n\t      ( p : CompleteComponentType |\r\n\t      \t(\r\n\t\t      \townInterfaces\r\n\t\t        -\r\n\t\t        p.requiredRoles_InterfaceRequiringEntity->select(rr|rr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole)->asSet()\r\n\t      \t)->isEmpty()\r\n\t    \t)\r\n\telse\r\n\t\ttrue\r\n\tendif'"
      * @generated
      */
     boolean RequireSameOrFewerInterfacesAsCompleteComponentType(DiagnosticChain diagnostics,

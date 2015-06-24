@@ -16,6 +16,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 import org.palladiosimulator.pcm.repository.DataType;
 import org.palladiosimulator.pcm.repository.OperationInterface;
 import org.palladiosimulator.pcm.repository.OperationSignature;
@@ -47,14 +50,14 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected OperationSignatureImpl() {
@@ -63,7 +66,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -73,7 +76,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -85,7 +88,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetInterface__OperationSignature(
@@ -97,7 +100,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -109,7 +112,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -122,7 +125,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -133,7 +136,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public DataType basicGetReturnType__OperationSignature() {
@@ -143,7 +146,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -154,18 +157,52 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the '
+     * {@link #ParameterNamesHaveToBeUniqueForASignature(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Parameter Names Have To Be Unique For ASignature</em>}' operation. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     * 
+     * @see #ParameterNamesHaveToBeUniqueForASignature(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static final String PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.parameters__OperationSignature->isUnique(p : Parameter |\n"
+            + "	p.parameterName\n" + ")";
+    /**
+     * The cached OCL invariant for the '
+     * {@link #ParameterNamesHaveToBeUniqueForASignature(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Parameter Names Have To Be Unique For ASignature</em>}' invariant operation. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
+     * @see #ParameterNamesHaveToBeUniqueForASignature(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
+     * @generated
+     * @ordered
+     */
+    protected static Constraint PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean ParameterNamesHaveToBeUniqueForASignature(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        // TODO: implement this method
-        // -> specify the condition that violates the invariant
-        // -> verify the details of the diagnostic, including severity and message
-        // Ensure that you remove @generated or mark it @generated NOT
-        if (false) {
+        if (PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            final OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(RepositoryPackage.Literals.OPERATION_SIGNATURE);
+            try {
+                PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(
+                                PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV.createQuery(PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
                 diagnostics
                         .add(new BasicDiagnostic(Diagnostic.ERROR, RepositoryValidator.DIAGNOSTIC_SOURCE,
@@ -182,7 +219,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -203,7 +240,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -220,7 +257,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -236,7 +273,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -257,7 +294,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -280,7 +317,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -301,7 +338,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -316,5 +353,14 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
         }
         return super.eIsSet(featureID);
     }
+
+    /**
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     * 
+     * @generated
+     * @ordered
+     */
+    protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } // OperationSignatureImpl
