@@ -1,17 +1,17 @@
 package de.uka.ipd.sdq.pcm.stochasticexpressions.tests;
 
-import junit.framework.TestCase;
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
+import org.palladiosimulator.pcm.stochasticexpressions.parser.PCMStoExLexer;
+import org.palladiosimulator.pcm.stochasticexpressions.parser.PCMStoExParser;
 
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExLexer;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.FunctionLiteral;
 import de.uka.ipd.sdq.stoex.IfElseExpression;
 import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionInferTypeVisitor;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
+import junit.framework.TestCase;
 
 public class TypeInferTests extends TestCase {
 
