@@ -2,6 +2,8 @@
 <rm:rmap xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
 
   <rm:locator pattern="^org\.palladiosimulator\.pcm.*" searchPathRef="pcm" failOnError="true"/>
+  <rm:locator pattern="^de\.uka\.ipd\.sdq\.pcm.*" searchPathRef="pcm" failOnError="true"/>
+  <rm:locator pattern="^de\.uka\.ipd\.sdq\.stoex\.analyser.*" searchPathRef="pcm" failOnError="true"/>
   <rm:locator pattern="^org\.palladiosimulator\.mdsdprofiles.*" searchPathRef="MDSDProfiles" failOnError="true"/>
   <rm:locator pattern="^org\.modelversioning\.emfprofile.*" searchPathRef="EMFProfiles" failOnError="true"/>
   
