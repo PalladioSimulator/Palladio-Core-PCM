@@ -51,6 +51,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.palladiosimulator.editors.dialogs;bundle-version="1.0.0",
  org.eclipse.gmf.tooling.runtime;visibility:=reexport,
  org.eclipse.emf.validation;visibility:=reexport,
- de.uka.ipd.sdq.pcmbench.ui;bundle-version="2.0.0"
+ org.palladiosimulator.pcm.ui;bundle-version="2.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
