@@ -12,19 +12,7 @@ PCM Metamodel build.
    </description>
 
    <includes
-         id="org.palladiosimulator.pcm.completions.feature"
-         version="0.0.0"/>
-
-   <includes
          id="org.palladiosimulator.pcm.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.palladiosimulator.pcm.edp2.measuringpoint.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.palladiosimulator.pcm.resultdecorator.feature"
          version="0.0.0"/>
 
    <requires>
