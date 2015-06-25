@@ -3041,9 +3041,9 @@ If two services A and B communicate in different roles with each other, i.e. som
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_MXCGoAFcEd2hAt0r1_4OrQ" base_Package="_1R48IDHiEduYw4tR7Gtf7Q" packageName="context" nsPrefix="context" nsURI="http://sdq.ipd.uka.de/Context/1.0" basePackage="de.uka.ipd.sdq" prefix=""/>
-  <Ecore:EPackage xmi:id="_MXCGoQFcEd2hAt0r1_4OrQ" base_Package="_cK-soDHjEduYw4tR7Gtf7Q" packageName="computed_usage" nsPrefix="" nsURI="http://sdq.ipd.uka.de/Context/Usage/1.0" basePackage="" prefix="Computed_usage"/>
-  <Ecore:EPackage xmi:id="_MXCGogFcEd2hAt0r1_4OrQ" base_Package="_t6z5gDHlEduYw4tR7Gtf7Q" packageName="computed_allocation" nsPrefix="" nsURI="http://sdq.ipd.uka.de/Context/Allocation/1.0" basePackage="" prefix="Computed_allocation"/>
+  <Ecore:EPackage xmi:id="_MXCGoAFcEd2hAt0r1_4OrQ" base_Package="_1R48IDHiEduYw4tR7Gtf7Q" packageName="context" nsPrefix="context" nsURI="http://palladiosimulator.org/Solver/Context/1.0" basePackage="de.uka.ipd.sdq" prefix=""/>
+  <Ecore:EPackage xmi:id="_MXCGoQFcEd2hAt0r1_4OrQ" base_Package="_cK-soDHjEduYw4tR7Gtf7Q" packageName="computed_usage" nsPrefix="" nsURI="http://palladiosimulator.org/Solver/Context/Usage/1.0" basePackage="" prefix="Computed_usage"/>
+  <Ecore:EPackage xmi:id="_MXCGogFcEd2hAt0r1_4OrQ" base_Package="_t6z5gDHlEduYw4tR7Gtf7Q" packageName="computed_allocation" nsPrefix="" nsURI="http://palladiosimulator.org/Solver/Context/Allocation/1.0" basePackage="" prefix="Computed_allocation"/>
   <Ecore:EPackage xmi:id="_BlaBwI3UEd-IxL5EcPNdaA" base_Package="_7vrkgI3TEd-IxL5EcPNdaA"/>
   <Default:Documentation xmi:id="_OEnUcY3UEd-IxL5EcPNdaA" base_Comment="_OEnUcI3UEd-IxL5EcPNdaA"/>
   <Default:Documentation xmi:id="_iW0CUI3UEd-IxL5EcPNdaA" base_Comment="_iWqRUI3UEd-IxL5EcPNdaA"/>
