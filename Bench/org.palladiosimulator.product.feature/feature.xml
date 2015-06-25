@@ -15,7 +15,7 @@
          version="0.0.0"/>
 
    <includes
-         id="de.uka.ipd.sdq.pcmsolver.feature"
+         id="org.palladiosimulator.solver.feature"
          version="0.0.0"/>
 
    <includes
