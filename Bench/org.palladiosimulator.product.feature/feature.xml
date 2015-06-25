@@ -15,14 +15,6 @@
          version="0.0.0"/>
 
    <includes
-         id="org.palladiosimulator.solver.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="de.uka.ipd.sdq.simucom.feature"
-         version="0.0.0"/>
-
-   <includes
          id="org.palladiosimulator.edp2.feature"
          version="0.0.0"/>
 
@@ -35,11 +27,23 @@
          version="0.0.0"/>
 
    <includes
-         id="org.palladiosimulator.pcm.editors.gmf.feature"
+         id="org.palladiosimulator.pcm.feature"
          version="0.0.0"/>
 
    <includes
-         id="org.palladiosimulator.pcm.feature"
+         id="org.palladiosimulator.editors.gmf.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.palladiosimulator.editors.tree.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.palladiosimulator.simucom.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.palladiosimulator.solver.feature"
          version="0.0.0"/>
 
 </feature>
