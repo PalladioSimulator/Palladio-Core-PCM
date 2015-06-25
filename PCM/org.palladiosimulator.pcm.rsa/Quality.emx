@@ -7634,13 +7634,13 @@ the referenced SEFF (or not).</body>
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Package>
-  <Ecore:EPackage xmi:id="_1gCxwHu9EeCcUohxk-KYKQ" base_Package="_vEj8EHu9EeCcUohxk-KYKQ" packageName="quality" nsPrefix="quality" nsURI="http://fzi.de/PalladioComponentModel/Quality/0.2" basePackage="de.fzi.se" prefix="Quality"/>
+  <Ecore:EPackage xmi:id="_1gCxwHu9EeCcUohxk-KYKQ" base_Package="_vEj8EHu9EeCcUohxk-KYKQ" packageName="quality" nsPrefix="quality" nsURI="http://palladiosimulator.org/Analyzer/Quality/1.0" basePackage="de.fzi.se" prefix="Quality"/>
   <Default:Documentation xmi:id="_qzqEYA3cEeCtUuAB3P-fBw" base_Comment="_qy-u8A3cEeCtUuAB3P-fBw"/>
   <Default:Documentation xmi:id="_gfB4oAIEEeC1g95PinNVgA" base_Comment="_gewL0AIEEeC1g95PinNVgA"/>
-  <Ecore:EPackage xmi:id="_ufQ98PioEd-3z6CDXyLtQw" base_Package="_rLuwoPioEd-3z6CDXyLtQw" packageName="pcm" nsPrefix="pcmparameters" nsURI="http://fzi.de/PalladioComponentModel/Quality/Parameters/PCM/0.2" basePackage="" prefix="PCM"/>
+  <Ecore:EPackage xmi:id="_ufQ98PioEd-3z6CDXyLtQw" base_Package="_rLuwoPioEd-3z6CDXyLtQw" packageName="pcm" nsPrefix="pcmparameters" nsURI="http://palladiosimulator.org/Analyzer/Quality/Parameters/PCM/1.0" basePackage="" prefix="PCM"/>
   <Default:Documentation xmi:id="_6BrtsPY2Ed-XX4IW1je7gw" base_Comment="_6BoqYPY2Ed-XX4IW1je7gw"/>
   <Default:Documentation xmi:id="_BTCt4Dj6Ed-1Q-X5OZ2gaw" base_Comment="_BTARoDj6Ed-1Q-X5OZ2gaw"/>
-  <Ecore:EPackage xmi:id="_HIVo4CYYEd-OBLyVAf7odQ" base_Package="_EtU_ACYYEd-OBLyVAf7odQ" packageName="qualityannotation" nsPrefix="qualityannotation" nsURI="http://fzi.de/PalladioComponentModel/Quality/QualityAnnotation/0.2" prefix="QualityAnnotation"/>
-  <Ecore:EPackage xmi:id="_gEW_MCXkEd-OBLyVAf7odQ" base_Package="_b40L0CXkEd-OBLyVAf7odQ" packageName="parameters" nsPrefix="parameters" nsURI="http://fzi.de/PalladioComponentModel/Quality/Parameters/0.2" prefix="Parameters"/>
+  <Ecore:EPackage xmi:id="_HIVo4CYYEd-OBLyVAf7odQ" base_Package="_EtU_ACYYEd-OBLyVAf7odQ" packageName="qualityannotation" nsPrefix="qualityannotation" nsURI="http://palladiosimulator.org/Analyzer/Quality/QualityAnnotation/1.0" prefix="QualityAnnotation"/>
+  <Ecore:EPackage xmi:id="_gEW_MCXkEd-OBLyVAf7odQ" base_Package="_b40L0CXkEd-OBLyVAf7odQ" packageName="parameters" nsPrefix="parameters" nsURI="http://palladiosimulator.org/Analyzer/Quality/Parameters/1.0" prefix="Parameters"/>
   <Default:Documentation xmi:id="_5x1EICX-Ed-OBLyVAf7odQ" base_Comment="_5xyn4CX-Ed-OBLyVAf7odQ"/>
 </xmi:XMI>
