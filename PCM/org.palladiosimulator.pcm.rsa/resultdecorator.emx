@@ -1563,9 +1563,9 @@
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_tiuj4OMTEd2JfbkN3aMA7A" base_Package="_8sFlIOMSEd2JfbkN3aMA7A" packageName="repositorydecorator" nsPrefix="repositorydecorator" nsURI="http://palladiosimulator.org/PCM/ResultDecorator/Repository/1.0" basePackage="" prefix="Repository"/>
-  <Ecore:EPackage xmi:id="_ugt2IOMTEd2JfbkN3aMA7A" base_Package="_8S-XAOMREd2JfbkN3aMA7A" packageName="resourceenvironmentdecorator" nsPrefix="resourceenvironmentdecorator" nsURI="http://palladiosimulator.org/PCM/ResultDecorator/ResourceEnvironment/1.0" basePackage="" prefix="ResourceEnvironment"/>
-  <Ecore:EPackage xmi:id="_vQP1oOMTEd2JfbkN3aMA7A" base_Package="_hNlMIOMTEd2JfbkN3aMA7A" packageName="resultdecorator" nsPrefix="resultdecorator" nsURI="http://palladiosimulator.org/PCM/ResultDecorator/1.0" basePackage="org.palladiosimulator.pcm" prefix="Resultdecorator"/>
+  <Ecore:EPackage xmi:id="_tiuj4OMTEd2JfbkN3aMA7A" base_Package="_8sFlIOMSEd2JfbkN3aMA7A" packageName="repositorydecorator" nsPrefix="repositorydecorator" nsURI="http://palladiosimulator.org/Analyzer/ResultDecorator/Repository/1.0" basePackage="" prefix="Repository"/>
+  <Ecore:EPackage xmi:id="_ugt2IOMTEd2JfbkN3aMA7A" base_Package="_8S-XAOMREd2JfbkN3aMA7A" packageName="resourceenvironmentdecorator" nsPrefix="resourceenvironmentdecorator" nsURI="http://palladiosimulator.org/Analyzer/ResultDecorator/ResourceEnvironment/1.0" basePackage="" prefix="ResourceEnvironment"/>
+  <Ecore:EPackage xmi:id="_vQP1oOMTEd2JfbkN3aMA7A" base_Package="_hNlMIOMTEd2JfbkN3aMA7A" packageName="resultdecorator" nsPrefix="resultdecorator" nsURI="http://palladiosimulator.org/Analyzer/ResultDecorator/1.0" basePackage="org.palladiosimulator.pcm" prefix="Resultdecorator"/>
   <Default:Documentation xmi:id="_LNXyQI_cEd-IQc5OalHfww" base_Comment="_LNE3UI_cEd-IQc5OalHfww"/>
   <Default:Documentation xmi:id="_MVOyMI_cEd-IQc5OalHfww" base_Comment="_MVFoQI_cEd-IQc5OalHfww"/>
   <Default:Documentation xmi:id="_aQYecI_cEd-IQc5OalHfww" base_Comment="_aQPUgI_cEd-IQc5OalHfww"/>
