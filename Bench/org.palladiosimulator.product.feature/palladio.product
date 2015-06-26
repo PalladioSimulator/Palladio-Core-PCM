@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Palladio Bench" uid="org.palladiosimulator.product" id="org.eclipse.sdk.ide" application="org.eclipse.ui.ide.workbench" version="4.0" useFeatures="true" includeLaunchers="true">
+<product name="Palladio Bench" uid="org.palladiosimulator.product" id="org.eclipse.platform.ide" application="org.eclipse.ui.ide.workbench" version="4.0" useFeatures="true" includeLaunchers="true">
+
 
    <configIni use="default">
    </configIni>
@@ -9,7 +10,7 @@
    <launcherArgs>
       <programArgs>-consoleLog -console
       </programArgs>
-      <vmArgs>-Dosgi.requiredJavaVersion=1.7 -Xms256m -Xmx2048m -Declipse.ignoreApp=true -Dosgi.noShutdown=true
+      <vmArgs>-Dosgi.requiredJavaVersion=1.6 -Xms512m -Xmx2048m
       </vmArgs>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
@@ -17,12 +18,19 @@
 
    <windowImages/>
 
+   <splash
+      location="org.eclipse.platform"
+      startupProgressRect="2,290,448,10"
+      startupMessageRect="7,225,320,20"
+      startupForegroundColor="000000" />
    <launcher>
       <solaris/>
       <win useIco="false">
          <bmp/>
       </win>
    </launcher>
+
+   <intro introId="org.palladiosimulator.pcmbench.intro"/>
 
    <vm>
    </vm>
@@ -129,7 +137,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
    </features>
 
    <configurations>
-      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
