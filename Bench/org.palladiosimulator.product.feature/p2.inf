@@ -1,4 +1,4 @@
-instructions.configure=org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:https${#58}sdqweb.ipd.kit.edu/eclipse/palladiosimulator/nightly/,type:0,name:Palladio Update Site,enabled:true); \
+instructions.configure=org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:https${#58}//sdqweb.ipd.kit.edu/eclipse/palladiosimulator/nightly/,type:0,name:Palladio Update Site,enabled:true); \
   org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:https${#58}//sdqweb.ipd.kit.edu/eclipse/palladiosimulator/nightly/,type:1,name:Palladio Update Site,enabled:true); \
   org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/releases/luna/,type:0,name:Luna,enabled:true); \
   org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/releases/luna/,type:1,name:Luna,enabled:true); \
