@@ -3,8 +3,15 @@
       id="org.palladiosimulator.product.feature"
       label="Palladio Product Feature"
       version="1.0.0.qualifier"
-      license-feature="org.palladiosimulator.license"
-      license-feature-version="1.0.0">
+      provider-name="%providerName">
+
+   <copyright url="%copyrightURL">
+      %copyright
+   </copyright>
+
+   <license url="%licenseURL">
+      %license
+   </license>
 
    <description url="http://www.palladiosimulator.org">
       This is the Palladio Bench Feature
