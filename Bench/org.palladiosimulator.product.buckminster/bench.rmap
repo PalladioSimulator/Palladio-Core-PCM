@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rm:rmap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:maven="http://www.eclipse.org/buckminster/MavenProvider-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
 
-  <rm:locator pattern="^org\.palladiosimulator\.product.*" searchPathRef="productsvn"/>
+  <rm:locator pattern="^org\.palladiosimulator\.product.*" searchPathRef="productsvn" failOnError="true"/>
+  <rm:locator pattern="^org\.palladiosimulator\.license.*" searchPathRef="licensesvn" failOnError="true"/>
   <rm:locator searchPathRef="pcm_aggregate" failOnError="false"/>
 
   <rm:redirect pattern=".*" href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Build/trunk/org.palladiosimulator.targetPlatformBuild/eclipse-platform.rmap"/>
@@ -9,6 +10,14 @@
   <rm:searchPath name="productsvn">
     <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="svn">
       <rm:uri format="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/Bench/{0}">
+        <bc:propertyRef key="buckminster.component"/>
+      </rm:uri>
+    </rm:provider>
+  </rm:searchPath>
+  
+  <rm:searchPath name="licensesvn">
+    <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="svn">
+      <rm:uri format="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Palladio/Build/trunk/{0}">
         <bc:propertyRef key="buckminster.component"/>
       </rm:uri>
     </rm:provider>
