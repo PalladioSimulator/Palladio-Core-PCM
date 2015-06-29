@@ -37,13 +37,13 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/RepositoryDiagramFile.gif"
-  	     category="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+  	     category="org.palladiosimulator.pcmbench.palladio_modeling_category"
   	     class="de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelCreationWizard"
   	     id="de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
      <category
-           id="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+           id="org.palladiosimulator.pcmbench.palladio_modeling_category"
            name="Palladio Modeling">
      </category>
    </extension>
@@ -232,23 +232,23 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
          </propertySection>
          <!-- Added the following three property sections: -->
          <propertySection
-               class="de.uka.ipd.sdq.pcmbench.tabs.OperationsPropertySection"
+               class="org.palladiosimulator.editors.tabs.OperationsPropertySection"
                enablesFor="1"
-               filter="de.uka.ipd.sdq.pcmbench.tabs.OperationInterfaceFilter"
+               filter="org.palladiosimulator.editors.tabs.OperationInterfaceFilter"
                id="property.section.interfaceOps"
                tab="property.tab.interfaceOps">
          </propertySection>
          <propertySection
-               class="de.uka.ipd.sdq.pcmbench.tabs.EventTypesPropertySection"
+               class="org.palladiosimulator.editors.tabs.EventTypesPropertySection"
                enablesFor="1"
-               filter="de.uka.ipd.sdq.pcmbench.tabs.EventGroupFilter"
+               filter="org.palladiosimulator.editors.tabs.EventGroupFilter"
                id="property.section.eventGroupEventTypes"
                tab="property.tab.eventGroupEventTypes">
          </propertySection>
          <propertySection
-               class="de.uka.ipd.sdq.pcmbench.tabs.InfrastructureSignaturesPropertySection"
+               class="org.palladiosimulator.editors.tabs.InfrastructureSignaturesPropertySection"
                enablesFor="1"
-               filter="de.uka.ipd.sdq.pcmbench.tabs.InfrastructureInterfaceFilter"
+               filter="org.palladiosimulator.editors.tabs.InfrastructureInterfaceFilter"
                id="property.section.infrastructureSignatures"
                tab="property.tab.infrastructureSignatures">
          </propertySection>           

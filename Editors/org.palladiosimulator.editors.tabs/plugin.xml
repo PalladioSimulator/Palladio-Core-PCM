@@ -5,9 +5,9 @@
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
       <propertyContributor
-            contributorId="de.uka.ipd.sdq.pcmbench.projectview"
-            labelProvider="de.uka.ipd.sdq.pcmbench.tabs.PropertyLabelProvider"
-            typeMapper="de.uka.ipd.sdq.pcmbench.tabs.PropertyTypeMapper">
+            contributorId="org.palladiosimulator.pcmbench.projectview"
+            labelProvider="org.palladiosimulator.editors.tabs.PropertyLabelProvider"
+            typeMapper="org.palladiosimulator.editors.tabs.PropertyTypeMapper">
          <propertyCategory category="component"/>
          <propertyCategory category="interface"/>
          <propertyCategory category="operations"/>
@@ -22,85 +22,85 @@
       </propertyContributor>
    </extension> <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
-      <propertyTabs contributorId="de.uka.ipd.sdq.pcmbench.projectview">
+      <propertyTabs contributorId="org.palladiosimulator.pcmbench.projectview">
          <propertyTab
                category="component"
-               id="de.uka.ipd.sdq.pcmbench.componentTab"
+               id="org.palladiosimulator.pcmbench.componentTab"
                label="Component"/>
          <propertyTab
                category="interface"
-               id="de.uka.ipd.sdq.pcmbench.interfaceTab"
+               id="org.palladiosimulator.pcmbench.interfaceTab"
                label="Interface"/>
           <propertyTab
                category="operations"
-               id="de.uka.ipd.sdq.pcmbench.operationsTab"
+               id="org.palladiosimulator.pcmbench.operationsTab"
                label="Operations"/>
           <propertyTab
                category="eventTypes"
-               id="de.uka.ipd.sdq.pcmbench.eventTypesTab"
+               id="org.palladiosimulator.pcmbench.eventTypesTab"
                label="Event Types"/>
          <propertyTab
                afterTab="Component,Interface"
                category="advanced"
-               id="de.uka.ipd.sdq.pcmbench.advancedTab"
+               id="org.palladiosimulator.pcmbench.advancedTab"
                label="Advanced"/>
          <propertyTab
                category="infrastructureSignatures"
-               id="de.uka.ipd.sdq.pcmbench.infrastructureSignaturesTab"
+               id="org.palladiosimulator.pcmbench.infrastructureSignaturesTab"
                label="InfrastructureSignatures">
          </propertyTab>
          <propertyTab
                category="eventConnectors"
-               id="de.uka.ipd.sdq.pcmbench.eventConnectorsTab"
+               id="org.palladiosimulator.pcmbench.eventConnectorsTab"
                label="EventConnectors">
          </propertyTab>
       </propertyTabs>
    </extension>
    <extension
          point="org.eclipse.ui.views.properties.tabbed.propertySections">
-      <propertySections contributorId="de.uka.ipd.sdq.pcmbench.projectview">
+      <propertySections contributorId="org.palladiosimulator.pcmbench.projectview">
          <propertySection
-               class="de.uka.ipd.sdq.pcmbench.tabs.ComponentPropertySection"
-               id="de.uka.ipd.sdq.pcmbench.componentTab.section"
-               tab="de.uka.ipd.sdq.pcmbench.componentTab">
+               class="org.palladiosimulator.editors.tabs.ComponentPropertySection"
+               id="org.palladiosimulator.pcmbench.componentTab.section"
+               tab="org.palladiosimulator.pcmbench.componentTab">
             <input type="org.palladiosimulator.pcm.repository.ProvidesComponentType"/>
          </propertySection>
          <propertySection 
-               class="de.uka.ipd.sdq.pcmbench.tabs.InterfacePropertySection"
-               id="de.uka.ipd.sdq.pcmbench.interfaceTab.section"
-               tab="de.uka.ipd.sdq.pcmbench.interfaceTab">
+               class="org.palladiosimulator.editors.tabs.InterfacePropertySection"
+               id="org.palladiosimulator.pcmbench.interfaceTab.section"
+               tab="org.palladiosimulator.pcmbench.interfaceTab">
             <input type="org.palladiosimulator.pcm.repository.Interface"/>
         </propertySection>
           <propertySection
-               class="de.uka.ipd.sdq.pcmbench.tabs.OperationsPropertySection"
-               id="de.uka.ipd.sdq.pcmbench.operationsTab.section"
-               tab="de.uka.ipd.sdq.pcmbench.operationsTab">
+               class="org.palladiosimulator.editors.tabs.OperationsPropertySection"
+               id="org.palladiosimulator.pcmbench.operationsTab.section"
+               tab="org.palladiosimulator.pcmbench.operationsTab">
             <input type="org.palladiosimulator.pcm.repository.OperationInterface"/>
          </propertySection>
           <propertySection
-               class="de.uka.ipd.sdq.pcmbench.tabs.EventTypesPropertySection"
-               id="de.uka.ipd.sdq.pcmbench.eventTypesTab.section"
-               tab="de.uka.ipd.sdq.pcmbench.eventTypesTab">
+               class="org.palladiosimulator.editors.tabs.EventTypesPropertySection"
+               id="org.palladiosimulator.pcmbench.eventTypesTab.section"
+               tab="org.palladiosimulator.pcmbench.eventTypesTab">
             <input type="org.palladiosimulator.pcm.repository.EventGroup"/>
          </propertySection>
          <propertySection
-               class="de.uka.ipd.sdq.pcmbench.tabs.AdvancedPropertySection"
-               id="de.uka.ipd.sdq.pcmbench.advancedTab.section"
-               tab="de.uka.ipd.sdq.pcmbench.advancedTab">
+               class="org.palladiosimulator.editors.tabs.AdvancedPropertySection"
+               id="org.palladiosimulator.pcmbench.advancedTab.section"
+               tab="org.palladiosimulator.pcmbench.advancedTab">
             <input type="org.eclipse.emf.ecore.EObject"/>
          </propertySection>
          <propertySection
-               class="de.uka.ipd.sdq.pcmbench.tabs.InfrastructureSignaturesPropertySection"
-               id="de.uka.ipd.sdq.pcmbench.infrastructureSignaturesTab.section"
-               tab="de.uka.ipd.sdq.pcmbench.infrastructureSignaturesTab">
+               class="org.palladiosimulator.editors.tabs.InfrastructureSignaturesPropertySection"
+               id="org.palladiosimulator.pcmbench.infrastructureSignaturesTab.section"
+               tab="org.palladiosimulator.pcmbench.infrastructureSignaturesTab">
             <input
                   type="org.palladiosimulator.pcm.repository.InfrastructureInterface">
             </input>
          </propertySection>
          <propertySection
-               class="de.uka.ipd.sdq.pcmbench.tabs.EventChannelSinkConnectorSection"
-               id="de.uka.ipd.sdq.pcmbench.eventConnectors.section"
-               tab="de.uka.ipd.sdq.pcmbench.eventConnectorsTab">
+               class="org.palladiosimulator.editors.tabs.EventChannelSinkConnectorSection"
+               id="org.palladiosimulator.pcmbench.eventConnectors.section"
+               tab="org.palladiosimulator.pcmbench.eventConnectorsTab">
             <input
                   type="org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector">
             </input>

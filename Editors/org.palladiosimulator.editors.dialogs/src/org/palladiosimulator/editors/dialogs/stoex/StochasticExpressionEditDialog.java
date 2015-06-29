@@ -100,7 +100,7 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
     /*
      * (non-Javadoc)
      * 
-     * @see org.palladiosimulator.pcm.dialogs.stoex.AbstractGrammerBasedEditDialog#getResult()
+     * @see org.palladiosimulator.editors.dialogs.stoex.AbstractGrammerBasedEditDialog#getResult()
      */
     @Override
     public Expression getResult() {
@@ -110,7 +110,7 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
     /*
      * (non-Javadoc)
      * 
-     * @see org.palladiosimulator.pcm.dialogs.stoex.AbstractGrammerBasedEditDialog#getResultText()
+     * @see org.palladiosimulator.editors.dialogs.stoex.AbstractGrammerBasedEditDialog#getResultText()
      */
     @Override
     public String getResultText() {
@@ -120,7 +120,7 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
     /*
      * (non-Javadoc)
      * 
-     * @see org.palladiosimulator.pcm.dialogs.stoex.AbstractGrammerBasedEditDialog#getInitialText()
+     * @see org.palladiosimulator.editors.dialogs.stoex.AbstractGrammerBasedEditDialog#getInitialText()
      */
     @Override
     protected String getInitialText() {
@@ -131,7 +131,7 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
      * (non-Javadoc)
      * 
      * @see
-     * org.palladiosimulator.pcm.dialogs.stoex.AbstractGrammerBasedEditDialog#getLexer(java.lang.
+     * org.palladiosimulator.editors.dialogs.stoex.AbstractGrammerBasedEditDialog#getLexer(java.lang.
      * String)
      */
     @Override
@@ -142,7 +142,7 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
     /*
      * (non-Javadoc)
      * 
-     * @see org.palladiosimulator.pcm.dialogs.stoex.AbstractGrammerBasedEditDialog#getTitle()
+     * @see org.palladiosimulator.editors.dialogs.stoex.AbstractGrammerBasedEditDialog#getTitle()
      */
     @Override
     protected String getTitle() {
@@ -152,7 +152,7 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
     /*
      * (non-Javadoc)
      * 
-     * @see org.palladiosimulator.pcm.dialogs.stoex.AbstractGrammerBasedEditDialog#parse(org.antlr.
+     * @see org.palladiosimulator.editors.dialogs.stoex.AbstractGrammerBasedEditDialog#parse(org.antlr.
      * runtime.Lexer )
      */
     @Override
@@ -219,7 +219,7 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
     /*
      * (non-Javadoc)
      * 
-     * @see org.palladiosimulator.pcm.dialogs.stoex.AbstractGrammerBasedEditDialog#getLexerClass()
+     * @see org.palladiosimulator.editors.dialogs.stoex.AbstractGrammerBasedEditDialog#getLexerClass()
      */
     @Override
     protected Class<PCMStoExLexer> getLexerClass() {
@@ -229,7 +229,7 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
     /*
      * (non-Javadoc)
      * 
-     * @see org.palladiosimulator.pcm.dialogs.stoex.AbstractGrammerBasedEditDialog#getTokenMapper()
+     * @see org.palladiosimulator.editors.dialogs.stoex.AbstractGrammerBasedEditDialog#getTokenMapper()
      */
     @Override
     protected ITokenMapper getTokenMapper() {

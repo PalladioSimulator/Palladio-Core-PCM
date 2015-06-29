@@ -239,7 +239,7 @@
       <behaviour
           xsi:type="gmfgen:CustomBehaviour"
           key="EditPolicyRoles.OPEN_ROLE"
-          editPolicyQualifiedClassName="org.palladiosimulator.pcm.dialogs.usage.OpenVariableCharacterisationDialog"/>
+          editPolicyQualifiedClassName="org.palladiosimulator.editors.dialogs.usage.OpenVariableCharacterisationDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation"/>
@@ -299,7 +299,7 @@
         <behaviour
             xsi:type="gmfgen:CustomBehaviour"
             key="EditPolicyRoles.OPEN_ROLE"
-            editPolicyQualifiedClassName="org.palladiosimulator.pcm.dialogs.usage.OpenLoopIterationsDialog"/>
+            editPolicyQualifiedClassName="org.palladiosimulator.editors.dialogs.usage.OpenLoopIterationsDialog"/>
         <modelFacet
             parser="//@labelParsers/@implementations.1"/>
       </labels>
@@ -499,7 +499,7 @@
         <behaviour
             xsi:type="gmfgen:CustomBehaviour"
             key="EditPolicyRoles.OPEN_ROLE"
-            editPolicyQualifiedClassName="org.palladiosimulator.pcm.dialogs.usage.DelaySpecificationDialog"/>
+            editPolicyQualifiedClassName="org.palladiosimulator.editors.dialogs.usage.DelaySpecificationDialog"/>
         <modelFacet
             parser="//@labelParsers/@implementations.1"/>
       </labels>
@@ -586,7 +586,7 @@
         <behaviour
             xsi:type="gmfgen:CustomBehaviour"
             key="EditPolicyRoles.OPEN_ROLE"
-            editPolicyQualifiedClassName="org.palladiosimulator.pcm.dialogs.usage.OpenThinkTimeDialog"/>
+            editPolicyQualifiedClassName="org.palladiosimulator.editors.dialogs.usage.OpenThinkTimeDialog"/>
         <modelFacet
             parser="//@labelParsers/@implementations.1"/>
       </labels>
@@ -637,7 +637,7 @@
         <behaviour
             xsi:type="gmfgen:CustomBehaviour"
             key="EditPolicyRoles.OPEN_ROLE"
-            editPolicyQualifiedClassName="org.palladiosimulator.pcm.dialogs.usage.OpenInterArrivalTimeDialog"/>
+            editPolicyQualifiedClassName="org.palladiosimulator.editors.dialogs.usage.OpenInterArrivalTimeDialog"/>
         <modelFacet
             parser="//@labelParsers/@implementations.1"/>
       </labels>

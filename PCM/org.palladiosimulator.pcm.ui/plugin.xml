@@ -5,21 +5,21 @@
       <perspective
             class="org.palladiosimulator.pcm.ui.perspectives.PalladioPerspective"
             icon="icons/palladio-icon.ico"
-            id="de.uka.ipd.sdq.pcmbench.perspectives.palladio"
+            id="org.palladiosimulator.pcmbench.perspectives.palladio"
             name="Palladio">
       </perspective>
    </extension>
-   <extension-point id="org.palladiosimulator.pcm.ui.wizard.template" name="Palladio Model Template" schema="schema/de.uka.ipd.sdq.pcmbench.wizard.template.exsd"/>
+   <extension-point id="org.palladiosimulator.pcm.ui.wizard.template" name="Palladio Model Template" schema="schema/org.palladiosimulator.pcmbench.wizard.template.exsd"/>
 
    <extension
          point="org.eclipse.ui.newWizards">
       <wizard
-            category="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+            category="org.palladiosimulator.pcmbench.palladio_modeling_category"
             class="org.palladiosimulator.pcm.ui.wizard.NewPalladioProjectWizard"
-            finalPerspective="de.uka.ipd.sdq.pcmbench.perspectives.palladio"
+            finalPerspective="org.palladiosimulator.pcmbench.perspectives.palladio"
             hasPages="true"
             icon="icons/palladio-icon.ico"
-            id="de.uka.ipd.sdq.pcmbench.wizard.pcm.NewPCMWizard"
+            id="org.palladiosimulator.pcmbench.wizard.pcm.NewPCMWizard"
             name="New Palladio Project"
             project="true">
          <description>

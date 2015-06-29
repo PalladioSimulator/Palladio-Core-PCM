@@ -17,7 +17,7 @@ Require-Bundle: org.eclipse.ui.views.properties.tabbed;bundle-version="3.6.0",
  de.uka.ipd.sdq.stoex.analyser;bundle-version="2.0.0",
  de.uka.ipd.sdq.pcm.stochasticexpressions;bundle-version="2.0.0"
 Bundle-ActivationPolicy: lazy
-Bundle-Activator: de.uka.ipd.sdq.pcmbench.tabs.PCMBenchTabsActivator
-Export-Package: de.uka.ipd.sdq.pcmbench.tabs,
- de.uka.ipd.sdq.pcmbench.tabs.operations
+Bundle-Activator: org.palladiosimulator.editors.tabs.PCMBenchTabsActivator
+Export-Package: org.palladiosimulator.editors.tabs,
+ org.palladiosimulator.editors.tabs.operations
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

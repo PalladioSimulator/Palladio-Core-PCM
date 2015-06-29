@@ -47,13 +47,13 @@ Copyright 2007, SDQ, IPD, U KA
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/AllocationDiagramFile.gif"
-  	     category="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+  	     category="org.palladiosimulator.pcmbench.palladio_modeling_category"
   	     class="de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelCreationWizard"
   	     id="de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
       <category
-           id="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+           id="org.palladiosimulator.pcmbench.palladio_modeling_category"
            name="Palladio Modeling">
         </category>
    </extension>

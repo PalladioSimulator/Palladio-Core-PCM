@@ -45,13 +45,13 @@
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/ResourceenvironmentDiagramFile.gif"
-  	     category="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+  	     category="org.palladiosimulator.pcmbench.palladio_modeling_category"
   	     class="de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelCreationWizard"
   	     id="de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
      <category
-           id="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+           id="org.palladiosimulator.pcmbench.palladio_modeling_category"
            name="Palladio Modeling">
      </category>
    </extension>

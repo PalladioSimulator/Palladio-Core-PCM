@@ -37,13 +37,13 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/SeffDiagramFile.gif"
-  	     category="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+  	     category="org.palladiosimulator.pcmbench.palladio_modeling_category"
   	     class="de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelCreationWizard"
   	     id="de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
       <category
-           id="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+           id="org.palladiosimulator.pcmbench.palladio_modeling_category"
            name="Palladio Modeling">
         </category>
    </extension>

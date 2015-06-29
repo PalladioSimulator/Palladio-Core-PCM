@@ -49,13 +49,13 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/EntityDiagramFile.gif"
-  	     category="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+  	     category="org.palladiosimulator.pcmbench.palladio_modeling_category"
   	     class="de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelCreationWizard"
   	     id="de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
      <category
-           id="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+           id="org.palladiosimulator.pcmbench.palladio_modeling_category"
            name="Palladio Modeling">
      </category>
    </extension>
@@ -278,16 +278,16 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
          </propertySection>
          <!-- Added the following two property sections: -->
          <propertySection
-               class="de.uka.ipd.sdq.pcmbench.tabs.ComponentParametersPropertySection"
+               class="org.palladiosimulator.editors.tabs.ComponentParametersPropertySection"
                enablesFor="1"
-               filter="de.uka.ipd.sdq.pcmbench.tabs.AssemblyContextFilter"
+               filter="org.palladiosimulator.editors.tabs.AssemblyContextFilter"
                id="property.section.componentParam"
                tab="property.tab.componentParam">
          </propertySection>
          <propertySection
-               class="de.uka.ipd.sdq.pcmbench.tabs.EventChannelSinkConnectorSection"
+               class="org.palladiosimulator.editors.tabs.EventChannelSinkConnectorSection"
                enablesFor="1"
-               filter="de.uka.ipd.sdq.pcmbench.tabs.EventConnectorFilter"
+               filter="org.palladiosimulator.editors.tabs.EventConnectorFilter"
                id="property.section.filter"
                tab="property.tab.filter">
          </propertySection>

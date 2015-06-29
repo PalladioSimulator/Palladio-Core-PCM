@@ -218,7 +218,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
         container.setLayoutData(new GridData(GridData.FILL_BOTH));
 
         this.setTitle(DIALOG_TITLE);
-        PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "de.uka.ipd.sdq.pcmbench.help.stoexdialog");
+        PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "org.palladiosimulator.pcmbench.help.stoexdialog");
 
         fAnnotationAccess = new AnnotationMarkerAccess();
 

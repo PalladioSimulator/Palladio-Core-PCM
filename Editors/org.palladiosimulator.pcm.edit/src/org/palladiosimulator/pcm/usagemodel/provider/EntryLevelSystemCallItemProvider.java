@@ -160,7 +160,7 @@ public class EntryLevelSystemCallItemProvider extends AbstractUserActionItemProv
      * to produce a more informative label for display in non-PCM editors. In PCM editors, display
      * is not controlled by this method but through a more general mechanism (I'n not sure where
      * it's actually controlled, maybe the
-     * de.uka.ipd.sdq.pcmbench.tabs.PropertyLabelProvider.getText() method?) <!-- end-user-doc -->
+     * org.palladiosimulator.editors.tabs.PropertyLabelProvider.getText() method?) <!-- end-user-doc -->
      *
      * @generated not
      */

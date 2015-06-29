@@ -9,7 +9,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 public class PCMDialogPluginActivator extends AbstractUIPlugin {
 
     /** The Constant PLUGIN_ID. */
-    public static final String PLUGIN_ID = "org.palladiosimulator.pcm.dialogs";
+    public static final String PLUGIN_ID = "org.palladiosimulator.editors.dialogs";
 
     /** The plugin. */
     private static PCMDialogPluginActivator plugin;

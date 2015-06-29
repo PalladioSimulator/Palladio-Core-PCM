@@ -16,9 +16,9 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
+import org.palladiosimulator.editors.propertytabs.PalladioAdapterFactoryContentProvider;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelUsageDiagramEditorPlugin;
-import de.uka.ipd.sdq.pcmbench.propertytabs.PalladioAdapterFactoryContentProvider;
 
 /**
  * @generated
