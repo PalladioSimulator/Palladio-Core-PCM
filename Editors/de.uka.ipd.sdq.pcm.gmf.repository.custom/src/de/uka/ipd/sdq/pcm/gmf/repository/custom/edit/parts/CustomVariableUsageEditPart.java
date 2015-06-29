@@ -3,15 +3,12 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.custom.edit.parts;
 
-import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.RectangleFigure;
-import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.notation.View;
+import org.palladiosimulator.pcm.parameter.VariableUsage;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
-import org.palladiosimulator.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
@@ -21,18 +18,18 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
 
     /**
      * The constructor.
-     * 
+     *
      * @param view
      *            a View
      */
-    public CustomVariableUsageEditPart(View view) {
+    public CustomVariableUsageEditPart(final View view) {
         super(view);
         // TODO Auto-generated constructor stub
     }
 
     @Override
     protected IFigure createNodeShape() {
-        ParametricParameterUsageFigure2 figure = new ParametricParameterUsageFigure2();
+        final ParametricParameterUsageFigure2 figure = new ParametricParameterUsageFigure2();
         primaryShape = figure;
         return primaryShape;
     }
@@ -51,28 +48,11 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
         private WrappingLabel fFigureVariableUsageReferenceLabelFigure;
 
         /**
-         * @generated
-         */
-        private RectangleFigure fFigureParametricParameterUsageRectangleCompartment;
-
-        /**
          * @generated not
          */
         public ParametricParameterUsageFigure2() {
+            super();
 
-            GridLayout layoutThis = new GridLayout();
-            layoutThis.numColumns = 1;
-            layoutThis.makeColumnsEqualWidth = true;
-            layoutThis.horizontalSpacing = 0;
-            layoutThis.verticalSpacing = 0;
-            layoutThis.marginWidth = 0;
-            layoutThis.marginHeight = 0;
-            this.setLayoutManager(layoutThis);
-
-            this.setLineWidth(1);
-            // TODO: Find a better way!
-            this.setBackgroundColor(getThisBack());
-            this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
             createContents();
         }
 
@@ -81,49 +61,14 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
          */
         private void createContents() {
 
-            fFigureVariableUsageReferenceLabelFigure = new WrappingLabel();
+            fFigureVariableUsageReferenceLabelFigure = this.getFigureVariableUsageReferenceLabelFigure();
             if (resolveSemanticElement() != null) {
                 fFigureVariableUsageReferenceLabelFigure.setText(new PCMStoExPrettyPrintVisitor()
-                        .prettyPrint(((VariableUsage) resolveSemanticElement()).getNamedReference__VariableUsage()));
+                .prettyPrint(((VariableUsage) resolveSemanticElement()).getNamedReference__VariableUsage()));
             } else {
                 fFigureVariableUsageReferenceLabelFigure.setText("<null>");
             }
 
-            this.add(fFigureVariableUsageReferenceLabelFigure);
-
-        }
-
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        public WrappingLabel getFigureVariableUsageReferenceLabelFigure() {
-            return fFigureVariableUsageReferenceLabelFigure;
-        }
-
-        /**
-         * @generated
-         */
-        public RectangleFigure getFigureParametricParameterUsageRectangleCompartment() {
-            return fFigureParametricParameterUsageRectangleCompartment;
         }
 
     }
