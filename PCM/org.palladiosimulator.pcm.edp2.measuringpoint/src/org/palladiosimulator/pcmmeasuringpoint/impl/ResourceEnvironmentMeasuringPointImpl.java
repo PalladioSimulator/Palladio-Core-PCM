@@ -16,12 +16,12 @@ import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference;
  * <em><b>Resource Environment Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentMeasuringPointImpl#getResourceEnvironment
  * <em>Resource Environment</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -128,7 +128,8 @@ public class ResourceEnvironmentMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT:
             if (resolve) {
                 return this.getResourceEnvironment();
@@ -145,7 +146,8 @@ public class ResourceEnvironmentMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT:
             this.setResourceEnvironment((ResourceEnvironment) newValue);
             return;
@@ -160,7 +162,8 @@ public class ResourceEnvironmentMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT:
             this.setResourceEnvironment((ResourceEnvironment) null);
             return;
@@ -175,7 +178,8 @@ public class ResourceEnvironmentMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT:
             return this.basicGetResourceEnvironment() != null;
         }
@@ -189,8 +193,10 @@ public class ResourceEnvironmentMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == ResourceEnvironmentReference.class) {
-            switch (derivedFeatureID) {
+        if (baseClass == ResourceEnvironmentReference.class)
+        {
+            switch (derivedFeatureID)
+            {
             case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT:
                 return PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT;
             default:
@@ -207,8 +213,10 @@ public class ResourceEnvironmentMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == ResourceEnvironmentReference.class) {
-            switch (baseFeatureID) {
+        if (baseClass == ResourceEnvironmentReference.class)
+        {
+            switch (baseFeatureID)
+            {
             case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT:
                 return PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT;
             default:

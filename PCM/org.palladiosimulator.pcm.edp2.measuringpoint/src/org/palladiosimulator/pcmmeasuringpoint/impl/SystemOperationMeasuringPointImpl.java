@@ -18,9 +18,9 @@ import org.palladiosimulator.pcmmeasuringpoint.SystemReference;
  * <em><b>System Operation Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemOperationMeasuringPointImpl#getRole
+ * <li>
+ * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemOperationMeasuringPointImpl#getRole
  * <em>Role</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemOperationMeasuringPointImpl#getOperationSignature
@@ -29,6 +29,7 @@ import org.palladiosimulator.pcmmeasuringpoint.SystemReference;
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemOperationMeasuringPointImpl#getSystem
  * <em>System</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -202,7 +203,8 @@ public class SystemOperationMeasuringPointImpl extends MeasuringPointImpl implem
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__ROLE:
             if (resolve) {
                 return this.getRole();
@@ -229,7 +231,8 @@ public class SystemOperationMeasuringPointImpl extends MeasuringPointImpl implem
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__ROLE:
             this.setRole((Role) newValue);
             return;
@@ -250,7 +253,8 @@ public class SystemOperationMeasuringPointImpl extends MeasuringPointImpl implem
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__ROLE:
             this.setRole((Role) null);
             return;
@@ -271,7 +275,8 @@ public class SystemOperationMeasuringPointImpl extends MeasuringPointImpl implem
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__ROLE:
             return this.basicGetRole() != null;
         case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE:
@@ -289,8 +294,10 @@ public class SystemOperationMeasuringPointImpl extends MeasuringPointImpl implem
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == OperationReference.class) {
-            switch (derivedFeatureID) {
+        if (baseClass == OperationReference.class)
+        {
+            switch (derivedFeatureID)
+            {
             case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__ROLE:
                 return PcmmeasuringpointPackage.OPERATION_REFERENCE__ROLE;
             case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE:
@@ -299,8 +306,10 @@ public class SystemOperationMeasuringPointImpl extends MeasuringPointImpl implem
                 return -1;
             }
         }
-        if (baseClass == SystemReference.class) {
-            switch (derivedFeatureID) {
+        if (baseClass == SystemReference.class)
+        {
+            switch (derivedFeatureID)
+            {
             case PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__SYSTEM:
                 return PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM;
             default:
@@ -317,8 +326,10 @@ public class SystemOperationMeasuringPointImpl extends MeasuringPointImpl implem
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == OperationReference.class) {
-            switch (baseFeatureID) {
+        if (baseClass == OperationReference.class)
+        {
+            switch (baseFeatureID)
+            {
             case PcmmeasuringpointPackage.OPERATION_REFERENCE__ROLE:
                 return PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__ROLE;
             case PcmmeasuringpointPackage.OPERATION_REFERENCE__OPERATION_SIGNATURE:
@@ -327,8 +338,10 @@ public class SystemOperationMeasuringPointImpl extends MeasuringPointImpl implem
                 return -1;
             }
         }
-        if (baseClass == SystemReference.class) {
-            switch (baseFeatureID) {
+        if (baseClass == SystemReference.class)
+        {
+            switch (baseFeatureID)
+            {
             case PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM:
                 return PcmmeasuringpointPackage.SYSTEM_OPERATION_MEASURING_POINT__SYSTEM;
             default:

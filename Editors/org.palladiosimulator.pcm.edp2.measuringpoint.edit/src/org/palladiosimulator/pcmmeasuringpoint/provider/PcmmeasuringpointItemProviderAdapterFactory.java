@@ -37,11 +37,11 @@ import org.palladiosimulator.pcmmeasuringpoint.util.PcmmeasuringpointAdapterFact
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- *
+ * 
  * @generated
  */
 public class PcmmeasuringpointItemProviderAdapterFactory extends PcmmeasuringpointAdapterFactory
-        implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 
     /**
      * This keeps track of the root adapter factory that delegates to this adapter factory. <!--
@@ -62,14 +62,14 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public PcmmeasuringpointItemProviderAdapterFactory() {
@@ -84,7 +84,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcmmeasuringpoint.AssemblyOperationMeasuringPoint} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AssemblyOperationMeasuringPointItemProvider assemblyOperationMeasuringPointItemProvider;
@@ -98,7 +98,8 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      */
     @Override
     public Adapter createAssemblyOperationMeasuringPointAdapter() {
-        if (this.assemblyOperationMeasuringPointItemProvider == null) {
+        if (this.assemblyOperationMeasuringPointItemProvider == null)
+        {
             this.assemblyOperationMeasuringPointItemProvider = new AssemblyOperationMeasuringPointItemProvider(this);
         }
 
@@ -109,7 +110,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcmmeasuringpoint.AssemblyPassiveResourceMeasuringPoint}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected AssemblyPassiveResourceMeasuringPointItemProvider assemblyPassiveResourceMeasuringPointItemProvider;
@@ -123,7 +124,8 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      */
     @Override
     public Adapter createAssemblyPassiveResourceMeasuringPointAdapter() {
-        if (this.assemblyPassiveResourceMeasuringPointItemProvider == null) {
+        if (this.assemblyPassiveResourceMeasuringPointItemProvider == null)
+        {
             this.assemblyPassiveResourceMeasuringPointItemProvider = new AssemblyPassiveResourceMeasuringPointItemProvider(
                     this);
         }
@@ -149,7 +151,8 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      */
     @Override
     public Adapter createActiveResourceMeasuringPointAdapter() {
-        if (this.activeResourceMeasuringPointItemProvider == null) {
+        if (this.activeResourceMeasuringPointItemProvider == null)
+        {
             this.activeResourceMeasuringPointItemProvider = new ActiveResourceMeasuringPointItemProvider(this);
         }
 
@@ -174,7 +177,8 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      */
     @Override
     public Adapter createSystemOperationMeasuringPointAdapter() {
-        if (this.systemOperationMeasuringPointItemProvider == null) {
+        if (this.systemOperationMeasuringPointItemProvider == null)
+        {
             this.systemOperationMeasuringPointItemProvider = new SystemOperationMeasuringPointItemProvider(this);
         }
 
@@ -199,7 +203,8 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      */
     @Override
     public Adapter createLinkingResourceMeasuringPointAdapter() {
-        if (this.linkingResourceMeasuringPointItemProvider == null) {
+        if (this.linkingResourceMeasuringPointItemProvider == null)
+        {
             this.linkingResourceMeasuringPointItemProvider = new LinkingResourceMeasuringPointItemProvider(this);
         }
 
@@ -210,7 +215,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcmmeasuringpoint.SubSystemOperationMeasuringPoint} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SubSystemOperationMeasuringPointItemProvider subSystemOperationMeasuringPointItemProvider;
@@ -224,7 +229,8 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      */
     @Override
     public Adapter createSubSystemOperationMeasuringPointAdapter() {
-        if (this.subSystemOperationMeasuringPointItemProvider == null) {
+        if (this.subSystemOperationMeasuringPointItemProvider == null)
+        {
             this.subSystemOperationMeasuringPointItemProvider = new SubSystemOperationMeasuringPointItemProvider(this);
         }
 
@@ -249,7 +255,8 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      */
     @Override
     public Adapter createUsageScenarioMeasuringPointAdapter() {
-        if (this.usageScenarioMeasuringPointItemProvider == null) {
+        if (this.usageScenarioMeasuringPointItemProvider == null)
+        {
             this.usageScenarioMeasuringPointItemProvider = new UsageScenarioMeasuringPointItemProvider(this);
         }
 
@@ -260,7 +267,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcmmeasuringpoint.EntryLevelSystemCallMeasuringPoint} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EntryLevelSystemCallMeasuringPointItemProvider entryLevelSystemCallMeasuringPointItemProvider;
@@ -274,7 +281,8 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      */
     @Override
     public Adapter createEntryLevelSystemCallMeasuringPointAdapter() {
-        if (this.entryLevelSystemCallMeasuringPointItemProvider == null) {
+        if (this.entryLevelSystemCallMeasuringPointItemProvider == null)
+        {
             this.entryLevelSystemCallMeasuringPointItemProvider = new EntryLevelSystemCallMeasuringPointItemProvider(
                     this);
         }
@@ -286,7 +294,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionMeasuringPoint} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ExternalCallActionMeasuringPointItemProvider externalCallActionMeasuringPointItemProvider;
@@ -300,7 +308,8 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      */
     @Override
     public Adapter createExternalCallActionMeasuringPointAdapter() {
-        if (this.externalCallActionMeasuringPointItemProvider == null) {
+        if (this.externalCallActionMeasuringPointItemProvider == null)
+        {
             this.externalCallActionMeasuringPointItemProvider = new ExternalCallActionMeasuringPointItemProvider(this);
         }
 
@@ -311,7 +320,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceEnvironmentMeasuringPointItemProvider resourceEnvironmentMeasuringPointItemProvider;
@@ -325,9 +334,9 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
      */
     @Override
     public Adapter createResourceEnvironmentMeasuringPointAdapter() {
-        if (this.resourceEnvironmentMeasuringPointItemProvider == null) {
-            this.resourceEnvironmentMeasuringPointItemProvider = new ResourceEnvironmentMeasuringPointItemProvider(
-                    this);
+        if (this.resourceEnvironmentMeasuringPointItemProvider == null)
+        {
+            this.resourceEnvironmentMeasuringPointItemProvider = new ResourceEnvironmentMeasuringPointItemProvider(this);
         }
 
         return this.resourceEnvironmentMeasuringPointItemProvider;
@@ -336,7 +345,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -347,7 +356,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -357,7 +366,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -378,14 +387,16 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Object adapt(final Object object, final Object type) {
-        if (this.isFactoryForType(type)) {
+        if (this.isFactoryForType(type))
+        {
             final Object adapter = super.adapt(object, type);
-            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter)))
+            {
                 return adapter;
             }
         }
@@ -395,7 +406,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -405,7 +416,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -423,7 +434,8 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
     public void fireNotifyChanged(final Notification notification) {
         this.changeNotifier.fireNotifyChanged(notification);
 
-        if (this.parentAdapterFactory != null) {
+        if (this.parentAdapterFactory != null)
+        {
             this.parentAdapterFactory.fireNotifyChanged(notification);
         }
     }
@@ -431,7 +443,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -471,7 +483,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
     /**
      * A child creation extender for the {@link MeasuringpointPackage}. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static class MeasuringpointChildCreationExtender implements IChildCreationExtender {
@@ -486,7 +498,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
 
             /**
              * The child descriptors being populated. <!-- begin-user-doc --> <!-- end-user-doc -->
-             *
+             * 
              * @generated
              */
             protected List<Object> newChildDescriptors;
@@ -512,57 +524,68 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
 
             /**
              * <!-- begin-user-doc --> <!-- end-user-doc -->
-             *
+             * 
              * @generated
              */
             @Override
             public Object caseMeasuringPointRepository(final MeasuringPointRepository object) {
-                this.newChildDescriptors.add(this.createChildParameter(
-                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                        PcmmeasuringpointFactory.eINSTANCE.createAssemblyOperationMeasuringPoint()));
+                this.newChildDescriptors.add
+                (this.createChildParameter
+                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                                        PcmmeasuringpointFactory.eINSTANCE.createAssemblyOperationMeasuringPoint()));
 
-                this.newChildDescriptors.add(this.createChildParameter(
-                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                        PcmmeasuringpointFactory.eINSTANCE.createAssemblyPassiveResourceMeasuringPoint()));
+                this.newChildDescriptors.add
+                (this.createChildParameter
+                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                                        PcmmeasuringpointFactory.eINSTANCE
+                                                .createAssemblyPassiveResourceMeasuringPoint()));
 
-                this.newChildDescriptors.add(this.createChildParameter(
-                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                        PcmmeasuringpointFactory.eINSTANCE.createActiveResourceMeasuringPoint()));
+                this.newChildDescriptors.add
+                (this.createChildParameter
+                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                                        PcmmeasuringpointFactory.eINSTANCE.createActiveResourceMeasuringPoint()));
 
-                this.newChildDescriptors.add(this.createChildParameter(
-                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                        PcmmeasuringpointFactory.eINSTANCE.createSystemOperationMeasuringPoint()));
+                this.newChildDescriptors.add
+                (this.createChildParameter
+                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                                        PcmmeasuringpointFactory.eINSTANCE.createSystemOperationMeasuringPoint()));
 
-                this.newChildDescriptors.add(this.createChildParameter(
-                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                        PcmmeasuringpointFactory.eINSTANCE.createLinkingResourceMeasuringPoint()));
+                this.newChildDescriptors.add
+                (this.createChildParameter
+                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                                        PcmmeasuringpointFactory.eINSTANCE.createLinkingResourceMeasuringPoint()));
 
-                this.newChildDescriptors.add(this.createChildParameter(
-                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                        PcmmeasuringpointFactory.eINSTANCE.createSubSystemOperationMeasuringPoint()));
+                this.newChildDescriptors.add
+                (this.createChildParameter
+                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                                        PcmmeasuringpointFactory.eINSTANCE.createSubSystemOperationMeasuringPoint()));
 
-                this.newChildDescriptors.add(this.createChildParameter(
-                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                        PcmmeasuringpointFactory.eINSTANCE.createUsageScenarioMeasuringPoint()));
+                this.newChildDescriptors.add
+                (this.createChildParameter
+                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                                        PcmmeasuringpointFactory.eINSTANCE.createUsageScenarioMeasuringPoint()));
 
-                this.newChildDescriptors.add(this.createChildParameter(
-                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                        PcmmeasuringpointFactory.eINSTANCE.createEntryLevelSystemCallMeasuringPoint()));
+                this.newChildDescriptors.add
+                (this.createChildParameter
+                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                                        PcmmeasuringpointFactory.eINSTANCE.createEntryLevelSystemCallMeasuringPoint()));
 
-                this.newChildDescriptors.add(this.createChildParameter(
-                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                        PcmmeasuringpointFactory.eINSTANCE.createExternalCallActionMeasuringPoint()));
+                this.newChildDescriptors.add
+                (this.createChildParameter
+                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                                        PcmmeasuringpointFactory.eINSTANCE.createExternalCallActionMeasuringPoint()));
 
-                this.newChildDescriptors.add(this.createChildParameter(
-                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                        PcmmeasuringpointFactory.eINSTANCE.createResourceEnvironmentMeasuringPoint()));
+                this.newChildDescriptors.add
+                (this.createChildParameter
+                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                                        PcmmeasuringpointFactory.eINSTANCE.createResourceEnvironmentMeasuringPoint()));
 
                 return null;
             }
 
             /**
              * <!-- begin-user-doc --> <!-- end-user-doc -->
-             *
+             * 
              * @generated
              */
             protected CommandParameter createChildParameter(final Object feature, final Object child) {
@@ -573,7 +596,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
 
         /**
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         @Override
@@ -585,7 +608,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
 
         /**
          * <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         @Override

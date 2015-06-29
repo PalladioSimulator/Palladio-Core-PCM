@@ -16,12 +16,12 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <em><b>Linking Resource Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.LinkingResourceMeasuringPointImpl#getLinkingResource
  * <em>Linking Resource</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -87,7 +87,8 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.LINKING_RESOURCE_MEASURING_POINT__LINKING_RESOURCE:
             if (resolve) {
                 return this.getLinkingResource();
@@ -104,7 +105,8 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.LINKING_RESOURCE_MEASURING_POINT__LINKING_RESOURCE:
             this.setLinkingResource((LinkingResource) newValue);
             return;
@@ -119,7 +121,8 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.LINKING_RESOURCE_MEASURING_POINT__LINKING_RESOURCE:
             this.setLinkingResource((LinkingResource) null);
             return;
@@ -134,7 +137,8 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.LINKING_RESOURCE_MEASURING_POINT__LINKING_RESOURCE:
             return this.basicGetLinkingResource() != null;
         }
@@ -148,8 +152,10 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == LinkingResourceReference.class) {
-            switch (derivedFeatureID) {
+        if (baseClass == LinkingResourceReference.class)
+        {
+            switch (derivedFeatureID)
+            {
             case PcmmeasuringpointPackage.LINKING_RESOURCE_MEASURING_POINT__LINKING_RESOURCE:
                 return PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE;
             default:
@@ -166,8 +172,10 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == LinkingResourceReference.class) {
-            switch (baseFeatureID) {
+        if (baseClass == LinkingResourceReference.class)
+        {
+            switch (baseFeatureID)
+            {
             case PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE:
                 return PcmmeasuringpointPackage.LINKING_RESOURCE_MEASURING_POINT__LINKING_RESOURCE;
             default:

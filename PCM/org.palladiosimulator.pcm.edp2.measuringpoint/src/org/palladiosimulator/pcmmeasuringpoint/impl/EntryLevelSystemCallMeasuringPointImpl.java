@@ -16,12 +16,12 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <em><b>Entry Level System Call Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallMeasuringPointImpl#getEntryLevelSystemCall
  * <em>Entry Level System Call</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -91,7 +91,8 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.ENTRY_LEVEL_SYSTEM_CALL_MEASURING_POINT__ENTRY_LEVEL_SYSTEM_CALL:
             if (resolve) {
                 return this.getEntryLevelSystemCall();
@@ -108,7 +109,8 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.ENTRY_LEVEL_SYSTEM_CALL_MEASURING_POINT__ENTRY_LEVEL_SYSTEM_CALL:
             this.setEntryLevelSystemCall((EntryLevelSystemCall) newValue);
             return;
@@ -123,7 +125,8 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.ENTRY_LEVEL_SYSTEM_CALL_MEASURING_POINT__ENTRY_LEVEL_SYSTEM_CALL:
             this.setEntryLevelSystemCall((EntryLevelSystemCall) null);
             return;
@@ -138,7 +141,8 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.ENTRY_LEVEL_SYSTEM_CALL_MEASURING_POINT__ENTRY_LEVEL_SYSTEM_CALL:
             return this.basicGetEntryLevelSystemCall() != null;
         }
@@ -152,8 +156,10 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == EntryLevelSystemCallReference.class) {
-            switch (derivedFeatureID) {
+        if (baseClass == EntryLevelSystemCallReference.class)
+        {
+            switch (derivedFeatureID)
+            {
             case PcmmeasuringpointPackage.ENTRY_LEVEL_SYSTEM_CALL_MEASURING_POINT__ENTRY_LEVEL_SYSTEM_CALL:
                 return PcmmeasuringpointPackage.ENTRY_LEVEL_SYSTEM_CALL_REFERENCE__ENTRY_LEVEL_SYSTEM_CALL;
             default:
@@ -170,8 +176,10 @@ public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == EntryLevelSystemCallReference.class) {
-            switch (baseFeatureID) {
+        if (baseClass == EntryLevelSystemCallReference.class)
+        {
+            switch (baseFeatureID)
+            {
             case PcmmeasuringpointPackage.ENTRY_LEVEL_SYSTEM_CALL_REFERENCE__ENTRY_LEVEL_SYSTEM_CALL:
                 return PcmmeasuringpointPackage.ENTRY_LEVEL_SYSTEM_CALL_MEASURING_POINT__ENTRY_LEVEL_SYSTEM_CALL;
             default:

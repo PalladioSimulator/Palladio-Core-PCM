@@ -13,11 +13,11 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyReferenceImpl#getAssembly
- * <em>Assembly</em>}</li>
+ * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyReferenceImpl#getAssembly <em>
+ * Assembly</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -91,7 +91,8 @@ public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements Ass
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY:
             if (resolve) {
                 return this.getAssembly();
@@ -108,7 +109,8 @@ public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements Ass
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY:
             this.setAssembly((AssemblyContext) newValue);
             return;
@@ -123,7 +125,8 @@ public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements Ass
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY:
             this.setAssembly((AssemblyContext) null);
             return;
@@ -138,7 +141,8 @@ public abstract class AssemblyReferenceImpl extends CDOObjectImpl implements Ass
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY:
             return this.basicGetAssembly() != null;
         }

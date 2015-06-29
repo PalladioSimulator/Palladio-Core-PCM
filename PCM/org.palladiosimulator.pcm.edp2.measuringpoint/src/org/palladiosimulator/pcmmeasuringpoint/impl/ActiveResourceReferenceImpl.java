@@ -13,7 +13,6 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <em><b>Active Resource Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ActiveResourceReferenceImpl#getActiveResource
@@ -21,6 +20,7 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.ActiveResourceReferenceImpl#getReplicaID
  * <em>Replica ID</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -128,7 +128,8 @@ public abstract class ActiveResourceReferenceImpl extends CDOObjectImpl implemen
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.ACTIVE_RESOURCE_REFERENCE__ACTIVE_RESOURCE:
             if (resolve) {
                 return this.getActiveResource();
@@ -147,7 +148,8 @@ public abstract class ActiveResourceReferenceImpl extends CDOObjectImpl implemen
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.ACTIVE_RESOURCE_REFERENCE__ACTIVE_RESOURCE:
             this.setActiveResource((ProcessingResourceSpecification) newValue);
             return;
@@ -165,7 +167,8 @@ public abstract class ActiveResourceReferenceImpl extends CDOObjectImpl implemen
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.ACTIVE_RESOURCE_REFERENCE__ACTIVE_RESOURCE:
             this.setActiveResource((ProcessingResourceSpecification) null);
             return;
@@ -183,7 +186,8 @@ public abstract class ActiveResourceReferenceImpl extends CDOObjectImpl implemen
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.ACTIVE_RESOURCE_REFERENCE__ACTIVE_RESOURCE:
             return this.basicGetActiveResource() != null;
         case PcmmeasuringpointPackage.ACTIVE_RESOURCE_REFERENCE__REPLICA_ID:

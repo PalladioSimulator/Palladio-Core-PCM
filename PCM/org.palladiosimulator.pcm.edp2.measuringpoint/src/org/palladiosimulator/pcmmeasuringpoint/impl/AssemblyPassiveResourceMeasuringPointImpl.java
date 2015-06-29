@@ -18,7 +18,6 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <em><b>Assembly Passive Resource Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyPassiveResourceMeasuringPointImpl#getAssembly
@@ -27,6 +26,7 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyPassiveResourceMeasuringPointImpl#getPassiveResource
  * <em>Passive Resource</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -167,7 +167,8 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends MeasuringPointImp
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__ASSEMBLY:
             if (resolve) {
                 return this.getAssembly();
@@ -189,7 +190,8 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends MeasuringPointImp
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__ASSEMBLY:
             this.setAssembly((AssemblyContext) newValue);
             return;
@@ -207,7 +209,8 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends MeasuringPointImp
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__ASSEMBLY:
             this.setAssembly((AssemblyContext) null);
             return;
@@ -225,7 +228,8 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends MeasuringPointImp
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__ASSEMBLY:
             return this.basicGetAssembly() != null;
         case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__PASSIVE_RESOURCE:
@@ -241,16 +245,20 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends MeasuringPointImp
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == AssemblyReference.class) {
-            switch (derivedFeatureID) {
+        if (baseClass == AssemblyReference.class)
+        {
+            switch (derivedFeatureID)
+            {
             case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__ASSEMBLY:
                 return PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY;
             default:
                 return -1;
             }
         }
-        if (baseClass == PassiveResourceReference.class) {
-            switch (derivedFeatureID) {
+        if (baseClass == PassiveResourceReference.class)
+        {
+            switch (derivedFeatureID)
+            {
             case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__PASSIVE_RESOURCE:
                 return PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE;
             default:
@@ -267,16 +275,20 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends MeasuringPointImp
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == AssemblyReference.class) {
-            switch (baseFeatureID) {
+        if (baseClass == AssemblyReference.class)
+        {
+            switch (baseFeatureID)
+            {
             case PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY:
                 return PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__ASSEMBLY;
             default:
                 return -1;
             }
         }
-        if (baseClass == PassiveResourceReference.class) {
-            switch (baseFeatureID) {
+        if (baseClass == PassiveResourceReference.class)
+        {
+            switch (baseFeatureID)
+            {
             case PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE:
                 return PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__PASSIVE_RESOURCE;
             default:

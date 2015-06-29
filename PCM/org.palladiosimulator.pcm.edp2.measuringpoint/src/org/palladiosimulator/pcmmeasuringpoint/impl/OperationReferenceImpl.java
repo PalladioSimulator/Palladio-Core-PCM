@@ -14,14 +14,14 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <em><b>Operation Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.OperationReferenceImpl#getRole
- * <em>Role</em>}</li>
+ * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.OperationReferenceImpl#getRole <em>Role
+ * </em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.OperationReferenceImpl#getOperationSignature
  * <em>Operation Signature</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -127,7 +127,8 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.OPERATION_REFERENCE__ROLE:
             if (resolve) {
                 return this.getRole();
@@ -149,7 +150,8 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.OPERATION_REFERENCE__ROLE:
             this.setRole((Role) newValue);
             return;
@@ -167,7 +169,8 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.OPERATION_REFERENCE__ROLE:
             this.setRole((Role) null);
             return;
@@ -185,7 +188,8 @@ public abstract class OperationReferenceImpl extends CDOObjectImpl implements Op
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.OPERATION_REFERENCE__ROLE:
             return this.basicGetRole() != null;
         case PcmmeasuringpointPackage.OPERATION_REFERENCE__OPERATION_SIGNATURE:

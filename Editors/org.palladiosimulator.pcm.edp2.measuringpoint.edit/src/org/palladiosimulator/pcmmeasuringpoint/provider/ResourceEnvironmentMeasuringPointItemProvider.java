@@ -26,7 +26,7 @@ public class ResourceEnvironmentMeasuringPointItemProvider extends MeasuringPoin
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceEnvironmentMeasuringPointItemProvider(final AdapterFactory adapterFactory) {
@@ -36,12 +36,13 @@ public class ResourceEnvironmentMeasuringPointItemProvider extends MeasuringPoin
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null) {
+        if (this.itemPropertyDescriptors == null)
+        {
             super.getPropertyDescriptors(object);
 
             this.addResourceEnvironmentPropertyDescriptor(object);
@@ -52,18 +53,25 @@ public class ResourceEnvironmentMeasuringPointItemProvider extends MeasuringPoin
     /**
      * This adds a property descriptor for the Resource Environment feature. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addResourceEnvironmentPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_ResourceEnvironmentReference_resourceEnvironment_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_ResourceEnvironmentReference_resourceEnvironment_feature",
-                        "_UI_ResourceEnvironmentReference_type"),
-                PcmmeasuringpointPackage.Literals.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT, true, false,
-                true, null, null, null));
+        this.itemPropertyDescriptors.add
+        (this.createItemPropertyDescriptor
+                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                                this.getResourceLocator(),
+                                this.getString("_UI_ResourceEnvironmentReference_resourceEnvironment_feature"),
+                                this.getString("_UI_PropertyDescriptor_description",
+                                        "_UI_ResourceEnvironmentReference_resourceEnvironment_feature",
+                                        "_UI_ResourceEnvironmentReference_type"),
+                                PcmmeasuringpointPackage.Literals.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT,
+                                true,
+                                false,
+                                true,
+                                null,
+                                null,
+                                null));
     }
 
     /**
@@ -87,15 +95,16 @@ public class ResourceEnvironmentMeasuringPointItemProvider extends MeasuringPoin
     @Override
     public String getText(final Object object) {
         final String label = ((ResourceEnvironmentMeasuringPoint) object).getStringRepresentation();
-        return label == null || label.length() == 0 ? this.getString("_UI_ResourceEnvironmentMeasuringPoint_type")
-                : this.getString("_UI_ResourceEnvironmentMeasuringPoint_type") + " " + label;
+        return label == null || label.length() == 0 ?
+                this.getString("_UI_ResourceEnvironmentMeasuringPoint_type") :
+                    this.getString("_UI_ResourceEnvironmentMeasuringPoint_type") + " " + label;
     }
 
     /**
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -107,7 +116,7 @@ public class ResourceEnvironmentMeasuringPointItemProvider extends MeasuringPoin
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -118,7 +127,7 @@ public class ResourceEnvironmentMeasuringPointItemProvider extends MeasuringPoin
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

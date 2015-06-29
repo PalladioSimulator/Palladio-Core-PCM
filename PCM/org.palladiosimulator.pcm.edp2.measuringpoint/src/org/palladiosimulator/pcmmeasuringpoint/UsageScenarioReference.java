@@ -11,11 +11,11 @@ import org.palladiosimulator.pcm.usagemodel.UsageScenario;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference#getUsageScenario
- * <em>Usage Scenario</em>}</li>
+ * <li>{@link org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference#getUsageScenario <em>
+ * Usage Scenario</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getUsageScenarioReference()
  * @model abstract="true"

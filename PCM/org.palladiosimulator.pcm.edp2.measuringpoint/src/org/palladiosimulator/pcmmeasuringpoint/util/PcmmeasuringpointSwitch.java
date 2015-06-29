@@ -54,7 +54,8 @@ public class PcmmeasuringpointSwitch<T> extends Switch<T> {
      * @generated
      */
     public PcmmeasuringpointSwitch() {
-        if (modelPackage == null) {
+        if (modelPackage == null)
+        {
             modelPackage = PcmmeasuringpointPackage.eINSTANCE;
         }
     }
@@ -63,8 +64,7 @@ public class PcmmeasuringpointSwitch<T> extends Switch<T> {
      * Checks whether this is a switch for the given package. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @param ePackage
-     *            the package in question.
+     * @parameter ePackage the package in question.
      * @return whether this is a switch for the given package.
      * @generated
      */
@@ -82,7 +82,8 @@ public class PcmmeasuringpointSwitch<T> extends Switch<T> {
      */
     @Override
     protected T doSwitch(final int classifierID, final EObject theEObject) {
-        switch (classifierID) {
+        switch (classifierID)
+        {
         case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT: {
             final AssemblyOperationMeasuringPoint assemblyOperationMeasuringPoint = (AssemblyOperationMeasuringPoint) theEObject;
             T result = this.caseAssemblyOperationMeasuringPoint(assemblyOperationMeasuringPoint);

@@ -33,13 +33,16 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
      * @generated
      */
     public static PcmmeasuringpointFactory init() {
-        try {
+        try
+        {
             final PcmmeasuringpointFactory thePcmmeasuringpointFactory = (PcmmeasuringpointFactory) EPackage.Registry.INSTANCE
                     .getEFactory(PcmmeasuringpointPackage.eNS_URI);
-            if (thePcmmeasuringpointFactory != null) {
+            if (thePcmmeasuringpointFactory != null)
+            {
                 return thePcmmeasuringpointFactory;
             }
-        } catch (final Exception exception) {
+        } catch (final Exception exception)
+        {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new PcmmeasuringpointFactoryImpl();
@@ -61,7 +64,8 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID()) {
+        switch (eClass.getClassifierID())
+        {
         case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT:
             return this.createAssemblyOperationMeasuringPoint();
         case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT:

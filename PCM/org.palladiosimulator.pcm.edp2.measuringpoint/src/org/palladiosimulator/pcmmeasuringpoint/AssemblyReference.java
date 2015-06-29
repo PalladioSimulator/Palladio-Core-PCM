@@ -11,11 +11,11 @@ import org.palladiosimulator.pcm.core.composition.AssemblyContext;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.AssemblyReference#getAssembly
- * <em>Assembly</em>}</li>
+ * <li>{@link org.palladiosimulator.pcmmeasuringpoint.AssemblyReference#getAssembly <em>Assembly
+ * </em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getAssemblyReference()
  * @model abstract="true"

@@ -13,12 +13,12 @@ import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference;
  * <em><b>Usage Scenario Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.UsageScenarioReferenceImpl#getUsageScenario
  * <em>Usage Scenario</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -92,7 +92,8 @@ public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implement
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO:
             if (resolve) {
                 return this.getUsageScenario();
@@ -109,7 +110,8 @@ public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implement
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO:
             this.setUsageScenario((UsageScenario) newValue);
             return;
@@ -124,7 +126,8 @@ public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implement
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO:
             this.setUsageScenario((UsageScenario) null);
             return;
@@ -139,7 +142,8 @@ public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implement
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO:
             return this.basicGetUsageScenario() != null;
         }

@@ -22,16 +22,16 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * This is the item provider adapter for a
  * {@link org.palladiosimulator.pcmmeasuringpoint.AssemblyReference} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class AssemblyReferenceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyReferenceItemProvider(final AdapterFactory adapterFactory) {
@@ -41,12 +41,13 @@ public class AssemblyReferenceItemProvider extends ItemProviderAdapter implement
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null) {
+        if (this.itemPropertyDescriptors == null)
+        {
             super.getPropertyDescriptors(object);
 
             this.addAssemblyPropertyDescriptor(object);
@@ -57,16 +58,25 @@ public class AssemblyReferenceItemProvider extends ItemProviderAdapter implement
     /**
      * This adds a property descriptor for the Assembly feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addAssemblyPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_AssemblyReference_assembly_feature"),
-                this.getString("_UI_PropertyDescriptor_description", "_UI_AssemblyReference_assembly_feature",
-                        "_UI_AssemblyReference_type"),
-                PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, true, false, true, null, null, null));
+        this.itemPropertyDescriptors.add
+        (this.createItemPropertyDescriptor
+                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                                this.getResourceLocator(),
+                                this.getString("_UI_AssemblyReference_assembly_feature"),
+                                this.getString("_UI_PropertyDescriptor_description",
+                                        "_UI_AssemblyReference_assembly_feature",
+                                        "_UI_AssemblyReference_type"),
+                                PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY,
+                                true,
+                                false,
+                                true,
+                                null,
+                                null,
+                                null));
     }
 
     /**
@@ -84,7 +94,7 @@ public class AssemblyReferenceItemProvider extends ItemProviderAdapter implement
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -96,7 +106,7 @@ public class AssemblyReferenceItemProvider extends ItemProviderAdapter implement
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -107,7 +117,7 @@ public class AssemblyReferenceItemProvider extends ItemProviderAdapter implement
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
