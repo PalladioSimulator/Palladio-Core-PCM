@@ -11,8 +11,6 @@ import org.antlr.runtime.RecognitionException;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.swt.widgets.Shell;
-
-import de.uka.ipd.sdq.errorhandling.IIssue;
 import org.palladiosimulator.pcm.parameter.VariableCharacterisation;
 import org.palladiosimulator.pcm.parameter.VariableUsage;
 import org.palladiosimulator.pcm.repository.EventType;
@@ -25,6 +23,7 @@ import org.palladiosimulator.pcm.stochasticexpressions.parser.MyPCMStoExLexer;
 import org.palladiosimulator.pcm.stochasticexpressions.parser.MyPCMStoExParser;
 import org.palladiosimulator.pcm.stochasticexpressions.parser.PCMStoExLexer;
 
+import de.uka.ipd.sdq.errorhandling.IIssue;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.analyser.exceptions.ExpectedTypeMismatchIssue;
@@ -40,7 +39,7 @@ import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDialog {
 
     /** The expected type. */
-    private TypeEnum expectedType;
+    private final TypeEnum expectedType;
 
     /**
      * Instantiates a new stochastic expression edit dialog.
@@ -50,7 +49,7 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
      * @param expectedType
      *            the expected type
      */
-    public StochasticExpressionEditDialog(Shell parent, TypeEnum expectedType) {
+    public StochasticExpressionEditDialog(final Shell parent, final TypeEnum expectedType) {
         super(parent);
         this.expectedType = expectedType;
     }
@@ -65,7 +64,7 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
      * @param context
      *            the context
      */
-    public StochasticExpressionEditDialog(Shell parent, TypeEnum expectedType, Parameter[] context) {
+    public StochasticExpressionEditDialog(final Shell parent, final TypeEnum expectedType, final Parameter[] context) {
         super(parent, context);
         this.expectedType = expectedType;
     }
@@ -81,7 +80,8 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
      *            An EObject from which a parameter context is derived by searching for its parent
      *            SEFF and taking this SEFFs signature into account
      */
-    public StochasticExpressionEditDialog(Shell parent, TypeEnum expectedType, EObject contextObject) {
+    public StochasticExpressionEditDialog(final Shell parent, final TypeEnum expectedType,
+            final EObject contextObject) {
         super(parent);
         this.expectedType = expectedType;
         this.context = getContext(contextObject);
@@ -93,8 +93,8 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
      * @param ex
      *            the new initial expression
      */
-    public void setInitialExpression(RandomVariable ex) {
-        newText = ex.getSpecification();
+    public void setInitialExpression(final RandomVariable ex) {
+        this.newText = ex.getSpecification();
     }
 
     /*
@@ -131,10 +131,11 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
      * (non-Javadoc)
      * 
      * @see
-     * org.palladiosimulator.pcm.dialogs.stoex.AbstractGrammerBasedEditDialog#getLexer(java.lang.String)
+     * org.palladiosimulator.pcm.dialogs.stoex.AbstractGrammerBasedEditDialog#getLexer(java.lang.
+     * String)
      */
     @Override
-    protected Lexer getLexer(String text) {
+    protected Lexer getLexer(final String text) {
         return new MyPCMStoExLexer(new ANTLRStringStream(text));
     }
 
@@ -151,23 +152,22 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.palladiosimulator.pcm.dialogs.stoex.AbstractGrammerBasedEditDialog#parse(org.antlr.runtime.Lexer
-     * )
+     * @see org.palladiosimulator.pcm.dialogs.stoex.AbstractGrammerBasedEditDialog#parse(org.antlr.
+     * runtime.Lexer )
      */
     @Override
-    protected EObject parse(Lexer lexer) throws RecognitionException, StoExParserException {
-        MyPCMStoExParser parser = new MyPCMStoExParser(new CommonTokenStream(lexer));
-        EObject result = parser.expression();
-        ArrayList<IIssue> errorList = new ArrayList<IIssue>();
+    protected EObject parse(final Lexer lexer) throws RecognitionException, StoExParserException {
+        final MyPCMStoExParser parser = new MyPCMStoExParser(new CommonTokenStream(lexer));
+        final EObject result = parser.expression();
+        final ArrayList<IIssue> errorList = new ArrayList<IIssue>();
         errorList.addAll(((MyPCMStoExLexer) lexer).getErrors());
         errorList.addAll(parser.getErrors());
 
         if (errorList.size() == 0) {
-            NonProbabilisticExpressionInferTypeVisitor typeVisitor = new NonProbabilisticExpressionInferTypeVisitor();
+            final NonProbabilisticExpressionInferTypeVisitor typeVisitor = new NonProbabilisticExpressionInferTypeVisitor();
             typeVisitor.doSwitch(result);
             errorList.addAll(checkTypes(result, typeVisitor));
-            errorList.addAll(assertType(result, typeVisitor, expectedType));
+            errorList.addAll(assertType(result, typeVisitor, this.expectedType));
         }
         if (errorList.size() > 0) {
             throw new StoExParserException(errorList);
@@ -186,11 +186,11 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
      *            the expected type
      * @return the collection<? extends i issue>
      */
-    private Collection<? extends IIssue> assertType(EObject result, ExpressionInferTypeVisitor typeVisitor,
-            TypeEnum expectedType) {
+    private Collection<? extends IIssue> assertType(final EObject result, final ExpressionInferTypeVisitor typeVisitor,
+            final TypeEnum expectedType) {
         if (!TypeCheckVisitor.typesCompatible(expectedType, typeVisitor.getType((Expression) result))) {
-            return Collections.singletonList(new ExpectedTypeMismatchIssue(expectedType, typeVisitor
-                    .getType((Expression) result)));
+            return Collections.singletonList(
+                    new ExpectedTypeMismatchIssue(expectedType, typeVisitor.getType((Expression) result)));
         }
         return Collections.emptyList();
     }
@@ -204,12 +204,13 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
      *            the type visitor
      * @return the collection
      */
-    private Collection<IIssue> checkTypes(EObject result, NonProbabilisticExpressionInferTypeVisitor typeVisitor) {
-        TypeCheckVisitor typeChecker = new TypeCheckVisitor(typeVisitor);
+    private Collection<IIssue> checkTypes(final EObject result,
+            final NonProbabilisticExpressionInferTypeVisitor typeVisitor) {
+        final TypeCheckVisitor typeChecker = new TypeCheckVisitor(typeVisitor);
         typeChecker.doSwitch(result);
-        TreeIterator<EObject> iterator = result.eAllContents();
+        final TreeIterator<EObject> iterator = result.eAllContents();
         for (; iterator.hasNext();) {
-            EObject treeNode = iterator.next();
+            final EObject treeNode = iterator.next();
             typeChecker.doSwitch(treeNode);
         }
         return typeChecker.getIssues();
@@ -242,7 +243,7 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
      *            The characterisation to check.
      * @return INT for ByteSize and number of elements, ANY for all others.
      */
-    public static TypeEnum getTypeFromVariableCharacterisation(VariableCharacterisation ch) {
+    public static TypeEnum getTypeFromVariableCharacterisation(final VariableCharacterisation ch) {
         switch (ch.getType()) {
         case BYTESIZE:
         case NUMBER_OF_ELEMENTS:
@@ -261,20 +262,20 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
      *            the rv
      * @return The parameters found in the context.
      */
-    private Parameter[] getContext(EObject rv) {
+    private Parameter[] getContext(final EObject rv) {
         Parameter[] parameters = new Parameter[] {};
 
-        ResourceDemandingSEFF seff = getSEFF(rv);
+        final ResourceDemandingSEFF seff = getSEFF(rv);
         if (seff != null && seff.getDescribedService__SEFF() != null) {
 
             // if the seff is about an operation signature
             if (seff.getDescribedService__SEFF() instanceof OperationSignature) {
-                OperationSignature signature = (OperationSignature) seff.getDescribedService__SEFF();
-                parameters = (Parameter[]) signature.getParameters__OperationSignature().toArray();
+                final OperationSignature signature = (OperationSignature) seff.getDescribedService__SEFF();
+                parameters = signature.getParameters__OperationSignature().toArray(parameters);
 
                 // if the seff is an handler for an EventType
             } else if (seff.getDescribedService__SEFF() instanceof EventType) {
-                EventType eventType = (EventType) seff.getDescribedService__SEFF();
+                final EventType eventType = (EventType) seff.getDescribedService__SEFF();
                 if (eventType.getParameter__EventType() != null) {
                     parameters = new Parameter[] { eventType.getParameter__EventType() };
                 }
@@ -283,14 +284,14 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
             // if the actual context is an ExternalCallAction, that has a return value other than
             // void
             // also provide the return parameter in the code complition
-            ExternalCallAction eca = getParentCallAction(rv);
+            final ExternalCallAction eca = getParentCallAction(rv);
             if (eca != null && isOutputCharacterisation(eca, rv) && eca.getCalledService_ExternalService() != null
                     && eca.getCalledService_ExternalService().getReturnType__OperationSignature() != null) {
-                Parameter[] parametersWithReturn = new Parameter[parameters.length + 1];
+                final Parameter[] parametersWithReturn = new Parameter[parameters.length + 1];
                 System.arraycopy(parameters, 0, parametersWithReturn, 0, parameters.length);
                 parametersWithReturn[parameters.length] = RepositoryFactory.eINSTANCE.createParameter();
-                parametersWithReturn[parameters.length].setDataType__Parameter(eca.getCalledService_ExternalService()
-                        .getReturnType__OperationSignature());
+                parametersWithReturn[parameters.length].setDataType__Parameter(
+                        eca.getCalledService_ExternalService().getReturnType__OperationSignature());
                 parametersWithReturn[parameters.length].setParameterName("RETURN");
                 parameters = parametersWithReturn;
             }
@@ -308,8 +309,8 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
      *            the rv
      * @return true, if is output characterisation
      */
-    private boolean isOutputCharacterisation(ExternalCallAction eca, EObject rv) {
-        for (VariableUsage vu : eca.getReturnVariableUsage__CallReturnAction()) {
+    private boolean isOutputCharacterisation(final ExternalCallAction eca, final EObject rv) {
+        for (final VariableUsage vu : eca.getReturnVariableUsage__CallReturnAction()) {
             if (vu.getVariableCharacterisation_VariableUsage().contains(rv)) {
                 return true;
             }
@@ -324,7 +325,7 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
      *            The object to get the RDSEFF for.
      * @return The found ressource demanding seff or null if there is none.
      */
-    private ResourceDemandingSEFF getSEFF(EObject a) {
+    private ResourceDemandingSEFF getSEFF(final EObject a) {
         EObject container = a;
         while (container != null && !(container instanceof ResourceDemandingSEFF)) {
             container = container.eContainer();
@@ -332,7 +333,7 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
         if (container == null || !(container instanceof ResourceDemandingSEFF)) {
             return null;
         }
-        ResourceDemandingSEFF seff = (ResourceDemandingSEFF) container;
+        final ResourceDemandingSEFF seff = (ResourceDemandingSEFF) container;
         return seff;
     }
 
@@ -344,7 +345,7 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
      *            The object to check the container for.
      * @return The ExternalCallAction container or null if there is none.
      */
-    private ExternalCallAction getParentCallAction(EObject a) {
+    private ExternalCallAction getParentCallAction(final EObject a) {
         EObject container = a;
         while (!(container instanceof ResourceDemandingSEFF) && !(container instanceof ExternalCallAction)) {
             container = container.eContainer();
@@ -352,7 +353,7 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
         if (!(container instanceof ExternalCallAction)) {
             return null;
         }
-        ExternalCallAction call = (ExternalCallAction) container;
+        final ExternalCallAction call = (ExternalCallAction) container;
         return call;
     }
 
