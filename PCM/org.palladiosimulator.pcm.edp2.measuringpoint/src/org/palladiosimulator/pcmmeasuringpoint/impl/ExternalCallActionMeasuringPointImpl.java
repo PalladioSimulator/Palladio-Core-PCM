@@ -194,7 +194,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl
     @Override
     public String getStringRepresentation() {
         if (this.getExternalCall() == null) {
-            throw new RuntimeException("PCM Measuring Point was not setup correctly");
+            return "";
         }
 
         if (this.getExternalCall().getEntityName() == null) {

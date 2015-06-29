@@ -128,7 +128,7 @@ public class AssemblyPassiveResourceMeasuringPointImpl extends MeasuringPointImp
     @Override
     public String getStringRepresentation() {
         if (this.getAssembly() == null || this.getPassiveResource() == null) {
-            throw new RuntimeException("PCM Measuring Point was not setup correctly");
+            return "";
         }
 
         if (this.getAssembly().getEntityName() == null) {

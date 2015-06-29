@@ -90,7 +90,7 @@ public class ResourceEnvironmentMeasuringPointImpl extends MeasuringPointImpl
     @Override
     public String getStringRepresentation() {
         if (this.getResourceEnvironment() == null) {
-            throw new RuntimeException("PCM Measuring Point was not setup correctly");
+            return "";
         }
 
         if (this.getResourceEnvironment().getEntityName() == null) {

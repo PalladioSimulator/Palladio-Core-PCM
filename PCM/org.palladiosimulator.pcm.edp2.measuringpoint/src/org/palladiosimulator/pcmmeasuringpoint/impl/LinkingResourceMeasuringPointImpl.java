@@ -193,7 +193,7 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
     @Override
     public String getStringRepresentation() {
         if (this.getLinkingResource() == null) {
-            throw new RuntimeException("PCM Measuring Point was not setup correctly");
+            return "";
         }
 
         if (this.getLinkingResource().getEntityName() == null) {

@@ -317,7 +317,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl
     @Override
     public String getStringRepresentation() {
         if (this.getSubsystem() == null || this.getRole() == null || this.getOperationSignature() == null) {
-            throw new RuntimeException("PCM Measuring Point was not setup correctly");
+            return "";
         }
 
         if (this.getSubsystem().getEntityName() == null) {

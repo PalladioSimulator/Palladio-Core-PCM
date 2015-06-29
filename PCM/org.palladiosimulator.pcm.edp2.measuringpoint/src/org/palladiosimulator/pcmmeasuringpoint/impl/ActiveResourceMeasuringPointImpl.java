@@ -242,7 +242,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
     @Override
     public String getStringRepresentation() {
         if (this.getActiveResource() == null) {
-            throw new RuntimeException("PCM Measuring Point was not setup correctly");
+            return "";
         }
 
         if (this.getActiveResource().getActiveResourceType_ActiveResourceSpecification() == null) {

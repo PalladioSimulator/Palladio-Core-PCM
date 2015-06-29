@@ -193,7 +193,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
     @Override
     public String getStringRepresentation() {
         if (this.getUsageScenario() == null) {
-            throw new RuntimeException("PCM Measuring Point was not setup correctly");
+            return "";
         }
 
         if (this.getUsageScenario().getEntityName() == null) {

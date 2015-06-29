@@ -163,7 +163,7 @@ public class AssemblyOperationMeasuringPointImpl extends MeasuringPointImpl impl
     @Override
     public String getStringRepresentation() {
         if (this.getAssembly() == null || this.getRole() == null || this.getOperationSignature() == null) {
-            throw new RuntimeException("PCM Measuring Point was not setup correctly");
+            return "";
         }
 
         if (this.getAssembly().getEntityName() == null) {

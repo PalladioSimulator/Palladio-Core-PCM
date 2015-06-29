@@ -128,7 +128,7 @@ public class SystemOperationMeasuringPointImpl extends MeasuringPointImpl implem
     @Override
     public String getStringRepresentation() {
         if (this.getSystem() == null || this.getRole() == null || this.getOperationSignature() == null) {
-            throw new RuntimeException("PCM Measuring Point was not setup correctly");
+            return "";
         }
 
         if (this.getSystem().getEntityName() == null) {
