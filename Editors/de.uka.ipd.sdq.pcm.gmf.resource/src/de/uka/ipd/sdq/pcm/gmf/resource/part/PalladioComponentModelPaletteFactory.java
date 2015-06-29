@@ -98,9 +98,9 @@ public class PalladioComponentModelPaletteFactory {
                         .singletonList(PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4003));
         entry.setId("createConnection4CreationTool"); //$NON-NLS-1$
         entry.setSmallIcon(PalladioComponentModelDiagramEditorPlugin
-                .findImageDescriptor("/de.uka.ipd.sdq.pcm.edit/icons/full/obj16/CommunicationLink.gif")); //$NON-NLS-1$
+                .findImageDescriptor("/org.palladiosimulator.pcm.edit/icons/full/obj16/CommunicationLink.gif")); //$NON-NLS-1$
         entry.setLargeIcon(PalladioComponentModelDiagramEditorPlugin
-                .findImageDescriptor("/de.uka.ipd.sdq.pcm.edit/icons/full/obj16/CommunicationLink.gif")); //$NON-NLS-1$
+                .findImageDescriptor("/org.palladiosimulator.pcm.edit/icons/full/obj16/CommunicationLink.gif")); //$NON-NLS-1$
         return entry;
     }
 

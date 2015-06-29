@@ -302,7 +302,7 @@ public class PalladioComponentModelPaletteFactory {
                 Collections.singletonList(PalladioComponentModelElementTypes.ParametricResourceDemand_3051));
         entry.setId("createResourceDemand1CreationTool"); //$NON-NLS-1$
         entry.setSmallIcon(PalladioComponentModelSeffDiagramEditorPlugin
-                .findImageDescriptor("/de.uka.ipd.sdq.pcm.edit/icons/full/ctool16/ParametricRessourceDemand.gif")); //$NON-NLS-1$
+                .findImageDescriptor("/org.palladiosimulator.pcm.edit/icons/full/ctool16/ParametricRessourceDemand.gif")); //$NON-NLS-1$
         entry.setLargeIcon(entry.getSmallIcon());
         return entry;
     }
@@ -459,7 +459,7 @@ public class PalladioComponentModelPaletteFactory {
                         .singletonList(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001));
         entry.setId("createControlFlow1CreationTool"); //$NON-NLS-1$
         entry.setSmallIcon(PalladioComponentModelSeffDiagramEditorPlugin
-                .findImageDescriptor("/de.uka.ipd.sdq.pcm.edit/icons/full/ctool16/ControlFlow.gif")); //$NON-NLS-1$
+                .findImageDescriptor("/org.palladiosimulator.pcm.edit/icons/full/ctool16/ControlFlow.gif")); //$NON-NLS-1$
         entry.setLargeIcon(entry.getSmallIcon());
         return entry;
     }
@@ -475,7 +475,7 @@ public class PalladioComponentModelPaletteFactory {
                         .singletonList(PalladioComponentModelElementTypes.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004));
         entry.setId("createRecoveryFlow2CreationTool"); //$NON-NLS-1$
         entry.setSmallIcon(PalladioComponentModelSeffDiagramEditorPlugin
-                .findImageDescriptor("/de.uka.ipd.sdq.pcm.edit/icons/full/ctool16/RecoveryFlow.gif")); //$NON-NLS-1$
+                .findImageDescriptor("/org.palladiosimulator.pcm.edit/icons/full/ctool16/RecoveryFlow.gif")); //$NON-NLS-1$
         entry.setLargeIcon(entry.getSmallIcon());
         return entry;
     }
