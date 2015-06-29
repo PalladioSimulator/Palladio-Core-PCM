@@ -5,6 +5,10 @@
       version="1.0.0.qualifier"
       provider-name="%providerName">
 
+   <description url="http://www.palladiosimulator.org">
+      This is the Palladio Bench Feature
+   </description>
+
    <copyright url="%copyrightURL">
       %copyright
    </copyright>
@@ -12,10 +16,6 @@
    <license url="%licenseURL">
       %license
    </license>
-
-   <description url="http://www.palladiosimulator.org">
-      This is the Palladio Bench Feature
-   </description>
 
    <includes
          id="org.eclipse.epp.package.modeling.feature"
@@ -51,6 +51,10 @@
 
    <includes
          id="org.palladiosimulator.solver.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.palladiosimulator.edp2.ui.feature"
          version="0.0.0"/>
 
 </feature>
