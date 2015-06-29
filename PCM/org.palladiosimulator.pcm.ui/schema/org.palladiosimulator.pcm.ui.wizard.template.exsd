@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="org.palladiosimulator.pcmbench.wizard" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="org.palladiosimulator.pcm.ui" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="org.palladiosimulator.pcmbench.wizard" id="org.palladiosimulator.pcmbench.wizard.template" name="Palladio Model Template"/>
+         <meta.schema plugin="org.palladiosimulator.pcm.ui" id="org.palladiosimulator.pcm.ui.template" name="Palladio Model Template"/>
       </appinfo>
       <documentation>
          Extension point to specify a template to be available in the new Palladio Project Wizard.
@@ -84,7 +84,7 @@
          <attribute name="template_uri" type="string" use="required">
             <annotation>
                <documentation>
-                  Provide the uri to access the template file inside the eclipse runtime (e.g. platform:/plugin/org.palladiosimulator.pcmbench.wizard/template/minimum_example/default.repository)
+                  Provide the uri to access the template file inside the eclipse runtime (e.g. platform:/plugin/org.palladiosimulator.pcm.ui/template/minimum_example/default.repository)
                </documentation>
             </annotation>
          </attribute>

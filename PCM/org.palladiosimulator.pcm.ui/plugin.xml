@@ -9,7 +9,7 @@
             name="Palladio">
       </perspective>
    </extension>
-   <extension-point id="org.palladiosimulator.pcm.ui.wizard.template" name="Palladio Model Template" schema="schema/org.palladiosimulator.pcmbench.wizard.template.exsd"/>
+   <extension-point id="org.palladiosimulator.pcm.ui.wizard.template" name="Palladio Model Template" schema="schema/org.palladiosimulator.pcm.ui.wizard.template.exsd"/>
 
    <extension
          point="org.eclipse.ui.newWizards">
@@ -19,7 +19,7 @@
             finalPerspective="org.palladiosimulator.pcmbench.perspectives.palladio"
             hasPages="true"
             icon="icons/palladio-icon.ico"
-            id="org.palladiosimulator.pcmbench.wizard.pcm.NewPCMWizard"
+            id="org.palladiosimulator.pcm.ui.pcm.NewPCMWizard"
             name="New Palladio Project"
             project="true">
          <description>

@@ -235,7 +235,7 @@ public class NewPalladioProjectWizard extends Wizard implements INewWizard {
 	 */
 	private void throwCoreException(String message) throws CoreException {
 		IStatus status = new Status(IStatus.ERROR,
-				"org.palladiosimulator.pcmbench.wizard", IStatus.OK, message, null);
+				"org.palladiosimulator.pcm.ui", IStatus.OK, message, null);
 		throw new CoreException(status);
 	}
 
