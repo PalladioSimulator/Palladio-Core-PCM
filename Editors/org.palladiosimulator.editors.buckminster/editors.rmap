@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rm:rmap xmlns:bc="http://www.eclipse.org/buckminster/Common-1.0" xmlns:rm="http://www.eclipse.org/buckminster/RMap-1.0">
 
-  <rm:locator pattern="^de\.uka\.ipd\.sdq\.pcm\.gmf*" searchPathRef="editors" failOnError="true"/>
+  <rm:property key="resolveFrom" value="release"/>
+
+  <rm:locator pattern="^de\.uka\.ipd\.sdq\.pcm\.gmf.*" searchPathRef="editors" failOnError="true"/>
   <rm:locator pattern="^org\.palladiosimulator\.editors.*" searchPathRef="editors" failOnError="true"/>
   <rm:locator pattern="^org\.palladiosimulator\.pcm.*" searchPathRef="editors" failOnError="false"/>
 
@@ -9,8 +11,16 @@
 		href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/PCM/org.palladiosimulator.pcm.buckminster/pcm.rmap" />
 
   <rm:searchPath name="editors">
-    <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+    <rm:provider resolutionFilter="(resolveFrom=nightly)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
       <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/palladio/core/editors/nightly/"/>
+    </rm:provider>
+    <rm:provider resolutionFilter="(resolveFrom=release)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/palladio/core/editors/releases/latest/"/>
+    </rm:provider>
+    <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="svn" source="true">
+      <rm:uri format="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/Editors#{0}">
+      	<bc:propertyRef key="buckminster.component" />
+      </rm:uri>
     </rm:provider>
   </rm:searchPath>
   
