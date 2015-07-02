@@ -2741,6 +2741,6 @@
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_UHne4JZwEdyvM-KRcbKtDQ" base_Package="_wRehYH4BEduxavwLjLThgg" packageName="stoex" nsPrefix="stoex" nsURI="http://sdq.ipd.uka.de/StochasticExpressions/1.0" basePackage="de.uka.ipd.sdq" prefix=""/>
+  <Ecore:EPackage xmi:id="_UHne4JZwEdyvM-KRcbKtDQ" base_Package="_wRehYH4BEduxavwLjLThgg" packageName="stoex" nsPrefix="stoex" nsURI="http://sdq.ipd.uka.de/StochasticExpressions/2.2" basePackage="de.uka.ipd.sdq" prefix=""/>
   <Ecore:EReference xmi:id="_UHs-cJZwEdyvM-KRcbKtDQ" xmlName="" isTransient="true" isVolatile="true" isUnsettable="true" xmlNamespace="" visibility="ReadOnly" base_Property="_evUWgThvEdy4wo8LP9zxLA" referenceName="expression"/>
 </xmi:XMI>
