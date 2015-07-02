@@ -25,9 +25,9 @@ PCM Metamodel build.
       <import plugin="de.uka.ipd.sdq.pcm.stochasticexpressions"/>
       <import plugin="de.uka.ipd.sdq.stoex"/>
       <import plugin="de.uka.ipd.sdq.stoex.analyser"/>
-      <import plugin="de.uka.ipd.sdq.pcm"/>
       <import plugin="de.uka.ipd.sdq.probfunction.math"/>
       <import plugin="org.apache.commons.math"/>
+      <import plugin="org.palladiosimulator.pcm" version="4.0.0.qualifier" match="greaterOrEqual"/>
    </requires>
 
    <plugin
