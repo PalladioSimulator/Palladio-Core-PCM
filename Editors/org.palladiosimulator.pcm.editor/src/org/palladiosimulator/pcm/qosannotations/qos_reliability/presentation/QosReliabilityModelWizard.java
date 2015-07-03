@@ -73,7 +73,7 @@ public class QosReliabilityModelWizard extends Wizard implements INewWizard {
      * 
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * The supported extensions for created files. <!-- begin-user-doc --> <!-- end-user-doc -->

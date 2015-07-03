@@ -157,7 +157,7 @@ public class UsagemodelEditor extends MultiPageEditorPart
      * 
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * This keeps track of the editing domain that is used to track all changes to the model. <!--

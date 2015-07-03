@@ -4,7 +4,7 @@
   <extension
          point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
       <metamodel
-            nsURI="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.0">
+            nsURI="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1">
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.allocation.helper.AllocationContextEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.allocation.AllocationContextAdvice"

@@ -8,14 +8,17 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.palladiosimulator.pcm.core.entity.provider.EntityItemProvider;
 import org.palladiosimulator.pcm.parameter.ParameterFactory;
 import org.palladiosimulator.pcm.seff.SeffFactory;
 import org.palladiosimulator.pcm.seff.SeffPackage;
 import org.palladiosimulator.pcm.seff.SynchronisationPoint;
+
+import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
 
 /**
  * This is the item provider adapter for a
@@ -24,14 +27,14 @@ import org.palladiosimulator.pcm.seff.SynchronisationPoint;
  *
  * @generated
  */
-public class SynchronisationPointItemProvider extends EntityItemProvider {
+public class SynchronisationPointItemProvider extends IdentifierItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
@@ -152,6 +155,17 @@ public class SynchronisationPointItemProvider extends EntityItemProvider {
         newChildDescriptors.add(this.createChildParameter(
                 SeffPackage.Literals.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT,
                 SeffFactory.eINSTANCE.createForkedBehaviour()));
+    }
+
+    /**
+     * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public ResourceLocator getResourceLocator() {
+        return ((IChildCreationExtender) this.adapterFactory).getResourceLocator();
     }
 
 }

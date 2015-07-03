@@ -30,7 +30,7 @@ public class ResourceContainerItemProvider extends EntityItemProvider {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
@@ -106,7 +106,8 @@ public class ResourceContainerItemProvider extends EntityItemProvider {
      * to produce a more informative label for display in non-PCM editors. In PCM editors, display
      * is not controlled by this method but through a more general mechanism (I'n not sure where
      * it's actually controlled, maybe the
-     * org.palladiosimulator.editors.tabs.PropertyLabelProvider.getText() method?) <!-- end-user-doc -->
+     * org.palladiosimulator.editors.tabs.PropertyLabelProvider.getText() method?) <!-- end-user-doc
+     * -->
      *
      * @generated not
      */

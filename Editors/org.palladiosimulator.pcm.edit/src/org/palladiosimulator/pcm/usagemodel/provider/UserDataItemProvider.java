@@ -38,7 +38,7 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--

@@ -16,6 +16,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour;
 import org.palladiosimulator.pcm.seff.SeffFactory;
 import org.palladiosimulator.pcm.seff.SeffPackage;
+import org.palladiosimulator.pcm.seff.seff_performance.SeffPerformanceFactory;
 import org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityFactory;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
@@ -34,7 +35,7 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
@@ -174,6 +175,10 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
 
         newChildDescriptors
                 .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+                        SeffFactory.eINSTANCE.createCallReturnAction()));
+
+        newChildDescriptors
+                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
                         SeffFactory.eINSTANCE.createAcquireAction()));
 
         newChildDescriptors
@@ -195,6 +200,14 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
         newChildDescriptors
                 .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
                         SeffFactory.eINSTANCE.createInternalAction()));
+
+        newChildDescriptors
+                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+                        SeffPerformanceFactory.eINSTANCE.createInfrastructureCall()));
+
+        newChildDescriptors
+                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+                        SeffPerformanceFactory.eINSTANCE.createResourceCall()));
 
         newChildDescriptors
                 .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,

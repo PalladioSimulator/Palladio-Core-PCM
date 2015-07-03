@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import org.palladiosimulator.pcm.core.entity.provider.EntityItemProvider;
 import org.palladiosimulator.pcm.parameter.ParameterFactory;
 import org.palladiosimulator.pcm.seff.CallAction;
 import org.palladiosimulator.pcm.seff.SeffPackage;
@@ -22,14 +21,14 @@ import org.palladiosimulator.pcm.seff.SeffPackage;
  *
  * @generated
  */
-public class CallActionItemProvider extends EntityItemProvider {
+public class CallActionItemProvider extends AbstractActionItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--

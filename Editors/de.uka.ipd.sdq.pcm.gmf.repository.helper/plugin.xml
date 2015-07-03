@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
       <metamodel
-            nsURI="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0">
+            nsURI="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1">
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.repository.helper.RepositoryEditorSeffEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.repository.RepositoryEditorResourceDemandingSEFFAdvice"
@@ -13,7 +13,7 @@
          </adviceBinding>
       </metamodel>
       <metamodel
-            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.0">
+            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1">
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.repository.helper.InterfaceEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.repository.InterfaceAdvice"
@@ -22,7 +22,7 @@
          </adviceBinding>
       </metamodel>
       <metamodel
-            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.0">
+            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1">
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.repository.helper.InterfaceEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.repository.InterfaceAdvice"
@@ -31,7 +31,7 @@
          </adviceBinding>
       </metamodel>
       <metamodel
-            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.0">
+            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1">
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.repository.helper.InterfaceEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.repository.InterfaceAdvice"
@@ -40,7 +40,7 @@
          </adviceBinding>
       </metamodel>
       <metamodel
-            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.0">
+            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1">
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.repository.helper.RoleEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.repository.OperationProvidedRoleNameAdvice"
@@ -49,7 +49,7 @@
          </adviceBinding>
       </metamodel>
       <metamodel
-            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.0">
+            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1">
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.repository.helper.RoleEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.repository.OperationRequiredRoleNameAdvice"
@@ -58,7 +58,7 @@
          </adviceBinding>
       </metamodel>
       <metamodel
-            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.0">
+            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1">
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.repository.helper.RoleEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.repository.InfrastructureProvidedRoleNameAdvice"
@@ -67,7 +67,7 @@
          </adviceBinding>
       </metamodel>
       <metamodel
-            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.0">
+            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1">
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.repository.helper.RoleEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.repository.InfrastructureRequiredRoleNameAdvice"
@@ -76,7 +76,7 @@
          </adviceBinding>
       </metamodel>
       <metamodel
-            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.0">
+            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1">
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.repository.helper.RoleEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.repository.SinkRoleNameAdvice"
@@ -85,7 +85,7 @@
          </adviceBinding>
       </metamodel>
       <metamodel
-            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.0">
+            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1">
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.repository.helper.RoleEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.repository.SourceRoleNameAdvice"
@@ -94,7 +94,7 @@
          </adviceBinding>
       </metamodel>
       <metamodel
-            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.0">
+            nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1">
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.repository.helper.PassiveResourceEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.repository.PassiveResourceAdvice"
@@ -103,7 +103,7 @@
          </adviceBinding>
       </metamodel>
       <metamodel
-            nsURI="http://palladiosimulator.org/PalladioComponentModel/Parameter/5.0">
+            nsURI="http://palladiosimulator.org/PalladioComponentModel/Parameter/5.1">
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.repository.helper.VariableCharacterisationEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.repository.VariableCharacterisationAdvice"
@@ -112,7 +112,7 @@
          </adviceBinding>
       </metamodel>
       <metamodel
-            nsURI="http://palladiosimulator.org/PalladioComponentModel/Parameter/5.0">
+            nsURI="http://palladiosimulator.org/PalladioComponentModel/Parameter/5.1">
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.repository.helper.ComponentParameterEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.repository.ComponentParameterAdvice"
@@ -120,7 +120,7 @@
                typeId="de.uka.ipd.sdq.pcm.gmf.repository.VariableUsage_3104">
          </adviceBinding>
       </metamodel>
-      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.helper.InitialisedResourceDemandingSEFF_4201"
                name="InitialisedResourceDemandingSEFF"

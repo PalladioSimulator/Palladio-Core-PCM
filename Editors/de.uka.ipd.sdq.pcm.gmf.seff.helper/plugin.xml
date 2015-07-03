@@ -2,7 +2,7 @@
 <?eclipse version="3.2"?>
 <plugin>
   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
-      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1">
       		<metamodelType
                	id="de.uka.ipd.sdq.pcm.gmf.seff.SynchronisationPoint_9001"
                	name="SynchronisationPoint"
@@ -127,7 +127,7 @@
          </adviceBinding>
  
       </metamodel>
-      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/Core/5.0">
+      <metamodel nsURI="http://palladiosimulator.org/PalladioComponentModel/Core/5.1">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.seff.PCMRandomVariable_9000"
                name="PCMRandomVariable"

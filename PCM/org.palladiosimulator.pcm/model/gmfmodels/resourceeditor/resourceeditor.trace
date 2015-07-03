@@ -5,7 +5,7 @@
     xmlns:trace="http://www.eclipse.org/gmf/2006/Trace">
   <nodeTraces
       visualID="2004"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0' and _eClass_.name = 'ResourceContainer') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0' and _eClass_.name = 'ResourceEnvironment') and _containmentMF_.name = 'resourceContainer_ResourceEnvironment')">
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1' and _eClass_.name = 'ResourceContainer') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1' and _eClass_.name = 'ResourceEnvironment') and _containmentMF_.name = 'resourceContainer_ResourceEnvironment')">
     <nodeLabelTraces
         visualID="5019"
         queryText="true"/>
@@ -18,7 +18,7 @@
   </nodeTraces>
   <nodeTraces
       visualID="2005"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0' and _eClass_.name = 'LinkingResource') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0' and _eClass_.name = 'ResourceEnvironment') and _containmentMF_.name = 'linkingResources__ResourceEnvironment')">
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1' and _eClass_.name = 'LinkingResource') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1' and _eClass_.name = 'ResourceEnvironment') and _containmentMF_.name = 'linkingResources__ResourceEnvironment')">
     <nodeLabelTraces
         visualID="5024"
         queryText="true"/>
@@ -28,7 +28,7 @@
   </nodeTraces>
   <childNodeTraces
       visualID="3003"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0' and _eClass_.name = 'ProcessingResourceSpecification') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0' and _eClass_.name = 'ResourceContainer') and _containmentMF_.name = 'activeResourceSpecifications_ResourceContainer')">
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1' and _eClass_.name = 'ProcessingResourceSpecification') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1' and _eClass_.name = 'ResourceContainer') and _containmentMF_.name = 'activeResourceSpecifications_ResourceContainer')">
     <nodeLabelTraces
         visualID="5013"
         queryText="true"/>
@@ -53,7 +53,7 @@
   </childNodeTraces>
   <childNodeTraces
       visualID="3004"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0' and _eClass_.name = 'CommunicationLinkResourceSpecification') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0' and _eClass_.name = 'LinkingResource') and _containmentMF_.name = 'communicationLinkResourceSpecifications_LinkingResource')">
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1' and _eClass_.name = 'CommunicationLinkResourceSpecification') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1' and _eClass_.name = 'LinkingResource') and _containmentMF_.name = 'communicationLinkResourceSpecifications_LinkingResource')">
     <nodeLabelTraces
         visualID="5020"
         queryText="true"/>
@@ -69,7 +69,7 @@
   </childNodeTraces>
   <childNodeTraces
       visualID="3005"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0' and _eClass_.name = 'ResourceContainer') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0' and _eClass_.name = 'ResourceContainer') and _containmentMF_.name = 'nestedResourceContainers__ResourceContainer')">
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1' and _eClass_.name = 'ResourceContainer') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1' and _eClass_.name = 'ResourceContainer') and _containmentMF_.name = 'nestedResourceContainers__ResourceContainer')">
     <nodeLabelTraces
         visualID="5025"
         queryText="true"/>
@@ -82,5 +82,5 @@
   </childNodeTraces>
   <linkTraces
       visualID="4003"
-      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.0' and _eClass_.name = 'LinkingResource') and _feature_.name = 'connectedResourceContainers_LinkingResource')"/>
+      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1' and _eClass_.name = 'LinkingResource') and _feature_.name = 'connectedResourceContainers_LinkingResource')"/>
 </trace:TraceModel>

@@ -50,7 +50,7 @@ public class SeffReliabilityActionBarContributor extends EditingDomainActionBarC
      * 
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * This keeps track of the active editor. <!-- begin-user-doc --> <!-- end-user-doc -->

@@ -109,55 +109,55 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
         switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
         case DelayEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0?Delay", PalladioComponentModelElementTypes.Delay_3017); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1?Delay", PalladioComponentModelElementTypes.Delay_3017); //$NON-NLS-1$
         case VariableUsageEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/Parameter/5.0?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3012); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/Parameter/5.1?VariableUsage", PalladioComponentModelElementTypes.VariableUsage_3012); //$NON-NLS-1$
         case StopEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0?Stop", PalladioComponentModelElementTypes.Stop_3002); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1?Stop", PalladioComponentModelElementTypes.Stop_3002); //$NON-NLS-1$
         case BranchTransitionEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0?BranchTransition", PalladioComponentModelElementTypes.BranchTransition_3009); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1?BranchTransition", PalladioComponentModelElementTypes.BranchTransition_3009); //$NON-NLS-1$
         case StartEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0?Start", PalladioComponentModelElementTypes.Start_3001); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1?Start", PalladioComponentModelElementTypes.Start_3001); //$NON-NLS-1$
         case OpenWorkloadEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0?OpenWorkload", PalladioComponentModelElementTypes.OpenWorkload_3016); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1?OpenWorkload", PalladioComponentModelElementTypes.OpenWorkload_3016); //$NON-NLS-1$
         case VariableCharacterisationEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/Parameter/5.0?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3013); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/Parameter/5.1?VariableCharacterisation", PalladioComponentModelElementTypes.VariableCharacterisation_3013); //$NON-NLS-1$
         case ScenarioBehaviour2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0?ScenarioBehaviour", PalladioComponentModelElementTypes.ScenarioBehaviour_3007); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1?ScenarioBehaviour", PalladioComponentModelElementTypes.ScenarioBehaviour_3007); //$NON-NLS-1$
         case LoopEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0?Loop", PalladioComponentModelElementTypes.Loop_3005); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1?Loop", PalladioComponentModelElementTypes.Loop_3005); //$NON-NLS-1$
         case EntryLevelSystemCallEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0?EntryLevelSystemCall", PalladioComponentModelElementTypes.EntryLevelSystemCall_3003); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1?EntryLevelSystemCall", PalladioComponentModelElementTypes.EntryLevelSystemCall_3003); //$NON-NLS-1$
         case ScenarioBehaviour3EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0?ScenarioBehaviour", PalladioComponentModelElementTypes.ScenarioBehaviour_3010); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1?ScenarioBehaviour", PalladioComponentModelElementTypes.ScenarioBehaviour_3010); //$NON-NLS-1$
         case AbstractUserActionSuccessorEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Link?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0?AbstractUserAction?successor", PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002); //$NON-NLS-1$
+                    "Navigator?Link?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1?AbstractUserAction?successor", PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002); //$NON-NLS-1$
         case UsageScenarioEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Diagram?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0?UsageModel", PalladioComponentModelElementTypes.UsageModel_1000); //$NON-NLS-1$
+                    "Navigator?Diagram?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1?UsageModel", PalladioComponentModelElementTypes.UsageModel_1000); //$NON-NLS-1$
         case BranchEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0?Branch", PalladioComponentModelElementTypes.Branch_3008); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1?Branch", PalladioComponentModelElementTypes.Branch_3008); //$NON-NLS-1$
         case ScenarioBehaviourEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0?ScenarioBehaviour", PalladioComponentModelElementTypes.ScenarioBehaviour_3014); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1?ScenarioBehaviour", PalladioComponentModelElementTypes.ScenarioBehaviour_3014); //$NON-NLS-1$
         case UsageScenario2EditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?TopLevelNode?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0?UsageScenario", PalladioComponentModelElementTypes.UsageScenario_2004); //$NON-NLS-1$
+                    "Navigator?TopLevelNode?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1?UsageScenario", PalladioComponentModelElementTypes.UsageScenario_2004); //$NON-NLS-1$
         case ClosedWorkloadEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.0?ClosedWorkload", PalladioComponentModelElementTypes.ClosedWorkload_3015); //$NON-NLS-1$
+                    "Navigator?Node?http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1?ClosedWorkload", PalladioComponentModelElementTypes.ClosedWorkload_3015); //$NON-NLS-1$
         }
         return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
     }
