@@ -25,10 +25,10 @@ public interface PrimitiveDataType extends DataType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Type</b></em>' attribute. The literals are from the
@@ -49,7 +49,7 @@ public interface PrimitiveDataType extends DataType {
     /**
      * Sets the value of the '{@link org.palladiosimulator.pcm.repository.PrimitiveDataType#getType
      * <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Type</em>' attribute.
      * @see org.palladiosimulator.pcm.repository.PrimitiveTypeEnum

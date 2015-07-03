@@ -4,27 +4,27 @@
 package org.palladiosimulator.pcm.seff.impl;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
-
 import org.palladiosimulator.pcm.seff.AbstractAction;
 import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour;
 import org.palladiosimulator.pcm.seff.SeffPackage;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Abstract Action</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Abstract Action</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.palladiosimulator.pcm.seff.impl.AbstractActionImpl#getPredecessor_AbstractAction <em>Predecessor Abstract Action</em>}</li>
- *   <li>{@link org.palladiosimulator.pcm.seff.impl.AbstractActionImpl#getSuccessor_AbstractAction <em>Successor Abstract Action</em>}</li>
- *   <li>{@link org.palladiosimulator.pcm.seff.impl.AbstractActionImpl#getResourceDemandingBehaviour_AbstractAction <em>Resource Demanding Behaviour Abstract Action</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.impl.AbstractActionImpl#getPredecessor_AbstractAction
+ * <em>Predecessor Abstract Action</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.impl.AbstractActionImpl#getSuccessor_AbstractAction
+ * <em>Successor Abstract Action</em>}</li>
+ * <li>
+ * {@link org.palladiosimulator.pcm.seff.impl.AbstractActionImpl#getResourceDemandingBehaviour_AbstractAction
+ * <em>Resource Demanding Behaviour Abstract Action</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,15 +32,15 @@ import org.palladiosimulator.pcm.seff.SeffPackage;
 public abstract class AbstractActionImpl extends EntityImpl implements AbstractAction {
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     protected AbstractActionImpl() {
@@ -48,8 +48,8 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -58,265 +58,277 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public AbstractAction getPredecessor_AbstractAction() {
-        return (AbstractAction) eDynamicGet(SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION,
+        return (AbstractAction) this.eDynamicGet(SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION,
                 SeffPackage.Literals.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION, true, true);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public AbstractAction basicGetPredecessor_AbstractAction() {
-        return (AbstractAction) eDynamicGet(SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION,
+        return (AbstractAction) this.eDynamicGet(SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION,
                 SeffPackage.Literals.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION, false, true);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public NotificationChain basicSetPredecessor_AbstractAction(AbstractAction newPredecessor_AbstractAction,
+    public NotificationChain basicSetPredecessor_AbstractAction(final AbstractAction newPredecessor_AbstractAction,
             NotificationChain msgs) {
-        msgs = eDynamicInverseAdd((InternalEObject) newPredecessor_AbstractAction,
+        msgs = this.eDynamicInverseAdd((InternalEObject) newPredecessor_AbstractAction,
                 SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION, msgs);
         return msgs;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public void setPredecessor_AbstractAction(AbstractAction newPredecessor_AbstractAction) {
-        eDynamicSet(SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION,
+    @Override
+    public void setPredecessor_AbstractAction(final AbstractAction newPredecessor_AbstractAction) {
+        this.eDynamicSet(SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION,
                 SeffPackage.Literals.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION, newPredecessor_AbstractAction);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public AbstractAction getSuccessor_AbstractAction() {
-        return (AbstractAction) eDynamicGet(SeffPackage.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION,
+        return (AbstractAction) this.eDynamicGet(SeffPackage.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION,
                 SeffPackage.Literals.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION, true, true);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public AbstractAction basicGetSuccessor_AbstractAction() {
-        return (AbstractAction) eDynamicGet(SeffPackage.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION,
+        return (AbstractAction) this.eDynamicGet(SeffPackage.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION,
                 SeffPackage.Literals.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION, false, true);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public NotificationChain basicSetSuccessor_AbstractAction(AbstractAction newSuccessor_AbstractAction,
+    public NotificationChain basicSetSuccessor_AbstractAction(final AbstractAction newSuccessor_AbstractAction,
             NotificationChain msgs) {
-        msgs = eDynamicInverseAdd((InternalEObject) newSuccessor_AbstractAction,
+        msgs = this.eDynamicInverseAdd((InternalEObject) newSuccessor_AbstractAction,
                 SeffPackage.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION, msgs);
         return msgs;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public void setSuccessor_AbstractAction(AbstractAction newSuccessor_AbstractAction) {
-        eDynamicSet(SeffPackage.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION,
+    @Override
+    public void setSuccessor_AbstractAction(final AbstractAction newSuccessor_AbstractAction) {
+        this.eDynamicSet(SeffPackage.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION,
                 SeffPackage.Literals.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION, newSuccessor_AbstractAction);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public ResourceDemandingBehaviour getResourceDemandingBehaviour_AbstractAction() {
-        return (ResourceDemandingBehaviour) eDynamicGet(
+        return (ResourceDemandingBehaviour) this.eDynamicGet(
                 SeffPackage.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION,
                 SeffPackage.Literals.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION, true, true);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public NotificationChain basicSetResourceDemandingBehaviour_AbstractAction(
-            ResourceDemandingBehaviour newResourceDemandingBehaviour_AbstractAction, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newResourceDemandingBehaviour_AbstractAction,
+            final ResourceDemandingBehaviour newResourceDemandingBehaviour_AbstractAction, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newResourceDemandingBehaviour_AbstractAction,
                 SeffPackage.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION, msgs);
         return msgs;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public void setResourceDemandingBehaviour_AbstractAction(
-            ResourceDemandingBehaviour newResourceDemandingBehaviour_AbstractAction) {
-        eDynamicSet(SeffPackage.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION,
+            final ResourceDemandingBehaviour newResourceDemandingBehaviour_AbstractAction) {
+        this.eDynamicSet(SeffPackage.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION,
                 SeffPackage.Literals.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION,
                 newResourceDemandingBehaviour_AbstractAction);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION:
-            AbstractAction predecessor_AbstractAction = basicGetPredecessor_AbstractAction();
-            if (predecessor_AbstractAction != null)
+            final AbstractAction predecessor_AbstractAction = this.basicGetPredecessor_AbstractAction();
+            if (predecessor_AbstractAction != null) {
                 msgs = ((InternalEObject) predecessor_AbstractAction).eInverseRemove(this,
                         SeffPackage.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION, AbstractAction.class, msgs);
-            return basicSetPredecessor_AbstractAction((AbstractAction) otherEnd, msgs);
+            }
+            return this.basicSetPredecessor_AbstractAction((AbstractAction) otherEnd, msgs);
         case SeffPackage.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION:
-            AbstractAction successor_AbstractAction = basicGetSuccessor_AbstractAction();
-            if (successor_AbstractAction != null)
+            final AbstractAction successor_AbstractAction = this.basicGetSuccessor_AbstractAction();
+            if (successor_AbstractAction != null) {
                 msgs = ((InternalEObject) successor_AbstractAction).eInverseRemove(this,
                         SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION, AbstractAction.class, msgs);
-            return basicSetSuccessor_AbstractAction((AbstractAction) otherEnd, msgs);
+            }
+            return this.basicSetSuccessor_AbstractAction((AbstractAction) otherEnd, msgs);
         case SeffPackage.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetResourceDemandingBehaviour_AbstractAction((ResourceDemandingBehaviour) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetResourceDemandingBehaviour_AbstractAction((ResourceDemandingBehaviour) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION:
-            return basicSetPredecessor_AbstractAction(null, msgs);
+            return this.basicSetPredecessor_AbstractAction(null, msgs);
         case SeffPackage.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION:
-            return basicSetSuccessor_AbstractAction(null, msgs);
+            return this.basicSetSuccessor_AbstractAction(null, msgs);
         case SeffPackage.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION:
-            return basicSetResourceDemandingBehaviour_AbstractAction(null, msgs);
+            return this.basicSetResourceDemandingBehaviour_AbstractAction(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case SeffPackage.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION:
-            return eInternalContainer().eInverseRemove(this, SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                    ResourceDemandingBehaviour.class, msgs);
+            return this.eInternalContainer().eInverseRemove(this,
+                    SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR, ResourceDemandingBehaviour.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION:
-            if (resolve)
-                return getPredecessor_AbstractAction();
-            return basicGetPredecessor_AbstractAction();
+            if (resolve) {
+                return this.getPredecessor_AbstractAction();
+            }
+            return this.basicGetPredecessor_AbstractAction();
         case SeffPackage.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION:
-            if (resolve)
-                return getSuccessor_AbstractAction();
-            return basicGetSuccessor_AbstractAction();
+            if (resolve) {
+                return this.getSuccessor_AbstractAction();
+            }
+            return this.basicGetSuccessor_AbstractAction();
         case SeffPackage.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION:
-            return getResourceDemandingBehaviour_AbstractAction();
+            return this.getResourceDemandingBehaviour_AbstractAction();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION:
-            setPredecessor_AbstractAction((AbstractAction) newValue);
+            this.setPredecessor_AbstractAction((AbstractAction) newValue);
             return;
         case SeffPackage.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION:
-            setSuccessor_AbstractAction((AbstractAction) newValue);
+            this.setSuccessor_AbstractAction((AbstractAction) newValue);
             return;
         case SeffPackage.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION:
-            setResourceDemandingBehaviour_AbstractAction((ResourceDemandingBehaviour) newValue);
+            this.setResourceDemandingBehaviour_AbstractAction((ResourceDemandingBehaviour) newValue);
             return;
         }
         super.eSet(featureID, newValue);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION:
-            setPredecessor_AbstractAction((AbstractAction) null);
+            this.setPredecessor_AbstractAction((AbstractAction) null);
             return;
         case SeffPackage.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION:
-            setSuccessor_AbstractAction((AbstractAction) null);
+            this.setSuccessor_AbstractAction((AbstractAction) null);
             return;
         case SeffPackage.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION:
-            setResourceDemandingBehaviour_AbstractAction((ResourceDemandingBehaviour) null);
+            this.setResourceDemandingBehaviour_AbstractAction((ResourceDemandingBehaviour) null);
             return;
         }
         super.eUnset(featureID);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION:
-            return basicGetPredecessor_AbstractAction() != null;
+            return this.basicGetPredecessor_AbstractAction() != null;
         case SeffPackage.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION:
-            return basicGetSuccessor_AbstractAction() != null;
+            return this.basicGetSuccessor_AbstractAction() != null;
         case SeffPackage.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION:
-            return getResourceDemandingBehaviour_AbstractAction() != null;
+            return this.getResourceDemandingBehaviour_AbstractAction() != null;
         }
         return super.eIsSet(featureID);
     }
 
-} //AbstractActionImpl
+} // AbstractActionImpl

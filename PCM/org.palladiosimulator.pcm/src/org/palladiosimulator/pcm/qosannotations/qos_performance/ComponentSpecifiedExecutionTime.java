@@ -44,10 +44,10 @@ public interface ComponentSpecifiedExecutionTime extends SpecifiedExecutionTime 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Assembly Context Component Specified Execution Time</b></em>
@@ -57,7 +57,7 @@ public interface ComponentSpecifiedExecutionTime extends SpecifiedExecutionTime 
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Assembly Context Component Specified Execution Time</em>'
      *         reference.
      * @see #setAssemblyContext_ComponentSpecifiedExecutionTime(AssemblyContext)
@@ -72,7 +72,7 @@ public interface ComponentSpecifiedExecutionTime extends SpecifiedExecutionTime 
      * {@link org.palladiosimulator.pcm.qosannotations.qos_performance.ComponentSpecifiedExecutionTime#getAssemblyContext_ComponentSpecifiedExecutionTime
      * <em>Assembly Context Component Specified Execution Time</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Assembly Context Component Specified Execution Time</em>
      *            ' reference.

@@ -40,10 +40,10 @@ public interface Connector extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Parent Structure Connector</b></em>' container reference. It
@@ -55,7 +55,7 @@ public interface Connector extends Entity {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Parent Structure Connector</em>' container reference.
      * @see #setParentStructure__Connector(ComposedStructure)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getConnector_ParentStructure__Connector()
@@ -71,7 +71,7 @@ public interface Connector extends Entity {
      * {@link org.palladiosimulator.pcm.core.composition.Connector#getParentStructure__Connector
      * <em>Parent Structure Connector</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Parent Structure Connector</em>' container reference.
      * @see #getParentStructure__Connector()

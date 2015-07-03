@@ -35,10 +35,10 @@ public interface BranchAction extends AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Branches Branch</b></em>' containment reference list. The
@@ -51,7 +51,7 @@ public interface BranchAction extends AbstractInternalControlFlowAction {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Branches Branch</em>' containment reference list.
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getBranchAction_Branches_Branch()
      * @see org.palladiosimulator.pcm.seff.AbstractBranchTransition#getBranchAction_AbstractBranchTransition

@@ -4,21 +4,19 @@
 package org.palladiosimulator.pcm.protocol.impl;
 
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
-
 import org.palladiosimulator.pcm.protocol.Protocol;
 import org.palladiosimulator.pcm.protocol.ProtocolPackage;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Protocol</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Protocol</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.palladiosimulator.pcm.protocol.impl.ProtocolImpl#getProtocolTypeID <em>Protocol Type ID</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.protocol.impl.ProtocolImpl#getProtocolTypeID
+ * <em>Protocol Type ID</em>}</li>
  * </ul>
  *
  * @generated
@@ -26,16 +24,16 @@ import org.palladiosimulator.pcm.protocol.ProtocolPackage;
 public abstract class ProtocolImpl extends CDOObjectImpl implements Protocol {
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * The default value of the '{@link #getProtocolTypeID() <em>Protocol Type ID</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @see #getProtocolTypeID()
      * @generated
      * @ordered
@@ -43,8 +41,8 @@ public abstract class ProtocolImpl extends CDOObjectImpl implements Protocol {
     protected static final String PROTOCOL_TYPE_ID_EDEFAULT = null;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     protected ProtocolImpl() {
@@ -52,8 +50,8 @@ public abstract class ProtocolImpl extends CDOObjectImpl implements Protocol {
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -62,8 +60,8 @@ public abstract class ProtocolImpl extends CDOObjectImpl implements Protocol {
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -72,82 +70,84 @@ public abstract class ProtocolImpl extends CDOObjectImpl implements Protocol {
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public String getProtocolTypeID() {
-        return (String) eDynamicGet(ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID,
+        return (String) this.eDynamicGet(ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID,
                 ProtocolPackage.Literals.PROTOCOL__PROTOCOL_TYPE_ID, true, true);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    public void setProtocolTypeID(String newProtocolTypeID) {
-        eDynamicSet(ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID, ProtocolPackage.Literals.PROTOCOL__PROTOCOL_TYPE_ID,
-                newProtocolTypeID);
-    }
-
-    /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public void setProtocolTypeID(final String newProtocolTypeID) {
+        this.eDynamicSet(ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID,
+                ProtocolPackage.Literals.PROTOCOL__PROTOCOL_TYPE_ID, newProtocolTypeID);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID:
-            return getProtocolTypeID();
+            return this.getProtocolTypeID();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID:
-            setProtocolTypeID((String) newValue);
+            this.setProtocolTypeID((String) newValue);
             return;
         }
         super.eSet(featureID, newValue);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID:
-            setProtocolTypeID(PROTOCOL_TYPE_ID_EDEFAULT);
+            this.setProtocolTypeID(PROTOCOL_TYPE_ID_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID:
-            return PROTOCOL_TYPE_ID_EDEFAULT == null ? getProtocolTypeID() != null
-                    : !PROTOCOL_TYPE_ID_EDEFAULT.equals(getProtocolTypeID());
+            return PROTOCOL_TYPE_ID_EDEFAULT == null ? this.getProtocolTypeID() != null
+                    : !PROTOCOL_TYPE_ID_EDEFAULT.equals(this.getProtocolTypeID());
         }
         return super.eIsSet(featureID);
     }
 
-} //ProtocolImpl
+} // ProtocolImpl

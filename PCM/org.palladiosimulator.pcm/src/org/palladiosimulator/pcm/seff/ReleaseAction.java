@@ -33,10 +33,10 @@ public interface ReleaseAction extends AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Passive Resource Release Action</b></em>' reference. <!--
@@ -60,7 +60,7 @@ public interface ReleaseAction extends AbstractInternalControlFlowAction {
      * {@link org.palladiosimulator.pcm.seff.ReleaseAction#getPassiveResource_ReleaseAction
      * <em>Passive Resource Release Action</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Passive Resource Release Action</em>' reference.
      * @see #getPassiveResource_ReleaseAction()

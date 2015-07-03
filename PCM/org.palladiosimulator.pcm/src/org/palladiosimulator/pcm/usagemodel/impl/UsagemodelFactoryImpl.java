@@ -6,51 +6,59 @@ package org.palladiosimulator.pcm.usagemodel.impl;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
-import org.palladiosimulator.pcm.usagemodel.*;
+import org.palladiosimulator.pcm.usagemodel.Branch;
+import org.palladiosimulator.pcm.usagemodel.BranchTransition;
+import org.palladiosimulator.pcm.usagemodel.ClosedWorkload;
+import org.palladiosimulator.pcm.usagemodel.Delay;
+import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
+import org.palladiosimulator.pcm.usagemodel.Loop;
+import org.palladiosimulator.pcm.usagemodel.OpenWorkload;
+import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour;
+import org.palladiosimulator.pcm.usagemodel.Start;
+import org.palladiosimulator.pcm.usagemodel.Stop;
+import org.palladiosimulator.pcm.usagemodel.UsageModel;
+import org.palladiosimulator.pcm.usagemodel.UsageScenario;
+import org.palladiosimulator.pcm.usagemodel.UsagemodelFactory;
+import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
+import org.palladiosimulator.pcm.usagemodel.UserData;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model <b>Factory</b>.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ *
  * @generated
  */
 public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFactory {
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
-     * Creates the default factory implementation.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public static UsagemodelFactory init() {
         try {
-            UsagemodelFactory theUsagemodelFactory = (UsagemodelFactory) EPackage.Registry.INSTANCE
+            final UsagemodelFactory theUsagemodelFactory = (UsagemodelFactory) EPackage.Registry.INSTANCE
                     .getEFactory(UsagemodelPackage.eNS_URI);
             if (theUsagemodelFactory != null) {
                 return theUsagemodelFactory;
             }
-        } catch (Exception exception) {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new UsagemodelFactoryImpl();
     }
 
     /**
-     * Creates an instance of the factory.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public UsagemodelFactoryImpl() {
@@ -58,186 +66,200 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public EObject create(EClass eClass) {
+    public EObject create(final EClass eClass) {
         switch (eClass.getClassifierID()) {
         case UsagemodelPackage.USAGE_SCENARIO:
-            return (EObject) createUsageScenario();
+            return this.createUsageScenario();
         case UsagemodelPackage.USER_DATA:
-            return (EObject) createUserData();
+            return this.createUserData();
         case UsagemodelPackage.USAGE_MODEL:
-            return (EObject) createUsageModel();
+            return this.createUsageModel();
         case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL:
-            return (EObject) createEntryLevelSystemCall();
+            return this.createEntryLevelSystemCall();
         case UsagemodelPackage.SCENARIO_BEHAVIOUR:
-            return (EObject) createScenarioBehaviour();
+            return this.createScenarioBehaviour();
         case UsagemodelPackage.BRANCH_TRANSITION:
-            return (EObject) createBranchTransition();
+            return this.createBranchTransition();
         case UsagemodelPackage.BRANCH:
-            return (EObject) createBranch();
+            return this.createBranch();
         case UsagemodelPackage.LOOP:
-            return (EObject) createLoop();
+            return this.createLoop();
         case UsagemodelPackage.STOP:
-            return (EObject) createStop();
+            return this.createStop();
         case UsagemodelPackage.START:
-            return (EObject) createStart();
+            return this.createStart();
         case UsagemodelPackage.OPEN_WORKLOAD:
-            return (EObject) createOpenWorkload();
+            return this.createOpenWorkload();
         case UsagemodelPackage.DELAY:
-            return (EObject) createDelay();
+            return this.createDelay();
         case UsagemodelPackage.CLOSED_WORKLOAD:
-            return (EObject) createClosedWorkload();
+            return this.createClosedWorkload();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public UsageScenario createUsageScenario() {
-        UsageScenarioImpl usageScenario = new UsageScenarioImpl();
+        final UsageScenarioImpl usageScenario = new UsageScenarioImpl();
         return usageScenario;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public UserData createUserData() {
-        UserDataImpl userData = new UserDataImpl();
+        final UserDataImpl userData = new UserDataImpl();
         return userData;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public UsageModel createUsageModel() {
-        UsageModelImpl usageModel = new UsageModelImpl();
+        final UsageModelImpl usageModel = new UsageModelImpl();
         return usageModel;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public EntryLevelSystemCall createEntryLevelSystemCall() {
-        EntryLevelSystemCallImpl entryLevelSystemCall = new EntryLevelSystemCallImpl();
+        final EntryLevelSystemCallImpl entryLevelSystemCall = new EntryLevelSystemCallImpl();
         return entryLevelSystemCall;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public ScenarioBehaviour createScenarioBehaviour() {
-        ScenarioBehaviourImpl scenarioBehaviour = new ScenarioBehaviourImpl();
+        final ScenarioBehaviourImpl scenarioBehaviour = new ScenarioBehaviourImpl();
         return scenarioBehaviour;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public BranchTransition createBranchTransition() {
-        BranchTransitionImpl branchTransition = new BranchTransitionImpl();
+        final BranchTransitionImpl branchTransition = new BranchTransitionImpl();
         return branchTransition;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public Branch createBranch() {
-        BranchImpl branch = new BranchImpl();
+        final BranchImpl branch = new BranchImpl();
         return branch;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public Loop createLoop() {
-        LoopImpl loop = new LoopImpl();
+        final LoopImpl loop = new LoopImpl();
         return loop;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public Stop createStop() {
-        StopImpl stop = new StopImpl();
+        final StopImpl stop = new StopImpl();
         return stop;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public Start createStart() {
-        StartImpl start = new StartImpl();
+        final StartImpl start = new StartImpl();
         return start;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public OpenWorkload createOpenWorkload() {
-        OpenWorkloadImpl openWorkload = new OpenWorkloadImpl();
+        final OpenWorkloadImpl openWorkload = new OpenWorkloadImpl();
         return openWorkload;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public Delay createDelay() {
-        DelayImpl delay = new DelayImpl();
+        final DelayImpl delay = new DelayImpl();
         return delay;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public ClosedWorkload createClosedWorkload() {
-        ClosedWorkloadImpl closedWorkload = new ClosedWorkloadImpl();
+        final ClosedWorkloadImpl closedWorkload = new ClosedWorkloadImpl();
         return closedWorkload;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public UsagemodelPackage getUsagemodelPackage() {
-        return (UsagemodelPackage) getEPackage();
+        return (UsagemodelPackage) this.getEPackage();
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @deprecated
      * @generated
      */
@@ -246,4 +268,4 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
         return UsagemodelPackage.eINSTANCE;
     }
 
-} //UsagemodelFactoryImpl
+} // UsagemodelFactoryImpl

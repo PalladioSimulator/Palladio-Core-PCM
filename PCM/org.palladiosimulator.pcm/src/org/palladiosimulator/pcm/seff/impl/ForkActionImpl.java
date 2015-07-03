@@ -6,29 +6,28 @@ package org.palladiosimulator.pcm.seff.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.palladiosimulator.pcm.seff.ForkAction;
 import org.palladiosimulator.pcm.seff.ForkedBehaviour;
 import org.palladiosimulator.pcm.seff.SeffPackage;
 import org.palladiosimulator.pcm.seff.SynchronisationPoint;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Fork Action</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Fork Action</b></em>'. <!--
+ * end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.palladiosimulator.pcm.seff.impl.ForkActionImpl#getAsynchronousForkedBehaviours_ForkAction <em>Asynchronous Forked Behaviours Fork Action</em>}</li>
- *   <li>{@link org.palladiosimulator.pcm.seff.impl.ForkActionImpl#getSynchronisingBehaviours_ForkAction <em>Synchronising Behaviours Fork Action</em>}</li>
+ * <li>
+ * {@link org.palladiosimulator.pcm.seff.impl.ForkActionImpl#getAsynchronousForkedBehaviours_ForkAction
+ * <em>Asynchronous Forked Behaviours Fork Action</em>}</li>
+ * <li>
+ * {@link org.palladiosimulator.pcm.seff.impl.ForkActionImpl#getSynchronisingBehaviours_ForkAction
+ * <em>Synchronising Behaviours Fork Action</em>}</li>
  * </ul>
  *
  * @generated
@@ -36,15 +35,15 @@ import org.palladiosimulator.pcm.seff.SynchronisationPoint;
 public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implements ForkAction {
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     protected ForkActionImpl() {
@@ -52,8 +51,8 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -62,156 +61,164 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     @SuppressWarnings("unchecked")
     public EList<ForkedBehaviour> getAsynchronousForkedBehaviours_ForkAction() {
-        return (EList<ForkedBehaviour>) eDynamicGet(SeffPackage.FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION,
+        return (EList<ForkedBehaviour>) this.eDynamicGet(
+                SeffPackage.FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION,
                 SeffPackage.Literals.FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION, true, true);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public SynchronisationPoint getSynchronisingBehaviours_ForkAction() {
-        return (SynchronisationPoint) eDynamicGet(SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION,
+        return (SynchronisationPoint) this.eDynamicGet(SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION,
                 SeffPackage.Literals.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION, true, true);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public NotificationChain basicSetSynchronisingBehaviours_ForkAction(
-            SynchronisationPoint newSynchronisingBehaviours_ForkAction, NotificationChain msgs) {
-        msgs = eDynamicInverseAdd((InternalEObject) newSynchronisingBehaviours_ForkAction,
+            final SynchronisationPoint newSynchronisingBehaviours_ForkAction, NotificationChain msgs) {
+        msgs = this.eDynamicInverseAdd((InternalEObject) newSynchronisingBehaviours_ForkAction,
                 SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION, msgs);
         return msgs;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public void setSynchronisingBehaviours_ForkAction(SynchronisationPoint newSynchronisingBehaviours_ForkAction) {
-        eDynamicSet(SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION,
+    @Override
+    public void setSynchronisingBehaviours_ForkAction(
+            final SynchronisationPoint newSynchronisingBehaviours_ForkAction) {
+        this.eDynamicSet(SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION,
                 SeffPackage.Literals.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION,
                 newSynchronisingBehaviours_ForkAction);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) getAsynchronousForkedBehaviours_ForkAction())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
+                    .getAsynchronousForkedBehaviours_ForkAction()).basicAdd(otherEnd, msgs);
         case SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION:
-            SynchronisationPoint synchronisingBehaviours_ForkAction = getSynchronisingBehaviours_ForkAction();
-            if (synchronisingBehaviours_ForkAction != null)
+            final SynchronisationPoint synchronisingBehaviours_ForkAction = this
+                    .getSynchronisingBehaviours_ForkAction();
+            if (synchronisingBehaviours_ForkAction != null) {
                 msgs = ((InternalEObject) synchronisingBehaviours_ForkAction).eInverseRemove(this,
                         EOPPOSITE_FEATURE_BASE - SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION, null,
                         msgs);
-            return basicSetSynchronisingBehaviours_ForkAction((SynchronisationPoint) otherEnd, msgs);
+            }
+            return this.basicSetSynchronisingBehaviours_ForkAction((SynchronisationPoint) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION:
-            return ((InternalEList<?>) getAsynchronousForkedBehaviours_ForkAction()).basicRemove(otherEnd, msgs);
+            return ((InternalEList<?>) this.getAsynchronousForkedBehaviours_ForkAction()).basicRemove(otherEnd, msgs);
         case SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION:
-            return basicSetSynchronisingBehaviours_ForkAction(null, msgs);
+            return this.basicSetSynchronisingBehaviours_ForkAction(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case SeffPackage.FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION:
-            return getAsynchronousForkedBehaviours_ForkAction();
+            return this.getAsynchronousForkedBehaviours_ForkAction();
         case SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION:
-            return getSynchronisingBehaviours_ForkAction();
+            return this.getSynchronisingBehaviours_ForkAction();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case SeffPackage.FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION:
-            getAsynchronousForkedBehaviours_ForkAction().clear();
-            getAsynchronousForkedBehaviours_ForkAction().addAll((Collection<? extends ForkedBehaviour>) newValue);
+            this.getAsynchronousForkedBehaviours_ForkAction().clear();
+            this.getAsynchronousForkedBehaviours_ForkAction().addAll((Collection<? extends ForkedBehaviour>) newValue);
             return;
         case SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION:
-            setSynchronisingBehaviours_ForkAction((SynchronisationPoint) newValue);
+            this.setSynchronisingBehaviours_ForkAction((SynchronisationPoint) newValue);
             return;
         }
         super.eSet(featureID, newValue);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case SeffPackage.FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION:
-            getAsynchronousForkedBehaviours_ForkAction().clear();
+            this.getAsynchronousForkedBehaviours_ForkAction().clear();
             return;
         case SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION:
-            setSynchronisingBehaviours_ForkAction((SynchronisationPoint) null);
+            this.setSynchronisingBehaviours_ForkAction((SynchronisationPoint) null);
             return;
         }
         super.eUnset(featureID);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case SeffPackage.FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION:
-            return !getAsynchronousForkedBehaviours_ForkAction().isEmpty();
+            return !this.getAsynchronousForkedBehaviours_ForkAction().isEmpty();
         case SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION:
-            return getSynchronisingBehaviours_ForkAction() != null;
+            return this.getSynchronisingBehaviours_ForkAction() != null;
         }
         return super.eIsSet(featureID);
     }
 
-} //ForkActionImpl
+} // ForkActionImpl

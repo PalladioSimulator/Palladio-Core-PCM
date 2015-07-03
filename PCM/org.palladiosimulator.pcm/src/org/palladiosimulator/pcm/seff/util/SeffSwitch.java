@@ -3,54 +3,73 @@
  */
 package org.palladiosimulator.pcm.seff.util;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.palladiosimulator.pcm.core.entity.Entity;
 import org.palladiosimulator.pcm.core.entity.NamedElement;
-
-import org.palladiosimulator.pcm.seff.*;
-
+import org.palladiosimulator.pcm.seff.AbstractAction;
+import org.palladiosimulator.pcm.seff.AbstractBranchTransition;
+import org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction;
+import org.palladiosimulator.pcm.seff.AbstractLoopAction;
+import org.palladiosimulator.pcm.seff.AcquireAction;
+import org.palladiosimulator.pcm.seff.BranchAction;
+import org.palladiosimulator.pcm.seff.CallAction;
+import org.palladiosimulator.pcm.seff.CallReturnAction;
+import org.palladiosimulator.pcm.seff.CollectionIteratorAction;
+import org.palladiosimulator.pcm.seff.EmitEventAction;
+import org.palladiosimulator.pcm.seff.ExternalCallAction;
+import org.palladiosimulator.pcm.seff.ForkAction;
+import org.palladiosimulator.pcm.seff.ForkedBehaviour;
+import org.palladiosimulator.pcm.seff.GuardedBranchTransition;
+import org.palladiosimulator.pcm.seff.InternalAction;
+import org.palladiosimulator.pcm.seff.InternalCallAction;
+import org.palladiosimulator.pcm.seff.LoopAction;
+import org.palladiosimulator.pcm.seff.ProbabilisticBranchTransition;
+import org.palladiosimulator.pcm.seff.ReleaseAction;
+import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour;
+import org.palladiosimulator.pcm.seff.ResourceDemandingInternalBehaviour;
+import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF;
+import org.palladiosimulator.pcm.seff.SeffPackage;
+import org.palladiosimulator.pcm.seff.ServiceEffectSpecification;
+import org.palladiosimulator.pcm.seff.SetVariableAction;
+import org.palladiosimulator.pcm.seff.StartAction;
+import org.palladiosimulator.pcm.seff.StopAction;
+import org.palladiosimulator.pcm.seff.SynchronisationPoint;
 import org.palladiosimulator.pcm.seff.seff_reliability.FailureHandlingEntity;
 
+import de.uka.ipd.sdq.identifier.Identifier;
+
 /**
- * <!-- begin-user-doc -->
- * The <b>Switch</b> for the model's inheritance hierarchy.
- * It supports the call {@link #doSwitch(EObject) doSwitch(object)}
- * to invoke the <code>caseXXX</code> method for each class of the model,
- * starting with the actual class of the object
- * and proceeding up the inheritance hierarchy
- * until a non-null result is returned,
- * which is the result of the switch.
+ * <!-- begin-user-doc --> The <b>Switch</b> for the model's inheritance hierarchy. It supports the
+ * call {@link #doSwitch(EObject) doSwitch(object)} to invoke the <code>caseXXX</code> method for
+ * each class of the model, starting with the actual class of the object and proceeding up the
+ * inheritance hierarchy until a non-null result is returned, which is the result of the switch.
  * <!-- end-user-doc -->
+ *
  * @see org.palladiosimulator.pcm.seff.SeffPackage
  * @generated
  */
 public class SeffSwitch<T> {
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
-     * The cached model package
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     protected static SeffPackage modelPackage;
 
     /**
-     * Creates an instance of the switch.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public SeffSwitch() {
@@ -60,935 +79,1089 @@ public class SeffSwitch<T> {
     }
 
     /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
+     * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    public T doSwitch(EObject theEObject) {
-        return doSwitch(theEObject.eClass(), theEObject);
+    public T doSwitch(final EObject theEObject) {
+        return this.doSwitch(theEObject.eClass(), theEObject);
     }
 
     /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
+     * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(EClass theEClass, EObject theEObject) {
+    protected T doSwitch(final EClass theEClass, final EObject theEObject) {
         if (theEClass.eContainer() == modelPackage) {
-            return doSwitch(theEClass.getClassifierID(), theEObject);
+            return this.doSwitch(theEClass.getClassifierID(), theEObject);
         } else {
-            List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(eSuperTypes.get(0), theEObject);
+            final List<EClass> eSuperTypes = theEClass.getESuperTypes();
+            return eSuperTypes.isEmpty() ? this.defaultCase(theEObject) : this.doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
     /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
+     * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(int classifierID, EObject theEObject) {
+    protected T doSwitch(final int classifierID, final EObject theEObject) {
         switch (classifierID) {
         case SeffPackage.STOP_ACTION: {
-            StopAction stopAction = (StopAction) theEObject;
-            T result = caseStopAction(stopAction);
-            if (result == null)
-                result = caseAbstractInternalControlFlowAction(stopAction);
-            if (result == null)
-                result = caseAbstractAction(stopAction);
-            if (result == null)
-                result = caseEntity(stopAction);
-            if (result == null)
-                result = caseIdentifier(stopAction);
-            if (result == null)
-                result = caseNamedElement(stopAction);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final StopAction stopAction = (StopAction) theEObject;
+            T result = this.caseStopAction(stopAction);
+            if (result == null) {
+                result = this.caseAbstractInternalControlFlowAction(stopAction);
+            }
+            if (result == null) {
+                result = this.caseAbstractAction(stopAction);
+            }
+            if (result == null) {
+                result = this.caseEntity(stopAction);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(stopAction);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(stopAction);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION: {
-            AbstractInternalControlFlowAction abstractInternalControlFlowAction = (AbstractInternalControlFlowAction) theEObject;
-            T result = caseAbstractInternalControlFlowAction(abstractInternalControlFlowAction);
-            if (result == null)
-                result = caseAbstractAction(abstractInternalControlFlowAction);
-            if (result == null)
-                result = caseEntity(abstractInternalControlFlowAction);
-            if (result == null)
-                result = caseIdentifier(abstractInternalControlFlowAction);
-            if (result == null)
-                result = caseNamedElement(abstractInternalControlFlowAction);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final AbstractInternalControlFlowAction abstractInternalControlFlowAction = (AbstractInternalControlFlowAction) theEObject;
+            T result = this.caseAbstractInternalControlFlowAction(abstractInternalControlFlowAction);
+            if (result == null) {
+                result = this.caseAbstractAction(abstractInternalControlFlowAction);
+            }
+            if (result == null) {
+                result = this.caseEntity(abstractInternalControlFlowAction);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(abstractInternalControlFlowAction);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(abstractInternalControlFlowAction);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.ABSTRACT_ACTION: {
-            AbstractAction abstractAction = (AbstractAction) theEObject;
-            T result = caseAbstractAction(abstractAction);
-            if (result == null)
-                result = caseEntity(abstractAction);
-            if (result == null)
-                result = caseIdentifier(abstractAction);
-            if (result == null)
-                result = caseNamedElement(abstractAction);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final AbstractAction abstractAction = (AbstractAction) theEObject;
+            T result = this.caseAbstractAction(abstractAction);
+            if (result == null) {
+                result = this.caseEntity(abstractAction);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(abstractAction);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(abstractAction);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR: {
-            ResourceDemandingBehaviour resourceDemandingBehaviour = (ResourceDemandingBehaviour) theEObject;
-            T result = caseResourceDemandingBehaviour(resourceDemandingBehaviour);
-            if (result == null)
-                result = caseIdentifier(resourceDemandingBehaviour);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final ResourceDemandingBehaviour resourceDemandingBehaviour = (ResourceDemandingBehaviour) theEObject;
+            T result = this.caseResourceDemandingBehaviour(resourceDemandingBehaviour);
+            if (result == null) {
+                result = this.caseIdentifier(resourceDemandingBehaviour);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.ABSTRACT_LOOP_ACTION: {
-            AbstractLoopAction abstractLoopAction = (AbstractLoopAction) theEObject;
-            T result = caseAbstractLoopAction(abstractLoopAction);
-            if (result == null)
-                result = caseAbstractInternalControlFlowAction(abstractLoopAction);
-            if (result == null)
-                result = caseAbstractAction(abstractLoopAction);
-            if (result == null)
-                result = caseEntity(abstractLoopAction);
-            if (result == null)
-                result = caseIdentifier(abstractLoopAction);
-            if (result == null)
-                result = caseNamedElement(abstractLoopAction);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final AbstractLoopAction abstractLoopAction = (AbstractLoopAction) theEObject;
+            T result = this.caseAbstractLoopAction(abstractLoopAction);
+            if (result == null) {
+                result = this.caseAbstractInternalControlFlowAction(abstractLoopAction);
+            }
+            if (result == null) {
+                result = this.caseAbstractAction(abstractLoopAction);
+            }
+            if (result == null) {
+                result = this.caseEntity(abstractLoopAction);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(abstractLoopAction);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(abstractLoopAction);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION: {
-            AbstractBranchTransition abstractBranchTransition = (AbstractBranchTransition) theEObject;
-            T result = caseAbstractBranchTransition(abstractBranchTransition);
-            if (result == null)
-                result = caseEntity(abstractBranchTransition);
-            if (result == null)
-                result = caseIdentifier(abstractBranchTransition);
-            if (result == null)
-                result = caseNamedElement(abstractBranchTransition);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final AbstractBranchTransition abstractBranchTransition = (AbstractBranchTransition) theEObject;
+            T result = this.caseAbstractBranchTransition(abstractBranchTransition);
+            if (result == null) {
+                result = this.caseEntity(abstractBranchTransition);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(abstractBranchTransition);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(abstractBranchTransition);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.BRANCH_ACTION: {
-            BranchAction branchAction = (BranchAction) theEObject;
-            T result = caseBranchAction(branchAction);
-            if (result == null)
-                result = caseAbstractInternalControlFlowAction(branchAction);
-            if (result == null)
-                result = caseAbstractAction(branchAction);
-            if (result == null)
-                result = caseEntity(branchAction);
-            if (result == null)
-                result = caseIdentifier(branchAction);
-            if (result == null)
-                result = caseNamedElement(branchAction);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final BranchAction branchAction = (BranchAction) theEObject;
+            T result = this.caseBranchAction(branchAction);
+            if (result == null) {
+                result = this.caseAbstractInternalControlFlowAction(branchAction);
+            }
+            if (result == null) {
+                result = this.caseAbstractAction(branchAction);
+            }
+            if (result == null) {
+                result = this.caseEntity(branchAction);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(branchAction);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(branchAction);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.CALL_ACTION: {
-            CallAction callAction = (CallAction) theEObject;
-            T result = caseCallAction(callAction);
-            if (result == null)
-                result = caseEntity(callAction);
-            if (result == null)
-                result = caseIdentifier(callAction);
-            if (result == null)
-                result = caseNamedElement(callAction);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final CallAction callAction = (CallAction) theEObject;
+            T result = this.caseCallAction(callAction);
+            if (result == null) {
+                result = this.caseAbstractAction(callAction);
+            }
+            if (result == null) {
+                result = this.caseEntity(callAction);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(callAction);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(callAction);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.START_ACTION: {
-            StartAction startAction = (StartAction) theEObject;
-            T result = caseStartAction(startAction);
-            if (result == null)
-                result = caseAbstractInternalControlFlowAction(startAction);
-            if (result == null)
-                result = caseAbstractAction(startAction);
-            if (result == null)
-                result = caseEntity(startAction);
-            if (result == null)
-                result = caseIdentifier(startAction);
-            if (result == null)
-                result = caseNamedElement(startAction);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final StartAction startAction = (StartAction) theEObject;
+            T result = this.caseStartAction(startAction);
+            if (result == null) {
+                result = this.caseAbstractInternalControlFlowAction(startAction);
+            }
+            if (result == null) {
+                result = this.caseAbstractAction(startAction);
+            }
+            if (result == null) {
+                result = this.caseEntity(startAction);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(startAction);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(startAction);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION: {
-            ServiceEffectSpecification serviceEffectSpecification = (ServiceEffectSpecification) theEObject;
-            T result = caseServiceEffectSpecification(serviceEffectSpecification);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final ServiceEffectSpecification serviceEffectSpecification = (ServiceEffectSpecification) theEObject;
+            T result = this.caseServiceEffectSpecification(serviceEffectSpecification);
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.RESOURCE_DEMANDING_SEFF: {
-            ResourceDemandingSEFF resourceDemandingSEFF = (ResourceDemandingSEFF) theEObject;
-            T result = caseResourceDemandingSEFF(resourceDemandingSEFF);
-            if (result == null)
-                result = caseServiceEffectSpecification(resourceDemandingSEFF);
-            if (result == null)
-                result = caseResourceDemandingBehaviour(resourceDemandingSEFF);
-            if (result == null)
-                result = caseIdentifier(resourceDemandingSEFF);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final ResourceDemandingSEFF resourceDemandingSEFF = (ResourceDemandingSEFF) theEObject;
+            T result = this.caseResourceDemandingSEFF(resourceDemandingSEFF);
+            if (result == null) {
+                result = this.caseServiceEffectSpecification(resourceDemandingSEFF);
+            }
+            if (result == null) {
+                result = this.caseResourceDemandingBehaviour(resourceDemandingSEFF);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(resourceDemandingSEFF);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR: {
-            ResourceDemandingInternalBehaviour resourceDemandingInternalBehaviour = (ResourceDemandingInternalBehaviour) theEObject;
-            T result = caseResourceDemandingInternalBehaviour(resourceDemandingInternalBehaviour);
-            if (result == null)
-                result = caseResourceDemandingBehaviour(resourceDemandingInternalBehaviour);
-            if (result == null)
-                result = caseIdentifier(resourceDemandingInternalBehaviour);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final ResourceDemandingInternalBehaviour resourceDemandingInternalBehaviour = (ResourceDemandingInternalBehaviour) theEObject;
+            T result = this.caseResourceDemandingInternalBehaviour(resourceDemandingInternalBehaviour);
+            if (result == null) {
+                result = this.caseResourceDemandingBehaviour(resourceDemandingInternalBehaviour);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(resourceDemandingInternalBehaviour);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.RELEASE_ACTION: {
-            ReleaseAction releaseAction = (ReleaseAction) theEObject;
-            T result = caseReleaseAction(releaseAction);
-            if (result == null)
-                result = caseAbstractInternalControlFlowAction(releaseAction);
-            if (result == null)
-                result = caseAbstractAction(releaseAction);
-            if (result == null)
-                result = caseEntity(releaseAction);
-            if (result == null)
-                result = caseIdentifier(releaseAction);
-            if (result == null)
-                result = caseNamedElement(releaseAction);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final ReleaseAction releaseAction = (ReleaseAction) theEObject;
+            T result = this.caseReleaseAction(releaseAction);
+            if (result == null) {
+                result = this.caseAbstractInternalControlFlowAction(releaseAction);
+            }
+            if (result == null) {
+                result = this.caseAbstractAction(releaseAction);
+            }
+            if (result == null) {
+                result = this.caseEntity(releaseAction);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(releaseAction);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(releaseAction);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.LOOP_ACTION: {
-            LoopAction loopAction = (LoopAction) theEObject;
-            T result = caseLoopAction(loopAction);
-            if (result == null)
-                result = caseAbstractLoopAction(loopAction);
-            if (result == null)
-                result = caseAbstractInternalControlFlowAction(loopAction);
-            if (result == null)
-                result = caseAbstractAction(loopAction);
-            if (result == null)
-                result = caseEntity(loopAction);
-            if (result == null)
-                result = caseIdentifier(loopAction);
-            if (result == null)
-                result = caseNamedElement(loopAction);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final LoopAction loopAction = (LoopAction) theEObject;
+            T result = this.caseLoopAction(loopAction);
+            if (result == null) {
+                result = this.caseAbstractLoopAction(loopAction);
+            }
+            if (result == null) {
+                result = this.caseAbstractInternalControlFlowAction(loopAction);
+            }
+            if (result == null) {
+                result = this.caseAbstractAction(loopAction);
+            }
+            if (result == null) {
+                result = this.caseEntity(loopAction);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(loopAction);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(loopAction);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.FORK_ACTION: {
-            ForkAction forkAction = (ForkAction) theEObject;
-            T result = caseForkAction(forkAction);
-            if (result == null)
-                result = caseAbstractInternalControlFlowAction(forkAction);
-            if (result == null)
-                result = caseAbstractAction(forkAction);
-            if (result == null)
-                result = caseEntity(forkAction);
-            if (result == null)
-                result = caseIdentifier(forkAction);
-            if (result == null)
-                result = caseNamedElement(forkAction);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final ForkAction forkAction = (ForkAction) theEObject;
+            T result = this.caseForkAction(forkAction);
+            if (result == null) {
+                result = this.caseAbstractInternalControlFlowAction(forkAction);
+            }
+            if (result == null) {
+                result = this.caseAbstractAction(forkAction);
+            }
+            if (result == null) {
+                result = this.caseEntity(forkAction);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(forkAction);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(forkAction);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.FORKED_BEHAVIOUR: {
-            ForkedBehaviour forkedBehaviour = (ForkedBehaviour) theEObject;
-            T result = caseForkedBehaviour(forkedBehaviour);
-            if (result == null)
-                result = caseResourceDemandingBehaviour(forkedBehaviour);
-            if (result == null)
-                result = caseIdentifier(forkedBehaviour);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final ForkedBehaviour forkedBehaviour = (ForkedBehaviour) theEObject;
+            T result = this.caseForkedBehaviour(forkedBehaviour);
+            if (result == null) {
+                result = this.caseResourceDemandingBehaviour(forkedBehaviour);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(forkedBehaviour);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.SYNCHRONISATION_POINT: {
-            SynchronisationPoint synchronisationPoint = (SynchronisationPoint) theEObject;
-            T result = caseSynchronisationPoint(synchronisationPoint);
-            if (result == null)
-                result = caseEntity(synchronisationPoint);
-            if (result == null)
-                result = caseIdentifier(synchronisationPoint);
-            if (result == null)
-                result = caseNamedElement(synchronisationPoint);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final SynchronisationPoint synchronisationPoint = (SynchronisationPoint) theEObject;
+            T result = this.caseSynchronisationPoint(synchronisationPoint);
+            if (result == null) {
+                result = this.caseIdentifier(synchronisationPoint);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.EXTERNAL_CALL_ACTION: {
-            ExternalCallAction externalCallAction = (ExternalCallAction) theEObject;
-            T result = caseExternalCallAction(externalCallAction);
-            if (result == null)
-                result = caseAbstractAction(externalCallAction);
-            if (result == null)
-                result = caseCallReturnAction(externalCallAction);
-            if (result == null)
-                result = caseFailureHandlingEntity(externalCallAction);
-            if (result == null)
-                result = caseCallAction(externalCallAction);
-            if (result == null)
-                result = caseEntity(externalCallAction);
-            if (result == null)
-                result = caseIdentifier(externalCallAction);
-            if (result == null)
-                result = caseNamedElement(externalCallAction);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final ExternalCallAction externalCallAction = (ExternalCallAction) theEObject;
+            T result = this.caseExternalCallAction(externalCallAction);
+            if (result == null) {
+                result = this.caseCallReturnAction(externalCallAction);
+            }
+            if (result == null) {
+                result = this.caseFailureHandlingEntity(externalCallAction);
+            }
+            if (result == null) {
+                result = this.caseEntity(externalCallAction);
+            }
+            if (result == null) {
+                result = this.caseCallAction(externalCallAction);
+            }
+            if (result == null) {
+                result = this.caseAbstractAction(externalCallAction);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(externalCallAction);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(externalCallAction);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.CALL_RETURN_ACTION: {
-            CallReturnAction callReturnAction = (CallReturnAction) theEObject;
-            T result = caseCallReturnAction(callReturnAction);
-            if (result == null)
-                result = caseCallAction(callReturnAction);
-            if (result == null)
-                result = caseEntity(callReturnAction);
-            if (result == null)
-                result = caseIdentifier(callReturnAction);
-            if (result == null)
-                result = caseNamedElement(callReturnAction);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final CallReturnAction callReturnAction = (CallReturnAction) theEObject;
+            T result = this.caseCallReturnAction(callReturnAction);
+            if (result == null) {
+                result = this.caseCallAction(callReturnAction);
+            }
+            if (result == null) {
+                result = this.caseAbstractAction(callReturnAction);
+            }
+            if (result == null) {
+                result = this.caseEntity(callReturnAction);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(callReturnAction);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(callReturnAction);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION: {
-            ProbabilisticBranchTransition probabilisticBranchTransition = (ProbabilisticBranchTransition) theEObject;
-            T result = caseProbabilisticBranchTransition(probabilisticBranchTransition);
-            if (result == null)
-                result = caseAbstractBranchTransition(probabilisticBranchTransition);
-            if (result == null)
-                result = caseEntity(probabilisticBranchTransition);
-            if (result == null)
-                result = caseIdentifier(probabilisticBranchTransition);
-            if (result == null)
-                result = caseNamedElement(probabilisticBranchTransition);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final ProbabilisticBranchTransition probabilisticBranchTransition = (ProbabilisticBranchTransition) theEObject;
+            T result = this.caseProbabilisticBranchTransition(probabilisticBranchTransition);
+            if (result == null) {
+                result = this.caseAbstractBranchTransition(probabilisticBranchTransition);
+            }
+            if (result == null) {
+                result = this.caseEntity(probabilisticBranchTransition);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(probabilisticBranchTransition);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(probabilisticBranchTransition);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.ACQUIRE_ACTION: {
-            AcquireAction acquireAction = (AcquireAction) theEObject;
-            T result = caseAcquireAction(acquireAction);
-            if (result == null)
-                result = caseAbstractInternalControlFlowAction(acquireAction);
-            if (result == null)
-                result = caseAbstractAction(acquireAction);
-            if (result == null)
-                result = caseEntity(acquireAction);
-            if (result == null)
-                result = caseIdentifier(acquireAction);
-            if (result == null)
-                result = caseNamedElement(acquireAction);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final AcquireAction acquireAction = (AcquireAction) theEObject;
+            T result = this.caseAcquireAction(acquireAction);
+            if (result == null) {
+                result = this.caseAbstractInternalControlFlowAction(acquireAction);
+            }
+            if (result == null) {
+                result = this.caseAbstractAction(acquireAction);
+            }
+            if (result == null) {
+                result = this.caseEntity(acquireAction);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(acquireAction);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(acquireAction);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.COLLECTION_ITERATOR_ACTION: {
-            CollectionIteratorAction collectionIteratorAction = (CollectionIteratorAction) theEObject;
-            T result = caseCollectionIteratorAction(collectionIteratorAction);
-            if (result == null)
-                result = caseAbstractLoopAction(collectionIteratorAction);
-            if (result == null)
-                result = caseAbstractInternalControlFlowAction(collectionIteratorAction);
-            if (result == null)
-                result = caseAbstractAction(collectionIteratorAction);
-            if (result == null)
-                result = caseEntity(collectionIteratorAction);
-            if (result == null)
-                result = caseIdentifier(collectionIteratorAction);
-            if (result == null)
-                result = caseNamedElement(collectionIteratorAction);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final CollectionIteratorAction collectionIteratorAction = (CollectionIteratorAction) theEObject;
+            T result = this.caseCollectionIteratorAction(collectionIteratorAction);
+            if (result == null) {
+                result = this.caseAbstractLoopAction(collectionIteratorAction);
+            }
+            if (result == null) {
+                result = this.caseAbstractInternalControlFlowAction(collectionIteratorAction);
+            }
+            if (result == null) {
+                result = this.caseAbstractAction(collectionIteratorAction);
+            }
+            if (result == null) {
+                result = this.caseEntity(collectionIteratorAction);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(collectionIteratorAction);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(collectionIteratorAction);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.GUARDED_BRANCH_TRANSITION: {
-            GuardedBranchTransition guardedBranchTransition = (GuardedBranchTransition) theEObject;
-            T result = caseGuardedBranchTransition(guardedBranchTransition);
-            if (result == null)
-                result = caseAbstractBranchTransition(guardedBranchTransition);
-            if (result == null)
-                result = caseEntity(guardedBranchTransition);
-            if (result == null)
-                result = caseIdentifier(guardedBranchTransition);
-            if (result == null)
-                result = caseNamedElement(guardedBranchTransition);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final GuardedBranchTransition guardedBranchTransition = (GuardedBranchTransition) theEObject;
+            T result = this.caseGuardedBranchTransition(guardedBranchTransition);
+            if (result == null) {
+                result = this.caseAbstractBranchTransition(guardedBranchTransition);
+            }
+            if (result == null) {
+                result = this.caseEntity(guardedBranchTransition);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(guardedBranchTransition);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(guardedBranchTransition);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.SET_VARIABLE_ACTION: {
-            SetVariableAction setVariableAction = (SetVariableAction) theEObject;
-            T result = caseSetVariableAction(setVariableAction);
-            if (result == null)
-                result = caseAbstractInternalControlFlowAction(setVariableAction);
-            if (result == null)
-                result = caseAbstractAction(setVariableAction);
-            if (result == null)
-                result = caseEntity(setVariableAction);
-            if (result == null)
-                result = caseIdentifier(setVariableAction);
-            if (result == null)
-                result = caseNamedElement(setVariableAction);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final SetVariableAction setVariableAction = (SetVariableAction) theEObject;
+            T result = this.caseSetVariableAction(setVariableAction);
+            if (result == null) {
+                result = this.caseAbstractInternalControlFlowAction(setVariableAction);
+            }
+            if (result == null) {
+                result = this.caseAbstractAction(setVariableAction);
+            }
+            if (result == null) {
+                result = this.caseEntity(setVariableAction);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(setVariableAction);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(setVariableAction);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.INTERNAL_CALL_ACTION: {
-            InternalCallAction internalCallAction = (InternalCallAction) theEObject;
-            T result = caseInternalCallAction(internalCallAction);
-            if (result == null)
-                result = caseCallAction(internalCallAction);
-            if (result == null)
-                result = caseAbstractInternalControlFlowAction(internalCallAction);
-            if (result == null)
-                result = caseAbstractAction(internalCallAction);
-            if (result == null)
-                result = caseEntity(internalCallAction);
-            if (result == null)
-                result = caseIdentifier(internalCallAction);
-            if (result == null)
-                result = caseNamedElement(internalCallAction);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final InternalCallAction internalCallAction = (InternalCallAction) theEObject;
+            T result = this.caseInternalCallAction(internalCallAction);
+            if (result == null) {
+                result = this.caseCallAction(internalCallAction);
+            }
+            if (result == null) {
+                result = this.caseAbstractInternalControlFlowAction(internalCallAction);
+            }
+            if (result == null) {
+                result = this.caseAbstractAction(internalCallAction);
+            }
+            if (result == null) {
+                result = this.caseEntity(internalCallAction);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(internalCallAction);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(internalCallAction);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.EMIT_EVENT_ACTION: {
-            EmitEventAction emitEventAction = (EmitEventAction) theEObject;
-            T result = caseEmitEventAction(emitEventAction);
-            if (result == null)
-                result = caseAbstractAction(emitEventAction);
-            if (result == null)
-                result = caseCallAction(emitEventAction);
-            if (result == null)
-                result = caseEntity(emitEventAction);
-            if (result == null)
-                result = caseIdentifier(emitEventAction);
-            if (result == null)
-                result = caseNamedElement(emitEventAction);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final EmitEventAction emitEventAction = (EmitEventAction) theEObject;
+            T result = this.caseEmitEventAction(emitEventAction);
+            if (result == null) {
+                result = this.caseCallAction(emitEventAction);
+            }
+            if (result == null) {
+                result = this.caseAbstractAction(emitEventAction);
+            }
+            if (result == null) {
+                result = this.caseEntity(emitEventAction);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(emitEventAction);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(emitEventAction);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         case SeffPackage.INTERNAL_ACTION: {
-            InternalAction internalAction = (InternalAction) theEObject;
-            T result = caseInternalAction(internalAction);
-            if (result == null)
-                result = caseAbstractInternalControlFlowAction(internalAction);
-            if (result == null)
-                result = caseAbstractAction(internalAction);
-            if (result == null)
-                result = caseEntity(internalAction);
-            if (result == null)
-                result = caseIdentifier(internalAction);
-            if (result == null)
-                result = caseNamedElement(internalAction);
-            if (result == null)
-                result = defaultCase(theEObject);
+            final InternalAction internalAction = (InternalAction) theEObject;
+            T result = this.caseInternalAction(internalAction);
+            if (result == null) {
+                result = this.caseAbstractInternalControlFlowAction(internalAction);
+            }
+            if (result == null) {
+                result = this.caseAbstractAction(internalAction);
+            }
+            if (result == null) {
+                result = this.caseEntity(internalAction);
+            }
+            if (result == null) {
+                result = this.caseIdentifier(internalAction);
+            }
+            if (result == null) {
+                result = this.caseNamedElement(internalAction);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
             return result;
         }
         default:
-            return defaultCase(theEObject);
+            return this.defaultCase(theEObject);
         }
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Stop Action</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
+     * Returns the result of interpreting the object as an instance of '<em>Stop Action</em>'. <!--
+     * begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Stop Action</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseStopAction(StopAction object) {
+    public T caseStopAction(final StopAction object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Abstract Internal Control Flow Action</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Abstract Internal Control Flow Action</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Abstract Internal Control Flow Action</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Abstract Internal Control Flow Action</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseAbstractInternalControlFlowAction(AbstractInternalControlFlowAction object) {
+    public T caseAbstractInternalControlFlowAction(final AbstractInternalControlFlowAction object) {
         return null;
     }
 
     /**
      * Returns the result of interpreting the object as an instance of '<em>Abstract Action</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
+     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Abstract Action</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseAbstractAction(AbstractAction object) {
+    public T caseAbstractAction(final AbstractAction object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Resource Demanding Behaviour</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Resource Demanding Behaviour</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Resource Demanding Behaviour</em>'. <!-- begin-user-doc --> This implementation returns
+     * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Resource Demanding Behaviour</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseResourceDemandingBehaviour(ResourceDemandingBehaviour object) {
+    public T caseResourceDemandingBehaviour(final ResourceDemandingBehaviour object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Abstract Loop Action</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Abstract Loop Action</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Abstract Loop Action</em>'. <!-- begin-user-doc --> This implementation returns null;
+     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Abstract Loop Action</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseAbstractLoopAction(AbstractLoopAction object) {
+    public T caseAbstractLoopAction(final AbstractLoopAction object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Abstract Branch Transition</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Abstract Branch Transition</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Abstract Branch Transition</em>'. <!-- begin-user-doc --> This implementation returns
+     * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Abstract Branch Transition</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseAbstractBranchTransition(AbstractBranchTransition object) {
+    public T caseAbstractBranchTransition(final AbstractBranchTransition object) {
         return null;
     }
 
     /**
      * Returns the result of interpreting the object as an instance of '<em>Branch Action</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
+     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Branch Action</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseBranchAction(BranchAction object) {
+    public T caseBranchAction(final BranchAction object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Call Action</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
+     * Returns the result of interpreting the object as an instance of '<em>Call Action</em>'. <!--
+     * begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Call Action</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseCallAction(CallAction object) {
+    public T caseCallAction(final CallAction object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Start Action</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
+     * Returns the result of interpreting the object as an instance of '<em>Start Action</em>'. <!--
+     * begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Start Action</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseStartAction(StartAction object) {
+    public T caseStartAction(final StartAction object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Service Effect Specification</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Service Effect Specification</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Service Effect Specification</em>'. <!-- begin-user-doc --> This implementation returns
+     * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Service Effect Specification</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseServiceEffectSpecification(ServiceEffectSpecification object) {
+    public T caseServiceEffectSpecification(final ServiceEffectSpecification object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Resource Demanding SEFF</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Resource Demanding SEFF</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Resource Demanding SEFF</em>'. <!-- begin-user-doc --> This implementation returns null;
+     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Resource Demanding SEFF</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseResourceDemandingSEFF(ResourceDemandingSEFF object) {
+    public T caseResourceDemandingSEFF(final ResourceDemandingSEFF object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Resource Demanding Internal Behaviour</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Resource Demanding Internal Behaviour</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Resource Demanding Internal Behaviour</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Resource Demanding Internal Behaviour</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseResourceDemandingInternalBehaviour(ResourceDemandingInternalBehaviour object) {
+    public T caseResourceDemandingInternalBehaviour(final ResourceDemandingInternalBehaviour object) {
         return null;
     }
 
     /**
      * Returns the result of interpreting the object as an instance of '<em>Release Action</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
+     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Release Action</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseReleaseAction(ReleaseAction object) {
+    public T caseReleaseAction(final ReleaseAction object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Loop Action</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
+     * Returns the result of interpreting the object as an instance of '<em>Loop Action</em>'. <!--
+     * begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Loop Action</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseLoopAction(LoopAction object) {
+    public T caseLoopAction(final LoopAction object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Fork Action</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
+     * Returns the result of interpreting the object as an instance of '<em>Fork Action</em>'. <!--
+     * begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Fork Action</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseForkAction(ForkAction object) {
+    public T caseForkAction(final ForkAction object) {
         return null;
     }
 
     /**
      * Returns the result of interpreting the object as an instance of '<em>Forked Behaviour</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
+     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Forked Behaviour</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseForkedBehaviour(ForkedBehaviour object) {
+    public T caseForkedBehaviour(final ForkedBehaviour object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Synchronisation Point</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Synchronisation Point</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Synchronisation Point</em>'. <!-- begin-user-doc --> This implementation returns null;
+     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Synchronisation Point</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSynchronisationPoint(SynchronisationPoint object) {
+    public T caseSynchronisationPoint(final SynchronisationPoint object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>External Call Action</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>External Call Action</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>External Call Action</em>'. <!-- begin-user-doc --> This implementation returns null;
+     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>External Call Action</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseExternalCallAction(ExternalCallAction object) {
+    public T caseExternalCallAction(final ExternalCallAction object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Call Return Action</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Call Return Action</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Call Return Action</em>
+     * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Call Return Action</em>
+     *         '.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseCallReturnAction(CallReturnAction object) {
+    public T caseCallReturnAction(final CallReturnAction object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Probabilistic Branch Transition</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Probabilistic Branch Transition</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Probabilistic Branch Transition</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Probabilistic Branch Transition</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseProbabilisticBranchTransition(ProbabilisticBranchTransition object) {
+    public T caseProbabilisticBranchTransition(final ProbabilisticBranchTransition object) {
         return null;
     }
 
     /**
      * Returns the result of interpreting the object as an instance of '<em>Acquire Action</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
+     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Acquire Action</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseAcquireAction(AcquireAction object) {
+    public T caseAcquireAction(final AcquireAction object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Collection Iterator Action</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Collection Iterator Action</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Collection Iterator Action</em>'. <!-- begin-user-doc --> This implementation returns
+     * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Collection Iterator Action</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseCollectionIteratorAction(CollectionIteratorAction object) {
+    public T caseCollectionIteratorAction(final CollectionIteratorAction object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Guarded Branch Transition</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Guarded Branch Transition</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Guarded Branch Transition</em>'. <!-- begin-user-doc --> This implementation returns
+     * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Guarded Branch Transition</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseGuardedBranchTransition(GuardedBranchTransition object) {
+    public T caseGuardedBranchTransition(final GuardedBranchTransition object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Set Variable Action</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Set Variable Action</em>'.
+     * Returns the result of interpreting the object as an instance of '<em>Set Variable Action</em>
+     * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Set Variable Action</em>
+     *         '.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseSetVariableAction(SetVariableAction object) {
+    public T caseSetVariableAction(final SetVariableAction object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Internal Call Action</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Internal Call Action</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Internal Call Action</em>'. <!-- begin-user-doc --> This implementation returns null;
+     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Internal Call Action</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseInternalCallAction(InternalCallAction object) {
+    public T caseInternalCallAction(final InternalCallAction object) {
         return null;
     }
 
     /**
      * Returns the result of interpreting the object as an instance of '<em>Emit Event Action</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
+     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Emit Event Action</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseEmitEventAction(EmitEventAction object) {
+    public T caseEmitEventAction(final EmitEventAction object) {
         return null;
     }
 
     /**
      * Returns the result of interpreting the object as an instance of '<em>Internal Action</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
+     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Internal Action</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseInternalAction(InternalAction object) {
+    public T caseInternalAction(final InternalAction object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Identifier</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
+     * Returns the result of interpreting the object as an instance of '<em>Identifier</em>'. <!--
+     * begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Identifier</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseIdentifier(Identifier object) {
+    public T caseIdentifier(final Identifier object) {
         return null;
     }
 
     /**
      * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
+     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseNamedElement(NamedElement object) {
+    public T caseNamedElement(final NamedElement object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
+     * Returns the result of interpreting the object as an instance of '<em>Entity</em>'. <!--
+     * begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseEntity(Entity object) {
+    public T caseEntity(final Entity object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Failure Handling Entity</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Failure Handling Entity</em>'.
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Failure Handling Entity</em>'. <!-- begin-user-doc --> This implementation returns null;
+     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Failure Handling Entity</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
-    public T caseFailureHandlingEntity(FailureHandlingEntity object) {
+    public T caseFailureHandlingEntity(final FailureHandlingEntity object) {
         return null;
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
-     * <!-- begin-user-doc -->
-     * This implementation returns null;
-     * returning a non-null result will terminate the switch, but this is the last case anyway.
-     * <!-- end-user-doc -->
-     * @param object the target of the switch.
+     * Returns the result of interpreting the object as an instance of '<em>EObject</em>'. <!--
+     * begin-user-doc --> This implementation returns null; returning a non-null result will
+     * terminate the switch, but this is the last case anyway. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
-    public T defaultCase(EObject object) {
+    public T defaultCase(final EObject object) {
         return null;
     }
 
-} //SeffSwitch
+} // SeffSwitch

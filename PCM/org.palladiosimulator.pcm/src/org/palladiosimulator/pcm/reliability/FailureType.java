@@ -33,10 +33,10 @@ public interface FailureType extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Repository Failure Type</b></em>' container reference. It is
@@ -48,7 +48,7 @@ public interface FailureType extends Entity {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Repository Failure Type</em>' container reference.
      * @see #setRepository__FailureType(Repository)
      * @see org.palladiosimulator.pcm.reliability.ReliabilityPackage#getFailureType_Repository__FailureType()
@@ -63,7 +63,7 @@ public interface FailureType extends Entity {
      * {@link org.palladiosimulator.pcm.reliability.FailureType#getRepository__FailureType
      * <em>Repository Failure Type</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Repository Failure Type</em>' container reference.
      * @see #getRepository__FailureType()

@@ -39,10 +39,10 @@ public interface ProbabilisticBranchTransition extends AbstractBranchTransition 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Branch Probability</b></em>' attribute. <!-- begin-user-doc
@@ -52,7 +52,7 @@ public interface ProbabilisticBranchTransition extends AbstractBranchTransition 
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Branch Probability</em>' attribute.
      * @see #setBranchProbability(double)
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getProbabilisticBranchTransition_BranchProbability()
@@ -65,7 +65,7 @@ public interface ProbabilisticBranchTransition extends AbstractBranchTransition 
      * Sets the value of the '
      * {@link org.palladiosimulator.pcm.seff.ProbabilisticBranchTransition#getBranchProbability
      * <em>Branch Probability</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Branch Probability</em>' attribute.
      * @see #getBranchProbability()

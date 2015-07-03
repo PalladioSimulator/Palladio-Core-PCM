@@ -4,8 +4,9 @@
 package org.palladiosimulator.pcm.seff;
 
 import org.eclipse.emf.common.util.EList;
-import org.palladiosimulator.pcm.core.entity.Entity;
 import org.palladiosimulator.pcm.parameter.VariableUsage;
+
+import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -33,14 +34,14 @@ import org.palladiosimulator.pcm.parameter.VariableUsage;
  * @model
  * @generated
  */
-public interface SynchronisationPoint extends Entity {
+public interface SynchronisationPoint extends Identifier {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Output Parameter Usage Synchronisation Point</b></em>'
@@ -54,7 +55,7 @@ public interface SynchronisationPoint extends Entity {
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Output Parameter Usage Synchronisation Point</em>' containment
      *         reference list.
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getSynchronisationPoint_OutputParameterUsage_SynchronisationPoint()
@@ -74,7 +75,7 @@ public interface SynchronisationPoint extends Entity {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Fork Action Synchronisation Point</em>' container reference.
      * @see #setForkAction_SynchronisationPoint(ForkAction)
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getSynchronisationPoint_ForkAction_SynchronisationPoint()
@@ -90,7 +91,7 @@ public interface SynchronisationPoint extends Entity {
      * {@link org.palladiosimulator.pcm.seff.SynchronisationPoint#getForkAction_SynchronisationPoint
      * <em>Fork Action Synchronisation Point</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Fork Action Synchronisation Point</em>' container
      *            reference.
@@ -111,7 +112,7 @@ public interface SynchronisationPoint extends Entity {
      * containment reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Synchronous Forked Behaviours Synchronisation Point</em>'
      *         containment reference list.
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getSynchronisationPoint_SynchronousForkedBehaviours_SynchronisationPoint()

@@ -71,10 +71,10 @@ public interface AbstractAction extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Predecessor Abstract Action</b></em>' reference. It is
@@ -86,7 +86,7 @@ public interface AbstractAction extends Entity {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Predecessor Abstract Action</em>' reference.
      * @see #setPredecessor_AbstractAction(AbstractAction)
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getAbstractAction_Predecessor_AbstractAction()
@@ -119,7 +119,7 @@ public interface AbstractAction extends Entity {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Successor Abstract Action</em>' reference.
      * @see #setSuccessor_AbstractAction(AbstractAction)
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getAbstractAction_Successor_AbstractAction()
@@ -133,7 +133,7 @@ public interface AbstractAction extends Entity {
      * Sets the value of the '
      * {@link org.palladiosimulator.pcm.seff.AbstractAction#getSuccessor_AbstractAction
      * <em>Successor Abstract Action</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Successor Abstract Action</em>' reference.
      * @see #getSuccessor_AbstractAction()
@@ -151,7 +151,7 @@ public interface AbstractAction extends Entity {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Resource Demanding Behaviour Abstract Action</em>' container
      *         reference.
      * @see #setResourceDemandingBehaviour_AbstractAction(ResourceDemandingBehaviour)

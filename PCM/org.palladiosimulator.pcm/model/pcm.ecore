@@ -11,7 +11,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="This package contains the PCM Core meta-classes used throughout the PCM: entities carrying a  globally unique ID (GUID), an abstract model for entities which provide and require interfaces, and  an abstract model to describe entities composed from other entities."/>
     </eAnnotations>
-    <eClassifiers xsi:type="ecore:EClass" name="PCMRandomVariable" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable">
+    <eClassifiers xsi:type="ecore:EClass" name="PCMRandomVariable" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Random variables are used to describe user and component behaviour. They allow not only constant values (e.g., 3 loop iterations), but also probabilistic values (e.g., 2 loop iterations with a probability of 0.4 and 3 loop iterations with a probability of 0.6). They are well-suited for capturing uncertainty when modelling systems during early development stages. Examples where developers may use random variables are:&#xD;&#xA;- Characterisations of Input Parameters: Describes the QoS relevant characteristics of parameters of component services.&#xD;&#xA;- Inter-Arrival Time: Describes how much time passes between the arrival of two subsequent users.&#xD;&#xA;- Think Time: Describes how much time passes between the execution of a user scenario and the start of the next execution of this scenario.&#xD;&#xA;- Loop Iteration Count: Describes the number of repetitions of a loop.&#xD;&#xA;- Guarded Branch Transitions: Used to determine whether to conditionally execute a certain behaviour.&#xD;&#xA;&#xD;&#xA;PCMRandomVariable extends RandomVariable in a way, that the only type of variables available in the PCMRandomVariable are references to variable characterisations like a.NUMBER_OF_ELEMENTS. The corresponding editors ensure that the user can enter only valid expressions."/>
       </eAnnotations>
@@ -170,7 +170,7 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ResourceInterfaceProvidingRequiringEntity"
           eSuperTypes="#//core/entity/ResourceInterfaceRequiringEntity #//core/entity/ResourceInterfaceProvidingEntity"/>
-      <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//core/entity/NamedElement">
+      <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//core/entity/NamedElement">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Entity is a meta class high up the PCM meta class hierarchy and represents all entities of the PCM that have both an id (see meta class Identifier) and a name (see meta class NamedEntity)."/>
         </eAnnotations>
@@ -1689,7 +1689,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="hardwareInducedFailureType__ProcessingResourceType"
           ordered="false" eType="#//reliability/HardwareInducedFailureType" eOpposite="#//reliability/HardwareInducedFailureType/processingResourceType__HardwareInducedFailureType"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceType" abstract="true" eSuperTypes="#//core/entity/Entity ../../de.uka.ipd.sdq.units/model/Units.ecore#//UnitCarryingElement #//core/entity/ResourceInterfaceProvidingEntity">
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceType" abstract="true" eSuperTypes="#//core/entity/Entity platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore#//UnitCarryingElement #//core/entity/ResourceInterfaceProvidingEntity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Abstract superclass of any resource"/>
       </eAnnotations>
@@ -1788,7 +1788,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="entryLevelSystemCall_OutputParameterUsage"
           ordered="false" eType="#//usagemodel/EntryLevelSystemCall" eOpposite="#//usagemodel/EntryLevelSystemCall/outputParameterUsages_EntryLevelSystemCall"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="namedReference__VariableUsage"
-          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//AbstractNamedReference"
+          ordered="false" lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//AbstractNamedReference"
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VariableCharacterisation">
@@ -1811,7 +1811,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="variableUsage_VariableCharacterisation"
           ordered="false" eType="#//parameter/VariableUsage" eOpposite="#//parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CharacterisedVariable" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//Variable">
+    <eClassifiers xsi:type="ecore:EClass" name="CharacterisedVariable" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//Variable">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A characterised variable is a special variable which contains a performance abstraction of a data type. It can be transformed in a named reference and a variable characterisation. It has to end always with a variable characterisation type. Examples are &quot;a.NUMBER_OF_ELEMENTS&quot; or &quot;array.STRUCTURE&quot;."/>
       </eAnnotations>
@@ -2089,7 +2089,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceDemandingBehaviour_AbstractAction"
           ordered="false" eType="#//seff/ResourceDemandingBehaviour" eOpposite="#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingBehaviour" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingBehaviour" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Models the behaviour of a component service as a sequence of internal actions with resource demands, control flow constructs, and external&#xD;&#xA;calls. Therefore, the class contains a chain of AbstractActions. The emphasis in this type of behaviour is on the resource demands attached to internal actions, which mainly influence performance analysis.&#xD;&#xA;Each action in a ResourceDemandingBehaviour references a predecessor and a successor action. Exceptions are the first and last action, which do not reference a predecessor and a successor respectively. A behaviour is valid, if there is a continuous path from the first to last action, which includes all actions. The chain must not include cycles. To specify control flow branches, loops, or forks, component developers need to use special types of actions, which contain nested inner ResourceDemandingBehaviours to specify the behaviour inside branches or loop bodies. Any ResourceDemandingBehaviour can have at most one starting and one finishing action."/>
       </eAnnotations>
@@ -2224,7 +2224,7 @@
           upperBound="-1" eType="#//seff/AbstractBranchTransition" containment="true"
           eOpposite="#//seff/AbstractBranchTransition/branchAction_AbstractBranchTransition"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CallAction" abstract="true" eSuperTypes="#//core/entity/Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="CallAction" abstract="true" eSuperTypes="#//seff/AbstractAction">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Generic class realising call relations between behaviours (e.g. method call)."/>
       </eAnnotations>
@@ -2288,7 +2288,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="basicComponent_ServiceEffectSpecification"
           ordered="false" lowerBound="1" eType="#//repository/BasicComponent" eOpposite="#//repository/BasicComponent/serviceEffectSpecifications__BasicComponent"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingSEFF" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//seff/ServiceEffectSpecification #//seff/ResourceDemandingBehaviour">
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingSEFF" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//seff/ServiceEffectSpecification #//seff/ResourceDemandingBehaviour">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A resource demanding service effect specification (RDSEFF) is a special type of SEFF designed for performance and reliability predictions. Besides dependencies between provided and required services of a component, it additionally includes notions of resource usage, data flow, and parametric dependencies for more accurate predictions. Its control flow is hierarchically structured and can be enhanced with transition probabilities on branches and numbers of iterations on loops.&#xD;&#xA;A ResourceDemandingSEFF is a ServiceEffectSpecification and a Resource-DemandingBehaviour at the same time inheriting from both classes. The reason for this construct lies in the fact, that ResourceDemandingBehaviours can be used recursively inside themselves to describe loop bodies or branched behaviours (explained later), and these inner behaviours should not be RDSEFFs themselves"/>
       </eAnnotations>
@@ -2339,7 +2339,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="forkAction_ForkedBehaivour"
           ordered="false" eType="#//seff/ForkAction" eOpposite="#//seff/ForkAction/asynchronousForkedBehaviours_ForkAction"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SynchronisationPoint" eSuperTypes="#//core/entity/Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="SynchronisationPoint" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Component developers can use a SynchronisationPoint to join synchronously ForkedBehaviours and specify a result of the computations with its attached VariableUsages."/>
       </eAnnotations>
@@ -3106,7 +3106,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="parentResourceContainer__ResourceContainer"
           ordered="false" eType="#//resourceenvironment/ResourceContainer" eOpposite="#//resourceenvironment/ResourceContainer/nestedResourceContainers__ResourceContainer"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceSpecification" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceSpecification" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Performance specification of processing resources (e.g. processing rate, scheduling policy)"/>
       </eAnnotations>
@@ -3149,7 +3149,7 @@
           eOpposite="#//resourceenvironment/ResourceContainer/activeResourceSpecifications_ResourceContainer"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceSpecification"
-        eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+        eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Throughput and performance specification of linking resources"/>
       </eAnnotations>

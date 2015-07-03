@@ -29,10 +29,10 @@ public interface AbstractLoopAction extends AbstractInternalControlFlowAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Body Behaviour Loop</b></em>' containment reference. It is
@@ -44,7 +44,7 @@ public interface AbstractLoopAction extends AbstractInternalControlFlowAction {
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Body Behaviour Loop</em>' containment reference.
      * @see #setBodyBehaviour_Loop(ResourceDemandingBehaviour)
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getAbstractLoopAction_BodyBehaviour_Loop()
@@ -60,7 +60,7 @@ public interface AbstractLoopAction extends AbstractInternalControlFlowAction {
      * {@link org.palladiosimulator.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop
      * <em>Body Behaviour Loop</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Body Behaviour Loop</em>' containment reference.
      * @see #getBodyBehaviour_Loop()

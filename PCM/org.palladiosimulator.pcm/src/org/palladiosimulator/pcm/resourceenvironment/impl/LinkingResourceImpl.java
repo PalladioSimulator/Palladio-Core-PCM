@@ -6,14 +6,10 @@ package org.palladiosimulator.pcm.resourceenvironment.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
-
 import org.palladiosimulator.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import org.palladiosimulator.pcm.resourceenvironment.LinkingResource;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
@@ -21,16 +17,21 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Linking Resource</b></em>'.
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Linking Resource</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.palladiosimulator.pcm.resourceenvironment.impl.LinkingResourceImpl#getConnectedResourceContainers_LinkingResource <em>Connected Resource Containers Linking Resource</em>}</li>
- *   <li>{@link org.palladiosimulator.pcm.resourceenvironment.impl.LinkingResourceImpl#getCommunicationLinkResourceSpecifications_LinkingResource <em>Communication Link Resource Specifications Linking Resource</em>}</li>
- *   <li>{@link org.palladiosimulator.pcm.resourceenvironment.impl.LinkingResourceImpl#getResourceEnvironment_LinkingResource <em>Resource Environment Linking Resource</em>}</li>
+ * <li>
+ * {@link org.palladiosimulator.pcm.resourceenvironment.impl.LinkingResourceImpl#getConnectedResourceContainers_LinkingResource
+ * <em>Connected Resource Containers Linking Resource</em>}</li>
+ * <li>
+ * {@link org.palladiosimulator.pcm.resourceenvironment.impl.LinkingResourceImpl#getCommunicationLinkResourceSpecifications_LinkingResource
+ * <em>Communication Link Resource Specifications Linking Resource</em>}</li>
+ * <li>
+ * {@link org.palladiosimulator.pcm.resourceenvironment.impl.LinkingResourceImpl#getResourceEnvironment_LinkingResource
+ * <em>Resource Environment Linking Resource</em>}</li>
  * </ul>
  *
  * @generated
@@ -38,15 +39,15 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
 public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     protected LinkingResourceImpl() {
@@ -54,8 +55,8 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -64,143 +65,153 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     @SuppressWarnings("unchecked")
     public EList<ResourceContainer> getConnectedResourceContainers_LinkingResource() {
-        return (EList<ResourceContainer>) eDynamicGet(
+        return (EList<ResourceContainer>) this.eDynamicGet(
                 ResourceenvironmentPackage.LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE,
                 ResourceenvironmentPackage.Literals.LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE,
                 true, true);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public CommunicationLinkResourceSpecification getCommunicationLinkResourceSpecifications_LinkingResource() {
-        return (CommunicationLinkResourceSpecification) eDynamicGet(
+        return (CommunicationLinkResourceSpecification) this.eDynamicGet(
                 ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE,
                 ResourceenvironmentPackage.Literals.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE,
                 true, true);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public NotificationChain basicSetCommunicationLinkResourceSpecifications_LinkingResource(
-            CommunicationLinkResourceSpecification newCommunicationLinkResourceSpecifications_LinkingResource,
+            final CommunicationLinkResourceSpecification newCommunicationLinkResourceSpecifications_LinkingResource,
             NotificationChain msgs) {
-        msgs = eDynamicInverseAdd((InternalEObject) newCommunicationLinkResourceSpecifications_LinkingResource,
+        msgs = this.eDynamicInverseAdd((InternalEObject) newCommunicationLinkResourceSpecifications_LinkingResource,
                 ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE,
                 msgs);
         return msgs;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public void setCommunicationLinkResourceSpecifications_LinkingResource(
-            CommunicationLinkResourceSpecification newCommunicationLinkResourceSpecifications_LinkingResource) {
-        eDynamicSet(
+            final CommunicationLinkResourceSpecification newCommunicationLinkResourceSpecifications_LinkingResource) {
+        this.eDynamicSet(
                 ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE,
                 ResourceenvironmentPackage.Literals.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE,
                 newCommunicationLinkResourceSpecifications_LinkingResource);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public ResourceEnvironment getResourceEnvironment_LinkingResource() {
-        return (ResourceEnvironment) eDynamicGet(
+        return (ResourceEnvironment) this.eDynamicGet(
                 ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE,
                 ResourceenvironmentPackage.Literals.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE, true,
                 true);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public NotificationChain basicSetResourceEnvironment_LinkingResource(
-            ResourceEnvironment newResourceEnvironment_LinkingResource, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newResourceEnvironment_LinkingResource,
+            final ResourceEnvironment newResourceEnvironment_LinkingResource, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newResourceEnvironment_LinkingResource,
                 ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE, msgs);
         return msgs;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public void setResourceEnvironment_LinkingResource(ResourceEnvironment newResourceEnvironment_LinkingResource) {
-        eDynamicSet(ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE,
+    @Override
+    public void setResourceEnvironment_LinkingResource(
+            final ResourceEnvironment newResourceEnvironment_LinkingResource) {
+        this.eDynamicSet(ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE,
                 ResourceenvironmentPackage.Literals.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE,
                 newResourceEnvironment_LinkingResource);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE:
-            CommunicationLinkResourceSpecification communicationLinkResourceSpecifications_LinkingResource = getCommunicationLinkResourceSpecifications_LinkingResource();
-            if (communicationLinkResourceSpecifications_LinkingResource != null)
+            final CommunicationLinkResourceSpecification communicationLinkResourceSpecifications_LinkingResource = this
+                    .getCommunicationLinkResourceSpecifications_LinkingResource();
+            if (communicationLinkResourceSpecifications_LinkingResource != null) {
                 msgs = ((InternalEObject) communicationLinkResourceSpecifications_LinkingResource).eInverseRemove(this,
                         EOPPOSITE_FEATURE_BASE
                                 - ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE,
                         null, msgs);
-            return basicSetCommunicationLinkResourceSpecifications_LinkingResource(
+            }
+            return this.basicSetCommunicationLinkResourceSpecifications_LinkingResource(
                     (CommunicationLinkResourceSpecification) otherEnd, msgs);
         case ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetResourceEnvironment_LinkingResource((ResourceEnvironment) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetResourceEnvironment_LinkingResource((ResourceEnvironment) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE:
-            return basicSetCommunicationLinkResourceSpecifications_LinkingResource(null, msgs);
+            return this.basicSetCommunicationLinkResourceSpecifications_LinkingResource(null, msgs);
         case ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE:
-            return basicSetResourceEnvironment_LinkingResource(null, msgs);
+            return this.basicSetResourceEnvironment_LinkingResource(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE:
-            return eInternalContainer().eInverseRemove(this,
+            return this.eInternalContainer().eInverseRemove(this,
                     ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT,
                     ResourceEnvironment.class, msgs);
         }
@@ -208,84 +219,86 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case ResourceenvironmentPackage.LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE:
-            return getConnectedResourceContainers_LinkingResource();
+            return this.getConnectedResourceContainers_LinkingResource();
         case ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE:
-            return getCommunicationLinkResourceSpecifications_LinkingResource();
+            return this.getCommunicationLinkResourceSpecifications_LinkingResource();
         case ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE:
-            return getResourceEnvironment_LinkingResource();
+            return this.getResourceEnvironment_LinkingResource();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case ResourceenvironmentPackage.LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE:
-            getConnectedResourceContainers_LinkingResource().clear();
-            getConnectedResourceContainers_LinkingResource().addAll((Collection<? extends ResourceContainer>) newValue);
+            this.getConnectedResourceContainers_LinkingResource().clear();
+            this.getConnectedResourceContainers_LinkingResource()
+                    .addAll((Collection<? extends ResourceContainer>) newValue);
             return;
         case ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE:
-            setCommunicationLinkResourceSpecifications_LinkingResource(
+            this.setCommunicationLinkResourceSpecifications_LinkingResource(
                     (CommunicationLinkResourceSpecification) newValue);
             return;
         case ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE:
-            setResourceEnvironment_LinkingResource((ResourceEnvironment) newValue);
+            this.setResourceEnvironment_LinkingResource((ResourceEnvironment) newValue);
             return;
         }
         super.eSet(featureID, newValue);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case ResourceenvironmentPackage.LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE:
-            getConnectedResourceContainers_LinkingResource().clear();
+            this.getConnectedResourceContainers_LinkingResource().clear();
             return;
         case ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE:
-            setCommunicationLinkResourceSpecifications_LinkingResource((CommunicationLinkResourceSpecification) null);
+            this.setCommunicationLinkResourceSpecifications_LinkingResource(
+                    (CommunicationLinkResourceSpecification) null);
             return;
         case ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE:
-            setResourceEnvironment_LinkingResource((ResourceEnvironment) null);
+            this.setResourceEnvironment_LinkingResource((ResourceEnvironment) null);
             return;
         }
         super.eUnset(featureID);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ResourceenvironmentPackage.LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE:
-            return !getConnectedResourceContainers_LinkingResource().isEmpty();
+            return !this.getConnectedResourceContainers_LinkingResource().isEmpty();
         case ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE:
-            return getCommunicationLinkResourceSpecifications_LinkingResource() != null;
+            return this.getCommunicationLinkResourceSpecifications_LinkingResource() != null;
         case ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE:
-            return getResourceEnvironment_LinkingResource() != null;
+            return this.getResourceEnvironment_LinkingResource() != null;
         }
         return super.eIsSet(featureID);
     }
 
-} //LinkingResourceImpl
+} // LinkingResourceImpl

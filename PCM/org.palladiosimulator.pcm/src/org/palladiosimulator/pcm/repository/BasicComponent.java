@@ -38,10 +38,10 @@ public interface BasicComponent extends ImplementationComponentType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Service Effect Specifications Basic Component</b></em>'
@@ -72,7 +72,7 @@ public interface BasicComponent extends ImplementationComponentType {
      * <em>Basic Component Passive Resource</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * <!-- begin-model-doc --> This property represents the passive resources, e.g., semaphores,
      * that are owned by this basic component. <!-- end-model-doc -->
-     * 
+     *
      * @return the value of the '<em>Passive Resource Basic Component</em>' containment reference
      *         list.
      * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getBasicComponent_PassiveResource_BasicComponent()

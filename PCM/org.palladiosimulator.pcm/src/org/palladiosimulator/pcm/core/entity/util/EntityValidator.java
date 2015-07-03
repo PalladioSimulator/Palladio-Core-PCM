@@ -7,44 +7,49 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
-
 import org.palladiosimulator.pcm.core.composition.util.CompositionValidator;
-
-import org.palladiosimulator.pcm.core.entity.*;
+import org.palladiosimulator.pcm.core.entity.ComposedProvidingRequiringEntity;
+import org.palladiosimulator.pcm.core.entity.Entity;
+import org.palladiosimulator.pcm.core.entity.EntityPackage;
+import org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity;
+import org.palladiosimulator.pcm.core.entity.InterfaceProvidingRequiringEntity;
+import org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity;
+import org.palladiosimulator.pcm.core.entity.NamedElement;
+import org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingEntity;
+import org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingRequiringEntity;
+import org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity;
+import org.palladiosimulator.pcm.core.entity.ResourceProvidedRole;
+import org.palladiosimulator.pcm.core.entity.ResourceRequiredRole;
 
 /**
- * <!-- begin-user-doc -->
- * The <b>Validator</b> for the model.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> The <b>Validator</b> for the model. <!-- end-user-doc -->
+ *
  * @see org.palladiosimulator.pcm.core.entity.EntityPackage
  * @generated
  */
 public class EntityValidator extends EObjectValidator {
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
-     * The cached model package
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public static final EntityValidator INSTANCE = new EntityValidator();
 
     /**
-     * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of
+     * diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @see org.eclipse.emf.common.util.Diagnostic#getSource()
      * @see org.eclipse.emf.common.util.Diagnostic#getCode()
      * @generated
@@ -52,52 +57,50 @@ public class EntityValidator extends EObjectValidator {
     public static final String DIAGNOSTIC_SOURCE = "org.palladiosimulator.pcm.core.entity";
 
     /**
-     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Provided Roles Must Be Bound' of 'Composed Providing Requiring Entity'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Provided
+     * Roles Must Be Bound' of 'Composed Providing Requiring Entity'. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
      * @generated
      */
     public static final int COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_MUST_BE_BOUND = 1;
 
     /**
-     * A constant with a fixed name that can be used as the base value for additional hand written constants.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * A constant with a fixed name that can be used as the base value for additional hand written
+     * constants. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 1;
 
     /**
-     * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * A constant with a fixed name that can be used as the base value for additional hand written
+     * constants in a derived class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
 
     /**
-     * The cached base package validator.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The cached base package validator. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     protected CompositionValidator compositionValidator;
 
     /**
-     * Creates an instance of the switch.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public EntityValidator() {
         super();
-        compositionValidator = CompositionValidator.INSTANCE;
+        this.compositionValidator = CompositionValidator.INSTANCE;
     }
 
     /**
-     * Returns the package of this validator switch.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * Returns the package of this validator switch. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -106,204 +109,214 @@ public class EntityValidator extends EObjectValidator {
     }
 
     /**
-     * Calls <code>validateXXX</code> for the corresponding classifier of the model.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * Calls <code>validateXXX</code> for the corresponding classifier of the model. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
+    protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         switch (classifierID) {
         case EntityPackage.RESOURCE_PROVIDED_ROLE:
-            return validateResourceProvidedRole((ResourceProvidedRole) value, diagnostics, context);
+            return this.validateResourceProvidedRole((ResourceProvidedRole) value, diagnostics, context);
         case EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY:
-            return validateInterfaceProvidingRequiringEntity((InterfaceProvidingRequiringEntity) value, diagnostics,
-                    context);
+            return this.validateInterfaceProvidingRequiringEntity((InterfaceProvidingRequiringEntity) value,
+                    diagnostics, context);
         case EntityPackage.INTERFACE_PROVIDING_ENTITY:
-            return validateInterfaceProvidingEntity((InterfaceProvidingEntity) value, diagnostics, context);
+            return this.validateInterfaceProvidingEntity((InterfaceProvidingEntity) value, diagnostics, context);
         case EntityPackage.INTERFACE_REQUIRING_ENTITY:
-            return validateInterfaceRequiringEntity((InterfaceRequiringEntity) value, diagnostics, context);
+            return this.validateInterfaceRequiringEntity((InterfaceRequiringEntity) value, diagnostics, context);
         case EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY:
-            return validateResourceInterfaceRequiringEntity((ResourceInterfaceRequiringEntity) value, diagnostics,
+            return this.validateResourceInterfaceRequiringEntity((ResourceInterfaceRequiringEntity) value, diagnostics,
                     context);
         case EntityPackage.RESOURCE_REQUIRED_ROLE:
-            return validateResourceRequiredRole((ResourceRequiredRole) value, diagnostics, context);
+            return this.validateResourceRequiredRole((ResourceRequiredRole) value, diagnostics, context);
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY:
-            return validateResourceInterfaceProvidingEntity((ResourceInterfaceProvidingEntity) value, diagnostics,
+            return this.validateResourceInterfaceProvidingEntity((ResourceInterfaceProvidingEntity) value, diagnostics,
                     context);
         case EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY:
-            return validateComposedProvidingRequiringEntity((ComposedProvidingRequiringEntity) value, diagnostics,
+            return this.validateComposedProvidingRequiringEntity((ComposedProvidingRequiringEntity) value, diagnostics,
                     context);
         case EntityPackage.NAMED_ELEMENT:
-            return validateNamedElement((NamedElement) value, diagnostics, context);
+            return this.validateNamedElement((NamedElement) value, diagnostics, context);
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY:
-            return validateResourceInterfaceProvidingRequiringEntity((ResourceInterfaceProvidingRequiringEntity) value,
-                    diagnostics, context);
+            return this.validateResourceInterfaceProvidingRequiringEntity(
+                    (ResourceInterfaceProvidingRequiringEntity) value, diagnostics, context);
         case EntityPackage.ENTITY:
-            return validateEntity((Entity) value, diagnostics, context);
+            return this.validateEntity((Entity) value, diagnostics, context);
         default:
             return true;
         }
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public boolean validateResourceProvidedRole(ResourceProvidedRole resourceProvidedRole, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) resourceProvidedRole, diagnostics, context);
+    public boolean validateResourceProvidedRole(final ResourceProvidedRole resourceProvidedRole,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(resourceProvidedRole, diagnostics, context);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public boolean validateInterfaceProvidingRequiringEntity(
-            InterfaceProvidingRequiringEntity interfaceProvidingRequiringEntity, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) interfaceProvidingRequiringEntity, diagnostics, context);
+            final InterfaceProvidingRequiringEntity interfaceProvidingRequiringEntity,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(interfaceProvidingRequiringEntity, diagnostics, context);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public boolean validateInterfaceProvidingEntity(InterfaceProvidingEntity interfaceProvidingEntity,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) interfaceProvidingEntity, diagnostics, context);
+    public boolean validateInterfaceProvidingEntity(final InterfaceProvidingEntity interfaceProvidingEntity,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(interfaceProvidingEntity, diagnostics, context);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public boolean validateInterfaceRequiringEntity(InterfaceRequiringEntity interfaceRequiringEntity,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) interfaceRequiringEntity, diagnostics, context);
+    public boolean validateInterfaceRequiringEntity(final InterfaceRequiringEntity interfaceRequiringEntity,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(interfaceRequiringEntity, diagnostics, context);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public boolean validateResourceInterfaceRequiringEntity(
-            ResourceInterfaceRequiringEntity resourceInterfaceRequiringEntity, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) resourceInterfaceRequiringEntity, diagnostics, context);
+            final ResourceInterfaceRequiringEntity resourceInterfaceRequiringEntity, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(resourceInterfaceRequiringEntity, diagnostics, context);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public boolean validateResourceRequiredRole(ResourceRequiredRole resourceRequiredRole, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) resourceRequiredRole, diagnostics, context);
+    public boolean validateResourceRequiredRole(final ResourceRequiredRole resourceRequiredRole,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(resourceRequiredRole, diagnostics, context);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public boolean validateResourceInterfaceProvidingEntity(
-            ResourceInterfaceProvidingEntity resourceInterfaceProvidingEntity, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) resourceInterfaceProvidingEntity, diagnostics, context);
+            final ResourceInterfaceProvidingEntity resourceInterfaceProvidingEntity, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(resourceInterfaceProvidingEntity, diagnostics, context);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public boolean validateComposedProvidingRequiringEntity(
-            ComposedProvidingRequiringEntity composedProvidingRequiringEntity, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        if (!validate_NoCircularContainment((EObject) composedProvidingRequiringEntity, diagnostics, context))
+            final ComposedProvidingRequiringEntity composedProvidingRequiringEntity, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
+        if (!this.validate_NoCircularContainment(composedProvidingRequiringEntity, diagnostics, context)) {
             return false;
-        boolean result = validate_EveryMultiplicityConforms((EObject) composedProvidingRequiringEntity, diagnostics,
+        }
+        boolean result = this.validate_EveryMultiplicityConforms(composedProvidingRequiringEntity, diagnostics,
                 context);
-        if (result || diagnostics != null)
-            result &= validate_EveryDataValueConforms((EObject) composedProvidingRequiringEntity, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryReferenceIsContained((EObject) composedProvidingRequiringEntity, diagnostics,
-                    context);
-        if (result || diagnostics != null)
-            result &= validate_EveryProxyResolves((EObject) composedProvidingRequiringEntity, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_UniqueID((EObject) composedProvidingRequiringEntity, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryKeyUnique((EObject) composedProvidingRequiringEntity, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validate_EveryMapEntryUnique((EObject) composedProvidingRequiringEntity, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= compositionValidator.validateComposedStructure_MultipleConnectorsConstraint(
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryDataValueConforms(composedProvidingRequiringEntity, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryReferenceIsContained(composedProvidingRequiringEntity, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryProxyResolves(composedProvidingRequiringEntity, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_UniqueID(composedProvidingRequiringEntity, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryKeyUnique(composedProvidingRequiringEntity, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryMapEntryUnique(composedProvidingRequiringEntity, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.compositionValidator.validateComposedStructure_MultipleConnectorsConstraint(
                     composedProvidingRequiringEntity, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= compositionValidator.validateComposedStructure_MultipleConnectorsConstraintForAssemblyConnectors(
+        }
+        if (result || diagnostics != null) {
+            result &= this.compositionValidator
+                    .validateComposedStructure_MultipleConnectorsConstraintForAssemblyConnectors(
+                            composedProvidingRequiringEntity, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validateComposedProvidingRequiringEntity_ProvidedRolesMustBeBound(
                     composedProvidingRequiringEntity, diagnostics, context);
-        if (result || diagnostics != null)
-            result &= validateComposedProvidingRequiringEntity_ProvidedRolesMustBeBound(
-                    composedProvidingRequiringEntity, diagnostics, context);
+        }
         return result;
     }
 
     /**
-     * Validates the ProvidedRolesMustBeBound constraint of '<em>Composed Providing Requiring Entity</em>'.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * Validates the ProvidedRolesMustBeBound constraint of '
+     * <em>Composed Providing Requiring Entity</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public boolean validateComposedProvidingRequiringEntity_ProvidedRolesMustBeBound(
-            ComposedProvidingRequiringEntity composedProvidingRequiringEntity, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
+            final ComposedProvidingRequiringEntity composedProvidingRequiringEntity, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return composedProvidingRequiringEntity.ProvidedRolesMustBeBound(diagnostics, context);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public boolean validateNamedElement(NamedElement namedElement, DiagnosticChain diagnostics,
-            Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) namedElement, diagnostics, context);
+    public boolean validateNamedElement(final NamedElement namedElement, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(namedElement, diagnostics, context);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public boolean validateResourceInterfaceProvidingRequiringEntity(
-            ResourceInterfaceProvidingRequiringEntity resourceInterfaceProvidingRequiringEntity,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) resourceInterfaceProvidingRequiringEntity, diagnostics,
-                context);
+            final ResourceInterfaceProvidingRequiringEntity resourceInterfaceProvidingRequiringEntity,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(resourceInterfaceProvidingRequiringEntity, diagnostics, context);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public boolean validateEntity(Entity entity, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject) entity, diagnostics, context);
+    public boolean validateEntity(final Entity entity, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
+        return this.validate_EveryDefaultConstraint(entity, diagnostics, context);
     }
 
     /**
-     * Returns the resource locator that will be used to fetch messages for this validator's diagnostics.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * Returns the resource locator that will be used to fetch messages for this validator's
+     * diagnostics. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -314,4 +327,4 @@ public class EntityValidator extends EObjectValidator {
         return super.getResourceLocator();
     }
 
-} //EntityValidator
+} // EntityValidator

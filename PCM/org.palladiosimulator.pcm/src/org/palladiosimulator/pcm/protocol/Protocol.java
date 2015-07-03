@@ -46,10 +46,10 @@ public interface Protocol extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Protocol Type ID</b></em>' attribute. <!-- begin-user-doc
@@ -68,7 +68,7 @@ public interface Protocol extends CDOObject {
     /**
      * Sets the value of the '{@link org.palladiosimulator.pcm.protocol.Protocol#getProtocolTypeID
      * <em>Protocol Type ID</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Protocol Type ID</em>' attribute.
      * @see #getProtocolTypeID()

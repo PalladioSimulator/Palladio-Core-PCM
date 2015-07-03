@@ -3,23 +3,23 @@
  */
 package org.palladiosimulator.pcm.parameter.impl;
 
-import de.uka.ipd.sdq.stoex.impl.VariableImpl;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.palladiosimulator.pcm.parameter.CharacterisedVariable;
 import org.palladiosimulator.pcm.parameter.ParameterPackage;
 import org.palladiosimulator.pcm.parameter.VariableCharacterisationType;
 
+import de.uka.ipd.sdq.stoex.impl.VariableImpl;
+
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Characterised Variable</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Characterised Variable</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.palladiosimulator.pcm.parameter.impl.CharacterisedVariableImpl#getCharacterisationType <em>Characterisation Type</em>}</li>
+ * <li>
+ * {@link org.palladiosimulator.pcm.parameter.impl.CharacterisedVariableImpl#getCharacterisationType
+ * <em>Characterisation Type</em>}</li>
  * </ul>
  *
  * @generated
@@ -27,16 +27,16 @@ import org.palladiosimulator.pcm.parameter.VariableCharacterisationType;
 public class CharacterisedVariableImpl extends VariableImpl implements CharacterisedVariable {
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
-     * The default value of the '{@link #getCharacterisationType() <em>Characterisation Type</em>}' attribute.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * The default value of the '{@link #getCharacterisationType() <em>Characterisation Type</em>}'
+     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @see #getCharacterisationType()
      * @generated
      * @ordered
@@ -44,8 +44,8 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
     protected static final VariableCharacterisationType CHARACTERISATION_TYPE_EDEFAULT = VariableCharacterisationType.STRUCTURE;
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     protected CharacterisedVariableImpl() {
@@ -53,8 +53,8 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -63,82 +63,84 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public VariableCharacterisationType getCharacterisationType() {
-        return (VariableCharacterisationType) eDynamicGet(
+        return (VariableCharacterisationType) this.eDynamicGet(
                 ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE,
                 ParameterPackage.Literals.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE, true, true);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public void setCharacterisationType(VariableCharacterisationType newCharacterisationType) {
-        eDynamicSet(ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE,
+    @Override
+    public void setCharacterisationType(final VariableCharacterisationType newCharacterisationType) {
+        this.eDynamicSet(ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE,
                 ParameterPackage.Literals.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE, newCharacterisationType);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE:
-            return getCharacterisationType();
+            return this.getCharacterisationType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE:
-            setCharacterisationType((VariableCharacterisationType) newValue);
+            this.setCharacterisationType((VariableCharacterisationType) newValue);
             return;
         }
         super.eSet(featureID, newValue);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE:
-            setCharacterisationType(CHARACTERISATION_TYPE_EDEFAULT);
+            this.setCharacterisationType(CHARACTERISATION_TYPE_EDEFAULT);
             return;
         }
         super.eUnset(featureID);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE:
-            return getCharacterisationType() != CHARACTERISATION_TYPE_EDEFAULT;
+            return this.getCharacterisationType() != CHARACTERISATION_TYPE_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
 
-} //CharacterisedVariableImpl
+} // CharacterisedVariableImpl

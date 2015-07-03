@@ -37,10 +37,10 @@ public interface Branch extends AbstractUserAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Branch Transitions Branch</b></em>' containment reference
@@ -54,7 +54,7 @@ public interface Branch extends AbstractUserAction {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Branch Transitions Branch</em>' containment reference list.
      * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getBranch_BranchTransitions_Branch()
      * @see org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranch_BranchTransition

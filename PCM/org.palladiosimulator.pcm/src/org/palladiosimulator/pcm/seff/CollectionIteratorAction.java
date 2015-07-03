@@ -49,10 +49,10 @@ public interface CollectionIteratorAction extends AbstractLoopAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Parameter Collection Iterator Action</b></em>' reference.
@@ -62,7 +62,7 @@ public interface CollectionIteratorAction extends AbstractLoopAction {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Parameter Collection Iterator Action</em>' reference.
      * @see #setParameter_CollectionIteratorAction(Parameter)
      * @see org.palladiosimulator.pcm.seff.SeffPackage#getCollectionIteratorAction_Parameter_CollectionIteratorAction()
@@ -76,7 +76,7 @@ public interface CollectionIteratorAction extends AbstractLoopAction {
      * {@link org.palladiosimulator.pcm.seff.CollectionIteratorAction#getParameter_CollectionIteratorAction
      * <em>Parameter Collection Iterator Action</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Parameter Collection Iterator Action</em>' reference.
      * @see #getParameter_CollectionIteratorAction()

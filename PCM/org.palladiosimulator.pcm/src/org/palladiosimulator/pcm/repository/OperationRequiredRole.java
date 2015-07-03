@@ -28,10 +28,10 @@ public interface OperationRequiredRole extends RequiredRole {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Required Interface Operation Required Role</b></em>'
@@ -51,7 +51,7 @@ public interface OperationRequiredRole extends RequiredRole {
      * {@link org.palladiosimulator.pcm.repository.OperationRequiredRole#getRequiredInterface__OperationRequiredRole
      * <em>Required Interface Operation Required Role</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Required Interface Operation Required Role</em>'
      *            reference.

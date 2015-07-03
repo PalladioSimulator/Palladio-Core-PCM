@@ -34,10 +34,10 @@ public interface ResourceTimeoutFailureType extends SoftwareInducedFailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
-    String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Passive Resource Resource Timeout Failure Type</b></em>'
@@ -62,7 +62,7 @@ public interface ResourceTimeoutFailureType extends SoftwareInducedFailureType {
      * {@link org.palladiosimulator.pcm.reliability.ResourceTimeoutFailureType#getPassiveResource__ResourceTimeoutFailureType
      * <em>Passive Resource Resource Timeout Failure Type</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Passive Resource Resource Timeout Failure Type</em>'
      *            reference.

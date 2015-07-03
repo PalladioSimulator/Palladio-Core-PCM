@@ -4,27 +4,27 @@
 package org.palladiosimulator.pcm.usagemodel.impl;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
-
 import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
 import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour;
 import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Abstract User Action</b></em>'.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '
+ * <em><b>Abstract User Action</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl#getSuccessor <em>Successor</em>}</li>
- *   <li>{@link org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl#getPredecessor <em>Predecessor</em>}</li>
- *   <li>{@link org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl#getScenarioBehaviour_AbstractUserAction <em>Scenario Behaviour Abstract User Action</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl#getSuccessor
+ * <em>Successor</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl#getPredecessor
+ * <em>Predecessor</em>}</li>
+ * <li>
+ * {@link org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl#getScenarioBehaviour_AbstractUserAction
+ * <em>Scenario Behaviour Abstract User Action</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,15 +32,15 @@ import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
 public abstract class AbstractUserActionImpl extends EntityImpl implements AbstractUserAction {
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     protected AbstractUserActionImpl() {
@@ -48,8 +48,8 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
@@ -58,262 +58,275 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public AbstractUserAction getSuccessor() {
-        return (AbstractUserAction) eDynamicGet(UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR,
+        return (AbstractUserAction) this.eDynamicGet(UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR,
                 UsagemodelPackage.Literals.ABSTRACT_USER_ACTION__SUCCESSOR, true, true);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public AbstractUserAction basicGetSuccessor() {
-        return (AbstractUserAction) eDynamicGet(UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR,
+        return (AbstractUserAction) this.eDynamicGet(UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR,
                 UsagemodelPackage.Literals.ABSTRACT_USER_ACTION__SUCCESSOR, false, true);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public NotificationChain basicSetSuccessor(AbstractUserAction newSuccessor, NotificationChain msgs) {
-        msgs = eDynamicInverseAdd((InternalEObject) newSuccessor, UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR,
-                msgs);
+    public NotificationChain basicSetSuccessor(final AbstractUserAction newSuccessor, NotificationChain msgs) {
+        msgs = this.eDynamicInverseAdd((InternalEObject) newSuccessor,
+                UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR, msgs);
         return msgs;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public void setSuccessor(AbstractUserAction newSuccessor) {
-        eDynamicSet(UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR,
+    @Override
+    public void setSuccessor(final AbstractUserAction newSuccessor) {
+        this.eDynamicSet(UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR,
                 UsagemodelPackage.Literals.ABSTRACT_USER_ACTION__SUCCESSOR, newSuccessor);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public AbstractUserAction getPredecessor() {
-        return (AbstractUserAction) eDynamicGet(UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR,
+        return (AbstractUserAction) this.eDynamicGet(UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR,
                 UsagemodelPackage.Literals.ABSTRACT_USER_ACTION__PREDECESSOR, true, true);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public AbstractUserAction basicGetPredecessor() {
-        return (AbstractUserAction) eDynamicGet(UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR,
+        return (AbstractUserAction) this.eDynamicGet(UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR,
                 UsagemodelPackage.Literals.ABSTRACT_USER_ACTION__PREDECESSOR, false, true);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public NotificationChain basicSetPredecessor(AbstractUserAction newPredecessor, NotificationChain msgs) {
-        msgs = eDynamicInverseAdd((InternalEObject) newPredecessor, UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR,
-                msgs);
+    public NotificationChain basicSetPredecessor(final AbstractUserAction newPredecessor, NotificationChain msgs) {
+        msgs = this.eDynamicInverseAdd((InternalEObject) newPredecessor,
+                UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR, msgs);
         return msgs;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public void setPredecessor(AbstractUserAction newPredecessor) {
-        eDynamicSet(UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR,
+    @Override
+    public void setPredecessor(final AbstractUserAction newPredecessor) {
+        this.eDynamicSet(UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR,
                 UsagemodelPackage.Literals.ABSTRACT_USER_ACTION__PREDECESSOR, newPredecessor);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
+    @Override
     public ScenarioBehaviour getScenarioBehaviour_AbstractUserAction() {
-        return (ScenarioBehaviour) eDynamicGet(
+        return (ScenarioBehaviour) this.eDynamicGet(
                 UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION,
                 UsagemodelPackage.Literals.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION, true, true);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     public NotificationChain basicSetScenarioBehaviour_AbstractUserAction(
-            ScenarioBehaviour newScenarioBehaviour_AbstractUserAction, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject) newScenarioBehaviour_AbstractUserAction,
+            final ScenarioBehaviour newScenarioBehaviour_AbstractUserAction, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newScenarioBehaviour_AbstractUserAction,
                 UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION, msgs);
         return msgs;
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
-    public void setScenarioBehaviour_AbstractUserAction(ScenarioBehaviour newScenarioBehaviour_AbstractUserAction) {
-        eDynamicSet(UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION,
+    @Override
+    public void setScenarioBehaviour_AbstractUserAction(
+            final ScenarioBehaviour newScenarioBehaviour_AbstractUserAction) {
+        this.eDynamicSet(UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION,
                 UsagemodelPackage.Literals.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION,
                 newScenarioBehaviour_AbstractUserAction);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR:
-            AbstractUserAction successor = basicGetSuccessor();
-            if (successor != null)
+            final AbstractUserAction successor = this.basicGetSuccessor();
+            if (successor != null) {
                 msgs = ((InternalEObject) successor).eInverseRemove(this,
                         UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR, AbstractUserAction.class, msgs);
-            return basicSetSuccessor((AbstractUserAction) otherEnd, msgs);
+            }
+            return this.basicSetSuccessor((AbstractUserAction) otherEnd, msgs);
         case UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR:
-            AbstractUserAction predecessor = basicGetPredecessor();
-            if (predecessor != null)
+            final AbstractUserAction predecessor = this.basicGetPredecessor();
+            if (predecessor != null) {
                 msgs = ((InternalEObject) predecessor).eInverseRemove(this,
                         UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR, AbstractUserAction.class, msgs);
-            return basicSetPredecessor((AbstractUserAction) otherEnd, msgs);
+            }
+            return this.basicSetPredecessor((AbstractUserAction) otherEnd, msgs);
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION:
-            if (eInternalContainer() != null)
-                msgs = eBasicRemoveFromContainer(msgs);
-            return basicSetScenarioBehaviour_AbstractUserAction((ScenarioBehaviour) otherEnd, msgs);
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetScenarioBehaviour_AbstractUserAction((ScenarioBehaviour) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
         switch (featureID) {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR:
-            return basicSetSuccessor(null, msgs);
+            return this.basicSetSuccessor(null, msgs);
         case UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR:
-            return basicSetPredecessor(null, msgs);
+            return this.basicSetPredecessor(null, msgs);
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION:
-            return basicSetScenarioBehaviour_AbstractUserAction(null, msgs);
+            return this.basicSetScenarioBehaviour_AbstractUserAction(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-        switch (eContainerFeatureID()) {
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION:
-            return eInternalContainer().eInverseRemove(this,
+            return this.eInternalContainer().eInverseRemove(this,
                     UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR, ScenarioBehaviour.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public Object eGet(int featureID, boolean resolve, boolean coreType) {
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR:
-            if (resolve)
-                return getSuccessor();
-            return basicGetSuccessor();
+            if (resolve) {
+                return this.getSuccessor();
+            }
+            return this.basicGetSuccessor();
         case UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR:
-            if (resolve)
-                return getPredecessor();
-            return basicGetPredecessor();
+            if (resolve) {
+                return this.getPredecessor();
+            }
+            return this.basicGetPredecessor();
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION:
-            return getScenarioBehaviour_AbstractUserAction();
+            return this.getScenarioBehaviour_AbstractUserAction();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void eSet(int featureID, Object newValue) {
+    public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR:
-            setSuccessor((AbstractUserAction) newValue);
+            this.setSuccessor((AbstractUserAction) newValue);
             return;
         case UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR:
-            setPredecessor((AbstractUserAction) newValue);
+            this.setPredecessor((AbstractUserAction) newValue);
             return;
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION:
-            setScenarioBehaviour_AbstractUserAction((ScenarioBehaviour) newValue);
+            this.setScenarioBehaviour_AbstractUserAction((ScenarioBehaviour) newValue);
             return;
         }
         super.eSet(featureID, newValue);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public void eUnset(int featureID) {
+    public void eUnset(final int featureID) {
         switch (featureID) {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR:
-            setSuccessor((AbstractUserAction) null);
+            this.setSuccessor((AbstractUserAction) null);
             return;
         case UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR:
-            setPredecessor((AbstractUserAction) null);
+            this.setPredecessor((AbstractUserAction) null);
             return;
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION:
-            setScenarioBehaviour_AbstractUserAction((ScenarioBehaviour) null);
+            this.setScenarioBehaviour_AbstractUserAction((ScenarioBehaviour) null);
             return;
         }
         super.eUnset(featureID);
     }
 
     /**
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
      * @generated
      */
     @Override
-    public boolean eIsSet(int featureID) {
+    public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR:
-            return basicGetSuccessor() != null;
+            return this.basicGetSuccessor() != null;
         case UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR:
-            return basicGetPredecessor() != null;
+            return this.basicGetPredecessor() != null;
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION:
-            return getScenarioBehaviour_AbstractUserAction() != null;
+            return this.getScenarioBehaviour_AbstractUserAction() != null;
         }
         return super.eIsSet(featureID);
     }
 
-} //AbstractUserActionImpl
+} // AbstractUserActionImpl
