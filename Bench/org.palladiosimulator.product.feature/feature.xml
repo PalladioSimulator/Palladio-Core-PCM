@@ -2,7 +2,7 @@
 <feature
       id="org.palladiosimulator.product.feature"
       label="Palladio Product Feature"
-      version="1.0.0.qualifier"
+      version="4.0.0.qualifier"
       provider-name="%providerName">
 
    <description url="http://www.palladiosimulator.org">
@@ -23,38 +23,38 @@
 
    <includes
          id="org.palladiosimulator.edp2.feature"
-         version="0.0.0"/>
+         version="1.0.0"/>
 
    <includes
          id="org.palladiosimulator.protocom.feature"
-         version="0.0.0"/>
+         version="4.0.0"/>
 
    <includes
          id="de.uka.ipd.sdq.dsexplore.feature"
-         version="0.0.0"/>
+         version="4.0.0"/>
 
    <includes
          id="org.palladiosimulator.pcm.feature"
-         version="0.0.0"/>
+         version="4.0.0"/>
 
    <includes
          id="org.palladiosimulator.editors.gmf.feature"
-         version="0.0.0"/>
+         version="4.0.0"/>
 
    <includes
          id="org.palladiosimulator.editors.tree.feature"
-         version="0.0.0"/>
+         version="4.0.0"/>
 
    <includes
          id="org.palladiosimulator.simucom.feature"
-         version="0.0.0"/>
+         version="4.0.0"/>
 
    <includes
          id="org.palladiosimulator.solver.feature"
-         version="0.0.0"/>
+         version="4.0.0"/>
 
    <includes
          id="org.palladiosimulator.edp2.ui.feature"
-         version="0.0.0"/>
+         version="1.0.0"/>
 
 </feature>
