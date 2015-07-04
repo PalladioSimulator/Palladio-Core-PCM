@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Palladio Bench" uid="org.palladiosimulator.product" id="org.eclipse.platform.ide" application="org.eclipse.ui.ide.workbench" version="4.0" useFeatures="true" includeLaunchers="true">
+<product name="Palladio Bench" uid="org.palladiosimulator.product" id="org.eclipse.platform.ide" application="org.eclipse.ui.ide.workbench" version="4.0.0" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -132,7 +132,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
    </plugins>
 
    <features>
-      <feature id="org.palladiosimulator.product.feature" version="1.0.0.qualifier"/>
+      <feature id="org.palladiosimulator.product.feature" version="4.0.0.qualifier"/>
    </features>
 
    <configurations>
