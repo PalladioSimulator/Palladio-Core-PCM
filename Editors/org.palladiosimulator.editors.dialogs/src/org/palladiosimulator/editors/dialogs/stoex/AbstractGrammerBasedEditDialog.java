@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package org.palladiosimulator.editors.dialogs.stoex;
 
@@ -48,18 +48,17 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.internal.editors.text.EditorsPlugin;
 import org.eclipse.ui.texteditor.AnnotationPreference;
 import org.eclipse.ui.texteditor.SourceViewerDecorationSupport;
-
-import de.uka.ipd.sdq.errorhandling.IIssue;
-
 import org.palladiosimulator.editors.dialogs.DialogsImages;
 import org.palladiosimulator.editors.dialogs.SWTResourceManager;
 import org.palladiosimulator.pcm.repository.Parameter;
 import org.palladiosimulator.pcm.stochasticexpressions.parser.ErrorEntry;
 
+import de.uka.ipd.sdq.errorhandling.IIssue;
+
 // TODO: Auto-generated Javadoc
 /**
  * The Class AbstractGrammerBasedEditDialog.
- * 
+ *
  * @author Snowball
  * @author joerg henss
  */
@@ -128,11 +127,11 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 
     /**
      * Constructor.
-     * 
+     *
      * @param parent
      *            shell
      */
-    public AbstractGrammerBasedEditDialog(Shell parent) {
+    public AbstractGrammerBasedEditDialog(final Shell parent) {
         super(parent);
         newText = getInitialText();
         this.context = new Parameter[] {};
@@ -142,13 +141,13 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 
     /**
      * Constructor.
-     * 
+     *
      * @param parent
      *            shell
      * @param context
      *            - A list of parameters used in code completion
      */
-    public AbstractGrammerBasedEditDialog(Shell parent, Parameter[] context) {
+    public AbstractGrammerBasedEditDialog(final Shell parent, final Parameter[] context) {
         super(parent);
         newText = getInitialText();
         this.context = context;
@@ -160,7 +159,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 
     /**
      * Creates the source viewer.
-     * 
+     *
      * @param parent
      *            the parent
      * @param ruler
@@ -169,32 +168,32 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
      *            the styles
      * @return the source viewer
      */
-    protected SourceViewer createSourceViewer(Composite parent, CompositeRuler ruler, int styles) {
+    protected SourceViewer createSourceViewer(final Composite parent, final CompositeRuler ruler, final int styles) {
 
-        SourceViewer sourceViewer = new SourceViewer(parent, ruler, styles);
+        final SourceViewer sourceViewer = new SourceViewer(parent, ruler, styles);
         return sourceViewer;
     }
 
     /**
      * Gets the initial text.
-     * 
+     *
      * @return the initial text
      */
     protected abstract String getInitialText();
 
     /**
      * Sets the display title.
-     * 
+     *
      * @param newTitle
      *            the new display title
      */
-    public void setDisplayTitle(String newTitle) {
+    public void setDisplayTitle(final String newTitle) {
         this.DIALOG_TITLE = newTitle;
     }
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.eclipse.jface.dialogs.Dialog#cancelPressed()
      */
     @Override
@@ -206,19 +205,19 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * org.eclipse.jface.dialogs.TitleAreaDialog#createDialogArea(org.eclipse.swt.widgets.Composite)
      */
     @Override
-    protected Control createDialogArea(Composite parent) {
-        Composite area = (Composite) super.createDialogArea(parent);
-        Composite container = new Composite(area, SWT.NONE);
+    protected Control createDialogArea(final Composite parent) {
+        final Composite area = (Composite) super.createDialogArea(parent);
+        final Composite container = new Composite(area, SWT.NONE);
         container.setLayout(new FillLayout());
         container.setLayoutData(new GridData(GridData.FILL_BOTH));
 
         this.setTitle(DIALOG_TITLE);
-        PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "org.palladiosimulator.pcmbench.help.stoexdialog");
+        PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "org.palladiosimulator.pcm.help.stoexdialog");
 
         fAnnotationAccess = new AnnotationMarkerAccess();
 
@@ -227,8 +226,8 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
         editStochasticExpressionGroup.setLayout(new FillLayout());
 
         fAnnotationModel = new AnnotationModel();
-        CompositeRuler fCompositeRuler = new CompositeRuler();
-        AnnotationRulerColumn annotationRuler = new AnnotationRulerColumn(fAnnotationModel, 16, fAnnotationAccess);
+        final CompositeRuler fCompositeRuler = new CompositeRuler();
+        final AnnotationRulerColumn annotationRuler = new AnnotationRulerColumn(fAnnotationModel, 16, fAnnotationAccess);
         fCompositeRuler.setModel(fAnnotationModel);
         // annotation ruler is decorating our composite ruler
         fCompositeRuler.addDecorator(0, annotationRuler);
@@ -249,11 +248,12 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 
         styledText.addKeyListener(new KeyListener() {
 
-            public void keyPressed(KeyEvent event) {
+            @Override
+            public void keyPressed(final KeyEvent event) {
             }
 
             @Override
-            public void keyReleased(KeyEvent event) { // CTRL + SPACE
+            public void keyReleased(final KeyEvent event) { // CTRL + SPACE
                 if (event.keyCode == 32 && (event.stateMask & SWT.CTRL) == SWT.CTRL) {
                     config.getContentAssistant(textViewer).showPossibleCompletions();
                 }
@@ -264,10 +264,10 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
         styledText.addVerifyKeyListener(new VerifyKeyListener() {
 
             @Override
-            public void verifyKey(VerifyEvent event) {
+            public void verifyKey(final VerifyEvent event) {
                 if (event.keyCode == 13) { // ENTER
-                    ContentAssistant ca = (ContentAssistant) config.getContentAssistant(textViewer);
-                    boolean isAssistentFocus = ca.setFocus(textViewer);
+                    final ContentAssistant ca = (ContentAssistant) config.getContentAssistant(textViewer);
+                    final boolean isAssistentFocus = ca.setFocus(textViewer);
                     if (!isAssistentFocus) {
                         if (getButton(OK).isEnabled()) {
                             okPressed();
@@ -286,7 +286,8 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
         textViewer.setDocument(new Document(newText), fAnnotationModel);
         textViewer.addTextListener(new ITextListener() {
 
-            public void textChanged(TextEvent event) {
+            @Override
+            public void textChanged(final TextEvent event) {
                 if (event.getDocumentEvent() != null) {
                     parseInputAndRefreshAnnotations();
                 }
@@ -329,34 +330,34 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * org.eclipse.jface.dialogs.TitleAreaDialog#createContents(org.eclipse.swt.widgets.Composite)
      */
     @Override
-    protected Control createContents(Composite parent) {
-        Control result = super.createContents(parent);
+    protected Control createContents(final Composite parent) {
+        final Control result = super.createContents(parent);
         parseInputAndRefreshAnnotations();
         return result;
     }
 
     /**
      * Gets the token mapper.
-     * 
+     *
      * @return the token mapper
      */
     protected abstract ITokenMapper getTokenMapper();
 
     /**
      * Gets the lexer class.
-     * 
+     *
      * @return the lexer class
      */
     protected abstract Class<?> getLexerClass();
 
     /**
      * Gets the title.
-     * 
+     *
      * @return the title
      */
     protected abstract String getTitle();
@@ -370,14 +371,14 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
         Lexer lexer = null;
         boolean hasErrors = false, hasWarnings = false;
         try {
-            String text = this.textViewer.getDocument().get();
+            final String text = this.textViewer.getDocument().get();
             lexer = getLexer(text);
             value = parse(lexer);
-        } catch (RecognitionException e) {
+        } catch (final RecognitionException e) {
             showInputInvalidInfo(e);
             return;
-        } catch (StoExParserException e) {
-            for (IIssue ex : e.getIssuesList()) {
+        } catch (final StoExParserException e) {
+            for (final IIssue ex : e.getIssuesList()) {
                 if (ex instanceof ErrorEntry) {
                     showInputInvalidInfo((ErrorEntry) ex);
                     hasErrors = true;
@@ -391,7 +392,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
             } else if (hasWarnings) {
                 this.setMessage(e.getIssuesList().get(0).getMessage(), IMessageProvider.WARNING);
             }
-        } catch (Exception e) {
+        } catch (final Exception e) {
             showInputInvalidInfo(e);
             return;
         }
@@ -408,18 +409,18 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 
     /**
      * Show input warning.
-     * 
+     *
      * @param ex
      *            the ex
      */
-    private void showInputWarning(IIssue ex) {
+    private void showInputWarning(final IIssue ex) {
         fAnnotationModel.addAnnotation(new Annotation(WARNING_TYPE, false, ex.getMessage()), new Position(0, textViewer
                 .getDocument().getLength()));
     }
 
     /**
      * Gets the lexer.
-     * 
+     *
      * @param text
      *            the text
      * @return the lexer
@@ -428,7 +429,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 
     /**
      * Parses the.
-     * 
+     *
      * @param lexer
      *            the lexer
      * @return the e object
@@ -452,11 +453,11 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 
     /**
      * Show input invalid info.
-     * 
+     *
      * @param e
      *            the e
      */
-    private void showInputInvalidInfo(Exception e) {
+    private void showInputInvalidInfo(final Exception e) {
         result = null;
         fAnnotationModel.addAnnotation(new Annotation(ERROR_TYPE, false, e.getMessage() == null ? e.getClass()
                 .getName() : e.getMessage()), guessPosition(e));
@@ -466,11 +467,11 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 
     /**
      * Show input invalid info.
-     * 
+     *
      * @param e
      *            the e
      */
-    private void showInputInvalidInfo(ErrorEntry e) {
+    private void showInputInvalidInfo(final ErrorEntry e) {
         result = null;
         fAnnotationModel.addAnnotation(new Annotation(ERROR_TYPE, false, e.getMessage()), guessPosition(e.getEx()));
         this.getButton(IDialogConstants.OK_ID).setEnabled(false);
@@ -479,16 +480,16 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 
     /**
      * Guess position.
-     * 
+     *
      * @param e
      *            the e
      * @return the position
      */
-    private Position guessPosition(Exception e) {
+    private Position guessPosition(final Exception e) {
         if (e instanceof RecognitionException) {
-            RecognitionException recException = (RecognitionException) e;
-            int col = recException.charPositionInLine;
-            int line = recException.line;
+            final RecognitionException recException = (RecognitionException) e;
+            final int col = recException.charPositionInLine;
+            final int line = recException.line;
             int offset = ParserHelper.positionToOffset(textViewer.getDocument(), line, col);
             offset = offset < 0 ? 0 : offset;
             return new Position(offset, textViewer.getDocument().getLength() - offset);
@@ -498,7 +499,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 
     /**
      * Gets the result.
-     * 
+     *
      * @return the result
      */
     protected Object getResult() {
@@ -507,18 +508,18 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.eclipse.jface.window.Window#configureShell(org.eclipse.swt.widgets.Shell)
      */
     @Override
-    protected void configureShell(Shell newShell) {
+    protected void configureShell(final Shell newShell) {
         super.configureShell(newShell);
         newShell.setText(getTitle());
     }
 
     /**
      * Gets the result text.
-     * 
+     *
      * @return the result text
      */
     public String getResultText() {
@@ -535,11 +536,11 @@ class GrammarSharedColors implements ISharedTextColors {
     Map<RGB, Color> colorMap = new HashMap<RGB, Color>();
 
     @Override
-    public Color getColor(RGB rgb) {
+    public Color getColor(final RGB rgb) {
         if (colorMap.containsKey(rgb)) {
             return colorMap.get(rgb);
         }
-        Color c = new Color(Display.getDefault(), rgb);
+        final Color c = new Color(Display.getDefault(), rgb);
         colorMap.put(rgb, c);
         return c;
     }
@@ -558,49 +559,53 @@ class AnnotationMarkerAccess implements IAnnotationAccess, IAnnotationAccessExte
 
     /**
      * Gets the type.
-     * 
+     *
      * @param annotation
      *            the annotation
      * @return the type
      * @see org.eclipse.jface.text.source.IAnnotationAccess#getType(org.eclipse.jface.text.source.Annotation)
      */
-    public String getType(Annotation annotation) {
+    @Override
+    public String getType(final Annotation annotation) {
         return annotation.getType();
     }
 
     /**
      * Checks if is multi line.
-     * 
+     *
      * @param annotation
      *            the annotation
      * @return true, if is multi line
      * @see org.eclipse.jface.text.source.IAnnotationAccess#isMultiLine(org.eclipse.jface.text.source.Annotation)
      */
-    public boolean isMultiLine(Annotation annotation) {
+    @Override
+    public boolean isMultiLine(final Annotation annotation) {
         return true;
     }
 
     /**
      * Checks if is temporary.
-     * 
+     *
      * @param annotation
      *            the annotation
      * @return true, if is temporary
      * @see org.eclipse.jface.text.source.IAnnotationAccess#isTemporary(org.eclipse.jface.text.source.Annotation)
      */
-    public boolean isTemporary(Annotation annotation) {
+    @Override
+    public boolean isTemporary(final Annotation annotation) {
         return !annotation.isPersistent();
     }
 
     /**
      * Gets the type label.
-     * 
+     *
      * @param annotation
      *            the annotation
      * @return the type label
      * @see org.eclipse.jface.text.source.IAnnotationAccessExtension#getTypeLabel(org.eclipse.jface.text.source.Annotation)
      */
-    public String getTypeLabel(Annotation annotation) {
+    @Override
+    public String getTypeLabel(final Annotation annotation) {
         if (getType(annotation).equals(AbstractGrammerBasedEditDialog.ERROR_TYPE)) {
             return "Errors";
         }
@@ -612,19 +617,20 @@ class AnnotationMarkerAccess implements IAnnotationAccess, IAnnotationAccessExte
 
     /**
      * Gets the layer.
-     * 
+     *
      * @param annotation
      *            the annotation
      * @return the layer
      * @see org.eclipse.jface.text.source.IAnnotationAccessExtension#getLayer(org.eclipse.jface.text.source.Annotation)
      */
-    public int getLayer(Annotation annotation) {
+    @Override
+    public int getLayer(final Annotation annotation) {
         return 0;
     }
 
     /**
      * Paint.
-     * 
+     *
      * @param annotation
      *            the annotation
      * @param gc
@@ -637,7 +643,8 @@ class AnnotationMarkerAccess implements IAnnotationAccess, IAnnotationAccessExte
      *      org.eclipse.swt.graphics.GC, org.eclipse.swt.widgets.Canvas,
      *      org.eclipse.swt.graphics.Rectangle)
      */
-    public void paint(Annotation annotation, GC gc, Canvas canvas, Rectangle bounds) {
+    @Override
+    public void paint(final Annotation annotation, final GC gc, final Canvas canvas, final Rectangle bounds) {
         if (getType(annotation).equals(AbstractGrammerBasedEditDialog.ERROR_TYPE)) {
             ImageUtilities.drawImage(DialogsImages.imageRegistry.get(DialogsImages.ERROR), gc, canvas, bounds,
                     SWT.CENTER);
@@ -649,19 +656,20 @@ class AnnotationMarkerAccess implements IAnnotationAccess, IAnnotationAccessExte
 
     /**
      * Checks if is paintable.
-     * 
+     *
      * @param annotation
      *            the annotation
      * @return true, if is paintable
      * @see org.eclipse.jface.text.source.IAnnotationAccessExtension#isPaintable(org.eclipse.jface.text.source.Annotation)
      */
-    public boolean isPaintable(Annotation annotation) {
+    @Override
+    public boolean isPaintable(final Annotation annotation) {
         return true;
     }
 
     /**
      * Checks if is subtype.
-     * 
+     *
      * @param annotationType
      *            the annotation type
      * @param potentialSupertype
@@ -670,7 +678,8 @@ class AnnotationMarkerAccess implements IAnnotationAccess, IAnnotationAccessExte
      * @see org.eclipse.jface.text.source.IAnnotationAccessExtension#isSubtype(java.lang.Object,
      *      java.lang.Object)
      */
-    public boolean isSubtype(Object annotationType, Object potentialSupertype) {
+    @Override
+    public boolean isSubtype(final Object annotationType, final Object potentialSupertype) {
         if (annotationType.equals(potentialSupertype)) {
             return true;
         }
@@ -680,13 +689,14 @@ class AnnotationMarkerAccess implements IAnnotationAccess, IAnnotationAccessExte
 
     /**
      * Gets the supertypes.
-     * 
+     *
      * @param annotationType
      *            the annotation type
      * @return the supertypes
      * @see org.eclipse.jface.text.source.IAnnotationAccessExtension#getSupertypes(java.lang.Object)
      */
-    public Object[] getSupertypes(Object annotationType) {
+    @Override
+    public Object[] getSupertypes(final Object annotationType) {
         return new Object[0];
     }
 
