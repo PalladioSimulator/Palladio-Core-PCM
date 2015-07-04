@@ -3,7 +3,8 @@
       id="org.palladiosimulator.product.feature"
       label="Palladio Product Feature"
       version="4.0.0.qualifier"
-      provider-name="%providerName">
+      provider-name="%providerName"
+      plugin="org.palladiosimulator.branding">
 
    <description url="http://www.palladiosimulator.org">
       This is the Palladio Bench Feature
