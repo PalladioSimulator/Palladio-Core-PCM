@@ -54,6 +54,10 @@
          id="org.palladiosimulator.edp2.ui.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.palladiosimulator.recorderframework.feature"
+         version="0.0.0"/>
+
    <requires>
       <import feature="org.eclipse.epp.package.modeling.feature" version="4.4.0" match="equivalent"/>
       <import feature="org.palladiosimulator.editors.gmf.feature" version="4.0.0" match="equivalent"/>
@@ -64,6 +68,7 @@
       <import feature="org.palladiosimulator.protocom.feature" version="4.0.0" match="equivalent"/>
       <import feature="org.palladiosimulator.simucom.feature" version="4.0.0" match="equivalent"/>
       <import feature="org.palladiosimulator.solver.feature" version="4.0.0" match="equivalent"/>
+      <import feature="org.palladiosimulator.recorderframework.feature" version="2.1.0" match="equivalent"/>
    </requires>
 
 </feature>
