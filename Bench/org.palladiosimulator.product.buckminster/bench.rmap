@@ -3,7 +3,7 @@
 
   <rm:property key="resolveFrom" value="release"/>
 
-  <rm:redirect pattern="^org\.palladiosimulator\.[license|branding]$" href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Build/trunk/org.palladiosimulator.targetPlatformBuild/license.rmap"/>
+  <rm:redirect pattern="^org\.palladiosimulator\.[license|branding].*" href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Build/trunk/org.palladiosimulator.targetPlatformBuild/license.rmap"/>
 
   <rm:locator pattern="^org\.palladiosimulator\.product.*" searchPathRef="productsvn" failOnError="true"/>
   <rm:locator pattern="^org\.palladiosimulator.*" searchPathRef="pcm_aggregate" failOnError="true"/>
