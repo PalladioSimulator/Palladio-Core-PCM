@@ -21,7 +21,7 @@
   <extension
         point="org.eclipse.help.contexts">
      <contexts
-           file="contexts.xml">
+           file="contexts.xml" plugin="org.palladiosimulator.pcm.help">
      </contexts>
   </extension>
   <extension
