@@ -50,7 +50,7 @@ of the PCM using tree editors.
       <import plugin="org.eclipse.ui.intro" version="3.4.200" match="greaterOrEqual"/>
       <import plugin="org.eclipse.help.webapp" version="3.6.301" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.intro.universal" version="3.2.701" match="greaterOrEqual"/>
-      <import feature="org.palladiosimulator.license" version="1.0.0"/>
+      <import plugin="org.eclipse.uml2.types"/>
    </requires>
 
    <plugin
@@ -100,5 +100,12 @@ of the PCM using tree editors.
          download-size="0"
          install-size="0"
          version="0.0.0"/>
+
+   <plugin
+         id="org.palladiosimulator.branding"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
 
 </feature>
