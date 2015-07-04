@@ -15,23 +15,26 @@ of the PCM using tree editors.
 
    <requires>
       <import plugin="org.eclipse.core.runtime" version="3.10.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.ecore" version="2.10.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.cdo" version="4.3.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.ecore.xmi" version="2.10.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.ecore"/>
+      <import plugin="org.eclipse.emf.cdo"/>
+      <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.palladiosimulator.edp2"/>
-      <import plugin="de.uka.ipd.sdq.identifier" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.identifier"/>
       <import plugin="org.palladiosimulator.metricspec"/>
-      <import plugin="de.uka.ipd.sdq.probfunction" version="2.1.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.stoex" version="2.2.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.units" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.probfunction"/>
+      <import plugin="de.uka.ipd.sdq.stoex"/>
+      <import plugin="de.uka.ipd.sdq.units"/>
       <import plugin="org.palladiosimulator.edp2.util" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.commons"/>
-      <import plugin="org.eclipse.ocl" version="3.4.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.ocl.ecore" version="3.3.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.uml2.types" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.errorhandling" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.ocl"/>
+      <import plugin="org.eclipse.ocl.ecore"/>
+      <import plugin="de.uka.ipd.sdq.errorhandling"/>
       <import plugin="org.eclipse.ocl.ecore" version="1.2.1" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.probfunction" version="2.1.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.probfunction.math" version="2.0.2" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.stoex" version="2.2.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.units" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.errorhandling" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.apache.log4j"/>
       <import plugin="org.palladiosimulator.pcm" version="4.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui" version="3.106.1" match="greaterOrEqual"/>
@@ -47,7 +50,6 @@ of the PCM using tree editors.
       <import plugin="org.eclipse.ui.intro" version="3.4.200" match="greaterOrEqual"/>
       <import plugin="org.eclipse.help.webapp" version="3.6.301" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.intro.universal" version="3.2.701" match="greaterOrEqual"/>
-      <import feature="org.palladiosimulator.edp2.ui.feature" version="1.0.0.qualifier"/>
    </requires>
 
    <plugin
@@ -97,12 +99,5 @@ of the PCM using tree editors.
          download-size="0"
          install-size="0"
          version="0.0.0"/>
-
-   <plugin
-         id="org.palladiosimulator.branding"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
 
 </feature>
