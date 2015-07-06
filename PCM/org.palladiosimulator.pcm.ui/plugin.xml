@@ -187,6 +187,33 @@
          </model_file>
       </model_template>
    </extension>
+   <extension
+         point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            id="org.palladiosimulator.pcm.ui.intro">
+      </intro>
+      <introProductBinding
+            introId="org.palladiosimulator.pcm.ui.intro"
+            productId="org.eclipse.platform.ide">
+      </introProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.config">
+      <config
+            content="introContent.xml"
+            id="org.palladiosimulator.pcm.ui.introConfigId"
+            introId="org.palladiosimulator.pcm.ui.intro">
+         <presentation
+               home-page-id="root">
+            <implementation
+                  kind="html"
+                  os="win32,linux,macosx"
+                  style="content/shared.css">
+            </implementation>
+         </presentation>
+      </config>
+   </extension>
 
 
 </plugin>
