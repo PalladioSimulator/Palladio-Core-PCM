@@ -3,7 +3,7 @@
   <ownedViewpoints name="usagemodel" modelFileExtension="usagemodel">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="usagemodel_diagram" initialisation="true" domainClass="usagemodel.UsageModel">
       <defaultLayer name="Default">
-        <edgeMappings name="usageFlow" sourceMapping="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subNodeMappings[name='start'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='branch'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subNodeMappings[name='delay'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='entryLevelSystemCall'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='loop']" targetMapping="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='entryLevelSystemCall'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subNodeMappings[name='stop'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='loop'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='branch']">
+        <edgeMappings name="usageFlow" sourceMapping="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subNodeMappings[name='start'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='branch'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='entryLevelSystemCall'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='loop']" targetMapping="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='entryLevelSystemCall'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subNodeMappings[name='stop'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='loop'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='branch']">
           <style sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             <centerLabelStyleDescription>
@@ -27,16 +27,16 @@
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="delay" semanticCandidatesExpression="feature:actions_ScenarioBehaviour" domainClass="usagemodel.Delay">
-              <style xsi:type="style:SquareDescription" labelExpression="" resizeKind="NSEW">
-                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-              </style>
-            </subNodeMappings>
             <subContainerMappings name="branch" semanticCandidatesExpression="feature:actions_ScenarioBehaviour" domainClass="usagemodel.Branch">
               <subContainerMappings name="branchTransition" semanticCandidatesExpression="feature:branchTransitions_Branch" domainClass="usagemodel.BranchTransition">
-                <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="branchBehavior" semanticCandidatesExpression="feature:branchedBehaviour_BranchTransition" reusedNodeMappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subNodeMappings[name='delay'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subNodeMappings[name='start'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subNodeMappings[name='stop']" reusedContainerMappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='entryLevelSystemCall'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='loop'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='branch']" importedMapping="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']"/>
+                <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="branchBehavior" semanticCandidatesExpression="feature:branchedBehaviour_BranchTransition" reusedNodeMappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subNodeMappings[name='start'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subNodeMappings[name='stop']" reusedContainerMappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='entryLevelSystemCall'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='loop'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='branch']" importedMapping="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']">
+                  <style xsi:type="style:FlatContainerStyleDescription" labelExpression="">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                  </style>
+                </subContainerMappings>
                 <style xsi:type="style:FlatContainerStyleDescription" labelExpression="feature:branchProbability">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -68,7 +68,44 @@
               </style>
             </subContainerMappings>
             <subContainerMappings name="entryLevelSystemCall" semanticCandidatesExpression="feature:actions_ScenarioBehaviour" domainClass="usagemodel.EntryLevelSystemCall">
+              <subContainerMappings name="variableUsage" semanticCandidatesExpression="feature:inputParameterUsages_EntryLevelSystemCall" domainClass="parameter.VariableUsage">
+                <subNodeMappings name="variableCharacterisation" semanticCandidatesExpression="feature:variableCharacterisation_VariableUsage" domainClass="parameter.VariableCharacterisation">
+                  <style xsi:type="style:NoteDescription" showIcon="false" labelExpression="[self.type + ' = ' + self.specification_VariableCharacterisation.specification/]" sizeComputationExpression="0">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                  </style>
+                </subNodeMappings>
+                <style xsi:type="style:FlatContainerStyleDescription" labelExpression="[self.namedReference__VariableUsage.referenceName/]">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                </style>
+              </subContainerMappings>
               <style xsi:type="style:FlatContainerStyleDescription" labelExpression="['&lt;&lt;SystemCallAction>> \n    IFacade.' + self.entityName /]">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="delay" semanticCandidatesExpression="feature:actions_ScenarioBehaviour" domainClass="usagemodel.Delay" childrenPresentation="List">
+              <subNodeMappings name="delayName" semanticCandidatesExpression="feature:entityName" domainClass="featuremodel.NamedElement">
+                <style xsi:type="style:NoteDescription" labelExpression="['something' + self.toString()/]" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                </style>
+              </subNodeMappings>
+              <subNodeMappings name="delayTime" semanticCandidatesExpression="feature:timeSpecification_Delay" domainClass="core.PCMRandomVariable">
+                <style xsi:type="style:BundledImageDescription" labelExpression="['Delay Time: ' + self.specification/]" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" labelExpression="&lt;&lt;UsageDelay>>">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -98,7 +135,7 @@
             </style>
           </subContainerMappings>
           <subContainerMappings name="closedWorkload" semanticCandidatesExpression="feature:workload_UsageScenario" domainClass="usagemodel.ClosedWorkload" childrenPresentation="List">
-            <subNodeMappings name="population" semanticCandidatesExpression="feature:population" domainClass="Integer">
+            <subNodeMappings name="population" semanticCandidatesExpression="feature:population" domainClass="ecore.EInt">
               <style xsi:type="style:NoteDescription" labelExpression="['Population' + self/]" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -131,8 +168,8 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.Start" referenceName="Start" variableName="start"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.Start" referenceName="[self/]" variableName="start"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -140,8 +177,17 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.Stop" referenceName="Stop" variableName="Stop"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="createDelay" label="Delay" containerMappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='delay']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" referenceName="delayInstance" variableName="delay"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
