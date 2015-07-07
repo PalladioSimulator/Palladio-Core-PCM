@@ -3,6 +3,7 @@
 
 <product name="Palladio Bench" uid="org.palladiosimulator.product" id="org.eclipse.platform.ide" application="org.eclipse.ui.ide.workbench" version="4.0.0.qualifier" useFeatures="true" includeLaunchers="true">
 
+
    <configIni use="default">
    </configIni>
 
@@ -15,7 +16,7 @@
       </vmArgsMac>
    </launcherArgs>
 
-   <windowImages/>
+   <windowImages i32="/org.palladiosimulator.pcm.ui/icons/32x32.png" i48="/org.palladiosimulator.pcm.ui/icons/48x48.png" i64="/org.palladiosimulator.pcm.ui/icons/64x64.png" i128="/org.palladiosimulator.pcm.ui/icons/128x128.png" i256="/org.palladiosimulator.pcm.ui/icons/256x256.png"/>
 
    <splash
       location="org.eclipse.platform"
