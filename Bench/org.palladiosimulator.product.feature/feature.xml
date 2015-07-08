@@ -19,6 +19,7 @@
    </license>
 
    <requires>
+      <import feature="org.eclipse.epp.package.modeling.feature" version="4.4.0" match="equivalent"/>
       <import feature="org.palladiosimulator.editors.gmf.feature" version="4.0.0" match="equivalent"/>
       <import feature="org.palladiosimulator.editors.tree.feature" version="4.0.0" match="equivalent"/>
       <import feature="org.palladiosimulator.edp2.feature" version="1.0.0" match="equivalent"/>
@@ -28,16 +29,6 @@
       <import feature="org.palladiosimulator.simucom.feature" version="4.0.0" match="equivalent"/>
       <import feature="org.palladiosimulator.solver.feature" version="4.0.0" match="equivalent"/>
       <import feature="org.palladiosimulator.recorderframework.feature" version="2.1.0" match="equivalent"/>
-      <import feature="org.eclipse.jdt" version="3.10.0" match="compatible"/>
-      <import feature="org.eclipse.platform" version="4.4.0" match="compatible"/>
-      <import plugin="org.eclipse.sdk" version="4.4.0" match="compatible"/>
    </requires>
-
-   <plugin
-         id="org.palladiosimulator.pcm.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
 
 </feature>
