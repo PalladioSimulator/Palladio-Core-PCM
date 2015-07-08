@@ -7,7 +7,7 @@
    </configIni>
 
    <launcherArgs>
-      <programArgs>-consoleLog -console
+      <programArgs>-consoleLog -console -perspective org.palladiosimulator.pcmbench.perspectives.palladio
       </programArgs>
       <vmArgs>-Dosgi.requiredJavaVersion=1.7 -Xms512m -Xmx2048m
       </vmArgs>
@@ -158,7 +158,6 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
-      <property name="defaultPerspectiveId" value="org.palladiosimulator.pcmbench.perspectives.palladio" />
       <property name="org.eclipse.core.resources/encoding" value="UTF-8" />
       <property name="org.eclipse.ui/org.eclipse.ui.edit.text.encoding" value="UTF-8" />
       <property name="osgi.instance.area.default" value="@user.home/workspace-palladiobench" />
