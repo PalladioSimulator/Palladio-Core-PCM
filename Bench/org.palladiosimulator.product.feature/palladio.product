@@ -140,6 +140,15 @@ This Agreement is governed by the laws of the State of New York and the intellec
 
    <features>
       <feature id="org.palladiosimulator.product.feature" version="4.0.0.qualifier"/>
+      <feature="org.palladiosimulator.editors.gmf.feature" installMode="root"/>
+      <feature="org.palladiosimulator.editors.tree.feature" installMode="root"/>
+      <feature="org.palladiosimulator.edp2.feature" installMode="root"/>
+      <feature="org.palladiosimulator.edp2.ui.feature" installMode="root"/>
+      <feature="org.palladiosimulator.pcm.feature" installMode="root"/>
+      <feature="org.palladiosimulator.protocom.feature" installMode="root"/>
+      <feature="org.palladiosimulator.simucom.feature" installMode="root"/>
+      <feature="org.palladiosimulator.solver.feature" installMode="root"/>
+      <feature="org.palladiosimulator.recorderframework.feature" installMode="root"/>
    </features>
 
    <configurations>
@@ -149,6 +158,9 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+      <property name="org.eclipse.core.resources/encoding" value="UTF-8" />
+      <property name="org.eclipse.ui/org.eclipse.ui.edit.text.encoding" value="UTF-8" />
+      <property name="osgi.instance.area.default" value="@user.home/workspace-palladiobench" />      
    </configurations>
 
 </product>
