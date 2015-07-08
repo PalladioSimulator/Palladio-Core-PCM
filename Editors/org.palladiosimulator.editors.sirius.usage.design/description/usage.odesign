@@ -69,13 +69,21 @@
             </subContainerMappings>
             <subContainerMappings name="entryLevelSystemCall" semanticCandidatesExpression="feature:actions_ScenarioBehaviour" domainClass="usagemodel.EntryLevelSystemCall">
               <subContainerMappings name="variableUsage" semanticCandidatesExpression="feature:inputParameterUsages_EntryLevelSystemCall" domainClass="parameter.VariableUsage">
-                <subNodeMappings name="variableCharacterisation" semanticCandidatesExpression="feature:variableCharacterisation_VariableUsage" domainClass="parameter.VariableCharacterisation">
-                  <style xsi:type="style:NoteDescription" showIcon="false" labelExpression="[self.type + ' = ' + self.specification_VariableCharacterisation.specification/]" sizeComputationExpression="0">
+                <subContainerMappings name="variableCharacterisation" semanticCandidatesExpression="feature:variableCharacterisation_VariableUsage" domainClass="parameter.VariableCharacterisation" childrenPresentation="List">
+                  <subNodeMappings name="varCharName" semanticCandidatesExpression="[self/]" domainClass="parameter.VariableCharacterisation">
+                    <style xsi:type="style:BundledImageDescription" labelExpression="[self.type + ' = ' + self.specification_VariableCharacterisation.specification/]" resizeKind="NSEW">
+                      <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    </style>
+                  </subNodeMappings>
+                  <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="VariableCharacterisation">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                    <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
                   </style>
-                </subNodeMappings>
+                </subContainerMappings>
                 <style xsi:type="style:FlatContainerStyleDescription" labelExpression="[self.namedReference__VariableUsage.referenceName/]">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -91,21 +99,21 @@
               </style>
             </subContainerMappings>
             <subContainerMappings name="delay" semanticCandidatesExpression="feature:actions_ScenarioBehaviour" domainClass="usagemodel.Delay" childrenPresentation="List">
-              <subNodeMappings name="delayName" semanticCandidatesExpression="feature:entityName" domainClass="featuremodel.NamedElement">
-                <style xsi:type="style:NoteDescription" labelExpression="['something' + self.toString()/]" resizeKind="NSEW">
+              <subNodeMappings name="delayName" semanticCandidatesExpression="[self/]" domainClass="usagemodel.Delay">
+                <style xsi:type="style:NoteDescription" labelExpression="[self.entityName/]" labelAlignment="LEFT" resizeKind="NSEW">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
                 </style>
               </subNodeMappings>
-              <subNodeMappings name="delayTime" semanticCandidatesExpression="feature:timeSpecification_Delay" domainClass="core.PCMRandomVariable">
-                <style xsi:type="style:BundledImageDescription" labelExpression="['Delay Time: ' + self.specification/]" resizeKind="NSEW">
+              <subNodeMappings name="delayTime" semanticCandidatesExpression="[self/]" domainClass="usagemodel.Delay">
+                <style xsi:type="style:BundledImageDescription" labelExpression="['Delay Time: ' + self.timeSpecification_Delay.specification/]" labelAlignment="LEFT" resizeKind="NSEW">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </subNodeMappings>
-              <style xsi:type="style:FlatContainerStyleDescription" labelExpression="&lt;&lt;UsageDelay>>">
+              <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="&lt;&lt;UsageDelay>>">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -120,30 +128,30 @@
             </style>
           </subContainerMappings>
           <subContainerMappings name="openWorkload" semanticCandidatesExpression="feature:workload_UsageScenario" domainClass="usagemodel.OpenWorkload" childrenPresentation="List">
-            <subNodeMappings name="interArrivalTime" semanticCandidatesExpression="feature:interArrivalTime_OpenWorkload" domainClass="core.PCMRandomVariable">
-              <style xsi:type="style:NoteDescription" labelExpression="['Interarrival Time ' + self.specification/]" labelAlignment="LEFT" resizeKind="NSEW">
+            <subNodeMappings name="interArrivalTime" semanticCandidatesExpression="[self/]" domainClass="usagemodel.OpenWorkload">
+              <style xsi:type="style:NoteDescription" labelExpression="['Interarrival Time: ' + self.interArrivalTime_OpenWorkload.specification/]" labelAlignment="LEFT" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" labelExpression="&lt;&lt;OpenWorkload>>">
+            <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="&lt;&lt;OpenWorkload>>">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
             </style>
           </subContainerMappings>
           <subContainerMappings name="closedWorkload" semanticCandidatesExpression="feature:workload_UsageScenario" domainClass="usagemodel.ClosedWorkload" childrenPresentation="List">
-            <subNodeMappings name="population" semanticCandidatesExpression="feature:population" domainClass="ecore.EInt">
-              <style xsi:type="style:NoteDescription" labelExpression="['Population' + self/]" resizeKind="NSEW">
+            <subNodeMappings name="population" semanticCandidatesExpression="[self/]" domainClass="usagemodel.ClosedWorkload">
+              <style xsi:type="style:NoteDescription" labelExpression="['Population: ' + self.population/]" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
               </style>
             </subNodeMappings>
-            <subNodeMappings name="thinkTime" semanticCandidatesExpression="feature:thinkTime_ClosedWorkload" domainClass="core.PCMRandomVariable">
-              <style xsi:type="style:NoteDescription" labelExpression="['Think Time ' + self.specification/]" labelAlignment="LEFT" resizeKind="NSEW">
+            <subNodeMappings name="thinkTime" semanticCandidatesExpression="[self/]" domainClass="usagemodel.ClosedWorkload">
+              <style xsi:type="style:NoteDescription" labelExpression="['Think Time: ' + self.thinkTime_ClosedWorkload.specification/]" labelAlignment="LEFT" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
@@ -153,7 +161,7 @@
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
             </style>
           </subContainerMappings>
           <style xsi:type="style:FlatContainerStyleDescription" labelExpression="[self.entityName/]" backgroundStyle="GradientTopToBottom">
@@ -213,7 +221,7 @@
             <viewVariable name="containerView"/>
             <initialOperation/>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="variableCharacterisationCreation" label="Variable Characterisation" nodeMappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='entryLevelSystemCall']/@subContainerMappings[name='variableUsage']/@subNodeMappings[name='variableCharacterisation']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="variableCharacterisationCreation" label="Variable Characterisation">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation/>
