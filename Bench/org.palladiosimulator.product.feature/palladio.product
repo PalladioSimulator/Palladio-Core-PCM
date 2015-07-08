@@ -140,15 +140,15 @@ This Agreement is governed by the laws of the State of New York and the intellec
 
    <features>
       <feature id="org.palladiosimulator.product.feature" version="4.0.0.qualifier"/>
-      <feature="org.palladiosimulator.editors.gmf.feature" installMode="root"/>
-      <feature="org.palladiosimulator.editors.tree.feature" installMode="root"/>
-      <feature="org.palladiosimulator.edp2.feature" installMode="root"/>
-      <feature="org.palladiosimulator.edp2.ui.feature" installMode="root"/>
-      <feature="org.palladiosimulator.pcm.feature" installMode="root"/>
-      <feature="org.palladiosimulator.protocom.feature" installMode="root"/>
-      <feature="org.palladiosimulator.simucom.feature" installMode="root"/>
-      <feature="org.palladiosimulator.solver.feature" installMode="root"/>
-      <feature="org.palladiosimulator.recorderframework.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.editors.gmf.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.editors.tree.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.edp2.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.edp2.ui.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.pcm.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.protocom.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.simucom.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.solver.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.recorderframework.feature" installMode="root"/>
    </features>
 
    <configurations>
