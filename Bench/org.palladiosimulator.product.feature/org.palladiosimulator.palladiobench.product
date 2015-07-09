@@ -23,11 +23,11 @@
       startupMessageRect="7,225,320,20"
       startupForegroundColor="000000" />
    <launcher name="PalladioBench">
-      <linux icon="/org.palladiosimulator.product.feature/icons/Palladio-Logo-stilisiert-vektor.XPM"/>
-      <macosx icon="/org.palladiosimulator.product.feature/icons/Palladio-Logo-stilisiert-vektor.icns"/>
+      <linux icon="/org.palladiosimulator.product.feature/icons/palladio_logo.XPM"/>
+      <macosx icon="/org.palladiosimulator.product.feature/icons/palladio_logo.icns"/>
       <solaris/>
       <win useIco="true">
-         <ico path="/org.palladiosimulator.product.feature/icons/Palladio-Logo-stilisiert-vektor.ico"/>
+         <ico path="/org.palladiosimulator.product.feature/icons/palladio_logo.ico"/>
          <bmp/>
       </win>
    </launcher>
