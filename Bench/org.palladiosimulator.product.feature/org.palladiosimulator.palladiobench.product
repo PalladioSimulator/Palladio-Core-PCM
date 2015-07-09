@@ -18,7 +18,7 @@
    <windowImages i16="/org.palladiosimulator.pcm.ui/icons/16x16.png" i32="/org.palladiosimulator.pcm.ui/icons/32x32.png" i48="/org.palladiosimulator.pcm.ui/icons/48x48.png" i64="/org.palladiosimulator.pcm.ui/icons/64x64.png" i128="/org.palladiosimulator.pcm.ui/icons/128x128.png" i256="/org.palladiosimulator.pcm.ui/icons/256x256.png"/>
 
    <splash
-      location="org.eclipse.platform"
+      location="org.palladiosimulator.pcm.ui"
       startupProgressRect="2,290,448,10"
       startupMessageRect="7,225,320,20"
       startupForegroundColor="000000" />

@@ -236,6 +236,14 @@
                name="startupMessageRect"
                value="7,225,320,20">
          </property>
+         <property
+               name="appName"
+               value="Palladio Bench">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
+         </property>
       </product>
    </extension>
 
