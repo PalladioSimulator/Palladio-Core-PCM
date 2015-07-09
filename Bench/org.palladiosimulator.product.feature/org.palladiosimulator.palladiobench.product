@@ -3,6 +3,12 @@
 
 <product name="Palladio Bench" uid="org.palladiosimulator.palladiobench" id="org.palladiosimulator.pcm.ui.PalladioProduct" application="org.eclipse.ui.ide.workbench" version="4.0.0" useFeatures="true" includeLaunchers="true">
 
+   <aboutInfo>
+      <image path="/org.palladiosimulator.pcm.ui/about.png"/>
+      <text>
+         This is the Palladio Bench product build, which is preconfigured with the Palladio Core Features.
+      </text>
+   </aboutInfo>
 
    <configIni use="default">
    </configIni>
