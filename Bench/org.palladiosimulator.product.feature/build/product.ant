@@ -33,6 +33,7 @@
 		<replaceregexp file="${product.install.directory}/configuration/config.ini"
 		               match="(org\.eclipse\.equinox\.event|org\.eclipse\.equinox\.ds|org\.eclipse\.core\.runtime)_(.*?)@4"
 		               replace="\1_\2@start"
+			      	   flags="g"
 		/>
     </target>
 	
