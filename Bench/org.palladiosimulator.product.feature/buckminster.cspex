@@ -20,7 +20,7 @@
             </actorProperties>
             <properties>
                 <property key="profile" value="PalladioProfile" />
-                <property key="iu" value="org.palladiosimulator.product" />
+                <property key="iu" value="org.palladiosimulator.palladiobench" />
             </properties>
             <prerequisites alias="repositories">
                 <attribute name="site.tp" />
