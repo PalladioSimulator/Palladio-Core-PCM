@@ -3,6 +3,7 @@
 
 <product name="Palladio Bench" uid="org.palladiosimulator.palladiobench" id="org.palladiosimulator.pcm.ui.PalladioProduct" application="org.eclipse.ui.ide.workbench" version="4.0.0" useFeatures="true" includeLaunchers="true">
 
+
    <configIni use="default">
    </configIni>
 
@@ -19,8 +20,8 @@
 
    <splash
       location="org.palladiosimulator.pcm.ui"
-      startupProgressRect="2,290,448,10"
-      startupMessageRect="7,225,320,20"
+      startupProgressRect="250,290,245,10"
+      startupMessageRect="232,302,255,20"
       startupForegroundColor="000000" />
    <launcher name="PalladioBench">
       <linux icon="/org.palladiosimulator.product.feature/icons/palladio_logo.XPM"/>
