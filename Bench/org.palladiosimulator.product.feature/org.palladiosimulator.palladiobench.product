@@ -4,7 +4,6 @@
 <product name="Palladio Bench" uid="org.palladiosimulator.palladiobench" id="org.palladiosimulator.pcm.ui.PalladioProduct" application="org.eclipse.ui.ide.workbench" version="4.0.0" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
-      <macosx>/org.palladiosimulator.product.feature/config.ini</macosx>
    </configIni>
 
    <launcherArgs>
