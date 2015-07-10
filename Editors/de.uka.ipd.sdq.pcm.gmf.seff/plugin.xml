@@ -959,7 +959,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             contentProvider="de.uka.ipd.sdq.pcm.gmf.seff.navigator.PalladioComponentModelDomainNavigatorContentProvider" 
             labelProvider="de.uka.ipd.sdq.pcm.gmf.seff.navigator.PalladioComponentModelDomainNavigatorLabelProvider"
             icon="icons/obj16/SeffDiagramFile.gif"
-            activeByDefault="true">
+            activeByDefault="false">
          <triggerPoints>
             <or>
 	           <and>
