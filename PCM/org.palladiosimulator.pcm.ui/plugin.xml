@@ -244,6 +244,11 @@
                name="preferenceCustomization"
                value="plugin_customization.ini">
          </property>
+         <property name="aboutImage" value="about.png"/>
+         <property name="featureImage" value="icons/32x32.png"/>
+	     <property
+            name="aboutText"
+            value="This is the Palladio Bench product build, which is preconfigured with the Palladio Core Features, i.e., the Palladio Component Model and its most common analyzers.&#x0A;&#x0A;Version: Palladio Bench 4.0&#x0A;&#x0A;Palladio Bench, Palladio Component Model&#x0A;Copyright 2005-2015&#x0A;&#x0A;Karlsruhe Institute of Technology (KIT), Software Design and Quality, Karlsruhe, Germany&#x0A;Chemnitz University of Technology, Software Engineering Chair, Chemnitz, Germany&#x0A;Paderborn University, Heinz Nixdorf Institute, Software Engineering, Paderborn, Germany&#x0A;FZI Research Center for Information Technology, Karlsruhe, Germany&#x0A;&#x0A;http://www.palladio-simulator.com"/>
       </product>
    </extension>
 

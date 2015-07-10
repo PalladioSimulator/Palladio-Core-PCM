@@ -6,7 +6,19 @@
    <aboutInfo>
       <image path="/org.palladiosimulator.pcm.ui/about.png"/>
       <text>
-         This is the Palladio Bench product build, which is preconfigured with the Palladio Core Features.
+         This is the Palladio Bench product build, which is preconfigured with the Palladio Core Features, i.e., the Palladio Component Model and its most common analyzers.
+
+Version: Palladio Bench 4.0
+
+Palladio Bench, Palladio Component Model
+Copyright 2005-2015
+
+Karlsruhe Institute of Technology (KIT), Software Design and Quality, Karlsruhe, Germany
+Chemnitz University of Technology, Software Engineering Chair, Chemnitz, Germany
+Paderborn University, Heinz Nixdorf Institute, Software Engineering, Paderborn, Germany
+FZI Research Center for Information Technology, Karlsruhe, Germany
+
+http://www.palladio-simulator.com
       </text>
    </aboutInfo>
 
