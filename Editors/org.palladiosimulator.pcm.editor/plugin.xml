@@ -157,34 +157,6 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "org.palladiosimulator.pcm.seff.performance.presentation.PerformanceModelWizardID"
-      name = "%_UI_PerformanceModelWizard_label"
-      class = "org.palladiosimulator.pcm.seff.performance.presentation.PerformanceModelWizard"
-      category = "org.eclipse.emf.ecore.Wizard.category.ID"
-      icon = "icons/full/obj16/PerformanceModelFile.gif">
-      <description>%_UI_PerformanceModelWizard_description</description>
-      <selection class = "org.eclipse.core.resources.IResource" />
-    </wizard>
-  </extension>
-
-  <extension point = "org.eclipse.ui.editors">
-    <editor
-        id = "org.palladiosimulator.pcm.seff.performance.presentation.PerformanceEditorID"
-        name = "%_UI_PerformanceEditor_label"
-        icon = "icons/full/obj16/PerformanceModelFile.gif"
-        extensions = "performance"
-        class = "org.palladiosimulator.pcm.seff.performance.presentation.PerformanceEditor" 
-        contributorClass="org.palladiosimulator.pcm.seff.performance.presentation.PerformanceActionBarContributor" >
-    </editor>
-  </extension>    
-
-  <extension
-    point = "org.eclipse.ui.newWizards">
-    <category
-      id = "org.eclipse.emf.ecore.Wizard.category.ID"
-      name="%_UI_Wizard_category">
-    </category>
-    <wizard
       id = "org.palladiosimulator.pcm.allocation.presentation.AllocationModelWizardID"
       name = "%_UI_AllocationModelWizard_label"
       class = "org.palladiosimulator.pcm.allocation.presentation.AllocationModelWizard"
@@ -315,62 +287,6 @@
         extensions = "qosannotations"
         class = "org.palladiosimulator.pcm.qosannotations.presentation.QosannotationsEditor" 
         contributorClass="org.palladiosimulator.pcm.qosannotations.presentation.QosannotationsActionBarContributor" >
-    </editor>
-  </extension>    
-
-  <extension
-    point = "org.eclipse.ui.newWizards">
-    <category
-      id = "org.eclipse.emf.ecore.Wizard.category.ID"
-      name="%_UI_Wizard_category">
-    </category>
-    <wizard
-      id = "org.palladiosimulator.pcm.qosannotations.performance.presentation.PerformanceModelWizardID"
-      name = "%_UI_PerformanceModelWizard_label"
-      class = "org.palladiosimulator.pcm.qosannotations.performance.presentation.PerformanceModelWizard"
-      category = "org.eclipse.emf.ecore.Wizard.category.ID"
-      icon = "icons/full/obj16/PerformanceModelFile.gif">
-      <description>%_UI_PerformanceModelWizard_description</description>
-      <selection class = "org.eclipse.core.resources.IResource" />
-    </wizard>
-  </extension>
-
-  <extension point = "org.eclipse.ui.editors">
-    <editor
-        id = "org.palladiosimulator.pcm.qosannotations.performance.presentation.PerformanceEditorID"
-        name = "%_UI_PerformanceEditor_label"
-        icon = "icons/full/obj16/PerformanceModelFile.gif"
-        extensions = "performance"
-        class = "org.palladiosimulator.pcm.qosannotations.performance.presentation.PerformanceEditor" 
-        contributorClass="org.palladiosimulator.pcm.qosannotations.performance.presentation.PerformanceActionBarContributor" >
-    </editor>
-  </extension>    
-
-  <extension
-    point = "org.eclipse.ui.newWizards">
-    <category
-      id = "org.eclipse.emf.ecore.Wizard.category.ID"
-      name="%_UI_Wizard_category">
-    </category>
-    <wizard
-      id = "org.palladiosimulator.pcm.qosannotations.reliability.presentation.ReliabilityModelWizardID"
-      name = "%_UI_ReliabilityModelWizard_label"
-      class = "org.palladiosimulator.pcm.qosannotations.reliability.presentation.ReliabilityModelWizard"
-      category = "org.eclipse.emf.ecore.Wizard.category.ID"
-      icon = "icons/full/obj16/ReliabilityModelFile.gif">
-      <description>%_UI_ReliabilityModelWizard_description</description>
-      <selection class = "org.eclipse.core.resources.IResource" />
-    </wizard>
-  </extension>
-
-  <extension point = "org.eclipse.ui.editors">
-    <editor
-        id = "org.palladiosimulator.pcm.qosannotations.reliability.presentation.ReliabilityEditorID"
-        name = "%_UI_ReliabilityEditor_label"
-        icon = "icons/full/obj16/ReliabilityModelFile.gif"
-        extensions = "reliability"
-        class = "org.palladiosimulator.pcm.qosannotations.reliability.presentation.ReliabilityEditor" 
-        contributorClass="org.palladiosimulator.pcm.qosannotations.reliability.presentation.ReliabilityActionBarContributor" >
     </editor>
   </extension>    
 
