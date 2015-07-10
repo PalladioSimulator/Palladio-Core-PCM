@@ -80,8 +80,8 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
      * 
      * @generated
      */
-    public static final List<String> FILE_EXTENSIONS = Collections
-            .unmodifiableList(Arrays.asList(PalladioComponentModelEditorPlugin.INSTANCE
+    public static final List<String> FILE_EXTENSIONS = Collections.unmodifiableList(Arrays
+            .asList(PalladioComponentModelEditorPlugin.INSTANCE
                     .getString("_UI_SeffReliabilityEditorFilenameExtensions").split("\\s*,\\s*")));
 
     /**
@@ -90,8 +90,8 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
      * 
      * @generated
      */
-    public static final String FORMATTED_FILE_EXTENSIONS = PalladioComponentModelEditorPlugin.INSTANCE
-            .getString("_UI_SeffReliabilityEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
+    public static final String FORMATTED_FILE_EXTENSIONS = PalladioComponentModelEditorPlugin.INSTANCE.getString(
+            "_UI_SeffReliabilityEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
     /**
      * This caches an instance of the model package. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -154,8 +154,9 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
         this.workbench = workbench;
         this.selection = selection;
         this.setWindowTitle(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-        this.setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(
-                PalladioComponentModelEditorPlugin.INSTANCE.getImage("full/wizban/NewSeffReliability")));
+        this.setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE
+                .getImageDescriptor(PalladioComponentModelEditorPlugin.INSTANCE
+                        .getImage("full/wizban/NewSeffReliability")));
     }
 
     /**
@@ -165,12 +166,16 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
      * @generated
      */
     protected Collection<String> getInitialObjectNames() {
-        if (this.initialObjectNames == null) {
+        if (this.initialObjectNames == null)
+        {
             this.initialObjectNames = new ArrayList<String>();
-            for (final EClassifier eClassifier : this.seffReliabilityPackage.getEClassifiers()) {
-                if (eClassifier instanceof EClass) {
+            for (final EClassifier eClassifier : this.seffReliabilityPackage.getEClassifiers())
+            {
+                if (eClassifier instanceof EClass)
+                {
                     final EClass eClass = (EClass) eClassifier;
-                    if (!eClass.isAbstract()) {
+                    if (!eClass.isAbstract())
+                    {
                         this.initialObjectNames.add(eClass.getName());
                     }
                 }
@@ -199,25 +204,30 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
      */
     @Override
     public boolean performFinish() {
-        try {
+        try
+        {
             // Remember the file.
             //
             final IFile modelFile = this.getModelFile();
 
             // Do the work within an operation.
             //
-            final WorkspaceModifyOperation operation = new WorkspaceModifyOperation() {
-
+            final WorkspaceModifyOperation operation =
+                    new WorkspaceModifyOperation()
+            {
                 @Override
-                protected void execute(final IProgressMonitor progressMonitor) {
-                    try {
+                protected void execute(final IProgressMonitor progressMonitor)
+                {
+                    try
+                    {
                         // Create a resource set
                         //
                         final ResourceSet resourceSet = new ResourceSetImpl();
 
                         // Get the URI of the model file.
                         //
-                        final URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(), true);
+                        final URI fileURI = URI.createPlatformResourceURI(modelFile.getFullPath().toString(),
+                                        true);
 
                         // Create a resource for this file.
                         //
@@ -226,7 +236,8 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
                         // Add the initial model object to the contents.
                         //
                         final EObject rootObject = SeffReliabilityModelWizard.this.createInitialModel();
-                        if (rootObject != null) {
+                        if (rootObject != null)
+                        {
                             resource.getContents().add(rootObject);
                         }
 
@@ -234,11 +245,15 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
                         //
                         final Map<Object, Object> options = new HashMap<Object, Object>();
                         options.put(XMLResource.OPTION_ENCODING,
-                                SeffReliabilityModelWizard.this.initialObjectCreationPage.getEncoding());
+                                        SeffReliabilityModelWizard.this.initialObjectCreationPage.getEncoding());
                         resource.save(options);
-                    } catch (final Exception exception) {
+                    }
+                    catch (final Exception exception)
+                    {
                         PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
-                    } finally {
+                    }
+                    finally
+                    {
                         progressMonitor.done();
                     }
                 }
@@ -251,12 +266,15 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
             final IWorkbenchWindow workbenchWindow = this.workbench.getActiveWorkbenchWindow();
             final IWorkbenchPage page = workbenchWindow.getActivePage();
             final IWorkbenchPart activePart = page.getActivePart();
-            if (activePart instanceof ISetSelectionTarget) {
+            if (activePart instanceof ISetSelectionTarget)
+            {
                 final ISelection targetSelection = new StructuredSelection(modelFile);
-                this.getShell().getDisplay().asyncExec(new Runnable() {
-
+                this.getShell().getDisplay().asyncExec
+                (new Runnable()
+                {
                     @Override
-                    public void run() {
+                    public void run()
+                    {
                         ((ISetSelectionTarget) activePart).selectReveal(targetSelection);
                     }
                 });
@@ -264,10 +282,14 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
 
             // Open an editor on the new file.
             //
-            try {
-                page.openEditor(new FileEditorInput(modelFile), this.workbench.getEditorRegistry()
-                        .getDefaultEditor(modelFile.getFullPath().toString()).getId());
-            } catch (final PartInitException exception) {
+            try
+            {
+                page.openEditor
+                (new FileEditorInput(modelFile),
+                        this.workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString())
+                        .getId());
+            } catch (final PartInitException exception)
+            {
                 MessageDialog.openError(workbenchWindow.getShell(),
                         PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"),
                         exception.getMessage());
@@ -275,7 +297,8 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
             }
 
             return true;
-        } catch (final Exception exception) {
+        } catch (final Exception exception)
+        {
             PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
             return false;
         }
@@ -293,8 +316,7 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
          * 
          * @generated
          */
-        public SeffReliabilityModelWizardNewFileCreationPage(final String pageId,
-                final IStructuredSelection selection) {
+        public SeffReliabilityModelWizardNewFileCreationPage(final String pageId, final IStructuredSelection selection) {
             super(pageId, selection);
         }
 
@@ -306,9 +328,11 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
          */
         @Override
         protected boolean validatePage() {
-            if (super.validatePage()) {
+            if (super.validatePage())
+            {
                 final String extension = new Path(this.getFileName()).getFileExtension();
-                if (extension == null || !FILE_EXTENSIONS.contains(extension)) {
+                if (extension == null || !FILE_EXTENSIONS.contains(extension))
+                {
                     final String key = FILE_EXTENSIONS.size() > 1 ? "_WARN_FilenameExtensions"
                             : "_WARN_FilenameExtension";
                     this.setErrorMessage(PalladioComponentModelEditorPlugin.INSTANCE.getString(key,
@@ -405,11 +429,13 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
                 this.initialObjectField.setLayoutData(data);
             }
 
-            for (final String objectName : SeffReliabilityModelWizard.this.getInitialObjectNames()) {
+            for (final String objectName : SeffReliabilityModelWizard.this.getInitialObjectNames())
+            {
                 this.initialObjectField.add(this.getLabel(objectName));
             }
 
-            if (this.initialObjectField.getItemCount() == 1) {
+            if (this.initialObjectField.getItemCount() == 1)
+            {
                 this.initialObjectField.select(0);
             }
             this.initialObjectField.addModifyListener(this.validator);
@@ -430,7 +456,8 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
                 this.encodingField.setLayoutData(data);
             }
 
-            for (final String encoding : this.getEncodings()) {
+            for (final String encoding : this.getEncodings())
+            {
                 this.encodingField.add(encoding);
             }
 
@@ -446,10 +473,11 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
          * 
          * @generated
          */
-        protected ModifyListener validator = new ModifyListener() {
-
+        protected ModifyListener validator = new ModifyListener()
+        {
             @Override
-            public void modifyText(final ModifyEvent e) {
+            public void modifyText(final ModifyEvent e)
+            {
                 SeffReliabilityModelWizardInitialObjectCreationPage.this
                         .setPageComplete(SeffReliabilityModelWizardInitialObjectCreationPage.this.validatePage());
             }
@@ -472,11 +500,15 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
         @Override
         public void setVisible(final boolean visible) {
             super.setVisible(visible);
-            if (visible) {
-                if (this.initialObjectField.getItemCount() == 1) {
+            if (visible)
+            {
+                if (this.initialObjectField.getItemCount() == 1)
+                {
                     this.initialObjectField.clearSelection();
                     this.encodingField.setFocus();
-                } else {
+                }
+                else
+                {
                     this.encodingField.clearSelection();
                     this.initialObjectField.setFocus();
                 }
@@ -491,8 +523,10 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
         public String getInitialObjectName() {
             final String label = this.initialObjectField.getText();
 
-            for (final String name : SeffReliabilityModelWizard.this.getInitialObjectNames()) {
-                if (this.getLabel(name).equals(label)) {
+            for (final String name : SeffReliabilityModelWizard.this.getInitialObjectNames())
+            {
+                if (this.getLabel(name).equals(label))
+                {
                     return name;
                 }
             }
@@ -515,9 +549,11 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
          * @generated
          */
         protected String getLabel(final String typeName) {
-            try {
+            try
+            {
                 return PalladioComponentModelEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
-            } catch (final MissingResourceException mre) {
+            } catch (final MissingResourceException mre)
+            {
                 PalladioComponentModelEditorPlugin.INSTANCE.log(mre);
             }
             return typeName;
@@ -529,11 +565,13 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
          * @generated
          */
         protected Collection<String> getEncodings() {
-            if (this.encodings == null) {
+            if (this.encodings == null)
+            {
                 this.encodings = new ArrayList<String>();
                 for (final StringTokenizer stringTokenizer = new StringTokenizer(
-                        PalladioComponentModelEditorPlugin.INSTANCE
-                                .getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens();) {
+                        PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer
+                        .hasMoreTokens();)
+                {
                     this.encodings.add(stringTokenizer.nextToken());
                 }
             }
@@ -552,32 +590,35 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
         // Create a page, set the title, and the initial model file name.
         //
         this.newFileCreationPage = new SeffReliabilityModelWizardNewFileCreationPage("Whatever", this.selection);
-        this.newFileCreationPage.setTitle(
-                PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_SeffReliabilityModelWizard_label"));
-        this.newFileCreationPage.setDescription(
-                PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_SeffReliabilityModelWizard_description"));
-        this.newFileCreationPage.setFileName(
-                PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_SeffReliabilityEditorFilenameDefaultBase")
-                        + "." + FILE_EXTENSIONS.get(0));
+        this.newFileCreationPage.setTitle(PalladioComponentModelEditorPlugin.INSTANCE
+                .getString("_UI_SeffReliabilityModelWizard_label"));
+        this.newFileCreationPage.setDescription(PalladioComponentModelEditorPlugin.INSTANCE
+                .getString("_UI_SeffReliabilityModelWizard_description"));
+        this.newFileCreationPage.setFileName(PalladioComponentModelEditorPlugin.INSTANCE
+                .getString("_UI_SeffReliabilityEditorFilenameDefaultBase") + "." + FILE_EXTENSIONS.get(0));
         this.addPage(this.newFileCreationPage);
 
         // Try and get the resource selection to determine a current directory for the file dialog.
         //
-        if (this.selection != null && !this.selection.isEmpty()) {
+        if (this.selection != null && !this.selection.isEmpty())
+        {
             // Get the resource...
             //
             final Object selectedElement = this.selection.iterator().next();
-            if (selectedElement instanceof IResource) {
+            if (selectedElement instanceof IResource)
+            {
                 // Get the resource parent, if its a file.
                 //
                 IResource selectedResource = (IResource) selectedElement;
-                if (selectedResource.getType() == IResource.FILE) {
+                if (selectedResource.getType() == IResource.FILE)
+                {
                     selectedResource = selectedResource.getParent();
                 }
 
                 // This gives us a directory...
                 //
-                if (selectedResource instanceof IFolder || selectedResource instanceof IProject) {
+                if (selectedResource instanceof IFolder || selectedResource instanceof IProject)
+                {
                     // Set this for the container.
                     //
                     this.newFileCreationPage.setContainerFullPath(selectedResource.getFullPath());
@@ -588,7 +629,8 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
                             .getString("_UI_SeffReliabilityEditorFilenameDefaultBase");
                     final String defaultModelFilenameExtension = FILE_EXTENSIONS.get(0);
                     String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
-                    for (int i = 1; ((IContainer) selectedResource).findMember(modelFilename) != null; ++i) {
+                    for (int i = 1; ((IContainer) selectedResource).findMember(modelFilename) != null; ++i)
+                    {
                         modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
                     }
                     this.newFileCreationPage.setFileName(modelFilename);
@@ -596,10 +638,10 @@ public class SeffReliabilityModelWizard extends Wizard implements INewWizard {
             }
         }
         this.initialObjectCreationPage = new SeffReliabilityModelWizardInitialObjectCreationPage("Whatever2");
-        this.initialObjectCreationPage.setTitle(
-                PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_SeffReliabilityModelWizard_label"));
-        this.initialObjectCreationPage.setDescription(
-                PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+        this.initialObjectCreationPage.setTitle(PalladioComponentModelEditorPlugin.INSTANCE
+                .getString("_UI_SeffReliabilityModelWizard_label"));
+        this.initialObjectCreationPage.setDescription(PalladioComponentModelEditorPlugin.INSTANCE
+                .getString("_UI_Wizard_initial_object_description"));
         this.addPage(this.initialObjectCreationPage);
     }
 
