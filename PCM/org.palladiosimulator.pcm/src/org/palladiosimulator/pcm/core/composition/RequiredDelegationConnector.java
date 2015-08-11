@@ -17,7 +17,6 @@ import org.palladiosimulator.pcm.repository.OperationRequiredRole;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector#getInnerRequiredRole_RequiredDelegationConnector
@@ -29,6 +28,7 @@ import org.palladiosimulator.pcm.repository.OperationRequiredRole;
  * {@link org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector#getAssemblyContext_RequiredDelegationConnector
  * <em>Assembly Context Required Delegation Connector</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getRequiredDelegationConnector()
  * @model

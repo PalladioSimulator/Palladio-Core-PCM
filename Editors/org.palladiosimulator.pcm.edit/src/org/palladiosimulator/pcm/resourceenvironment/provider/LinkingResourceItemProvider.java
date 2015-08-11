@@ -21,14 +21,14 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
  * This is the item provider adapter for a
  * {@link org.palladiosimulator.pcm.resourceenvironment.LinkingResource} object. <!-- begin-user-doc
  * --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class LinkingResourceItemProvider extends EntityItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -36,7 +36,7 @@ public class LinkingResourceItemProvider extends EntityItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public LinkingResourceItemProvider(final AdapterFactory adapterFactory) {
@@ -46,12 +46,13 @@ public class LinkingResourceItemProvider extends EntityItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null) {
+        if (this.itemPropertyDescriptors == null)
+        {
             super.getPropertyDescriptors(object);
 
             this.addConnectedResourceContainers_LinkingResourcePropertyDescriptor(object);
@@ -62,18 +63,26 @@ public class LinkingResourceItemProvider extends EntityItemProvider {
     /**
      * This adds a property descriptor for the Connected Resource Containers Linking Resource
      * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addConnectedResourceContainers_LinkingResourcePropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_LinkingResource_connectedResourceContainers_LinkingResource_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_LinkingResource_connectedResourceContainers_LinkingResource_feature",
-                        "_UI_LinkingResource_type"),
-                ResourceenvironmentPackage.Literals.LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE,
-                true, false, true, null, null, null));
+        this.itemPropertyDescriptors
+        .add
+        (this.createItemPropertyDescriptor
+                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                                this.getResourceLocator(),
+                                this.getString("_UI_LinkingResource_connectedResourceContainers_LinkingResource_feature"),
+                                this.getString("_UI_PropertyDescriptor_description",
+                                        "_UI_LinkingResource_connectedResourceContainers_LinkingResource_feature",
+                                        "_UI_LinkingResource_type"),
+                                ResourceenvironmentPackage.Literals.LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE,
+                                true,
+                                false,
+                                true,
+                                null,
+                                null,
+                                null));
     }
 
     /**
@@ -87,17 +96,18 @@ public class LinkingResourceItemProvider extends EntityItemProvider {
      */
     @Override
     public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
-        if (this.childrenFeatures == null) {
+        if (this.childrenFeatures == null)
+        {
             super.getChildrenFeatures(object);
-            this.childrenFeatures.add(
-                    ResourceenvironmentPackage.Literals.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE);
+            this.childrenFeatures
+            .add(ResourceenvironmentPackage.Literals.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -110,7 +120,7 @@ public class LinkingResourceItemProvider extends EntityItemProvider {
 
     /**
      * This returns LinkingResource.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,22 +137,24 @@ public class LinkingResourceItemProvider extends EntityItemProvider {
     @Override
     public String getText(final Object object) {
         final String label = ((LinkingResource) object).getId();
-        return label == null || label.length() == 0 ? this.getString("_UI_LinkingResource_type")
-                : this.getString("_UI_LinkingResource_type") + " " + label;
+        return label == null || label.length() == 0 ?
+                this.getString("_UI_LinkingResource_type") :
+                    this.getString("_UI_LinkingResource_type") + " " + label;
     }
 
     /**
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
 
-        switch (notification.getFeatureID(LinkingResource.class)) {
+        switch (notification.getFeatureID(LinkingResource.class))
+        {
         case ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
@@ -153,16 +165,18 @@ public class LinkingResourceItemProvider extends EntityItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(this.createChildParameter(
-                ResourceenvironmentPackage.Literals.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE,
-                ResourceenvironmentFactory.eINSTANCE.createCommunicationLinkResourceSpecification()));
+        newChildDescriptors
+        .add
+        (this.createChildParameter
+                        (ResourceenvironmentPackage.Literals.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE,
+                                ResourceenvironmentFactory.eINSTANCE.createCommunicationLinkResourceSpecification()));
     }
 
 }

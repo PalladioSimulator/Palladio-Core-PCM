@@ -13,13 +13,13 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.ExceptionType#getExceptionName
- * <em>Exception Name</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.ExceptionType#getExceptionMessage
- * <em>Exception Message</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.ExceptionType#getExceptionName <em>Exception Name
+ * </em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.ExceptionType#getExceptionMessage <em>Exception
+ * Message</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getExceptionType()
  * @model

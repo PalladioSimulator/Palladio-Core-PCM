@@ -15,7 +15,6 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.resourcetype.ResourceInterface#getResourceRepository__ResourceInterface
@@ -24,6 +23,7 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  * {@link org.palladiosimulator.pcm.resourcetype.ResourceInterface#getResourceSignatures__ResourceInterface
  * <em>Resource Signatures Resource Interface</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#getResourceInterface()
  * @model

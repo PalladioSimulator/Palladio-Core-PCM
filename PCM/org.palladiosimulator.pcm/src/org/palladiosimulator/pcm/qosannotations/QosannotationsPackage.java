@@ -146,8 +146,7 @@ public interface QosannotationsPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS = EntityPackage.ENTITY_FEATURE_COUNT
-            + 0;
+    int QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>System Qo SAnnotations</b></em>' container reference. <!--
@@ -509,8 +508,7 @@ public interface QosannotationsPackage extends EPackage {
          * <em>Specified Output Parameter Abstraction</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
-         * @see org.palladiosimulator.pcm.qosannotations.impl.
-         *      SpecifiedOutputParameterAbstractionImpl
+         * @see org.palladiosimulator.pcm.qosannotations.impl.SpecifiedOutputParameterAbstractionImpl
          * @see org.palladiosimulator.pcm.qosannotations.impl.QosannotationsPackageImpl#getSpecifiedOutputParameterAbstraction()
          * @generated
          */

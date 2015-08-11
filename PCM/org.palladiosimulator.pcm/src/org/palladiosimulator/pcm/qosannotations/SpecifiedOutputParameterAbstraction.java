@@ -26,7 +26,6 @@ import org.palladiosimulator.pcm.repository.Signature;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getSignature_SpecifiedOutputParameterAbstraction
@@ -41,6 +40,7 @@ import org.palladiosimulator.pcm.repository.Signature;
  * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getQosAnnotations_SpecifiedOutputParameterAbstraction
  * <em>Qos Annotations Specified Output Parameter Abstraction</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.qosannotations.QosannotationsPackage#getSpecifiedOutputParameterAbstraction()
  * @model abstract="true"

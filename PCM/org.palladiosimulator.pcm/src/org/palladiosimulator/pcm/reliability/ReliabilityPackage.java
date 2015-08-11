@@ -94,8 +94,9 @@ public interface ReliabilityPackage extends EPackage {
     int FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT = 1;
 
     /**
-     * The meta object id for the '{@link org.palladiosimulator.pcm.reliability.impl.FailureTypeImpl
-     * <em>Failure Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the '
+     * {@link org.palladiosimulator.pcm.reliability.impl.FailureTypeImpl <em>Failure Type</em>}'
+     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.reliability.impl.FailureTypeImpl
      * @see org.palladiosimulator.pcm.reliability.impl.ReliabilityPackageImpl#getFailureType()
@@ -185,8 +186,7 @@ public interface ReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE = FAILURE_TYPE_FEATURE_COUNT
-            + 0;
+    int HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE = FAILURE_TYPE_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Hardware Induced Failure Type</em>' class. <!--
@@ -243,8 +243,7 @@ public interface ReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE = FAILURE_TYPE_FEATURE_COUNT
-            + 0;
+    int SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE = FAILURE_TYPE_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Software Induced Failure Type</em>' class. <!--
@@ -284,8 +283,7 @@ public interface ReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT
-            + 0;
+    int INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '
@@ -295,8 +293,7 @@ public interface ReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT
-            + 1;
+    int INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Internal Failure Occurrence Description</em>'
@@ -353,8 +350,7 @@ public interface ReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE = FAILURE_TYPE_FEATURE_COUNT
-            + 0;
+    int NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE = FAILURE_TYPE_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Network Induced Failure Type</em>' class. <!--
@@ -394,8 +390,7 @@ public interface ReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT
-            + 0;
+    int EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Failure Type External Failure Occurrence Description</b></em>'
@@ -404,8 +399,7 @@ public interface ReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT
-            + 1;
+    int EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>External Failure Occurrence Description</em>'
@@ -471,8 +465,7 @@ public interface ReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE = SOFTWARE_INDUCED_FAILURE_TYPE_FEATURE_COUNT
-            + 0;
+    int RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE = SOFTWARE_INDUCED_FAILURE_TYPE_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Resource Timeout Failure Type</em>' class. <!--

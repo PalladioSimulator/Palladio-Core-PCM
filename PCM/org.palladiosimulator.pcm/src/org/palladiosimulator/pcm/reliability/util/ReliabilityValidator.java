@@ -141,10 +141,11 @@ public class ReliabilityValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID) {
+        switch (classifierID)
+        {
         case ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION:
-            return this.validateFailureOccurrenceDescription((FailureOccurrenceDescription) value, diagnostics,
-                    context);
+            return this
+                    .validateFailureOccurrenceDescription((FailureOccurrenceDescription) value, diagnostics, context);
         case ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE:
             return this.validateHardwareInducedFailureType((HardwareInducedFailureType) value, diagnostics, context);
         case ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE:
@@ -171,12 +172,14 @@ public class ReliabilityValidator extends EObjectValidator {
      *
      * @generated
      */
-    public boolean validateFailureOccurrenceDescription(final FailureOccurrenceDescription failureOccurrenceDescription,
+    public boolean validateFailureOccurrenceDescription(
+            final FailureOccurrenceDescription failureOccurrenceDescription,
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(failureOccurrenceDescription, diagnostics, context)) {
             return false;
         }
-        boolean result = this.validate_EveryMultiplicityConforms(failureOccurrenceDescription, diagnostics, context);
+        boolean result = this.validate_EveryMultiplicityConforms(failureOccurrenceDescription, diagnostics,
+                context);
         if (result || diagnostics != null) {
             result &= this.validate_EveryDataValueConforms(failureOccurrenceDescription, diagnostics, context);
         }
@@ -279,14 +282,16 @@ public class ReliabilityValidator extends EObjectValidator {
      */
     public boolean validateInternalFailureOccurrenceDescription(
             final InternalFailureOccurrenceDescription internalFailureOccurrenceDescription,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(internalFailureOccurrenceDescription, diagnostics, context)) {
             return false;
         }
-        boolean result = this.validate_EveryMultiplicityConforms(internalFailureOccurrenceDescription, diagnostics,
-                context);
+        boolean result = this.validate_EveryMultiplicityConforms(internalFailureOccurrenceDescription,
+                diagnostics, context);
         if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(internalFailureOccurrenceDescription, diagnostics, context);
+            result &= this.validate_EveryDataValueConforms(internalFailureOccurrenceDescription, diagnostics,
+                    context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryReferenceIsContained(internalFailureOccurrenceDescription, diagnostics,
@@ -325,7 +330,8 @@ public class ReliabilityValidator extends EObjectValidator {
      */
     public boolean validateInternalFailureOccurrenceDescription_NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(
             final InternalFailureOccurrenceDescription internalFailureOccurrenceDescription,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return internalFailureOccurrenceDescription
                 .NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(diagnostics, context);
     }
@@ -375,8 +381,8 @@ public class ReliabilityValidator extends EObjectValidator {
     public boolean validateNetworkInducedFailureType_NetworkInducedFailureTypeHasCommunicationLinkResourceType(
             final NetworkInducedFailureType networkInducedFailureType, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        return networkInducedFailureType.NetworkInducedFailureTypeHasCommunicationLinkResourceType(diagnostics,
-                context);
+        return networkInducedFailureType
+                .NetworkInducedFailureTypeHasCommunicationLinkResourceType(diagnostics, context);
     }
 
     /**
@@ -386,14 +392,16 @@ public class ReliabilityValidator extends EObjectValidator {
      */
     public boolean validateExternalFailureOccurrenceDescription(
             final ExternalFailureOccurrenceDescription externalFailureOccurrenceDescription,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(externalFailureOccurrenceDescription, diagnostics, context)) {
             return false;
         }
-        boolean result = this.validate_EveryMultiplicityConforms(externalFailureOccurrenceDescription, diagnostics,
-                context);
+        boolean result = this.validate_EveryMultiplicityConforms(externalFailureOccurrenceDescription,
+                diagnostics, context);
         if (result || diagnostics != null) {
-            result &= this.validate_EveryDataValueConforms(externalFailureOccurrenceDescription, diagnostics, context);
+            result &= this.validate_EveryDataValueConforms(externalFailureOccurrenceDescription, diagnostics,
+                    context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryReferenceIsContained(externalFailureOccurrenceDescription, diagnostics,
@@ -432,7 +440,8 @@ public class ReliabilityValidator extends EObjectValidator {
      */
     public boolean validateExternalFailureOccurrenceDescription_NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription(
             final ExternalFailureOccurrenceDescription externalFailureOccurrenceDescription,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return externalFailureOccurrenceDescription
                 .NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription(diagnostics, context);
     }

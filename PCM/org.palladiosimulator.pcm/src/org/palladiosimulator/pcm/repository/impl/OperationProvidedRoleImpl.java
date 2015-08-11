@@ -13,12 +13,12 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * <em><b>Operation Provided Role</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.impl.OperationProvidedRoleImpl#getProvidedInterface__OperationProvidedRole
  * <em>Provided Interface Operation Provided Role</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -95,7 +95,8 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.OPERATION_PROVIDED_ROLE__PROVIDED_INTERFACE_OPERATION_PROVIDED_ROLE:
             if (resolve) {
                 return this.getProvidedInterface__OperationProvidedRole();
@@ -112,7 +113,8 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.OPERATION_PROVIDED_ROLE__PROVIDED_INTERFACE_OPERATION_PROVIDED_ROLE:
             this.setProvidedInterface__OperationProvidedRole((OperationInterface) newValue);
             return;
@@ -127,7 +129,8 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.OPERATION_PROVIDED_ROLE__PROVIDED_INTERFACE_OPERATION_PROVIDED_ROLE:
             this.setProvidedInterface__OperationProvidedRole((OperationInterface) null);
             return;
@@ -142,7 +145,8 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.OPERATION_PROVIDED_ROLE__PROVIDED_INTERFACE_OPERATION_PROVIDED_ROLE:
             return this.basicGetProvidedInterface__OperationProvidedRole() != null;
         }

@@ -45,7 +45,8 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public QosannotationsAdapterFactory() {
-        if (modelPackage == null) {
+        if (modelPackage == null)
+        {
             modelPackage = QosannotationsPackage.eINSTANCE;
         }
     }
@@ -60,10 +61,12 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
      */
     @Override
     public boolean isFactoryForType(final Object object) {
-        if (object == modelPackage) {
+        if (object == modelPackage)
+        {
             return true;
         }
-        if (object instanceof EObject) {
+        if (object instanceof EObject)
+        {
             return ((EObject) object).eClass().getEPackage() == modelPackage;
         }
         return false;
@@ -75,50 +78,57 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    protected QosannotationsSwitch<Adapter> modelSwitch = new QosannotationsSwitch<Adapter>() {
-
+    protected QosannotationsSwitch<Adapter> modelSwitch = new QosannotationsSwitch<Adapter>()
+    {
         @Override
-        public Adapter caseSpecifiedQoSAnnotation(final SpecifiedQoSAnnotation object) {
+        public Adapter caseSpecifiedQoSAnnotation(final SpecifiedQoSAnnotation object)
+        {
             return QosannotationsAdapterFactory.this.createSpecifiedQoSAnnotationAdapter();
         }
 
         @Override
-        public Adapter caseQoSAnnotations(final QoSAnnotations object) {
+        public Adapter caseQoSAnnotations(final QoSAnnotations object)
+        {
             return QosannotationsAdapterFactory.this.createQoSAnnotationsAdapter();
         }
 
         @Override
-        public Adapter caseSpecifiedOutputParameterAbstraction(final SpecifiedOutputParameterAbstraction object) {
+        public Adapter caseSpecifiedOutputParameterAbstraction(final SpecifiedOutputParameterAbstraction object)
+        {
             return QosannotationsAdapterFactory.this.createSpecifiedOutputParameterAbstractionAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(final Identifier object) {
+        public Adapter caseIdentifier(final Identifier object)
+        {
             return QosannotationsAdapterFactory.this.createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(final NamedElement object) {
+        public Adapter caseNamedElement(final NamedElement object)
+        {
             return QosannotationsAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(final Entity object) {
+        public Adapter caseEntity(final Entity object)
+        {
             return QosannotationsAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object) {
+        public Adapter defaultCase(final EObject object)
+        {
             return QosannotationsAdapterFactory.this.createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @param target
-     *            the object to adapt.
-     * @return the adapter for the <code>target</code>.
+             *
+             * @param target
+             *            the object to adapt.
+             * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
@@ -128,12 +138,12 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation
-     * <em>Specified Qo SAnnotation</em>}'. <!-- begin-user-doc --> This default implementation
-     * returns null so that we can easily ignore cases; it's useful to ignore a case when
-     * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation
+             * <em>Specified Qo SAnnotation</em>}'. <!-- begin-user-doc --> This default implementation
+             * returns null so that we can easily ignore cases; it's useful to ignore a case when
+             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation
      * @generated
      */
@@ -143,12 +153,12 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations <em>Qo SAnnotations</em>}'.
+             * {@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations <em>Qo SAnnotations</em>}'.
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
      *
-     * @return the new adapter.
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.qosannotations.QoSAnnotations
      * @generated
      */
@@ -158,12 +168,12 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction
-     * <em>Specified Output Parameter Abstraction</em>}'. <!-- begin-user-doc --> This default
-     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction
+             * <em>Specified Output Parameter Abstraction</em>}'. <!-- begin-user-doc --> This default
+             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction
      * @generated
      */
@@ -173,11 +183,11 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
-     * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
-     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
-     * the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+             * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+             * the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see de.uka.ipd.sdq.identifier.Identifier
      * @generated
      */
@@ -202,11 +212,11 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'. <!-- begin-user-doc
-     * --> This default implementation returns null so that we can easily ignore cases; it's useful
-     * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'. <!-- begin-user-doc
+             * --> This default implementation returns null so that we can easily ignore cases; it's useful
+             * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.Entity
      * @generated
      */
@@ -216,9 +226,9 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
-     * implementation returns null. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * implementation returns null. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @generated
      */
     public Adapter createEObjectAdapter() {

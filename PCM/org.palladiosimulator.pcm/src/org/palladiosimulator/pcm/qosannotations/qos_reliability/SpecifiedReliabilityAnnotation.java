@@ -25,12 +25,12 @@ import org.palladiosimulator.pcm.reliability.ExternalFailureOccurrenceDescriptio
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation#getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation
  * <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.qosannotations.qos_reliability.QosReliabilityPackage#getSpecifiedReliabilityAnnotation()
  * @model

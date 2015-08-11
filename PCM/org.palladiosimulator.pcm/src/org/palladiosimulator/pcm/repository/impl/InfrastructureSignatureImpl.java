@@ -20,7 +20,6 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * <em><b>Infrastructure Signature</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.impl.InfrastructureSignatureImpl#getParameters__InfrastructureSignature
@@ -29,6 +28,7 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * {@link org.palladiosimulator.pcm.repository.impl.InfrastructureSignatureImpl#getInfrastructureInterface__InfrastructureSignature
  * <em>Infrastructure Interface Infrastructure Signature</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -119,7 +119,8 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getParameters__InfrastructureSignature())
                     .basicAdd(otherEnd, msgs);
@@ -141,7 +142,8 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE:
             return ((InternalEList<?>) this.getParameters__InfrastructureSignature()).basicRemove(otherEnd, msgs);
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE:
@@ -157,7 +159,8 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE:
             return this.eInternalContainer().eInverseRemove(this,
                     RepositoryPackage.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE,
@@ -173,7 +176,8 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE:
             return this.getParameters__InfrastructureSignature();
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE:
@@ -190,7 +194,8 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE:
             this.getParameters__InfrastructureSignature().clear();
             this.getParameters__InfrastructureSignature().addAll((Collection<? extends Parameter>) newValue);
@@ -209,7 +214,8 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE:
             this.getParameters__InfrastructureSignature().clear();
             return;
@@ -227,7 +233,8 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE:
             return !this.getParameters__InfrastructureSignature().isEmpty();
         case RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE:

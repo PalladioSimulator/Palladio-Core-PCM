@@ -20,12 +20,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.reliability.SoftwareInducedFailureType#getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType
  * <em>Internal Failure Occurrence Descriptions Software Induced Failure Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.reliability.ReliabilityPackage#getSoftwareInducedFailureType()
  * @model

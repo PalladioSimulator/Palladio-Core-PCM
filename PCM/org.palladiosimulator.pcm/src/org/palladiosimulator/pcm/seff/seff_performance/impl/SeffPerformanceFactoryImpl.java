@@ -34,13 +34,16 @@ public class SeffPerformanceFactoryImpl extends EFactoryImpl implements SeffPerf
      * @generated
      */
     public static SeffPerformanceFactory init() {
-        try {
+        try
+        {
             final SeffPerformanceFactory theSeffPerformanceFactory = (SeffPerformanceFactory) EPackage.Registry.INSTANCE
                     .getEFactory(SeffPerformancePackage.eNS_URI);
-            if (theSeffPerformanceFactory != null) {
+            if (theSeffPerformanceFactory != null)
+            {
                 return theSeffPerformanceFactory;
             }
-        } catch (final Exception exception) {
+        } catch (final Exception exception)
+        {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new SeffPerformanceFactoryImpl();
@@ -62,7 +65,8 @@ public class SeffPerformanceFactoryImpl extends EFactoryImpl implements SeffPerf
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID()) {
+        switch (eClass.getClassifierID())
+        {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL:
             return this.createInfrastructureCall();
         case SeffPerformancePackage.RESOURCE_CALL:

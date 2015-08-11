@@ -17,16 +17,16 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getSuccessor
- * <em>Successor</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getPredecessor
- * <em>Predecessor</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getSuccessor <em>Successor
+ * </em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getPredecessor <em>Predecessor
+ * </em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getScenarioBehaviour_AbstractUserAction
  * <em>Scenario Behaviour Abstract User Action</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getAbstractUserAction()
  * @model abstract="true"

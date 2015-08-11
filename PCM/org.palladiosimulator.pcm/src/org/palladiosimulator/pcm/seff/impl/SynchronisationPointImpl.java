@@ -23,7 +23,6 @@ import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
  * <em><b>Synchronisation Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.impl.SynchronisationPointImpl#getOutputParameterUsage_SynchronisationPoint
@@ -35,6 +34,7 @@ import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
  * {@link org.palladiosimulator.pcm.seff.impl.SynchronisationPointImpl#getSynchronousForkedBehaviours_SynchronisationPoint
  * <em>Synchronous Forked Behaviours Synchronisation Point</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -136,10 +136,12 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getOutputParameterUsage_SynchronisationPoint()).basicAdd(otherEnd, msgs);
+                    .getOutputParameterUsage_SynchronisationPoint())
+                    .basicAdd(otherEnd, msgs);
         case SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -147,7 +149,8 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
             return this.basicSetForkAction_SynchronisationPoint((ForkAction) otherEnd, msgs);
         case SeffPackage.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getSynchronousForkedBehaviours_SynchronisationPoint()).basicAdd(otherEnd, msgs);
+                    .getSynchronousForkedBehaviours_SynchronisationPoint())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -160,13 +163,15 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT:
             return ((InternalEList<?>) this.getOutputParameterUsage_SynchronisationPoint()).basicRemove(otherEnd, msgs);
         case SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT:
             return this.basicSetForkAction_SynchronisationPoint(null, msgs);
         case SeffPackage.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT:
-            return ((InternalEList<?>) this.getSynchronousForkedBehaviours_SynchronisationPoint()).basicRemove(otherEnd,
+            return ((InternalEList<?>) this.getSynchronousForkedBehaviours_SynchronisationPoint()).basicRemove(
+                    otherEnd,
                     msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -179,7 +184,8 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT:
             return this.eInternalContainer().eInverseRemove(this,
                     SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION, ForkAction.class, msgs);
@@ -194,7 +200,8 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT:
             return this.getOutputParameterUsage_SynchronisationPoint();
         case SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT:
@@ -213,7 +220,8 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT:
             this.getOutputParameterUsage_SynchronisationPoint().clear();
             this.getOutputParameterUsage_SynchronisationPoint().addAll((Collection<? extends VariableUsage>) newValue);
@@ -223,8 +231,8 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
             return;
         case SeffPackage.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT:
             this.getSynchronousForkedBehaviours_SynchronisationPoint().clear();
-            this.getSynchronousForkedBehaviours_SynchronisationPoint()
-                    .addAll((Collection<? extends ForkedBehaviour>) newValue);
+            this.getSynchronousForkedBehaviours_SynchronisationPoint().addAll(
+                    (Collection<? extends ForkedBehaviour>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -237,7 +245,8 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT:
             this.getOutputParameterUsage_SynchronisationPoint().clear();
             return;
@@ -258,7 +267,8 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT:
             return !this.getOutputParameterUsage_SynchronisationPoint().isEmpty();
         case SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT:

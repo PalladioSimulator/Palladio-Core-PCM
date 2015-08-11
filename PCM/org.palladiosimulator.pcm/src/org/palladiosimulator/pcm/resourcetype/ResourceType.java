@@ -16,11 +16,12 @@ import de.uka.ipd.sdq.units.UnitCarryingElement;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.resourcetype.ResourceType#getResourceRepository_ResourceType
+ * <li>
+ * {@link org.palladiosimulator.pcm.resourcetype.ResourceType#getResourceRepository_ResourceType
  * <em>Resource Repository Resource Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#getResourceType()
  * @model abstract="true"

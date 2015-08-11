@@ -42,7 +42,8 @@ public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public QosPerformanceAdapterFactory() {
-        if (modelPackage == null) {
+        if (modelPackage == null)
+        {
             modelPackage = QosPerformancePackage.eINSTANCE;
         }
     }
@@ -57,10 +58,12 @@ public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
      */
     @Override
     public boolean isFactoryForType(final Object object) {
-        if (object == modelPackage) {
+        if (object == modelPackage)
+        {
             return true;
         }
-        if (object instanceof EObject) {
+        if (object instanceof EObject)
+        {
             return ((EObject) object).eClass().getEPackage() == modelPackage;
         }
         return false;
@@ -72,40 +75,45 @@ public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    protected QosPerformanceSwitch<Adapter> modelSwitch = new QosPerformanceSwitch<Adapter>() {
-
+    protected QosPerformanceSwitch<Adapter> modelSwitch = new QosPerformanceSwitch<Adapter>()
+    {
         @Override
-        public Adapter caseSystemSpecifiedExecutionTime(final SystemSpecifiedExecutionTime object) {
+        public Adapter caseSystemSpecifiedExecutionTime(final SystemSpecifiedExecutionTime object)
+        {
             return QosPerformanceAdapterFactory.this.createSystemSpecifiedExecutionTimeAdapter();
         }
 
         @Override
-        public Adapter caseSpecifiedExecutionTime(final SpecifiedExecutionTime object) {
+        public Adapter caseSpecifiedExecutionTime(final SpecifiedExecutionTime object)
+        {
             return QosPerformanceAdapterFactory.this.createSpecifiedExecutionTimeAdapter();
         }
 
         @Override
-        public Adapter caseComponentSpecifiedExecutionTime(final ComponentSpecifiedExecutionTime object) {
+        public Adapter caseComponentSpecifiedExecutionTime(final ComponentSpecifiedExecutionTime object)
+        {
             return QosPerformanceAdapterFactory.this.createComponentSpecifiedExecutionTimeAdapter();
         }
 
         @Override
-        public Adapter caseSpecifiedQoSAnnotation(final SpecifiedQoSAnnotation object) {
+        public Adapter caseSpecifiedQoSAnnotation(final SpecifiedQoSAnnotation object)
+        {
             return QosPerformanceAdapterFactory.this.createSpecifiedQoSAnnotationAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object) {
+        public Adapter defaultCase(final EObject object)
+        {
             return QosPerformanceAdapterFactory.this.createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @param target
-     *            the object to adapt.
-     * @return the adapter for the <code>target</code>.
+             *
+             * @param target
+             *            the object to adapt.
+             * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
@@ -115,12 +123,12 @@ public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.qosannotations.qos_performance.SystemSpecifiedExecutionTime
-     * <em>System Specified Execution Time</em>}'. <!-- begin-user-doc --> This default
-     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.qosannotations.qos_performance.SystemSpecifiedExecutionTime
+             * <em>System Specified Execution Time</em>}'. <!-- begin-user-doc --> This default
+             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.qosannotations.qos_performance.SystemSpecifiedExecutionTime
      * @generated
      */
@@ -130,12 +138,12 @@ public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.qosannotations.qos_performance.SpecifiedExecutionTime
-     * <em>Specified Execution Time</em>}'. <!-- begin-user-doc --> This default implementation
-     * returns null so that we can easily ignore cases; it's useful to ignore a case when
-     * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.qosannotations.qos_performance.SpecifiedExecutionTime
+             * <em>Specified Execution Time</em>}'. <!-- begin-user-doc --> This default implementation
+             * returns null so that we can easily ignore cases; it's useful to ignore a case when
+             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.qosannotations.qos_performance.SpecifiedExecutionTime
      * @generated
      */
@@ -145,12 +153,12 @@ public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.qosannotations.qos_performance.ComponentSpecifiedExecutionTime
-     * <em>Component Specified Execution Time</em>}'. <!-- begin-user-doc --> This default
-     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.qosannotations.qos_performance.ComponentSpecifiedExecutionTime
+             * <em>Component Specified Execution Time</em>}'. <!-- begin-user-doc --> This default
+             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.qosannotations.qos_performance.ComponentSpecifiedExecutionTime
      * @generated
      */
@@ -160,12 +168,12 @@ public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation
-     * <em>Specified Qo SAnnotation</em>}'. <!-- begin-user-doc --> This default implementation
-     * returns null so that we can easily ignore cases; it's useful to ignore a case when
-     * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation
+             * <em>Specified Qo SAnnotation</em>}'. <!-- begin-user-doc --> This default implementation
+             * returns null so that we can easily ignore cases; it's useful to ignore a case when
+             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation
      * @generated
      */
@@ -175,9 +183,9 @@ public class QosPerformanceAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
-     * implementation returns null. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * implementation returns null. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @generated
      */
     public Adapter createEObjectAdapter() {

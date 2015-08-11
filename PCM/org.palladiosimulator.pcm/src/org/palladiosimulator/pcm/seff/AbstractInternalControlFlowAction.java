@@ -20,7 +20,6 @@ import org.palladiosimulator.pcm.seff.seff_performance.ResourceCall;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction#getResourceDemand_Action
@@ -32,6 +31,7 @@ import org.palladiosimulator.pcm.seff.seff_performance.ResourceCall;
  * {@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction#getResourceCall__Action
  * <em>Resource Call Action</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getAbstractInternalControlFlowAction()
  * @model abstract="true"

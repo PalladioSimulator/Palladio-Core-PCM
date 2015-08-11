@@ -23,7 +23,6 @@ import org.palladiosimulator.pcm.repository.Signature;
  * <em><b>Specified Output Parameter Abstraction</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.qosannotations.impl.SpecifiedOutputParameterAbstractionImpl#getSignature_SpecifiedOutputParameterAbstraction
@@ -38,6 +37,7 @@ import org.palladiosimulator.pcm.repository.Signature;
  * {@link org.palladiosimulator.pcm.qosannotations.impl.SpecifiedOutputParameterAbstractionImpl#getQosAnnotations_SpecifiedOutputParameterAbstraction
  * <em>Qos Annotations Specified Output Parameter Abstraction</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -87,10 +87,11 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
      */
     @Override
     public Signature getSignature_SpecifiedOutputParameterAbstraction() {
-        return (Signature) this.eDynamicGet(
-                QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                true, true);
+        return (Signature) this
+                .eDynamicGet(
+                        QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        true, true);
     }
 
     /**
@@ -99,10 +100,11 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
      * @generated
      */
     public Signature basicGetSignature_SpecifiedOutputParameterAbstraction() {
-        return (Signature) this.eDynamicGet(
-                QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                false, true);
+        return (Signature) this
+                .eDynamicGet(
+                        QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        false, true);
     }
 
     /**
@@ -126,10 +128,11 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
      */
     @Override
     public Role getRole_SpecifiedOutputParameterAbstraction() {
-        return (Role) this.eDynamicGet(
-                QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                true, true);
+        return (Role) this
+                .eDynamicGet(
+                        QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        true, true);
     }
 
     /**
@@ -138,10 +141,11 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
      * @generated
      */
     public Role basicGetRole_SpecifiedOutputParameterAbstraction() {
-        return (Role) this.eDynamicGet(
-                QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                false, true);
+        return (Role) this
+                .eDynamicGet(
+                        QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        false, true);
     }
 
     /**
@@ -165,10 +169,11 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
     @Override
     @SuppressWarnings("unchecked")
     public EList<VariableUsage> getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction() {
-        return (EList<VariableUsage>) this.eDynamicGet(
-                QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                true, true);
+        return (EList<VariableUsage>) this
+                .eDynamicGet(
+                        QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        true, true);
     }
 
     /**
@@ -178,10 +183,11 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
      */
     @Override
     public QoSAnnotations getQosAnnotations_SpecifiedOutputParameterAbstraction() {
-        return (QoSAnnotations) this.eDynamicGet(
-                QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                true, true);
+        return (QoSAnnotations) this
+                .eDynamicGet(
+                        QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        QosannotationsPackage.Literals.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        true, true);
     }
 
     /**
@@ -191,9 +197,11 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
      */
     public NotificationChain basicSetQosAnnotations_SpecifiedOutputParameterAbstraction(
             final QoSAnnotations newQosAnnotations_SpecifiedOutputParameterAbstraction, NotificationChain msgs) {
-        msgs = this.eBasicSetContainer((InternalEObject) newQosAnnotations_SpecifiedOutputParameterAbstraction,
-                QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                msgs);
+        msgs = this
+                .eBasicSetContainer(
+                        (InternalEObject) newQosAnnotations_SpecifiedOutputParameterAbstraction,
+                        QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                        msgs);
         return msgs;
     }
 
@@ -219,10 +227,12 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction()).basicAdd(otherEnd, msgs);
+                    .getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction())
+                    .basicAdd(otherEnd, msgs);
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -240,10 +250,12 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
             return ((InternalEList<?>) this.getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction())
-                    .basicRemove(otherEnd, msgs);
+                    .basicRemove(
+                            otherEnd, msgs);
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
             return this.basicSetQosAnnotations_SpecifiedOutputParameterAbstraction(null, msgs);
         }
@@ -257,7 +269,8 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
             return this.eInternalContainer().eInverseRemove(this,
                     QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS,
@@ -273,7 +286,8 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
             if (resolve) {
                 return this.getSignature_SpecifiedOutputParameterAbstraction();
@@ -300,7 +314,8 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
             this.setSignature_SpecifiedOutputParameterAbstraction((Signature) newValue);
             return;
@@ -309,8 +324,8 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
             return;
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
             this.getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction().clear();
-            this.getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction()
-                    .addAll((Collection<? extends VariableUsage>) newValue);
+            this.getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction().addAll(
+                    (Collection<? extends VariableUsage>) newValue);
             return;
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
             this.setQosAnnotations_SpecifiedOutputParameterAbstraction((QoSAnnotations) newValue);
@@ -326,7 +341,8 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
             this.setSignature_SpecifiedOutputParameterAbstraction((Signature) null);
             return;
@@ -350,7 +366,8 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
             return this.basicGetSignature_SpecifiedOutputParameterAbstraction() != null;
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:

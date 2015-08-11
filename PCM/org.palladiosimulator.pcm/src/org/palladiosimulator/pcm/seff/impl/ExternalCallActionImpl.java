@@ -36,7 +36,6 @@ import org.palladiosimulator.pcm.seff.util.SeffValidator;
  * <em><b>External Call Action</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.impl.ExternalCallActionImpl#getInputVariableUsages__CallAction
@@ -52,9 +51,10 @@ import org.palladiosimulator.pcm.seff.util.SeffValidator;
  * <em>Called Service External Service</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.seff.impl.ExternalCallActionImpl#getRole_ExternalService
  * <em>Role External Service</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.seff.impl.ExternalCallActionImpl#getRetryCount
- * <em>Retry Count</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.impl.ExternalCallActionImpl#getRetryCount <em>Retry
+ * Count</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -253,25 +253,31 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      */
     @Override
     public boolean SignatureBelongsToRole(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (SIGNATURE_BELONGS_TO_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (SIGNATURE_BELONGS_TO_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.EXTERNAL_CALL_ACTION);
-            try {
+            try
+            {
                 SIGNATURE_BELONGS_TO_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(SIGNATURE_BELONGS_TO_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(SIGNATURE_BELONGS_TO_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
-            if (diagnostics != null) {
-                diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
+        if (!EOCL_ENV.createQuery(SIGNATURE_BELONGS_TO_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this))
+        {
+            if (diagnostics != null)
+            {
+                diagnostics.add
+                        (new BasicDiagnostic
+                        (Diagnostic.ERROR,
+                                SeffValidator.DIAGNOSTIC_SOURCE,
                                 SeffValidator.EXTERNAL_CALL_ACTION__SIGNATURE_BELONGS_TO_ROLE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "SignatureBelongsToRole",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                        "SignatureBelongsToRole", EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -312,28 +318,35 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
     @Override
     public boolean OperationRequiredRoleMustBeReferencedByContainer(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.EXTERNAL_CALL_ACTION);
-            try {
+            try
+            {
                 OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(
-                                OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+                        .createInvariant(OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV
-                .createQuery(OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
+        if (!EOCL_ENV.createQuery(
+                OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this))
+        {
+            if (diagnostics != null)
+            {
                 diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
+                        .add
+                        (new BasicDiagnostic
+                        (
+                                Diagnostic.ERROR,
+                                SeffValidator.DIAGNOSTIC_SOURCE,
                                 SeffValidator.EXTERNAL_CALL_ACTION__OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER,
                                 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                         new Object[] { "OperationRequiredRoleMustBeReferencedByContainer",
                                                 EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                new Object[] { this }));
             }
             return false;
         }
@@ -349,10 +362,12 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getInputVariableUsages__CallAction())
-                    .basicAdd(otherEnd, msgs);
+                    .basicAdd(
+                            otherEnd, msgs);
         case SeffPackage.EXTERNAL_CALL_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getReturnVariableUsage__CallReturnAction())
                     .basicAdd(otherEnd, msgs);
@@ -368,7 +383,8 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
             return ((InternalEList<?>) this.getInputVariableUsages__CallAction()).basicRemove(otherEnd, msgs);
         case SeffPackage.EXTERNAL_CALL_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION:
@@ -384,7 +400,8 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
             return this.getInputVariableUsages__CallAction();
         case SeffPackage.EXTERNAL_CALL_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION:
@@ -415,7 +432,8 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
             this.getInputVariableUsages__CallAction().clear();
             this.getInputVariableUsages__CallAction().addAll((Collection<? extends VariableUsage>) newValue);
@@ -448,7 +466,8 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
             this.getInputVariableUsages__CallAction().clear();
             return;
@@ -478,7 +497,8 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
             return !this.getInputVariableUsages__CallAction().isEmpty();
         case SeffPackage.EXTERNAL_CALL_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION:
@@ -502,24 +522,30 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == CallAction.class) {
-            switch (derivedFeatureID) {
+        if (baseClass == CallAction.class)
+        {
+            switch (derivedFeatureID)
+            {
             case SeffPackage.EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
                 return SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION;
             default:
                 return -1;
             }
         }
-        if (baseClass == CallReturnAction.class) {
-            switch (derivedFeatureID) {
+        if (baseClass == CallReturnAction.class)
+        {
+            switch (derivedFeatureID)
+            {
             case SeffPackage.EXTERNAL_CALL_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION:
                 return SeffPackage.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION;
             default:
                 return -1;
             }
         }
-        if (baseClass == FailureHandlingEntity.class) {
-            switch (derivedFeatureID) {
+        if (baseClass == FailureHandlingEntity.class)
+        {
+            switch (derivedFeatureID)
+            {
             case SeffPackage.EXTERNAL_CALL_ACTION__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
                 return SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY;
             default:
@@ -536,24 +562,30 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == CallAction.class) {
-            switch (baseFeatureID) {
+        if (baseClass == CallAction.class)
+        {
+            switch (baseFeatureID)
+            {
             case SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
                 return SeffPackage.EXTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION;
             default:
                 return -1;
             }
         }
-        if (baseClass == CallReturnAction.class) {
-            switch (baseFeatureID) {
+        if (baseClass == CallReturnAction.class)
+        {
+            switch (baseFeatureID)
+            {
             case SeffPackage.CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION:
                 return SeffPackage.EXTERNAL_CALL_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION;
             default:
                 return -1;
             }
         }
-        if (baseClass == FailureHandlingEntity.class) {
-            switch (baseFeatureID) {
+        if (baseClass == FailureHandlingEntity.class)
+        {
+            switch (baseFeatureID)
+            {
             case SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
                 return SeffPackage.EXTERNAL_CALL_ACTION__FAILURE_TYPES_FAILURE_HANDLING_ENTITY;
             default:

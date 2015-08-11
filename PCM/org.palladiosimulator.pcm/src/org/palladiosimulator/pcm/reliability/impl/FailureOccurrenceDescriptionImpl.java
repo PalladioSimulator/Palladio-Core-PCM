@@ -24,12 +24,12 @@ import org.palladiosimulator.pcm.reliability.util.ReliabilityValidator;
  * <em><b>Failure Occurrence Description</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.reliability.impl.FailureOccurrenceDescriptionImpl#getFailureProbability
  * <em>Failure Probability</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -137,25 +137,35 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
     @Override
     public boolean EnsureValidFailureProbabilityRange(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (ENSURE_VALID_FAILURE_PROBABILITY_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (ENSURE_VALID_FAILURE_PROBABILITY_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(ReliabilityPackage.Literals.FAILURE_OCCURRENCE_DESCRIPTION);
-            try {
+            try
+            {
                 ENSURE_VALID_FAILURE_PROBABILITY_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(ENSURE_VALID_FAILURE_PROBABILITY_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(ENSURE_VALID_FAILURE_PROBABILITY_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
-            if (diagnostics != null) {
+        if (!EOCL_ENV.createQuery(ENSURE_VALID_FAILURE_PROBABILITY_RANGE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this))
+        {
+            if (diagnostics != null)
+            {
                 diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, ReliabilityValidator.DIAGNOSTIC_SOURCE,
+                        .add
+                        (new BasicDiagnostic
+                        (
+                                Diagnostic.ERROR,
+                                ReliabilityValidator.DIAGNOSTIC_SOURCE,
                                 ReliabilityValidator.FAILURE_OCCURRENCE_DESCRIPTION__ENSURE_VALID_FAILURE_PROBABILITY_RANGE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                EcorePlugin.INSTANCE.getString(
+                                        "_UI_GenericInvariant_diagnostic",
                                         new Object[] { "EnsureValidFailureProbabilityRange",
                                                 EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                new Object[] { this }));
             }
             return false;
         }
@@ -169,7 +179,8 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY:
             return this.getFailureProbability();
         }
@@ -183,7 +194,8 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY:
             this.setFailureProbability((Double) newValue);
             return;
@@ -198,7 +210,8 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY:
             this.setFailureProbability(FAILURE_PROBABILITY_EDEFAULT);
             return;
@@ -213,7 +226,8 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY:
             return this.getFailureProbability() != FAILURE_PROBABILITY_EDEFAULT;
         }

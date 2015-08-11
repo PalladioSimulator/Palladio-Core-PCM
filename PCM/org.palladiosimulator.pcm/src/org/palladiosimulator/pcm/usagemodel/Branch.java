@@ -23,11 +23,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.Branch#getBranchTransitions_Branch
- * <em>Branch Transitions Branch</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.Branch#getBranchTransitions_Branch <em>Branch
+ * Transitions Branch</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getBranch()
  * @model

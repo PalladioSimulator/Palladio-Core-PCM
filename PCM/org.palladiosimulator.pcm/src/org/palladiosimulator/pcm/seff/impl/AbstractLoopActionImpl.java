@@ -15,11 +15,11 @@ import org.palladiosimulator.pcm.seff.SeffPackage;
  * <em><b>Abstract Loop Action</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.seff.impl.AbstractLoopActionImpl#getBodyBehaviour_Loop
- * <em>Body Behaviour Loop</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.impl.AbstractLoopActionImpl#getBodyBehaviour_Loop <em>
+ * Body Behaviour Loop</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -93,12 +93,13 @@ public abstract class AbstractLoopActionImpl extends AbstractInternalControlFlow
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
             final ResourceDemandingBehaviour bodyBehaviour_Loop = this.getBodyBehaviour_Loop();
             if (bodyBehaviour_Loop != null) {
-                msgs = ((InternalEObject) bodyBehaviour_Loop).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE - SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP, null, msgs);
+                msgs = ((InternalEObject) bodyBehaviour_Loop).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+                        - SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP, null, msgs);
             }
             return this.basicSetBodyBehaviour_Loop((ResourceDemandingBehaviour) otherEnd, msgs);
         }
@@ -113,7 +114,8 @@ public abstract class AbstractLoopActionImpl extends AbstractInternalControlFlow
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
             return this.basicSetBodyBehaviour_Loop(null, msgs);
         }
@@ -127,7 +129,8 @@ public abstract class AbstractLoopActionImpl extends AbstractInternalControlFlow
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
             return this.getBodyBehaviour_Loop();
         }
@@ -141,7 +144,8 @@ public abstract class AbstractLoopActionImpl extends AbstractInternalControlFlow
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
             this.setBodyBehaviour_Loop((ResourceDemandingBehaviour) newValue);
             return;
@@ -156,7 +160,8 @@ public abstract class AbstractLoopActionImpl extends AbstractInternalControlFlow
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
             this.setBodyBehaviour_Loop((ResourceDemandingBehaviour) null);
             return;
@@ -171,7 +176,8 @@ public abstract class AbstractLoopActionImpl extends AbstractInternalControlFlow
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
             return this.getBodyBehaviour_Loop() != null;
         }

@@ -33,7 +33,6 @@ import org.palladiosimulator.pcm.usagemodel.util.UsagemodelValidator;
  * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.usagemodel.impl.ScenarioBehaviourImpl#getUsageScenario_SenarioBehaviour
@@ -48,6 +47,7 @@ import org.palladiosimulator.pcm.usagemodel.util.UsagemodelValidator;
  * {@link org.palladiosimulator.pcm.usagemodel.impl.ScenarioBehaviourImpl#getActions_ScenarioBehaviour
  * <em>Actions Scenario Behaviour</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -166,8 +166,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
      *
      * @generated
      */
-    public NotificationChain basicSetLoop_ScenarioBehaviour(final Loop newLoop_ScenarioBehaviour,
-            NotificationChain msgs) {
+    public NotificationChain basicSetLoop_ScenarioBehaviour(final Loop newLoop_ScenarioBehaviour, NotificationChain msgs) {
         msgs = this.eBasicSetContainer((InternalEObject) newLoop_ScenarioBehaviour,
                 UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR, msgs);
         return msgs;
@@ -225,25 +224,31 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
      */
     @Override
     public boolean Exactlyonestart(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (EXACTLYONESTART__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (EXACTLYONESTART__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(UsagemodelPackage.Literals.SCENARIO_BEHAVIOUR);
-            try {
+            try
+            {
                 EXACTLYONESTART__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(EXACTLYONESTART__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(EXACTLYONESTART__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
-            if (diagnostics != null) {
-                diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
+        if (!EOCL_ENV.createQuery(EXACTLYONESTART__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this))
+        {
+            if (diagnostics != null)
+            {
+                diagnostics.add
+                        (new BasicDiagnostic
+                        (Diagnostic.ERROR,
+                                UsagemodelValidator.DIAGNOSTIC_SOURCE,
                                 UsagemodelValidator.SCENARIO_BEHAVIOUR__EXACTLYONESTART,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "Exactlyonestart",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                        "Exactlyonestart", EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -278,25 +283,31 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
      */
     @Override
     public boolean Exactlyonestop(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (EXACTLYONESTOP__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (EXACTLYONESTOP__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(UsagemodelPackage.Literals.SCENARIO_BEHAVIOUR);
-            try {
+            try
+            {
                 EXACTLYONESTOP__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(EXACTLYONESTOP__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(EXACTLYONESTOP__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
-            if (diagnostics != null) {
-                diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
+        if (!EOCL_ENV.createQuery(EXACTLYONESTOP__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this))
+        {
+            if (diagnostics != null)
+            {
+                diagnostics.add
+                        (new BasicDiagnostic
+                        (Diagnostic.ERROR,
+                                UsagemodelValidator.DIAGNOSTIC_SOURCE,
                                 UsagemodelValidator.SCENARIO_BEHAVIOUR__EXACTLYONESTOP,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "Exactlyonestop",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                        "Exactlyonestop", EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -336,30 +347,36 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
     @Override
     public boolean EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(UsagemodelPackage.Literals.SCENARIO_BEHAVIOUR);
-            try {
+            try
+            {
                 EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(
-                                EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+                        .createInvariant(EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV
-                .createQuery(
-                        EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
+        if (!EOCL_ENV.createQuery(
+                EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this))
+        {
+            if (diagnostics != null)
+            {
                 diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
+                        .add
+                        (new BasicDiagnostic
+                        (
+                                Diagnostic.ERROR,
+                                UsagemodelValidator.DIAGNOSTIC_SOURCE,
                                 UsagemodelValidator.SCENARIO_BEHAVIOUR__EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] {
-                                                "EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                        "EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -374,7 +391,8 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -391,8 +409,8 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
             }
             return this.basicSetLoop_ScenarioBehaviour((Loop) otherEnd, msgs);
         case UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getActions_ScenarioBehaviour())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getActions_ScenarioBehaviour()).basicAdd(
+                    otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -405,7 +423,8 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
             return this.basicSetUsageScenario_SenarioBehaviour(null, msgs);
         case UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR:
@@ -425,7 +444,8 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
             return this.eInternalContainer().eInverseRemove(this,
                     UsagemodelPackage.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO, UsageScenario.class, msgs);
@@ -435,7 +455,8 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
                     msgs);
         case UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR:
             return this.eInternalContainer().eInverseRemove(this, UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP,
-                    Loop.class, msgs);
+                    Loop.class,
+                    msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -447,7 +468,8 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
             return this.getUsageScenario_SenarioBehaviour();
         case UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR:
@@ -468,7 +490,8 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
             this.setUsageScenario_SenarioBehaviour((UsageScenario) newValue);
             return;
@@ -493,7 +516,8 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
             this.setUsageScenario_SenarioBehaviour((UsageScenario) null);
             return;
@@ -517,7 +541,8 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
             return this.getUsageScenario_SenarioBehaviour() != null;
         case UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR:

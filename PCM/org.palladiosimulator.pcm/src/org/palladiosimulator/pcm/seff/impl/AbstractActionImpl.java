@@ -16,7 +16,6 @@ import org.palladiosimulator.pcm.seff.SeffPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.seff.impl.AbstractActionImpl#getPredecessor_AbstractAction
  * <em>Predecessor Abstract Action</em>}</li>
@@ -26,6 +25,7 @@ import org.palladiosimulator.pcm.seff.SeffPackage;
  * {@link org.palladiosimulator.pcm.seff.impl.AbstractActionImpl#getResourceDemandingBehaviour_AbstractAction
  * <em>Resource Demanding Behaviour Abstract Action</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -189,7 +189,8 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION:
             final AbstractAction predecessor_AbstractAction = this.basicGetPredecessor_AbstractAction();
             if (predecessor_AbstractAction != null) {
@@ -221,7 +222,8 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION:
             return this.basicSetPredecessor_AbstractAction(null, msgs);
         case SeffPackage.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION:
@@ -239,10 +241,12 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case SeffPackage.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION:
             return this.eInternalContainer().eInverseRemove(this,
-                    SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR, ResourceDemandingBehaviour.class, msgs);
+                    SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+                    ResourceDemandingBehaviour.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -254,7 +258,8 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION:
             if (resolve) {
                 return this.getPredecessor_AbstractAction();
@@ -278,7 +283,8 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION:
             this.setPredecessor_AbstractAction((AbstractAction) newValue);
             return;
@@ -299,7 +305,8 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION:
             this.setPredecessor_AbstractAction((AbstractAction) null);
             return;
@@ -320,7 +327,8 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION:
             return this.basicGetPredecessor_AbstractAction() != null;
         case SeffPackage.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION:

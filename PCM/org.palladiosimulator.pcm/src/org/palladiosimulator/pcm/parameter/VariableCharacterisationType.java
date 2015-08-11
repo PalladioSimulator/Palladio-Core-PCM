@@ -149,8 +149,14 @@ public enum VariableCharacterisationType implements Enumerator {
      *
      * @generated
      */
-    private static final VariableCharacterisationType[] VALUES_ARRAY = new VariableCharacterisationType[] { STRUCTURE,
-            NUMBER_OF_ELEMENTS, VALUE, BYTESIZE, TYPE, };
+    private static final VariableCharacterisationType[] VALUES_ARRAY = new VariableCharacterisationType[]
+    {
+            STRUCTURE,
+            NUMBER_OF_ELEMENTS,
+            VALUE,
+            BYTESIZE,
+            TYPE,
+    };
 
     /**
      * A public read-only list of all the '<em><b>Variable Characterisation Type</b></em>'
@@ -158,21 +164,19 @@ public enum VariableCharacterisationType implements Enumerator {
      *
      * @generated
      */
-    public static final List<VariableCharacterisationType> VALUES = Collections
-            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<VariableCharacterisationType> VALUES = Collections.unmodifiableList(Arrays
+            .asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Variable Characterisation Type</b></em>' literal with the specified
      * literal value. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @param literal
-     *            the literal.
-     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static VariableCharacterisationType get(final String literal) {
         for (final VariableCharacterisationType result : VALUES_ARRAY) {
-            if (result.toString().equals(literal)) {
+            if (result.toString().equals(literal))
+            {
                 return result;
             }
         }
@@ -183,14 +187,12 @@ public enum VariableCharacterisationType implements Enumerator {
      * Returns the '<em><b>Variable Characterisation Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @param name
-     *            the name.
-     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static VariableCharacterisationType getByName(final String name) {
         for (final VariableCharacterisationType result : VALUES_ARRAY) {
-            if (result.getName().equals(name)) {
+            if (result.getName().equals(name))
+            {
                 return result;
             }
         }
@@ -201,13 +203,11 @@ public enum VariableCharacterisationType implements Enumerator {
      * Returns the '<em><b>Variable Characterisation Type</b></em>' literal with the specified
      * integer value. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @param value
-     *            the integer value.
-     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static VariableCharacterisationType get(final int value) {
-        switch (value) {
+        switch (value)
+        {
         case STRUCTURE_VALUE:
             return STRUCTURE;
         case NUMBER_OF_ELEMENTS_VALUE:

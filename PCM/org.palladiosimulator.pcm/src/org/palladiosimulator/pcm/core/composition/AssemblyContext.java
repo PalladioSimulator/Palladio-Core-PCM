@@ -17,7 +17,6 @@ import org.palladiosimulator.pcm.repository.RepositoryComponent;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.AssemblyContext#getParentStructure__AssemblyContext
@@ -29,6 +28,7 @@ import org.palladiosimulator.pcm.repository.RepositoryComponent;
  * {@link org.palladiosimulator.pcm.core.composition.AssemblyContext#getConfigParameterUsages__AssemblyContext
  * <em>Config Parameter Usages Assembly Context</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getAssemblyContext()
  * @model

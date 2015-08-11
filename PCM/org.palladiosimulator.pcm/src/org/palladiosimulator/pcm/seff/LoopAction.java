@@ -37,11 +37,11 @@ import org.palladiosimulator.pcm.core.PCMRandomVariable;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.seff.LoopAction#getIterationCount_LoopAction
- * <em>Iteration Count Loop Action</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.LoopAction#getIterationCount_LoopAction <em>Iteration
+ * Count Loop Action</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getLoopAction()
  * @model

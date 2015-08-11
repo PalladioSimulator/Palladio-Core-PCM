@@ -13,12 +13,12 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * <em><b>Infrastructure Required Role</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.impl.InfrastructureRequiredRoleImpl#getRequiredInterface__InfrastructureRequiredRole
  * <em>Required Interface Infrastructure Required Role</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -57,10 +57,11 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
      */
     @Override
     public InfrastructureInterface getRequiredInterface__InfrastructureRequiredRole() {
-        return (InfrastructureInterface) this.eDynamicGet(
-                RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE,
-                RepositoryPackage.Literals.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE,
-                true, true);
+        return (InfrastructureInterface) this
+                .eDynamicGet(
+                        RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE,
+                        RepositoryPackage.Literals.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE,
+                        true, true);
     }
 
     /**
@@ -69,10 +70,11 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
      * @generated
      */
     public InfrastructureInterface basicGetRequiredInterface__InfrastructureRequiredRole() {
-        return (InfrastructureInterface) this.eDynamicGet(
-                RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE,
-                RepositoryPackage.Literals.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE,
-                false, true);
+        return (InfrastructureInterface) this
+                .eDynamicGet(
+                        RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE,
+                        RepositoryPackage.Literals.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE,
+                        false, true);
     }
 
     /**
@@ -96,7 +98,8 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE:
             if (resolve) {
                 return this.getRequiredInterface__InfrastructureRequiredRole();
@@ -113,7 +116,8 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE:
             this.setRequiredInterface__InfrastructureRequiredRole((InfrastructureInterface) newValue);
             return;
@@ -128,7 +132,8 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE:
             this.setRequiredInterface__InfrastructureRequiredRole((InfrastructureInterface) null);
             return;
@@ -143,7 +148,8 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE__REQUIRED_INTERFACE_INFRASTRUCTURE_REQUIRED_ROLE:
             return this.basicGetRequiredInterface__InfrastructureRequiredRole() != null;
         }

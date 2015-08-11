@@ -42,7 +42,8 @@ public class PcmSwitch<T> {
      * @generated
      */
     public PcmSwitch() {
-        if (modelPackage == null) {
+        if (modelPackage == null)
+        {
             modelPackage = PcmPackage.eINSTANCE;
         }
     }
@@ -66,11 +67,16 @@ public class PcmSwitch<T> {
      * @generated
      */
     protected T doSwitch(final EClass theEClass, final EObject theEObject) {
-        if (theEClass.eContainer() == modelPackage) {
+        if (theEClass.eContainer() == modelPackage)
+        {
             return this.doSwitch(theEClass.getClassifierID(), theEObject);
-        } else {
+        }
+        else
+        {
             final List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ? this.defaultCase(theEObject) : this.doSwitch(eSuperTypes.get(0), theEObject);
+            return eSuperTypes.isEmpty() ?
+                    this.defaultCase(theEObject) :
+                    this.doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
@@ -82,7 +88,8 @@ public class PcmSwitch<T> {
      * @generated
      */
     protected T doSwitch(final int classifierID, final EObject theEObject) {
-        switch (classifierID) {
+        switch (classifierID)
+        {
         case PcmPackage.DUMMY_CLASS: {
             final DummyClass dummyClass = (DummyClass) theEObject;
             T result = this.caseDummyClass(dummyClass);

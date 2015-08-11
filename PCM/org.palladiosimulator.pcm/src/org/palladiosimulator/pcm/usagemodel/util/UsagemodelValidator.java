@@ -197,7 +197,8 @@ public class UsagemodelValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID) {
+        switch (classifierID)
+        {
         case UsagemodelPackage.WORKLOAD:
             return this.validateWorkload((Workload) value, diagnostics, context);
         case UsagemodelPackage.USAGE_SCENARIO:
@@ -279,7 +280,8 @@ public class UsagemodelValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateEntryLevelSystemCall(final EntryLevelSystemCall entryLevelSystemCall,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(entryLevelSystemCall, diagnostics, context)) {
             return false;
         }
@@ -343,7 +345,8 @@ public class UsagemodelValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateAbstractUserAction(final AbstractUserAction abstractUserAction,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return this.validate_EveryDefaultConstraint(abstractUserAction, diagnostics, context);
     }
 
@@ -353,7 +356,8 @@ public class UsagemodelValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateScenarioBehaviour(final ScenarioBehaviour scenarioBehaviour,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(scenarioBehaviour, diagnostics, context)) {
             return false;
         }
@@ -475,7 +479,8 @@ public class UsagemodelValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateBranch_AllBranchProbabilitiesMustSumUpTo1(final Branch branch,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return branch.AllBranchProbabilitiesMustSumUpTo1(diagnostics, context);
     }
 
@@ -538,8 +543,7 @@ public class UsagemodelValidator extends EObjectValidator {
      *
      * @generated
      */
-    public boolean validateStart(final Start start, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean validateStart(final Start start, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(start, diagnostics, context)) {
             return false;
         }
@@ -610,7 +614,8 @@ public class UsagemodelValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validateOpenWorkload_InterArrivalTimeInOpenWorkloadNeedsToBeSpecified(openWorkload,
-                    diagnostics, context);
+                    diagnostics,
+                    context);
         }
         return result;
     }
@@ -631,8 +636,7 @@ public class UsagemodelValidator extends EObjectValidator {
      *
      * @generated
      */
-    public boolean validateDelay(final Delay delay, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean validateDelay(final Delay delay, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return this.validate_EveryDefaultConstraint(delay, diagnostics, context);
     }
 
@@ -667,11 +671,13 @@ public class UsagemodelValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validateClosedWorkload_PopulationInClosedWorkloadNeedsToBeSpecified(closedWorkload,
-                    diagnostics, context);
+                    diagnostics,
+                    context);
         }
         if (result || diagnostics != null) {
             result &= this.validateClosedWorkload_ThinkTimeInClosedWorkloadNeedsToBeSpecified(closedWorkload,
-                    diagnostics, context);
+                    diagnostics,
+                    context);
         }
         return result;
     }

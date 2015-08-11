@@ -17,7 +17,6 @@ import org.palladiosimulator.pcm.seff.SeffPackage;
  * <em><b>Abstract Branch Transition</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.impl.AbstractBranchTransitionImpl#getBranchAction_AbstractBranchTransition
@@ -26,6 +25,7 @@ import org.palladiosimulator.pcm.seff.SeffPackage;
  * {@link org.palladiosimulator.pcm.seff.impl.AbstractBranchTransitionImpl#getBranchBehaviour_BranchTransition
  * <em>Branch Behaviour Branch Transition</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -137,7 +137,8 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -145,12 +146,10 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
             return this.basicSetBranchAction_AbstractBranchTransition((BranchAction) otherEnd, msgs);
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION:
             final ResourceDemandingBehaviour branchBehaviour_BranchTransition = this
-                    .getBranchBehaviour_BranchTransition();
+            .getBranchBehaviour_BranchTransition();
             if (branchBehaviour_BranchTransition != null) {
-                msgs = ((InternalEObject) branchBehaviour_BranchTransition).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
-                        null, msgs);
+                msgs = ((InternalEObject) branchBehaviour_BranchTransition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+                        - SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION, null, msgs);
             }
             return this.basicSetBranchBehaviour_BranchTransition((ResourceDemandingBehaviour) otherEnd, msgs);
         }
@@ -165,7 +164,8 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION:
             return this.basicSetBranchAction_AbstractBranchTransition(null, msgs);
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION:
@@ -181,7 +181,8 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION:
             return this.eInternalContainer().eInverseRemove(this, SeffPackage.BRANCH_ACTION__BRANCHES_BRANCH,
                     BranchAction.class, msgs);
@@ -196,7 +197,8 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION:
             return this.getBranchAction_AbstractBranchTransition();
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION:
@@ -212,7 +214,8 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION:
             this.setBranchAction_AbstractBranchTransition((BranchAction) newValue);
             return;
@@ -230,7 +233,8 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION:
             this.setBranchAction_AbstractBranchTransition((BranchAction) null);
             return;
@@ -248,7 +252,8 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION:
             return this.getBranchAction_AbstractBranchTransition() != null;
         case SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION:

@@ -32,12 +32,15 @@ public class PcmFactoryImpl extends EFactoryImpl implements PcmFactory {
      * @generated
      */
     public static PcmFactory init() {
-        try {
+        try
+        {
             final PcmFactory thePcmFactory = (PcmFactory) EPackage.Registry.INSTANCE.getEFactory(PcmPackage.eNS_URI);
-            if (thePcmFactory != null) {
+            if (thePcmFactory != null)
+            {
                 return thePcmFactory;
             }
-        } catch (final Exception exception) {
+        } catch (final Exception exception)
+        {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new PcmFactoryImpl();
@@ -59,7 +62,8 @@ public class PcmFactoryImpl extends EFactoryImpl implements PcmFactory {
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID()) {
+        switch (eClass.getClassifierID())
+        {
         case PcmPackage.DUMMY_CLASS:
             return this.createDummyClass();
         default:

@@ -29,17 +29,17 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations#getSpecifiedOutputParameterAbstractions_QoSAnnotations
  * <em>Specified Output Parameter Abstractions Qo SAnnotations</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations#getSystem_QoSAnnotations
- * <em>System Qo SAnnotations</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations#getSystem_QoSAnnotations <em>
+ * System Qo SAnnotations</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations#getSpecifiedQoSAnnotations_QoSAnnotations
  * <em>Specified Qo SAnnotations Qo SAnnotations</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations()
  * @model

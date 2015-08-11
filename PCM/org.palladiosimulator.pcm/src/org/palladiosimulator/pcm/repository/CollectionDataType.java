@@ -14,12 +14,12 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.CollectionDataType#getInnerType_CollectionDataType
  * <em>Inner Type Collection Data Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getCollectionDataType()
  * @model

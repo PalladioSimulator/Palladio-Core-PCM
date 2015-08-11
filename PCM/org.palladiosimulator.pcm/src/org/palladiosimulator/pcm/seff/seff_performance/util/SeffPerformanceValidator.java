@@ -154,7 +154,8 @@ public class SeffPerformanceValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID) {
+        switch (classifierID)
+        {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL:
             return this.validateInfrastructureCall((InfrastructureCall) value, diagnostics, context);
         case SeffPerformancePackage.RESOURCE_CALL:
@@ -172,7 +173,8 @@ public class SeffPerformanceValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateInfrastructureCall(final InfrastructureCall infrastructureCall,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(infrastructureCall, diagnostics, context)) {
             return false;
         }
@@ -197,11 +199,13 @@ public class SeffPerformanceValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validateInfrastructureCall_SignatureMustBelongToUsedRequiredRole(infrastructureCall,
-                    diagnostics, context);
+                    diagnostics,
+                    context);
         }
         if (result || diagnostics != null) {
             result &= this.validateInfrastructureCall_ReferencedRequiredRoleMustBeRequiredByComponent(
-                    infrastructureCall, diagnostics, context);
+                    infrastructureCall,
+                    diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this
@@ -244,8 +248,8 @@ public class SeffPerformanceValidator extends EObjectValidator {
     public boolean validateInfrastructureCall_SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(
             final InfrastructureCall infrastructureCall, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        return infrastructureCall
-                .SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(diagnostics, context);
+        return infrastructureCall.SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(
+                diagnostics, context);
     }
 
     /**
@@ -279,11 +283,13 @@ public class SeffPerformanceValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validateResourceCall_ResourceSignatureBelongsToResourceRequiredRole(resourceCall,
-                    diagnostics, context);
+                    diagnostics,
+                    context);
         }
         if (result || diagnostics != null) {
             result &= this.validateResourceCall_ResourceRequiredRoleMustBeReferencedByComponent(resourceCall,
-                    diagnostics, context);
+                    diagnostics,
+                    context);
         }
         if (result || diagnostics != null) {
             result &= this
@@ -310,7 +316,8 @@ public class SeffPerformanceValidator extends EObjectValidator {
      *
      * @generated
      */
-    public boolean validateResourceCall_ResourceRequiredRoleMustBeReferencedByComponent(final ResourceCall resourceCall,
+    public boolean validateResourceCall_ResourceRequiredRoleMustBeReferencedByComponent(
+            final ResourceCall resourceCall,
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return resourceCall.ResourceRequiredRoleMustBeReferencedByComponent(diagnostics, context);
     }
@@ -374,8 +381,8 @@ public class SeffPerformanceValidator extends EObjectValidator {
     public boolean validateParametricResourceDemand_DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(
             final ParametricResourceDemand parametricResourceDemand, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        return parametricResourceDemand
-                .DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(diagnostics, context);
+        return parametricResourceDemand.DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(
+                diagnostics, context);
     }
 
     /**

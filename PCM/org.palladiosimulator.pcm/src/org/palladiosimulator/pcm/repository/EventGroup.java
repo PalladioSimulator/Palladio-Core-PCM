@@ -15,11 +15,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.EventGroup#getEventTypes__EventGroup
- * <em>Event Types Event Group</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.EventGroup#getEventTypes__EventGroup <em>Event
+ * Types Event Group</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getEventGroup()
  * @model

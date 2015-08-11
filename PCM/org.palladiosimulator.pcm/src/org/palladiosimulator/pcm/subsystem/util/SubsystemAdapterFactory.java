@@ -50,7 +50,8 @@ public class SubsystemAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public SubsystemAdapterFactory() {
-        if (modelPackage == null) {
+        if (modelPackage == null)
+        {
             modelPackage = SubsystemPackage.eINSTANCE;
         }
     }
@@ -65,10 +66,12 @@ public class SubsystemAdapterFactory extends AdapterFactoryImpl {
      */
     @Override
     public boolean isFactoryForType(final Object object) {
-        if (object == modelPackage) {
+        if (object == modelPackage)
+        {
             return true;
         }
-        if (object instanceof EObject) {
+        if (object instanceof EObject)
+        {
             return ((EObject) object).eClass().getEPackage() == modelPackage;
         }
         return false;
@@ -80,75 +83,87 @@ public class SubsystemAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    protected SubsystemSwitch<Adapter> modelSwitch = new SubsystemSwitch<Adapter>() {
-
+    protected SubsystemSwitch<Adapter> modelSwitch = new SubsystemSwitch<Adapter>()
+    {
         @Override
-        public Adapter caseSubSystem(final SubSystem object) {
+        public Adapter caseSubSystem(final SubSystem object)
+        {
             return SubsystemAdapterFactory.this.createSubSystemAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(final Identifier object) {
+        public Adapter caseIdentifier(final Identifier object)
+        {
             return SubsystemAdapterFactory.this.createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(final NamedElement object) {
+        public Adapter caseNamedElement(final NamedElement object)
+        {
             return SubsystemAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(final Entity object) {
+        public Adapter caseEntity(final Entity object)
+        {
             return SubsystemAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter caseComposedStructure(final ComposedStructure object) {
+        public Adapter caseComposedStructure(final ComposedStructure object)
+        {
             return SubsystemAdapterFactory.this.createComposedStructureAdapter();
         }
 
         @Override
-        public Adapter caseInterfaceProvidingEntity(final InterfaceProvidingEntity object) {
+        public Adapter caseInterfaceProvidingEntity(final InterfaceProvidingEntity object)
+        {
             return SubsystemAdapterFactory.this.createInterfaceProvidingEntityAdapter();
         }
 
         @Override
-        public Adapter caseResourceInterfaceRequiringEntity(final ResourceInterfaceRequiringEntity object) {
+        public Adapter caseResourceInterfaceRequiringEntity(final ResourceInterfaceRequiringEntity object)
+        {
             return SubsystemAdapterFactory.this.createResourceInterfaceRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseInterfaceRequiringEntity(final InterfaceRequiringEntity object) {
+        public Adapter caseInterfaceRequiringEntity(final InterfaceRequiringEntity object)
+        {
             return SubsystemAdapterFactory.this.createInterfaceRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseInterfaceProvidingRequiringEntity(final InterfaceProvidingRequiringEntity object) {
+        public Adapter caseInterfaceProvidingRequiringEntity(final InterfaceProvidingRequiringEntity object)
+        {
             return SubsystemAdapterFactory.this.createInterfaceProvidingRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseComposedProvidingRequiringEntity(final ComposedProvidingRequiringEntity object) {
+        public Adapter caseComposedProvidingRequiringEntity(final ComposedProvidingRequiringEntity object)
+        {
             return SubsystemAdapterFactory.this.createComposedProvidingRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseRepositoryComponent(final RepositoryComponent object) {
+        public Adapter caseRepositoryComponent(final RepositoryComponent object)
+        {
             return SubsystemAdapterFactory.this.createRepositoryComponentAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object) {
+        public Adapter defaultCase(final EObject object)
+        {
             return SubsystemAdapterFactory.this.createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @param target
-     *            the object to adapt.
-     * @return the adapter for the <code>target</code>.
+             *
+             * @param target
+             *            the object to adapt.
+             * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
@@ -173,11 +188,11 @@ public class SubsystemAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
-     * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
-     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
-     * the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+             * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+             * the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see de.uka.ipd.sdq.identifier.Identifier
      * @generated
      */
@@ -202,11 +217,11 @@ public class SubsystemAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'. <!-- begin-user-doc
-     * --> This default implementation returns null so that we can easily ignore cases; it's useful
-     * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'. <!-- begin-user-doc
+             * --> This default implementation returns null so that we can easily ignore cases; it's useful
+             * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.Entity
      * @generated
      */
@@ -216,12 +231,12 @@ public class SubsystemAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.core.composition.ComposedStructure
-     * <em>Composed Structure</em>}'. <!-- begin-user-doc --> This default implementation returns
-     * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
-     * catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.core.composition.ComposedStructure
+             * <em>Composed Structure</em>}'. <!-- begin-user-doc --> This default implementation returns
+             * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
+             * catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.composition.ComposedStructure
      * @generated
      */
@@ -231,12 +246,12 @@ public class SubsystemAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity
-     * <em>Interface Providing Entity</em>}'. <!-- begin-user-doc --> This default implementation
-     * returns null so that we can easily ignore cases; it's useful to ignore a case when
-     * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity
+             * <em>Interface Providing Entity</em>}'. <!-- begin-user-doc --> This default implementation
+             * returns null so that we can easily ignore cases; it's useful to ignore a case when
+             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity
      * @generated
      */
@@ -246,12 +261,12 @@ public class SubsystemAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity
-     * <em>Resource Interface Requiring Entity</em>}'. <!-- begin-user-doc --> This default
-     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity
+             * <em>Resource Interface Requiring Entity</em>}'. <!-- begin-user-doc --> This default
+             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity
      * @generated
      */
@@ -261,12 +276,12 @@ public class SubsystemAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity
-     * <em>Interface Requiring Entity</em>}'. <!-- begin-user-doc --> This default implementation
-     * returns null so that we can easily ignore cases; it's useful to ignore a case when
-     * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity
+             * <em>Interface Requiring Entity</em>}'. <!-- begin-user-doc --> This default implementation
+             * returns null so that we can easily ignore cases; it's useful to ignore a case when
+             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity
      * @generated
      */
@@ -276,12 +291,12 @@ public class SubsystemAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.core.entity.InterfaceProvidingRequiringEntity
-     * <em>Interface Providing Requiring Entity</em>}'. <!-- begin-user-doc --> This default
-     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.core.entity.InterfaceProvidingRequiringEntity
+             * <em>Interface Providing Requiring Entity</em>}'. <!-- begin-user-doc --> This default
+             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.InterfaceProvidingRequiringEntity
      * @generated
      */
@@ -291,12 +306,12 @@ public class SubsystemAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.core.entity.ComposedProvidingRequiringEntity
-     * <em>Composed Providing Requiring Entity</em>}'. <!-- begin-user-doc --> This default
-     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.core.entity.ComposedProvidingRequiringEntity
+             * <em>Composed Providing Requiring Entity</em>}'. <!-- begin-user-doc --> This default
+             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.ComposedProvidingRequiringEntity
      * @generated
      */
@@ -321,9 +336,9 @@ public class SubsystemAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
-     * implementation returns null. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * implementation returns null. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @generated
      */
     public Adapter createEObjectAdapter() {

@@ -14,16 +14,15 @@ import org.palladiosimulator.pcm.repository.Signature;
  * <!-- begin-model-doc -->
  * <p>
  * SpecifiedQoSAnnotations&nbsp;(as&nbsp;an&nbsp;abstract&nbsp;class)&nbsp;associate&nbsp;specified&
- * nbsp;(see&nbsp;QoSAnnotation)&nbsp;QoS&nbsp;properties&nbsp;to&nbsp;services&nbsp;of&nbsp;
- * components.&nbsp;A&nbsp;service&nbsp;is&nbsp;thereby&nbsp;determined&nbsp;by&nbsp;a&nbsp;
- * Signature&nbsp;and&nbsp;a&nbsp;Role&nbsp;(i.e.,&nbsp;an&nbsp;interface&nbsp;bound&nbsp;to&nbsp;a&
- * nbsp;component).
+ * nbsp ;(see&nbsp;QoSAnnotation)&nbsp;QoS&nbsp;properties&nbsp;to&nbsp;services&nbsp;of&nbsp;
+ * components .&
+ * nbsp;A&nbsp;service&nbsp;is&nbsp;thereby&nbsp;determined&nbsp;by&nbsp;a&nbsp;Signature&nbsp;and&
+ * nbsp;a&nbsp;Role&nbsp;(i.e.,&nbsp;an&nbsp;interface&nbsp;bound&nbsp;to&nbsp;a&nbsp;component).
  * </p>
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation#getSignature_SpecifiedQoSAnnation
@@ -35,6 +34,7 @@ import org.palladiosimulator.pcm.repository.Signature;
  * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation#getQosAnnotations_SpecifiedQoSAnnotation
  * <em>Qos Annotations Specified Qo SAnnotation</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.qosannotations.QosannotationsPackage#getSpecifiedQoSAnnotation()
  * @model abstract="true"

@@ -36,13 +36,16 @@ public class EntityFactoryImpl extends EFactoryImpl implements EntityFactory {
      * @generated
      */
     public static EntityFactory init() {
-        try {
+        try
+        {
             final EntityFactory theEntityFactory = (EntityFactory) EPackage.Registry.INSTANCE
                     .getEFactory(EntityPackage.eNS_URI);
-            if (theEntityFactory != null) {
+            if (theEntityFactory != null)
+            {
                 return theEntityFactory;
             }
-        } catch (final Exception exception) {
+        } catch (final Exception exception)
+        {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new EntityFactoryImpl();
@@ -64,7 +67,8 @@ public class EntityFactoryImpl extends EFactoryImpl implements EntityFactory {
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID()) {
+        switch (eClass.getClassifierID())
+        {
         case EntityPackage.RESOURCE_PROVIDED_ROLE:
             return this.createResourceProvidedRole();
         case EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY:

@@ -15,13 +15,13 @@ package org.palladiosimulator.pcm.repository;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.EventType#getParameter__EventType
- * <em>Parameter Event Type</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.EventType#getEventGroup__EventType
- * <em>Event Group Event Type</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.EventType#getParameter__EventType <em>Parameter
+ * Event Type</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.EventType#getEventGroup__EventType <em>Event
+ * Group Event Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getEventType()
  * @model

@@ -12,7 +12,6 @@ import org.palladiosimulator.pcm.repository.InfrastructureRequiredRole;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getProvidedRole__AssemblyInfrastructureConnector
@@ -27,6 +26,7 @@ import org.palladiosimulator.pcm.repository.InfrastructureRequiredRole;
  * {@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getRequiringAssemblyContext__AssemblyInfrastructureConnector
  * <em>Requiring Assembly Context Assembly Infrastructure Connector</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getAssemblyInfrastructureConnector()
  * @model

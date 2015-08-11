@@ -18,7 +18,6 @@ import de.uka.ipd.sdq.identifier.Identifier;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTR
  * <em>MTTR</em>}</li>
@@ -43,6 +42,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * {@link org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecification#getResourceContainer_ProcessingResourceSpecification
  * <em>Resource Container Processing Resource Specification</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification()
  * @model

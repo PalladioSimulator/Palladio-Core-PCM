@@ -18,14 +18,14 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * This is the item provider adapter for a
  * {@link org.palladiosimulator.pcm.repository.CollectionDataType} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class CollectionDataTypeItemProvider extends EntityItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -33,7 +33,7 @@ public class CollectionDataTypeItemProvider extends EntityItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public CollectionDataTypeItemProvider(final AdapterFactory adapterFactory) {
@@ -43,12 +43,13 @@ public class CollectionDataTypeItemProvider extends EntityItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null) {
+        if (this.itemPropertyDescriptors == null)
+        {
             super.getPropertyDescriptors(object);
 
             this.addInnerType_CollectionDataTypePropertyDescriptor(object);
@@ -63,18 +64,26 @@ public class CollectionDataTypeItemProvider extends EntityItemProvider {
      * @generated
      */
     protected void addInnerType_CollectionDataTypePropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_CollectionDataType_innerType_CollectionDataType_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_CollectionDataType_innerType_CollectionDataType_feature", "_UI_CollectionDataType_type"),
-                RepositoryPackage.Literals.COLLECTION_DATA_TYPE__INNER_TYPE_COLLECTION_DATA_TYPE, true, false, true,
-                null, null, null));
+        this.itemPropertyDescriptors.add
+        (this.createItemPropertyDescriptor
+                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                                this.getResourceLocator(),
+                                this.getString("_UI_CollectionDataType_innerType_CollectionDataType_feature"),
+                                this.getString("_UI_PropertyDescriptor_description",
+                                        "_UI_CollectionDataType_innerType_CollectionDataType_feature",
+                                        "_UI_CollectionDataType_type"),
+                                RepositoryPackage.Literals.COLLECTION_DATA_TYPE__INNER_TYPE_COLLECTION_DATA_TYPE,
+                                true,
+                                false,
+                                true,
+                                null,
+                                null,
+                                null));
     }
 
     /**
      * This returns CollectionDataType.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -91,15 +100,16 @@ public class CollectionDataTypeItemProvider extends EntityItemProvider {
     @Override
     public String getText(final Object object) {
         final String label = ((CollectionDataType) object).getId();
-        return label == null || label.length() == 0 ? this.getString("_UI_CollectionDataType_type")
-                : this.getString("_UI_CollectionDataType_type") + " " + label;
+        return label == null || label.length() == 0 ?
+                this.getString("_UI_CollectionDataType_type") :
+                    this.getString("_UI_CollectionDataType_type") + " " + label;
     }
 
     /**
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -111,7 +121,7 @@ public class CollectionDataTypeItemProvider extends EntityItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

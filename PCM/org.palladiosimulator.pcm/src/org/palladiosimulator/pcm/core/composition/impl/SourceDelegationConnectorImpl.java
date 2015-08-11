@@ -14,7 +14,6 @@ import org.palladiosimulator.pcm.repository.SourceRole;
  * <em><b>Source Delegation Connector</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.impl.SourceDelegationConnectorImpl#getInnerSourceRole__SourceRole
@@ -26,6 +25,7 @@ import org.palladiosimulator.pcm.repository.SourceRole;
  * {@link org.palladiosimulator.pcm.core.composition.impl.SourceDelegationConnectorImpl#getAssemblyContext__SourceDelegationConnector
  * <em>Assembly Context Source Delegation Connector</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -172,7 +172,8 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.SOURCE_DELEGATION_CONNECTOR__INNER_SOURCE_ROLE_SOURCE_ROLE:
             if (resolve) {
                 return this.getInnerSourceRole__SourceRole();
@@ -199,7 +200,8 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.SOURCE_DELEGATION_CONNECTOR__INNER_SOURCE_ROLE_SOURCE_ROLE:
             this.setInnerSourceRole__SourceRole((SourceRole) newValue);
             return;
@@ -220,7 +222,8 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.SOURCE_DELEGATION_CONNECTOR__INNER_SOURCE_ROLE_SOURCE_ROLE:
             this.setInnerSourceRole__SourceRole((SourceRole) null);
             return;
@@ -241,7 +244,8 @@ public class SourceDelegationConnectorImpl extends DelegationConnectorImpl imple
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.SOURCE_DELEGATION_CONNECTOR__INNER_SOURCE_ROLE_SOURCE_ROLE:
             return this.basicGetInnerSourceRole__SourceRole() != null;
         case CompositionPackage.SOURCE_DELEGATION_CONNECTOR__OUTER_SOURCE_ROLE_SOURCE_ROLE:

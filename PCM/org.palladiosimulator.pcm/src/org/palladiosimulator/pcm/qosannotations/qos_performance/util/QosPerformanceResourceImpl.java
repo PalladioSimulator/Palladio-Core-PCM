@@ -9,8 +9,7 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 /**
  * <!-- begin-user-doc --> The <b>Resource </b> associated with the package. <!-- end-user-doc -->
  *
- * @see org.palladiosimulator.pcm.qosannotations.qos_performance.util.
- *      QosPerformanceResourceFactoryImpl
+ * @see org.palladiosimulator.pcm.qosannotations.qos_performance.util.QosPerformanceResourceFactoryImpl
  * @generated
  */
 public class QosPerformanceResourceImpl extends XMIResourceImpl {

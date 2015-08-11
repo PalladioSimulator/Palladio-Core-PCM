@@ -31,7 +31,6 @@ import org.palladiosimulator.pcm.seff.seff_performance.util.SeffPerformanceValid
  * <em><b>Infrastructure Call</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.seff_performance.impl.InfrastructureCallImpl#getSignature__InfrastructureCall
@@ -46,6 +45,7 @@ import org.palladiosimulator.pcm.seff.seff_performance.util.SeffPerformanceValid
  * {@link org.palladiosimulator.pcm.seff.seff_performance.impl.InfrastructureCallImpl#getRequiredRole__InfrastructureCall
  * <em>Required Role Infrastructure Call</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -253,26 +253,36 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
     @Override
     public boolean SignatureMustBelongToUsedRequiredRole(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (SIGNATURE_MUST_BELONG_TO_USED_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (SIGNATURE_MUST_BELONG_TO_USED_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL);
-            try {
+            try
+            {
                 SIGNATURE_MUST_BELONG_TO_USED_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(SIGNATURE_MUST_BELONG_TO_USED_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(SIGNATURE_MUST_BELONG_TO_USED_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
+        if (!EOCL_ENV.createQuery(SIGNATURE_MUST_BELONG_TO_USED_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(
+                this))
+        {
+            if (diagnostics != null)
+            {
                 diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
+                        .add
+                        (new BasicDiagnostic
+                        (
+                                Diagnostic.ERROR,
+                                SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
                                 SeffPerformanceValidator.INFRASTRUCTURE_CALL__SIGNATURE_MUST_BELONG_TO_USED_REQUIRED_ROLE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                EcorePlugin.INSTANCE.getString(
+                                        "_UI_GenericInvariant_diagnostic",
                                         new Object[] { "SignatureMustBelongToUsedRequiredRole",
                                                 EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                new Object[] { this }));
             }
             return false;
         }
@@ -312,28 +322,35 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
     @Override
     public boolean ReferencedRequiredRoleMustBeRequiredByComponent(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL);
-            try {
+            try
+            {
                 REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(
-                                REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+                        .createInvariant(REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV
-                .createQuery(REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
+        if (!EOCL_ENV.createQuery(
+                REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this))
+        {
+            if (diagnostics != null)
+            {
                 diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
+                        .add
+                        (new BasicDiagnostic
+                        (
+                                Diagnostic.ERROR,
+                                SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
                                 SeffPerformanceValidator.INFRASTRUCTURE_CALL__REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT,
                                 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                         new Object[] { "ReferencedRequiredRoleMustBeRequiredByComponent",
                                                 EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                new Object[] { this }));
             }
             return false;
         }
@@ -343,8 +360,8 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
     /**
      * The cached OCL expression body for the '
      * {@link #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Signature Role Combination Must Be Unique Within Abstract Internal Control Flow Action</em>
-     * }' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <em>Signature Role Combination Must Be Unique Within Abstract Internal Control Flow Action</em>}
+     * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
@@ -355,8 +372,8 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
     /**
      * The cached OCL invariant for the '
      * {@link #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Signature Role Combination Must Be Unique Within Abstract Internal Control Flow Action</em>
-     * }' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <em>Signature Role Combination Must Be Unique Within Abstract Internal Control Flow Action</em>}
+     * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
@@ -373,29 +390,37 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
     @Override
     public boolean SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL);
-            try {
+            try
+            {
                 SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(
-                                SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+                        .createInvariant(SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV
                 .createQuery(
                         SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
-                        SeffPerformanceValidator.INFRASTRUCTURE_CALL__SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] {
+                .check(this))
+        {
+            if (diagnostics != null)
+            {
+                diagnostics
+                        .add
+                        (new BasicDiagnostic
+                        (
+                                Diagnostic.ERROR,
+                                SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
+                                SeffPerformanceValidator.INFRASTRUCTURE_CALL__SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
                                         "SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction",
                                         EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                new Object[] { this }));
             }
             return false;
         }
@@ -409,7 +434,8 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL:
             final PCMRandomVariable numberOfCalls__InfrastructureCall = this.getNumberOfCalls__InfrastructureCall();
             if (numberOfCalls__InfrastructureCall != null) {
@@ -436,7 +462,8 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL:
             return this.basicSetNumberOfCalls__InfrastructureCall(null, msgs);
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL:
@@ -452,7 +479,8 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL:
             return this.eInternalContainer().eInverseRemove(this,
                     SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION,
@@ -468,7 +496,8 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL:
             if (resolve) {
                 return this.getSignature__InfrastructureCall();
@@ -494,7 +523,8 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL:
             this.setSignature__InfrastructureCall((InfrastructureSignature) newValue);
             return;
@@ -518,7 +548,8 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL:
             this.setSignature__InfrastructureCall((InfrastructureSignature) null);
             return;
@@ -542,7 +573,8 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__SIGNATURE_INFRASTRUCTURE_CALL:
             return this.basicGetSignature__InfrastructureCall() != null;
         case SeffPerformancePackage.INFRASTRUCTURE_CALL__NUMBER_OF_CALLS_INFRASTRUCTURE_CALL:

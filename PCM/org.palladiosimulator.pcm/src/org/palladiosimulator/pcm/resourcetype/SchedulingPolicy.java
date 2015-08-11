@@ -11,12 +11,12 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.resourcetype.SchedulingPolicy#getResourceRepository__SchedulingPolicy
  * <em>Resource Repository Scheduling Policy</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#getSchedulingPolicy()
  * @model

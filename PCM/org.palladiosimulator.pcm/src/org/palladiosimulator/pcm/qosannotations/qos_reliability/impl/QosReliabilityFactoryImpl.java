@@ -32,13 +32,16 @@ public class QosReliabilityFactoryImpl extends EFactoryImpl implements QosReliab
      * @generated
      */
     public static QosReliabilityFactory init() {
-        try {
+        try
+        {
             final QosReliabilityFactory theQosReliabilityFactory = (QosReliabilityFactory) EPackage.Registry.INSTANCE
                     .getEFactory(QosReliabilityPackage.eNS_URI);
-            if (theQosReliabilityFactory != null) {
+            if (theQosReliabilityFactory != null)
+            {
                 return theQosReliabilityFactory;
             }
-        } catch (final Exception exception) {
+        } catch (final Exception exception)
+        {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new QosReliabilityFactoryImpl();
@@ -60,7 +63,8 @@ public class QosReliabilityFactoryImpl extends EFactoryImpl implements QosReliab
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID()) {
+        switch (eClass.getClassifierID())
+        {
         case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION:
             return this.createSpecifiedReliabilityAnnotation();
         default:

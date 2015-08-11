@@ -35,16 +35,16 @@ import org.palladiosimulator.pcm.repository.Signature;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getSeffTypeID
- * <em>Seff Type ID</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getSeffTypeID <em>Seff Type
+ * ID</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF
  * <em>Described Service SEFF</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getBasicComponent_ServiceEffectSpecification
  * <em>Basic Component Service Effect Specification</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getServiceEffectSpecification()
  * @model abstract="true"

@@ -154,8 +154,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT
-            + 0;
+    int RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '
@@ -165,8 +164,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT
-            + 1;
+    int RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Steps Behaviour</b></em>' containment reference list. <!--
@@ -185,8 +183,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT
-            + 3;
+    int RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Recovery Action Recovery Action Behaviour</b></em>' container
@@ -195,8 +192,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT
-            + 4;
+    int RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 4;
 
     /**
      * The number of structural features of the '<em>Recovery Action Behaviour</em>' class. <!--
@@ -297,8 +293,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RECOVERY_ACTION__PRIMARY_BEHAVIOUR_RECOVERY_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT
-            + 0;
+    int RECOVERY_ACTION__PRIMARY_BEHAVIOUR_RECOVERY_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Recovery Action Behaviours Recovery Action</b></em>'
@@ -307,8 +302,7 @@ public interface SeffReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT
-            + 1;
+    int RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Recovery Action</em>' class. <!--

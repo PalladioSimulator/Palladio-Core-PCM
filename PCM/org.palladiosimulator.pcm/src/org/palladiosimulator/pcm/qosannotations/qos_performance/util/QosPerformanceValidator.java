@@ -100,10 +100,11 @@ public class QosPerformanceValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID) {
+        switch (classifierID)
+        {
         case QosPerformancePackage.SYSTEM_SPECIFIED_EXECUTION_TIME:
-            return this.validateSystemSpecifiedExecutionTime((SystemSpecifiedExecutionTime) value, diagnostics,
-                    context);
+            return this
+                    .validateSystemSpecifiedExecutionTime((SystemSpecifiedExecutionTime) value, diagnostics, context);
         case QosPerformancePackage.SPECIFIED_EXECUTION_TIME:
             return this.validateSpecifiedExecutionTime((SpecifiedExecutionTime) value, diagnostics, context);
         case QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME:
@@ -119,12 +120,14 @@ public class QosPerformanceValidator extends EObjectValidator {
      *
      * @generated
      */
-    public boolean validateSystemSpecifiedExecutionTime(final SystemSpecifiedExecutionTime systemSpecifiedExecutionTime,
+    public boolean validateSystemSpecifiedExecutionTime(
+            final SystemSpecifiedExecutionTime systemSpecifiedExecutionTime,
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(systemSpecifiedExecutionTime, diagnostics, context)) {
             return false;
         }
-        boolean result = this.validate_EveryMultiplicityConforms(systemSpecifiedExecutionTime, diagnostics, context);
+        boolean result = this.validate_EveryMultiplicityConforms(systemSpecifiedExecutionTime, diagnostics,
+                context);
         if (result || diagnostics != null) {
             result &= this.validate_EveryDataValueConforms(systemSpecifiedExecutionTime, diagnostics, context);
         }

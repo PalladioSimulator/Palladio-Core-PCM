@@ -18,16 +18,16 @@ import org.palladiosimulator.pcm.repository.RequiredCharacterisation;
  * <em><b>Required Characterisation</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.impl.RequiredCharacterisationImpl#getType
- * <em>Type</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.RequiredCharacterisationImpl#getType <em>
+ * Type</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.repository.impl.RequiredCharacterisationImpl#getParameter
  * <em>Parameter</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.impl.RequiredCharacterisationImpl#getInterface_RequiredCharacterisation
  * <em>Interface Required Characterisation</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -176,7 +176,8 @@ public class RequiredCharacterisationImpl extends CDOObjectImpl implements Requi
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -194,7 +195,8 @@ public class RequiredCharacterisationImpl extends CDOObjectImpl implements Requi
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION:
             return this.basicSetInterface_RequiredCharacterisation(null, msgs);
         }
@@ -208,10 +210,12 @@ public class RequiredCharacterisationImpl extends CDOObjectImpl implements Requi
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION:
             return this.eInternalContainer().eInverseRemove(this,
-                    RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS, Interface.class, msgs);
+                    RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS,
+                    Interface.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -223,7 +227,8 @@ public class RequiredCharacterisationImpl extends CDOObjectImpl implements Requi
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.REQUIRED_CHARACTERISATION__TYPE:
             return this.getType();
         case RepositoryPackage.REQUIRED_CHARACTERISATION__PARAMETER:
@@ -244,7 +249,8 @@ public class RequiredCharacterisationImpl extends CDOObjectImpl implements Requi
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.REQUIRED_CHARACTERISATION__TYPE:
             this.setType((VariableCharacterisationType) newValue);
             return;
@@ -265,7 +271,8 @@ public class RequiredCharacterisationImpl extends CDOObjectImpl implements Requi
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.REQUIRED_CHARACTERISATION__TYPE:
             this.setType(TYPE_EDEFAULT);
             return;
@@ -286,7 +293,8 @@ public class RequiredCharacterisationImpl extends CDOObjectImpl implements Requi
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.REQUIRED_CHARACTERISATION__TYPE:
             return this.getType() != TYPE_EDEFAULT;
         case RepositoryPackage.REQUIRED_CHARACTERISATION__PARAMETER:

@@ -19,12 +19,12 @@ import org.palladiosimulator.pcm.repository.PassiveResource;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.reliability.ResourceTimeoutFailureType#getPassiveResource__ResourceTimeoutFailureType
  * <em>Passive Resource Resource Timeout Failure Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.reliability.ReliabilityPackage#getResourceTimeoutFailureType()
  * @model

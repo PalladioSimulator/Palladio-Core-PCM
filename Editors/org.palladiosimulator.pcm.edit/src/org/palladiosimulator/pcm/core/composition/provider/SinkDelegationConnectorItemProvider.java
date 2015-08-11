@@ -24,7 +24,7 @@ public class SinkDelegationConnectorItemProvider extends DelegationConnectorItem
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -32,7 +32,7 @@ public class SinkDelegationConnectorItemProvider extends DelegationConnectorItem
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SinkDelegationConnectorItemProvider(final AdapterFactory adapterFactory) {
@@ -42,12 +42,13 @@ public class SinkDelegationConnectorItemProvider extends DelegationConnectorItem
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null) {
+        if (this.itemPropertyDescriptors == null)
+        {
             super.getPropertyDescriptors(object);
 
             this.addAssemblyContext__SinkDelegationConnectorPropertyDescriptor(object);
@@ -60,18 +61,26 @@ public class SinkDelegationConnectorItemProvider extends DelegationConnectorItem
     /**
      * This adds a property descriptor for the Assembly Context Sink Delegation Connector feature.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addAssemblyContext__SinkDelegationConnectorPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_SinkDelegationConnector_assemblyContext__SinkDelegationConnector_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_SinkDelegationConnector_assemblyContext__SinkDelegationConnector_feature",
-                        "_UI_SinkDelegationConnector_type"),
-                CompositionPackage.Literals.SINK_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SINK_DELEGATION_CONNECTOR, true,
-                false, true, null, null, null));
+        this.itemPropertyDescriptors
+        .add
+        (this.createItemPropertyDescriptor
+                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                                this.getResourceLocator(),
+                                this.getString("_UI_SinkDelegationConnector_assemblyContext__SinkDelegationConnector_feature"),
+                                this.getString("_UI_PropertyDescriptor_description",
+                                        "_UI_SinkDelegationConnector_assemblyContext__SinkDelegationConnector_feature",
+                                        "_UI_SinkDelegationConnector_type"),
+                                CompositionPackage.Literals.SINK_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SINK_DELEGATION_CONNECTOR,
+                                true,
+                                false,
+                                true,
+                                null,
+                                null,
+                                null));
     }
 
     /**
@@ -81,14 +90,21 @@ public class SinkDelegationConnectorItemProvider extends DelegationConnectorItem
      * @generated
      */
     protected void addInnerSinkRole__SinkRolePropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_SinkDelegationConnector_innerSinkRole__SinkRole_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_SinkDelegationConnector_innerSinkRole__SinkRole_feature",
-                        "_UI_SinkDelegationConnector_type"),
-                CompositionPackage.Literals.SINK_DELEGATION_CONNECTOR__INNER_SINK_ROLE_SINK_ROLE, true, false, true,
-                null, null, null));
+        this.itemPropertyDescriptors.add
+        (this.createItemPropertyDescriptor
+                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                                this.getResourceLocator(),
+                                this.getString("_UI_SinkDelegationConnector_innerSinkRole__SinkRole_feature"),
+                                this.getString("_UI_PropertyDescriptor_description",
+                                        "_UI_SinkDelegationConnector_innerSinkRole__SinkRole_feature",
+                                        "_UI_SinkDelegationConnector_type"),
+                                CompositionPackage.Literals.SINK_DELEGATION_CONNECTOR__INNER_SINK_ROLE_SINK_ROLE,
+                                true,
+                                false,
+                                true,
+                                null,
+                                null,
+                                null));
     }
 
     /**
@@ -98,19 +114,26 @@ public class SinkDelegationConnectorItemProvider extends DelegationConnectorItem
      * @generated
      */
     protected void addOuterSinkRole__SinkRolePropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_SinkDelegationConnector_outerSinkRole__SinkRole_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_SinkDelegationConnector_outerSinkRole__SinkRole_feature",
-                        "_UI_SinkDelegationConnector_type"),
-                CompositionPackage.Literals.SINK_DELEGATION_CONNECTOR__OUTER_SINK_ROLE_SINK_ROLE, true, false, true,
-                null, null, null));
+        this.itemPropertyDescriptors.add
+        (this.createItemPropertyDescriptor
+                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                                this.getResourceLocator(),
+                                this.getString("_UI_SinkDelegationConnector_outerSinkRole__SinkRole_feature"),
+                                this.getString("_UI_PropertyDescriptor_description",
+                                        "_UI_SinkDelegationConnector_outerSinkRole__SinkRole_feature",
+                                        "_UI_SinkDelegationConnector_type"),
+                                CompositionPackage.Literals.SINK_DELEGATION_CONNECTOR__OUTER_SINK_ROLE_SINK_ROLE,
+                                true,
+                                false,
+                                true,
+                                null,
+                                null,
+                                null));
     }
 
     /**
      * This returns SinkDelegationConnector.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,15 +150,16 @@ public class SinkDelegationConnectorItemProvider extends DelegationConnectorItem
     @Override
     public String getText(final Object object) {
         final String label = ((SinkDelegationConnector) object).getId();
-        return label == null || label.length() == 0 ? this.getString("_UI_SinkDelegationConnector_type")
-                : this.getString("_UI_SinkDelegationConnector_type") + " " + label;
+        return label == null || label.length() == 0 ?
+                this.getString("_UI_SinkDelegationConnector_type") :
+                    this.getString("_UI_SinkDelegationConnector_type") + " " + label;
     }
 
     /**
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -147,7 +171,7 @@ public class SinkDelegationConnectorItemProvider extends DelegationConnectorItem
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

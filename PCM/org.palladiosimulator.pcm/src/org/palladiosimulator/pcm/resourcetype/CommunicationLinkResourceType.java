@@ -14,12 +14,12 @@ import org.palladiosimulator.pcm.reliability.NetworkInducedFailureType;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType#getNetworkInducedFailureType__CommunicationLinkResourceType
  * <em>Network Induced Failure Type Communication Link Resource Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#getCommunicationLinkResourceType()
  * @model

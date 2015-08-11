@@ -47,7 +47,8 @@ public class AllocationSwitch<T> {
      * @generated
      */
     public AllocationSwitch() {
-        if (modelPackage == null) {
+        if (modelPackage == null)
+        {
             modelPackage = AllocationPackage.eINSTANCE;
         }
     }
@@ -71,11 +72,16 @@ public class AllocationSwitch<T> {
      * @generated
      */
     protected T doSwitch(final EClass theEClass, final EObject theEObject) {
-        if (theEClass.eContainer() == modelPackage) {
+        if (theEClass.eContainer() == modelPackage)
+        {
             return this.doSwitch(theEClass.getClassifierID(), theEObject);
-        } else {
+        }
+        else
+        {
             final List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ? this.defaultCase(theEObject) : this.doSwitch(eSuperTypes.get(0), theEObject);
+            return eSuperTypes.isEmpty() ?
+                    this.defaultCase(theEObject) :
+                    this.doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
@@ -87,7 +93,8 @@ public class AllocationSwitch<T> {
      * @generated
      */
     protected T doSwitch(final int classifierID, final EObject theEObject) {
-        switch (classifierID) {
+        switch (classifierID)
+        {
         case AllocationPackage.ALLOCATION_CONTEXT: {
             final AllocationContext allocationContext = (AllocationContext) theEObject;
             T result = this.caseAllocationContext(allocationContext);

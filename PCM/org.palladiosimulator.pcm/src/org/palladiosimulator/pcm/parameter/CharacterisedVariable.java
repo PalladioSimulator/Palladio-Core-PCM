@@ -16,11 +16,11 @@ import de.uka.ipd.sdq.stoex.Variable;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.parameter.CharacterisedVariable#getCharacterisationType
- * <em>Characterisation Type</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.parameter.CharacterisedVariable#getCharacterisationType <em>
+ * Characterisation Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.parameter.ParameterPackage#getCharacterisedVariable()
  * @model

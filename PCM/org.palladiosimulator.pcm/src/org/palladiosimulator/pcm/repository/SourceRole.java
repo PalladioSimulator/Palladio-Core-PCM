@@ -9,11 +9,11 @@ package org.palladiosimulator.pcm.repository;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.SourceRole#getEventGroup__SourceRole
- * <em>Event Group Source Role</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.SourceRole#getEventGroup__SourceRole <em>Event
+ * Group Source Role</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getSourceRole()
  * @model

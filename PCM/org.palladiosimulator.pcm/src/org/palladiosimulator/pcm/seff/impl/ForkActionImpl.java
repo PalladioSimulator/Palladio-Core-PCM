@@ -20,7 +20,6 @@ import org.palladiosimulator.pcm.seff.SynchronisationPoint;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.impl.ForkActionImpl#getAsynchronousForkedBehaviours_ForkAction
@@ -29,6 +28,7 @@ import org.palladiosimulator.pcm.seff.SynchronisationPoint;
  * {@link org.palladiosimulator.pcm.seff.impl.ForkActionImpl#getSynchronisingBehaviours_ForkAction
  * <em>Synchronising Behaviours Fork Action</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -117,13 +117,15 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getAsynchronousForkedBehaviours_ForkAction()).basicAdd(otherEnd, msgs);
+                    .getAsynchronousForkedBehaviours_ForkAction())
+                    .basicAdd(otherEnd, msgs);
         case SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION:
             final SynchronisationPoint synchronisingBehaviours_ForkAction = this
-                    .getSynchronisingBehaviours_ForkAction();
+            .getSynchronisingBehaviours_ForkAction();
             if (synchronisingBehaviours_ForkAction != null) {
                 msgs = ((InternalEObject) synchronisingBehaviours_ForkAction).eInverseRemove(this,
                         EOPPOSITE_FEATURE_BASE - SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION, null,
@@ -142,7 +144,8 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION:
             return ((InternalEList<?>) this.getAsynchronousForkedBehaviours_ForkAction()).basicRemove(otherEnd, msgs);
         case SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION:
@@ -158,7 +161,8 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION:
             return this.getAsynchronousForkedBehaviours_ForkAction();
         case SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION:
@@ -175,7 +179,8 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION:
             this.getAsynchronousForkedBehaviours_ForkAction().clear();
             this.getAsynchronousForkedBehaviours_ForkAction().addAll((Collection<? extends ForkedBehaviour>) newValue);
@@ -194,7 +199,8 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION:
             this.getAsynchronousForkedBehaviours_ForkAction().clear();
             return;
@@ -212,7 +218,8 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION:
             return !this.getAsynchronousForkedBehaviours_ForkAction().isEmpty();
         case SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION:

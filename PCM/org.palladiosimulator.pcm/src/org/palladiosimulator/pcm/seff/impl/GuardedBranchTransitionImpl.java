@@ -15,12 +15,12 @@ import org.palladiosimulator.pcm.seff.SeffPackage;
  * <em><b>Guarded Branch Transition</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.impl.GuardedBranchTransitionImpl#getBranchCondition_GuardedBranchTransition
  * <em>Branch Condition Guarded Branch Transition</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -96,10 +96,11 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION:
             final PCMRandomVariable branchCondition_GuardedBranchTransition = this
-                    .getBranchCondition_GuardedBranchTransition();
+            .getBranchCondition_GuardedBranchTransition();
             if (branchCondition_GuardedBranchTransition != null) {
                 msgs = ((InternalEObject) branchCondition_GuardedBranchTransition).eInverseRemove(this,
                         EOPPOSITE_FEATURE_BASE
@@ -119,7 +120,8 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION:
             return this.basicSetBranchCondition_GuardedBranchTransition(null, msgs);
         }
@@ -133,7 +135,8 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION:
             return this.getBranchCondition_GuardedBranchTransition();
         }
@@ -147,7 +150,8 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION:
             this.setBranchCondition_GuardedBranchTransition((PCMRandomVariable) newValue);
             return;
@@ -162,7 +166,8 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION:
             this.setBranchCondition_GuardedBranchTransition((PCMRandomVariable) null);
             return;
@@ -177,7 +182,8 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION:
             return this.getBranchCondition_GuardedBranchTransition() != null;
         }

@@ -12,7 +12,6 @@ import org.palladiosimulator.pcm.repository.SinkRole;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getSinkRole__EventChannelSinkConnector
@@ -27,6 +26,7 @@ import org.palladiosimulator.pcm.repository.SinkRole;
  * {@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getEventChannel__EventChannelSinkConnector
  * <em>Event Channel Event Channel Sink Connector</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getEventChannelSinkConnector()
  * @model

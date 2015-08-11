@@ -15,13 +15,13 @@ import org.palladiosimulator.pcm.core.PCMRandomVariable;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.Loop#getLoopIteration_Loop
- * <em>Loop Iteration Loop</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.Loop#getBodyBehaviour_Loop
- * <em>Body Behaviour Loop</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.Loop#getLoopIteration_Loop <em>Loop Iteration
+ * Loop</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.Loop#getBodyBehaviour_Loop <em>Body Behaviour
+ * Loop</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getLoop()
  * @model
@@ -57,7 +57,8 @@ public interface Loop extends AbstractUserAction {
     PCMRandomVariable getLoopIteration_Loop();
 
     /**
-     * Sets the value of the '{@link org.palladiosimulator.pcm.usagemodel.Loop#getLoopIteration_Loop
+     * Sets the value of the '
+     * {@link org.palladiosimulator.pcm.usagemodel.Loop#getLoopIteration_Loop
      * <em>Loop Iteration Loop</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -89,7 +90,8 @@ public interface Loop extends AbstractUserAction {
     ScenarioBehaviour getBodyBehaviour_Loop();
 
     /**
-     * Sets the value of the '{@link org.palladiosimulator.pcm.usagemodel.Loop#getBodyBehaviour_Loop
+     * Sets the value of the '
+     * {@link org.palladiosimulator.pcm.usagemodel.Loop#getBodyBehaviour_Loop
      * <em>Body Behaviour Loop</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

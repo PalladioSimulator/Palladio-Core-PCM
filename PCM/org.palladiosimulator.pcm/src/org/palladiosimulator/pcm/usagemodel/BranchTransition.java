@@ -18,16 +18,16 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranchProbability
- * <em>Branch Probability</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranch_BranchTransition
- * <em>Branch Branch Transition</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranchProbability <em>Branch
+ * Probability</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranch_BranchTransition <em>
+ * Branch Branch Transition</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition
  * <em>Branched Behaviour Branch Transition</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getBranchTransition()
  * @model

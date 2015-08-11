@@ -14,11 +14,11 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.DataType#getRepository__DataType
- * <em>Repository Data Type</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.DataType#getRepository__DataType <em>Repository
+ * Data Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getDataType()
  * @model abstract="true"

@@ -17,19 +17,19 @@ import org.palladiosimulator.pcm.reliability.FailureType;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.Repository#getRepositoryDescription
- * <em>Repository Description</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.Repository#getComponents__Repository
- * <em>Components Repository</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.Repository#getInterfaces__Repository
- * <em>Interfaces Repository</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.Repository#getFailureTypes__Repository
- * <em>Failure Types Repository</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.Repository#getDataTypes__Repository
- * <em>Data Types Repository</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Repository#getRepositoryDescription <em>
+ * Repository Description</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Repository#getComponents__Repository <em>
+ * Components Repository</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Repository#getInterfaces__Repository <em>
+ * Interfaces Repository</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Repository#getFailureTypes__Repository <em>
+ * Failure Types Repository</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Repository#getDataTypes__Repository <em>Data
+ * Types Repository</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getRepository()
  * @model

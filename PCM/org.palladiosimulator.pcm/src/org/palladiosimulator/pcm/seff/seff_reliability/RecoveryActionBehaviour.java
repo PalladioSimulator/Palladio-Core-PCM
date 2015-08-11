@@ -27,7 +27,6 @@ import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour#getFailureHandlingAlternatives__RecoveryActionBehaviour
@@ -36,6 +35,7 @@ import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour;
  * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour
  * <em>Recovery Action Recovery Action Behaviour</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage#getRecoveryActionBehaviour()
  * @model

@@ -20,7 +20,6 @@ import org.palladiosimulator.pcm.repository.OperationRequiredRole;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getRequiringAssemblyContext_AssemblyConnector
@@ -35,6 +34,7 @@ import org.palladiosimulator.pcm.repository.OperationRequiredRole;
  * {@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getRequiredRole_AssemblyConnector
  * <em>Required Role Assembly Connector</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getAssemblyConnector()
  * @model

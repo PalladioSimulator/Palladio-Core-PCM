@@ -20,7 +20,6 @@ import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
  * <em><b>Processing Resource Specification</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getMTTR
@@ -47,6 +46,7 @@ import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
  * {@link org.palladiosimulator.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getResourceContainer_ProcessingResourceSpecification
  * <em>Resource Container Processing Resource Specification</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -229,10 +229,11 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
      */
     @Override
     public ProcessingResourceType getActiveResourceType_ActiveResourceSpecification() {
-        return (ProcessingResourceType) this.eDynamicGet(
-                ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION,
-                ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION,
-                true, true);
+        return (ProcessingResourceType) this
+                .eDynamicGet(
+                        ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION,
+                        ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION,
+                        true, true);
     }
 
     /**
@@ -241,10 +242,11 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
      * @generated
      */
     public ProcessingResourceType basicGetActiveResourceType_ActiveResourceSpecification() {
-        return (ProcessingResourceType) this.eDynamicGet(
-                ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION,
-                ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION,
-                false, true);
+        return (ProcessingResourceType) this
+                .eDynamicGet(
+                        ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION,
+                        ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION,
+                        false, true);
     }
 
     /**
@@ -268,10 +270,11 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
      */
     @Override
     public PCMRandomVariable getProcessingRate_ProcessingResourceSpecification() {
-        return (PCMRandomVariable) this.eDynamicGet(
-                ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION,
-                ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION,
-                true, true);
+        return (PCMRandomVariable) this
+                .eDynamicGet(
+                        ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION,
+                        ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION,
+                        true, true);
     }
 
     /**
@@ -281,9 +284,11 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
      */
     public NotificationChain basicSetProcessingRate_ProcessingResourceSpecification(
             final PCMRandomVariable newProcessingRate_ProcessingResourceSpecification, NotificationChain msgs) {
-        msgs = this.eDynamicInverseAdd((InternalEObject) newProcessingRate_ProcessingResourceSpecification,
-                ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION,
-                msgs);
+        msgs = this
+                .eDynamicInverseAdd(
+                        (InternalEObject) newProcessingRate_ProcessingResourceSpecification,
+                        ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION,
+                        msgs);
         return msgs;
     }
 
@@ -332,10 +337,11 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
      */
     @Override
     public ResourceContainer getResourceContainer_ProcessingResourceSpecification() {
-        return (ResourceContainer) this.eDynamicGet(
-                ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION,
-                ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION,
-                true, true);
+        return (ResourceContainer) this
+                .eDynamicGet(
+                        ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION,
+                        ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION,
+                        true, true);
     }
 
     /**
@@ -345,9 +351,11 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
      */
     public NotificationChain basicSetResourceContainer_ProcessingResourceSpecification(
             final ResourceContainer newResourceContainer_ProcessingResourceSpecification, NotificationChain msgs) {
-        msgs = this.eBasicSetContainer((InternalEObject) newResourceContainer_ProcessingResourceSpecification,
-                ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION,
-                msgs);
+        msgs = this
+                .eBasicSetContainer(
+                        (InternalEObject) newResourceContainer_ProcessingResourceSpecification,
+                        ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION,
+                        msgs);
         return msgs;
     }
 
@@ -372,15 +380,18 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION:
             final PCMRandomVariable processingRate_ProcessingResourceSpecification = this
-                    .getProcessingRate_ProcessingResourceSpecification();
+            .getProcessingRate_ProcessingResourceSpecification();
             if (processingRate_ProcessingResourceSpecification != null) {
-                msgs = ((InternalEObject) processingRate_ProcessingResourceSpecification).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION,
-                        null, msgs);
+                msgs = ((InternalEObject) processingRate_ProcessingResourceSpecification)
+                        .eInverseRemove(
+                                this,
+                                EOPPOSITE_FEATURE_BASE
+                                        - ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION,
+                                null, msgs);
             }
             return this.basicSetProcessingRate_ProcessingResourceSpecification((PCMRandomVariable) otherEnd, msgs);
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION:
@@ -400,7 +411,8 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION:
             return this.basicSetProcessingRate_ProcessingResourceSpecification(null, msgs);
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION:
@@ -416,7 +428,8 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION:
             return this.eInternalContainer().eInverseRemove(this,
                     ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER,
@@ -432,7 +445,8 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR:
             return this.getMTTR();
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF:
@@ -466,7 +480,8 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR:
             this.setMTTR((Double) newValue);
             return;
@@ -502,7 +517,8 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR:
             this.setMTTR(MTTR_EDEFAULT);
             return;
@@ -538,7 +554,8 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTR:
             return this.getMTTR() != MTTR_EDEFAULT;
         case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__MTTF:

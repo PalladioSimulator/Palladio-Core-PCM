@@ -13,12 +13,12 @@ package org.palladiosimulator.pcm.repository;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.OperationRequiredRole#getRequiredInterface__OperationRequiredRole
  * <em>Required Interface Operation Required Role</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getOperationRequiredRole()
  * @model

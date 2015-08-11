@@ -21,6 +21,8 @@ import org.palladiosimulator.pcm.seff.util.SeffValidator;
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Stop Action</b></em>'. <!--
  * end-user-doc -->
+ * <p>
+ * </p>
  *
  * @generated
  */
@@ -85,26 +87,34 @@ public class StopActionImpl extends AbstractInternalControlFlowActionImpl implem
     @Override
     public boolean StopActionSuccessorMustNotBeDefined(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (STOP_ACTION_SUCCESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (STOP_ACTION_SUCCESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.STOP_ACTION);
-            try {
+            try
+            {
                 STOP_ACTION_SUCCESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(STOP_ACTION_SUCCESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV.createQuery(STOP_ACTION_SUCCESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
-                diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
+                .check(this))
+        {
+            if (diagnostics != null)
+            {
+                diagnostics.add
+                        (new BasicDiagnostic
+                        (Diagnostic.ERROR,
+                                SeffValidator.DIAGNOSTIC_SOURCE,
                                 SeffValidator.STOP_ACTION__STOP_ACTION_SUCCESSOR_MUST_NOT_BE_DEFINED,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                EcorePlugin.INSTANCE.getString(
+                                        "_UI_GenericInvariant_diagnostic",
                                         new Object[] { "StopActionSuccessorMustNotBeDefined",
                                                 EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                new Object[] { this }));
             }
             return false;
         }

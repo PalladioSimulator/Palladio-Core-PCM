@@ -201,8 +201,16 @@ public enum PrimitiveTypeEnum implements Enumerator {
      *
      * @generated
      */
-    private static final PrimitiveTypeEnum[] VALUES_ARRAY = new PrimitiveTypeEnum[] { INT, STRING, BOOL, DOUBLE, CHAR,
-            BYTE, LONG, };
+    private static final PrimitiveTypeEnum[] VALUES_ARRAY = new PrimitiveTypeEnum[]
+    {
+            INT,
+            STRING,
+            BOOL,
+            DOUBLE,
+            CHAR,
+            BYTE,
+            LONG,
+    };
 
     /**
      * A public read-only list of all the '<em><b>Primitive Type Enum</b></em>' enumerators. <!--
@@ -216,14 +224,12 @@ public enum PrimitiveTypeEnum implements Enumerator {
      * Returns the '<em><b>Primitive Type Enum</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @param literal
-     *            the literal.
-     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static PrimitiveTypeEnum get(final String literal) {
         for (final PrimitiveTypeEnum result : VALUES_ARRAY) {
-            if (result.toString().equals(literal)) {
+            if (result.toString().equals(literal))
+            {
                 return result;
             }
         }
@@ -241,7 +247,8 @@ public enum PrimitiveTypeEnum implements Enumerator {
      */
     public static PrimitiveTypeEnum getByName(final String name) {
         for (final PrimitiveTypeEnum result : VALUES_ARRAY) {
-            if (result.getName().equals(name)) {
+            if (result.getName().equals(name))
+            {
                 return result;
             }
         }
@@ -252,13 +259,11 @@ public enum PrimitiveTypeEnum implements Enumerator {
      * Returns the '<em><b>Primitive Type Enum</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @param value
-     *            the integer value.
-     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static PrimitiveTypeEnum get(final int value) {
-        switch (value) {
+        switch (value)
+        {
         case INT_VALUE:
             return INT;
         case STRING_VALUE:

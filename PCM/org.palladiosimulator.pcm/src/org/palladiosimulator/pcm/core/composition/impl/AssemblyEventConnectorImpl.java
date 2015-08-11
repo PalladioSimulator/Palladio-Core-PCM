@@ -18,7 +18,6 @@ import org.palladiosimulator.pcm.repository.SourceRole;
  * <em><b>Assembly Event Connector</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.impl.AssemblyEventConnectorImpl#getSinkRole__AssemblyEventConnector
@@ -36,6 +35,7 @@ import org.palladiosimulator.pcm.repository.SourceRole;
  * {@link org.palladiosimulator.pcm.core.composition.impl.AssemblyEventConnectorImpl#getFilterCondition__AssemblyEventConnector
  * <em>Filter Condition Assembly Event Connector</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -120,10 +120,11 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
      * @generated
      */
     public SourceRole basicGetSourceRole__AssemblyEventConnector() {
-        return (SourceRole) this.eDynamicGet(
-                CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR,
-                CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR, false,
-                true);
+        return (SourceRole) this
+                .eDynamicGet(
+                        CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR,
+                        CompositionPackage.Literals.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR,
+                        false, true);
     }
 
     /**
@@ -259,15 +260,18 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__FILTER_CONDITION_ASSEMBLY_EVENT_CONNECTOR:
             final PCMRandomVariable filterCondition__AssemblyEventConnector = this
-                    .getFilterCondition__AssemblyEventConnector();
+            .getFilterCondition__AssemblyEventConnector();
             if (filterCondition__AssemblyEventConnector != null) {
-                msgs = ((InternalEObject) filterCondition__AssemblyEventConnector).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__FILTER_CONDITION_ASSEMBLY_EVENT_CONNECTOR,
-                        null, msgs);
+                msgs = ((InternalEObject) filterCondition__AssemblyEventConnector)
+                        .eInverseRemove(
+                                this,
+                                EOPPOSITE_FEATURE_BASE
+                                        - CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__FILTER_CONDITION_ASSEMBLY_EVENT_CONNECTOR,
+                                null, msgs);
             }
             return this.basicSetFilterCondition__AssemblyEventConnector((PCMRandomVariable) otherEnd, msgs);
         }
@@ -282,7 +286,8 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__FILTER_CONDITION_ASSEMBLY_EVENT_CONNECTOR:
             return this.basicSetFilterCondition__AssemblyEventConnector(null, msgs);
         }
@@ -296,7 +301,8 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SINK_ROLE_ASSEMBLY_EVENT_CONNECTOR:
             if (resolve) {
                 return this.getSinkRole__AssemblyEventConnector();
@@ -330,7 +336,8 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SINK_ROLE_ASSEMBLY_EVENT_CONNECTOR:
             this.setSinkRole__AssemblyEventConnector((SinkRole) newValue);
             return;
@@ -357,7 +364,8 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SINK_ROLE_ASSEMBLY_EVENT_CONNECTOR:
             this.setSinkRole__AssemblyEventConnector((SinkRole) null);
             return;
@@ -384,7 +392,8 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SINK_ROLE_ASSEMBLY_EVENT_CONNECTOR:
             return this.basicGetSinkRole__AssemblyEventConnector() != null;
         case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR__SOURCE_ROLE_ASSEMBLY_EVENT_CONNECTOR:

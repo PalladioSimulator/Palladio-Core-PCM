@@ -51,7 +51,8 @@ public class SystemSwitch<T> {
      * @generated
      */
     public SystemSwitch() {
-        if (modelPackage == null) {
+        if (modelPackage == null)
+        {
             modelPackage = SystemPackage.eINSTANCE;
         }
     }
@@ -75,11 +76,16 @@ public class SystemSwitch<T> {
      * @generated
      */
     protected T doSwitch(final EClass theEClass, final EObject theEObject) {
-        if (theEClass.eContainer() == modelPackage) {
+        if (theEClass.eContainer() == modelPackage)
+        {
             return this.doSwitch(theEClass.getClassifierID(), theEObject);
-        } else {
+        }
+        else
+        {
             final List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ? this.defaultCase(theEObject) : this.doSwitch(eSuperTypes.get(0), theEObject);
+            return eSuperTypes.isEmpty() ?
+                    this.defaultCase(theEObject) :
+                    this.doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
@@ -91,7 +97,8 @@ public class SystemSwitch<T> {
      * @generated
      */
     protected T doSwitch(final int classifierID, final EObject theEObject) {
-        switch (classifierID) {
+        switch (classifierID)
+        {
         case SystemPackage.SYSTEM: {
             final org.palladiosimulator.pcm.system.System system = (org.palladiosimulator.pcm.system.System) theEObject;
             T result = this.caseSystem(system);

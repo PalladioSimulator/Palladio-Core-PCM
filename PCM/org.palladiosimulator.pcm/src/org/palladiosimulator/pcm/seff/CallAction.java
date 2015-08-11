@@ -4,6 +4,7 @@
 package org.palladiosimulator.pcm.seff;
 
 import org.eclipse.emf.common.util.EList;
+import org.palladiosimulator.pcm.core.entity.Entity;
 import org.palladiosimulator.pcm.parameter.VariableUsage;
 
 /**
@@ -15,17 +16,17 @@ import org.palladiosimulator.pcm.parameter.VariableUsage;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.seff.CallAction#getInputVariableUsages__CallAction
- * <em>Input Variable Usages Call Action</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.CallAction#getInputVariableUsages__CallAction <em>Input
+ * Variable Usages Call Action</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getCallAction()
  * @model abstract="true"
  * @generated
  */
-public interface CallAction extends AbstractAction {
+public interface CallAction extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

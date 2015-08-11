@@ -14,46 +14,51 @@ import de.uka.ipd.sdq.units.provider.UnitsEditPlugin;
 /**
  * This is the central singleton for the PalladioComponentModel edit plugin. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public final class PalladioComponentModelEditPlugin extends EMFPlugin {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
 
     /**
      * Keep track of the singleton. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final PalladioComponentModelEditPlugin INSTANCE = new PalladioComponentModelEditPlugin();
 
     /**
      * Keep track of the singleton. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static Implementation plugin;
 
     /**
      * Create the instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public PalladioComponentModelEditPlugin() {
-        super(new ResourceLocator[] { IdentifierEditPlugin.INSTANCE, ProbabilityFunctionEditPlugin.INSTANCE,
-                StoexEditPlugin.INSTANCE, UnitsEditPlugin.INSTANCE, });
+        super(new ResourceLocator[]
+                {
+                IdentifierEditPlugin.INSTANCE,
+                ProbabilityFunctionEditPlugin.INSTANCE,
+                StoexEditPlugin.INSTANCE,
+                UnitsEditPlugin.INSTANCE,
+                });
     }
 
     /**
      * Returns the singleton instance of the Eclipse plugin. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @return the singleton instance.
      * @generated
      */
@@ -65,7 +70,7 @@ public final class PalladioComponentModelEditPlugin extends EMFPlugin {
     /**
      * Returns the singleton instance of the Eclipse plugin. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @return the singleton instance.
      * @generated
      */
@@ -76,14 +81,14 @@ public final class PalladioComponentModelEditPlugin extends EMFPlugin {
     /**
      * The actual implementation of the Eclipse <b>Plugin</b>. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static class Implementation extends EclipsePlugin {
 
         /**
          * Creates an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-         *
+         * 
          * @generated
          */
         public Implementation() {

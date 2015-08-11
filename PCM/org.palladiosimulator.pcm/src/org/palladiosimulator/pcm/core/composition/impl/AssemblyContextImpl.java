@@ -22,7 +22,6 @@ import org.palladiosimulator.pcm.repository.RepositoryComponent;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.impl.AssemblyContextImpl#getParentStructure__AssemblyContext
@@ -34,6 +33,7 @@ import org.palladiosimulator.pcm.repository.RepositoryComponent;
  * {@link org.palladiosimulator.pcm.core.composition.impl.AssemblyContextImpl#getConfigParameterUsages__AssemblyContext
  * <em>Config Parameter Usages Assembly Context</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -158,7 +158,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -166,7 +167,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
             return this.basicSetParentStructure__AssemblyContext((ComposedStructure) otherEnd, msgs);
         case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getConfigParameterUsages__AssemblyContext()).basicAdd(otherEnd, msgs);
+                    .getConfigParameterUsages__AssemblyContext())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -179,7 +181,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
             return this.basicSetParentStructure__AssemblyContext(null, msgs);
         case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT:
@@ -195,7 +198,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
             return this.eInternalContainer().eInverseRemove(this,
                     CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE,
@@ -211,7 +215,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
             return this.getParentStructure__AssemblyContext();
         case CompositionPackage.ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_ASSEMBLY_CONTEXT:
@@ -233,7 +238,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
             this.setParentStructure__AssemblyContext((ComposedStructure) newValue);
             return;
@@ -255,7 +261,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
             this.setParentStructure__AssemblyContext((ComposedStructure) null);
             return;
@@ -276,7 +283,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
             return this.getParentStructure__AssemblyContext() != null;
         case CompositionPackage.ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_ASSEMBLY_CONTEXT:

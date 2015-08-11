@@ -18,7 +18,6 @@ import org.palladiosimulator.pcm.seff.CallAction;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall#getSignature__InfrastructureCall
@@ -33,6 +32,7 @@ import org.palladiosimulator.pcm.seff.CallAction;
  * {@link org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall#getRequiredRole__InfrastructureCall
  * <em>Required Role Infrastructure Call</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage#getInfrastructureCall()
  * @model

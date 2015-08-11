@@ -16,12 +16,12 @@ import org.palladiosimulator.pcm.resourcetype.ResourcetypePackage;
  * <em><b>Communication Link Resource Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.resourcetype.impl.CommunicationLinkResourceTypeImpl#getNetworkInducedFailureType__CommunicationLinkResourceType
  * <em>Network Induced Failure Type Communication Link Resource Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -60,10 +60,11 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
      */
     @Override
     public NetworkInducedFailureType getNetworkInducedFailureType__CommunicationLinkResourceType() {
-        return (NetworkInducedFailureType) this.eDynamicGet(
-                ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE,
-                ResourcetypePackage.Literals.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE,
-                true, true);
+        return (NetworkInducedFailureType) this
+                .eDynamicGet(
+                        ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE,
+                        ResourcetypePackage.Literals.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE,
+                        true, true);
     }
 
     /**
@@ -72,10 +73,11 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
      * @generated
      */
     public NetworkInducedFailureType basicGetNetworkInducedFailureType__CommunicationLinkResourceType() {
-        return (NetworkInducedFailureType) this.eDynamicGet(
-                ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE,
-                ResourcetypePackage.Literals.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE,
-                false, true);
+        return (NetworkInducedFailureType) this
+                .eDynamicGet(
+                        ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE,
+                        ResourcetypePackage.Literals.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE,
+                        false, true);
     }
 
     /**
@@ -86,9 +88,11 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
     public NotificationChain basicSetNetworkInducedFailureType__CommunicationLinkResourceType(
             final NetworkInducedFailureType newNetworkInducedFailureType__CommunicationLinkResourceType,
             NotificationChain msgs) {
-        msgs = this.eDynamicInverseAdd((InternalEObject) newNetworkInducedFailureType__CommunicationLinkResourceType,
-                ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE,
-                msgs);
+        msgs = this
+                .eDynamicInverseAdd(
+                        (InternalEObject) newNetworkInducedFailureType__CommunicationLinkResourceType,
+                        ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE,
+                        msgs);
         return msgs;
     }
 
@@ -113,14 +117,17 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE:
             final NetworkInducedFailureType networkInducedFailureType__CommunicationLinkResourceType = this
-                    .basicGetNetworkInducedFailureType__CommunicationLinkResourceType();
+            .basicGetNetworkInducedFailureType__CommunicationLinkResourceType();
             if (networkInducedFailureType__CommunicationLinkResourceType != null) {
-                msgs = ((InternalEObject) networkInducedFailureType__CommunicationLinkResourceType).eInverseRemove(this,
-                        ReliabilityPackage.NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE,
-                        NetworkInducedFailureType.class, msgs);
+                msgs = ((InternalEObject) networkInducedFailureType__CommunicationLinkResourceType)
+                        .eInverseRemove(
+                                this,
+                                ReliabilityPackage.NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE,
+                                NetworkInducedFailureType.class, msgs);
             }
             return this.basicSetNetworkInducedFailureType__CommunicationLinkResourceType(
                     (NetworkInducedFailureType) otherEnd, msgs);
@@ -136,7 +143,8 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE:
             return this.basicSetNetworkInducedFailureType__CommunicationLinkResourceType(null, msgs);
         }
@@ -150,7 +158,8 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE:
             if (resolve) {
                 return this.getNetworkInducedFailureType__CommunicationLinkResourceType();
@@ -167,7 +176,8 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE:
             this.setNetworkInducedFailureType__CommunicationLinkResourceType((NetworkInducedFailureType) newValue);
             return;
@@ -182,7 +192,8 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE:
             this.setNetworkInducedFailureType__CommunicationLinkResourceType((NetworkInducedFailureType) null);
             return;
@@ -197,7 +208,8 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE:
             return this.basicGetNetworkInducedFailureType__CommunicationLinkResourceType() != null;
         }

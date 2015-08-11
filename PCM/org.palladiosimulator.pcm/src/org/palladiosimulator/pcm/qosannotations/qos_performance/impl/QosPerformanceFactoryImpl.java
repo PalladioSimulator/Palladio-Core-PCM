@@ -33,13 +33,16 @@ public class QosPerformanceFactoryImpl extends EFactoryImpl implements QosPerfor
      * @generated
      */
     public static QosPerformanceFactory init() {
-        try {
+        try
+        {
             final QosPerformanceFactory theQosPerformanceFactory = (QosPerformanceFactory) EPackage.Registry.INSTANCE
                     .getEFactory(QosPerformancePackage.eNS_URI);
-            if (theQosPerformanceFactory != null) {
+            if (theQosPerformanceFactory != null)
+            {
                 return theQosPerformanceFactory;
             }
-        } catch (final Exception exception) {
+        } catch (final Exception exception)
+        {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new QosPerformanceFactoryImpl();
@@ -61,7 +64,8 @@ public class QosPerformanceFactoryImpl extends EFactoryImpl implements QosPerfor
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID()) {
+        switch (eClass.getClassifierID())
+        {
         case QosPerformancePackage.SYSTEM_SPECIFIED_EXECUTION_TIME:
             return this.createSystemSpecifiedExecutionTime();
         case QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME:

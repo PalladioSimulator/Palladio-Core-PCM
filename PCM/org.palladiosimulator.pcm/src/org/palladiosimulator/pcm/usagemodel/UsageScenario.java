@@ -16,15 +16,15 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getUsageModel_UsageScenario
- * <em>Usage Model Usage Scenario</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getUsageModel_UsageScenario <em>
+ * Usage Model Usage Scenario</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getScenarioBehaviour_UsageScenario
  * <em>Scenario Behaviour Usage Scenario</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario
- * <em>Workload Usage Scenario</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario <em>
+ * Workload Usage Scenario</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getUsageScenario()
  * @model

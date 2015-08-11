@@ -21,7 +21,6 @@ import org.palladiosimulator.pcm.seff.seff_performance.ResourceCall;
  * <em><b>Abstract Internal Control Flow Action</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.impl.AbstractInternalControlFlowActionImpl#getResourceDemand_Action
@@ -33,6 +32,7 @@ import org.palladiosimulator.pcm.seff.seff_performance.ResourceCall;
  * {@link org.palladiosimulator.pcm.seff.impl.AbstractInternalControlFlowActionImpl#getResourceCall__Action
  * <em>Resource Call Action</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -113,16 +113,19 @@ public abstract class AbstractInternalControlFlowActionImpl extends AbstractActi
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getResourceDemand_Action())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getResourceDemand_Action()).basicAdd(
+                    otherEnd,
+                    msgs);
         case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getInfrastructureCall__Action())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getInfrastructureCall__Action()).basicAdd(
+                    otherEnd, msgs);
         case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_CALL_ACTION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getResourceCall__Action())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getResourceCall__Action()).basicAdd(
+                    otherEnd,
+                    msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -135,7 +138,8 @@ public abstract class AbstractInternalControlFlowActionImpl extends AbstractActi
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION:
             return ((InternalEList<?>) this.getResourceDemand_Action()).basicRemove(otherEnd, msgs);
         case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION:
@@ -153,7 +157,8 @@ public abstract class AbstractInternalControlFlowActionImpl extends AbstractActi
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION:
             return this.getResourceDemand_Action();
         case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION:
@@ -172,7 +177,8 @@ public abstract class AbstractInternalControlFlowActionImpl extends AbstractActi
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION:
             this.getResourceDemand_Action().clear();
             this.getResourceDemand_Action().addAll((Collection<? extends ParametricResourceDemand>) newValue);
@@ -196,7 +202,8 @@ public abstract class AbstractInternalControlFlowActionImpl extends AbstractActi
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION:
             this.getResourceDemand_Action().clear();
             return;
@@ -217,7 +224,8 @@ public abstract class AbstractInternalControlFlowActionImpl extends AbstractActi
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION:
             return !this.getResourceDemand_Action().isEmpty();
         case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION:

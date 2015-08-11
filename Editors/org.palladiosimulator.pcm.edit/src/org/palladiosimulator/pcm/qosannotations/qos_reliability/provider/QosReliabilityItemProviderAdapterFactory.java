@@ -35,15 +35,15 @@ import org.palladiosimulator.pcm.qosannotations.qos_reliability.util.QosReliabil
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- *
+ * 
  * @generated
  */
 public class QosReliabilityItemProviderAdapterFactory extends QosReliabilityAdapterFactory
-        implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
+implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -66,7 +66,7 @@ public class QosReliabilityItemProviderAdapterFactory extends QosReliabilityAdap
 
     /**
      * This helps manage the child creation extenders. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
@@ -75,14 +75,14 @@ public class QosReliabilityItemProviderAdapterFactory extends QosReliabilityAdap
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public QosReliabilityItemProviderAdapterFactory() {
@@ -97,7 +97,7 @@ public class QosReliabilityItemProviderAdapterFactory extends QosReliabilityAdap
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SpecifiedReliabilityAnnotationItemProvider specifiedReliabilityAnnotationItemProvider;
@@ -106,12 +106,13 @@ public class QosReliabilityItemProviderAdapterFactory extends QosReliabilityAdap
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createSpecifiedReliabilityAnnotationAdapter() {
-        if (this.specifiedReliabilityAnnotationItemProvider == null) {
+        if (this.specifiedReliabilityAnnotationItemProvider == null)
+        {
             this.specifiedReliabilityAnnotationItemProvider = new SpecifiedReliabilityAnnotationItemProvider(this);
         }
 
@@ -121,7 +122,7 @@ public class QosReliabilityItemProviderAdapterFactory extends QosReliabilityAdap
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -132,7 +133,7 @@ public class QosReliabilityItemProviderAdapterFactory extends QosReliabilityAdap
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -142,7 +143,7 @@ public class QosReliabilityItemProviderAdapterFactory extends QosReliabilityAdap
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -163,14 +164,16 @@ public class QosReliabilityItemProviderAdapterFactory extends QosReliabilityAdap
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Object adapt(final Object object, final Object type) {
-        if (this.isFactoryForType(type)) {
+        if (this.isFactoryForType(type))
+        {
             final Object adapter = super.adapt(object, type);
-            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter)))
+            {
                 return adapter;
             }
         }
@@ -180,7 +183,7 @@ public class QosReliabilityItemProviderAdapterFactory extends QosReliabilityAdap
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -189,7 +192,7 @@ public class QosReliabilityItemProviderAdapterFactory extends QosReliabilityAdap
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -199,7 +202,7 @@ public class QosReliabilityItemProviderAdapterFactory extends QosReliabilityAdap
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -209,7 +212,7 @@ public class QosReliabilityItemProviderAdapterFactory extends QosReliabilityAdap
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -219,7 +222,7 @@ public class QosReliabilityItemProviderAdapterFactory extends QosReliabilityAdap
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -237,7 +240,8 @@ public class QosReliabilityItemProviderAdapterFactory extends QosReliabilityAdap
     public void fireNotifyChanged(final Notification notification) {
         this.changeNotifier.fireNotifyChanged(notification);
 
-        if (this.parentAdapterFactory != null) {
+        if (this.parentAdapterFactory != null)
+        {
             this.parentAdapterFactory.fireNotifyChanged(notification);
         }
     }
@@ -245,7 +249,7 @@ public class QosReliabilityItemProviderAdapterFactory extends QosReliabilityAdap
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

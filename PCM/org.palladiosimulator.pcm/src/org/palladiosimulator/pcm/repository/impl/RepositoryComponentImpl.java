@@ -16,12 +16,12 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.impl.RepositoryComponentImpl#getRepository__RepositoryComponent
  * <em>Repository Repository Component</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -96,7 +96,8 @@ public abstract class RepositoryComponentImpl extends InterfaceProvidingRequirin
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -114,7 +115,8 @@ public abstract class RepositoryComponentImpl extends InterfaceProvidingRequirin
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
             return this.basicSetRepository__RepositoryComponent(null, msgs);
         }
@@ -128,7 +130,8 @@ public abstract class RepositoryComponentImpl extends InterfaceProvidingRequirin
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
             return this.eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY,
                     Repository.class, msgs);
@@ -143,7 +146,8 @@ public abstract class RepositoryComponentImpl extends InterfaceProvidingRequirin
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
             return this.getRepository__RepositoryComponent();
         }
@@ -157,7 +161,8 @@ public abstract class RepositoryComponentImpl extends InterfaceProvidingRequirin
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
             this.setRepository__RepositoryComponent((Repository) newValue);
             return;
@@ -172,7 +177,8 @@ public abstract class RepositoryComponentImpl extends InterfaceProvidingRequirin
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
             this.setRepository__RepositoryComponent((Repository) null);
             return;
@@ -187,7 +193,8 @@ public abstract class RepositoryComponentImpl extends InterfaceProvidingRequirin
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
             return this.getRepository__RepositoryComponent() != null;
         }

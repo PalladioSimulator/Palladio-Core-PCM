@@ -340,8 +340,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
-            + 0;
+    int RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '
@@ -351,8 +350,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
-            + 1;
+    int RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Steps Behaviour</b></em>' containment reference list. <!--
@@ -373,7 +371,8 @@ public interface SeffPackage extends EPackage {
     int RESOURCE_DEMANDING_BEHAVIOUR_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '{@link org.palladiosimulator.pcm.seff.impl.AbstractLoopActionImpl
+     * The meta object id for the '
+     * {@link org.palladiosimulator.pcm.seff.impl.AbstractLoopActionImpl
      * <em>Abstract Loop Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.seff.impl.AbstractLoopActionImpl
@@ -645,7 +644,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CALL_ACTION__ID = ABSTRACT_ACTION__ID;
+    int CALL_ACTION__ID = EntityPackage.ENTITY__ID;
 
     /**
      * The feature id for the '<em><b>Entity Name</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -654,34 +653,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CALL_ACTION__ENTITY_NAME = ABSTRACT_ACTION__ENTITY_NAME;
-
-    /**
-     * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION = ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION;
-
-    /**
-     * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION = ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION;
-
-    /**
-     * The feature id for the '<em><b>Resource Demanding Behaviour Abstract Action</b></em>'
-     * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION = ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION;
+    int CALL_ACTION__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
     /**
      * The feature id for the '<em><b>Input Variable Usages Call Action</b></em>' containment
@@ -690,7 +662,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 0;
+    int CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Call Action</em>' class. <!-- begin-user-doc
@@ -699,7 +671,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int CALL_ACTION_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 1;
+    int CALL_ACTION_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
      * The meta object id for the '{@link org.palladiosimulator.pcm.seff.impl.StartActionImpl
@@ -884,8 +856,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_DEMANDING_SEFF__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
-            + 2;
+    int RESOURCE_DEMANDING_SEFF__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Abstract Loop Action Resource Demanding Behaviour</b></em>'
@@ -894,8 +865,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_DEMANDING_SEFF__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
-            + 3;
+    int RESOURCE_DEMANDING_SEFF__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '
@@ -905,8 +875,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_DEMANDING_SEFF__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
-            + 4;
+    int RESOURCE_DEMANDING_SEFF__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Steps Behaviour</b></em>' containment reference list. <!--
@@ -924,8 +893,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
-            + 6;
+    int RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 6;
 
     /**
      * The number of structural features of the '<em>Resource Demanding SEFF</em>' class. <!--
@@ -993,8 +961,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR = RESOURCE_DEMANDING_BEHAVIOUR_FEATURE_COUNT
-            + 0;
+    int RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR = RESOURCE_DEMANDING_BEHAVIOUR_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Resource Demanding Internal Behaviour</em>'
@@ -1303,8 +1270,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT
-            + 0;
+    int FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Synchronising Behaviours Fork Action</b></em>' containment
@@ -1425,8 +1391,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
-            + 0;
+    int SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Fork Action Synchronisation Point</b></em>' container
@@ -1444,8 +1409,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
-            + 2;
+    int SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Synchronisation Point</em>' class. <!--
@@ -1457,7 +1421,8 @@ public interface SeffPackage extends EPackage {
     int SYNCHRONISATION_POINT_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '{@link org.palladiosimulator.pcm.seff.impl.ExternalCallActionImpl
+     * The meta object id for the '
+     * {@link org.palladiosimulator.pcm.seff.impl.ExternalCallActionImpl
      * <em>External Call Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.seff.impl.ExternalCallActionImpl
@@ -1601,33 +1566,6 @@ public interface SeffPackage extends EPackage {
      * @ordered
      */
     int CALL_RETURN_ACTION__ENTITY_NAME = CALL_ACTION__ENTITY_NAME;
-
-    /**
-     * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int CALL_RETURN_ACTION__PREDECESSOR_ABSTRACT_ACTION = CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION;
-
-    /**
-     * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int CALL_RETURN_ACTION__SUCCESSOR_ABSTRACT_ACTION = CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION;
-
-    /**
-     * The feature id for the '<em><b>Resource Demanding Behaviour Abstract Action</b></em>'
-     * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int CALL_RETURN_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION = CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION;
 
     /**
      * The feature id for the '<em><b>Input Variable Usages Call Action</b></em>' containment
@@ -2004,8 +1942,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION = ABSTRACT_BRANCH_TRANSITION_FEATURE_COUNT
-            + 0;
+    int GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION = ABSTRACT_BRANCH_TRANSITION_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Guarded Branch Transition</em>' class. <!--
@@ -2105,8 +2042,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT
-            + 0;
+    int SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Set Variable Action</em>' class. <!--
@@ -2118,7 +2054,8 @@ public interface SeffPackage extends EPackage {
     int SET_VARIABLE_ACTION_FEATURE_COUNT = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '{@link org.palladiosimulator.pcm.seff.impl.InternalCallActionImpl
+     * The meta object id for the '
+     * {@link org.palladiosimulator.pcm.seff.impl.InternalCallActionImpl
      * <em>Internal Call Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.seff.impl.InternalCallActionImpl
@@ -2146,33 +2083,6 @@ public interface SeffPackage extends EPackage {
     int INTERNAL_CALL_ACTION__ENTITY_NAME = CALL_ACTION__ENTITY_NAME;
 
     /**
-     * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int INTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION = CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION;
-
-    /**
-     * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int INTERNAL_CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION = CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION;
-
-    /**
-     * The feature id for the '<em><b>Resource Demanding Behaviour Abstract Action</b></em>'
-     * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int INTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION = CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION;
-
-    /**
      * The feature id for the '<em><b>Input Variable Usages Call Action</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -2182,13 +2092,40 @@ public interface SeffPackage extends EPackage {
     int INTERNAL_CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION = CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION;
 
     /**
+     * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION = CALL_ACTION_FEATURE_COUNT + 0;
+
+    /**
+     * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INTERNAL_CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION = CALL_ACTION_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Resource Demanding Behaviour Abstract Action</b></em>'
+     * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION = CALL_ACTION_FEATURE_COUNT + 2;
+
+    /**
      * The feature id for the '<em><b>Resource Demand Action</b></em>' containment reference list.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int INTERNAL_CALL_ACTION__RESOURCE_DEMAND_ACTION = CALL_ACTION_FEATURE_COUNT + 0;
+    int INTERNAL_CALL_ACTION__RESOURCE_DEMAND_ACTION = CALL_ACTION_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Infrastructure Call Action</b></em>' containment reference
@@ -2197,7 +2134,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERNAL_CALL_ACTION__INFRASTRUCTURE_CALL_ACTION = CALL_ACTION_FEATURE_COUNT + 1;
+    int INTERNAL_CALL_ACTION__INFRASTRUCTURE_CALL_ACTION = CALL_ACTION_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Resource Call Action</b></em>' containment reference list.
@@ -2206,7 +2143,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERNAL_CALL_ACTION__RESOURCE_CALL_ACTION = CALL_ACTION_FEATURE_COUNT + 2;
+    int INTERNAL_CALL_ACTION__RESOURCE_CALL_ACTION = CALL_ACTION_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Called Resource Demanding Internal Behaviour</b></em>'
@@ -2215,7 +2152,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERNAL_CALL_ACTION__CALLED_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR = CALL_ACTION_FEATURE_COUNT + 3;
+    int INTERNAL_CALL_ACTION__CALLED_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR = CALL_ACTION_FEATURE_COUNT + 6;
 
     /**
      * The number of structural features of the '<em>Internal Call Action</em>' class. <!--
@@ -2224,7 +2161,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERNAL_CALL_ACTION_FEATURE_COUNT = CALL_ACTION_FEATURE_COUNT + 4;
+    int INTERNAL_CALL_ACTION_FEATURE_COUNT = CALL_ACTION_FEATURE_COUNT + 7;
 
     /**
      * The meta object id for the '{@link org.palladiosimulator.pcm.seff.impl.EmitEventActionImpl
@@ -2407,8 +2344,7 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT
-            + 0;
+    int INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Internal Action</em>' class. <!--
@@ -2911,8 +2847,9 @@ public interface SeffPackage extends EPackage {
     EReference getForkedBehaviour_ForkAction_ForkedBehaivour();
 
     /**
-     * Returns the meta object for class '{@link org.palladiosimulator.pcm.seff.SynchronisationPoint
-     * <em>Synchronisation Point</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '
+     * {@link org.palladiosimulator.pcm.seff.SynchronisationPoint <em>Synchronisation Point</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Synchronisation Point</em>'.
      * @see org.palladiosimulator.pcm.seff.SynchronisationPoint
@@ -3924,8 +3861,8 @@ public interface SeffPackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.EmitEventActionImpl <em>Emit Event Action</em>
-         * }' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * {@link org.palladiosimulator.pcm.seff.impl.EmitEventActionImpl
+         * <em>Emit Event Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.EmitEventActionImpl
          * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getEmitEventAction()

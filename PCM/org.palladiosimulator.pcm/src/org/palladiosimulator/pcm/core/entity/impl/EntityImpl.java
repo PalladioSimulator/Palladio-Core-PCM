@@ -15,11 +15,11 @@ import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.core.entity.impl.EntityImpl#getEntityName
- * <em>Entity Name</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.core.entity.impl.EntityImpl#getEntityName <em>Entity Name
+ * </em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -90,7 +90,8 @@ public abstract class EntityImpl extends IdentifierImpl implements Entity {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case EntityPackage.ENTITY__ENTITY_NAME:
             return this.getEntityName();
         }
@@ -104,7 +105,8 @@ public abstract class EntityImpl extends IdentifierImpl implements Entity {
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case EntityPackage.ENTITY__ENTITY_NAME:
             this.setEntityName((String) newValue);
             return;
@@ -119,7 +121,8 @@ public abstract class EntityImpl extends IdentifierImpl implements Entity {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case EntityPackage.ENTITY__ENTITY_NAME:
             this.setEntityName(ENTITY_NAME_EDEFAULT);
             return;
@@ -134,10 +137,11 @@ public abstract class EntityImpl extends IdentifierImpl implements Entity {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case EntityPackage.ENTITY__ENTITY_NAME:
-            return ENTITY_NAME_EDEFAULT == null ? this.getEntityName() != null
-                    : !ENTITY_NAME_EDEFAULT.equals(this.getEntityName());
+            return ENTITY_NAME_EDEFAULT == null ? this.getEntityName() != null : !ENTITY_NAME_EDEFAULT
+                    .equals(this.getEntityName());
         }
         return super.eIsSet(featureID);
     }
@@ -149,8 +153,10 @@ public abstract class EntityImpl extends IdentifierImpl implements Entity {
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == NamedElement.class) {
-            switch (derivedFeatureID) {
+        if (baseClass == NamedElement.class)
+        {
+            switch (derivedFeatureID)
+            {
             case EntityPackage.ENTITY__ENTITY_NAME:
                 return EntityPackage.NAMED_ELEMENT__ENTITY_NAME;
             default:
@@ -167,8 +173,10 @@ public abstract class EntityImpl extends IdentifierImpl implements Entity {
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == NamedElement.class) {
-            switch (baseFeatureID) {
+        if (baseClass == NamedElement.class)
+        {
+            switch (baseFeatureID)
+            {
             case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
                 return EntityPackage.ENTITY__ENTITY_NAME;
             default:

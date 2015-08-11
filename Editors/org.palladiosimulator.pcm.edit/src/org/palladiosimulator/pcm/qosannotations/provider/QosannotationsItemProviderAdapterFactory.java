@@ -35,15 +35,15 @@ import org.palladiosimulator.pcm.qosannotations.util.QosannotationsAdapterFactor
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- *
+ * 
  * @generated
  */
 public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdapterFactory
-        implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
+implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -66,7 +66,7 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
 
     /**
      * This helps manage the child creation extenders. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
@@ -75,14 +75,14 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public QosannotationsItemProviderAdapterFactory() {
@@ -105,12 +105,13 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createQoSAnnotationsAdapter() {
-        if (this.qoSAnnotationsItemProvider == null) {
+        if (this.qoSAnnotationsItemProvider == null)
+        {
             this.qoSAnnotationsItemProvider = new QoSAnnotationsItemProvider(this);
         }
 
@@ -120,7 +121,7 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -131,7 +132,7 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -141,7 +142,7 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -162,14 +163,16 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Object adapt(final Object object, final Object type) {
-        if (this.isFactoryForType(type)) {
+        if (this.isFactoryForType(type))
+        {
             final Object adapter = super.adapt(object, type);
-            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter)))
+            {
                 return adapter;
             }
         }
@@ -179,7 +182,7 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -188,7 +191,7 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -198,7 +201,7 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -208,7 +211,7 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -218,7 +221,7 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -236,7 +239,8 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
     public void fireNotifyChanged(final Notification notification) {
         this.changeNotifier.fireNotifyChanged(notification);
 
-        if (this.parentAdapterFactory != null) {
+        if (this.parentAdapterFactory != null)
+        {
             this.parentAdapterFactory.fireNotifyChanged(notification);
         }
     }
@@ -244,7 +248,7 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

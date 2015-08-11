@@ -43,7 +43,8 @@ public class QosReliabilitySwitch<T> {
      * @generated
      */
     public QosReliabilitySwitch() {
-        if (modelPackage == null) {
+        if (modelPackage == null)
+        {
             modelPackage = QosReliabilityPackage.eINSTANCE;
         }
     }
@@ -67,11 +68,16 @@ public class QosReliabilitySwitch<T> {
      * @generated
      */
     protected T doSwitch(final EClass theEClass, final EObject theEObject) {
-        if (theEClass.eContainer() == modelPackage) {
+        if (theEClass.eContainer() == modelPackage)
+        {
             return this.doSwitch(theEClass.getClassifierID(), theEObject);
-        } else {
+        }
+        else
+        {
             final List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ? this.defaultCase(theEObject) : this.doSwitch(eSuperTypes.get(0), theEObject);
+            return eSuperTypes.isEmpty() ?
+                    this.defaultCase(theEObject) :
+                    this.doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
@@ -83,7 +89,8 @@ public class QosReliabilitySwitch<T> {
      * @generated
      */
     protected T doSwitch(final int classifierID, final EObject theEObject) {
-        switch (classifierID) {
+        switch (classifierID)
+        {
         case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION: {
             final SpecifiedReliabilityAnnotation specifiedReliabilityAnnotation = (SpecifiedReliabilityAnnotation) theEObject;
             T result = this.caseSpecifiedReliabilityAnnotation(specifiedReliabilityAnnotation);

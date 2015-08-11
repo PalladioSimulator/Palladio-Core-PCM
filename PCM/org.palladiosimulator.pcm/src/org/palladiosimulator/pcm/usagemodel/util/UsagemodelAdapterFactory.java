@@ -57,7 +57,8 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public UsagemodelAdapterFactory() {
-        if (modelPackage == null) {
+        if (modelPackage == null)
+        {
             modelPackage = UsagemodelPackage.eINSTANCE;
         }
     }
@@ -72,10 +73,12 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
      */
     @Override
     public boolean isFactoryForType(final Object object) {
-        if (object == modelPackage) {
+        if (object == modelPackage)
+        {
             return true;
         }
-        if (object instanceof EObject) {
+        if (object instanceof EObject)
+        {
             return ((EObject) object).eClass().getEPackage() == modelPackage;
         }
         return false;
@@ -87,110 +90,129 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    protected UsagemodelSwitch<Adapter> modelSwitch = new UsagemodelSwitch<Adapter>() {
-
+    protected UsagemodelSwitch<Adapter> modelSwitch = new UsagemodelSwitch<Adapter>()
+    {
         @Override
-        public Adapter caseWorkload(final Workload object) {
+        public Adapter caseWorkload(final Workload object)
+        {
             return UsagemodelAdapterFactory.this.createWorkloadAdapter();
         }
 
         @Override
-        public Adapter caseUsageScenario(final UsageScenario object) {
+        public Adapter caseUsageScenario(final UsageScenario object)
+        {
             return UsagemodelAdapterFactory.this.createUsageScenarioAdapter();
         }
 
         @Override
-        public Adapter caseUserData(final UserData object) {
+        public Adapter caseUserData(final UserData object)
+        {
             return UsagemodelAdapterFactory.this.createUserDataAdapter();
         }
 
         @Override
-        public Adapter caseUsageModel(final UsageModel object) {
+        public Adapter caseUsageModel(final UsageModel object)
+        {
             return UsagemodelAdapterFactory.this.createUsageModelAdapter();
         }
 
         @Override
-        public Adapter caseEntryLevelSystemCall(final EntryLevelSystemCall object) {
+        public Adapter caseEntryLevelSystemCall(final EntryLevelSystemCall object)
+        {
             return UsagemodelAdapterFactory.this.createEntryLevelSystemCallAdapter();
         }
 
         @Override
-        public Adapter caseAbstractUserAction(final AbstractUserAction object) {
+        public Adapter caseAbstractUserAction(final AbstractUserAction object)
+        {
             return UsagemodelAdapterFactory.this.createAbstractUserActionAdapter();
         }
 
         @Override
-        public Adapter caseScenarioBehaviour(final ScenarioBehaviour object) {
+        public Adapter caseScenarioBehaviour(final ScenarioBehaviour object)
+        {
             return UsagemodelAdapterFactory.this.createScenarioBehaviourAdapter();
         }
 
         @Override
-        public Adapter caseBranchTransition(final BranchTransition object) {
+        public Adapter caseBranchTransition(final BranchTransition object)
+        {
             return UsagemodelAdapterFactory.this.createBranchTransitionAdapter();
         }
 
         @Override
-        public Adapter caseBranch(final Branch object) {
+        public Adapter caseBranch(final Branch object)
+        {
             return UsagemodelAdapterFactory.this.createBranchAdapter();
         }
 
         @Override
-        public Adapter caseLoop(final Loop object) {
+        public Adapter caseLoop(final Loop object)
+        {
             return UsagemodelAdapterFactory.this.createLoopAdapter();
         }
 
         @Override
-        public Adapter caseStop(final Stop object) {
+        public Adapter caseStop(final Stop object)
+        {
             return UsagemodelAdapterFactory.this.createStopAdapter();
         }
 
         @Override
-        public Adapter caseStart(final Start object) {
+        public Adapter caseStart(final Start object)
+        {
             return UsagemodelAdapterFactory.this.createStartAdapter();
         }
 
         @Override
-        public Adapter caseOpenWorkload(final OpenWorkload object) {
+        public Adapter caseOpenWorkload(final OpenWorkload object)
+        {
             return UsagemodelAdapterFactory.this.createOpenWorkloadAdapter();
         }
 
         @Override
-        public Adapter caseDelay(final Delay object) {
+        public Adapter caseDelay(final Delay object)
+        {
             return UsagemodelAdapterFactory.this.createDelayAdapter();
         }
 
         @Override
-        public Adapter caseClosedWorkload(final ClosedWorkload object) {
+        public Adapter caseClosedWorkload(final ClosedWorkload object)
+        {
             return UsagemodelAdapterFactory.this.createClosedWorkloadAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(final Identifier object) {
+        public Adapter caseIdentifier(final Identifier object)
+        {
             return UsagemodelAdapterFactory.this.createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(final NamedElement object) {
+        public Adapter caseNamedElement(final NamedElement object)
+        {
             return UsagemodelAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(final Entity object) {
+        public Adapter caseEntity(final Entity object)
+        {
             return UsagemodelAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object) {
+        public Adapter defaultCase(final EObject object)
+        {
             return UsagemodelAdapterFactory.this.createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @param target
-     *            the object to adapt.
-     * @return the adapter for the <code>target</code>.
+             *
+             * @param target
+             *            the object to adapt.
+             * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
@@ -200,11 +222,11 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.usagemodel.Workload <em>Workload</em>}'. <!-- begin-user-doc
-     * --> This default implementation returns null so that we can easily ignore cases; it's useful
-     * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.usagemodel.Workload <em>Workload</em>}'. <!-- begin-user-doc
+             * --> This default implementation returns null so that we can easily ignore cases; it's useful
+             * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.usagemodel.Workload
      * @generated
      */
@@ -259,12 +281,12 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
-     * <em>Entry Level System Call</em>}'. <!-- begin-user-doc --> This default implementation
-     * returns null so that we can easily ignore cases; it's useful to ignore a case when
-     * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
+             * <em>Entry Level System Call</em>}'. <!-- begin-user-doc --> This default implementation
+             * returns null so that we can easily ignore cases; it's useful to ignore a case when
+             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
      * @generated
      */
@@ -274,12 +296,12 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction <em>Abstract User Action</em>}
-     * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-     * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction <em>Abstract User Action</em>}
+             * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+             * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
+             * <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.usagemodel.AbstractUserAction
      * @generated
      */
@@ -289,12 +311,12 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour <em>Scenario Behaviour</em>}'.
+             * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour <em>Scenario Behaviour</em>}'.
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
      *
-     * @return the new adapter.
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour
      * @generated
      */
@@ -304,12 +326,12 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.usagemodel.BranchTransition <em>Branch Transition</em>}'.
+             * {@link org.palladiosimulator.pcm.usagemodel.BranchTransition <em>Branch Transition</em>}'.
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
      *
-     * @return the new adapter.
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.usagemodel.BranchTransition
      * @generated
      */
@@ -319,11 +341,11 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.usagemodel.Branch <em>Branch</em>}'. <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases; it's useful to
-     * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.usagemodel.Branch <em>Branch</em>}'. <!-- begin-user-doc -->
+             * This default implementation returns null so that we can easily ignore cases; it's useful to
+             * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.usagemodel.Branch
      * @generated
      */
@@ -333,11 +355,11 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.usagemodel.Loop <em>Loop</em>}'. <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases; it's useful to
-     * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.usagemodel.Loop <em>Loop</em>}'. <!-- begin-user-doc -->
+             * This default implementation returns null so that we can easily ignore cases; it's useful to
+             * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.usagemodel.Loop
      * @generated
      */
@@ -347,11 +369,11 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.usagemodel.Stop <em>Stop</em>}'. <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases; it's useful to
-     * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.usagemodel.Stop <em>Stop</em>}'. <!-- begin-user-doc -->
+             * This default implementation returns null so that we can easily ignore cases; it's useful to
+             * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.usagemodel.Stop
      * @generated
      */
@@ -361,11 +383,11 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.usagemodel.Start <em>Start</em>}'. <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases; it's useful to
-     * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.usagemodel.Start <em>Start</em>}'. <!-- begin-user-doc -->
+             * This default implementation returns null so that we can easily ignore cases; it's useful to
+             * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.usagemodel.Start
      * @generated
      */
@@ -390,11 +412,11 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.usagemodel.Delay <em>Delay</em>}'. <!-- begin-user-doc -->
-     * This default implementation returns null so that we can easily ignore cases; it's useful to
-     * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.usagemodel.Delay <em>Delay</em>}'. <!-- begin-user-doc -->
+             * This default implementation returns null so that we can easily ignore cases; it's useful to
+             * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.usagemodel.Delay
      * @generated
      */
@@ -419,11 +441,11 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
-     * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
-     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
-     * the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+             * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+             * the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see de.uka.ipd.sdq.identifier.Identifier
      * @generated
      */
@@ -448,11 +470,11 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'. <!-- begin-user-doc
-     * --> This default implementation returns null so that we can easily ignore cases; it's useful
-     * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'. <!-- begin-user-doc
+             * --> This default implementation returns null so that we can easily ignore cases; it's useful
+             * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.Entity
      * @generated
      */
@@ -462,9 +484,9 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
-     * implementation returns null. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * implementation returns null. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @generated
      */
     public Adapter createEObjectAdapter() {

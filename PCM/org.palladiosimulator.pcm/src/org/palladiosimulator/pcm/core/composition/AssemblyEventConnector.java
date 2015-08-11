@@ -18,7 +18,6 @@ import org.palladiosimulator.pcm.repository.SourceRole;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSinkRole__AssemblyEventConnector
@@ -36,6 +35,7 @@ import org.palladiosimulator.pcm.repository.SourceRole;
  * {@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getFilterCondition__AssemblyEventConnector
  * <em>Filter Condition Assembly Event Connector</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getAssemblyEventConnector()
  * @model

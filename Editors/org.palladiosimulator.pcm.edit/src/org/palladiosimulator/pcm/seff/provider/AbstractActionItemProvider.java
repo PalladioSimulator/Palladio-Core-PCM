@@ -17,14 +17,14 @@ import org.palladiosimulator.pcm.seff.SeffPackage;
 /**
  * This is the item provider adapter for a {@link org.palladiosimulator.pcm.seff.AbstractAction}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class AbstractActionItemProvider extends EntityItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -32,7 +32,7 @@ public class AbstractActionItemProvider extends EntityItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AbstractActionItemProvider(final AdapterFactory adapterFactory) {
@@ -42,12 +42,13 @@ public class AbstractActionItemProvider extends EntityItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null) {
+        if (this.itemPropertyDescriptors == null)
+        {
             super.getPropertyDescriptors(object);
 
             this.addPredecessor_AbstractActionPropertyDescriptor(object);
@@ -63,13 +64,21 @@ public class AbstractActionItemProvider extends EntityItemProvider {
      * @generated
      */
     protected void addPredecessor_AbstractActionPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_AbstractAction_predecessor_AbstractAction_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_AbstractAction_predecessor_AbstractAction_feature", "_UI_AbstractAction_type"),
-                SeffPackage.Literals.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION, true, false, true, null, null,
-                null));
+        this.itemPropertyDescriptors.add
+        (this.createItemPropertyDescriptor
+                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                                this.getResourceLocator(),
+                                this.getString("_UI_AbstractAction_predecessor_AbstractAction_feature"),
+                                this.getString("_UI_PropertyDescriptor_description",
+                                        "_UI_AbstractAction_predecessor_AbstractAction_feature",
+                                        "_UI_AbstractAction_type"),
+                                SeffPackage.Literals.ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION,
+                                true,
+                                false,
+                                true,
+                                null,
+                                null,
+                                null));
     }
 
     /**
@@ -79,12 +88,21 @@ public class AbstractActionItemProvider extends EntityItemProvider {
      * @generated
      */
     protected void addSuccessor_AbstractActionPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_AbstractAction_successor_AbstractAction_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_AbstractAction_successor_AbstractAction_feature", "_UI_AbstractAction_type"),
-                SeffPackage.Literals.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION, true, false, true, null, null, null));
+        this.itemPropertyDescriptors.add
+        (this.createItemPropertyDescriptor
+                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                                this.getResourceLocator(),
+                                this.getString("_UI_AbstractAction_successor_AbstractAction_feature"),
+                                this.getString("_UI_PropertyDescriptor_description",
+                                        "_UI_AbstractAction_successor_AbstractAction_feature",
+                                        "_UI_AbstractAction_type"),
+                                SeffPackage.Literals.ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION,
+                                true,
+                                false,
+                                true,
+                                null,
+                                null,
+                                null));
     }
 
     /**
@@ -96,15 +114,16 @@ public class AbstractActionItemProvider extends EntityItemProvider {
     @Override
     public String getText(final Object object) {
         final String label = ((AbstractAction) object).getId();
-        return label == null || label.length() == 0 ? this.getString("_UI_AbstractAction_type")
-                : this.getString("_UI_AbstractAction_type") + " " + label;
+        return label == null || label.length() == 0 ?
+                this.getString("_UI_AbstractAction_type") :
+                    this.getString("_UI_AbstractAction_type") + " " + label;
     }
 
     /**
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -116,7 +135,7 @@ public class AbstractActionItemProvider extends EntityItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

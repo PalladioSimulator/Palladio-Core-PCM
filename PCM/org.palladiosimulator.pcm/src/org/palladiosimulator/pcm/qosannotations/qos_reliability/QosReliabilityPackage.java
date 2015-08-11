@@ -111,8 +111,7 @@ public interface QosReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION_FEATURE_COUNT
-            + 0;
+    int SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Specified Reliability Annotation</em>' class.
@@ -121,8 +120,7 @@ public interface QosReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SPECIFIED_RELIABILITY_ANNOTATION_FEATURE_COUNT = QosannotationsPackage.SPECIFIED_QO_SANNOTATION_FEATURE_COUNT
-            + 1;
+    int SPECIFIED_RELIABILITY_ANNOTATION_FEATURE_COUNT = QosannotationsPackage.SPECIFIED_QO_SANNOTATION_FEATURE_COUNT + 1;
 
     /**
      * Returns the meta object for class '
@@ -178,8 +176,7 @@ public interface QosReliabilityPackage extends EPackage {
          * <em>Specified Reliability Annotation</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
-         * @see org.palladiosimulator.pcm.qosannotations.qos_reliability.impl.
-         *      SpecifiedReliabilityAnnotationImpl
+         * @see org.palladiosimulator.pcm.qosannotations.qos_reliability.impl.SpecifiedReliabilityAnnotationImpl
          * @see org.palladiosimulator.pcm.qosannotations.qos_reliability.impl.QosReliabilityPackageImpl#getSpecifiedReliabilityAnnotation()
          * @generated
          */

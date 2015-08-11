@@ -11,7 +11,6 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.InfrastructureSignature#getParameters__InfrastructureSignature
@@ -20,6 +19,7 @@ import org.eclipse.emf.common.util.EList;
  * {@link org.palladiosimulator.pcm.repository.InfrastructureSignature#getInfrastructureInterface__InfrastructureSignature
  * <em>Infrastructure Interface Infrastructure Signature</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getInfrastructureSignature()
  * @model

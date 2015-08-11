@@ -22,12 +22,12 @@ import org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.reliability.NetworkInducedFailureType#getCommunicationLinkResourceType__NetworkInducedFailureType
  * <em>Communication Link Resource Type Network Induced Failure Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.reliability.ReliabilityPackage#getNetworkInducedFailureType()
  * @model

@@ -12,12 +12,12 @@ package org.palladiosimulator.pcm.seff;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.InternalCallAction#getCalledResourceDemandingInternalBehaviour
  * <em>Called Resource Demanding Internal Behaviour</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getInternalCallAction()
  * @model

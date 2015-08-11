@@ -16,12 +16,12 @@ import org.palladiosimulator.pcm.resourcetype.ResourcetypePackage;
  * <em><b>Processing Resource Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.resourcetype.impl.ProcessingResourceTypeImpl#getHardwareInducedFailureType__ProcessingResourceType
  * <em>Hardware Induced Failure Type Processing Resource Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -60,10 +60,11 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
      */
     @Override
     public HardwareInducedFailureType getHardwareInducedFailureType__ProcessingResourceType() {
-        return (HardwareInducedFailureType) this.eDynamicGet(
-                ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE,
-                ResourcetypePackage.Literals.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE,
-                true, true);
+        return (HardwareInducedFailureType) this
+                .eDynamicGet(
+                        ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE,
+                        ResourcetypePackage.Literals.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE,
+                        true, true);
     }
 
     /**
@@ -72,10 +73,11 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
      * @generated
      */
     public HardwareInducedFailureType basicGetHardwareInducedFailureType__ProcessingResourceType() {
-        return (HardwareInducedFailureType) this.eDynamicGet(
-                ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE,
-                ResourcetypePackage.Literals.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE,
-                false, true);
+        return (HardwareInducedFailureType) this
+                .eDynamicGet(
+                        ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE,
+                        ResourcetypePackage.Literals.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE,
+                        false, true);
     }
 
     /**
@@ -113,17 +115,21 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE:
             final HardwareInducedFailureType hardwareInducedFailureType__ProcessingResourceType = this
-                    .basicGetHardwareInducedFailureType__ProcessingResourceType();
+            .basicGetHardwareInducedFailureType__ProcessingResourceType();
             if (hardwareInducedFailureType__ProcessingResourceType != null) {
-                msgs = ((InternalEObject) hardwareInducedFailureType__ProcessingResourceType).eInverseRemove(this,
-                        ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE,
-                        HardwareInducedFailureType.class, msgs);
+                msgs = ((InternalEObject) hardwareInducedFailureType__ProcessingResourceType)
+                        .eInverseRemove(
+                                this,
+                                ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE,
+                                HardwareInducedFailureType.class, msgs);
             }
             return this.basicSetHardwareInducedFailureType__ProcessingResourceType(
-                    (HardwareInducedFailureType) otherEnd, msgs);
+                    (HardwareInducedFailureType) otherEnd,
+                    msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -136,7 +142,8 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE:
             return this.basicSetHardwareInducedFailureType__ProcessingResourceType(null, msgs);
         }
@@ -150,7 +157,8 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE:
             if (resolve) {
                 return this.getHardwareInducedFailureType__ProcessingResourceType();
@@ -167,7 +175,8 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE:
             this.setHardwareInducedFailureType__ProcessingResourceType((HardwareInducedFailureType) newValue);
             return;
@@ -182,7 +191,8 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE:
             this.setHardwareInducedFailureType__ProcessingResourceType((HardwareInducedFailureType) null);
             return;
@@ -197,7 +207,8 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE:
             return this.basicGetHardwareInducedFailureType__ProcessingResourceType() != null;
         }

@@ -40,7 +40,8 @@ public class QosReliabilityAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public QosReliabilityAdapterFactory() {
-        if (modelPackage == null) {
+        if (modelPackage == null)
+        {
             modelPackage = QosReliabilityPackage.eINSTANCE;
         }
     }
@@ -55,10 +56,12 @@ public class QosReliabilityAdapterFactory extends AdapterFactoryImpl {
      */
     @Override
     public boolean isFactoryForType(final Object object) {
-        if (object == modelPackage) {
+        if (object == modelPackage)
+        {
             return true;
         }
-        if (object instanceof EObject) {
+        if (object instanceof EObject)
+        {
             return ((EObject) object).eClass().getEPackage() == modelPackage;
         }
         return false;
@@ -70,30 +73,33 @@ public class QosReliabilityAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    protected QosReliabilitySwitch<Adapter> modelSwitch = new QosReliabilitySwitch<Adapter>() {
-
+    protected QosReliabilitySwitch<Adapter> modelSwitch = new QosReliabilitySwitch<Adapter>()
+    {
         @Override
-        public Adapter caseSpecifiedReliabilityAnnotation(final SpecifiedReliabilityAnnotation object) {
+        public Adapter caseSpecifiedReliabilityAnnotation(final SpecifiedReliabilityAnnotation object)
+        {
             return QosReliabilityAdapterFactory.this.createSpecifiedReliabilityAnnotationAdapter();
         }
 
         @Override
-        public Adapter caseSpecifiedQoSAnnotation(final SpecifiedQoSAnnotation object) {
+        public Adapter caseSpecifiedQoSAnnotation(final SpecifiedQoSAnnotation object)
+        {
             return QosReliabilityAdapterFactory.this.createSpecifiedQoSAnnotationAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object) {
+        public Adapter defaultCase(final EObject object)
+        {
             return QosReliabilityAdapterFactory.this.createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @param target
-     *            the object to adapt.
-     * @return the adapter for the <code>target</code>.
+             *
+             * @param target
+             *            the object to adapt.
+             * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
@@ -103,12 +109,12 @@ public class QosReliabilityAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation
-     * <em>Specified Reliability Annotation</em>}'. <!-- begin-user-doc --> This default
-     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation
+             * <em>Specified Reliability Annotation</em>}'. <!-- begin-user-doc --> This default
+             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation
      * @generated
      */
@@ -118,12 +124,12 @@ public class QosReliabilityAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation
-     * <em>Specified Qo SAnnotation</em>}'. <!-- begin-user-doc --> This default implementation
-     * returns null so that we can easily ignore cases; it's useful to ignore a case when
-     * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation
+             * <em>Specified Qo SAnnotation</em>}'. <!-- begin-user-doc --> This default implementation
+             * returns null so that we can easily ignore cases; it's useful to ignore a case when
+             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation
      * @generated
      */
@@ -133,9 +139,9 @@ public class QosReliabilityAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
-     * implementation returns null. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * implementation returns null. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @generated
      */
     public Adapter createEObjectAdapter() {

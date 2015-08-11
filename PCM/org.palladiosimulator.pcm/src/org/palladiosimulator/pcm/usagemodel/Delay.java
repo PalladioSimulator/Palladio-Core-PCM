@@ -18,11 +18,11 @@ import org.palladiosimulator.pcm.core.PCMRandomVariable;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.Delay#getTimeSpecification_Delay
- * <em>Time Specification Delay</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.Delay#getTimeSpecification_Delay <em>Time
+ * Specification Delay</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getDelay()
  * @model

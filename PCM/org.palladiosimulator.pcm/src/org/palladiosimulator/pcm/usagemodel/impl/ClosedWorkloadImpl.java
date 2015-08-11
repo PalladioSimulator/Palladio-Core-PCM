@@ -26,14 +26,14 @@ import org.palladiosimulator.pcm.usagemodel.util.UsagemodelValidator;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.ClosedWorkloadImpl#getPopulation
- * <em>Population</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.ClosedWorkloadImpl#getPopulation <em>
+ * Population</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.usagemodel.impl.ClosedWorkloadImpl#getThinkTime_ClosedWorkload
  * <em>Think Time Closed Workload</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -165,27 +165,36 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
     @Override
     public boolean PopulationInClosedWorkloadNeedsToBeSpecified(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (POPULATION_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (POPULATION_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(UsagemodelPackage.Literals.CLOSED_WORKLOAD);
-            try {
+            try
+            {
                 POPULATION_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(
-                                POPULATION_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+                        .createInvariant(POPULATION_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV.createQuery(POPULATION_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
+                .check(this))
+        {
+            if (diagnostics != null)
+            {
                 diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
+                        .add
+                        (new BasicDiagnostic
+                        (
+                                Diagnostic.ERROR,
+                                UsagemodelValidator.DIAGNOSTIC_SOURCE,
                                 UsagemodelValidator.CLOSED_WORKLOAD__POPULATION_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                EcorePlugin.INSTANCE.getString(
+                                        "_UI_GenericInvariant_diagnostic",
                                         new Object[] { "PopulationInClosedWorkloadNeedsToBeSpecified",
                                                 EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                new Object[] { this }));
             }
             return false;
         }
@@ -226,27 +235,36 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
     @Override
     public boolean ThinkTimeInClosedWorkloadNeedsToBeSpecified(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (THINK_TIME_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (THINK_TIME_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(UsagemodelPackage.Literals.CLOSED_WORKLOAD);
-            try {
+            try
+            {
                 THINK_TIME_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(
-                                THINK_TIME_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+                        .createInvariant(THINK_TIME_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV.createQuery(THINK_TIME_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
+                .check(this))
+        {
+            if (diagnostics != null)
+            {
                 diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
+                        .add
+                        (new BasicDiagnostic
+                        (
+                                Diagnostic.ERROR,
+                                UsagemodelValidator.DIAGNOSTIC_SOURCE,
                                 UsagemodelValidator.CLOSED_WORKLOAD__THINK_TIME_IN_CLOSED_WORKLOAD_NEEDS_TO_BE_SPECIFIED,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                EcorePlugin.INSTANCE.getString(
+                                        "_UI_GenericInvariant_diagnostic",
                                         new Object[] { "ThinkTimeInClosedWorkloadNeedsToBeSpecified",
                                                 EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                new Object[] { this }));
             }
             return false;
         }
@@ -260,13 +278,13 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD:
             final PCMRandomVariable thinkTime_ClosedWorkload = this.getThinkTime_ClosedWorkload();
             if (thinkTime_ClosedWorkload != null) {
-                msgs = ((InternalEObject) thinkTime_ClosedWorkload).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE - UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD, null,
-                        msgs);
+                msgs = ((InternalEObject) thinkTime_ClosedWorkload).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+                        - UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD, null, msgs);
             }
             return this.basicSetThinkTime_ClosedWorkload((PCMRandomVariable) otherEnd, msgs);
         }
@@ -281,7 +299,8 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD:
             return this.basicSetThinkTime_ClosedWorkload(null, msgs);
         }
@@ -295,7 +314,8 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.CLOSED_WORKLOAD__POPULATION:
             return this.getPopulation();
         case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD:
@@ -311,7 +331,8 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.CLOSED_WORKLOAD__POPULATION:
             this.setPopulation((Integer) newValue);
             return;
@@ -329,7 +350,8 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.CLOSED_WORKLOAD__POPULATION:
             this.setPopulation(POPULATION_EDEFAULT);
             return;
@@ -347,7 +369,8 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.CLOSED_WORKLOAD__POPULATION:
             return this.getPopulation() != POPULATION_EDEFAULT;
         case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD:

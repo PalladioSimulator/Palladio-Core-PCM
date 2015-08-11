@@ -27,7 +27,7 @@ public class InterfaceRequiringEntityItemProvider extends EntityItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -35,7 +35,7 @@ public class InterfaceRequiringEntityItemProvider extends EntityItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InterfaceRequiringEntityItemProvider(final AdapterFactory adapterFactory) {
@@ -45,12 +45,13 @@ public class InterfaceRequiringEntityItemProvider extends EntityItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null) {
+        if (this.itemPropertyDescriptors == null)
+        {
             super.getPropertyDescriptors(object);
 
         }
@@ -68,19 +69,20 @@ public class InterfaceRequiringEntityItemProvider extends EntityItemProvider {
      */
     @Override
     public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
-        if (this.childrenFeatures == null) {
+        if (this.childrenFeatures == null)
+        {
             super.getChildrenFeatures(object);
-            this.childrenFeatures.add(
-                    EntityPackage.Literals.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY);
             this.childrenFeatures
-                    .add(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY);
+            .add(EntityPackage.Literals.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY);
+            this.childrenFeatures
+            .add(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -100,22 +102,24 @@ public class InterfaceRequiringEntityItemProvider extends EntityItemProvider {
     @Override
     public String getText(final Object object) {
         final String label = ((InterfaceRequiringEntity) object).getId();
-        return label == null || label.length() == 0 ? this.getString("_UI_InterfaceRequiringEntity_type")
-                : this.getString("_UI_InterfaceRequiringEntity_type") + " " + label;
+        return label == null || label.length() == 0 ?
+                this.getString("_UI_InterfaceRequiringEntity_type") :
+                    this.getString("_UI_InterfaceRequiringEntity_type") + " " + label;
     }
 
     /**
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
 
-        switch (notification.getFeatureID(InterfaceRequiringEntity.class)) {
+        switch (notification.getFeatureID(InterfaceRequiringEntity.class))
+        {
         case EntityPackage.INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
         case EntityPackage.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -127,28 +131,33 @@ public class InterfaceRequiringEntityItemProvider extends EntityItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(this.createChildParameter(
-                EntityPackage.Literals.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY,
-                EntityFactory.eINSTANCE.createResourceRequiredRole()));
+        newChildDescriptors
+        .add
+        (this.createChildParameter
+                        (EntityPackage.Literals.RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY,
+                                EntityFactory.eINSTANCE.createResourceRequiredRole()));
 
-        newChildDescriptors.add(this.createChildParameter(
-                EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
-                RepositoryFactory.eINSTANCE.createInfrastructureRequiredRole()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
+                                RepositoryFactory.eINSTANCE.createInfrastructureRequiredRole()));
 
-        newChildDescriptors.add(this.createChildParameter(
-                EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
-                RepositoryFactory.eINSTANCE.createOperationRequiredRole()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
+                                RepositoryFactory.eINSTANCE.createOperationRequiredRole()));
 
-        newChildDescriptors.add(this.createChildParameter(
-                EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
-                RepositoryFactory.eINSTANCE.createSourceRole()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
+                                RepositoryFactory.eINSTANCE.createSourceRole()));
     }
 
 }

@@ -14,7 +14,6 @@ import org.palladiosimulator.pcm.repository.SinkRole;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getAssemblyContext__SinkDelegationConnector
@@ -26,6 +25,7 @@ import org.palladiosimulator.pcm.repository.SinkRole;
  * {@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getOuterSinkRole__SinkRole
  * <em>Outer Sink Role Sink Role</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getSinkDelegationConnector()
  * @model

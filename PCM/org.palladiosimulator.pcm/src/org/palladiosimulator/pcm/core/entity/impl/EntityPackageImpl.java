@@ -203,9 +203,9 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
         }
 
         // Obtain or create and register package
-        final EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
-                .get(eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-                        : new EntityPackageImpl());
+        final EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE
+                .get(eNS_URI)
+                : new EntityPackageImpl());
 
         isInited = true;
 
@@ -215,76 +215,69 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
         // Obtain or create and register interdependencies
         final PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(PcmPackage.eNS_URI) : PcmPackage.eINSTANCE);
+                .getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
+                        .getEPackage(PcmPackage.eNS_URI) : PcmPackage.eINSTANCE);
         final CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
+                .getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
+                        .getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
         final CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI)
-                        : CompositionPackage.eINSTANCE);
+                .getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
         final UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI)
-                        : UsagemodelPackage.eINSTANCE);
+                .getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
         final RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI)
-                        : RepositoryPackage.eINSTANCE);
+                .getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
         final ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI)
+                .getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(ResourcetypePackage.eNS_URI)
                         : ResourcetypePackage.eINSTANCE);
         final ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
+                .getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
         final ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI)
-                        : ParameterPackage.eINSTANCE);
+                .getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
         final ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI)
-                        : ReliabilityPackage.eINSTANCE);
+                .getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
         final SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
+                .getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
+                        .getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
         final SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(SeffPerformancePackage.eNS_URI)
+                .getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(SeffPerformancePackage.eNS_URI)
                         : SeffPerformancePackage.eINSTANCE);
         final SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(SeffReliabilityPackage.eNS_URI)
+                .getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(SeffReliabilityPackage.eNS_URI)
                         : SeffReliabilityPackage.eINSTANCE);
         final QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI)
+                .getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(QosannotationsPackage.eNS_URI)
                         : QosannotationsPackage.eINSTANCE);
         final QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(QosPerformancePackage.eNS_URI)
+                .getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(QosPerformancePackage.eNS_URI)
                         : QosPerformancePackage.eINSTANCE);
         final QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(QosReliabilityPackage.eNS_URI)
+                .getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(QosReliabilityPackage.eNS_URI)
                         : QosReliabilityPackage.eINSTANCE);
         final SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
+                .getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
         final ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI)
+                .getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(ResourceenvironmentPackage.eNS_URI)
                         : ResourceenvironmentPackage.eINSTANCE);
         final AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI)
-                        : AllocationPackage.eINSTANCE);
+                .getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
         final SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI)
-                        : SubsystemPackage.eINSTANCE);
+                .getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
 
         // Create package meta-data objects
         theEntityPackage.createPackageContents();
@@ -331,13 +324,16 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
         theSubsystemPackage.initializePackageContents();
 
         // Register package validator
-        EValidator.Registry.INSTANCE.put(theEntityPackage, new EValidator.Descriptor() {
-
-            @Override
-            public EValidator getEValidator() {
-                return EntityValidator.INSTANCE;
-            }
-        });
+        EValidator.Registry.INSTANCE.put
+                (theEntityPackage,
+                        new EValidator.Descriptor()
+                        {
+                            @Override
+                            public EValidator getEValidator()
+                            {
+                                return EntityValidator.INSTANCE;
+                            }
+                        });
 
         // Mark meta-data to indicate it can't be changed
         theEntityPackage.freeze();
@@ -677,7 +673,8 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
         // Initialize classes and features; add operations and parameters
         this.initEClass(this.resourceProvidedRoleEClass, ResourceProvidedRole.class, "ResourceProvidedRole",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getResourceProvidedRole_ResourceInterfaceProvidingEntity__ResourceProvidedRole(),
                 this.getResourceInterfaceProvidingEntity(),
                 this.getResourceInterfaceProvidingEntity_ResourceProvidedRoles__ResourceInterfaceProvidingEntity(),
@@ -692,7 +689,8 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
         this.initEClass(this.interfaceProvidingRequiringEntityEClass, InterfaceProvidingRequiringEntity.class,
                 "InterfaceProvidingRequiringEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        this.initEClass(this.interfaceProvidingEntityEClass, InterfaceProvidingEntity.class, "InterfaceProvidingEntity",
+        this.initEClass(this.interfaceProvidingEntityEClass, InterfaceProvidingEntity.class,
+                "InterfaceProvidingEntity",
                 IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity(),
                 theRepositoryPackage.getProvidedRole(),
@@ -701,7 +699,8 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
 
-        this.initEClass(this.interfaceRequiringEntityEClass, InterfaceRequiringEntity.class, "InterfaceRequiringEntity",
+        this.initEClass(this.interfaceRequiringEntityEClass, InterfaceRequiringEntity.class,
+                "InterfaceRequiringEntity",
                 IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity(),
                 theRepositoryPackage.getRequiredRole(),
@@ -721,7 +720,8 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.resourceRequiredRoleEClass, ResourceRequiredRole.class, "ResourceRequiredRole",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getResourceRequiredRole_RequiredResourceInterface__ResourceRequiredRole(),
                 theResourcetypePackage.getResourceInterface(), null, "requiredResourceInterface__ResourceRequiredRole",
                 null, 1, 1, ResourceRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
@@ -747,7 +747,8 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
                 "ComposedProvidingRequiringEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         final EOperation op = this.addEOperation(this.composedProvidingRequiringEntityEClass,
-                this.ecorePackage.getEBoolean(), "ProvidedRolesMustBeBound", 0, 1, IS_UNIQUE, IS_ORDERED);
+                this.ecorePackage.getEBoolean(),
+                "ProvidedRolesMustBeBound", 0, 1, IS_UNIQUE, IS_ORDERED);
         this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
         final EGenericType g1 = this.createEGenericType(this.ecorePackage.getEMap());
         EGenericType g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
@@ -758,13 +759,14 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
         this.initEClass(this.namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEAttribute(this.getNamedElement_EntityName(), this.ecorePackage.getEString(), "entityName", "aName", 1,
-                1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+        this.initEAttribute(this.getNamedElement_EntityName(), this.ecorePackage.getEString(), "entityName", "aName",
+                1, 1,
+                NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.resourceInterfaceProvidingRequiringEntityEClass,
-                ResourceInterfaceProvidingRequiringEntity.class, "ResourceInterfaceProvidingRequiringEntity",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                ResourceInterfaceProvidingRequiringEntity.class,
+                "ResourceInterfaceProvidingRequiringEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         this.initEClass(this.entityEClass, Entity.class, "Entity", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);

@@ -195,7 +195,8 @@ public class CompositionValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID) {
+        switch (classifierID)
+        {
         case CompositionPackage.DELEGATION_CONNECTOR:
             return this.validateDelegationConnector((DelegationConnector) value, diagnostics, context);
         case CompositionPackage.CONNECTOR:
@@ -228,10 +229,12 @@ public class CompositionValidator extends EObjectValidator {
                     context);
         case CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR:
             return this.validateProvidedInfrastructureDelegationConnector(
-                    (ProvidedInfrastructureDelegationConnector) value, diagnostics, context);
+                    (ProvidedInfrastructureDelegationConnector) value,
+                    diagnostics, context);
         case CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR:
             return this.validateRequiredInfrastructureDelegationConnector(
-                    (RequiredInfrastructureDelegationConnector) value, diagnostics, context);
+                    (RequiredInfrastructureDelegationConnector) value,
+                    diagnostics, context);
         case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
             return this.validateRequiredResourceDelegationConnector((RequiredResourceDelegationConnector) value,
                     diagnostics, context);
@@ -248,7 +251,8 @@ public class CompositionValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateDelegationConnector(final DelegationConnector delegationConnector,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return this.validate_EveryDefaultConstraint(delegationConnector, diagnostics, context);
     }
 
@@ -268,7 +272,8 @@ public class CompositionValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateComposedStructure(final ComposedStructure composedStructure,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(composedStructure, diagnostics, context)) {
             return false;
         }
@@ -297,7 +302,8 @@ public class CompositionValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validateComposedStructure_MultipleConnectorsConstraintForAssemblyConnectors(
-                    composedStructure, diagnostics, context);
+                    composedStructure,
+                    diagnostics, context);
         }
         return result;
     }
@@ -332,7 +338,8 @@ public class CompositionValidator extends EObjectValidator {
      */
     public boolean validateResourceRequiredDelegationConnector(
             final ResourceRequiredDelegationConnector resourceRequiredDelegationConnector,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return this.validate_EveryDefaultConstraint(resourceRequiredDelegationConnector, diagnostics, context);
     }
 
@@ -434,8 +441,8 @@ public class CompositionValidator extends EObjectValidator {
     public boolean validateProvidedDelegationConnector_ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(
             final ProvidedDelegationConnector providedDelegationConnector, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        return providedDelegationConnector
-                .ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(diagnostics, context);
+        return providedDelegationConnector.ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(
+                diagnostics, context);
     }
 
     /**
@@ -511,8 +518,8 @@ public class CompositionValidator extends EObjectValidator {
     public boolean validateRequiredDelegationConnector_ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(
             final RequiredDelegationConnector requiredDelegationConnector, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        return requiredDelegationConnector
-                .ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(diagnostics, context);
+        return requiredDelegationConnector.ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(
+                diagnostics, context);
     }
 
     /**
@@ -527,8 +534,8 @@ public class CompositionValidator extends EObjectValidator {
             final RequiredDelegationConnector requiredDelegationConnector, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
         return requiredDelegationConnector
-                .RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector(diagnostics,
-                        context);
+                .RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector(
+                        diagnostics, context);
     }
 
     /**
@@ -537,7 +544,8 @@ public class CompositionValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateAssemblyConnector(final AssemblyConnector assemblyConnector,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(assemblyConnector, diagnostics, context)) {
             return false;
         }
@@ -584,8 +592,8 @@ public class CompositionValidator extends EObjectValidator {
     public boolean validateAssemblyConnector_AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(
             final AssemblyConnector assemblyConnector, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        return assemblyConnector.AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(diagnostics,
-                context);
+        return assemblyConnector
+                .AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(diagnostics, context);
     }
 
     /**
@@ -661,7 +669,8 @@ public class CompositionValidator extends EObjectValidator {
     public boolean validateProvidedInfrastructureDelegationConnector(
             final ProvidedInfrastructureDelegationConnector providedInfrastructureDelegationConnector,
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(providedInfrastructureDelegationConnector, diagnostics, context);
+        return this.validate_EveryDefaultConstraint(providedInfrastructureDelegationConnector, diagnostics,
+                context);
     }
 
     /**
@@ -672,7 +681,8 @@ public class CompositionValidator extends EObjectValidator {
     public boolean validateRequiredInfrastructureDelegationConnector(
             final RequiredInfrastructureDelegationConnector requiredInfrastructureDelegationConnector,
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(requiredInfrastructureDelegationConnector, diagnostics, context);
+        return this.validate_EveryDefaultConstraint(requiredInfrastructureDelegationConnector, diagnostics,
+                context);
     }
 
     /**
@@ -682,7 +692,8 @@ public class CompositionValidator extends EObjectValidator {
      */
     public boolean validateRequiredResourceDelegationConnector(
             final RequiredResourceDelegationConnector requiredResourceDelegationConnector,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return this.validate_EveryDefaultConstraint(requiredResourceDelegationConnector, diagnostics, context);
     }
 

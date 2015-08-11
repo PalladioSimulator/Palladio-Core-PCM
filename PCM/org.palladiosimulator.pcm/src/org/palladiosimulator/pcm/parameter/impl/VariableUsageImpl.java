@@ -34,7 +34,6 @@ import de.uka.ipd.sdq.stoex.AbstractNamedReference;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.parameter.impl.VariableUsageImpl#getVariableCharacterisation_VariableUsage
@@ -69,6 +68,7 @@ import de.uka.ipd.sdq.stoex.AbstractNamedReference;
  * {@link org.palladiosimulator.pcm.parameter.impl.VariableUsageImpl#getNamedReference__VariableUsage
  * <em>Named Reference Variable Usage</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -270,7 +270,8 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
      */
     @Override
     public SetVariableAction getSetVariableAction_VariableUsage() {
-        return (SetVariableAction) this.eDynamicGet(ParameterPackage.VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE,
+        return (SetVariableAction) this.eDynamicGet(
+                ParameterPackage.VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE,
                 ParameterPackage.Literals.VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE, true, true);
     }
 
@@ -305,10 +306,11 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
      */
     @Override
     public SpecifiedOutputParameterAbstraction getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage() {
-        return (SpecifiedOutputParameterAbstraction) this.eDynamicGet(
-                ParameterPackage.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE,
-                ParameterPackage.Literals.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE,
-                true, true);
+        return (SpecifiedOutputParameterAbstraction) this
+                .eDynamicGet(
+                        ParameterPackage.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE,
+                        ParameterPackage.Literals.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE,
+                        true, true);
     }
 
     /**
@@ -319,10 +321,11 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
     public NotificationChain basicSetSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage(
             final SpecifiedOutputParameterAbstraction newSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage,
             NotificationChain msgs) {
-        msgs = this.eBasicSetContainer(
-                (InternalEObject) newSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage,
-                ParameterPackage.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE,
-                msgs);
+        msgs = this
+                .eBasicSetContainer(
+                        (InternalEObject) newSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage,
+                        ParameterPackage.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE,
+                        msgs);
         return msgs;
     }
 
@@ -493,10 +496,12 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ParameterPackage.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getVariableCharacterisation_VariableUsage()).basicAdd(otherEnd, msgs);
+                    .getVariableCharacterisation_VariableUsage())
+                    .basicAdd(otherEnd, msgs);
         case ParameterPackage.VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -555,7 +560,8 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ParameterPackage.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE:
             return ((InternalEList<?>) this.getVariableCharacterisation_VariableUsage()).basicRemove(otherEnd, msgs);
         case ParameterPackage.VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE:
@@ -589,7 +595,8 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case ParameterPackage.VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE:
             return this.eInternalContainer().eInverseRemove(this,
                     UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA, UserData.class, msgs);
@@ -606,12 +613,15 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
                     msgs);
         case ParameterPackage.VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE:
             return this.eInternalContainer().eInverseRemove(this,
-                    SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION, SetVariableAction.class,
-                    msgs);
+                    SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION,
+                    SetVariableAction.class, msgs);
         case ParameterPackage.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE:
-            return this.eInternalContainer().eInverseRemove(this,
-                    QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
-                    SpecifiedOutputParameterAbstraction.class, msgs);
+            return this
+                    .eInternalContainer()
+                    .eInverseRemove(
+                            this,
+                            QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION,
+                            SpecifiedOutputParameterAbstraction.class, msgs);
         case ParameterPackage.VARIABLE_USAGE__ASSEMBLY_CONTEXT_VARIABLE_USAGE:
             return this.eInternalContainer().eInverseRemove(this,
                     CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT,
@@ -635,7 +645,8 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ParameterPackage.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE:
             return this.getVariableCharacterisation_VariableUsage();
         case ParameterPackage.VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE:
@@ -670,11 +681,12 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ParameterPackage.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE:
             this.getVariableCharacterisation_VariableUsage().clear();
-            this.getVariableCharacterisation_VariableUsage()
-                    .addAll((Collection<? extends VariableCharacterisation>) newValue);
+            this.getVariableCharacterisation_VariableUsage().addAll(
+                    (Collection<? extends VariableCharacterisation>) newValue);
             return;
         case ParameterPackage.VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE:
             this.setUserData_VariableUsage((UserData) newValue);
@@ -692,8 +704,7 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
             this.setSetVariableAction_VariableUsage((SetVariableAction) newValue);
             return;
         case ParameterPackage.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE:
-            this.setSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage(
-                    (SpecifiedOutputParameterAbstraction) newValue);
+            this.setSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage((SpecifiedOutputParameterAbstraction) newValue);
             return;
         case ParameterPackage.VARIABLE_USAGE__ASSEMBLY_CONTEXT_VARIABLE_USAGE:
             this.setAssemblyContext__VariableUsage((AssemblyContext) newValue);
@@ -718,7 +729,8 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ParameterPackage.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE:
             this.getVariableCharacterisation_VariableUsage().clear();
             return;
@@ -738,8 +750,7 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
             this.setSetVariableAction_VariableUsage((SetVariableAction) null);
             return;
         case ParameterPackage.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE:
-            this.setSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage(
-                    (SpecifiedOutputParameterAbstraction) null);
+            this.setSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage((SpecifiedOutputParameterAbstraction) null);
             return;
         case ParameterPackage.VARIABLE_USAGE__ASSEMBLY_CONTEXT_VARIABLE_USAGE:
             this.setAssemblyContext__VariableUsage((AssemblyContext) null);
@@ -764,7 +775,8 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ParameterPackage.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE:
             return !this.getVariableCharacterisation_VariableUsage().isEmpty();
         case ParameterPackage.VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE:

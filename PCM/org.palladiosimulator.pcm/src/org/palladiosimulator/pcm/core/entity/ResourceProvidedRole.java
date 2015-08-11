@@ -12,7 +12,6 @@ import org.palladiosimulator.pcm.resourcetype.ResourceInterface;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole#getResourceInterfaceProvidingEntity__ResourceProvidedRole
@@ -21,6 +20,7 @@ import org.palladiosimulator.pcm.resourcetype.ResourceInterface;
  * {@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole#getProvidedResourceInterface__ResourceProvidedRole
  * <em>Provided Resource Interface Resource Provided Role</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.core.entity.EntityPackage#getResourceProvidedRole()
  * @model

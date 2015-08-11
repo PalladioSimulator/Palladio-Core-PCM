@@ -22,16 +22,17 @@ import org.palladiosimulator.pcm.seff.SeffPackage;
  * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.impl.EmitEventActionImpl#getInputVariableUsages__CallAction
  * <em>Input Variable Usages Call Action</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.seff.impl.EmitEventActionImpl#getEventType__EmitEventAction
  * <em>Event Type Emit Event Action</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.seff.impl.EmitEventActionImpl#getSourceRole__EmitEventAction
+ * <li>
+ * {@link org.palladiosimulator.pcm.seff.impl.EmitEventActionImpl#getSourceRole__EmitEventAction
  * <em>Source Role Emit Event Action</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -71,7 +72,8 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
     @Override
     @SuppressWarnings("unchecked")
     public EList<VariableUsage> getInputVariableUsages__CallAction() {
-        return (EList<VariableUsage>) this.eDynamicGet(SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION,
+        return (EList<VariableUsage>) this.eDynamicGet(
+                SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION,
                 SeffPackage.Literals.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION, true, true);
     }
 
@@ -148,10 +150,12 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getInputVariableUsages__CallAction())
-                    .basicAdd(otherEnd, msgs);
+                    .basicAdd(
+                            otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -164,7 +168,8 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
             return ((InternalEList<?>) this.getInputVariableUsages__CallAction()).basicRemove(otherEnd, msgs);
         }
@@ -178,7 +183,8 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
             return this.getInputVariableUsages__CallAction();
         case SeffPackage.EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION:
@@ -203,7 +209,8 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
             this.getInputVariableUsages__CallAction().clear();
             this.getInputVariableUsages__CallAction().addAll((Collection<? extends VariableUsage>) newValue);
@@ -225,7 +232,8 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
             this.getInputVariableUsages__CallAction().clear();
             return;
@@ -246,7 +254,8 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
             return !this.getInputVariableUsages__CallAction().isEmpty();
         case SeffPackage.EMIT_EVENT_ACTION__EVENT_TYPE_EMIT_EVENT_ACTION:
@@ -264,8 +273,10 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == CallAction.class) {
-            switch (derivedFeatureID) {
+        if (baseClass == CallAction.class)
+        {
+            switch (derivedFeatureID)
+            {
             case SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
                 return SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION;
             default:
@@ -282,8 +293,10 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == CallAction.class) {
-            switch (baseFeatureID) {
+        if (baseClass == CallAction.class)
+        {
+            switch (baseFeatureID)
+            {
             case SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
                 return SeffPackage.EMIT_EVENT_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION;
             default:

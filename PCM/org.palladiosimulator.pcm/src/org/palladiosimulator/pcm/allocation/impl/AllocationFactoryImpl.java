@@ -33,13 +33,16 @@ public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFac
      * @generated
      */
     public static AllocationFactory init() {
-        try {
+        try
+        {
             final AllocationFactory theAllocationFactory = (AllocationFactory) EPackage.Registry.INSTANCE
                     .getEFactory(AllocationPackage.eNS_URI);
-            if (theAllocationFactory != null) {
+            if (theAllocationFactory != null)
+            {
                 return theAllocationFactory;
             }
-        } catch (final Exception exception) {
+        } catch (final Exception exception)
+        {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new AllocationFactoryImpl();
@@ -61,7 +64,8 @@ public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFac
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID()) {
+        switch (eClass.getClassifierID())
+        {
         case AllocationPackage.ALLOCATION_CONTEXT:
             return this.createAllocationContext();
         case AllocationPackage.ALLOCATION:

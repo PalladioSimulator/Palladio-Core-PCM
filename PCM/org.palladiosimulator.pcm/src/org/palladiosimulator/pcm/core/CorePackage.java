@@ -109,8 +109,7 @@ public interface CorePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT
-            + 1;
+    int PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Variable Characterisation Specification</b></em>' container
@@ -146,8 +145,7 @@ public interface CorePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_RANDOM_VARIABLE__PARAMETRIC_RESOURCE_DEMAND_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT
-            + 5;
+    int PCM_RANDOM_VARIABLE__PARAMETRIC_RESOURCE_DEMAND_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Loop Action PCM Random Variable</b></em>' container reference.
@@ -165,8 +163,7 @@ public interface CorePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_RANDOM_VARIABLE__GUARDED_BRANCH_TRANSITION_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT
-            + 7;
+    int PCM_RANDOM_VARIABLE__GUARDED_BRANCH_TRANSITION_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 7;
 
     /**
      * The feature id for the '<em><b>Specified Execution Time PCM Random Variable</b></em>'
@@ -175,8 +172,7 @@ public interface CorePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT
-            + 8;
+    int PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 8;
 
     /**
      * The feature id for the '<em><b>Event Channel Sink Connector Filter Condition</b></em>'
@@ -185,8 +181,7 @@ public interface CorePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT
-            + 9;
+    int PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 9;
 
     /**
      * The feature id for the '<em><b>Assembly Event Connector Filter Condition</b></em>' container
@@ -195,8 +190,7 @@ public interface CorePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT
-            + 10;
+    int PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 10;
 
     /**
      * The feature id for the '<em><b>Loop Loop Iteration</b></em>' container reference. <!--
@@ -233,8 +227,7 @@ public interface CorePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT
-            + 14;
+    int PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 14;
 
     /**
      * The feature id for the '
@@ -244,8 +237,7 @@ public interface CorePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT
-            + 15;
+    int PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 15;
 
     /**
      * The feature id for the '
@@ -255,8 +247,7 @@ public interface CorePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT
-            + 16;
+    int PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 16;
 
     /**
      * The number of structural features of the '<em>PCM Random Variable</em>' class. <!--

@@ -13,11 +13,11 @@ package org.palladiosimulator.pcm.repository;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.SinkRole#getEventGroup__SinkRole
- * <em>Event Group Sink Role</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.SinkRole#getEventGroup__SinkRole <em>Event Group
+ * Sink Role</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getSinkRole()
  * @model

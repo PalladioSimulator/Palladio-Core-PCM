@@ -18,15 +18,22 @@ import org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction;
  * <!-- begin-model-doc --> TODO&nbsp;(Überarbeitung&nbsp;durch&nbsp;MH)<br />
  * Parametric&nbsp;Resource&nbsp;Demand&nbsp;Specifies&nbsp;the&nbsp;amount&nbsp;of&nbsp;processing&
  * nbsp;requested&nbsp;from&nbsp;a&nbsp;certain&nbsp;type&nbsp;of&nbsp;resource&nbsp;in&nbsp;a&nbsp;
- * parametrised&nbsp;way.&nbsp;It&nbsp;assigns&nbsp;the&nbsp;demand&nbsp;specified&nbsp;as&nbsp;a&
- * nbsp;Random-Variable&nbsp;to&nbsp;an&nbsp;abstract&nbsp;ProcessingResourceType&nbsp;(e.g.,&nbsp;
- * CPU,&nbsp;hard&nbsp;disk)&nbsp;instead&nbsp;of&nbsp;a&nbsp;concrete&nbsp;
- * ProcessingResourceSpecification&nbsp;(e.g.,&nbsp;5&nbsp;Ghz&nbsp;CPU,&nbsp;20&nbsp;MByte/s&nbsp;
- * hard&nbsp;disk).&nbsp;This&nbsp;keeps&nbsp;the&nbsp;RDSEFF&nbsp;independent&nbsp;from&nbsp;a&nbsp
- * ;specific&nbsp;resource&nbsp;environment,&nbsp;and&nbsp;makes&nbsp;the&nbsp;concrete&nbsp;
- * resources&nbsp;replaceable&nbsp;to&nbsp;answer&nbsp;sizing&nbsp;questions.<br />
- * The&nbsp;demand's&nbsp;unit&nbsp;is&nbsp;equal&nbsp;for&nbsp;all&nbsp;
- * ProcessingResourceSpecifications&nbsp;referencing<br />
+ * parametrised
+ * &nbsp;way.&nbsp;It&nbsp;assigns&nbsp;the&nbsp;demand&nbsp;specified&nbsp;as&nbsp;a&nbsp
+ * ;Random-Variable
+ * &nbsp;to&nbsp;an&nbsp;abstract&nbsp;ProcessingResourceType&nbsp;(e.g.,&nbsp;CPU,&nbsp
+ * ;hard&nbsp;disk
+ * )&nbsp;instead&nbsp;of&nbsp;a&nbsp;concrete&nbsp;ProcessingResourceSpecification&nbsp
+ * ;(e.g.,&nbsp;
+ * 5&nbsp;Ghz&nbsp;CPU,&nbsp;20&nbsp;MByte/s&nbsp;hard&nbsp;disk).&nbsp;This&nbsp;keeps&
+ * nbsp;the&nbsp
+ * ;RDSEFF&nbsp;independent&nbsp;from&nbsp;a&nbsp;specific&nbsp;resource&nbsp;environment
+ * ,&nbsp;and&nbsp
+ * ;makes&nbsp;the&nbsp;concrete&nbsp;resources&nbsp;replaceable&nbsp;to&nbsp;answer&nbsp
+ * ;sizing&nbsp;questions.<br />
+ * The&nbsp;demand
+ * 's&nbsp;unit&nbsp;is&nbsp;equal&nbsp;for&nbsp;all&nbsp;ProcessingResourceSpecifications&nbsp;referenci
+ * n g<br />
  * the&nbsp;same&nbsp;ProcessingResourceType.&nbsp;It&nbsp;can&nbsp;for&nbsp;example&nbsp;be&nbsp;
  * "WorkUnits"<br />
  * for&nbsp;CPUs&nbsp;[Smi02]&nbsp;or&nbsp;"BytesRead"&nbsp;for&nbsp;hard&nbsp;disks.&nbsp;Each&nbsp
@@ -69,8 +76,9 @@ import org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction;
  * case&nbsp;n&nbsp;refers&nbsp;to&nbsp;the&nbsp;length&nbsp;of<br />
  * the&nbsp;list&nbsp;the&nbsp;algorithm&nbsp;shall&nbsp;sort,&nbsp;which&nbsp;is&nbsp;an&nbsp;input
  * &nbsp;parameter&nbsp;of&nbsp;the&nbsp;service.&nbsp;If&nbsp;the&nbsp;current<br />
- * characterisation&nbsp;of&nbsp;the&nbsp;list's&nbsp;length&nbsp;is&nbsp;100&nbsp;(as&nbsp;the&nbsp
- * ;modelled&nbsp;usage&nbsp;profile),&nbsp;analysis&nbsp;tools<br />
+ * characterisation&nbsp;of&nbsp;the&nbsp;list
+ * 's&nbsp;length&nbsp;is&nbsp;100&nbsp;(as&nbsp;the&nbsp;modelled&nbsp;usage&nbsp;profile),&nbsp;analysis&nbsp;too
+ * l s<br />
  * derive&nbsp;1002&nbsp;&nbsp;2000&nbsp;&nbsp;12000&nbsp;WorkUnits&nbsp;from&nbsp;the&nbsp;
  * specification,&nbsp;thus&nbsp;resolving&nbsp;the&nbsp;usage<br />
  * profile&nbsp;dependency.&nbsp;If&nbsp;the&nbsp;CPU&nbsp;ProcessingResourceSpecification&nbsp;the&
@@ -81,8 +89,7 @@ import org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction;
  * &nbsp;of&nbsp;10000WorkUnits/s,&nbsp;analysis<br />
  * tools&nbsp;derive&nbsp;an&nbsp;execution&nbsp;time&nbsp;of&nbsp;12000&nbsp;WorkUnits&nbsp;{10000&
  * nbsp;WorkUnits/s&nbsp;=&nbsp;1:2&nbsp;s&nbsp;from&nbsp;the<br />
- * specification,&nbsp;thus&nbsp;resolving&nbsp;the&nbsp;resource&nbsp;environment&nbsp;dependency.
- * <br />
+ * specification,&nbsp;thus&nbsp;resolving&nbsp;the&nbsp;resource&nbsp;environment&nbsp;dependency.<br />
  * The&nbsp;stochastic&nbsp;expression&nbsp;for&nbsp;a&nbsp;ParametricResourceDemand&nbsp;depends&
  * nbsp;on&nbsp;the&nbsp;implementation<br />
  * of&nbsp;the&nbsp;service.&nbsp;Component&nbsp;developers&nbsp;can&nbsp;specify&nbsp;it&nbsp;using
@@ -103,7 +110,6 @@ import org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand#getSpecification_ParametericResourceDemand
@@ -115,6 +121,7 @@ import org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction;
  * {@link org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand#getAction_ParametricResourceDemand
  * <em>Action Parametric Resource Demand</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage#getParametricResourceDemand()
  * @model

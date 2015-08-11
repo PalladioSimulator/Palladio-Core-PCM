@@ -18,10 +18,9 @@ import org.palladiosimulator.pcm.parameter.VariableUsage;
  * <em><b>Variable Characterisation</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.parameter.impl.VariableCharacterisationImpl#getType
- * <em>Type</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.parameter.impl.VariableCharacterisationImpl#getType <em>Type
+ * </em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.parameter.impl.VariableCharacterisationImpl#getSpecification_VariableCharacterisation
  * <em>Specification Variable Characterisation</em>}</li>
@@ -29,6 +28,7 @@ import org.palladiosimulator.pcm.parameter.VariableUsage;
  * {@link org.palladiosimulator.pcm.parameter.impl.VariableCharacterisationImpl#getVariableUsage_VariableCharacterisation
  * <em>Variable Usage Variable Characterisation</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -185,10 +185,11 @@ public class VariableCharacterisationImpl extends CDOObjectImpl implements Varia
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION:
             final PCMRandomVariable specification_VariableCharacterisation = this
-                    .getSpecification_VariableCharacterisation();
+            .getSpecification_VariableCharacterisation();
             if (specification_VariableCharacterisation != null) {
                 msgs = ((InternalEObject) specification_VariableCharacterisation).eInverseRemove(this,
                         EOPPOSITE_FEATURE_BASE
@@ -213,7 +214,8 @@ public class VariableCharacterisationImpl extends CDOObjectImpl implements Varia
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION:
             return this.basicSetSpecification_VariableCharacterisation(null, msgs);
         case ParameterPackage.VARIABLE_CHARACTERISATION__VARIABLE_USAGE_VARIABLE_CHARACTERISATION:
@@ -229,7 +231,8 @@ public class VariableCharacterisationImpl extends CDOObjectImpl implements Varia
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case ParameterPackage.VARIABLE_CHARACTERISATION__VARIABLE_USAGE_VARIABLE_CHARACTERISATION:
             return this.eInternalContainer().eInverseRemove(this,
                     ParameterPackage.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE, VariableUsage.class,
@@ -245,7 +248,8 @@ public class VariableCharacterisationImpl extends CDOObjectImpl implements Varia
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ParameterPackage.VARIABLE_CHARACTERISATION__TYPE:
             return this.getType();
         case ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION:
@@ -263,7 +267,8 @@ public class VariableCharacterisationImpl extends CDOObjectImpl implements Varia
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ParameterPackage.VARIABLE_CHARACTERISATION__TYPE:
             this.setType((VariableCharacterisationType) newValue);
             return;
@@ -284,7 +289,8 @@ public class VariableCharacterisationImpl extends CDOObjectImpl implements Varia
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ParameterPackage.VARIABLE_CHARACTERISATION__TYPE:
             this.setType(TYPE_EDEFAULT);
             return;
@@ -305,7 +311,8 @@ public class VariableCharacterisationImpl extends CDOObjectImpl implements Varia
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ParameterPackage.VARIABLE_CHARACTERISATION__TYPE:
             return this.getType() != TYPE_EDEFAULT;
         case ParameterPackage.VARIABLE_CHARACTERISATION__SPECIFICATION_VARIABLE_CHARACTERISATION:

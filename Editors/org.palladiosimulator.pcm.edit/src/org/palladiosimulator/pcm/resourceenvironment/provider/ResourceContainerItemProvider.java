@@ -27,7 +27,7 @@ public class ResourceContainerItemProvider extends EntityItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -35,7 +35,7 @@ public class ResourceContainerItemProvider extends EntityItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceContainerItemProvider(final AdapterFactory adapterFactory) {
@@ -45,12 +45,13 @@ public class ResourceContainerItemProvider extends EntityItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null) {
+        if (this.itemPropertyDescriptors == null)
+        {
             super.getPropertyDescriptors(object);
 
         }
@@ -68,19 +69,20 @@ public class ResourceContainerItemProvider extends EntityItemProvider {
      */
     @Override
     public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
-        if (this.childrenFeatures == null) {
+        if (this.childrenFeatures == null)
+        {
             super.getChildrenFeatures(object);
-            this.childrenFeatures.add(
-                    ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER);
-            this.childrenFeatures.add(
-                    ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER);
+            this.childrenFeatures
+            .add(ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER);
+            this.childrenFeatures
+            .add(ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -93,7 +95,7 @@ public class ResourceContainerItemProvider extends EntityItemProvider {
 
     /**
      * This returns ResourceContainer.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -121,14 +123,15 @@ public class ResourceContainerItemProvider extends EntityItemProvider {
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
 
-        switch (notification.getFeatureID(ResourceContainer.class)) {
+        switch (notification.getFeatureID(ResourceContainer.class))
+        {
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -140,20 +143,24 @@ public class ResourceContainerItemProvider extends EntityItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(this.createChildParameter(
-                ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER,
-                ResourceenvironmentFactory.eINSTANCE.createProcessingResourceSpecification()));
+        newChildDescriptors
+        .add
+        (this.createChildParameter
+                        (ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER,
+                                ResourceenvironmentFactory.eINSTANCE.createProcessingResourceSpecification()));
 
-        newChildDescriptors.add(this.createChildParameter(
-                ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER,
-                ResourceenvironmentFactory.eINSTANCE.createResourceContainer()));
+        newChildDescriptors
+                .add
+        (this.createChildParameter
+                        (ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER,
+                                ResourceenvironmentFactory.eINSTANCE.createResourceContainer()));
     }
 
 }

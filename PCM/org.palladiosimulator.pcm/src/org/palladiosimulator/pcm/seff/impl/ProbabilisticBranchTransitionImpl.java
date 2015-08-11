@@ -12,12 +12,12 @@ import org.palladiosimulator.pcm.seff.SeffPackage;
  * <em><b>Probabilistic Branch Transition</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.impl.ProbabilisticBranchTransitionImpl#getBranchProbability
  * <em>Branch Probability</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -89,7 +89,8 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
             return this.getBranchProbability();
         }
@@ -103,7 +104,8 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
             this.setBranchProbability((Double) newValue);
             return;
@@ -118,7 +120,8 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
             this.setBranchProbability(BRANCH_PROBABILITY_EDEFAULT);
             return;
@@ -133,7 +136,8 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
             return this.getBranchProbability() != BRANCH_PROBABILITY_EDEFAULT;
         }

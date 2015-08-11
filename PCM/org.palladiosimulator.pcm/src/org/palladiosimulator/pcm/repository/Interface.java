@@ -33,17 +33,17 @@ import org.palladiosimulator.pcm.protocol.Protocol;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.Interface#getParentInterfaces__Interface
- * <em>Parent Interfaces Interface</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.Interface#getProtocols__Interface
- * <em>Protocols Interface</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.Interface#getRequiredCharacterisations
- * <em>Required Characterisations</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.Interface#getRepository__Interface
- * <em>Repository Interface</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Interface#getParentInterfaces__Interface <em>
+ * Parent Interfaces Interface</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Interface#getProtocols__Interface <em>Protocols
+ * Interface</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Interface#getRequiredCharacterisations <em>
+ * Required Characterisations</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Interface#getRepository__Interface <em>Repository
+ * Interface</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getInterface()
  * @model abstract="true"

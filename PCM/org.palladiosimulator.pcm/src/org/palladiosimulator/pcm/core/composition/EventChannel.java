@@ -13,7 +13,6 @@ import org.palladiosimulator.pcm.repository.EventGroup;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.core.composition.EventChannel#getEventGroup__EventChannel
  * <em>Event Group Event Channel</em>}</li>
@@ -27,6 +26,7 @@ import org.palladiosimulator.pcm.repository.EventGroup;
  * {@link org.palladiosimulator.pcm.core.composition.EventChannel#getParentStructure__EventChannel
  * <em>Parent Structure Event Channel</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getEventChannel()
  * @model

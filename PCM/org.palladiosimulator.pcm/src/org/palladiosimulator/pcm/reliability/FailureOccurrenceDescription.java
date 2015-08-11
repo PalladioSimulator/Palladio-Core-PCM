@@ -22,12 +22,12 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.reliability.FailureOccurrenceDescription#getFailureProbability
  * <em>Failure Probability</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.reliability.ReliabilityPackage#getFailureOccurrenceDescription()
  * @model abstract="true"

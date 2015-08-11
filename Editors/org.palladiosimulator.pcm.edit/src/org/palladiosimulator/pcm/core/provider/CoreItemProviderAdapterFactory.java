@@ -34,15 +34,15 @@ import org.palladiosimulator.pcm.core.util.CoreAdapterFactory;
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- *
+ * 
  * @generated
  */
 public class CoreItemProviderAdapterFactory extends CoreAdapterFactory
-        implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
+implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -65,7 +65,7 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory
 
     /**
      * This helps manage the child creation extenders. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
@@ -74,14 +74,14 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public CoreItemProviderAdapterFactory() {
@@ -96,7 +96,7 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.core.PCMRandomVariable} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PCMRandomVariableItemProvider pcmRandomVariableItemProvider;
@@ -109,7 +109,8 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory
      */
     @Override
     public Adapter createPCMRandomVariableAdapter() {
-        if (this.pcmRandomVariableItemProvider == null) {
+        if (this.pcmRandomVariableItemProvider == null)
+        {
             this.pcmRandomVariableItemProvider = new PCMRandomVariableItemProvider(this);
         }
 
@@ -119,7 +120,7 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -130,7 +131,7 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -140,7 +141,7 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -161,14 +162,16 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Object adapt(final Object object, final Object type) {
-        if (this.isFactoryForType(type)) {
+        if (this.isFactoryForType(type))
+        {
             final Object adapter = super.adapt(object, type);
-            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter)))
+            {
                 return adapter;
             }
         }
@@ -178,7 +181,7 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -187,7 +190,7 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -197,7 +200,7 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -207,7 +210,7 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -217,7 +220,7 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -235,7 +238,8 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory
     public void fireNotifyChanged(final Notification notification) {
         this.changeNotifier.fireNotifyChanged(notification);
 
-        if (this.parentAdapterFactory != null) {
+        if (this.parentAdapterFactory != null)
+        {
             this.parentAdapterFactory.fireNotifyChanged(notification);
         }
     }
@@ -243,7 +247,7 @@ public class CoreItemProviderAdapterFactory extends CoreAdapterFactory
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

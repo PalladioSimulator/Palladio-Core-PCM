@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.pcm.core.entity.Entity;
 import org.palladiosimulator.pcm.core.entity.NamedElement;
-import org.palladiosimulator.pcm.seff.AbstractAction;
 import org.palladiosimulator.pcm.seff.CallAction;
 import org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall;
 import org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand;
@@ -50,7 +49,8 @@ public class SeffPerformanceSwitch<T> {
      * @generated
      */
     public SeffPerformanceSwitch() {
-        if (modelPackage == null) {
+        if (modelPackage == null)
+        {
             modelPackage = SeffPerformancePackage.eINSTANCE;
         }
     }
@@ -74,11 +74,16 @@ public class SeffPerformanceSwitch<T> {
      * @generated
      */
     protected T doSwitch(final EClass theEClass, final EObject theEObject) {
-        if (theEClass.eContainer() == modelPackage) {
+        if (theEClass.eContainer() == modelPackage)
+        {
             return this.doSwitch(theEClass.getClassifierID(), theEObject);
-        } else {
+        }
+        else
+        {
             final List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ? this.defaultCase(theEObject) : this.doSwitch(eSuperTypes.get(0), theEObject);
+            return eSuperTypes.isEmpty() ?
+                    this.defaultCase(theEObject) :
+                    this.doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
@@ -90,15 +95,13 @@ public class SeffPerformanceSwitch<T> {
      * @generated
      */
     protected T doSwitch(final int classifierID, final EObject theEObject) {
-        switch (classifierID) {
+        switch (classifierID)
+        {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL: {
             final InfrastructureCall infrastructureCall = (InfrastructureCall) theEObject;
             T result = this.caseInfrastructureCall(infrastructureCall);
             if (result == null) {
                 result = this.caseCallAction(infrastructureCall);
-            }
-            if (result == null) {
-                result = this.caseAbstractAction(infrastructureCall);
             }
             if (result == null) {
                 result = this.caseEntity(infrastructureCall);
@@ -119,9 +122,6 @@ public class SeffPerformanceSwitch<T> {
             T result = this.caseResourceCall(resourceCall);
             if (result == null) {
                 result = this.caseCallAction(resourceCall);
-            }
-            if (result == null) {
-                result = this.caseAbstractAction(resourceCall);
             }
             if (result == null) {
                 result = this.caseEntity(resourceCall);
@@ -239,21 +239,6 @@ public class SeffPerformanceSwitch<T> {
      * @generated
      */
     public T caseEntity(final Entity object) {
-        return null;
-    }
-
-    /**
-     * Returns the result of interpreting the object as an instance of '<em>Abstract Action</em>'.
-     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
-     * terminate the switch. <!-- end-user-doc -->
-     *
-     * @param object
-     *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Abstract Action</em>'.
-     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-     * @generated
-     */
-    public T caseAbstractAction(final AbstractAction object) {
         return null;
     }
 

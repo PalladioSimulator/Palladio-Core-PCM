@@ -17,13 +17,13 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.UsageModel#getUsageScenario_UsageModel
- * <em>Usage Scenario Usage Model</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.UsageModel#getUserData_UsageModel
- * <em>User Data Usage Model</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.UsageModel#getUsageScenario_UsageModel <em>Usage
+ * Scenario Usage Model</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.UsageModel#getUserData_UsageModel <em>User Data
+ * Usage Model</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getUsageModel()
  * @model

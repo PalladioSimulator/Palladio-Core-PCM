@@ -173,8 +173,7 @@ public interface ResourcetypePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT
-            + 1;
+    int RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Resource Repository Resource Type</b></em>' container
@@ -259,8 +258,7 @@ public interface ResourcetypePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE = RESOURCE_TYPE_FEATURE_COUNT
-            + 0;
+    int PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE = RESOURCE_TYPE_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Processing Resource Type</em>' class. <!--
@@ -431,8 +429,7 @@ public interface ResourcetypePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE = RESOURCE_TYPE_FEATURE_COUNT
-            + 0;
+    int COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE = RESOURCE_TYPE_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Communication Link Resource Type</em>' class.
@@ -575,8 +572,9 @@ public interface ResourcetypePackage extends EPackage {
     EReference getProcessingResourceType_HardwareInducedFailureType__ProcessingResourceType();
 
     /**
-     * Returns the meta object for class '{@link org.palladiosimulator.pcm.resourcetype.ResourceType
-     * <em>Resource Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '
+     * {@link org.palladiosimulator.pcm.resourcetype.ResourceType <em>Resource Type</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Resource Type</em>'.
      * @see org.palladiosimulator.pcm.resourcetype.ResourceType
@@ -599,8 +597,8 @@ public interface ResourcetypePackage extends EPackage {
 
     /**
      * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.resourcetype.ResourceRepository <em>Resource Repository</em>
-     * }'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * {@link org.palladiosimulator.pcm.resourcetype.ResourceRepository
+     * <em>Resource Repository</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Resource Repository</em>'.
      * @see org.palladiosimulator.pcm.resourcetype.ResourceRepository

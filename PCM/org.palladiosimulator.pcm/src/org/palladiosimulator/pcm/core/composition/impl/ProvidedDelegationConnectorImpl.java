@@ -25,7 +25,6 @@ import org.palladiosimulator.pcm.repository.OperationProvidedRole;
  * <em><b>Provided Delegation Connector</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.impl.ProvidedDelegationConnectorImpl#getInnerProvidedRole_ProvidedDelegationConnector
@@ -37,6 +36,7 @@ import org.palladiosimulator.pcm.repository.OperationProvidedRole;
  * {@link org.palladiosimulator.pcm.core.composition.impl.ProvidedDelegationConnectorImpl#getAssemblyContext_ProvidedDelegationConnector
  * <em>Assembly Context Provided Delegation Connector</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -75,10 +75,11 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
      */
     @Override
     public OperationProvidedRole getInnerProvidedRole_ProvidedDelegationConnector() {
-        return (OperationProvidedRole) this.eDynamicGet(
-                CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR,
-                CompositionPackage.Literals.PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR,
-                true, true);
+        return (OperationProvidedRole) this
+                .eDynamicGet(
+                        CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR,
+                        CompositionPackage.Literals.PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR,
+                        true, true);
     }
 
     /**
@@ -87,10 +88,11 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
      * @generated
      */
     public OperationProvidedRole basicGetInnerProvidedRole_ProvidedDelegationConnector() {
-        return (OperationProvidedRole) this.eDynamicGet(
-                CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR,
-                CompositionPackage.Literals.PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR,
-                false, true);
+        return (OperationProvidedRole) this
+                .eDynamicGet(
+                        CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR,
+                        CompositionPackage.Literals.PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR,
+                        false, true);
     }
 
     /**
@@ -114,10 +116,11 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
      */
     @Override
     public OperationProvidedRole getOuterProvidedRole_ProvidedDelegationConnector() {
-        return (OperationProvidedRole) this.eDynamicGet(
-                CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR,
-                CompositionPackage.Literals.PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR,
-                true, true);
+        return (OperationProvidedRole) this
+                .eDynamicGet(
+                        CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR,
+                        CompositionPackage.Literals.PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR,
+                        true, true);
     }
 
     /**
@@ -126,10 +129,11 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
      * @generated
      */
     public OperationProvidedRole basicGetOuterProvidedRole_ProvidedDelegationConnector() {
-        return (OperationProvidedRole) this.eDynamicGet(
-                CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR,
-                CompositionPackage.Literals.PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR,
-                false, true);
+        return (OperationProvidedRole) this
+                .eDynamicGet(
+                        CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR,
+                        CompositionPackage.Literals.PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR,
+                        false, true);
     }
 
     /**
@@ -153,10 +157,11 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
      */
     @Override
     public AssemblyContext getAssemblyContext_ProvidedDelegationConnector() {
-        return (AssemblyContext) this.eDynamicGet(
-                CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR,
-                CompositionPackage.Literals.PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR,
-                true, true);
+        return (AssemblyContext) this
+                .eDynamicGet(
+                        CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR,
+                        CompositionPackage.Literals.PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR,
+                        true, true);
     }
 
     /**
@@ -165,10 +170,11 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext_ProvidedDelegationConnector() {
-        return (AssemblyContext) this.eDynamicGet(
-                CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR,
-                CompositionPackage.Literals.PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR,
-                false, true);
+        return (AssemblyContext) this
+                .eDynamicGet(
+                        CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR,
+                        CompositionPackage.Literals.PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR,
+                        false, true);
     }
 
     /**
@@ -188,8 +194,8 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
     /**
      * The cached OCL expression body for the '
      * {@link #ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Provided Delegation Connectorandtheconnected Componentmustbepartofthesamecompositestructure</em>
-     * }' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <em>Provided Delegation Connectorandtheconnected Componentmustbepartofthesamecompositestructure</em>}
+     * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
@@ -200,8 +206,8 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
     /**
      * The cached OCL invariant for the '
      * {@link #ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Provided Delegation Connectorandtheconnected Componentmustbepartofthesamecompositestructure</em>
-     * }' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <em>Provided Delegation Connectorandtheconnected Componentmustbepartofthesamecompositestructure</em>}
+     * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
@@ -218,29 +224,40 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
     @Override
     public boolean ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (PROVIDED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (PROVIDED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(CompositionPackage.Literals.PROVIDED_DELEGATION_CONNECTOR);
-            try {
+            try
+            {
                 PROVIDED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(
-                                PROVIDED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+                        .createInvariant(PROVIDED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV
                 .createQuery(
                         PROVIDED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, CompositionValidator.DIAGNOSTIC_SOURCE,
-                        CompositionValidator.PROVIDED_DELEGATION_CONNECTOR__PROVIDED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] {
-                                        "ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                .check(this))
+        {
+            if (diagnostics != null)
+            {
+                diagnostics
+                        .add
+                        (new BasicDiagnostic
+                        (
+                                Diagnostic.ERROR,
+                                CompositionValidator.DIAGNOSTIC_SOURCE,
+                                CompositionValidator.PROVIDED_DELEGATION_CONNECTOR__PROVIDED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE,
+                                EcorePlugin.INSTANCE
+                                        .getString(
+                                                "_UI_GenericInvariant_diagnostic",
+                                                new Object[] {
+                                                        "ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure",
+                                                        EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -250,8 +267,8 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
     /**
      * The cached OCL expression body for the '
      * {@link #ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Component Of Assembly Context And Inner Role Providing Component Need To Be The Same</em>
-     * }' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <em>Component Of Assembly Context And Inner Role Providing Component Need To Be The Same</em>}
+     * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
@@ -262,8 +279,8 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
     /**
      * The cached OCL invariant for the '
      * {@link #ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Component Of Assembly Context And Inner Role Providing Component Need To Be The Same</em>
-     * }' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <em>Component Of Assembly Context And Inner Role Providing Component Need To Be The Same</em>}
+     * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
@@ -280,29 +297,37 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
     @Override
     public boolean ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_PROVIDING_COMPONENT_NEED_TO_BE_THE_SAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_PROVIDING_COMPONENT_NEED_TO_BE_THE_SAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(CompositionPackage.Literals.PROVIDED_DELEGATION_CONNECTOR);
-            try {
+            try
+            {
                 COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_PROVIDING_COMPONENT_NEED_TO_BE_THE_SAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(
-                                COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_PROVIDING_COMPONENT_NEED_TO_BE_THE_SAME__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+                        .createInvariant(COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_PROVIDING_COMPONENT_NEED_TO_BE_THE_SAME__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV
                 .createQuery(
                         COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_PROVIDING_COMPONENT_NEED_TO_BE_THE_SAME__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, CompositionValidator.DIAGNOSTIC_SOURCE,
-                        CompositionValidator.PROVIDED_DELEGATION_CONNECTOR__COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_PROVIDING_COMPONENT_NEED_TO_BE_THE_SAME,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] {
+                .check(this))
+        {
+            if (diagnostics != null)
+            {
+                diagnostics
+                        .add
+                        (new BasicDiagnostic
+                        (
+                                Diagnostic.ERROR,
+                                CompositionValidator.DIAGNOSTIC_SOURCE,
+                                CompositionValidator.PROVIDED_DELEGATION_CONNECTOR__COMPONENT_OF_ASSEMBLY_CONTEXT_AND_INNER_ROLE_PROVIDING_COMPONENT_NEED_TO_BE_THE_SAME,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
                                         "ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame",
                                         EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                new Object[] { this }));
             }
             return false;
         }
@@ -316,7 +341,8 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR:
             if (resolve) {
                 return this.getInnerProvidedRole_ProvidedDelegationConnector();
@@ -343,7 +369,8 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR:
             this.setInnerProvidedRole_ProvidedDelegationConnector((OperationProvidedRole) newValue);
             return;
@@ -364,7 +391,8 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR:
             this.setInnerProvidedRole_ProvidedDelegationConnector((OperationProvidedRole) null);
             return;
@@ -385,7 +413,8 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR:
             return this.basicGetInnerProvidedRole_ProvidedDelegationConnector() != null;
         case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR:

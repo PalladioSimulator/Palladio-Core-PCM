@@ -48,7 +48,8 @@ public class QosannotationsSwitch<T> {
      * @generated
      */
     public QosannotationsSwitch() {
-        if (modelPackage == null) {
+        if (modelPackage == null)
+        {
             modelPackage = QosannotationsPackage.eINSTANCE;
         }
     }
@@ -72,11 +73,16 @@ public class QosannotationsSwitch<T> {
      * @generated
      */
     protected T doSwitch(final EClass theEClass, final EObject theEObject) {
-        if (theEClass.eContainer() == modelPackage) {
+        if (theEClass.eContainer() == modelPackage)
+        {
             return this.doSwitch(theEClass.getClassifierID(), theEObject);
-        } else {
+        }
+        else
+        {
             final List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ? this.defaultCase(theEObject) : this.doSwitch(eSuperTypes.get(0), theEObject);
+            return eSuperTypes.isEmpty() ?
+                    this.defaultCase(theEObject) :
+                    this.doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
@@ -88,7 +94,8 @@ public class QosannotationsSwitch<T> {
      * @generated
      */
     protected T doSwitch(final int classifierID, final EObject theEObject) {
-        switch (classifierID) {
+        switch (classifierID)
+        {
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION: {
             final SpecifiedQoSAnnotation specifiedQoSAnnotation = (SpecifiedQoSAnnotation) theEObject;
             T result = this.caseSpecifiedQoSAnnotation(specifiedQoSAnnotation);

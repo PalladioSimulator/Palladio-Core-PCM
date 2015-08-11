@@ -17,7 +17,6 @@ import org.palladiosimulator.pcm.repository.OperationProvidedRole;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector
@@ -29,6 +28,7 @@ import org.palladiosimulator.pcm.repository.OperationProvidedRole;
  * {@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getAssemblyContext_ProvidedDelegationConnector
  * <em>Assembly Context Provided Delegation Connector</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getProvidedDelegationConnector()
  * @model

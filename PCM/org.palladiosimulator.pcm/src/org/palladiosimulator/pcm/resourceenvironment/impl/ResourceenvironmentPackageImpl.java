@@ -154,7 +154,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
         // Obtain or create and register package
         final ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
                 .get(eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-                        : new ResourceenvironmentPackageImpl());
+                : new ResourceenvironmentPackageImpl());
 
         isInited = true;
 
@@ -164,75 +164,68 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
         // Obtain or create and register interdependencies
         final PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(PcmPackage.eNS_URI) : PcmPackage.eINSTANCE);
+                .getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
+                        .getEPackage(PcmPackage.eNS_URI) : PcmPackage.eINSTANCE);
         final CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
+                .getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
+                        .getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
         final EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
+                .getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
         final CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI)
-                        : CompositionPackage.eINSTANCE);
+                .getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
         final UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI)
-                        : UsagemodelPackage.eINSTANCE);
+                .getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
         final RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI)
-                        : RepositoryPackage.eINSTANCE);
+                .getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
         final ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI)
+                .getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(ResourcetypePackage.eNS_URI)
                         : ResourcetypePackage.eINSTANCE);
         final ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
+                .getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
         final ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI)
-                        : ParameterPackage.eINSTANCE);
+                .getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
         final ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI)
-                        : ReliabilityPackage.eINSTANCE);
+                .getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
         final SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
+                .getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
+                        .getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
         final SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(SeffPerformancePackage.eNS_URI)
+                .getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(SeffPerformancePackage.eNS_URI)
                         : SeffPerformancePackage.eINSTANCE);
         final SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(SeffReliabilityPackage.eNS_URI)
+                .getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(SeffReliabilityPackage.eNS_URI)
                         : SeffReliabilityPackage.eINSTANCE);
         final QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI)
+                .getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(QosannotationsPackage.eNS_URI)
                         : QosannotationsPackage.eINSTANCE);
         final QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(QosPerformancePackage.eNS_URI)
+                .getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(QosPerformancePackage.eNS_URI)
                         : QosPerformancePackage.eINSTANCE);
         final QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(QosReliabilityPackage.eNS_URI)
+                .getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(QosReliabilityPackage.eNS_URI)
                         : QosReliabilityPackage.eINSTANCE);
         final SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
+                .getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
         final AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI)
-                        : AllocationPackage.eINSTANCE);
+                .getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
         final SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI)
-                        : SubsystemPackage.eINSTANCE);
+                .getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
 
         // Create package meta-data objects
         theResourceenvironmentPackage.createPackageContents();
@@ -602,8 +595,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
         this.resourceContainerEClass = this.createEClass(RESOURCE_CONTAINER);
         this.createEReference(this.resourceContainerEClass,
                 RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER);
-        this.createEReference(this.resourceContainerEClass,
-                RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER);
+        this.createEReference(this.resourceContainerEClass, RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER);
         this.createEReference(this.resourceContainerEClass,
                 RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER);
         this.createEReference(this.resourceContainerEClass,
@@ -687,35 +679,41 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
         this.initEClass(this.resourceEnvironmentEClass, ResourceEnvironment.class, "ResourceEnvironment", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getResourceEnvironment_LinkingResources__ResourceEnvironment(),
-                this.getLinkingResource(), this.getLinkingResource_ResourceEnvironment_LinkingResource(),
-                "linkingResources__ResourceEnvironment", null, 0, -1, ResourceEnvironment.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED);
+                this.getLinkingResource(),
+                this.getLinkingResource_ResourceEnvironment_LinkingResource(), "linkingResources__ResourceEnvironment",
+                null, 0, -1, ResourceEnvironment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
+                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getResourceEnvironment_ResourceContainer_ResourceEnvironment(),
-                this.getResourceContainer(), this.getResourceContainer_ResourceEnvironment_ResourceContainer(),
+                this.getResourceContainer(),
+                this.getResourceContainer_ResourceEnvironment_ResourceContainer(),
                 "resourceContainer_ResourceEnvironment", null, 0, -1, ResourceEnvironment.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
 
         this.initEClass(this.linkingResourceEClass, LinkingResource.class, "LinkingResource", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getLinkingResource_ConnectedResourceContainers_LinkingResource(),
-                this.getResourceContainer(), null, "connectedResourceContainers_LinkingResource", null, 0, -1,
-                LinkingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource(),
+                this.getResourceContainer(),
+                null, "connectedResourceContainers_LinkingResource", null, 0, -1, LinkingResource.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+                !IS_ORDERED);
+        this.initEReference(
+                this.getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource(),
                 this.getCommunicationLinkResourceSpecification(),
                 this.getCommunicationLinkResourceSpecification_LinkingResource_CommunicationLinkResourceSpecification(),
                 "communicationLinkResourceSpecifications_LinkingResource", null, 1, 1, LinkingResource.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getLinkingResource_ResourceEnvironment_LinkingResource(),
-                this.getResourceEnvironment(), this.getResourceEnvironment_LinkingResources__ResourceEnvironment(),
+                this.getResourceEnvironment(),
+                this.getResourceEnvironment_LinkingResources__ResourceEnvironment(),
                 "resourceEnvironment_LinkingResource", null, 1, 1, LinkingResource.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.resourceContainerEClass, ResourceContainer.class, "ResourceContainer", !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getResourceContainer_ActiveResourceSpecifications_ResourceContainer(),
                 this.getProcessingResourceSpecification(),
                 this.getProcessingResourceSpecification_ResourceContainer_ProcessingResourceSpecification(),
@@ -723,33 +721,38 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
         this.initEReference(this.getResourceContainer_ResourceEnvironment_ResourceContainer(),
-                this.getResourceEnvironment(), this.getResourceEnvironment_ResourceContainer_ResourceEnvironment(),
+                this.getResourceEnvironment(),
+                this.getResourceEnvironment_ResourceContainer_ResourceEnvironment(),
                 "resourceEnvironment_ResourceContainer", null, 0, 1, ResourceContainer.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED);
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getResourceContainer_NestedResourceContainers__ResourceContainer(),
-                this.getResourceContainer(), this.getResourceContainer_ParentResourceContainer__ResourceContainer(),
+                this.getResourceContainer(),
+                this.getResourceContainer_ParentResourceContainer__ResourceContainer(),
                 "nestedResourceContainers__ResourceContainer", null, 0, -1, ResourceContainer.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
         this.initEReference(this.getResourceContainer_ParentResourceContainer__ResourceContainer(),
-                this.getResourceContainer(), this.getResourceContainer_NestedResourceContainers__ResourceContainer(),
+                this.getResourceContainer(),
+                this.getResourceContainer_NestedResourceContainers__ResourceContainer(),
                 "parentResourceContainer__ResourceContainer", null, 0, 1, ResourceContainer.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED);
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.processingResourceSpecificationEClass, ProcessingResourceSpecification.class,
                 "ProcessingResourceSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getProcessingResourceSpecification_MTTR(), this.ecorePackage.getEDouble(), "MTTR",
-                "0.0", 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEAttribute(this.getProcessingResourceSpecification_MTTF(), this.ecorePackage.getEDouble(), "MTTF",
-                "0.0", 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEAttribute(this.getProcessingResourceSpecification_RequiredByContainer(),
-                this.ecorePackage.getEBoolean(), "requiredByContainer", null, 1, 1,
+                "0.0", 1, 1,
                 ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
                 !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        this.initEAttribute(this.getProcessingResourceSpecification_MTTF(), this.ecorePackage.getEDouble(), "MTTF",
+                "0.0", 1, 1,
+                ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+                !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        this.initEAttribute(this.getProcessingResourceSpecification_RequiredByContainer(),
+                this.ecorePackage.getEBoolean(),
+                "requiredByContainer", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getProcessingResourceSpecification_SchedulingPolicy(),
                 theResourcetypePackage.getSchedulingPolicy(), null, "schedulingPolicy", null, 1, 1,
                 ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
@@ -768,31 +771,34 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
         this.initEAttribute(this.getProcessingResourceSpecification_NumberOfReplicas(), this.ecorePackage.getEInt(),
                 "numberOfReplicas", "1", 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getProcessingResourceSpecification_ResourceContainer_ProcessingResourceSpecification(),
-                this.getResourceContainer(), this.getResourceContainer_ActiveResourceSpecifications_ResourceContainer(),
+        this.initEReference(
+                this.getProcessingResourceSpecification_ResourceContainer_ProcessingResourceSpecification(),
+                this.getResourceContainer(),
+                this.getResourceContainer_ActiveResourceSpecifications_ResourceContainer(),
                 "resourceContainer_ProcessingResourceSpecification", null, 1, 1, ProcessingResourceSpecification.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.communicationLinkResourceSpecificationEClass, CommunicationLinkResourceSpecification.class,
+        this.initEClass(this.communicationLinkResourceSpecificationEClass,
+                CommunicationLinkResourceSpecification.class,
                 "CommunicationLinkResourceSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(
                 this.getCommunicationLinkResourceSpecification_LinkingResource_CommunicationLinkResourceSpecification(),
                 this.getLinkingResource(),
                 this.getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource(),
                 "linkingResource_CommunicationLinkResourceSpecification", null, 1, 1,
-                CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEAttribute(this.getCommunicationLinkResourceSpecification_FailureProbability(),
-                this.ecorePackage.getEDouble(), "failureProbability", "0.0", 1, 1,
                 CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        this.initEAttribute(this.getCommunicationLinkResourceSpecification_FailureProbability(),
+                this.ecorePackage.getEDouble(),
+                "failureProbability", "0.0", 1, 1, CommunicationLinkResourceSpecification.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getCommunicationLinkResourceSpecification_CommunicationLinkResourceType_CommunicationLinkResourceSpecification(),
                 theResourcetypePackage.getCommunicationLinkResourceType(), null,
                 "communicationLinkResourceType_CommunicationLinkResourceSpecification", null, 1, 1,
-                CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getCommunicationLinkResourceSpecification_Latency_CommunicationLinkResourceSpecification(),
                 theCorePackage.getPCMRandomVariable(),

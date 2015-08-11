@@ -16,14 +16,14 @@ import org.palladiosimulator.pcm.repository.SourceRole;
 /**
  * This is the item provider adapter for a {@link org.palladiosimulator.pcm.repository.SourceRole}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class SourceRoleItemProvider extends RequiredRoleItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -31,7 +31,7 @@ public class SourceRoleItemProvider extends RequiredRoleItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SourceRoleItemProvider(final AdapterFactory adapterFactory) {
@@ -41,12 +41,13 @@ public class SourceRoleItemProvider extends RequiredRoleItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null) {
+        if (this.itemPropertyDescriptors == null)
+        {
             super.getPropertyDescriptors(object);
 
             this.addEventGroup__SourceRolePropertyDescriptor(object);
@@ -57,21 +58,29 @@ public class SourceRoleItemProvider extends RequiredRoleItemProvider {
     /**
      * This adds a property descriptor for the Event Group Source Role feature. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addEventGroup__SourceRolePropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_SourceRole_eventGroup__SourceRole_feature"),
-                this.getString("_UI_PropertyDescriptor_description", "_UI_SourceRole_eventGroup__SourceRole_feature",
-                        "_UI_SourceRole_type"),
-                RepositoryPackage.Literals.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE, true, false, true, null, null, null));
+        this.itemPropertyDescriptors.add
+        (this.createItemPropertyDescriptor
+                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                                this.getResourceLocator(),
+                                this.getString("_UI_SourceRole_eventGroup__SourceRole_feature"),
+                                this.getString("_UI_PropertyDescriptor_description",
+                                        "_UI_SourceRole_eventGroup__SourceRole_feature", "_UI_SourceRole_type"),
+                                RepositoryPackage.Literals.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE,
+                                true,
+                                false,
+                                true,
+                                null,
+                                null,
+                                null));
     }
 
     /**
      * This returns SourceRole.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -88,15 +97,16 @@ public class SourceRoleItemProvider extends RequiredRoleItemProvider {
     @Override
     public String getText(final Object object) {
         final String label = ((SourceRole) object).getId();
-        return label == null || label.length() == 0 ? this.getString("_UI_SourceRole_type")
-                : this.getString("_UI_SourceRole_type") + " " + label;
+        return label == null || label.length() == 0 ?
+                this.getString("_UI_SourceRole_type") :
+                    this.getString("_UI_SourceRole_type") + " " + label;
     }
 
     /**
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -108,7 +118,7 @@ public class SourceRoleItemProvider extends RequiredRoleItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

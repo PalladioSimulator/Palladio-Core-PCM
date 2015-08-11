@@ -35,15 +35,15 @@ import org.palladiosimulator.pcm.repository.util.RepositoryAdapterFactory;
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- *
+ * 
  * @generated
  */
 public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFactory
-        implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
+implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -66,7 +66,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 
     /**
      * This helps manage the child creation extenders. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
@@ -75,14 +75,14 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public RepositoryItemProviderAdapterFactory() {
@@ -97,7 +97,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.repository.PassiveResource} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PassiveResourceItemProvider passiveResourceItemProvider;
@@ -105,12 +105,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.repository.PassiveResource}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createPassiveResourceAdapter() {
-        if (this.passiveResourceItemProvider == null) {
+        if (this.passiveResourceItemProvider == null)
+        {
             this.passiveResourceItemProvider = new PassiveResourceItemProvider(this);
         }
 
@@ -121,7 +122,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.repository.BasicComponent} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected BasicComponentItemProvider basicComponentItemProvider;
@@ -129,12 +130,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.repository.BasicComponent}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createBasicComponentAdapter() {
-        if (this.basicComponentItemProvider == null) {
+        if (this.basicComponentItemProvider == null)
+        {
             this.basicComponentItemProvider = new BasicComponentItemProvider(this);
         }
 
@@ -145,7 +147,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.repository.Parameter} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ParameterItemProvider parameterItemProvider;
@@ -158,7 +160,8 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createParameterAdapter() {
-        if (this.parameterItemProvider == null) {
+        if (this.parameterItemProvider == null)
+        {
             this.parameterItemProvider = new ParameterItemProvider(this);
         }
 
@@ -169,7 +172,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.repository.Repository} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected RepositoryItemProvider repositoryItemProvider;
@@ -182,7 +185,8 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createRepositoryAdapter() {
-        if (this.repositoryItemProvider == null) {
+        if (this.repositoryItemProvider == null)
+        {
             this.repositoryItemProvider = new RepositoryItemProvider(this);
         }
 
@@ -202,12 +206,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.repository.RequiredCharacterisation}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createRequiredCharacterisationAdapter() {
-        if (this.requiredCharacterisationItemProvider == null) {
+        if (this.requiredCharacterisationItemProvider == null)
+        {
             this.requiredCharacterisationItemProvider = new RequiredCharacterisationItemProvider(this);
         }
 
@@ -218,7 +223,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.repository.EventGroup} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EventGroupItemProvider eventGroupItemProvider;
@@ -231,7 +236,8 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createEventGroupAdapter() {
-        if (this.eventGroupItemProvider == null) {
+        if (this.eventGroupItemProvider == null)
+        {
             this.eventGroupItemProvider = new EventGroupItemProvider(this);
         }
 
@@ -242,7 +248,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.repository.EventType} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EventTypeItemProvider eventTypeItemProvider;
@@ -255,7 +261,8 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createEventTypeAdapter() {
-        if (this.eventTypeItemProvider == null) {
+        if (this.eventTypeItemProvider == null)
+        {
             this.eventTypeItemProvider = new EventTypeItemProvider(this);
         }
 
@@ -266,7 +273,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.repository.ExceptionType} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ExceptionTypeItemProvider exceptionTypeItemProvider;
@@ -274,12 +281,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.repository.ExceptionType}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createExceptionTypeAdapter() {
-        if (this.exceptionTypeItemProvider == null) {
+        if (this.exceptionTypeItemProvider == null)
+        {
             this.exceptionTypeItemProvider = new ExceptionTypeItemProvider(this);
         }
 
@@ -299,12 +307,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.repository.InfrastructureSignature}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createInfrastructureSignatureAdapter() {
-        if (this.infrastructureSignatureItemProvider == null) {
+        if (this.infrastructureSignatureItemProvider == null)
+        {
             this.infrastructureSignatureItemProvider = new InfrastructureSignatureItemProvider(this);
         }
 
@@ -324,12 +333,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.repository.InfrastructureInterface}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createInfrastructureInterfaceAdapter() {
-        if (this.infrastructureInterfaceItemProvider == null) {
+        if (this.infrastructureInterfaceItemProvider == null)
+        {
             this.infrastructureInterfaceItemProvider = new InfrastructureInterfaceItemProvider(this);
         }
 
@@ -349,12 +359,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.repository.InfrastructureRequiredRole}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createInfrastructureRequiredRoleAdapter() {
-        if (this.infrastructureRequiredRoleItemProvider == null) {
+        if (this.infrastructureRequiredRoleItemProvider == null)
+        {
             this.infrastructureRequiredRoleItemProvider = new InfrastructureRequiredRoleItemProvider(this);
         }
 
@@ -373,12 +384,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.repository.OperationSignature}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createOperationSignatureAdapter() {
-        if (this.operationSignatureItemProvider == null) {
+        if (this.operationSignatureItemProvider == null)
+        {
             this.operationSignatureItemProvider = new OperationSignatureItemProvider(this);
         }
 
@@ -397,12 +409,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.repository.OperationInterface}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createOperationInterfaceAdapter() {
-        if (this.operationInterfaceItemProvider == null) {
+        if (this.operationInterfaceItemProvider == null)
+        {
             this.operationInterfaceItemProvider = new OperationInterfaceItemProvider(this);
         }
 
@@ -422,12 +435,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.repository.OperationRequiredRole}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createOperationRequiredRoleAdapter() {
-        if (this.operationRequiredRoleItemProvider == null) {
+        if (this.operationRequiredRoleItemProvider == null)
+        {
             this.operationRequiredRoleItemProvider = new OperationRequiredRoleItemProvider(this);
         }
 
@@ -438,7 +452,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.repository.SourceRole} instances. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SourceRoleItemProvider sourceRoleItemProvider;
@@ -451,7 +465,8 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createSourceRoleAdapter() {
-        if (this.sourceRoleItemProvider == null) {
+        if (this.sourceRoleItemProvider == null)
+        {
             this.sourceRoleItemProvider = new SourceRoleItemProvider(this);
         }
 
@@ -462,7 +477,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.repository.SinkRole} instances. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SinkRoleItemProvider sinkRoleItemProvider;
@@ -475,7 +490,8 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      */
     @Override
     public Adapter createSinkRoleAdapter() {
-        if (this.sinkRoleItemProvider == null) {
+        if (this.sinkRoleItemProvider == null)
+        {
             this.sinkRoleItemProvider = new SinkRoleItemProvider(this);
         }
 
@@ -495,12 +511,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.repository.OperationProvidedRole}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createOperationProvidedRoleAdapter() {
-        if (this.operationProvidedRoleItemProvider == null) {
+        if (this.operationProvidedRoleItemProvider == null)
+        {
             this.operationProvidedRoleItemProvider = new OperationProvidedRoleItemProvider(this);
         }
 
@@ -520,12 +537,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.repository.InfrastructureProvidedRole}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createInfrastructureProvidedRoleAdapter() {
-        if (this.infrastructureProvidedRoleItemProvider == null) {
+        if (this.infrastructureProvidedRoleItemProvider == null)
+        {
             this.infrastructureProvidedRoleItemProvider = new InfrastructureProvidedRoleItemProvider(this);
         }
 
@@ -545,12 +563,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.repository.CompleteComponentType}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createCompleteComponentTypeAdapter() {
-        if (this.completeComponentTypeItemProvider == null) {
+        if (this.completeComponentTypeItemProvider == null)
+        {
             this.completeComponentTypeItemProvider = new CompleteComponentTypeItemProvider(this);
         }
 
@@ -570,12 +589,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.repository.ProvidesComponentType}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createProvidesComponentTypeAdapter() {
-        if (this.providesComponentTypeItemProvider == null) {
+        if (this.providesComponentTypeItemProvider == null)
+        {
             this.providesComponentTypeItemProvider = new ProvidesComponentTypeItemProvider(this);
         }
 
@@ -594,12 +614,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.repository.CompositeComponent}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createCompositeComponentAdapter() {
-        if (this.compositeComponentItemProvider == null) {
+        if (this.compositeComponentItemProvider == null)
+        {
             this.compositeComponentItemProvider = new CompositeComponentItemProvider(this);
         }
 
@@ -610,7 +631,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.repository.PrimitiveDataType} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected PrimitiveDataTypeItemProvider primitiveDataTypeItemProvider;
@@ -618,12 +639,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.repository.PrimitiveDataType}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createPrimitiveDataTypeAdapter() {
-        if (this.primitiveDataTypeItemProvider == null) {
+        if (this.primitiveDataTypeItemProvider == null)
+        {
             this.primitiveDataTypeItemProvider = new PrimitiveDataTypeItemProvider(this);
         }
 
@@ -642,12 +664,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.repository.CollectionDataType}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createCollectionDataTypeAdapter() {
-        if (this.collectionDataTypeItemProvider == null) {
+        if (this.collectionDataTypeItemProvider == null)
+        {
             this.collectionDataTypeItemProvider = new CollectionDataTypeItemProvider(this);
         }
 
@@ -658,7 +681,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.repository.CompositeDataType} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CompositeDataTypeItemProvider compositeDataTypeItemProvider;
@@ -666,12 +689,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.repository.CompositeDataType}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createCompositeDataTypeAdapter() {
-        if (this.compositeDataTypeItemProvider == null) {
+        if (this.compositeDataTypeItemProvider == null)
+        {
             this.compositeDataTypeItemProvider = new CompositeDataTypeItemProvider(this);
         }
 
@@ -682,7 +706,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.repository.InnerDeclaration} instances. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected InnerDeclarationItemProvider innerDeclarationItemProvider;
@@ -690,12 +714,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.repository.InnerDeclaration}.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createInnerDeclarationAdapter() {
-        if (this.innerDeclarationItemProvider == null) {
+        if (this.innerDeclarationItemProvider == null)
+        {
             this.innerDeclarationItemProvider = new InnerDeclarationItemProvider(this);
         }
 
@@ -705,7 +730,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -716,7 +741,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -726,7 +751,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -747,14 +772,16 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Object adapt(final Object object, final Object type) {
-        if (this.isFactoryForType(type)) {
+        if (this.isFactoryForType(type))
+        {
             final Object adapter = super.adapt(object, type);
-            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter)))
+            {
                 return adapter;
             }
         }
@@ -764,7 +791,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -773,7 +800,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -783,7 +810,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -793,7 +820,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -803,7 +830,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -821,7 +848,8 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     public void fireNotifyChanged(final Notification notification) {
         this.changeNotifier.fireNotifyChanged(notification);
 
-        if (this.parentAdapterFactory != null) {
+        if (this.parentAdapterFactory != null)
+        {
             this.parentAdapterFactory.fireNotifyChanged(notification);
         }
     }
@@ -829,7 +857,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

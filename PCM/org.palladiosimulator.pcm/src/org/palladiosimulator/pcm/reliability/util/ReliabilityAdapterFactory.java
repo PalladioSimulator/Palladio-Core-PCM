@@ -50,7 +50,8 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public ReliabilityAdapterFactory() {
-        if (modelPackage == null) {
+        if (modelPackage == null)
+        {
             modelPackage = ReliabilityPackage.eINSTANCE;
         }
     }
@@ -65,10 +66,12 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
      */
     @Override
     public boolean isFactoryForType(final Object object) {
-        if (object == modelPackage) {
+        if (object == modelPackage)
+        {
             return true;
         }
-        if (object instanceof EObject) {
+        if (object instanceof EObject)
+        {
             return ((EObject) object).eClass().getEPackage() == modelPackage;
         }
         return false;
@@ -80,75 +83,87 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    protected ReliabilitySwitch<Adapter> modelSwitch = new ReliabilitySwitch<Adapter>() {
-
+    protected ReliabilitySwitch<Adapter> modelSwitch = new ReliabilitySwitch<Adapter>()
+    {
         @Override
-        public Adapter caseFailureOccurrenceDescription(final FailureOccurrenceDescription object) {
+        public Adapter caseFailureOccurrenceDescription(final FailureOccurrenceDescription object)
+        {
             return ReliabilityAdapterFactory.this.createFailureOccurrenceDescriptionAdapter();
         }
 
         @Override
-        public Adapter caseHardwareInducedFailureType(final HardwareInducedFailureType object) {
+        public Adapter caseHardwareInducedFailureType(final HardwareInducedFailureType object)
+        {
             return ReliabilityAdapterFactory.this.createHardwareInducedFailureTypeAdapter();
         }
 
         @Override
-        public Adapter caseSoftwareInducedFailureType(final SoftwareInducedFailureType object) {
+        public Adapter caseSoftwareInducedFailureType(final SoftwareInducedFailureType object)
+        {
             return ReliabilityAdapterFactory.this.createSoftwareInducedFailureTypeAdapter();
         }
 
         @Override
-        public Adapter caseInternalFailureOccurrenceDescription(final InternalFailureOccurrenceDescription object) {
+        public Adapter caseInternalFailureOccurrenceDescription(final InternalFailureOccurrenceDescription object)
+        {
             return ReliabilityAdapterFactory.this.createInternalFailureOccurrenceDescriptionAdapter();
         }
 
         @Override
-        public Adapter caseNetworkInducedFailureType(final NetworkInducedFailureType object) {
+        public Adapter caseNetworkInducedFailureType(final NetworkInducedFailureType object)
+        {
             return ReliabilityAdapterFactory.this.createNetworkInducedFailureTypeAdapter();
         }
 
         @Override
-        public Adapter caseExternalFailureOccurrenceDescription(final ExternalFailureOccurrenceDescription object) {
+        public Adapter caseExternalFailureOccurrenceDescription(final ExternalFailureOccurrenceDescription object)
+        {
             return ReliabilityAdapterFactory.this.createExternalFailureOccurrenceDescriptionAdapter();
         }
 
         @Override
-        public Adapter caseResourceTimeoutFailureType(final ResourceTimeoutFailureType object) {
+        public Adapter caseResourceTimeoutFailureType(final ResourceTimeoutFailureType object)
+        {
             return ReliabilityAdapterFactory.this.createResourceTimeoutFailureTypeAdapter();
         }
 
         @Override
-        public Adapter caseFailureType(final FailureType object) {
+        public Adapter caseFailureType(final FailureType object)
+        {
             return ReliabilityAdapterFactory.this.createFailureTypeAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(final Identifier object) {
+        public Adapter caseIdentifier(final Identifier object)
+        {
             return ReliabilityAdapterFactory.this.createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(final NamedElement object) {
+        public Adapter caseNamedElement(final NamedElement object)
+        {
             return ReliabilityAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(final Entity object) {
+        public Adapter caseEntity(final Entity object)
+        {
             return ReliabilityAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object) {
+        public Adapter defaultCase(final EObject object)
+        {
             return ReliabilityAdapterFactory.this.createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @param target
-     *            the object to adapt.
-     * @return the adapter for the <code>target</code>.
+             *
+             * @param target
+             *            the object to adapt.
+             * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
@@ -158,12 +173,12 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.reliability.FailureOccurrenceDescription
-     * <em>Failure Occurrence Description</em>}'. <!-- begin-user-doc --> This default
-     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.reliability.FailureOccurrenceDescription
+             * <em>Failure Occurrence Description</em>}'. <!-- begin-user-doc --> This default
+             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.reliability.FailureOccurrenceDescription
      * @generated
      */
@@ -173,12 +188,12 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.reliability.HardwareInducedFailureType
-     * <em>Hardware Induced Failure Type</em>}'. <!-- begin-user-doc --> This default implementation
-     * returns null so that we can easily ignore cases; it's useful to ignore a case when
-     * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.reliability.HardwareInducedFailureType
+             * <em>Hardware Induced Failure Type</em>}'. <!-- begin-user-doc --> This default implementation
+             * returns null so that we can easily ignore cases; it's useful to ignore a case when
+             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.reliability.HardwareInducedFailureType
      * @generated
      */
@@ -188,12 +203,12 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.reliability.SoftwareInducedFailureType
-     * <em>Software Induced Failure Type</em>}'. <!-- begin-user-doc --> This default implementation
-     * returns null so that we can easily ignore cases; it's useful to ignore a case when
-     * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.reliability.SoftwareInducedFailureType
+             * <em>Software Induced Failure Type</em>}'. <!-- begin-user-doc --> This default implementation
+             * returns null so that we can easily ignore cases; it's useful to ignore a case when
+             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.reliability.SoftwareInducedFailureType
      * @generated
      */
@@ -203,12 +218,12 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.reliability.InternalFailureOccurrenceDescription
-     * <em>Internal Failure Occurrence Description</em>}'. <!-- begin-user-doc --> This default
-     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.reliability.InternalFailureOccurrenceDescription
+             * <em>Internal Failure Occurrence Description</em>}'. <!-- begin-user-doc --> This default
+             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.reliability.InternalFailureOccurrenceDescription
      * @generated
      */
@@ -218,12 +233,12 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.reliability.NetworkInducedFailureType
-     * <em>Network Induced Failure Type</em>}'. <!-- begin-user-doc --> This default implementation
-     * returns null so that we can easily ignore cases; it's useful to ignore a case when
-     * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.reliability.NetworkInducedFailureType
+             * <em>Network Induced Failure Type</em>}'. <!-- begin-user-doc --> This default implementation
+             * returns null so that we can easily ignore cases; it's useful to ignore a case when
+             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.reliability.NetworkInducedFailureType
      * @generated
      */
@@ -233,12 +248,12 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.reliability.ExternalFailureOccurrenceDescription
-     * <em>External Failure Occurrence Description</em>}'. <!-- begin-user-doc --> This default
-     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.reliability.ExternalFailureOccurrenceDescription
+             * <em>External Failure Occurrence Description</em>}'. <!-- begin-user-doc --> This default
+             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.reliability.ExternalFailureOccurrenceDescription
      * @generated
      */
@@ -248,12 +263,12 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.reliability.ResourceTimeoutFailureType
-     * <em>Resource Timeout Failure Type</em>}'. <!-- begin-user-doc --> This default implementation
-     * returns null so that we can easily ignore cases; it's useful to ignore a case when
-     * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.reliability.ResourceTimeoutFailureType
+             * <em>Resource Timeout Failure Type</em>}'. <!-- begin-user-doc --> This default implementation
+             * returns null so that we can easily ignore cases; it's useful to ignore a case when
+             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.reliability.ResourceTimeoutFailureType
      * @generated
      */
@@ -278,11 +293,11 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
-     * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
-     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
-     * the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+             * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+             * the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see de.uka.ipd.sdq.identifier.Identifier
      * @generated
      */
@@ -307,11 +322,11 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'. <!-- begin-user-doc
-     * --> This default implementation returns null so that we can easily ignore cases; it's useful
-     * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'. <!-- begin-user-doc
+             * --> This default implementation returns null so that we can easily ignore cases; it's useful
+             * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.Entity
      * @generated
      */
@@ -321,9 +336,9 @@ public class ReliabilityAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
-     * implementation returns null. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * implementation returns null. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @generated
      */
     public Adapter createEObjectAdapter() {

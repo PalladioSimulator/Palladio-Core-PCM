@@ -18,7 +18,6 @@ import org.palladiosimulator.pcm.seff.InternalAction;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.reliability.InternalFailureOccurrenceDescription#getInternalAction__InternalFailureOccurrenceDescription
@@ -27,6 +26,7 @@ import org.palladiosimulator.pcm.seff.InternalAction;
  * {@link org.palladiosimulator.pcm.reliability.InternalFailureOccurrenceDescription#getSoftwareInducedFailureType__InternalFailureOccurrenceDescription
  * <em>Software Induced Failure Type Internal Failure Occurrence Description</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.reliability.ReliabilityPackage#getInternalFailureOccurrenceDescription()
  * @model

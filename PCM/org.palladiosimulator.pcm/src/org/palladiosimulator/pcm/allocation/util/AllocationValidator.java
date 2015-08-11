@@ -117,7 +117,8 @@ public class AllocationValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID) {
+        switch (classifierID)
+        {
         case AllocationPackage.ALLOCATION_CONTEXT:
             return this.validateAllocationContext((AllocationContext) value, diagnostics, context);
         case AllocationPackage.ALLOCATION:
@@ -133,7 +134,8 @@ public class AllocationValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateAllocationContext(final AllocationContext allocationContext,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(allocationContext, diagnostics, context)) {
             return false;
         }
@@ -158,7 +160,8 @@ public class AllocationValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validateAllocationContext_OneAssemblyContextOrOneEventChannelShouldBeReferred(
-                    allocationContext, diagnostics, context);
+                    allocationContext,
+                    diagnostics, context);
         }
         return result;
     }

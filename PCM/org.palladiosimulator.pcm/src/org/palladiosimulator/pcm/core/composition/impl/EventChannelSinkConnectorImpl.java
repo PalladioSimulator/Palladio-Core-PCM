@@ -18,7 +18,6 @@ import org.palladiosimulator.pcm.repository.SinkRole;
  * <em><b>Event Channel Sink Connector</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.impl.EventChannelSinkConnectorImpl#getSinkRole__EventChannelSinkConnector
@@ -33,6 +32,7 @@ import org.palladiosimulator.pcm.repository.SinkRole;
  * {@link org.palladiosimulator.pcm.core.composition.impl.EventChannelSinkConnectorImpl#getEventChannel__EventChannelSinkConnector
  * <em>Event Channel Event Channel Sink Connector</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -85,8 +85,8 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
     public SinkRole basicGetSinkRole__EventChannelSinkConnector() {
         return (SinkRole) this.eDynamicGet(
                 CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__SINK_ROLE_EVENT_CHANNEL_SINK_CONNECTOR,
-                CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__SINK_ROLE_EVENT_CHANNEL_SINK_CONNECTOR, false,
-                true);
+                CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__SINK_ROLE_EVENT_CHANNEL_SINK_CONNECTOR,
+                false, true);
     }
 
     /**
@@ -108,10 +108,11 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
      */
     @Override
     public PCMRandomVariable getFilterCondition__EventChannelSinkConnector() {
-        return (PCMRandomVariable) this.eDynamicGet(
-                CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR,
-                CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR,
-                true, true);
+        return (PCMRandomVariable) this
+                .eDynamicGet(
+                        CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR,
+                        CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR,
+                        true, true);
     }
 
     /**
@@ -134,7 +135,8 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
     @Override
     public void setFilterCondition__EventChannelSinkConnector(
             final PCMRandomVariable newFilterCondition__EventChannelSinkConnector) {
-        this.eDynamicSet(CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR,
+        this.eDynamicSet(
+                CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR,
                 CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR,
                 newFilterCondition__EventChannelSinkConnector);
     }
@@ -146,10 +148,11 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
      */
     @Override
     public AssemblyContext getAssemblyContext__EventChannelSinkConnector() {
-        return (AssemblyContext) this.eDynamicGet(
-                CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR,
-                CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR,
-                true, true);
+        return (AssemblyContext) this
+                .eDynamicGet(
+                        CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR,
+                        CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR,
+                        true, true);
     }
 
     /**
@@ -158,10 +161,11 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext__EventChannelSinkConnector() {
-        return (AssemblyContext) this.eDynamicGet(
-                CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR,
-                CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR,
-                false, true);
+        return (AssemblyContext) this
+                .eDynamicGet(
+                        CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR,
+                        CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR,
+                        false, true);
     }
 
     /**
@@ -172,7 +176,8 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
     @Override
     public void setAssemblyContext__EventChannelSinkConnector(
             final AssemblyContext newAssemblyContext__EventChannelSinkConnector) {
-        this.eDynamicSet(CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR,
+        this.eDynamicSet(
+                CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR,
                 CompositionPackage.Literals.EVENT_CHANNEL_SINK_CONNECTOR__ASSEMBLY_CONTEXT_EVENT_CHANNEL_SINK_CONNECTOR,
                 newAssemblyContext__EventChannelSinkConnector);
     }
@@ -234,20 +239,23 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR:
             final PCMRandomVariable filterCondition__EventChannelSinkConnector = this
-                    .getFilterCondition__EventChannelSinkConnector();
+            .getFilterCondition__EventChannelSinkConnector();
             if (filterCondition__EventChannelSinkConnector != null) {
-                msgs = ((InternalEObject) filterCondition__EventChannelSinkConnector).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR,
-                        null, msgs);
+                msgs = ((InternalEObject) filterCondition__EventChannelSinkConnector)
+                        .eInverseRemove(
+                                this,
+                                EOPPOSITE_FEATURE_BASE
+                                        - CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR,
+                                null, msgs);
             }
             return this.basicSetFilterCondition__EventChannelSinkConnector((PCMRandomVariable) otherEnd, msgs);
         case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SINK_CONNECTOR:
             final EventChannel eventChannel__EventChannelSinkConnector = this
-                    .basicGetEventChannel__EventChannelSinkConnector();
+            .basicGetEventChannel__EventChannelSinkConnector();
             if (eventChannel__EventChannelSinkConnector != null) {
                 msgs = ((InternalEObject) eventChannel__EventChannelSinkConnector).eInverseRemove(this,
                         CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SINK_CONNECTOR_EVENT_CHANNEL,
@@ -266,7 +274,8 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR:
             return this.basicSetFilterCondition__EventChannelSinkConnector(null, msgs);
         case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__EVENT_CHANNEL_EVENT_CHANNEL_SINK_CONNECTOR:
@@ -282,7 +291,8 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__SINK_ROLE_EVENT_CHANNEL_SINK_CONNECTOR:
             if (resolve) {
                 return this.getSinkRole__EventChannelSinkConnector();
@@ -311,7 +321,8 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__SINK_ROLE_EVENT_CHANNEL_SINK_CONNECTOR:
             this.setSinkRole__EventChannelSinkConnector((SinkRole) newValue);
             return;
@@ -335,7 +346,8 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__SINK_ROLE_EVENT_CHANNEL_SINK_CONNECTOR:
             this.setSinkRole__EventChannelSinkConnector((SinkRole) null);
             return;
@@ -359,7 +371,8 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__SINK_ROLE_EVENT_CHANNEL_SINK_CONNECTOR:
             return this.basicGetSinkRole__EventChannelSinkConnector() != null;
         case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR__FILTER_CONDITION_EVENT_CHANNEL_SINK_CONNECTOR:

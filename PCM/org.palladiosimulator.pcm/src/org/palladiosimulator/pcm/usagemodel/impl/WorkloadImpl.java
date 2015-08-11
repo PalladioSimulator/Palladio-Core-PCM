@@ -16,11 +16,11 @@ import org.palladiosimulator.pcm.usagemodel.Workload;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.WorkloadImpl#getUsageScenario_Workload
- * <em>Usage Scenario Workload</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.WorkloadImpl#getUsageScenario_Workload <em>
+ * Usage Scenario Workload</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -103,7 +103,8 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -121,7 +122,8 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD:
             return this.basicSetUsageScenario_Workload(null, msgs);
         }
@@ -135,10 +137,12 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD:
             return this.eInternalContainer().eInverseRemove(this,
-                    UsagemodelPackage.USAGE_SCENARIO__WORKLOAD_USAGE_SCENARIO, UsageScenario.class, msgs);
+                    UsagemodelPackage.USAGE_SCENARIO__WORKLOAD_USAGE_SCENARIO,
+                    UsageScenario.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -150,7 +154,8 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD:
             return this.getUsageScenario_Workload();
         }
@@ -164,7 +169,8 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD:
             this.setUsageScenario_Workload((UsageScenario) newValue);
             return;
@@ -179,7 +185,8 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD:
             this.setUsageScenario_Workload((UsageScenario) null);
             return;
@@ -194,7 +201,8 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD:
             return this.getUsageScenario_Workload() != null;
         }

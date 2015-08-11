@@ -24,7 +24,6 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getAssemblyContexts__ComposedStructure
@@ -39,6 +38,7 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  * {@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getConnectors__ComposedStructure
  * <em>Connectors Composed Structure</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getComposedStructure()
  * @model abstract="true"

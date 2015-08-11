@@ -116,7 +116,8 @@ public class QosReliabilityValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID) {
+        switch (classifierID)
+        {
         case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION:
             return this.validateSpecifiedReliabilityAnnotation((SpecifiedReliabilityAnnotation) value, diagnostics,
                     context);
@@ -136,7 +137,8 @@ public class QosReliabilityValidator extends EObjectValidator {
         if (!this.validate_NoCircularContainment(specifiedReliabilityAnnotation, diagnostics, context)) {
             return false;
         }
-        boolean result = this.validate_EveryMultiplicityConforms(specifiedReliabilityAnnotation, diagnostics, context);
+        boolean result = this.validate_EveryMultiplicityConforms(specifiedReliabilityAnnotation, diagnostics,
+                context);
         if (result || diagnostics != null) {
             result &= this.validate_EveryDataValueConforms(specifiedReliabilityAnnotation, diagnostics, context);
         }
@@ -182,8 +184,8 @@ public class QosReliabilityValidator extends EObjectValidator {
     public boolean validateSpecifiedReliabilityAnnotation_SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(
             final SpecifiedReliabilityAnnotation specifiedReliabilityAnnotation, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        return specifiedReliabilityAnnotation
-                .SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(diagnostics, context);
+        return specifiedReliabilityAnnotation.SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(
+                diagnostics, context);
     }
 
     /**
@@ -208,8 +210,8 @@ public class QosReliabilityValidator extends EObjectValidator {
     public boolean validateSpecifiedReliabilityAnnotation_MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(
             final SpecifiedReliabilityAnnotation specifiedReliabilityAnnotation, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        return specifiedReliabilityAnnotation
-                .MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(diagnostics, context);
+        return specifiedReliabilityAnnotation.MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(
+                diagnostics, context);
     }
 
     /**

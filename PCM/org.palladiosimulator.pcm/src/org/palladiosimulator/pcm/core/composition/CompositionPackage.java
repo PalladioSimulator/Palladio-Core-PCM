@@ -202,8 +202,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.ENTITY_FEATURE_COUNT
-            + 1;
+    int COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Event Channel Composed Structure</b></em>' containment
@@ -560,8 +559,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
-            + 0;
+    int PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Outer Provided Role Provided Delegation Connector</b></em>'
@@ -570,8 +568,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
-            + 1;
+    int PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Assembly Context Provided Delegation Connector</b></em>'
@@ -580,8 +577,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
-            + 2;
+    int PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Provided Delegation Connector</em>' class. <!--
@@ -637,8 +633,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REQUIRED_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
-            + 0;
+    int REQUIRED_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Outer Required Role Required Delegation Connector</b></em>'
@@ -647,8 +642,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REQUIRED_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
-            + 1;
+    int REQUIRED_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Assembly Context Required Delegation Connector</b></em>'
@@ -657,8 +651,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
-            + 2;
+    int REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Required Delegation Connector</em>' class. <!--
@@ -907,8 +900,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SOURCE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
-            + 2;
+    int SOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SOURCE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Source Delegation Connector</em>' class. <!--
@@ -1039,8 +1031,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR = CONNECTOR_FEATURE_COUNT
-            + 0;
+    int ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR = CONNECTOR_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Required Role Assembly Infrastructure Connector</b></em>'
@@ -1049,8 +1040,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR = CONNECTOR_FEATURE_COUNT
-            + 1;
+    int ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR = CONNECTOR_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '
@@ -1060,8 +1050,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR = CONNECTOR_FEATURE_COUNT
-            + 2;
+    int ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR = CONNECTOR_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '
@@ -1071,8 +1060,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR = CONNECTOR_FEATURE_COUNT
-            + 3;
+    int ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR = CONNECTOR_FEATURE_COUNT + 3;
 
     /**
      * The number of structural features of the '<em>Assembly Infrastructure Connector</em>' class.
@@ -1089,8 +1077,7 @@ public interface CompositionPackage extends EPackage {
      * <em>Provided Infrastructure Delegation Connector</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @see org.palladiosimulator.pcm.core.composition.impl.
-     *      ProvidedInfrastructureDelegationConnectorImpl
+     * @see org.palladiosimulator.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl
      * @see org.palladiosimulator.pcm.core.composition.impl.CompositionPackageImpl#getProvidedInfrastructureDelegationConnector()
      * @generated
      */
@@ -1131,8 +1118,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
-            + 0;
+    int PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '
@@ -1142,8 +1128,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
-            + 1;
+    int PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '
@@ -1153,8 +1138,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
-            + 2;
+    int PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '
@@ -1172,8 +1156,7 @@ public interface CompositionPackage extends EPackage {
      * <em>Required Infrastructure Delegation Connector</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @see org.palladiosimulator.pcm.core.composition.impl.
-     *      RequiredInfrastructureDelegationConnectorImpl
+     * @see org.palladiosimulator.pcm.core.composition.impl.RequiredInfrastructureDelegationConnectorImpl
      * @see org.palladiosimulator.pcm.core.composition.impl.CompositionPackageImpl#getRequiredInfrastructureDelegationConnector()
      * @generated
      */
@@ -1214,8 +1197,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
-            + 0;
+    int REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '
@@ -1225,8 +1207,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
-            + 1;
+    int REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '
@@ -1236,8 +1217,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
-            + 2;
+    int REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '
@@ -1296,8 +1276,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
-            + 0;
+    int REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '
@@ -1307,8 +1286,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
-            + 1;
+    int REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '
@@ -1318,8 +1296,7 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
-            + 2;
+    int REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Required Resource Delegation Connector</em>'
@@ -2462,8 +2439,7 @@ public interface CompositionPackage extends EPackage {
          * <em>Resource Required Delegation Connector</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
-         * @see org.palladiosimulator.pcm.core.composition.impl.
-         *      ResourceRequiredDelegationConnectorImpl
+         * @see org.palladiosimulator.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl
          * @see org.palladiosimulator.pcm.core.composition.impl.CompositionPackageImpl#getResourceRequiredDelegationConnector()
          * @generated
          */
@@ -2968,8 +2944,7 @@ public interface CompositionPackage extends EPackage {
          * <em>Provided Infrastructure Delegation Connector</em>}' class. <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          *
-         * @see org.palladiosimulator.pcm.core.composition.impl.
-         *      ProvidedInfrastructureDelegationConnectorImpl
+         * @see org.palladiosimulator.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl
          * @see org.palladiosimulator.pcm.core.composition.impl.CompositionPackageImpl#getProvidedInfrastructureDelegationConnector()
          * @generated
          */
@@ -3011,8 +2986,7 @@ public interface CompositionPackage extends EPackage {
          * <em>Required Infrastructure Delegation Connector</em>}' class. <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          *
-         * @see org.palladiosimulator.pcm.core.composition.impl.
-         *      RequiredInfrastructureDelegationConnectorImpl
+         * @see org.palladiosimulator.pcm.core.composition.impl.RequiredInfrastructureDelegationConnectorImpl
          * @see org.palladiosimulator.pcm.core.composition.impl.CompositionPackageImpl#getRequiredInfrastructureDelegationConnector()
          * @generated
          */
@@ -3054,8 +3028,7 @@ public interface CompositionPackage extends EPackage {
          * <em>Required Resource Delegation Connector</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
-         * @see org.palladiosimulator.pcm.core.composition.impl.
-         *      RequiredResourceDelegationConnectorImpl
+         * @see org.palladiosimulator.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl
          * @see org.palladiosimulator.pcm.core.composition.impl.CompositionPackageImpl#getRequiredResourceDelegationConnector()
          * @generated
          */

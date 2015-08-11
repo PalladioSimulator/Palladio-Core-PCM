@@ -33,7 +33,6 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getUsageScenario_SenarioBehaviour
@@ -41,11 +40,12 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  * <li>
  * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getBranchTransition_ScenarioBehaviour
  * <em>Branch Transition Scenario Behaviour</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getLoop_ScenarioBehaviour
- * <em>Loop Scenario Behaviour</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getLoop_ScenarioBehaviour <em>
+ * Loop Scenario Behaviour</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getActions_ScenarioBehaviour
  * <em>Actions Scenario Behaviour</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getScenarioBehaviour()
  * @model

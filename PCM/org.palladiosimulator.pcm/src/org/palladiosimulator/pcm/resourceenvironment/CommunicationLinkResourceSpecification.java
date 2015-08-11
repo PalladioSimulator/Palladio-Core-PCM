@@ -17,7 +17,6 @@ import de.uka.ipd.sdq.identifier.Identifier;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLinkingResource_CommunicationLinkResourceSpecification
@@ -35,6 +34,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * {@link org.palladiosimulator.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput_CommunicationLinkResourceSpecification
  * <em>Throughput Communication Link Resource Specification</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage#getCommunicationLinkResourceSpecification()
  * @model

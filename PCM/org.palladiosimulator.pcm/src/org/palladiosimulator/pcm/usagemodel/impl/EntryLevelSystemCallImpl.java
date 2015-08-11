@@ -31,7 +31,6 @@ import org.palladiosimulator.pcm.usagemodel.util.UsagemodelValidator;
  * <em><b>Entry Level System Call</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getProvidedRole_EntryLevelSystemCall
@@ -42,12 +41,13 @@ import org.palladiosimulator.pcm.usagemodel.util.UsagemodelValidator;
  * <li>
  * {@link org.palladiosimulator.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getOutputParameterUsages_EntryLevelSystemCall
  * <em>Output Parameter Usages Entry Level System Call</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getPriority
- * <em>Priority</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getPriority <em>
+ * Priority</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getInputParameterUsages_EntryLevelSystemCall
  * <em>Input Parameter Usages Entry Level System Call</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -246,29 +246,36 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
     @Override
     public boolean EntryLevelSystemCallMustReferenceProvidedRoleOfASystem(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (ENTRY_LEVEL_SYSTEM_CALL_MUST_REFERENCE_PROVIDED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (ENTRY_LEVEL_SYSTEM_CALL_MUST_REFERENCE_PROVIDED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL);
-            try {
+            try
+            {
                 ENTRY_LEVEL_SYSTEM_CALL_MUST_REFERENCE_PROVIDED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(
-                                ENTRY_LEVEL_SYSTEM_CALL_MUST_REFERENCE_PROVIDED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+                        .createInvariant(ENTRY_LEVEL_SYSTEM_CALL_MUST_REFERENCE_PROVIDED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV
-                .createQuery(
-                        ENTRY_LEVEL_SYSTEM_CALL_MUST_REFERENCE_PROVIDED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
+        if (!EOCL_ENV.createQuery(
+                ENTRY_LEVEL_SYSTEM_CALL_MUST_REFERENCE_PROVIDED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(
+                this))
+        {
+            if (diagnostics != null)
+            {
                 diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
+                        .add
+                        (new BasicDiagnostic
+                        (
+                                Diagnostic.ERROR,
+                                UsagemodelValidator.DIAGNOSTIC_SOURCE,
                                 UsagemodelValidator.ENTRY_LEVEL_SYSTEM_CALL__ENTRY_LEVEL_SYSTEM_CALL_MUST_REFERENCE_PROVIDED_ROLE_OF_ASYSTEM,
                                 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                         new Object[] { "EntryLevelSystemCallMustReferenceProvidedRoleOfASystem",
                                                 EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                new Object[] { this }));
             }
             return false;
         }
@@ -309,29 +316,36 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
     @Override
     public boolean EntryLevelSystemCallSignatureMustMatchItsProvidedRole(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (ENTRY_LEVEL_SYSTEM_CALL_SIGNATURE_MUST_MATCH_ITS_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (ENTRY_LEVEL_SYSTEM_CALL_SIGNATURE_MUST_MATCH_ITS_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL);
-            try {
+            try
+            {
                 ENTRY_LEVEL_SYSTEM_CALL_SIGNATURE_MUST_MATCH_ITS_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(
-                                ENTRY_LEVEL_SYSTEM_CALL_SIGNATURE_MUST_MATCH_ITS_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+                        .createInvariant(ENTRY_LEVEL_SYSTEM_CALL_SIGNATURE_MUST_MATCH_ITS_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV
-                .createQuery(
-                        ENTRY_LEVEL_SYSTEM_CALL_SIGNATURE_MUST_MATCH_ITS_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
+        if (!EOCL_ENV.createQuery(
+                ENTRY_LEVEL_SYSTEM_CALL_SIGNATURE_MUST_MATCH_ITS_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(
+                this))
+        {
+            if (diagnostics != null)
+            {
                 diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
+                        .add
+                        (new BasicDiagnostic
+                        (
+                                Diagnostic.ERROR,
+                                UsagemodelValidator.DIAGNOSTIC_SOURCE,
                                 UsagemodelValidator.ENTRY_LEVEL_SYSTEM_CALL__ENTRY_LEVEL_SYSTEM_CALL_SIGNATURE_MUST_MATCH_ITS_PROVIDED_ROLE,
                                 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                         new Object[] { "EntryLevelSystemCallSignatureMustMatchItsProvidedRole",
                                                 EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                new Object[] { this }));
             }
             return false;
         }
@@ -347,13 +361,16 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getOutputParameterUsages_EntryLevelSystemCall()).basicAdd(otherEnd, msgs);
+                    .getOutputParameterUsages_EntryLevelSystemCall())
+                    .basicAdd(otherEnd, msgs);
         case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getInputParameterUsages_EntryLevelSystemCall()).basicAdd(otherEnd, msgs);
+                    .getInputParameterUsages_EntryLevelSystemCall())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -366,10 +383,11 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL:
-            return ((InternalEList<?>) this.getOutputParameterUsages_EntryLevelSystemCall()).basicRemove(otherEnd,
-                    msgs);
+            return ((InternalEList<?>) this.getOutputParameterUsages_EntryLevelSystemCall())
+                    .basicRemove(otherEnd, msgs);
         case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL:
             return ((InternalEList<?>) this.getInputParameterUsages_EntryLevelSystemCall()).basicRemove(otherEnd, msgs);
         }
@@ -383,7 +401,8 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL:
             if (resolve) {
                 return this.getProvidedRole_EntryLevelSystemCall();
@@ -412,7 +431,8 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL:
             this.setProvidedRole_EntryLevelSystemCall((OperationProvidedRole) newValue);
             return;
@@ -441,7 +461,8 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL:
             this.setProvidedRole_EntryLevelSystemCall((OperationProvidedRole) null);
             return;
@@ -468,7 +489,8 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL:
             return this.basicGetProvidedRole_EntryLevelSystemCall() != null;
         case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__OPERATION_SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL:

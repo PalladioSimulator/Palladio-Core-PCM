@@ -21,14 +21,14 @@ import org.palladiosimulator.pcm.qosannotations.qos_reliability.QosReliabilityFa
  * This is the item provider adapter for a
  * {@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class QoSAnnotationsItemProvider extends EntityItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -36,7 +36,7 @@ public class QoSAnnotationsItemProvider extends EntityItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public QoSAnnotationsItemProvider(final AdapterFactory adapterFactory) {
@@ -46,12 +46,13 @@ public class QoSAnnotationsItemProvider extends EntityItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null) {
+        if (this.itemPropertyDescriptors == null)
+        {
             super.getPropertyDescriptors(object);
 
         }
@@ -69,19 +70,20 @@ public class QoSAnnotationsItemProvider extends EntityItemProvider {
      */
     @Override
     public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
-        if (this.childrenFeatures == null) {
+        if (this.childrenFeatures == null)
+        {
             super.getChildrenFeatures(object);
-            this.childrenFeatures.add(
-                    QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS);
             this.childrenFeatures
-                    .add(QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS);
+            .add(QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS);
+            this.childrenFeatures
+            .add(QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -94,7 +96,7 @@ public class QoSAnnotationsItemProvider extends EntityItemProvider {
 
     /**
      * This returns QoSAnnotations.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -111,22 +113,24 @@ public class QoSAnnotationsItemProvider extends EntityItemProvider {
     @Override
     public String getText(final Object object) {
         final String label = ((QoSAnnotations) object).getId();
-        return label == null || label.length() == 0 ? this.getString("_UI_QoSAnnotations_type")
-                : this.getString("_UI_QoSAnnotations_type") + " " + label;
+        return label == null || label.length() == 0 ?
+                this.getString("_UI_QoSAnnotations_type") :
+                    this.getString("_UI_QoSAnnotations_type") + " " + label;
     }
 
     /**
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
 
-        switch (notification.getFeatureID(QoSAnnotations.class)) {
+        switch (notification.getFeatureID(QoSAnnotations.class))
+        {
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -138,24 +142,27 @@ public class QoSAnnotationsItemProvider extends EntityItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(this.createChildParameter(
-                QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS,
-                QosPerformanceFactory.eINSTANCE.createSystemSpecifiedExecutionTime()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS,
+                                QosPerformanceFactory.eINSTANCE.createSystemSpecifiedExecutionTime()));
 
-        newChildDescriptors.add(this.createChildParameter(
-                QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS,
-                QosPerformanceFactory.eINSTANCE.createComponentSpecifiedExecutionTime()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS,
+                                QosPerformanceFactory.eINSTANCE.createComponentSpecifiedExecutionTime()));
 
-        newChildDescriptors.add(this.createChildParameter(
-                QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS,
-                QosReliabilityFactory.eINSTANCE.createSpecifiedReliabilityAnnotation()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (QosannotationsPackage.Literals.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS,
+                                QosReliabilityFactory.eINSTANCE.createSpecifiedReliabilityAnnotation()));
     }
 
 }

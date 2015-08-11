@@ -153,8 +153,7 @@ public interface EntityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT
-            + 0;
+    int RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Provided Resource Interface Resource Provided Role</b></em>'
@@ -163,8 +162,7 @@ public interface EntityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT
-            + 1;
+    int RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Resource Provided Role</em>' class. <!--
@@ -269,8 +267,7 @@ public interface EntityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = INTERFACE_PROVIDING_ENTITY_FEATURE_COUNT
-            + 0;
+    int INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = INTERFACE_PROVIDING_ENTITY_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>'
@@ -279,8 +276,7 @@ public interface EntityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERFACE_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = INTERFACE_PROVIDING_ENTITY_FEATURE_COUNT
-            + 1;
+    int INTERFACE_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = INTERFACE_PROVIDING_ENTITY_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Interface Providing Requiring Entity</em>'
@@ -328,8 +324,7 @@ public interface EntityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = ENTITY_FEATURE_COUNT
-            + 0;
+    int INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = ENTITY_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>'
@@ -387,8 +382,7 @@ public interface EntityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = ENTITY_FEATURE_COUNT
-            + 0;
+    int RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = ENTITY_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Resource Interface Requiring Entity</em>'
@@ -435,8 +429,7 @@ public interface EntityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_REQUIRED_ROLE__REQUIRED_RESOURCE_INTERFACE_RESOURCE_REQUIRED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT
-            + 0;
+    int RESOURCE_REQUIRED_ROLE__REQUIRED_RESOURCE_INTERFACE_RESOURCE_REQUIRED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '
@@ -446,8 +439,7 @@ public interface EntityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_REQUIRED_ROLE__RESOURCE_INTERFACE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT
-            + 1;
+    int RESOURCE_REQUIRED_ROLE__RESOURCE_INTERFACE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT + 1;
 
     /**
      * The number of structural features of the '<em>Resource Required Role</em>' class. <!--
@@ -496,8 +488,7 @@ public interface EntityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = ENTITY_FEATURE_COUNT
-            + 0;
+    int RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = ENTITY_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Resource Interface Providing Entity</em>'
@@ -582,8 +573,7 @@ public interface EntityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT
-            + 0;
+    int COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '
@@ -593,8 +583,7 @@ public interface EntityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT
-            + 1;
+    int COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>'
@@ -603,8 +592,7 @@ public interface EntityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPOSED_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT
-            + 2;
+    int COMPOSED_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 2;
 
     /**
      * The number of structural features of the '<em>Composed Providing Requiring Entity</em>'
@@ -692,8 +680,7 @@ public interface EntityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = RESOURCE_INTERFACE_REQUIRING_ENTITY_FEATURE_COUNT
-            + 0;
+    int RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = RESOURCE_INTERFACE_REQUIRING_ENTITY_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '
@@ -703,8 +690,7 @@ public interface EntityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT = RESOURCE_INTERFACE_REQUIRING_ENTITY_FEATURE_COUNT
-            + 1;
+    int RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT = RESOURCE_INTERFACE_REQUIRING_ENTITY_FEATURE_COUNT + 1;
 
     /**
      * Returns the meta object for class '
@@ -1150,8 +1136,8 @@ public interface EntityPackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.entity.impl.NamedElementImpl <em>Named Element</em>
-         * }' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * {@link org.palladiosimulator.pcm.core.entity.impl.NamedElementImpl
+         * <em>Named Element</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.core.entity.impl.NamedElementImpl
          * @see org.palladiosimulator.pcm.core.entity.impl.EntityPackageImpl#getNamedElement()
@@ -1173,8 +1159,7 @@ public interface EntityPackage extends EPackage {
          * <em>Resource Interface Providing Requiring Entity</em>}' class. <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          *
-         * @see org.palladiosimulator.pcm.core.entity.impl.
-         *      ResourceInterfaceProvidingRequiringEntityImpl
+         * @see org.palladiosimulator.pcm.core.entity.impl.ResourceInterfaceProvidingRequiringEntityImpl
          * @see org.palladiosimulator.pcm.core.entity.impl.EntityPackageImpl#getResourceInterfaceProvidingRequiringEntity()
          * @generated
          */

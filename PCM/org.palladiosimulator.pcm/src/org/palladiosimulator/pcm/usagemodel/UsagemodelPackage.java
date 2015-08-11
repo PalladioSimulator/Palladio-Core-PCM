@@ -72,8 +72,7 @@ import org.palladiosimulator.pcm.core.entity.EntityPackage;
  * Notice,&nbsp;that&nbsp;unlike&nbsp;other&nbsp;behavioural&nbsp;description&nbsp;languages&nbsp;
  * for&nbsp;performance&nbsp;prediction&nbsp;(e.g.,&nbsp;[162,&nbsp;187,<br />
  * 78]),&nbsp;the&nbsp;PCM&nbsp;usage&nbsp;model&nbsp;specifically&nbsp;models&nbsp;user&nbsp;
- * behaviour&nbsp;and&nbsp;for&nbsp;example&nbsp;does&nbsp;not&nbsp;refer&nbsp;to&nbsp;resources.
- * <br />
+ * behaviour&nbsp;and&nbsp;for&nbsp;example&nbsp;does&nbsp;not&nbsp;refer&nbsp;to&nbsp;resources. <br />
  * Other&nbsp;performance&nbsp;meta-models&nbsp;mix&nbsp;up&nbsp;the&nbsp;specification&nbsp;of&nbsp
  * ;user&nbsp;behaviour,&nbsp;component&nbsp;behaviour,&nbsp;and<br />
  * resources,&nbsp;so&nbsp;that&nbsp;a&nbsp;single&nbsp;developer&nbsp;role&nbsp;(i.e.,&nbsp;a&nbsp;
@@ -102,9 +101,8 @@ import org.palladiosimulator.pcm.core.entity.EntityPackage;
  * model&nbsp;are&nbsp;quite&nbsp;similar&nbsp;to&nbsp;the&nbsp;modelling&nbsp;capabilities&nbsp;of&
  * nbsp;the&nbsp;UML&nbsp;SPT&nbsp;profile,&nbsp;there&nbsp;are&nbsp;some&nbsp;subtle<br />
  * differences:<br />
- * -
- * The&nbsp;usage&nbsp;model&nbsp;is&nbsp;aligned&nbsp;with&nbsp;the&nbsp;role&nbsp;of&nbsp;the&nbsp
- * ;domain&nbsp;expert,&nbsp;and&nbsp;uses&nbsp;only&nbsp;concepts&nbsp;known&nbsp;to<br />
+ * - The&nbsp;usage&nbsp;model&nbsp;is&nbsp;aligned&nbsp;with&nbsp;the&nbsp;role&nbsp;of&nbsp;the&
+ * nbsp ;domain&nbsp;expert,&nbsp;and&nbsp;uses&nbsp;only&nbsp;concepts&nbsp;known&nbsp;to<br />
  * this&nbsp;role.&nbsp;It&nbsp;is&nbsp;a&nbsp;domain&nbsp;specific&nbsp;language,&nbsp;whereas&nbsp
  * ;the&nbsp;UML&nbsp;SPT&nbsp;performance&nbsp;domain&nbsp;model&nbsp;is<br />
  * a&nbsp;general&nbsp;purpose&nbsp;language&nbsp;that&nbsp;includes&nbsp;information,&nbsp;which&
@@ -117,15 +115,13 @@ import org.palladiosimulator.pcm.core.entity.EntityPackage;
  * appropriate&nbsp;tools&nbsp;independently&nbsp;from&nbsp;other&nbsp;developer<br />
  * roles,&nbsp;because&nbsp;such&nbsp;models&nbsp;only&nbsp;contain&nbsp;concepts&nbsp;known&nbsp;to
  * &nbsp;them.<br />
- * -
- * The&nbsp;number&nbsp;of&nbsp;loop&nbsp;iterations&nbsp;is&nbsp;not&nbsp;bound&nbsp;to&nbsp;a&nbsp
- * ;constant&nbsp;value,&nbsp;but&nbsp;can&nbsp;be&nbsp;specified&nbsp;as&nbsp;a&nbsp;random<br />
+ * - The&nbsp;number&nbsp;of&nbsp;loop&nbsp;iterations&nbsp;is&nbsp;not&nbsp;bound&nbsp;to&nbsp;a&
+ * nbsp ;constant&nbsp;value,&nbsp;but&nbsp;can&nbsp;be&nbsp;specified&nbsp;as&nbsp;a&nbsp;random<br />
  * variable.<br />
  * - The&nbsp;control&nbsp;flow&nbsp;constructs&nbsp;are&nbsp;arranged&nbsp;in&nbsp;a&nbsp;
  * hierarchical&nbsp;fashion&nbsp;to&nbsp;enable&nbsp;easy&nbsp;analyses.<br />
- * -
- * Users&nbsp;are&nbsp;restricted&nbsp;to&nbsp;non-concurrent&nbsp;behaviour,&nbsp;as&nbsp;it&nbsp;
- * is&nbsp;assumed,&nbsp;that&nbsp;users&nbsp;only&nbsp;execute&nbsp;the<br />
+ * - Users&nbsp;are&nbsp;restricted&nbsp;to&nbsp;non-concurrent&nbsp;behaviour,&nbsp;as&nbsp;it&nbsp
+ * ; is&nbsp;assumed,&nbsp;that&nbsp;users&nbsp;only&nbsp;execute&nbsp;the<br />
  * services&nbsp;of&nbsp;a&nbsp;system&nbsp;one&nbsp;at&nbsp;a&nbsp;time.<br />
  * - System&nbsp;service&nbsp;invocations&nbsp;can&nbsp;be&nbsp;enhanced&nbsp;with&nbsp;
  * characterisations&nbsp;of&nbsp;parameters&nbsp;values.<br />
@@ -533,8 +529,7 @@ public interface UsagemodelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT
-            + 2;
+    int ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Priority</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -552,8 +547,7 @@ public interface UsagemodelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT
-            + 4;
+    int ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 4;
 
     /**
      * The number of structural features of the '<em>Entry Level System Call</em>' class. <!--
@@ -969,8 +963,9 @@ public interface UsagemodelPackage extends EPackage {
     int START_FEATURE_COUNT = ABSTRACT_USER_ACTION_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link org.palladiosimulator.pcm.usagemodel.impl.OpenWorkloadImpl
-     * <em>Open Workload</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the '
+     * {@link org.palladiosimulator.pcm.usagemodel.impl.OpenWorkloadImpl <em>Open Workload</em>}'
+     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.usagemodel.impl.OpenWorkloadImpl
      * @see org.palladiosimulator.pcm.usagemodel.impl.UsagemodelPackageImpl#getOpenWorkload()
@@ -1639,8 +1634,9 @@ public interface UsagemodelPackage extends EPackage {
     EReference getDelay_TimeSpecification_Delay();
 
     /**
-     * Returns the meta object for class '{@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload
-     * <em>Closed Workload</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '
+     * {@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload <em>Closed Workload</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Closed Workload</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.ClosedWorkload

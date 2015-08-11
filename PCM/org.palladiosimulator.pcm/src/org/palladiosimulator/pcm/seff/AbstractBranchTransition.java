@@ -15,7 +15,6 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.AbstractBranchTransition#getBranchAction_AbstractBranchTransition
@@ -24,6 +23,7 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  * {@link org.palladiosimulator.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition
  * <em>Branch Behaviour Branch Transition</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getAbstractBranchTransition()
  * @model abstract="true"

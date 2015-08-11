@@ -18,12 +18,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.OperationInterface#getSignatures__OperationInterface
  * <em>Signatures Operation Interface</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getOperationInterface()
  * @model

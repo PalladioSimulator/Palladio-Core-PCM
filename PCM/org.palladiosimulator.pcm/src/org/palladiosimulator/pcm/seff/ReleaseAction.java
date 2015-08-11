@@ -19,11 +19,11 @@ import org.palladiosimulator.pcm.repository.PassiveResource;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.seff.ReleaseAction#getPassiveResource_ReleaseAction
- * <em>Passive Resource Release Action</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.ReleaseAction#getPassiveResource_ReleaseAction <em>
+ * Passive Resource Release Action</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getReleaseAction()
  * @model

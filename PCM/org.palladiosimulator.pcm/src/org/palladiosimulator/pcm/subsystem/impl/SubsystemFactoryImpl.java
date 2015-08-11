@@ -32,13 +32,16 @@ public class SubsystemFactoryImpl extends EFactoryImpl implements SubsystemFacto
      * @generated
      */
     public static SubsystemFactory init() {
-        try {
+        try
+        {
             final SubsystemFactory theSubsystemFactory = (SubsystemFactory) EPackage.Registry.INSTANCE
                     .getEFactory(SubsystemPackage.eNS_URI);
-            if (theSubsystemFactory != null) {
+            if (theSubsystemFactory != null)
+            {
                 return theSubsystemFactory;
             }
-        } catch (final Exception exception) {
+        } catch (final Exception exception)
+        {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new SubsystemFactoryImpl();
@@ -60,7 +63,8 @@ public class SubsystemFactoryImpl extends EFactoryImpl implements SubsystemFacto
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID()) {
+        switch (eClass.getClassifierID())
+        {
         case SubsystemPackage.SUB_SYSTEM:
             return this.createSubSystem();
         default:

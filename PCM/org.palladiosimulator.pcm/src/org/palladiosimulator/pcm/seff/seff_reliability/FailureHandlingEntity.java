@@ -20,12 +20,12 @@ import org.palladiosimulator.pcm.reliability.FailureType;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.seff_reliability.FailureHandlingEntity#getFailureTypes_FailureHandlingEntity
  * <em>Failure Types Failure Handling Entity</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage#getFailureHandlingEntity()
  * @model abstract="true"

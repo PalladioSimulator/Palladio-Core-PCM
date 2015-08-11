@@ -17,12 +17,12 @@ import org.palladiosimulator.pcm.reliability.HardwareInducedFailureType;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.resourcetype.ProcessingResourceType#getHardwareInducedFailureType__ProcessingResourceType
  * <em>Hardware Induced Failure Type Processing Resource Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#getProcessingResourceType()
  * @model

@@ -18,7 +18,6 @@ import org.palladiosimulator.pcm.core.entity.NamedElement;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment#getLinkingResources__ResourceEnvironment
@@ -27,6 +26,7 @@ import org.palladiosimulator.pcm.core.entity.NamedElement;
  * {@link org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment#getResourceContainer_ResourceEnvironment
  * <em>Resource Container Resource Environment</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage#getResourceEnvironment()
  * @model

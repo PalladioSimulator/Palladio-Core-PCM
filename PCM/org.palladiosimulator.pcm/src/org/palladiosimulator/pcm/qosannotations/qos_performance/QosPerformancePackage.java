@@ -108,8 +108,7 @@ public interface QosPerformancePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME = QosannotationsPackage.SPECIFIED_QO_SANNOTATION_FEATURE_COUNT
-            + 0;
+    int SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME = QosannotationsPackage.SPECIFIED_QO_SANNOTATION_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Specified Execution Time</em>' class. <!--
@@ -184,8 +183,7 @@ public interface QosPerformancePackage extends EPackage {
      * <em>Component Specified Execution Time</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @see org.palladiosimulator.pcm.qosannotations.qos_performance.impl.
-     *      ComponentSpecifiedExecutionTimeImpl
+     * @see org.palladiosimulator.pcm.qosannotations.qos_performance.impl.ComponentSpecifiedExecutionTimeImpl
      * @see org.palladiosimulator.pcm.qosannotations.qos_performance.impl.QosPerformancePackageImpl#getComponentSpecifiedExecutionTime()
      * @generated
      */
@@ -234,8 +232,7 @@ public interface QosPerformancePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME = SPECIFIED_EXECUTION_TIME_FEATURE_COUNT
-            + 0;
+    int COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME = SPECIFIED_EXECUTION_TIME_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Component Specified Execution Time</em>' class.
@@ -336,8 +333,7 @@ public interface QosPerformancePackage extends EPackage {
          * <em>System Specified Execution Time</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
-         * @see org.palladiosimulator.pcm.qosannotations.qos_performance.impl.
-         *      SystemSpecifiedExecutionTimeImpl
+         * @see org.palladiosimulator.pcm.qosannotations.qos_performance.impl.SystemSpecifiedExecutionTimeImpl
          * @see org.palladiosimulator.pcm.qosannotations.qos_performance.impl.QosPerformancePackageImpl#getSystemSpecifiedExecutionTime()
          * @generated
          */
@@ -348,8 +344,7 @@ public interface QosPerformancePackage extends EPackage {
          * {@link org.palladiosimulator.pcm.qosannotations.qos_performance.impl.SpecifiedExecutionTimeImpl
          * <em>Specified Execution Time</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
-         * @see org.palladiosimulator.pcm.qosannotations.qos_performance.impl.
-         *      SpecifiedExecutionTimeImpl
+         * @see org.palladiosimulator.pcm.qosannotations.qos_performance.impl.SpecifiedExecutionTimeImpl
          * @see org.palladiosimulator.pcm.qosannotations.qos_performance.impl.QosPerformancePackageImpl#getSpecifiedExecutionTime()
          * @generated
          */
@@ -370,8 +365,7 @@ public interface QosPerformancePackage extends EPackage {
          * <em>Component Specified Execution Time</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
-         * @see org.palladiosimulator.pcm.qosannotations.qos_performance.impl.
-         *      ComponentSpecifiedExecutionTimeImpl
+         * @see org.palladiosimulator.pcm.qosannotations.qos_performance.impl.ComponentSpecifiedExecutionTimeImpl
          * @see org.palladiosimulator.pcm.qosannotations.qos_performance.impl.QosPerformancePackageImpl#getComponentSpecifiedExecutionTime()
          * @generated
          */

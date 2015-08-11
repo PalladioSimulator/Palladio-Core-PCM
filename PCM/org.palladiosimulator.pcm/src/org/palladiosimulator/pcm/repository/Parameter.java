@@ -15,23 +15,23 @@ import org.palladiosimulator.pcm.resourcetype.ResourceSignature;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getDataType__Parameter
- * <em>Data Type Parameter</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getDataType__Parameter <em>Data Type
+ * Parameter</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getInfrastructureSignature__Parameter
  * <em>Infrastructure Signature Parameter</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getOperationSignature__Parameter
- * <em>Operation Signature Parameter</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getEventType__Parameter
- * <em>Event Type Parameter</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getParameterName
- * <em>Parameter Name</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getModifier__Parameter
- * <em>Modifier Parameter</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getResourceSignature__Parameter
- * <em>Resource Signature Parameter</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getOperationSignature__Parameter <em>
+ * Operation Signature Parameter</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getEventType__Parameter <em>Event Type
+ * Parameter</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getParameterName <em>Parameter Name
+ * </em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getModifier__Parameter <em>Modifier
+ * Parameter</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getResourceSignature__Parameter <em>
+ * Resource Signature Parameter</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getParameter()
  * @model
@@ -183,7 +183,8 @@ public interface Parameter extends CDOObject {
     String getParameterName();
 
     /**
-     * Sets the value of the '{@link org.palladiosimulator.pcm.repository.Parameter#getParameterName
+     * Sets the value of the '
+     * {@link org.palladiosimulator.pcm.repository.Parameter#getParameterName
      * <em>Parameter Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value

@@ -78,8 +78,9 @@ public interface ParameterPackage extends EPackage {
     ParameterPackage eINSTANCE = org.palladiosimulator.pcm.parameter.impl.ParameterPackageImpl.init();
 
     /**
-     * The meta object id for the '{@link org.palladiosimulator.pcm.parameter.impl.VariableUsageImpl
-     * <em>Variable Usage</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the '
+     * {@link org.palladiosimulator.pcm.parameter.impl.VariableUsageImpl <em>Variable Usage</em>}'
+     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.parameter.impl.VariableUsageImpl
      * @see org.palladiosimulator.pcm.parameter.impl.ParameterPackageImpl#getVariableUsage()
@@ -559,8 +560,8 @@ public interface ParameterPackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.parameter.impl.VariableUsageImpl <em>Variable Usage</em>
-         * }' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * {@link org.palladiosimulator.pcm.parameter.impl.VariableUsageImpl
+         * <em>Variable Usage</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.parameter.impl.VariableUsageImpl
          * @see org.palladiosimulator.pcm.parameter.impl.ParameterPackageImpl#getVariableUsage()

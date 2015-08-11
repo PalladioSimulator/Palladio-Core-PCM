@@ -193,8 +193,7 @@ public interface RepositoryPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
-            + 0;
+    int REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Component</em>' class. <!-- begin-user-doc -->
@@ -288,8 +287,7 @@ public interface RepositoryPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE = REPOSITORY_COMPONENT_FEATURE_COUNT
-            + 1;
+    int IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE = REPOSITORY_COMPONENT_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Component Type</b></em>' attribute. <!-- begin-user-doc -->
@@ -410,8 +408,7 @@ public interface RepositoryPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT
-            + 0;
+    int BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Passive Resource Basic Component</b></em>' containment
@@ -469,8 +466,9 @@ public interface RepositoryPackage extends EPackage {
     int ROLE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link org.palladiosimulator.pcm.repository.impl.ProvidedRoleImpl
-     * <em>Provided Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the '
+     * {@link org.palladiosimulator.pcm.repository.impl.ProvidedRoleImpl <em>Provided Role</em>}'
+     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.ProvidedRoleImpl
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getProvidedRole()
@@ -1232,8 +1230,9 @@ public interface RepositoryPackage extends EPackage {
     int INFRASTRUCTURE_INTERFACE_FEATURE_COUNT = INTERFACE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '{@link org.palladiosimulator.pcm.repository.impl.RequiredRoleImpl
-     * <em>Required Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the '
+     * {@link org.palladiosimulator.pcm.repository.impl.RequiredRoleImpl <em>Required Role</em>}'
+     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.RequiredRoleImpl
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getRequiredRole()
@@ -2037,8 +2036,7 @@ public interface RepositoryPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPOSITE_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
-            + 0;
+    int COMPOSITE_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Parent Complete Component Types</b></em>' reference list. <!--
@@ -2047,8 +2045,7 @@ public interface RepositoryPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
-            + 1;
+    int COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '
@@ -2058,8 +2055,7 @@ public interface RepositoryPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPOSITE_COMPONENT__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
-            + 2;
+    int COMPOSITE_COMPONENT__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Component Type</b></em>' attribute. <!-- begin-user-doc -->
@@ -2366,8 +2362,9 @@ public interface RepositoryPackage extends EPackage {
     EReference getPassiveResource_ResourceTimeoutFailureType__PassiveResource();
 
     /**
-     * Returns the meta object for class '{@link org.palladiosimulator.pcm.repository.BasicComponent
-     * <em>Basic Component</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '
+     * {@link org.palladiosimulator.pcm.repository.BasicComponent <em>Basic Component</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Basic Component</em>'.
      * @see org.palladiosimulator.pcm.repository.BasicComponent
@@ -4321,8 +4318,8 @@ public interface RepositoryPackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.ParameterModifier <em>Parameter Modifier</em>
-         * }' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * {@link org.palladiosimulator.pcm.repository.ParameterModifier
+         * <em>Parameter Modifier</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.ParameterModifier
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getParameterModifier()

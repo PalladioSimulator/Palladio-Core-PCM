@@ -2224,7 +2224,7 @@
           upperBound="-1" eType="#//seff/AbstractBranchTransition" containment="true"
           eOpposite="#//seff/AbstractBranchTransition/branchAction_AbstractBranchTransition"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CallAction" abstract="true" eSuperTypes="#//seff/AbstractAction">
+    <eClassifiers xsi:type="ecore:EClass" name="CallAction" abstract="true" eSuperTypes="#//core/entity/Entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Generic class realising call relations between behaviours (e.g. method call)."/>
       </eAnnotations>

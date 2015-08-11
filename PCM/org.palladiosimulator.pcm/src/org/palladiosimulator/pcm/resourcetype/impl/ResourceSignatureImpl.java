@@ -21,17 +21,18 @@ import org.palladiosimulator.pcm.resourcetype.ResourcetypePackage;
  * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.resourcetype.impl.ResourceSignatureImpl#getParameter__ResourceSignature
  * <em>Parameter Resource Signature</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.resourcetype.impl.ResourceSignatureImpl#getResourceServiceId
+ * <li>
+ * {@link org.palladiosimulator.pcm.resourcetype.impl.ResourceSignatureImpl#getResourceServiceId
  * <em>Resource Service Id</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.resourcetype.impl.ResourceSignatureImpl#getResourceInterface__ResourceSignature
  * <em>Resource Interface Resource Signature</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -81,7 +82,8 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
     @Override
     @SuppressWarnings("unchecked")
     public EList<Parameter> getParameter__ResourceSignature() {
-        return (EList<Parameter>) this.eDynamicGet(ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE,
+        return (EList<Parameter>) this.eDynamicGet(
+                ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE,
                 ResourcetypePackage.Literals.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE, true, true);
     }
 
@@ -152,10 +154,12 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getParameter__ResourceSignature())
-                    .basicAdd(otherEnd, msgs);
+                    .basicAdd(
+                            otherEnd, msgs);
         case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -173,7 +177,8 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE:
             return ((InternalEList<?>) this.getParameter__ResourceSignature()).basicRemove(otherEnd, msgs);
         case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE:
@@ -189,7 +194,8 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE:
             return this.eInternalContainer().eInverseRemove(this,
                     ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE,
@@ -205,7 +211,8 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE:
             return this.getParameter__ResourceSignature();
         case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_SERVICE_ID:
@@ -224,7 +231,8 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE:
             this.getParameter__ResourceSignature().clear();
             this.getParameter__ResourceSignature().addAll((Collection<? extends Parameter>) newValue);
@@ -246,7 +254,8 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE:
             this.getParameter__ResourceSignature().clear();
             return;
@@ -267,7 +276,8 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE:
             return !this.getParameter__ResourceSignature().isEmpty();
         case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_SERVICE_ID:

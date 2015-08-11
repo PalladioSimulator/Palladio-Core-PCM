@@ -19,15 +19,15 @@ import org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingRequiring
  * This is the item provider adapter for a
  * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingRequiringEntity} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class ResourceInterfaceProvidingRequiringEntityItemProvider
-        extends ResourceInterfaceRequiringEntityItemProvider {
+extends ResourceInterfaceRequiringEntityItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -35,7 +35,7 @@ public class ResourceInterfaceProvidingRequiringEntityItemProvider
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceInterfaceProvidingRequiringEntityItemProvider(final AdapterFactory adapterFactory) {
@@ -45,12 +45,13 @@ public class ResourceInterfaceProvidingRequiringEntityItemProvider
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null) {
+        if (this.itemPropertyDescriptors == null)
+        {
             super.getPropertyDescriptors(object);
 
         }
@@ -68,17 +69,18 @@ public class ResourceInterfaceProvidingRequiringEntityItemProvider
      */
     @Override
     public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
-        if (this.childrenFeatures == null) {
+        if (this.childrenFeatures == null)
+        {
             super.getChildrenFeatures(object);
-            this.childrenFeatures.add(
-                    EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY);
+            this.childrenFeatures
+            .add(EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -92,7 +94,7 @@ public class ResourceInterfaceProvidingRequiringEntityItemProvider
     /**
      * This returns ResourceInterfaceProvidingRequiringEntity.gif. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -110,23 +112,24 @@ public class ResourceInterfaceProvidingRequiringEntityItemProvider
     @Override
     public String getText(final Object object) {
         final String label = ((ResourceInterfaceProvidingRequiringEntity) object).getId();
-        return label == null || label.length() == 0
-                ? this.getString("_UI_ResourceInterfaceProvidingRequiringEntity_type")
-                : this.getString("_UI_ResourceInterfaceProvidingRequiringEntity_type") + " " + label;
+        return label == null || label.length() == 0 ?
+                this.getString("_UI_ResourceInterfaceProvidingRequiringEntity_type") :
+                    this.getString("_UI_ResourceInterfaceProvidingRequiringEntity_type") + " " + label;
     }
 
     /**
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
 
-        switch (notification.getFeatureID(ResourceInterfaceProvidingRequiringEntity.class)) {
+        switch (notification.getFeatureID(ResourceInterfaceProvidingRequiringEntity.class))
+        {
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
@@ -137,16 +140,18 @@ public class ResourceInterfaceProvidingRequiringEntityItemProvider
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(this.createChildParameter(
-                EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
-                EntityFactory.eINSTANCE.createResourceProvidedRole()));
+        newChildDescriptors
+        .add
+        (this.createChildParameter
+                        (EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
+                                EntityFactory.eINSTANCE.createResourceProvidedRole()));
     }
 
 }

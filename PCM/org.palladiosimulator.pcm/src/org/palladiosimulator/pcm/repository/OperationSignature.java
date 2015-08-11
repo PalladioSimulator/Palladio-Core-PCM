@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.OperationSignature#getInterface__OperationSignature
@@ -29,6 +28,7 @@ import org.eclipse.emf.common.util.EList;
  * {@link org.palladiosimulator.pcm.repository.OperationSignature#getReturnType__OperationSignature
  * <em>Return Type Operation Signature</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getOperationSignature()
  * @model

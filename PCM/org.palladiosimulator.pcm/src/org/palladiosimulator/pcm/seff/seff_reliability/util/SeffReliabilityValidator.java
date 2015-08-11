@@ -136,7 +136,8 @@ public class SeffReliabilityValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID) {
+        switch (classifierID)
+        {
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR:
             return this.validateRecoveryActionBehaviour((RecoveryActionBehaviour) value, diagnostics, context);
         case SeffReliabilityPackage.RECOVERY_ACTION:
@@ -179,11 +180,13 @@ public class SeffReliabilityValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.seffValidator.validateResourceDemandingBehaviour_ExactlyOneStopAction(
-                    recoveryActionBehaviour, diagnostics, context);
+                    recoveryActionBehaviour,
+                    diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.seffValidator.validateResourceDemandingBehaviour_ExactlyOneStartAction(
-                    recoveryActionBehaviour, diagnostics, context);
+                    recoveryActionBehaviour,
+                    diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.seffValidator
@@ -273,7 +276,8 @@ public class SeffReliabilityValidator extends EObjectValidator {
             result &= this.validate_EveryMapEntryUnique(recoveryAction, diagnostics, context);
         }
         if (result || diagnostics != null) {
-            result &= this.validateRecoveryAction_PrimaryBehaviourOfRecoveryActionMustBeSet(recoveryAction, diagnostics,
+            result &= this.validateRecoveryAction_PrimaryBehaviourOfRecoveryActionMustBeSet(recoveryAction,
+                    diagnostics,
                     context);
         }
         return result;
@@ -285,7 +289,8 @@ public class SeffReliabilityValidator extends EObjectValidator {
      *
      * @generated
      */
-    public boolean validateRecoveryAction_PrimaryBehaviourOfRecoveryActionMustBeSet(final RecoveryAction recoveryAction,
+    public boolean validateRecoveryAction_PrimaryBehaviourOfRecoveryActionMustBeSet(
+            final RecoveryAction recoveryAction,
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return recoveryAction.PrimaryBehaviourOfRecoveryActionMustBeSet(diagnostics, context);
     }

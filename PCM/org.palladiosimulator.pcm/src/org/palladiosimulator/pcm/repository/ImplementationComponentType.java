@@ -30,7 +30,6 @@ import org.palladiosimulator.pcm.parameter.VariableUsage;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.ImplementationComponentType#getParentCompleteComponentTypes
@@ -38,9 +37,10 @@ import org.palladiosimulator.pcm.parameter.VariableUsage;
  * <li>
  * {@link org.palladiosimulator.pcm.repository.ImplementationComponentType#getComponentParameterUsage_ImplementationComponentType
  * <em>Component Parameter Usage Implementation Component Type</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.ImplementationComponentType#getComponentType
- * <em>Component Type</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.ImplementationComponentType#getComponentType <em>
+ * Component Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getImplementationComponentType()
  * @model abstract="true"

@@ -24,10 +24,8 @@ import org.palladiosimulator.pcm.core.PCMRandomVariable;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getType <em>Type</em>}
- * </li>
+ * <li>{@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getType <em>Type</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getSpecification_VariableCharacterisation
  * <em>Specification Variable Characterisation</em>}</li>
@@ -35,6 +33,7 @@ import org.palladiosimulator.pcm.core.PCMRandomVariable;
  * {@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getVariableUsage_VariableCharacterisation
  * <em>Variable Usage Variable Characterisation</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.parameter.ParameterPackage#getVariableCharacterisation()
  * @model

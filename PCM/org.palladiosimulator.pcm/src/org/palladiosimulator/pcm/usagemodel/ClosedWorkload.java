@@ -20,13 +20,13 @@ import org.palladiosimulator.pcm.core.PCMRandomVariable;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload#getPopulation <em>Population</em>}
  * </li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload
- * <em>Think Time Closed Workload</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload <em>
+ * Think Time Closed Workload</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getClosedWorkload()
  * @model

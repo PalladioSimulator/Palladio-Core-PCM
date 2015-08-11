@@ -98,7 +98,8 @@ public class CoreValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID) {
+        switch (classifierID)
+        {
         case CorePackage.PCM_RANDOM_VARIABLE:
             return this.validatePCMRandomVariable((PCMRandomVariable) value, diagnostics, context);
         default:
@@ -112,7 +113,8 @@ public class CoreValidator extends EObjectValidator {
      * @generated
      */
     public boolean validatePCMRandomVariable(final PCMRandomVariable pcmRandomVariable,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(pcmRandomVariable, diagnostics, context)) {
             return false;
         }
@@ -136,8 +138,8 @@ public class CoreValidator extends EObjectValidator {
             result &= this.validate_EveryMapEntryUnique(pcmRandomVariable, diagnostics, context);
         }
         if (result || diagnostics != null) {
-            result &= this.validatePCMRandomVariable_SpecificationMustNotBeNULL(pcmRandomVariable, diagnostics,
-                    context);
+            result &= this
+                    .validatePCMRandomVariable_SpecificationMustNotBeNULL(pcmRandomVariable, diagnostics, context);
         }
         return result;
     }

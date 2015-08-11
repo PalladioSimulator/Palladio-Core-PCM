@@ -25,14 +25,14 @@ import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
  * This is the item provider adapter for a
  * {@link org.palladiosimulator.pcm.resourceenvironment.CommunicationLinkResourceSpecification}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class CommunicationLinkResourceSpecificationItemProvider extends IdentifierItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -40,7 +40,7 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public CommunicationLinkResourceSpecificationItemProvider(final AdapterFactory adapterFactory) {
@@ -50,12 +50,13 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null) {
+        if (this.itemPropertyDescriptors == null)
+        {
             super.getPropertyDescriptors(object);
 
             this.addFailureProbabilityPropertyDescriptor(object);
@@ -67,37 +68,53 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
     /**
      * This adds a property descriptor for the Failure Probability feature. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addFailureProbabilityPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_CommunicationLinkResourceSpecification_failureProbability_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_CommunicationLinkResourceSpecification_failureProbability_feature",
-                        "_UI_CommunicationLinkResourceSpecification_type"),
-                ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY,
-                true, false, false, ItemPropertyDescriptor.REAL_VALUE_IMAGE, null, null));
+        this.itemPropertyDescriptors
+        .add
+        (this.createItemPropertyDescriptor
+                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                                this.getResourceLocator(),
+                                this.getString("_UI_CommunicationLinkResourceSpecification_failureProbability_feature"),
+                                this.getString("_UI_PropertyDescriptor_description",
+                                        "_UI_CommunicationLinkResourceSpecification_failureProbability_feature",
+                                        "_UI_CommunicationLinkResourceSpecification_type"),
+                                ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY,
+                                true,
+                                false,
+                                false,
+                                ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+                                null,
+                                null));
     }
 
     /**
      * This adds a property descriptor for the Communication Link Resource Type Communication Link
      * Resource Specification feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addCommunicationLinkResourceType_CommunicationLinkResourceSpecificationPropertyDescriptor(
             final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString(
-                        "_UI_CommunicationLinkResourceSpecification_communicationLinkResourceType_CommunicationLinkResourceSpecification_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_CommunicationLinkResourceSpecification_communicationLinkResourceType_CommunicationLinkResourceSpecification_feature",
-                        "_UI_CommunicationLinkResourceSpecification_type"),
-                ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION,
-                true, false, true, null, null, null));
+        this.itemPropertyDescriptors
+        .add
+        (this.createItemPropertyDescriptor
+                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                                this.getResourceLocator(),
+                                this.getString("_UI_CommunicationLinkResourceSpecification_communicationLinkResourceType_CommunicationLinkResourceSpecification_feature"),
+                                this.getString(
+                                        "_UI_PropertyDescriptor_description",
+                                        "_UI_CommunicationLinkResourceSpecification_communicationLinkResourceType_CommunicationLinkResourceSpecification_feature",
+                                        "_UI_CommunicationLinkResourceSpecification_type"),
+                                ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION,
+                                true,
+                                false,
+                                true,
+                                null,
+                                null,
+                                null));
     }
 
     /**
@@ -111,19 +128,20 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
      */
     @Override
     public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
-        if (this.childrenFeatures == null) {
+        if (this.childrenFeatures == null)
+        {
             super.getChildrenFeatures(object);
-            this.childrenFeatures.add(
-                    ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION);
-            this.childrenFeatures.add(
-                    ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION);
+            this.childrenFeatures
+            .add(ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION);
+            this.childrenFeatures
+            .add(ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION);
         }
         return this.childrenFeatures;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -137,7 +155,7 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
     /**
      * This returns CommunicationLinkResourceSpecification.gif. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -165,22 +183,23 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
         } catch (final Exception e) {
         }
         return "ResourceSpecification" + " (" + linkingResourceName + ")" + " [ID: "
-                + ((CommunicationLinkResourceSpecification) object).getId() + "]" + " <"
-                + this.getString("_UI_CommunicationLinkResourceSpecification_type") + ">";
+        + ((CommunicationLinkResourceSpecification) object).getId() + "]" + " <"
+        + this.getString("_UI_CommunicationLinkResourceSpecification_type") + ">";
     }
 
     /**
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
 
-        switch (notification.getFeatureID(CommunicationLinkResourceSpecification.class)) {
+        switch (notification.getFeatureID(CommunicationLinkResourceSpecification.class))
+        {
         case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__FAILURE_PROBABILITY:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
@@ -195,20 +214,24 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(this.createChildParameter(
-                ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION,
-                CoreFactory.eINSTANCE.createPCMRandomVariable()));
+        newChildDescriptors
+        .add
+        (this.createChildParameter
+                        (ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION,
+                                CoreFactory.eINSTANCE.createPCMRandomVariable()));
 
-        newChildDescriptors.add(this.createChildParameter(
-                ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION,
-                CoreFactory.eINSTANCE.createPCMRandomVariable()));
+        newChildDescriptors
+        .add
+        (this.createChildParameter
+                        (ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION,
+                                CoreFactory.eINSTANCE.createPCMRandomVariable()));
     }
 
     /**
@@ -223,12 +246,17 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
         final Object childFeature = feature;
         final Object childObject = child;
 
-        final boolean qualify = childFeature == ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION
-                || childFeature == ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION;
+        final boolean qualify =
+                childFeature == ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION
+                ||
+                childFeature == ResourceenvironmentPackage.Literals.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION;
 
-        if (qualify) {
-            return this.getString("_UI_CreateChild_text2", new Object[] { this.getTypeText(childObject),
-                    this.getFeatureText(childFeature), this.getTypeText(owner) });
+        if (qualify)
+        {
+            return this.getString(
+                    "_UI_CreateChild_text2",
+                    new Object[] { this.getTypeText(childObject), this.getFeatureText(childFeature),
+                            this.getTypeText(owner) });
         }
         return super.getCreateChildText(owner, feature, child, selection);
     }
@@ -236,7 +264,7 @@ public class CommunicationLinkResourceSpecificationItemProvider extends Identifi
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

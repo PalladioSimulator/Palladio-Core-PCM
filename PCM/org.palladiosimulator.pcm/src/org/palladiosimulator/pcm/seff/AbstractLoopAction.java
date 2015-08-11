@@ -15,11 +15,11 @@ package org.palladiosimulator.pcm.seff;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop
- * <em>Body Behaviour Loop</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop <em>Body
+ * Behaviour Loop</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getAbstractLoopAction()
  * @model abstract="true"

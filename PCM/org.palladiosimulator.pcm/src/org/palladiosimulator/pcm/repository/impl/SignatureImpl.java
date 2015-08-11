@@ -21,13 +21,13 @@ import org.palladiosimulator.pcm.repository.Signature;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.impl.SignatureImpl#getExceptions__Signature
- * <em>Exceptions Signature</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.impl.SignatureImpl#getFailureType
- * <em>Failure Type</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.SignatureImpl#getExceptions__Signature <em>
+ * Exceptions Signature</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.SignatureImpl#getFailureType <em>Failure
+ * Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -91,7 +91,8 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE:
             return ((InternalEList<?>) this.getExceptions__Signature()).basicRemove(otherEnd, msgs);
         }
@@ -105,7 +106,8 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE:
             return this.getExceptions__Signature();
         case RepositoryPackage.SIGNATURE__FAILURE_TYPE:
@@ -122,7 +124,8 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE:
             this.getExceptions__Signature().clear();
             this.getExceptions__Signature().addAll((Collection<? extends ExceptionType>) newValue);
@@ -142,7 +145,8 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE:
             this.getExceptions__Signature().clear();
             return;
@@ -160,7 +164,8 @@ public abstract class SignatureImpl extends EntityImpl implements Signature {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE:
             return !this.getExceptions__Signature().isEmpty();
         case RepositoryPackage.SIGNATURE__FAILURE_TYPE:

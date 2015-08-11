@@ -31,17 +31,17 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.allocation.impl.AllocationImpl#getTargetResourceEnvironment_Allocation
  * <em>Target Resource Environment Allocation</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.allocation.impl.AllocationImpl#getSystem_Allocation
- * <em>System Allocation</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.allocation.impl.AllocationImpl#getSystem_Allocation <em>
+ * System Allocation</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.allocation.impl.AllocationImpl#getAllocationContexts_Allocation
  * <em>Allocation Contexts Allocation</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -151,7 +151,8 @@ public class AllocationImpl extends EntityImpl implements Allocation {
     @Override
     @SuppressWarnings("unchecked")
     public EList<AllocationContext> getAllocationContexts_Allocation() {
-        return (EList<AllocationContext>) this.eDynamicGet(AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION,
+        return (EList<AllocationContext>) this.eDynamicGet(
+                AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION,
                 AllocationPackage.Literals.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION, true, true);
     }
 
@@ -175,10 +176,12 @@ public class AllocationImpl extends EntityImpl implements Allocation {
             + "encapsulatedComponent__AssemblyContext->select(composites|composites.oclIsTypeOf(pcm::subsystem::SubSystem)).oclAsType(pcm::subsystem::SubSystem)\n"
             + ".assemblyContexts__ComposedStructure))\n"
             + "--Now, after we collected all AssemblyContexts somehow used, we check whether they need to be allocated \n"
-            + "--and if yes, if they are allocated.\n" + "->forAll(assemblyCtx|\n"
+            + "--and if yes, if they are allocated.\n"
+            + "->forAll(assemblyCtx|\n"
             + "--AssemblyContexts that contain SubSystems do not need to be allocated\n"
             + "assemblyCtx.encapsulatedComponent__AssemblyContext.oclIsTypeOf(pcm::subsystem::SubSystem) or\n"
-            + "--All others need to be allocated. \n" + "self.allocationContexts_Allocation->select(allocationCtx|\n"
+            + "--All others need to be allocated. \n"
+            + "self.allocationContexts_Allocation->select(allocationCtx|\n"
             + "allocationCtx.assemblyContext_AllocationContext = assemblyCtx)->size() = 1)";
     /**
      * The cached OCL invariant for the '
@@ -201,29 +204,36 @@ public class AllocationImpl extends EntityImpl implements Allocation {
     @Override
     public boolean EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(AllocationPackage.Literals.ALLOCATION);
-            try {
+            try
+            {
                 EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(
-                                EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+                        .createInvariant(EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV
-                .createQuery(
-                        EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
+        if (!EOCL_ENV.createQuery(
+                EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this))
+        {
+            if (diagnostics != null)
+            {
                 diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, AllocationValidator.DIAGNOSTIC_SOURCE,
+                        .add
+                        (new BasicDiagnostic
+                        (
+                                Diagnostic.ERROR,
+                                AllocationValidator.DIAGNOSTIC_SOURCE,
                                 AllocationValidator.ALLOCATION__EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE,
                                 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                         new Object[] { "EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce",
                                                 EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                new Object[] { this }));
             }
             return false;
         }
@@ -243,7 +253,8 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      */
     protected static final String COMMUNICATING_SERVERS_HAVE_TO_BE_CONNECTED_BY_LINKING_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.allocationContexts_Allocation->forAll(a | self.allocationContexts_Allocation->forAll(b | \n"
             + "    --- if a and b are not on the same server\n"
-            + "    (a.resourceContainer_AllocationContext <> b.resourceContainer_AllocationContext \n" + "    and\n"
+            + "    (a.resourceContainer_AllocationContext <> b.resourceContainer_AllocationContext \n"
+            + "    and\n"
             + "    --  and if the assembly contexts of a and b are connected\n"
             + "      self.system_Allocation.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::AssemblyConnector)).oclAsType(pcm::core::composition::AssemblyConnector)->exists(conn | \n"
             + "         (conn.providingAssemblyContext_AssemblyConnector = a.assemblyContext_AllocationContext  \n"
@@ -253,7 +264,9 @@ public class AllocationImpl extends EntityImpl implements Allocation {
             + "          (conn.providingAssemblyContext_AssemblyConnector = b.assemblyContext_AllocationContext  \n"
             + "         and \n"
             + "         conn.requiringAssemblyContext_AssemblyConnector = a.assemblyContext_AllocationContext )\n"
-            + "       )\n" + "     )\n" + "     -- then the servers have to be connected by a linking resource\n"
+            + "       )\n"
+            + "     )\n"
+            + "     -- then the servers have to be connected by a linking resource\n"
             + "     implies \n"
             + "     self.targetResourceEnvironment_Allocation.linkingResources__ResourceEnvironment->exists(l | \n"
             + "        -- l connects the two\n"
@@ -282,29 +295,36 @@ public class AllocationImpl extends EntityImpl implements Allocation {
     @Override
     public boolean CommunicatingServersHaveToBeConnectedByLinkingResource(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (COMMUNICATING_SERVERS_HAVE_TO_BE_CONNECTED_BY_LINKING_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (COMMUNICATING_SERVERS_HAVE_TO_BE_CONNECTED_BY_LINKING_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(AllocationPackage.Literals.ALLOCATION);
-            try {
+            try
+            {
                 COMMUNICATING_SERVERS_HAVE_TO_BE_CONNECTED_BY_LINKING_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(
-                                COMMUNICATING_SERVERS_HAVE_TO_BE_CONNECTED_BY_LINKING_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+                        .createInvariant(COMMUNICATING_SERVERS_HAVE_TO_BE_CONNECTED_BY_LINKING_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV
-                .createQuery(
-                        COMMUNICATING_SERVERS_HAVE_TO_BE_CONNECTED_BY_LINKING_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
+        if (!EOCL_ENV.createQuery(
+                COMMUNICATING_SERVERS_HAVE_TO_BE_CONNECTED_BY_LINKING_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(
+                this))
+        {
+            if (diagnostics != null)
+            {
                 diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, AllocationValidator.DIAGNOSTIC_SOURCE,
+                        .add
+                        (new BasicDiagnostic
+                        (
+                                Diagnostic.ERROR,
+                                AllocationValidator.DIAGNOSTIC_SOURCE,
                                 AllocationValidator.ALLOCATION__COMMUNICATING_SERVERS_HAVE_TO_BE_CONNECTED_BY_LINKING_RESOURCE,
                                 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                         new Object[] { "CommunicatingServersHaveToBeConnectedByLinkingResource",
                                                 EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                new Object[] { this }));
             }
             return false;
         }
@@ -320,10 +340,12 @@ public class AllocationImpl extends EntityImpl implements Allocation {
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getAllocationContexts_Allocation())
-                    .basicAdd(otherEnd, msgs);
+                    .basicAdd(
+                            otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -336,7 +358,8 @@ public class AllocationImpl extends EntityImpl implements Allocation {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION:
             return ((InternalEList<?>) this.getAllocationContexts_Allocation()).basicRemove(otherEnd, msgs);
         }
@@ -350,7 +373,8 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
             if (resolve) {
                 return this.getTargetResourceEnvironment_Allocation();
@@ -375,7 +399,8 @@ public class AllocationImpl extends EntityImpl implements Allocation {
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
             this.setTargetResourceEnvironment_Allocation((ResourceEnvironment) newValue);
             return;
@@ -397,7 +422,8 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
             this.setTargetResourceEnvironment_Allocation((ResourceEnvironment) null);
             return;
@@ -418,7 +444,8 @@ public class AllocationImpl extends EntityImpl implements Allocation {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
             return this.basicGetTargetResourceEnvironment_Allocation() != null;
         case AllocationPackage.ALLOCATION__SYSTEM_ALLOCATION:

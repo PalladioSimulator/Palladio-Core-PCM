@@ -18,17 +18,18 @@ import de.uka.ipd.sdq.identifier.Identifier;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.SynchronisationPoint#getOutputParameterUsage_SynchronisationPoint
  * <em>Output Parameter Usage Synchronisation Point</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.seff.SynchronisationPoint#getForkAction_SynchronisationPoint
+ * <li>
+ * {@link org.palladiosimulator.pcm.seff.SynchronisationPoint#getForkAction_SynchronisationPoint
  * <em>Fork Action Synchronisation Point</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.SynchronisationPoint#getSynchronousForkedBehaviours_SynchronisationPoint
  * <em>Synchronous Forked Behaviours Synchronisation Point</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getSynchronisationPoint()
  * @model

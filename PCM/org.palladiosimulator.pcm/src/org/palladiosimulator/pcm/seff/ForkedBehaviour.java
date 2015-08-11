@@ -14,13 +14,14 @@ package org.palladiosimulator.pcm.seff;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.seff.ForkedBehaviour#getSynchronisationPoint_ForkedBehaviour
+ * <li>
+ * {@link org.palladiosimulator.pcm.seff.ForkedBehaviour#getSynchronisationPoint_ForkedBehaviour
  * <em>Synchronisation Point Forked Behaviour</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.seff.ForkedBehaviour#getForkAction_ForkedBehaivour
- * <em>Fork Action Forked Behaivour</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.ForkedBehaviour#getForkAction_ForkedBehaivour <em>Fork
+ * Action Forked Behaivour</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getForkedBehaviour()
  * @model

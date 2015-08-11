@@ -31,7 +31,6 @@ import org.palladiosimulator.pcm.repository.util.RepositoryValidator;
  * <em><b>Operation Signature</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.impl.OperationSignatureImpl#getInterface__OperationSignature
@@ -43,6 +42,7 @@ import org.palladiosimulator.pcm.repository.util.RepositoryValidator;
  * {@link org.palladiosimulator.pcm.repository.impl.OperationSignatureImpl#getReturnType__OperationSignature
  * <em>Return Type Operation Signature</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -190,27 +190,36 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
     @Override
     public boolean ParameterNamesHaveToBeUniqueForASignature(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.OPERATION_SIGNATURE);
-            try {
+            try
+            {
                 PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(
-                                PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+                        .createInvariant(PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV.createQuery(PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
+                .check(this))
+        {
+            if (diagnostics != null)
+            {
                 diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, RepositoryValidator.DIAGNOSTIC_SOURCE,
+                        .add
+                        (new BasicDiagnostic
+                        (
+                                Diagnostic.ERROR,
+                                RepositoryValidator.DIAGNOSTIC_SOURCE,
                                 RepositoryValidator.OPERATION_SIGNATURE__PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                EcorePlugin.INSTANCE.getString(
+                                        "_UI_GenericInvariant_diagnostic",
                                         new Object[] { "ParameterNamesHaveToBeUniqueForASignature",
                                                 EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                new Object[] { this }));
             }
             return false;
         }
@@ -225,7 +234,8 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -233,7 +243,8 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
             return this.basicSetInterface__OperationSignature((OperationInterface) otherEnd, msgs);
         case RepositoryPackage.OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getParameters__OperationSignature())
-                    .basicAdd(otherEnd, msgs);
+                    .basicAdd(
+                            otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -246,7 +257,8 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE:
             return this.basicSetInterface__OperationSignature(null, msgs);
         case RepositoryPackage.OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE:
@@ -262,7 +274,8 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE:
             return this.eInternalContainer().eInverseRemove(this,
                     RepositoryPackage.OPERATION_INTERFACE__SIGNATURES_OPERATION_INTERFACE, OperationInterface.class,
@@ -278,7 +291,8 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE:
             return this.getInterface__OperationSignature();
         case RepositoryPackage.OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE:
@@ -300,7 +314,8 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE:
             this.setInterface__OperationSignature((OperationInterface) newValue);
             return;
@@ -322,7 +337,8 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE:
             this.setInterface__OperationSignature((OperationInterface) null);
             return;
@@ -343,7 +359,8 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE:
             return this.getInterface__OperationSignature() != null;
         case RepositoryPackage.OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE:

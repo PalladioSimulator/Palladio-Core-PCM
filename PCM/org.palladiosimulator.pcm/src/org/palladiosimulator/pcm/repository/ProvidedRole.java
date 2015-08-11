@@ -14,11 +14,11 @@ import org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole
- * <em>Providing Entity Provided Role</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole <em>
+ * Providing Entity Provided Role</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getProvidedRole()
  * @model abstract="true"

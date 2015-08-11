@@ -13,8 +13,9 @@ import org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation;
  * <!-- begin-model-doc -->
  * <p>
  * Specifies an execution time
- * in&nbsp;terms&nbsp;of&nbsp;a&nbsp;PCMRandomVariable&nbsp;which&nbsp;may&nbsp;depend&nbsp;on&nbsp;
- * component&nbsp;or&nbsp;input&nbsp;parameters&nbsp;of&nbsp;the referenced&nbsp;service.
+ * in&nbsp;terms&nbsp;of&nbsp;a&nbsp;PCMRandomVariable&nbsp;which&nbsp;may
+ * &nbsp;depend&nbsp;on&nbsp;component&nbsp;or&nbsp;input&nbsp;parameters&nbsp;of&nbsp;the
+ * referenced&nbsp;service.
  * </p>
  * <p>
  * Notes:
@@ -29,12 +30,12 @@ import org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.qosannotations.qos_performance.SpecifiedExecutionTime#getSpecification_SpecifiedExecutionTime
  * <em>Specification Specified Execution Time</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.qosannotations.qos_performance.QosPerformancePackage#getSpecifiedExecutionTime()
  * @model abstract="true"

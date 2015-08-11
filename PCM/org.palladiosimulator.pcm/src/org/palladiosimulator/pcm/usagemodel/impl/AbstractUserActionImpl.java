@@ -16,16 +16,16 @@ import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
  * <em><b>Abstract User Action</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl#getSuccessor
- * <em>Successor</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl#getPredecessor
- * <em>Predecessor</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl#getSuccessor <em>
+ * Successor</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl#getPredecessor <em>
+ * Predecessor</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl#getScenarioBehaviour_AbstractUserAction
  * <em>Scenario Behaviour Abstract User Action</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -85,7 +85,8 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      */
     public NotificationChain basicSetSuccessor(final AbstractUserAction newSuccessor, NotificationChain msgs) {
         msgs = this.eDynamicInverseAdd((InternalEObject) newSuccessor,
-                UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR, msgs);
+                UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR,
+                msgs);
         return msgs;
     }
 
@@ -187,7 +188,8 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR:
             final AbstractUserAction successor = this.basicGetSuccessor();
             if (successor != null) {
@@ -219,7 +221,8 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR:
             return this.basicSetSuccessor(null, msgs);
         case UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR:
@@ -237,7 +240,8 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION:
             return this.eInternalContainer().eInverseRemove(this,
                     UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR, ScenarioBehaviour.class, msgs);
@@ -252,7 +256,8 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR:
             if (resolve) {
                 return this.getSuccessor();
@@ -276,7 +281,8 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR:
             this.setSuccessor((AbstractUserAction) newValue);
             return;
@@ -297,7 +303,8 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR:
             this.setSuccessor((AbstractUserAction) null);
             return;
@@ -318,7 +325,8 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR:
             return this.basicGetSuccessor() != null;
         case UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR:

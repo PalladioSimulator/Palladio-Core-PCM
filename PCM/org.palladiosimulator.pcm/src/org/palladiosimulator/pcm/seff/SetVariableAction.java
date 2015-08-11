@@ -36,12 +36,12 @@ import org.palladiosimulator.pcm.parameter.VariableUsage;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.SetVariableAction#getLocalVariableUsages_SetVariableAction
  * <em>Local Variable Usages Set Variable Action</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getSetVariableAction()
  * @model

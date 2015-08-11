@@ -19,11 +19,11 @@ import org.palladiosimulator.pcm.repository.Repository;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.reliability.FailureType#getRepository__FailureType
- * <em>Repository Failure Type</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.reliability.FailureType#getRepository__FailureType <em>
+ * Repository Failure Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.reliability.ReliabilityPackage#getFailureType()
  * @model abstract="true"

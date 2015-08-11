@@ -19,11 +19,11 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.repository.impl.EventGroupImpl#getEventTypes__EventGroup
  * <em>Event Types Event Group</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -76,10 +76,12 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.EVENT_GROUP__EVENT_TYPES_EVENT_GROUP:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getEventTypes__EventGroup())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getEventTypes__EventGroup()).basicAdd(
+                    otherEnd,
+                    msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -92,7 +94,8 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.EVENT_GROUP__EVENT_TYPES_EVENT_GROUP:
             return ((InternalEList<?>) this.getEventTypes__EventGroup()).basicRemove(otherEnd, msgs);
         }
@@ -106,7 +109,8 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.EVENT_GROUP__EVENT_TYPES_EVENT_GROUP:
             return this.getEventTypes__EventGroup();
         }
@@ -121,7 +125,8 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.EVENT_GROUP__EVENT_TYPES_EVENT_GROUP:
             this.getEventTypes__EventGroup().clear();
             this.getEventTypes__EventGroup().addAll((Collection<? extends EventType>) newValue);
@@ -137,7 +142,8 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.EVENT_GROUP__EVENT_TYPES_EVENT_GROUP:
             this.getEventTypes__EventGroup().clear();
             return;
@@ -152,7 +158,8 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.EVENT_GROUP__EVENT_TYPES_EVENT_GROUP:
             return !this.getEventTypes__EventGroup().isEmpty();
         }

@@ -52,7 +52,8 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public ParameterAdapterFactory() {
-        if (modelPackage == null) {
+        if (modelPackage == null)
+        {
             modelPackage = ParameterPackage.eINSTANCE;
         }
     }
@@ -67,10 +68,12 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
      */
     @Override
     public boolean isFactoryForType(final Object object) {
-        if (object == modelPackage) {
+        if (object == modelPackage)
+        {
             return true;
         }
-        if (object instanceof EObject) {
+        if (object instanceof EObject)
+        {
             return ((EObject) object).eClass().getEPackage() == modelPackage;
         }
         return false;
@@ -82,85 +85,99 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    protected ParameterSwitch<Adapter> modelSwitch = new ParameterSwitch<Adapter>() {
-
+    protected ParameterSwitch<Adapter> modelSwitch = new ParameterSwitch<Adapter>()
+    {
         @Override
-        public Adapter caseVariableUsage(final VariableUsage object) {
+        public Adapter caseVariableUsage(final VariableUsage object)
+        {
             return ParameterAdapterFactory.this.createVariableUsageAdapter();
         }
 
         @Override
-        public Adapter caseVariableCharacterisation(final VariableCharacterisation object) {
+        public Adapter caseVariableCharacterisation(final VariableCharacterisation object)
+        {
             return ParameterAdapterFactory.this.createVariableCharacterisationAdapter();
         }
 
         @Override
-        public Adapter caseCharacterisedVariable(final CharacterisedVariable object) {
+        public Adapter caseCharacterisedVariable(final CharacterisedVariable object)
+        {
             return ParameterAdapterFactory.this.createCharacterisedVariableAdapter();
         }
 
         @Override
-        public Adapter caseExpression(final Expression object) {
+        public Adapter caseExpression(final Expression object)
+        {
             return ParameterAdapterFactory.this.createExpressionAdapter();
         }
 
         @Override
-        public Adapter caseIfElse(final IfElse object) {
+        public Adapter caseIfElse(final IfElse object)
+        {
             return ParameterAdapterFactory.this.createIfElseAdapter();
         }
 
         @Override
-        public Adapter caseBooleanExpression(final BooleanExpression object) {
+        public Adapter caseBooleanExpression(final BooleanExpression object)
+        {
             return ParameterAdapterFactory.this.createBooleanExpressionAdapter();
         }
 
         @Override
-        public Adapter caseComparison(final Comparison object) {
+        public Adapter caseComparison(final Comparison object)
+        {
             return ParameterAdapterFactory.this.createComparisonAdapter();
         }
 
         @Override
-        public Adapter caseTerm(final Term object) {
+        public Adapter caseTerm(final Term object)
+        {
             return ParameterAdapterFactory.this.createTermAdapter();
         }
 
         @Override
-        public Adapter caseProduct(final Product object) {
+        public Adapter caseProduct(final Product object)
+        {
             return ParameterAdapterFactory.this.createProductAdapter();
         }
 
         @Override
-        public Adapter casePower(final Power object) {
+        public Adapter casePower(final Power object)
+        {
             return ParameterAdapterFactory.this.createPowerAdapter();
         }
 
         @Override
-        public Adapter caseUnary(final Unary object) {
+        public Adapter caseUnary(final Unary object)
+        {
             return ParameterAdapterFactory.this.createUnaryAdapter();
         }
 
         @Override
-        public Adapter caseAtom(final Atom object) {
+        public Adapter caseAtom(final Atom object)
+        {
             return ParameterAdapterFactory.this.createAtomAdapter();
         }
 
         @Override
-        public Adapter caseVariable(final Variable object) {
+        public Adapter caseVariable(final Variable object)
+        {
             return ParameterAdapterFactory.this.createVariableAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object) {
+        public Adapter defaultCase(final EObject object)
+        {
             return ParameterAdapterFactory.this.createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @param target
-     *            the object to adapt.
-     * @return the adapter for the <code>target</code>.
+             *
+             * @param target
+             *            the object to adapt.
+             * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
@@ -185,12 +202,12 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.parameter.VariableCharacterisation
-     * <em>Variable Characterisation</em>}'. <!-- begin-user-doc --> This default implementation
-     * returns null so that we can easily ignore cases; it's useful to ignore a case when
-     * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.parameter.VariableCharacterisation
+             * <em>Variable Characterisation</em>}'. <!-- begin-user-doc --> This default implementation
+             * returns null so that we can easily ignore cases; it's useful to ignore a case when
+             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.parameter.VariableCharacterisation
      * @generated
      */
@@ -200,12 +217,12 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-     * {@link org.palladiosimulator.pcm.parameter.CharacterisedVariable
-     * <em>Characterised Variable</em>}'. <!-- begin-user-doc --> This default implementation
-     * returns null so that we can easily ignore cases; it's useful to ignore a case when
-     * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * {@link org.palladiosimulator.pcm.parameter.CharacterisedVariable
+             * <em>Characterised Variable</em>}'. <!-- begin-user-doc --> This default implementation
+             * returns null so that we can easily ignore cases; it's useful to ignore a case when
+             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.parameter.CharacterisedVariable
      * @generated
      */
@@ -215,11 +232,11 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Expression
-     * <em>Expression</em>}'. <!-- begin-user-doc --> This default implementation returns null so
-     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
-     * the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * <em>Expression</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+             * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+             * the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see de.uka.ipd.sdq.stoex.Expression
      * @generated
      */
@@ -229,11 +246,11 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.IfElse
-     * <em>If Else</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
-     * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
-     * cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * <em>If Else</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
+             * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+             * cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see de.uka.ipd.sdq.stoex.IfElse
      * @generated
      */
@@ -243,11 +260,11 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.BooleanExpression
-     * <em>Boolean Expression</em>}'. <!-- begin-user-doc --> This default implementation returns
-     * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
-     * catch all the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * <em>Boolean Expression</em>}'. <!-- begin-user-doc --> This default implementation returns
+             * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
+             * catch all the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see de.uka.ipd.sdq.stoex.BooleanExpression
      * @generated
      */
@@ -257,11 +274,11 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Comparison
-     * <em>Comparison</em>}'. <!-- begin-user-doc --> This default implementation returns null so
-     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
-     * the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * <em>Comparison</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+             * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+             * the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see de.uka.ipd.sdq.stoex.Comparison
      * @generated
      */
@@ -271,11 +288,11 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Term <em>Term</em>}
-     * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-     * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+             * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
+             * <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see de.uka.ipd.sdq.stoex.Term
      * @generated
      */
@@ -285,11 +302,11 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Product
-     * <em>Product</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
-     * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
-     * cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * <em>Product</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
+             * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+             * cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see de.uka.ipd.sdq.stoex.Product
      * @generated
      */
@@ -299,11 +316,11 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Power
-     * <em>Power</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
-     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
-     * cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * <em>Power</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+             * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+             * cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see de.uka.ipd.sdq.stoex.Power
      * @generated
      */
@@ -313,11 +330,11 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Unary
-     * <em>Unary</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
-     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
-     * cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * <em>Unary</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+             * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+             * cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see de.uka.ipd.sdq.stoex.Unary
      * @generated
      */
@@ -327,11 +344,11 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Atom <em>Atom</em>}
-     * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-     * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
-     * <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+             * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
+             * <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see de.uka.ipd.sdq.stoex.Atom
      * @generated
      */
@@ -341,11 +358,11 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Variable
-     * <em>Variable</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
-     * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
-     * cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * <em>Variable</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
+             * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+             * cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see de.uka.ipd.sdq.stoex.Variable
      * @generated
      */
@@ -355,9 +372,9 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
-     * implementation returns null. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * implementation returns null. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @generated
      */
     public Adapter createEObjectAdapter() {

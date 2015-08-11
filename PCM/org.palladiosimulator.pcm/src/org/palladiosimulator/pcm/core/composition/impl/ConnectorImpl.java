@@ -16,12 +16,12 @@ import org.palladiosimulator.pcm.core.entity.impl.EntityImpl;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.impl.ConnectorImpl#getParentStructure__Connector
  * <em>Parent Structure Connector</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -94,7 +94,8 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.CONNECTOR__PARENT_STRUCTURE_CONNECTOR:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -112,7 +113,8 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.CONNECTOR__PARENT_STRUCTURE_CONNECTOR:
             return this.basicSetParentStructure__Connector(null, msgs);
         }
@@ -126,11 +128,12 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case CompositionPackage.CONNECTOR__PARENT_STRUCTURE_CONNECTOR:
-            return this.eInternalContainer().eInverseRemove(this,
-                    CompositionPackage.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class,
-                    msgs);
+            return this.eInternalContainer()
+                    .eInverseRemove(this, CompositionPackage.COMPOSED_STRUCTURE__CONNECTORS_COMPOSED_STRUCTURE,
+                            ComposedStructure.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -142,7 +145,8 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.CONNECTOR__PARENT_STRUCTURE_CONNECTOR:
             return this.getParentStructure__Connector();
         }
@@ -156,7 +160,8 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.CONNECTOR__PARENT_STRUCTURE_CONNECTOR:
             this.setParentStructure__Connector((ComposedStructure) newValue);
             return;
@@ -171,7 +176,8 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.CONNECTOR__PARENT_STRUCTURE_CONNECTOR:
             this.setParentStructure__Connector((ComposedStructure) null);
             return;
@@ -186,7 +192,8 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.CONNECTOR__PARENT_STRUCTURE_CONNECTOR:
             return this.getParentStructure__Connector() != null;
         }

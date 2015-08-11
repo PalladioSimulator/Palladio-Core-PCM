@@ -11,7 +11,6 @@ import org.palladiosimulator.pcm.core.entity.ResourceRequiredRole;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector#getAssemblyContext__RequiredResourceDelegationConnector
@@ -23,6 +22,7 @@ import org.palladiosimulator.pcm.core.entity.ResourceRequiredRole;
  * {@link org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector#getOuterRequiredRole__RequiredResourceDelegationConnector
  * <em>Outer Required Role Required Resource Delegation Connector</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getRequiredResourceDelegationConnector()
  * @model

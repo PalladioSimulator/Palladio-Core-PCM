@@ -16,12 +16,12 @@ import org.palladiosimulator.pcm.qosannotations.qos_performance.SpecifiedExecuti
  * <em><b>Specified Execution Time</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.qosannotations.qos_performance.impl.SpecifiedExecutionTimeImpl#getSpecification_SpecifiedExecutionTime
  * <em>Specification Specified Execution Time</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -98,15 +98,18 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
             final PCMRandomVariable specification_SpecifiedExecutionTime = this
-                    .getSpecification_SpecifiedExecutionTime();
+            .getSpecification_SpecifiedExecutionTime();
             if (specification_SpecifiedExecutionTime != null) {
-                msgs = ((InternalEObject) specification_SpecifiedExecutionTime).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME,
-                        null, msgs);
+                msgs = ((InternalEObject) specification_SpecifiedExecutionTime)
+                        .eInverseRemove(
+                                this,
+                                EOPPOSITE_FEATURE_BASE
+                                        - QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME,
+                                null, msgs);
             }
             return this.basicSetSpecification_SpecifiedExecutionTime((PCMRandomVariable) otherEnd, msgs);
         }
@@ -121,7 +124,8 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
             return this.basicSetSpecification_SpecifiedExecutionTime(null, msgs);
         }
@@ -135,7 +139,8 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
             return this.getSpecification_SpecifiedExecutionTime();
         }
@@ -149,7 +154,8 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
             this.setSpecification_SpecifiedExecutionTime((PCMRandomVariable) newValue);
             return;
@@ -164,7 +170,8 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
             this.setSpecification_SpecifiedExecutionTime((PCMRandomVariable) null);
             return;
@@ -179,7 +186,8 @@ public abstract class SpecifiedExecutionTimeImpl extends SpecifiedQoSAnnotationI
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosPerformancePackage.SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME:
             return this.getSpecification_SpecifiedExecutionTime() != null;
         }

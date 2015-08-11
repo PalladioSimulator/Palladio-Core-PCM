@@ -35,7 +35,6 @@ import org.palladiosimulator.pcm.repository.OperationSignature;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getProvidedRole_EntryLevelSystemCall
@@ -46,12 +45,13 @@ import org.palladiosimulator.pcm.repository.OperationSignature;
  * <li>
  * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getOutputParameterUsages_EntryLevelSystemCall
  * <em>Output Parameter Usages Entry Level System Call</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getPriority
- * <em>Priority</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getPriority <em>Priority
+ * </em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getInputParameterUsages_EntryLevelSystemCall
  * <em>Input Parameter Usages Entry Level System Call</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall()
  * @model

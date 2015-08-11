@@ -13,11 +13,11 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * <em><b>Primitive Data Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.repository.impl.PrimitiveDataTypeImpl#getType <em>Type</em>}
  * </li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -78,7 +78,8 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
     @Override
     public void setType(final PrimitiveTypeEnum newType) {
         this.eDynamicSet(RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE,
-                RepositoryPackage.Literals.PRIMITIVE_DATA_TYPE__TYPE, newType);
+                RepositoryPackage.Literals.PRIMITIVE_DATA_TYPE__TYPE,
+                newType);
     }
 
     /**
@@ -88,7 +89,8 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
             return this.getType();
         }
@@ -102,7 +104,8 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
             this.setType((PrimitiveTypeEnum) newValue);
             return;
@@ -117,7 +120,8 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
             this.setType(TYPE_EDEFAULT);
             return;
@@ -132,7 +136,8 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
             return this.getType() != TYPE_EDEFAULT;
         }

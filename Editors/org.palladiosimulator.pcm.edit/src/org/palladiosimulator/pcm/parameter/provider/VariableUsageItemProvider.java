@@ -28,15 +28,15 @@ import de.uka.ipd.sdq.stoex.StoexFactory;
 /**
  * This is the item provider adapter for a {@link org.palladiosimulator.pcm.parameter.VariableUsage}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class VariableUsageItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -44,7 +44,7 @@ public class VariableUsageItemProvider extends ItemProviderAdapter implements IE
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public VariableUsageItemProvider(final AdapterFactory adapterFactory) {
@@ -54,12 +54,13 @@ public class VariableUsageItemProvider extends ItemProviderAdapter implements IE
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null) {
+        if (this.itemPropertyDescriptors == null)
+        {
             super.getPropertyDescriptors(object);
 
         }
@@ -77,7 +78,8 @@ public class VariableUsageItemProvider extends ItemProviderAdapter implements IE
      */
     @Override
     public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
-        if (this.childrenFeatures == null) {
+        if (this.childrenFeatures == null)
+        {
             super.getChildrenFeatures(object);
             this.childrenFeatures
                     .add(ParameterPackage.Literals.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE);
@@ -88,7 +90,7 @@ public class VariableUsageItemProvider extends ItemProviderAdapter implements IE
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -101,7 +103,7 @@ public class VariableUsageItemProvider extends ItemProviderAdapter implements IE
 
     /**
      * This returns VariableUsage.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -124,14 +126,15 @@ public class VariableUsageItemProvider extends ItemProviderAdapter implements IE
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
 
-        switch (notification.getFeatureID(VariableUsage.class)) {
+        switch (notification.getFeatureID(VariableUsage.class))
+        {
         case ParameterPackage.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE:
         case ParameterPackage.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -143,30 +146,33 @@ public class VariableUsageItemProvider extends ItemProviderAdapter implements IE
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(this.createChildParameter(
-                ParameterPackage.Literals.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE,
-                ParameterFactory.eINSTANCE.createVariableCharacterisation()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (ParameterPackage.Literals.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE,
+                                ParameterFactory.eINSTANCE.createVariableCharacterisation()));
 
-        newChildDescriptors
-                .add(this.createChildParameter(ParameterPackage.Literals.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE,
-                        StoexFactory.eINSTANCE.createVariableReference()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (ParameterPackage.Literals.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE,
+                                StoexFactory.eINSTANCE.createVariableReference()));
 
-        newChildDescriptors
-                .add(this.createChildParameter(ParameterPackage.Literals.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE,
-                        StoexFactory.eINSTANCE.createNamespaceReference()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (ParameterPackage.Literals.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE,
+                                StoexFactory.eINSTANCE.createNamespaceReference()));
     }
 
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

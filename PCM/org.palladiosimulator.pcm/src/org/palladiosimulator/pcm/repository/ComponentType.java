@@ -81,8 +81,11 @@ public enum ComponentType implements Enumerator {
      *
      * @generated
      */
-    private static final ComponentType[] VALUES_ARRAY = new ComponentType[] { BUSINESS_COMPONENT,
-            INFRASTRUCTURE_COMPONENT, };
+    private static final ComponentType[] VALUES_ARRAY = new ComponentType[]
+    {
+            BUSINESS_COMPONENT,
+            INFRASTRUCTURE_COMPONENT,
+    };
 
     /**
      * A public read-only list of all the '<em><b>Component Type</b></em>' enumerators. <!--
@@ -103,7 +106,8 @@ public enum ComponentType implements Enumerator {
      */
     public static ComponentType get(final String literal) {
         for (final ComponentType result : VALUES_ARRAY) {
-            if (result.toString().equals(literal)) {
+            if (result.toString().equals(literal))
+            {
                 return result;
             }
         }
@@ -121,7 +125,8 @@ public enum ComponentType implements Enumerator {
      */
     public static ComponentType getByName(final String name) {
         for (final ComponentType result : VALUES_ARRAY) {
-            if (result.getName().equals(name)) {
+            if (result.getName().equals(name))
+            {
                 return result;
             }
         }
@@ -138,7 +143,8 @@ public enum ComponentType implements Enumerator {
      * @generated
      */
     public static ComponentType get(final int value) {
-        switch (value) {
+        switch (value)
+        {
         case BUSINESS_COMPONENT_VALUE:
             return BUSINESS_COMPONENT;
         case INFRASTRUCTURE_COMPONENT_VALUE:

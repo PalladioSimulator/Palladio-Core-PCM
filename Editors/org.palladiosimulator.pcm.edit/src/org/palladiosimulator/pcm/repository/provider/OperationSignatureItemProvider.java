@@ -20,14 +20,14 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * This is the item provider adapter for a
  * {@link org.palladiosimulator.pcm.repository.OperationSignature} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class OperationSignatureItemProvider extends SignatureItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -35,7 +35,7 @@ public class OperationSignatureItemProvider extends SignatureItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public OperationSignatureItemProvider(final AdapterFactory adapterFactory) {
@@ -45,12 +45,13 @@ public class OperationSignatureItemProvider extends SignatureItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null) {
+        if (this.itemPropertyDescriptors == null)
+        {
             super.getPropertyDescriptors(object);
 
             this.addReturnType__OperationSignaturePropertyDescriptor(object);
@@ -65,13 +66,21 @@ public class OperationSignatureItemProvider extends SignatureItemProvider {
      * @generated
      */
     protected void addReturnType__OperationSignaturePropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_OperationSignature_returnType__OperationSignature_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_OperationSignature_returnType__OperationSignature_feature", "_UI_OperationSignature_type"),
-                RepositoryPackage.Literals.OPERATION_SIGNATURE__RETURN_TYPE_OPERATION_SIGNATURE, true, false, true,
-                null, null, null));
+        this.itemPropertyDescriptors.add
+        (this.createItemPropertyDescriptor
+                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                                this.getResourceLocator(),
+                                this.getString("_UI_OperationSignature_returnType__OperationSignature_feature"),
+                                this.getString("_UI_PropertyDescriptor_description",
+                                        "_UI_OperationSignature_returnType__OperationSignature_feature",
+                                        "_UI_OperationSignature_type"),
+                                RepositoryPackage.Literals.OPERATION_SIGNATURE__RETURN_TYPE_OPERATION_SIGNATURE,
+                                true,
+                                false,
+                                true,
+                                null,
+                                null,
+                                null));
     }
 
     /**
@@ -85,7 +94,8 @@ public class OperationSignatureItemProvider extends SignatureItemProvider {
      */
     @Override
     public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
-        if (this.childrenFeatures == null) {
+        if (this.childrenFeatures == null)
+        {
             super.getChildrenFeatures(object);
             this.childrenFeatures.add(RepositoryPackage.Literals.OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE);
         }
@@ -94,7 +104,7 @@ public class OperationSignatureItemProvider extends SignatureItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -107,7 +117,7 @@ public class OperationSignatureItemProvider extends SignatureItemProvider {
 
     /**
      * This returns OperationSignature.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -124,22 +134,24 @@ public class OperationSignatureItemProvider extends SignatureItemProvider {
     @Override
     public String getText(final Object object) {
         final String label = ((OperationSignature) object).getId();
-        return label == null || label.length() == 0 ? this.getString("_UI_OperationSignature_type")
-                : this.getString("_UI_OperationSignature_type") + " " + label;
+        return label == null || label.length() == 0 ?
+                this.getString("_UI_OperationSignature_type") :
+                    this.getString("_UI_OperationSignature_type") + " " + label;
     }
 
     /**
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
 
-        switch (notification.getFeatureID(OperationSignature.class)) {
+        switch (notification.getFeatureID(OperationSignature.class))
+        {
         case RepositoryPackage.OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
@@ -150,16 +162,17 @@ public class OperationSignatureItemProvider extends SignatureItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(this.createChildParameter(
-                RepositoryPackage.Literals.OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE,
-                RepositoryFactory.eINSTANCE.createParameter()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (RepositoryPackage.Literals.OPERATION_SIGNATURE__PARAMETERS_OPERATION_SIGNATURE,
+                                RepositoryFactory.eINSTANCE.createParameter()));
     }
 
 }

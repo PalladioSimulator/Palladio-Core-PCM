@@ -14,12 +14,12 @@ package org.palladiosimulator.pcm.seff;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.ResourceDemandingInternalBehaviour#getResourceDemandingSEFF_ResourceDemandingInternalBehaviour
  * <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getResourceDemandingInternalBehaviour()
  * @model

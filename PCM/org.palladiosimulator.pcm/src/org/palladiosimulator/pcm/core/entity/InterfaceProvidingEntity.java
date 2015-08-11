@@ -26,12 +26,12 @@ import org.palladiosimulator.pcm.repository.ProvidedRole;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity#getProvidedRoles_InterfaceProvidingEntity
  * <em>Provided Roles Interface Providing Entity</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.core.entity.EntityPackage#getInterfaceProvidingEntity()
  * @model abstract="true"

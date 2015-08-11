@@ -29,12 +29,12 @@ import org.palladiosimulator.pcm.reliability.InternalFailureOccurrenceDescriptio
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.InternalAction#getInternalFailureOccurrenceDescriptions__InternalAction
  * <em>Internal Failure Occurrence Descriptions Internal Action</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getInternalAction()
  * @model

@@ -30,15 +30,14 @@ import de.uka.ipd.sdq.stoex.AbstractNamedReference;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getVariableCharacterisation_VariableUsage
  * <em>Variable Characterisation Variable Usage</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.parameter.VariableUsage#getUserData_VariableUsage
- * <em>User Data Variable Usage</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.parameter.VariableUsage#getCallAction__VariableUsage
- * <em>Call Action Variable Usage</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.parameter.VariableUsage#getUserData_VariableUsage <em>User
+ * Data Variable Usage</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.parameter.VariableUsage#getCallAction__VariableUsage <em>
+ * Call Action Variable Usage</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getSynchronisationPoint_VariableUsage
  * <em>Synchronisation Point Variable Usage</em>}</li>
@@ -60,6 +59,7 @@ import de.uka.ipd.sdq.stoex.AbstractNamedReference;
  * <li>{@link org.palladiosimulator.pcm.parameter.VariableUsage#getNamedReference__VariableUsage
  * <em>Named Reference Variable Usage</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.parameter.ParameterPackage#getVariableUsage()
  * @model

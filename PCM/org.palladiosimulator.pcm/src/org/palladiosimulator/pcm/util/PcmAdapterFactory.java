@@ -39,7 +39,8 @@ public class PcmAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public PcmAdapterFactory() {
-        if (modelPackage == null) {
+        if (modelPackage == null)
+        {
             modelPackage = PcmPackage.eINSTANCE;
         }
     }
@@ -54,10 +55,12 @@ public class PcmAdapterFactory extends AdapterFactoryImpl {
      */
     @Override
     public boolean isFactoryForType(final Object object) {
-        if (object == modelPackage) {
+        if (object == modelPackage)
+        {
             return true;
         }
-        if (object instanceof EObject) {
+        if (object instanceof EObject)
+        {
             return ((EObject) object).eClass().getEPackage() == modelPackage;
         }
         return false;
@@ -69,25 +72,27 @@ public class PcmAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    protected PcmSwitch<Adapter> modelSwitch = new PcmSwitch<Adapter>() {
-
+    protected PcmSwitch<Adapter> modelSwitch = new PcmSwitch<Adapter>()
+    {
         @Override
-        public Adapter caseDummyClass(final DummyClass object) {
+        public Adapter caseDummyClass(final DummyClass object)
+        {
             return PcmAdapterFactory.this.createDummyClassAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object) {
+        public Adapter defaultCase(final EObject object)
+        {
             return PcmAdapterFactory.this.createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @param target
-     *            the object to adapt.
-     * @return the adapter for the <code>target</code>.
+             *
+             * @param target
+             *            the object to adapt.
+             * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
@@ -97,11 +102,11 @@ public class PcmAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link org.palladiosimulator.pcm.DummyClass
-     * <em>Dummy Class</em>}'. <!-- begin-user-doc --> This default implementation returns null so
-     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
-     * the cases anyway. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * <em>Dummy Class</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+             * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+             * the cases anyway. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @see org.palladiosimulator.pcm.DummyClass
      * @generated
      */
@@ -111,9 +116,9 @@ public class PcmAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
-     * implementation returns null. <!-- end-user-doc -->
-     *
-     * @return the new adapter.
+             * implementation returns null. <!-- end-user-doc -->
+             *
+             * @return the new adapter.
      * @generated
      */
     public Adapter createEObjectAdapter() {

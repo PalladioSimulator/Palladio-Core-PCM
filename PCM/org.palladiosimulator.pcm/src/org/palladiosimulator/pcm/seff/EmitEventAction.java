@@ -19,13 +19,13 @@ import org.palladiosimulator.pcm.repository.SourceRole;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.seff.EmitEventAction#getEventType__EmitEventAction
- * <em>Event Type Emit Event Action</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.seff.EmitEventAction#getSourceRole__EmitEventAction
- * <em>Source Role Emit Event Action</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.EmitEventAction#getEventType__EmitEventAction <em>Event
+ * Type Emit Event Action</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.EmitEventAction#getSourceRole__EmitEventAction <em>
+ * Source Role Emit Event Action</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getEmitEventAction()
  * @model

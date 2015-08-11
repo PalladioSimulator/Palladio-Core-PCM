@@ -21,7 +21,6 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
  * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.resourceenvironment.impl.ResourceContainerImpl#getActiveResourceSpecifications_ResourceContainer
@@ -36,6 +35,7 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
  * {@link org.palladiosimulator.pcm.resourceenvironment.impl.ResourceContainerImpl#getParentResourceContainer__ResourceContainer
  * <em>Parent Resource Container Resource Container</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -75,10 +75,11 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
     @Override
     @SuppressWarnings("unchecked")
     public EList<ProcessingResourceSpecification> getActiveResourceSpecifications_ResourceContainer() {
-        return (EList<ProcessingResourceSpecification>) this.eDynamicGet(
-                ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER,
-                ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER,
-                true, true);
+        return (EList<ProcessingResourceSpecification>) this
+                .eDynamicGet(
+                        ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER,
+                        ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER,
+                        true, true);
     }
 
     /**
@@ -179,10 +180,12 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getActiveResourceSpecifications_ResourceContainer()).basicAdd(otherEnd, msgs);
+                    .getActiveResourceSpecifications_ResourceContainer())
+                    .basicAdd(otherEnd, msgs);
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -190,7 +193,8 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
             return this.basicSetResourceEnvironment_ResourceContainer((ResourceEnvironment) otherEnd, msgs);
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getNestedResourceContainers__ResourceContainer()).basicAdd(otherEnd, msgs);
+                    .getNestedResourceContainers__ResourceContainer())
+                    .basicAdd(otherEnd, msgs);
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -208,7 +212,8 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
             return ((InternalEList<?>) this.getActiveResourceSpecifications_ResourceContainer()).basicRemove(otherEnd,
                     msgs);
@@ -230,7 +235,8 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
             return this.eInternalContainer().eInverseRemove(this,
                     ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT,
@@ -250,7 +256,8 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
             return this.getActiveResourceSpecifications_ResourceContainer();
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
@@ -271,19 +278,20 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
             this.getActiveResourceSpecifications_ResourceContainer().clear();
-            this.getActiveResourceSpecifications_ResourceContainer()
-                    .addAll((Collection<? extends ProcessingResourceSpecification>) newValue);
+            this.getActiveResourceSpecifications_ResourceContainer().addAll(
+                    (Collection<? extends ProcessingResourceSpecification>) newValue);
             return;
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
             this.setResourceEnvironment_ResourceContainer((ResourceEnvironment) newValue);
             return;
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER:
             this.getNestedResourceContainers__ResourceContainer().clear();
-            this.getNestedResourceContainers__ResourceContainer()
-                    .addAll((Collection<? extends ResourceContainer>) newValue);
+            this.getNestedResourceContainers__ResourceContainer().addAll(
+                    (Collection<? extends ResourceContainer>) newValue);
             return;
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER:
             this.setParentResourceContainer__ResourceContainer((ResourceContainer) newValue);
@@ -299,7 +307,8 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
             this.getActiveResourceSpecifications_ResourceContainer().clear();
             return;
@@ -323,7 +332,8 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
             return !this.getActiveResourceSpecifications_ResourceContainer().isEmpty();
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:

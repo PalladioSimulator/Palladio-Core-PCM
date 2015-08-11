@@ -25,11 +25,11 @@ package org.palladiosimulator.pcm.seff;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.seff.ProbabilisticBranchTransition#getBranchProbability
- * <em>Branch Probability</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.ProbabilisticBranchTransition#getBranchProbability <em>
+ * Branch Probability</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getProbabilisticBranchTransition()
  * @model

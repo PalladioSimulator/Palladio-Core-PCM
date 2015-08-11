@@ -13,12 +13,12 @@ import org.palladiosimulator.pcm.qosannotations.qos_performance.QosPerformancePa
  * <em><b>Component Specified Execution Time</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.qosannotations.qos_performance.impl.ComponentSpecifiedExecutionTimeImpl#getAssemblyContext_ComponentSpecifiedExecutionTime
  * <em>Assembly Context Component Specified Execution Time</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -58,10 +58,11 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
      */
     @Override
     public AssemblyContext getAssemblyContext_ComponentSpecifiedExecutionTime() {
-        return (AssemblyContext) this.eDynamicGet(
-                QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME,
-                QosPerformancePackage.Literals.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME,
-                true, true);
+        return (AssemblyContext) this
+                .eDynamicGet(
+                        QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME,
+                        QosPerformancePackage.Literals.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME,
+                        true, true);
     }
 
     /**
@@ -70,10 +71,11 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext_ComponentSpecifiedExecutionTime() {
-        return (AssemblyContext) this.eDynamicGet(
-                QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME,
-                QosPerformancePackage.Literals.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME,
-                false, true);
+        return (AssemblyContext) this
+                .eDynamicGet(
+                        QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME,
+                        QosPerformancePackage.Literals.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME,
+                        false, true);
     }
 
     /**
@@ -97,7 +99,8 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME:
             if (resolve) {
                 return this.getAssemblyContext_ComponentSpecifiedExecutionTime();
@@ -114,7 +117,8 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME:
             this.setAssemblyContext_ComponentSpecifiedExecutionTime((AssemblyContext) newValue);
             return;
@@ -129,7 +133,8 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME:
             this.setAssemblyContext_ComponentSpecifiedExecutionTime((AssemblyContext) null);
             return;
@@ -144,7 +149,8 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME:
             return this.basicGetAssemblyContext_ComponentSpecifiedExecutionTime() != null;
         }

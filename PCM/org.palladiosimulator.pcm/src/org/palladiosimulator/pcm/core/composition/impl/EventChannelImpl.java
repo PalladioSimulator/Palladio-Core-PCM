@@ -23,7 +23,6 @@ import org.palladiosimulator.pcm.repository.EventGroup;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.impl.EventChannelImpl#getEventGroup__EventChannel
@@ -38,6 +37,7 @@ import org.palladiosimulator.pcm.repository.EventGroup;
  * {@link org.palladiosimulator.pcm.core.composition.impl.EventChannelImpl#getParentStructure__EventChannel
  * <em>Parent Structure Event Channel</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -170,13 +170,16 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SOURCE_CONNECTOR_EVENT_CHANNEL:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getEventChannelSourceConnector__EventChannel()).basicAdd(otherEnd, msgs);
+                    .getEventChannelSourceConnector__EventChannel())
+                    .basicAdd(otherEnd, msgs);
         case CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SINK_CONNECTOR_EVENT_CHANNEL:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getEventChannelSinkConnector__EventChannel()).basicAdd(otherEnd, msgs);
+                    .getEventChannelSinkConnector__EventChannel())
+                    .basicAdd(otherEnd, msgs);
         case CompositionPackage.EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -194,7 +197,8 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SOURCE_CONNECTOR_EVENT_CHANNEL:
             return ((InternalEList<?>) this.getEventChannelSourceConnector__EventChannel()).basicRemove(otherEnd, msgs);
         case CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SINK_CONNECTOR_EVENT_CHANNEL:
@@ -212,7 +216,8 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case CompositionPackage.EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL:
             return this.eInternalContainer().eInverseRemove(this,
                     CompositionPackage.COMPOSED_STRUCTURE__EVENT_CHANNEL_COMPOSED_STRUCTURE, ComposedStructure.class,
@@ -228,7 +233,8 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL:
             if (resolve) {
                 return this.getEventGroup__EventChannel();
@@ -252,19 +258,20 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL:
             this.setEventGroup__EventChannel((EventGroup) newValue);
             return;
         case CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SOURCE_CONNECTOR_EVENT_CHANNEL:
             this.getEventChannelSourceConnector__EventChannel().clear();
-            this.getEventChannelSourceConnector__EventChannel()
-                    .addAll((Collection<? extends EventChannelSourceConnector>) newValue);
+            this.getEventChannelSourceConnector__EventChannel().addAll(
+                    (Collection<? extends EventChannelSourceConnector>) newValue);
             return;
         case CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SINK_CONNECTOR_EVENT_CHANNEL:
             this.getEventChannelSinkConnector__EventChannel().clear();
-            this.getEventChannelSinkConnector__EventChannel()
-                    .addAll((Collection<? extends EventChannelSinkConnector>) newValue);
+            this.getEventChannelSinkConnector__EventChannel().addAll(
+                    (Collection<? extends EventChannelSinkConnector>) newValue);
             return;
         case CompositionPackage.EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL:
             this.setParentStructure__EventChannel((ComposedStructure) newValue);
@@ -280,7 +287,8 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL:
             this.setEventGroup__EventChannel((EventGroup) null);
             return;
@@ -304,7 +312,8 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case CompositionPackage.EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL:
             return this.basicGetEventGroup__EventChannel() != null;
         case CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SOURCE_CONNECTOR_EVENT_CHANNEL:

@@ -27,12 +27,12 @@ import org.palladiosimulator.pcm.resourcetype.ResourcetypePackage;
  * <em><b>Hardware Induced Failure Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.reliability.impl.HardwareInducedFailureTypeImpl#getProcessingResourceType__HardwareInducedFailureType
  * <em>Processing Resource Type Hardware Induced Failure Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -71,10 +71,11 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
      */
     @Override
     public ProcessingResourceType getProcessingResourceType__HardwareInducedFailureType() {
-        return (ProcessingResourceType) this.eDynamicGet(
-                ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE,
-                ReliabilityPackage.Literals.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE,
-                true, true);
+        return (ProcessingResourceType) this
+                .eDynamicGet(
+                        ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE,
+                        ReliabilityPackage.Literals.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE,
+                        true, true);
     }
 
     /**
@@ -83,10 +84,11 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
      * @generated
      */
     public ProcessingResourceType basicGetProcessingResourceType__HardwareInducedFailureType() {
-        return (ProcessingResourceType) this.eDynamicGet(
-                ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE,
-                ReliabilityPackage.Literals.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE,
-                false, true);
+        return (ProcessingResourceType) this
+                .eDynamicGet(
+                        ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE,
+                        ReliabilityPackage.Literals.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE,
+                        false, true);
     }
 
     /**
@@ -95,11 +97,12 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
      * @generated
      */
     public NotificationChain basicSetProcessingResourceType__HardwareInducedFailureType(
-            final ProcessingResourceType newProcessingResourceType__HardwareInducedFailureType,
-            NotificationChain msgs) {
-        msgs = this.eDynamicInverseAdd((InternalEObject) newProcessingResourceType__HardwareInducedFailureType,
-                ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE,
-                msgs);
+            final ProcessingResourceType newProcessingResourceType__HardwareInducedFailureType, NotificationChain msgs) {
+        msgs = this
+                .eDynamicInverseAdd(
+                        (InternalEObject) newProcessingResourceType__HardwareInducedFailureType,
+                        ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE,
+                        msgs);
         return msgs;
     }
 
@@ -150,28 +153,35 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
     @Override
     public boolean HardwareInducedFailureTypeHasProcessingResourceType(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (HARDWARE_INDUCED_FAILURE_TYPE_HAS_PROCESSING_RESOURCE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (HARDWARE_INDUCED_FAILURE_TYPE_HAS_PROCESSING_RESOURCE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(ReliabilityPackage.Literals.HARDWARE_INDUCED_FAILURE_TYPE);
-            try {
+            try
+            {
                 HARDWARE_INDUCED_FAILURE_TYPE_HAS_PROCESSING_RESOURCE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(
-                                HARDWARE_INDUCED_FAILURE_TYPE_HAS_PROCESSING_RESOURCE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+                        .createInvariant(HARDWARE_INDUCED_FAILURE_TYPE_HAS_PROCESSING_RESOURCE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV
-                .createQuery(HARDWARE_INDUCED_FAILURE_TYPE_HAS_PROCESSING_RESOURCE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
+        if (!EOCL_ENV.createQuery(
+                HARDWARE_INDUCED_FAILURE_TYPE_HAS_PROCESSING_RESOURCE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this))
+        {
+            if (diagnostics != null)
+            {
                 diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, ReliabilityValidator.DIAGNOSTIC_SOURCE,
+                        .add
+                        (new BasicDiagnostic
+                        (
+                                Diagnostic.ERROR,
+                                ReliabilityValidator.DIAGNOSTIC_SOURCE,
                                 ReliabilityValidator.HARDWARE_INDUCED_FAILURE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_HAS_PROCESSING_RESOURCE_TYPE,
                                 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                         new Object[] { "HardwareInducedFailureTypeHasProcessingResourceType",
                                                 EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                new Object[] { this }));
             }
             return false;
         }
@@ -185,14 +195,17 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE:
             final ProcessingResourceType processingResourceType__HardwareInducedFailureType = this
-                    .basicGetProcessingResourceType__HardwareInducedFailureType();
+            .basicGetProcessingResourceType__HardwareInducedFailureType();
             if (processingResourceType__HardwareInducedFailureType != null) {
-                msgs = ((InternalEObject) processingResourceType__HardwareInducedFailureType).eInverseRemove(this,
-                        ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE,
-                        ProcessingResourceType.class, msgs);
+                msgs = ((InternalEObject) processingResourceType__HardwareInducedFailureType)
+                        .eInverseRemove(
+                                this,
+                                ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE,
+                                ProcessingResourceType.class, msgs);
             }
             return this.basicSetProcessingResourceType__HardwareInducedFailureType((ProcessingResourceType) otherEnd,
                     msgs);
@@ -208,7 +221,8 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE:
             return this.basicSetProcessingResourceType__HardwareInducedFailureType(null, msgs);
         }
@@ -222,7 +236,8 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE:
             if (resolve) {
                 return this.getProcessingResourceType__HardwareInducedFailureType();
@@ -239,7 +254,8 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE:
             this.setProcessingResourceType__HardwareInducedFailureType((ProcessingResourceType) newValue);
             return;
@@ -254,7 +270,8 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE:
             this.setProcessingResourceType__HardwareInducedFailureType((ProcessingResourceType) null);
             return;
@@ -269,7 +286,8 @@ public class HardwareInducedFailureTypeImpl extends FailureTypeImpl implements H
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE:
             return this.basicGetProcessingResourceType__HardwareInducedFailureType() != null;
         }

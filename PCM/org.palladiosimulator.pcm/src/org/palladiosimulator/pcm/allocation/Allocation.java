@@ -19,16 +19,16 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.allocation.Allocation#getTargetResourceEnvironment_Allocation
  * <em>Target Resource Environment Allocation</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.allocation.Allocation#getSystem_Allocation
- * <em>System Allocation</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.allocation.Allocation#getAllocationContexts_Allocation
- * <em>Allocation Contexts Allocation</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.allocation.Allocation#getSystem_Allocation <em>System
+ * Allocation</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.allocation.Allocation#getAllocationContexts_Allocation <em>
+ * Allocation Contexts Allocation</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.allocation.AllocationPackage#getAllocation()
  * @model

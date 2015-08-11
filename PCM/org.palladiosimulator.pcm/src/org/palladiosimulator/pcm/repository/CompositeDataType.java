@@ -16,14 +16,15 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.CompositeDataType#getParentType_CompositeDataType
+ * <li>
+ * {@link org.palladiosimulator.pcm.repository.CompositeDataType#getParentType_CompositeDataType
  * <em>Parent Type Composite Data Type</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.CompositeDataType#getInnerDeclaration_CompositeDataType
  * <em>Inner Declaration Composite Data Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getCompositeDataType()
  * @model

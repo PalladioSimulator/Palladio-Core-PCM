@@ -21,7 +21,6 @@ import org.palladiosimulator.pcm.seff.ServiceEffectSpecification;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent
@@ -29,6 +28,7 @@ import org.palladiosimulator.pcm.seff.ServiceEffectSpecification;
  * <li>{@link org.palladiosimulator.pcm.repository.BasicComponent#getPassiveResource_BasicComponent
  * <em>Passive Resource Basic Component</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getBasicComponent()
  * @model

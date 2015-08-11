@@ -24,14 +24,15 @@ import org.palladiosimulator.pcm.seff.util.SeffValidator;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.seff.impl.AcquireActionImpl#getPassiveresource_AcquireAction
+ * <li>
+ * {@link org.palladiosimulator.pcm.seff.impl.AcquireActionImpl#getPassiveresource_AcquireAction
  * <em>Passiveresource Acquire Action</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.seff.impl.AcquireActionImpl#isTimeout <em>Timeout</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.seff.impl.AcquireActionImpl#getTimeoutValue
- * <em>Timeout Value</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.impl.AcquireActionImpl#getTimeoutValue <em>Timeout
+ * Value</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -123,7 +124,8 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
     @Override
     public boolean isTimeout() {
         return (Boolean) this.eDynamicGet(SeffPackage.ACQUIRE_ACTION__TIMEOUT,
-                SeffPackage.Literals.ACQUIRE_ACTION__TIMEOUT, true, true);
+                SeffPackage.Literals.ACQUIRE_ACTION__TIMEOUT,
+                true, true);
     }
 
     /**
@@ -192,27 +194,34 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
     @Override
     public boolean TimeoutValueOfAcquireActionMustNotBeNegative(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.ACQUIRE_ACTION);
-            try {
+            try
+            {
                 TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(
-                                TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+                        .createInvariant(TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV.createQuery(TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
-                diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
+                .check(this))
+        {
+            if (diagnostics != null)
+            {
+                diagnostics.add
+                        (new BasicDiagnostic
+                        (Diagnostic.ERROR,
+                                SeffValidator.DIAGNOSTIC_SOURCE,
                                 SeffValidator.ACQUIRE_ACTION__TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                EcorePlugin.INSTANCE.getString(
+                                        "_UI_GenericInvariant_diagnostic",
                                         new Object[] { "TimeoutValueOfAcquireActionMustNotBeNegative",
                                                 EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                new Object[] { this }));
             }
             return false;
         }
@@ -226,7 +235,8 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ACQUIRE_ACTION__PASSIVERESOURCE_ACQUIRE_ACTION:
             if (resolve) {
                 return this.getPassiveresource_AcquireAction();
@@ -247,7 +257,8 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ACQUIRE_ACTION__PASSIVERESOURCE_ACQUIRE_ACTION:
             this.setPassiveresource_AcquireAction((PassiveResource) newValue);
             return;
@@ -268,7 +279,8 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ACQUIRE_ACTION__PASSIVERESOURCE_ACQUIRE_ACTION:
             this.setPassiveresource_AcquireAction((PassiveResource) null);
             return;
@@ -289,7 +301,8 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.ACQUIRE_ACTION__PASSIVERESOURCE_ACQUIRE_ACTION:
             return this.basicGetPassiveresource_AcquireAction() != null;
         case SeffPackage.ACQUIRE_ACTION__TIMEOUT:

@@ -21,7 +21,6 @@ import org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction
@@ -30,6 +29,7 @@ import org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction;
  * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction#getRecoveryActionBehaviours__RecoveryAction
  * <em>Recovery Action Behaviours Recovery Action</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage#getRecoveryAction()
  * @model

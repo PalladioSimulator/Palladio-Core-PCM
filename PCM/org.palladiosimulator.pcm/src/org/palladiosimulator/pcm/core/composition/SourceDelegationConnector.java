@@ -15,7 +15,6 @@ import org.palladiosimulator.pcm.repository.SourceRole;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector#getInnerSourceRole__SourceRole
@@ -27,6 +26,7 @@ import org.palladiosimulator.pcm.repository.SourceRole;
  * {@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector#getAssemblyContext__SourceDelegationConnector
  * <em>Assembly Context Source Delegation Connector</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getSourceDelegationConnector()
  * @model

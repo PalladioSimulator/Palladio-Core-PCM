@@ -84,7 +84,8 @@ public class RepositorySwitch<T> {
      * @generated
      */
     public RepositorySwitch() {
-        if (modelPackage == null) {
+        if (modelPackage == null)
+        {
             modelPackage = RepositoryPackage.eINSTANCE;
         }
     }
@@ -108,11 +109,16 @@ public class RepositorySwitch<T> {
      * @generated
      */
     protected T doSwitch(final EClass theEClass, final EObject theEObject) {
-        if (theEClass.eContainer() == modelPackage) {
+        if (theEClass.eContainer() == modelPackage)
+        {
             return this.doSwitch(theEClass.getClassifierID(), theEObject);
-        } else {
+        }
+        else
+        {
             final List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ? this.defaultCase(theEObject) : this.doSwitch(eSuperTypes.get(0), theEObject);
+            return eSuperTypes.isEmpty() ?
+                    this.defaultCase(theEObject) :
+                    this.doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
@@ -124,7 +130,8 @@ public class RepositorySwitch<T> {
      * @generated
      */
     protected T doSwitch(final int classifierID, final EObject theEObject) {
-        switch (classifierID) {
+        switch (classifierID)
+        {
         case RepositoryPackage.PASSIVE_RESOURCE: {
             final PassiveResource passiveResource = (PassiveResource) theEObject;
             T result = this.casePassiveResource(passiveResource);

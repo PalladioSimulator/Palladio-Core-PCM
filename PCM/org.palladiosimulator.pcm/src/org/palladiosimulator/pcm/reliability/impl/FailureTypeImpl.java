@@ -17,11 +17,11 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.reliability.impl.FailureTypeImpl#getRepository__FailureType
  * <em>Repository Failure Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -94,7 +94,8 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -112,7 +113,8 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE:
             return this.basicSetRepository__FailureType(null, msgs);
         }
@@ -126,10 +128,12 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE:
             return this.eInternalContainer().eInverseRemove(this,
-                    RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY, Repository.class, msgs);
+                    RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY,
+                    Repository.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -141,7 +145,8 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE:
             return this.getRepository__FailureType();
         }
@@ -155,7 +160,8 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE:
             this.setRepository__FailureType((Repository) newValue);
             return;
@@ -170,7 +176,8 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE:
             this.setRepository__FailureType((Repository) null);
             return;
@@ -185,7 +192,8 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE:
             return this.getRepository__FailureType() != null;
         }

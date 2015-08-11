@@ -35,15 +35,15 @@ import org.palladiosimulator.pcm.util.PcmAdapterFactory;
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- *
+ * 
  * @generated
  */
 public class PcmItemProviderAdapterFactory extends PcmAdapterFactory
-        implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
+implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -66,7 +66,7 @@ public class PcmItemProviderAdapterFactory extends PcmAdapterFactory
 
     /**
      * This helps manage the child creation extenders. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
@@ -75,14 +75,14 @@ public class PcmItemProviderAdapterFactory extends PcmAdapterFactory
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public PcmItemProviderAdapterFactory() {
@@ -96,7 +96,7 @@ public class PcmItemProviderAdapterFactory extends PcmAdapterFactory
     /**
      * This keeps track of the one adapter used for all {@link org.palladiosimulator.pcm.DummyClass}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected DummyClassItemProvider dummyClassItemProvider;
@@ -109,7 +109,8 @@ public class PcmItemProviderAdapterFactory extends PcmAdapterFactory
      */
     @Override
     public Adapter createDummyClassAdapter() {
-        if (this.dummyClassItemProvider == null) {
+        if (this.dummyClassItemProvider == null)
+        {
             this.dummyClassItemProvider = new DummyClassItemProvider(this);
         }
 
@@ -119,7 +120,7 @@ public class PcmItemProviderAdapterFactory extends PcmAdapterFactory
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -130,7 +131,7 @@ public class PcmItemProviderAdapterFactory extends PcmAdapterFactory
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -140,7 +141,7 @@ public class PcmItemProviderAdapterFactory extends PcmAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -161,14 +162,16 @@ public class PcmItemProviderAdapterFactory extends PcmAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Object adapt(final Object object, final Object type) {
-        if (this.isFactoryForType(type)) {
+        if (this.isFactoryForType(type))
+        {
             final Object adapter = super.adapt(object, type);
-            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter)))
+            {
                 return adapter;
             }
         }
@@ -178,7 +181,7 @@ public class PcmItemProviderAdapterFactory extends PcmAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -187,7 +190,7 @@ public class PcmItemProviderAdapterFactory extends PcmAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -197,7 +200,7 @@ public class PcmItemProviderAdapterFactory extends PcmAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -207,7 +210,7 @@ public class PcmItemProviderAdapterFactory extends PcmAdapterFactory
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -217,7 +220,7 @@ public class PcmItemProviderAdapterFactory extends PcmAdapterFactory
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -235,7 +238,8 @@ public class PcmItemProviderAdapterFactory extends PcmAdapterFactory
     public void fireNotifyChanged(final Notification notification) {
         this.changeNotifier.fireNotifyChanged(notification);
 
-        if (this.parentAdapterFactory != null) {
+        if (this.parentAdapterFactory != null)
+        {
             this.parentAdapterFactory.fireNotifyChanged(notification);
         }
     }
@@ -243,7 +247,7 @@ public class PcmItemProviderAdapterFactory extends PcmAdapterFactory
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

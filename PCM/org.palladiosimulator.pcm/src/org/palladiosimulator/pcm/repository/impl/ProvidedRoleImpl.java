@@ -16,12 +16,12 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.impl.ProvidedRoleImpl#getProvidingEntity_ProvidedRole
  * <em>Providing Entity Provided Role</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -96,7 +96,8 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -114,7 +115,8 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE:
             return this.basicSetProvidingEntity_ProvidedRole(null, msgs);
         }
@@ -128,7 +130,8 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE:
             return this.eInternalContainer().eInverseRemove(this,
                     EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
@@ -144,7 +147,8 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE:
             return this.getProvidingEntity_ProvidedRole();
         }
@@ -158,7 +162,8 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE:
             this.setProvidingEntity_ProvidedRole((InterfaceProvidingEntity) newValue);
             return;
@@ -173,7 +178,8 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE:
             this.setProvidingEntity_ProvidedRole((InterfaceProvidingEntity) null);
             return;
@@ -188,7 +194,8 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE:
             return this.getProvidingEntity_ProvidedRole() != null;
         }

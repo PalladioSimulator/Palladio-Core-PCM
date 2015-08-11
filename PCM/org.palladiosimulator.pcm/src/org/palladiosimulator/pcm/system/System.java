@@ -41,11 +41,11 @@ import org.palladiosimulator.pcm.qosannotations.QoSAnnotations;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.system.System#getQosAnnotations_System
- * <em>Qos Annotations System</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.system.System#getQosAnnotations_System <em>Qos Annotations
+ * System</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.system.SystemPackage#getSystem()
  * @model

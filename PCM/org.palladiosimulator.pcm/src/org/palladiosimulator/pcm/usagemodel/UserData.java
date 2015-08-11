@@ -24,15 +24,15 @@ import org.palladiosimulator.pcm.parameter.VariableUsage;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.UserData#getAssemblyContext_userData
- * <em>Assembly Context user Data</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.UserData#getUsageModel_UserData
- * <em>Usage Model User Data</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.UserData#getUserDataParameterUsages_UserData
- * <em>User Data Parameter Usages User Data</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.UserData#getAssemblyContext_userData <em>Assembly
+ * Context user Data</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.UserData#getUsageModel_UserData <em>Usage Model
+ * User Data</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.UserData#getUserDataParameterUsages_UserData <em>
+ * User Data Parameter Usages User Data</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getUserData()
  * @model

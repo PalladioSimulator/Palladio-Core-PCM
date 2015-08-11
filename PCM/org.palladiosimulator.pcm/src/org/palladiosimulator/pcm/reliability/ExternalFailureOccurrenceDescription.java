@@ -13,13 +13,13 @@ import org.palladiosimulator.pcm.qosannotations.qos_reliability.SpecifiedReliabi
  * <em><b>External Failure Occurrence Description</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Special&nbsp;case&nbsp;of&nbsp;a&nbsp;FailureOccurenceDescription&nbsp;specifying&nbsp;the&nbsp;
- * failure&nbsp;potential&nbsp;of&nbsp;system-external&nbsp;calls.&nbsp;Can&nbsp;relate&nbsp;to any
+ * Special&nbsp;case&nbsp;of&nbsp;a&nbsp;FailureOccurenceDescription&nbsp;specifying
+ * &nbsp;the&nbsp;failure
+ * &nbsp;potential&nbsp;of&nbsp;system-external&nbsp;calls.&nbsp;Can&nbsp;relate&nbsp;to any
  * FailureType. <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.reliability.ExternalFailureOccurrenceDescription#getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription
@@ -28,6 +28,7 @@ import org.palladiosimulator.pcm.qosannotations.qos_reliability.SpecifiedReliabi
  * {@link org.palladiosimulator.pcm.reliability.ExternalFailureOccurrenceDescription#getFailureType__ExternalFailureOccurrenceDescription
  * <em>Failure Type External Failure Occurrence Description</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.reliability.ReliabilityPackage#getExternalFailureOccurrenceDescription()
  * @model

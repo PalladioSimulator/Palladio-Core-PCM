@@ -48,7 +48,6 @@ import de.uka.ipd.sdq.stoex.RandomVariable;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getClosedWorkload_PCMRandomVariable
  * <em>Closed Workload PCM Random Variable</em>}</li>
@@ -66,8 +65,8 @@ import de.uka.ipd.sdq.stoex.RandomVariable;
  * <li>
  * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getParametricResourceDemand_PCMRandomVariable
  * <em>Parametric Resource Demand PCM Random Variable</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getLoopAction_PCMRandomVariable
- * <em>Loop Action PCM Random Variable</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getLoopAction_PCMRandomVariable <em>
+ * Loop Action PCM Random Variable</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getGuardedBranchTransition_PCMRandomVariable
  * <em>Guarded Branch Transition PCM Random Variable</em>}</li>
@@ -80,12 +79,12 @@ import de.uka.ipd.sdq.stoex.RandomVariable;
  * <li>
  * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getAssemblyEventConnector__FilterCondition
  * <em>Assembly Event Connector Filter Condition</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getLoop_LoopIteration
- * <em>Loop Loop Iteration</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getLoop_LoopIteration <em>Loop Loop
+ * Iteration</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getOpenWorkload_PCMRandomVariable
  * <em>Open Workload PCM Random Variable</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getDelay_TimeSpecification
- * <em>Delay Time Specification</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getDelay_TimeSpecification <em>Delay
+ * Time Specification</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable
  * <em>Communication Link Resource Specifcation throughput PCM Random Variable</em>}</li>
@@ -96,6 +95,7 @@ import de.uka.ipd.sdq.stoex.RandomVariable;
  * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getCommunicationLinkResourceSpecification_latency_PCMRandomVariable
  * <em>Communication Link Resource Specification latency PCM Random Variable</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.core.CorePackage#getPCMRandomVariable()
  * @model

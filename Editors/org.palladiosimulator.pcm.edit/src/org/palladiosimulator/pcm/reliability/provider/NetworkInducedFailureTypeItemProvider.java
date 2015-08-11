@@ -24,7 +24,7 @@ public class NetworkInducedFailureTypeItemProvider extends FailureTypeItemProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -32,7 +32,7 @@ public class NetworkInducedFailureTypeItemProvider extends FailureTypeItemProvid
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NetworkInducedFailureTypeItemProvider(final AdapterFactory adapterFactory) {
@@ -42,12 +42,13 @@ public class NetworkInducedFailureTypeItemProvider extends FailureTypeItemProvid
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null) {
+        if (this.itemPropertyDescriptors == null)
+        {
             super.getPropertyDescriptors(object);
 
             this.addCommunicationLinkResourceType__NetworkInducedFailureTypePropertyDescriptor(object);
@@ -58,24 +59,32 @@ public class NetworkInducedFailureTypeItemProvider extends FailureTypeItemProvid
     /**
      * This adds a property descriptor for the Communication Link Resource Type Network Induced
      * Failure Type feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addCommunicationLinkResourceType__NetworkInducedFailureTypePropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString(
-                        "_UI_NetworkInducedFailureType_communicationLinkResourceType__NetworkInducedFailureType_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_NetworkInducedFailureType_communicationLinkResourceType__NetworkInducedFailureType_feature",
-                        "_UI_NetworkInducedFailureType_type"),
-                ReliabilityPackage.Literals.NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE,
-                true, false, true, null, null, null));
+        this.itemPropertyDescriptors
+        .add
+        (this.createItemPropertyDescriptor
+                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                                this.getResourceLocator(),
+                                this.getString("_UI_NetworkInducedFailureType_communicationLinkResourceType__NetworkInducedFailureType_feature"),
+                                this.getString(
+                                        "_UI_PropertyDescriptor_description",
+                                        "_UI_NetworkInducedFailureType_communicationLinkResourceType__NetworkInducedFailureType_feature",
+                                        "_UI_NetworkInducedFailureType_type"),
+                                ReliabilityPackage.Literals.NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE,
+                                true,
+                                false,
+                                true,
+                                null,
+                                null,
+                                null));
     }
 
     /**
      * This returns NetworkInducedFailureType.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -104,7 +113,7 @@ public class NetworkInducedFailureTypeItemProvider extends FailureTypeItemProvid
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -116,7 +125,7 @@ public class NetworkInducedFailureTypeItemProvider extends FailureTypeItemProvid
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

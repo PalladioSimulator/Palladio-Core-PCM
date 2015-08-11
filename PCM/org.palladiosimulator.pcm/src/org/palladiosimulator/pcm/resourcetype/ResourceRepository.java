@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.resourcetype.ResourceRepository#getResourceInterfaces__ResourceRepository
@@ -28,6 +27,7 @@ import org.eclipse.emf.common.util.EList;
  * {@link org.palladiosimulator.pcm.resourcetype.ResourceRepository#getAvailableResourceTypes_ResourceRepository
  * <em>Available Resource Types Resource Repository</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#getResourceRepository()
  * @model

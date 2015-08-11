@@ -22,7 +22,6 @@ import org.palladiosimulator.pcm.resourcetype.SchedulingPolicy;
  * <em><b>Resource Repository</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.resourcetype.impl.ResourceRepositoryImpl#getResourceInterfaces__ResourceRepository
@@ -34,6 +33,7 @@ import org.palladiosimulator.pcm.resourcetype.SchedulingPolicy;
  * {@link org.palladiosimulator.pcm.resourcetype.impl.ResourceRepositoryImpl#getAvailableResourceTypes_ResourceRepository
  * <em>Available Resource Types Resource Repository</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -124,16 +124,20 @@ public class ResourceRepositoryImpl extends CDOObjectImpl implements ResourceRep
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getResourceInterfaces__ResourceRepository()).basicAdd(otherEnd, msgs);
+                    .getResourceInterfaces__ResourceRepository())
+                    .basicAdd(otherEnd, msgs);
         case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getSchedulingPolicies__ResourceRepository()).basicAdd(otherEnd, msgs);
+                    .getSchedulingPolicies__ResourceRepository())
+                    .basicAdd(otherEnd, msgs);
         case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getAvailableResourceTypes_ResourceRepository()).basicAdd(otherEnd, msgs);
+                    .getAvailableResourceTypes_ResourceRepository())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -146,7 +150,8 @@ public class ResourceRepositoryImpl extends CDOObjectImpl implements ResourceRep
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
             return ((InternalEList<?>) this.getResourceInterfaces__ResourceRepository()).basicRemove(otherEnd, msgs);
         case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
@@ -164,7 +169,8 @@ public class ResourceRepositoryImpl extends CDOObjectImpl implements ResourceRep
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
             return this.getResourceInterfaces__ResourceRepository();
         case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
@@ -183,7 +189,8 @@ public class ResourceRepositoryImpl extends CDOObjectImpl implements ResourceRep
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
             this.getResourceInterfaces__ResourceRepository().clear();
             this.getResourceInterfaces__ResourceRepository().addAll((Collection<? extends ResourceInterface>) newValue);
@@ -207,7 +214,8 @@ public class ResourceRepositoryImpl extends CDOObjectImpl implements ResourceRep
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
             this.getResourceInterfaces__ResourceRepository().clear();
             return;
@@ -228,7 +236,8 @@ public class ResourceRepositoryImpl extends CDOObjectImpl implements ResourceRep
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
             return !this.getResourceInterfaces__ResourceRepository().isEmpty();
         case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:

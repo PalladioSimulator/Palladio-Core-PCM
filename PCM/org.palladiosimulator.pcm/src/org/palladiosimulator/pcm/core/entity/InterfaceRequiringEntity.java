@@ -26,12 +26,12 @@ import org.palladiosimulator.pcm.repository.RequiredRole;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity#getRequiredRoles_InterfaceRequiringEntity
  * <em>Required Roles Interface Requiring Entity</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.core.entity.EntityPackage#getInterfaceRequiringEntity()
  * @model abstract="true"

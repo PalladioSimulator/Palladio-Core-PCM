@@ -29,7 +29,6 @@ import de.uka.ipd.sdq.identifier.Identifier;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getAbstractLoopAction_ResourceDemandingBehaviour
@@ -37,9 +36,10 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * <li>
  * {@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getAbstractBranchTransition_ResourceDemandingBehaviour
  * <em>Abstract Branch Transition Resource Demanding Behaviour</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getSteps_Behaviour
- * <em>Steps Behaviour</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getSteps_Behaviour <em>Steps
+ * Behaviour</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getResourceDemandingBehaviour()
  * @model

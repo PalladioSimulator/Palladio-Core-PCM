@@ -11,7 +11,6 @@ import org.palladiosimulator.pcm.repository.InfrastructureProvidedRole;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getInnerProvidedRole__ProvidedInfrastructureDelegationConnector
@@ -23,6 +22,7 @@ import org.palladiosimulator.pcm.repository.InfrastructureProvidedRole;
  * {@link org.palladiosimulator.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getAssemblyContext__ProvidedInfrastructureDelegationConnector
  * <em>Assembly Context Provided Infrastructure Delegation Connector</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getProvidedInfrastructureDelegationConnector()
  * @model

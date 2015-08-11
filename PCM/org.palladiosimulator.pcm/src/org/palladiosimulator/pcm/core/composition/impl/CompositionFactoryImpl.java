@@ -46,13 +46,16 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      * @generated
      */
     public static CompositionFactory init() {
-        try {
+        try
+        {
             final CompositionFactory theCompositionFactory = (CompositionFactory) EPackage.Registry.INSTANCE
                     .getEFactory(CompositionPackage.eNS_URI);
-            if (theCompositionFactory != null) {
+            if (theCompositionFactory != null)
+            {
                 return theCompositionFactory;
             }
-        } catch (final Exception exception) {
+        } catch (final Exception exception)
+        {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new CompositionFactoryImpl();
@@ -74,7 +77,8 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID()) {
+        switch (eClass.getClassifierID())
+        {
         case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
             return this.createResourceRequiredDelegationConnector();
         case CompositionPackage.EVENT_CHANNEL:

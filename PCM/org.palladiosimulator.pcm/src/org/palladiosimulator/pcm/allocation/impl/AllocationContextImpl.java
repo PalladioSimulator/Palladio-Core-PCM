@@ -30,7 +30,6 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.allocation.impl.AllocationContextImpl#getResourceContainer_AllocationContext
@@ -45,6 +44,7 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
  * {@link org.palladiosimulator.pcm.allocation.impl.AllocationContextImpl#getEventChannel__AllocationContext
  * <em>Event Channel Allocation Context</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -247,29 +247,36 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
     @Override
     public boolean OneAssemblyContextOrOneEventChannelShouldBeReferred(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (ONE_ASSEMBLY_CONTEXT_OR_ONE_EVENT_CHANNEL_SHOULD_BE_REFERRED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (ONE_ASSEMBLY_CONTEXT_OR_ONE_EVENT_CHANNEL_SHOULD_BE_REFERRED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(AllocationPackage.Literals.ALLOCATION_CONTEXT);
-            try {
+            try
+            {
                 ONE_ASSEMBLY_CONTEXT_OR_ONE_EVENT_CHANNEL_SHOULD_BE_REFERRED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(
-                                ONE_ASSEMBLY_CONTEXT_OR_ONE_EVENT_CHANNEL_SHOULD_BE_REFERRED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+                        .createInvariant(ONE_ASSEMBLY_CONTEXT_OR_ONE_EVENT_CHANNEL_SHOULD_BE_REFERRED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV
-                .createQuery(
-                        ONE_ASSEMBLY_CONTEXT_OR_ONE_EVENT_CHANNEL_SHOULD_BE_REFERRED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
+        if (!EOCL_ENV.createQuery(
+                ONE_ASSEMBLY_CONTEXT_OR_ONE_EVENT_CHANNEL_SHOULD_BE_REFERRED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(
+                this))
+        {
+            if (diagnostics != null)
+            {
                 diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, AllocationValidator.DIAGNOSTIC_SOURCE,
+                        .add
+                        (new BasicDiagnostic
+                        (
+                                Diagnostic.ERROR,
+                                AllocationValidator.DIAGNOSTIC_SOURCE,
                                 AllocationValidator.ALLOCATION_CONTEXT__ONE_ASSEMBLY_CONTEXT_OR_ONE_EVENT_CHANNEL_SHOULD_BE_REFERRED,
                                 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                         new Object[] { "OneAssemblyContextOrOneEventChannelShouldBeReferred",
                                                 EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                new Object[] { this }));
             }
             return false;
         }
@@ -283,7 +290,8 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -301,7 +309,8 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT:
             return this.basicSetAllocation_AllocationContext(null, msgs);
         }
@@ -315,7 +324,8 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT:
             return this.eInternalContainer().eInverseRemove(this,
                     AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION, Allocation.class, msgs);
@@ -330,7 +340,8 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT:
             if (resolve) {
                 return this.getResourceContainer_AllocationContext();
@@ -359,7 +370,8 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT:
             this.setResourceContainer_AllocationContext((ResourceContainer) newValue);
             return;
@@ -383,7 +395,8 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT:
             this.setResourceContainer_AllocationContext((ResourceContainer) null);
             return;
@@ -407,7 +420,8 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT:
             return this.basicGetResourceContainer_AllocationContext() != null;
         case AllocationPackage.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT:

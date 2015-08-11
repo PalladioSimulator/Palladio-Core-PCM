@@ -16,7 +16,6 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.resourceenvironment.ResourceContainer#getActiveResourceSpecifications_ResourceContainer
@@ -31,6 +30,7 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  * {@link org.palladiosimulator.pcm.resourceenvironment.ResourceContainer#getParentResourceContainer__ResourceContainer
  * <em>Parent Resource Container Resource Container</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage#getResourceContainer()
  * @model

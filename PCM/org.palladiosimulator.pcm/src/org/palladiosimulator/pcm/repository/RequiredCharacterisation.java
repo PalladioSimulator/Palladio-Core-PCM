@@ -16,16 +16,15 @@ import org.palladiosimulator.pcm.parameter.VariableCharacterisationType;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.RequiredCharacterisation#getType <em>Type</em>}
- * </li>
- * <li>{@link org.palladiosimulator.pcm.repository.RequiredCharacterisation#getParameter
- * <em>Parameter</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.RequiredCharacterisation#getType <em>Type</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.RequiredCharacterisation#getParameter <em>
+ * Parameter</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.RequiredCharacterisation#getInterface_RequiredCharacterisation
  * <em>Interface Required Characterisation</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getRequiredCharacterisation()
  * @model

@@ -27,15 +27,15 @@ import org.palladiosimulator.pcm.usagemodel.UserData;
 /**
  * This is the item provider adapter for a {@link org.palladiosimulator.pcm.usagemodel.UserData}
  * object. <!-- begin-user-doc --> <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class UserDataItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -43,7 +43,7 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public UserDataItemProvider(final AdapterFactory adapterFactory) {
@@ -53,12 +53,13 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null) {
+        if (this.itemPropertyDescriptors == null)
+        {
             super.getPropertyDescriptors(object);
 
             this.addAssemblyContext_userDataPropertyDescriptor(object);
@@ -73,12 +74,20 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
      * @generated
      */
     protected void addAssemblyContext_userDataPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_UserData_assemblyContext_userData_feature"),
-                this.getString("_UI_PropertyDescriptor_description", "_UI_UserData_assemblyContext_userData_feature",
-                        "_UI_UserData_type"),
-                UsagemodelPackage.Literals.USER_DATA__ASSEMBLY_CONTEXT_USER_DATA, true, false, true, null, null, null));
+        this.itemPropertyDescriptors.add
+        (this.createItemPropertyDescriptor
+                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                                this.getResourceLocator(),
+                                this.getString("_UI_UserData_assemblyContext_userData_feature"),
+                                this.getString("_UI_PropertyDescriptor_description",
+                                        "_UI_UserData_assemblyContext_userData_feature", "_UI_UserData_type"),
+                                UsagemodelPackage.Literals.USER_DATA__ASSEMBLY_CONTEXT_USER_DATA,
+                                true,
+                                false,
+                                true,
+                                null,
+                                null,
+                                null));
     }
 
     /**
@@ -92,7 +101,8 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
      */
     @Override
     public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
-        if (this.childrenFeatures == null) {
+        if (this.childrenFeatures == null)
+        {
             super.getChildrenFeatures(object);
             this.childrenFeatures.add(UsagemodelPackage.Literals.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA);
         }
@@ -101,7 +111,7 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -114,7 +124,7 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
 
     /**
      * This returns UserData.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -137,14 +147,15 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
 
-        switch (notification.getFeatureID(UserData.class)) {
+        switch (notification.getFeatureID(UserData.class))
+        {
         case UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
@@ -155,22 +166,23 @@ public class UserDataItemProvider extends ItemProviderAdapter implements IEditin
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors.add(
-                this.createChildParameter(UsagemodelPackage.Literals.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA,
-                        ParameterFactory.eINSTANCE.createVariableUsage()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (UsagemodelPackage.Literals.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA,
+                                ParameterFactory.eINSTANCE.createVariableUsage()));
     }
 
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

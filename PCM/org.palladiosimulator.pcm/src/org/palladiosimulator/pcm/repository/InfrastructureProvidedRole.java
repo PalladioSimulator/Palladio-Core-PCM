@@ -9,12 +9,12 @@ package org.palladiosimulator.pcm.repository;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.InfrastructureProvidedRole#getProvidedInterface__InfrastructureProvidedRole
  * <em>Provided Interface Infrastructure Provided Role</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getInfrastructureProvidedRole()
  * @model

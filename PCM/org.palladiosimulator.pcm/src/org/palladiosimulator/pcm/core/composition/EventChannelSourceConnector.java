@@ -11,7 +11,6 @@ import org.palladiosimulator.pcm.repository.SourceRole;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getSourceRole__EventChannelSourceRole
@@ -23,6 +22,7 @@ import org.palladiosimulator.pcm.repository.SourceRole;
  * {@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getEventChannel__EventChannelSourceConnector
  * <em>Event Channel Event Channel Source Connector</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getEventChannelSourceConnector()
  * @model

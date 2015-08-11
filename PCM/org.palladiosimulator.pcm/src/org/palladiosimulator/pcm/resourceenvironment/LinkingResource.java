@@ -11,12 +11,11 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  * <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Model&nbsp;element&nbsp;representing&nbsp;communication&nbsp;links&nbsp;like&nbsp;LAN,&nbsp;WAN,&
- * nbsp;WiFi&nbsp;etc. <!-- end-model-doc -->
+ * Model&nbsp;element&nbsp;representing&nbsp;communication&nbsp;links&nbsp;like
+ * &nbsp;LAN,&nbsp;WAN,&nbsp;WiFi&nbsp;etc. <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.resourceenvironment.LinkingResource#getConnectedResourceContainers_LinkingResource
@@ -28,6 +27,7 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  * {@link org.palladiosimulator.pcm.resourceenvironment.LinkingResource#getResourceEnvironment_LinkingResource
  * <em>Resource Environment Linking Resource</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage#getLinkingResource()
  * @model

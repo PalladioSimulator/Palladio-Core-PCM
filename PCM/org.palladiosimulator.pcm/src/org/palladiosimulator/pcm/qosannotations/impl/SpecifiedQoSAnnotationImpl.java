@@ -18,7 +18,6 @@ import org.palladiosimulator.pcm.repository.Signature;
  * <em><b>Specified Qo SAnnotation</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl#getSignature_SpecifiedQoSAnnation
@@ -30,6 +29,7 @@ import org.palladiosimulator.pcm.repository.Signature;
  * {@link org.palladiosimulator.pcm.qosannotations.impl.SpecifiedQoSAnnotationImpl#getQosAnnotations_SpecifiedQoSAnnotation
  * <em>Qos Annotations Specified Qo SAnnotation</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -148,8 +148,8 @@ public abstract class SpecifiedQoSAnnotationImpl extends CDOObjectImpl implement
     public QoSAnnotations getQosAnnotations_SpecifiedQoSAnnotation() {
         return (QoSAnnotations) this.eDynamicGet(
                 QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION,
-                QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION, true,
-                true);
+                QosannotationsPackage.Literals.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION,
+                true, true);
     }
 
     /**
@@ -184,7 +184,8 @@ public abstract class SpecifiedQoSAnnotationImpl extends CDOObjectImpl implement
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -202,7 +203,8 @@ public abstract class SpecifiedQoSAnnotationImpl extends CDOObjectImpl implement
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION:
             return this.basicSetQosAnnotations_SpecifiedQoSAnnotation(null, msgs);
         }
@@ -216,7 +218,8 @@ public abstract class SpecifiedQoSAnnotationImpl extends CDOObjectImpl implement
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION:
             return this.eInternalContainer().eInverseRemove(this,
                     QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS,
@@ -232,7 +235,8 @@ public abstract class SpecifiedQoSAnnotationImpl extends CDOObjectImpl implement
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION:
             if (resolve) {
                 return this.getSignature_SpecifiedQoSAnnation();
@@ -256,7 +260,8 @@ public abstract class SpecifiedQoSAnnotationImpl extends CDOObjectImpl implement
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION:
             this.setSignature_SpecifiedQoSAnnation((Signature) newValue);
             return;
@@ -277,7 +282,8 @@ public abstract class SpecifiedQoSAnnotationImpl extends CDOObjectImpl implement
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION:
             this.setSignature_SpecifiedQoSAnnation((Signature) null);
             return;
@@ -298,7 +304,8 @@ public abstract class SpecifiedQoSAnnotationImpl extends CDOObjectImpl implement
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__SIGNATURE_SPECIFIED_QO_SANNATION:
             return this.basicGetSignature_SpecifiedQoSAnnation() != null;
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION:

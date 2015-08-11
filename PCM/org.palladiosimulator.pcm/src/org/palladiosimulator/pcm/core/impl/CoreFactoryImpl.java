@@ -32,13 +32,16 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
      * @generated
      */
     public static CoreFactory init() {
-        try {
+        try
+        {
             final CoreFactory theCoreFactory = (CoreFactory) EPackage.Registry.INSTANCE
                     .getEFactory(CorePackage.eNS_URI);
-            if (theCoreFactory != null) {
+            if (theCoreFactory != null)
+            {
                 return theCoreFactory;
             }
-        } catch (final Exception exception) {
+        } catch (final Exception exception)
+        {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new CoreFactoryImpl();
@@ -60,7 +63,8 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID()) {
+        switch (eClass.getClassifierID())
+        {
         case CorePackage.PCM_RANDOM_VARIABLE:
             return this.createPCMRandomVariable();
         default:

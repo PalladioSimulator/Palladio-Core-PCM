@@ -21,7 +21,6 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
  * <em><b>Resource Environment</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.resourceenvironment.impl.ResourceEnvironmentImpl#getLinkingResources__ResourceEnvironment
@@ -30,6 +29,7 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
  * {@link org.palladiosimulator.pcm.resourceenvironment.impl.ResourceEnvironmentImpl#getResourceContainer_ResourceEnvironment
  * <em>Resource Container Resource Environment</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -85,8 +85,8 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
     public EList<ResourceContainer> getResourceContainer_ResourceEnvironment() {
         return (EList<ResourceContainer>) this.eDynamicGet(
                 ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT,
-                ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT, true,
-                true);
+                ResourceenvironmentPackage.Literals.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT,
+                true, true);
     }
 
     /**
@@ -98,7 +98,8 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getLinkingResources__ResourceEnvironment())
                     .basicAdd(otherEnd, msgs);
@@ -117,7 +118,8 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
             return ((InternalEList<?>) this.getLinkingResources__ResourceEnvironment()).basicRemove(otherEnd, msgs);
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT:
@@ -133,7 +135,8 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
             return this.getLinkingResources__ResourceEnvironment();
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT:
@@ -150,7 +153,8 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
             this.getLinkingResources__ResourceEnvironment().clear();
             this.getLinkingResources__ResourceEnvironment().addAll((Collection<? extends LinkingResource>) newValue);
@@ -170,7 +174,8 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
             this.getLinkingResources__ResourceEnvironment().clear();
             return;
@@ -188,7 +193,8 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT:
             return !this.getLinkingResources__ResourceEnvironment().isEmpty();
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT:

@@ -35,15 +35,15 @@ import org.palladiosimulator.pcm.core.provider.PalladioComponentModelEditPlugin;
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- *
+ * 
  * @generated
  */
 public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
-        implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
+implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -66,7 +66,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
 
     /**
      * This helps manage the child creation extenders. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
@@ -75,14 +75,14 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public EntityItemProviderAdapterFactory() {
@@ -106,12 +106,13 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createResourceProvidedRoleAdapter() {
-        if (this.resourceProvidedRoleItemProvider == null) {
+        if (this.resourceProvidedRoleItemProvider == null)
+        {
             this.resourceProvidedRoleItemProvider = new ResourceProvidedRoleItemProvider(this);
         }
 
@@ -122,7 +123,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceInterfaceRequiringEntityItemProvider resourceInterfaceRequiringEntityItemProvider;
@@ -136,7 +137,8 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
      */
     @Override
     public Adapter createResourceInterfaceRequiringEntityAdapter() {
-        if (this.resourceInterfaceRequiringEntityItemProvider == null) {
+        if (this.resourceInterfaceRequiringEntityItemProvider == null)
+        {
             this.resourceInterfaceRequiringEntityItemProvider = new ResourceInterfaceRequiringEntityItemProvider(this);
         }
 
@@ -156,12 +158,13 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.core.entity.ResourceRequiredRole}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createResourceRequiredRoleAdapter() {
-        if (this.resourceRequiredRoleItemProvider == null) {
+        if (this.resourceRequiredRoleItemProvider == null)
+        {
             this.resourceRequiredRoleItemProvider = new ResourceRequiredRoleItemProvider(this);
         }
 
@@ -172,7 +175,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingEntity} instances.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceInterfaceProvidingEntityItemProvider resourceInterfaceProvidingEntityItemProvider;
@@ -186,7 +189,8 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
      */
     @Override
     public Adapter createResourceInterfaceProvidingEntityAdapter() {
-        if (this.resourceInterfaceProvidingEntityItemProvider == null) {
+        if (this.resourceInterfaceProvidingEntityItemProvider == null)
+        {
             this.resourceInterfaceProvidingEntityItemProvider = new ResourceInterfaceProvidingEntityItemProvider(this);
         }
 
@@ -197,7 +201,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
      * This keeps track of the one adapter used for all
      * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingRequiringEntity}
      * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceInterfaceProvidingRequiringEntityItemProvider resourceInterfaceProvidingRequiringEntityItemProvider;
@@ -211,7 +215,8 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
      */
     @Override
     public Adapter createResourceInterfaceProvidingRequiringEntityAdapter() {
-        if (this.resourceInterfaceProvidingRequiringEntityItemProvider == null) {
+        if (this.resourceInterfaceProvidingRequiringEntityItemProvider == null)
+        {
             this.resourceInterfaceProvidingRequiringEntityItemProvider = new ResourceInterfaceProvidingRequiringEntityItemProvider(
                     this);
         }
@@ -222,7 +227,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -233,7 +238,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -243,7 +248,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -264,14 +269,16 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Object adapt(final Object object, final Object type) {
-        if (this.isFactoryForType(type)) {
+        if (this.isFactoryForType(type))
+        {
             final Object adapter = super.adapt(object, type);
-            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter)))
+            {
                 return adapter;
             }
         }
@@ -281,7 +288,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -290,7 +297,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -300,7 +307,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -310,7 +317,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -320,7 +327,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -338,7 +345,8 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
     public void fireNotifyChanged(final Notification notification) {
         this.changeNotifier.fireNotifyChanged(notification);
 
-        if (this.parentAdapterFactory != null) {
+        if (this.parentAdapterFactory != null)
+        {
             this.parentAdapterFactory.fireNotifyChanged(notification);
         }
     }
@@ -346,7 +354,7 @@ public class EntityItemProviderAdapterFactory extends EntityAdapterFactory
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

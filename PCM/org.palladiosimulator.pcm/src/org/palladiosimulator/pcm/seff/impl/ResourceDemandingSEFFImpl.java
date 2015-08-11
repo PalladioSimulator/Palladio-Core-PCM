@@ -39,10 +39,9 @@ import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
  * <em><b>Resource Demanding SEFF</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.seff.impl.ResourceDemandingSEFFImpl#getSeffTypeID
- * <em>Seff Type ID</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.impl.ResourceDemandingSEFFImpl#getSeffTypeID <em>Seff
+ * Type ID</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.impl.ResourceDemandingSEFFImpl#getDescribedService__SEFF
  * <em>Described Service SEFF</em>}</li>
@@ -55,12 +54,13 @@ import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
  * <li>
  * {@link org.palladiosimulator.pcm.seff.impl.ResourceDemandingSEFFImpl#getAbstractBranchTransition_ResourceDemandingBehaviour
  * <em>Abstract Branch Transition Resource Demanding Behaviour</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.seff.impl.ResourceDemandingSEFFImpl#getSteps_Behaviour
- * <em>Steps Behaviour</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.impl.ResourceDemandingSEFFImpl#getSteps_Behaviour <em>
+ * Steps Behaviour</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.impl.ResourceDemandingSEFFImpl#getResourceDemandingInternalBehaviours
  * <em>Resource Demanding Internal Behaviours</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -239,10 +239,11 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      */
     @Override
     public AbstractBranchTransition getAbstractBranchTransition_ResourceDemandingBehaviour() {
-        return (AbstractBranchTransition) this.eDynamicGet(
-                SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
-                SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
-                true, true);
+        return (AbstractBranchTransition) this
+                .eDynamicGet(
+                        SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
+                        SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
+                        true, true);
     }
 
     /**
@@ -266,7 +267,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
     @Override
     public void setAbstractBranchTransition_ResourceDemandingBehaviour(
             final AbstractBranchTransition newAbstractBranchTransition_ResourceDemandingBehaviour) {
-        this.eDynamicSet(SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
+        this.eDynamicSet(
+                SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
                 SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
                 newAbstractBranchTransition_ResourceDemandingBehaviour);
     }
@@ -309,7 +311,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      */
     protected static final String REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "if self.describedService__SEFF.oclIsKindOf(pcm::repository::OperationSignature) then\n"
             + "	self.basicComponent_ServiceEffectSpecification.providedRoles_InterfaceProvidingEntity->exists(p | p.oclIsKindOf(pcm::repository::OperationProvidedRole) and (p.oclAsType(pcm::repository::OperationProvidedRole).providedInterface__OperationProvidedRole = self.describedService__SEFF.oclAsType(pcm::repository::OperationSignature).interface__OperationSignature))\n"
-            + "else\n" + "	if self.describedService__SEFF.oclIsKindOf(pcm::repository::EventType) then\n"
+            + "else\n"
+            + "	if self.describedService__SEFF.oclIsKindOf(pcm::repository::EventType) then\n"
             + "		self.basicComponent_ServiceEffectSpecification.providedRoles_InterfaceProvidingEntity->exists(p | p.oclIsKindOf(pcm::repository::SinkRole) and (p.oclAsType(pcm::repository::SinkRole).eventGroup__SinkRole = self.describedService__SEFF.oclAsType(pcm::repository::EventType).eventGroup__EventType))\n"
             + "	else\n" + "		true\n" + "	endif\n" + "endif";
 
@@ -334,30 +337,37 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
     @Override
     public boolean ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION);
-            try {
+            try
+            {
                 REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(
-                                REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+                        .createInvariant(REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV
                 .createQuery(
                         REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
+                .check(this))
+        {
+            if (diagnostics != null)
+            {
                 diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
+                        .add
+                        (new BasicDiagnostic
+                        (
+                                Diagnostic.ERROR,
+                                SeffValidator.DIAGNOSTIC_SOURCE,
                                 SeffValidator.SERVICE_EFFECT_SPECIFICATION__REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] {
-                                                "ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                        "ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -394,25 +404,31 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      */
     @Override
     public boolean ExactlyOneStopAction(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (EXACTLY_ONE_STOP_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (EXACTLY_ONE_STOP_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR);
-            try {
+            try
+            {
                 EXACTLY_ONE_STOP_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(EXACTLY_ONE_STOP_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(EXACTLY_ONE_STOP_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
-            if (diagnostics != null) {
-                diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
+        if (!EOCL_ENV.createQuery(EXACTLY_ONE_STOP_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this))
+        {
+            if (diagnostics != null)
+            {
+                diagnostics.add
+                        (new BasicDiagnostic
+                        (Diagnostic.ERROR,
+                                SeffValidator.DIAGNOSTIC_SOURCE,
                                 SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EXACTLY_ONE_STOP_ACTION,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "ExactlyOneStopAction",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                        "ExactlyOneStopAction", EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -449,25 +465,31 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      */
     @Override
     public boolean ExactlyOneStartAction(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (EXACTLY_ONE_START_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (EXACTLY_ONE_START_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR);
-            try {
+            try
+            {
                 EXACTLY_ONE_START_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(EXACTLY_ONE_START_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(EXACTLY_ONE_START_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
-            if (diagnostics != null) {
-                diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
+        if (!EOCL_ENV.createQuery(EXACTLY_ONE_START_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this))
+        {
+            if (diagnostics != null)
+            {
+                diagnostics.add
+                        (new BasicDiagnostic
+                        (Diagnostic.ERROR,
+                                SeffValidator.DIAGNOSTIC_SOURCE,
                                 SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EXACTLY_ONE_START_ACTION,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "ExactlyOneStartAction",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                        "ExactlyOneStartAction", EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -477,8 +499,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
     /**
      * The cached OCL expression body for the '
      * {@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor</em>
-     * }' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor</em>}
+     * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
@@ -490,8 +512,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
     /**
      * The cached OCL invariant for the '
      * {@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor</em>
-     * }' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor</em>}
+     * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
@@ -508,29 +530,37 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
     @Override
     public boolean EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR);
-            try {
+            try
+            {
                 EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(
-                                EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+                        .createInvariant(EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV
                 .createQuery(
                         EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this)) {
-            if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
-                        SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] {
+                .check(this))
+        {
+            if (diagnostics != null)
+            {
+                diagnostics
+                        .add
+                        (new BasicDiagnostic
+                        (
+                                Diagnostic.ERROR,
+                                SeffValidator.DIAGNOSTIC_SOURCE,
+                                SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
                                         "EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor",
                                         EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                new Object[] { this }));
             }
             return false;
         }
@@ -545,7 +575,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.RESOURCE_DEMANDING_SEFF__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -560,7 +591,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
             }
-            return this.basicSetAbstractBranchTransition_ResourceDemandingBehaviour((AbstractBranchTransition) otherEnd,
+            return this.basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
+                    (AbstractBranchTransition) otherEnd,
                     msgs);
         case SeffPackage.RESOURCE_DEMANDING_SEFF__STEPS_BEHAVIOUR:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getSteps_Behaviour()).basicAdd(otherEnd,
@@ -580,7 +612,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.RESOURCE_DEMANDING_SEFF__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION:
             return this.basicSetBasicComponent_ServiceEffectSpecification(null, msgs);
         case SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
@@ -602,13 +635,15 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case SeffPackage.RESOURCE_DEMANDING_SEFF__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION:
             return this.eInternalContainer().eInverseRemove(this,
                     RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT,
                     BasicComponent.class, msgs);
         case SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
-            return this.eInternalContainer().eInverseRemove(this, SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP,
+            return this.eInternalContainer().eInverseRemove(this,
+                    SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP,
                     AbstractLoopAction.class, msgs);
         case SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
             return this.eInternalContainer().eInverseRemove(this,
@@ -625,7 +660,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID:
             return this.getSeffTypeID();
         case SeffPackage.RESOURCE_DEMANDING_SEFF__DESCRIBED_SERVICE_SEFF:
@@ -655,7 +691,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID:
             this.setSeffTypeID((String) newValue);
             return;
@@ -677,8 +714,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
             return;
         case SeffPackage.RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS:
             this.getResourceDemandingInternalBehaviours().clear();
-            this.getResourceDemandingInternalBehaviours()
-                    .addAll((Collection<? extends ResourceDemandingInternalBehaviour>) newValue);
+            this.getResourceDemandingInternalBehaviours().addAll(
+                    (Collection<? extends ResourceDemandingInternalBehaviour>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -691,7 +728,8 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID:
             this.setSeffTypeID(SEFF_TYPE_ID_EDEFAULT);
             return;
@@ -724,10 +762,11 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID:
-            return SEFF_TYPE_ID_EDEFAULT == null ? this.getSeffTypeID() != null
-                    : !SEFF_TYPE_ID_EDEFAULT.equals(this.getSeffTypeID());
+            return SEFF_TYPE_ID_EDEFAULT == null ? this.getSeffTypeID() != null : !SEFF_TYPE_ID_EDEFAULT
+                    .equals(this.getSeffTypeID());
         case SeffPackage.RESOURCE_DEMANDING_SEFF__DESCRIBED_SERVICE_SEFF:
             return this.basicGetDescribedService__SEFF() != null;
         case SeffPackage.RESOURCE_DEMANDING_SEFF__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION:
@@ -751,8 +790,10 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == ServiceEffectSpecification.class) {
-            switch (derivedFeatureID) {
+        if (baseClass == ServiceEffectSpecification.class)
+        {
+            switch (derivedFeatureID)
+            {
             case SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID:
                 return SeffPackage.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID;
             case SeffPackage.RESOURCE_DEMANDING_SEFF__DESCRIBED_SERVICE_SEFF:
@@ -763,8 +804,10 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
                 return -1;
             }
         }
-        if (baseClass == ResourceDemandingBehaviour.class) {
-            switch (derivedFeatureID) {
+        if (baseClass == ResourceDemandingBehaviour.class)
+        {
+            switch (derivedFeatureID)
+            {
             case SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
                 return SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR;
             case SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
@@ -785,8 +828,10 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == ServiceEffectSpecification.class) {
-            switch (baseFeatureID) {
+        if (baseClass == ServiceEffectSpecification.class)
+        {
+            switch (baseFeatureID)
+            {
             case SeffPackage.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID:
                 return SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID;
             case SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF:
@@ -797,8 +842,10 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
                 return -1;
             }
         }
-        if (baseClass == ResourceDemandingBehaviour.class) {
-            switch (baseFeatureID) {
+        if (baseClass == ResourceDemandingBehaviour.class)
+        {
+            switch (baseFeatureID)
+            {
             case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
                 return SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR;
             case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:

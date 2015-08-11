@@ -21,11 +21,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.seff.BranchAction#getBranches_Branch
- * <em>Branches Branch</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.BranchAction#getBranches_Branch <em>Branches Branch
+ * </em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getBranchAction()
  * @model

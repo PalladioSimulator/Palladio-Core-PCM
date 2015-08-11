@@ -113,7 +113,13 @@ public enum ParameterModifier implements Enumerator {
      *
      * @generated
      */
-    private static final ParameterModifier[] VALUES_ARRAY = new ParameterModifier[] { NONE, IN, OUT, INOUT, };
+    private static final ParameterModifier[] VALUES_ARRAY = new ParameterModifier[]
+    {
+            NONE,
+            IN,
+            OUT,
+            INOUT,
+    };
 
     /**
      * A public read-only list of all the '<em><b>Parameter Modifier</b></em>' enumerators. <!--
@@ -127,14 +133,12 @@ public enum ParameterModifier implements Enumerator {
      * Returns the '<em><b>Parameter Modifier</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @param literal
-     *            the literal.
-     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ParameterModifier get(final String literal) {
         for (final ParameterModifier result : VALUES_ARRAY) {
-            if (result.toString().equals(literal)) {
+            if (result.toString().equals(literal))
+            {
                 return result;
             }
         }
@@ -152,7 +156,8 @@ public enum ParameterModifier implements Enumerator {
      */
     public static ParameterModifier getByName(final String name) {
         for (final ParameterModifier result : VALUES_ARRAY) {
-            if (result.getName().equals(name)) {
+            if (result.getName().equals(name))
+            {
                 return result;
             }
         }
@@ -163,13 +168,11 @@ public enum ParameterModifier implements Enumerator {
      * Returns the '<em><b>Parameter Modifier</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @param value
-     *            the integer value.
-     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ParameterModifier get(final int value) {
-        switch (value) {
+        switch (value)
+        {
         case NONE_VALUE:
             return NONE;
         case IN_VALUE:

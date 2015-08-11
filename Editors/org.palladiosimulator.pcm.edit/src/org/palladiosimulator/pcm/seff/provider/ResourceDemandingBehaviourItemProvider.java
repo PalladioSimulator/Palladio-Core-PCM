@@ -16,7 +16,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour;
 import org.palladiosimulator.pcm.seff.SeffFactory;
 import org.palladiosimulator.pcm.seff.SeffPackage;
-import org.palladiosimulator.pcm.seff.seff_performance.SeffPerformanceFactory;
 import org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityFactory;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
@@ -25,14 +24,14 @@ import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
  * This is the item provider adapter for a
  * {@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -40,7 +39,7 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceDemandingBehaviourItemProvider(final AdapterFactory adapterFactory) {
@@ -50,12 +49,13 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null) {
+        if (this.itemPropertyDescriptors == null)
+        {
             super.getPropertyDescriptors(object);
 
         }
@@ -73,7 +73,8 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
      */
     @Override
     public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
-        if (this.childrenFeatures == null) {
+        if (this.childrenFeatures == null)
+        {
             super.getChildrenFeatures(object);
             this.childrenFeatures.add(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR);
         }
@@ -82,7 +83,7 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -95,7 +96,7 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
 
     /**
      * This returns ResourceDemandingBehaviour.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -112,22 +113,24 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
     @Override
     public String getText(final Object object) {
         final String label = ((ResourceDemandingBehaviour) object).getId();
-        return label == null || label.length() == 0 ? this.getString("_UI_ResourceDemandingBehaviour_type")
-                : this.getString("_UI_ResourceDemandingBehaviour_type") + " " + label;
+        return label == null || label.length() == 0 ?
+                this.getString("_UI_ResourceDemandingBehaviour_type") :
+                    this.getString("_UI_ResourceDemandingBehaviour_type") + " " + label;
     }
 
     /**
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
 
-        switch (notification.getFeatureID(ResourceDemandingBehaviour.class)) {
+        switch (notification.getFeatureID(ResourceDemandingBehaviour.class))
+        {
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
             return;
@@ -138,86 +141,88 @@ public class ResourceDemandingBehaviourItemProvider extends IdentifierItemProvid
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                        SeffFactory.eINSTANCE.createStopAction()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+                                SeffFactory.eINSTANCE.createStopAction()));
 
-        newChildDescriptors
-                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                        SeffFactory.eINSTANCE.createBranchAction()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+                                SeffFactory.eINSTANCE.createBranchAction()));
 
-        newChildDescriptors
-                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                        SeffFactory.eINSTANCE.createStartAction()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+                                SeffFactory.eINSTANCE.createStartAction()));
 
-        newChildDescriptors
-                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                        SeffFactory.eINSTANCE.createReleaseAction()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+                                SeffFactory.eINSTANCE.createReleaseAction()));
 
-        newChildDescriptors
-                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                        SeffFactory.eINSTANCE.createLoopAction()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+                                SeffFactory.eINSTANCE.createLoopAction()));
 
-        newChildDescriptors
-                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                        SeffFactory.eINSTANCE.createForkAction()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+                                SeffFactory.eINSTANCE.createForkAction()));
 
-        newChildDescriptors
-                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                        SeffFactory.eINSTANCE.createExternalCallAction()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+                                SeffFactory.eINSTANCE.createExternalCallAction()));
 
-        newChildDescriptors
-                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                        SeffFactory.eINSTANCE.createCallReturnAction()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+                                SeffFactory.eINSTANCE.createAcquireAction()));
 
-        newChildDescriptors
-                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                        SeffFactory.eINSTANCE.createAcquireAction()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+                                SeffFactory.eINSTANCE.createCollectionIteratorAction()));
 
-        newChildDescriptors
-                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                        SeffFactory.eINSTANCE.createCollectionIteratorAction()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+                                SeffFactory.eINSTANCE.createSetVariableAction()));
 
-        newChildDescriptors
-                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                        SeffFactory.eINSTANCE.createSetVariableAction()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+                                SeffFactory.eINSTANCE.createInternalCallAction()));
 
-        newChildDescriptors
-                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                        SeffFactory.eINSTANCE.createInternalCallAction()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+                                SeffFactory.eINSTANCE.createEmitEventAction()));
 
-        newChildDescriptors
-                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                        SeffFactory.eINSTANCE.createEmitEventAction()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+                                SeffFactory.eINSTANCE.createInternalAction()));
 
-        newChildDescriptors
-                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                        SeffFactory.eINSTANCE.createInternalAction()));
-
-        newChildDescriptors
-                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                        SeffPerformanceFactory.eINSTANCE.createInfrastructureCall()));
-
-        newChildDescriptors
-                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                        SeffPerformanceFactory.eINSTANCE.createResourceCall()));
-
-        newChildDescriptors
-                .add(this.createChildParameter(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                        SeffReliabilityFactory.eINSTANCE.createRecoveryAction()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+                                SeffReliabilityFactory.eINSTANCE.createRecoveryAction()));
     }
 
     /**
      * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

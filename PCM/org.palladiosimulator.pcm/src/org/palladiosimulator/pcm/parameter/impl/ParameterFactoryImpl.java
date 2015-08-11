@@ -36,13 +36,16 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
      * @generated
      */
     public static ParameterFactory init() {
-        try {
+        try
+        {
             final ParameterFactory theParameterFactory = (ParameterFactory) EPackage.Registry.INSTANCE
                     .getEFactory(ParameterPackage.eNS_URI);
-            if (theParameterFactory != null) {
+            if (theParameterFactory != null)
+            {
                 return theParameterFactory;
             }
-        } catch (final Exception exception) {
+        } catch (final Exception exception)
+        {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new ParameterFactoryImpl();
@@ -64,7 +67,8 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID()) {
+        switch (eClass.getClassifierID())
+        {
         case ParameterPackage.VARIABLE_USAGE:
             return this.createVariableUsage();
         case ParameterPackage.VARIABLE_CHARACTERISATION:
@@ -83,7 +87,8 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
      */
     @Override
     public Object createFromString(final EDataType eDataType, final String initialValue) {
-        switch (eDataType.getClassifierID()) {
+        switch (eDataType.getClassifierID())
+        {
         case ParameterPackage.VARIABLE_CHARACTERISATION_TYPE:
             return this.createVariableCharacterisationTypeFromString(eDataType, initialValue);
         default:
@@ -98,7 +103,8 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
      */
     @Override
     public String convertToString(final EDataType eDataType, final Object instanceValue) {
-        switch (eDataType.getClassifierID()) {
+        switch (eDataType.getClassifierID())
+        {
         case ParameterPackage.VARIABLE_CHARACTERISATION_TYPE:
             return this.convertVariableCharacterisationTypeToString(eDataType, instanceValue);
         default:
@@ -148,8 +154,8 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
             final String initialValue) {
         final VariableCharacterisationType result = VariableCharacterisationType.get(initialValue);
         if (result == null) {
-            throw new IllegalArgumentException(
-                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+            throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
+                    + eDataType.getName() + "'");
         }
         return result;
     }

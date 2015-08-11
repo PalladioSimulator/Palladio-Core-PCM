@@ -73,7 +73,8 @@ public class SeffSwitch<T> {
      * @generated
      */
     public SeffSwitch() {
-        if (modelPackage == null) {
+        if (modelPackage == null)
+        {
             modelPackage = SeffPackage.eINSTANCE;
         }
     }
@@ -97,11 +98,16 @@ public class SeffSwitch<T> {
      * @generated
      */
     protected T doSwitch(final EClass theEClass, final EObject theEObject) {
-        if (theEClass.eContainer() == modelPackage) {
+        if (theEClass.eContainer() == modelPackage)
+        {
             return this.doSwitch(theEClass.getClassifierID(), theEObject);
-        } else {
+        }
+        else
+        {
             final List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ? this.defaultCase(theEObject) : this.doSwitch(eSuperTypes.get(0), theEObject);
+            return eSuperTypes.isEmpty() ?
+                    this.defaultCase(theEObject) :
+                    this.doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
@@ -113,7 +119,8 @@ public class SeffSwitch<T> {
      * @generated
      */
     protected T doSwitch(final int classifierID, final EObject theEObject) {
-        switch (classifierID) {
+        switch (classifierID)
+        {
         case SeffPackage.STOP_ACTION: {
             final StopAction stopAction = (StopAction) theEObject;
             T result = this.caseStopAction(stopAction);
@@ -251,9 +258,6 @@ public class SeffSwitch<T> {
         case SeffPackage.CALL_ACTION: {
             final CallAction callAction = (CallAction) theEObject;
             T result = this.caseCallAction(callAction);
-            if (result == null) {
-                result = this.caseAbstractAction(callAction);
-            }
             if (result == null) {
                 result = this.caseEntity(callAction);
             }
@@ -431,19 +435,19 @@ public class SeffSwitch<T> {
             final ExternalCallAction externalCallAction = (ExternalCallAction) theEObject;
             T result = this.caseExternalCallAction(externalCallAction);
             if (result == null) {
+                result = this.caseAbstractAction(externalCallAction);
+            }
+            if (result == null) {
                 result = this.caseCallReturnAction(externalCallAction);
             }
             if (result == null) {
                 result = this.caseFailureHandlingEntity(externalCallAction);
             }
             if (result == null) {
-                result = this.caseEntity(externalCallAction);
-            }
-            if (result == null) {
                 result = this.caseCallAction(externalCallAction);
             }
             if (result == null) {
-                result = this.caseAbstractAction(externalCallAction);
+                result = this.caseEntity(externalCallAction);
             }
             if (result == null) {
                 result = this.caseIdentifier(externalCallAction);
@@ -461,9 +465,6 @@ public class SeffSwitch<T> {
             T result = this.caseCallReturnAction(callReturnAction);
             if (result == null) {
                 result = this.caseCallAction(callReturnAction);
-            }
-            if (result == null) {
-                result = this.caseAbstractAction(callReturnAction);
             }
             if (result == null) {
                 result = this.caseEntity(callReturnAction);
@@ -621,10 +622,10 @@ public class SeffSwitch<T> {
             final EmitEventAction emitEventAction = (EmitEventAction) theEObject;
             T result = this.caseEmitEventAction(emitEventAction);
             if (result == null) {
-                result = this.caseCallAction(emitEventAction);
+                result = this.caseAbstractAction(emitEventAction);
             }
             if (result == null) {
-                result = this.caseAbstractAction(emitEventAction);
+                result = this.caseCallAction(emitEventAction);
             }
             if (result == null) {
                 result = this.caseEntity(emitEventAction);

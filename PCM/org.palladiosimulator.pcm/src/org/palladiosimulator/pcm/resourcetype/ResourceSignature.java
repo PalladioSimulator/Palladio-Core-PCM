@@ -16,17 +16,17 @@ import org.palladiosimulator.pcm.repository.Parameter;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getParameter__ResourceSignature
  * <em>Parameter Resource Signature</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getResourceServiceId
- * <em>Resource Service Id</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getResourceServiceId <em>
+ * Resource Service Id</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getResourceInterface__ResourceSignature
  * <em>Resource Interface Resource Signature</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#getResourceSignature()
  * @model

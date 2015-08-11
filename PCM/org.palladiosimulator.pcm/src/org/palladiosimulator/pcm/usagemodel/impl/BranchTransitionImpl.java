@@ -17,7 +17,6 @@ import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
  * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.BranchTransitionImpl#getBranchProbability
  * <em>Branch Probability</em>}</li>
@@ -28,6 +27,7 @@ import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
  * {@link org.palladiosimulator.pcm.usagemodel.impl.BranchTransitionImpl#getBranchedBehaviour_BranchTransition
  * <em>Branched Behaviour Branch Transition</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -178,7 +178,8 @@ public class BranchTransitionImpl extends CDOObjectImpl implements BranchTransit
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -187,10 +188,9 @@ public class BranchTransitionImpl extends CDOObjectImpl implements BranchTransit
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION:
             final ScenarioBehaviour branchedBehaviour_BranchTransition = this.getBranchedBehaviour_BranchTransition();
             if (branchedBehaviour_BranchTransition != null) {
-                msgs = ((InternalEObject) branchedBehaviour_BranchTransition).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION,
-                        null, msgs);
+                msgs = ((InternalEObject) branchedBehaviour_BranchTransition)
+                        .eInverseRemove(this, EOPPOSITE_FEATURE_BASE
+                                - UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION, null, msgs);
             }
             return this.basicSetBranchedBehaviour_BranchTransition((ScenarioBehaviour) otherEnd, msgs);
         }
@@ -205,7 +205,8 @@ public class BranchTransitionImpl extends CDOObjectImpl implements BranchTransit
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION:
             return this.basicSetBranch_BranchTransition(null, msgs);
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION:
@@ -221,7 +222,8 @@ public class BranchTransitionImpl extends CDOObjectImpl implements BranchTransit
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION:
             return this.eInternalContainer().eInverseRemove(this, UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH,
                     Branch.class, msgs);
@@ -236,7 +238,8 @@ public class BranchTransitionImpl extends CDOObjectImpl implements BranchTransit
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY:
             return this.getBranchProbability();
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION:
@@ -254,7 +257,8 @@ public class BranchTransitionImpl extends CDOObjectImpl implements BranchTransit
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY:
             this.setBranchProbability((Double) newValue);
             return;
@@ -275,7 +279,8 @@ public class BranchTransitionImpl extends CDOObjectImpl implements BranchTransit
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY:
             this.setBranchProbability(BRANCH_PROBABILITY_EDEFAULT);
             return;
@@ -296,7 +301,8 @@ public class BranchTransitionImpl extends CDOObjectImpl implements BranchTransit
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY:
             return this.getBranchProbability() != BRANCH_PROBABILITY_EDEFAULT;
         case UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION:

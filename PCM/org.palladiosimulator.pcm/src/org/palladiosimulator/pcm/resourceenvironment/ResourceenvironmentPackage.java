@@ -158,8 +158,7 @@ public interface ResourceenvironmentPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE = EntityPackage.ENTITY_FEATURE_COUNT
-            + 1;
+    int LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
      * The feature id for the '<em><b>Resource Environment Linking Resource</b></em>' container
@@ -317,8 +316,7 @@ public interface ResourceenvironmentPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
-            + 4;
+    int PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Processing Rate Processing Resource Specification</b></em>'
@@ -327,8 +325,7 @@ public interface ResourceenvironmentPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
-            + 5;
+    int PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Number Of Replicas</b></em>' attribute. <!-- begin-user-doc
@@ -346,8 +343,7 @@ public interface ResourceenvironmentPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
-            + 7;
+    int PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 7;
 
     /**
      * The number of structural features of the '<em>Processing Resource Specification</em>' class.
@@ -364,8 +360,7 @@ public interface ResourceenvironmentPackage extends EPackage {
      * <em>Communication Link Resource Specification</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @see org.palladiosimulator.pcm.resourceenvironment.impl.
-     *      CommunicationLinkResourceSpecificationImpl
+     * @see org.palladiosimulator.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl
      * @see org.palladiosimulator.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getCommunicationLinkResourceSpecification()
      * @generated
      */
@@ -388,8 +383,7 @@ public interface ResourceenvironmentPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINKING_RESOURCE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
-            + 0;
+    int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINKING_RESOURCE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
 
     /**
      * The feature id for the '<em><b>Failure Probability</b></em>' attribute. <!-- begin-user-doc
@@ -408,8 +402,7 @@ public interface ResourceenvironmentPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
-            + 2;
+    int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Latency Communication Link Resource Specification</b></em>'
@@ -418,8 +411,7 @@ public interface ResourceenvironmentPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
-            + 3;
+    int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Throughput Communication Link Resource Specification</b></em>'
@@ -428,8 +420,7 @@ public interface ResourceenvironmentPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
-            + 4;
+    int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 4;
 
     /**
      * The number of structural features of the '<em>Communication Link Resource Specification</em>'
@@ -940,8 +931,7 @@ public interface ResourceenvironmentPackage extends EPackage {
          * <em>Processing Resource Specification</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
-         * @see org.palladiosimulator.pcm.resourceenvironment.impl.
-         *      ProcessingResourceSpecificationImpl
+         * @see org.palladiosimulator.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl
          * @see org.palladiosimulator.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getProcessingResourceSpecification()
          * @generated
          */
@@ -1026,8 +1016,7 @@ public interface ResourceenvironmentPackage extends EPackage {
          * <em>Communication Link Resource Specification</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
-         * @see org.palladiosimulator.pcm.resourceenvironment.impl.
-         *      CommunicationLinkResourceSpecificationImpl
+         * @see org.palladiosimulator.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl
          * @see org.palladiosimulator.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getCommunicationLinkResourceSpecification()
          * @generated
          */

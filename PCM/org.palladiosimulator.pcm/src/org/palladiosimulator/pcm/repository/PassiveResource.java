@@ -16,16 +16,17 @@ import org.palladiosimulator.pcm.reliability.ResourceTimeoutFailureType;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.PassiveResource#getCapacity_PassiveResource
- * <em>Capacity Passive Resource</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.PassiveResource#getBasicComponent_PassiveResource
+ * <li>{@link org.palladiosimulator.pcm.repository.PassiveResource#getCapacity_PassiveResource <em>
+ * Capacity Passive Resource</em>}</li>
+ * <li>
+ * {@link org.palladiosimulator.pcm.repository.PassiveResource#getBasicComponent_PassiveResource
  * <em>Basic Component Passive Resource</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.PassiveResource#getResourceTimeoutFailureType__PassiveResource
  * <em>Resource Timeout Failure Type Passive Resource</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getPassiveResource()
  * @model

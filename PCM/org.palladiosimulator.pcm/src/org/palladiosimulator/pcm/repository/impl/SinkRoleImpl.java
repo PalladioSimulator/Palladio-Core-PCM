@@ -13,11 +13,11 @@ import org.palladiosimulator.pcm.repository.SinkRole;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.impl.SinkRoleImpl#getEventGroup__SinkRole
- * <em>Event Group Sink Role</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.SinkRoleImpl#getEventGroup__SinkRole <em>
+ * Event Group Sink Role</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -88,7 +88,8 @@ public class SinkRoleImpl extends ProvidedRoleImpl implements SinkRole {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.SINK_ROLE__EVENT_GROUP_SINK_ROLE:
             if (resolve) {
                 return this.getEventGroup__SinkRole();
@@ -105,7 +106,8 @@ public class SinkRoleImpl extends ProvidedRoleImpl implements SinkRole {
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.SINK_ROLE__EVENT_GROUP_SINK_ROLE:
             this.setEventGroup__SinkRole((EventGroup) newValue);
             return;
@@ -120,7 +122,8 @@ public class SinkRoleImpl extends ProvidedRoleImpl implements SinkRole {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.SINK_ROLE__EVENT_GROUP_SINK_ROLE:
             this.setEventGroup__SinkRole((EventGroup) null);
             return;
@@ -135,7 +138,8 @@ public class SinkRoleImpl extends ProvidedRoleImpl implements SinkRole {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.SINK_ROLE__EVENT_GROUP_SINK_ROLE:
             return this.basicGetEventGroup__SinkRole() != null;
         }

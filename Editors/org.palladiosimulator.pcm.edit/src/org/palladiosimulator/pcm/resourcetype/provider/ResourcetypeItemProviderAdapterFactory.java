@@ -35,15 +35,15 @@ import org.palladiosimulator.pcm.resourcetype.util.ResourcetypeAdapterFactory;
  * {@link #fireNotifyChanged fireNotifyChanged}. The adapters also support Eclipse property sheets.
  * Note that most of the adapters are shared among multiple instances. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- *
+ * 
  * @generated
  */
 public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterFactory
-        implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
+implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -66,7 +66,7 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 
     /**
      * This helps manage the child creation extenders. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(
@@ -75,14 +75,14 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
     /**
      * This keeps track of all the supported types checked by {@link #isFactoryForType
      * isFactoryForType}. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
     /**
      * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourcetypeItemProviderAdapterFactory() {
@@ -106,12 +106,13 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.resourcetype.ResourceSignature}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createResourceSignatureAdapter() {
-        if (this.resourceSignatureItemProvider == null) {
+        if (this.resourceSignatureItemProvider == null)
+        {
             this.resourceSignatureItemProvider = new ResourceSignatureItemProvider(this);
         }
 
@@ -131,12 +132,13 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.resourcetype.ProcessingResourceType}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createProcessingResourceTypeAdapter() {
-        if (this.processingResourceTypeItemProvider == null) {
+        if (this.processingResourceTypeItemProvider == null)
+        {
             this.processingResourceTypeItemProvider = new ProcessingResourceTypeItemProvider(this);
         }
 
@@ -156,12 +158,13 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.resourcetype.ResourceRepository}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createResourceRepositoryAdapter() {
-        if (this.resourceRepositoryItemProvider == null) {
+        if (this.resourceRepositoryItemProvider == null)
+        {
             this.resourceRepositoryItemProvider = new ResourceRepositoryItemProvider(this);
         }
 
@@ -180,12 +183,13 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
     /**
      * This creates an adapter for a {@link org.palladiosimulator.pcm.resourcetype.SchedulingPolicy}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createSchedulingPolicyAdapter() {
-        if (this.schedulingPolicyItemProvider == null) {
+        if (this.schedulingPolicyItemProvider == null)
+        {
             this.schedulingPolicyItemProvider = new SchedulingPolicyItemProvider(this);
         }
 
@@ -210,7 +214,8 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      */
     @Override
     public Adapter createCommunicationLinkResourceTypeAdapter() {
-        if (this.communicationLinkResourceTypeItemProvider == null) {
+        if (this.communicationLinkResourceTypeItemProvider == null)
+        {
             this.communicationLinkResourceTypeItemProvider = new CommunicationLinkResourceTypeItemProvider(this);
         }
 
@@ -230,12 +235,13 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
      * This creates an adapter for a
      * {@link org.palladiosimulator.pcm.resourcetype.ResourceInterface}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Adapter createResourceInterfaceAdapter() {
-        if (this.resourceInterfaceItemProvider == null) {
+        if (this.resourceInterfaceItemProvider == null)
+        {
             this.resourceInterfaceItemProvider = new ResourceInterfaceItemProvider(this);
         }
 
@@ -245,7 +251,7 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
     /**
      * This returns the root adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -256,7 +262,7 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
     /**
      * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -266,7 +272,7 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -287,14 +293,16 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Object adapt(final Object object, final Object type) {
-        if (this.isFactoryForType(type)) {
+        if (this.isFactoryForType(type))
+        {
             final Object adapter = super.adapt(object, type);
-            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter)))
+            {
                 return adapter;
             }
         }
@@ -304,7 +312,7 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -313,7 +321,7 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -323,7 +331,7 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -333,7 +341,7 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 
     /**
      * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -343,7 +351,7 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
 
     /**
      * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -361,7 +369,8 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
     public void fireNotifyChanged(final Notification notification) {
         this.changeNotifier.fireNotifyChanged(notification);
 
-        if (this.parentAdapterFactory != null) {
+        if (this.parentAdapterFactory != null)
+        {
             this.parentAdapterFactory.fireNotifyChanged(notification);
         }
     }
@@ -369,7 +378,7 @@ public class ResourcetypeItemProviderAdapterFactory extends ResourcetypeAdapterF
     /**
      * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

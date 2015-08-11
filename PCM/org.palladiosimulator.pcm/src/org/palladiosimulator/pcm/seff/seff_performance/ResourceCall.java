@@ -18,7 +18,6 @@ import org.palladiosimulator.pcm.seff.CallAction;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getAction__ResourceCall
  * <em>Action Resource Call</em>}</li>
@@ -32,6 +31,7 @@ import org.palladiosimulator.pcm.seff.CallAction;
  * {@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getNumberOfCalls__ResourceCall
  * <em>Number Of Calls Resource Call</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage#getResourceCall()
  * @model

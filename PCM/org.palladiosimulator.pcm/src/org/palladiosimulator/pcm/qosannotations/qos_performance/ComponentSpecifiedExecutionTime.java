@@ -29,12 +29,12 @@ import org.palladiosimulator.pcm.core.composition.AssemblyContext;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.qosannotations.qos_performance.ComponentSpecifiedExecutionTime#getAssemblyContext_ComponentSpecifiedExecutionTime
  * <em>Assembly Context Component Specified Execution Time</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.qosannotations.qos_performance.QosPerformancePackage#getComponentSpecifiedExecutionTime()
  * @model

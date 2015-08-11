@@ -36,13 +36,16 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
      * @generated
      */
     public static ResourceenvironmentFactory init() {
-        try {
+        try
+        {
             final ResourceenvironmentFactory theResourceenvironmentFactory = (ResourceenvironmentFactory) EPackage.Registry.INSTANCE
                     .getEFactory(ResourceenvironmentPackage.eNS_URI);
-            if (theResourceenvironmentFactory != null) {
+            if (theResourceenvironmentFactory != null)
+            {
                 return theResourceenvironmentFactory;
             }
-        } catch (final Exception exception) {
+        } catch (final Exception exception)
+        {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new ResourceenvironmentFactoryImpl();
@@ -64,7 +67,8 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID()) {
+        switch (eClass.getClassifierID())
+        {
         case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT:
             return this.createResourceEnvironment();
         case ResourceenvironmentPackage.LINKING_RESOURCE:

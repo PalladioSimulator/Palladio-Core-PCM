@@ -16,12 +16,12 @@ import org.palladiosimulator.pcm.parameter.VariableUsage;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.seff.CallReturnAction#getReturnVariableUsage__CallReturnAction
  * <em>Return Variable Usage Call Return Action</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getCallReturnAction()
  * @model

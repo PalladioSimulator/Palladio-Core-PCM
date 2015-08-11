@@ -17,7 +17,6 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * <em><b>Collection Data Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.impl.CollectionDataTypeImpl#getRepository__DataType
@@ -26,6 +25,7 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * {@link org.palladiosimulator.pcm.repository.impl.CollectionDataTypeImpl#getInnerType_CollectionDataType
  * <em>Inner Type Collection Data Type</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -131,7 +131,8 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -149,7 +150,8 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE:
             return this.basicSetRepository__DataType(null, msgs);
         }
@@ -163,7 +165,8 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE:
             return this.eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY,
                     Repository.class, msgs);
@@ -178,7 +181,8 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE:
             return this.getRepository__DataType();
         case RepositoryPackage.COLLECTION_DATA_TYPE__INNER_TYPE_COLLECTION_DATA_TYPE:
@@ -197,7 +201,8 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE:
             this.setRepository__DataType((Repository) newValue);
             return;
@@ -215,7 +220,8 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE:
             this.setRepository__DataType((Repository) null);
             return;
@@ -233,7 +239,8 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE:
             return this.getRepository__DataType() != null;
         case RepositoryPackage.COLLECTION_DATA_TYPE__INNER_TYPE_COLLECTION_DATA_TYPE:
@@ -249,8 +256,10 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == DataType.class) {
-            switch (derivedFeatureID) {
+        if (baseClass == DataType.class)
+        {
+            switch (derivedFeatureID)
+            {
             case RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE:
                 return RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE;
             default:
@@ -267,8 +276,10 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == DataType.class) {
-            switch (baseFeatureID) {
+        if (baseClass == DataType.class)
+        {
+            switch (baseFeatureID)
+            {
             case RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE:
                 return RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE;
             default:

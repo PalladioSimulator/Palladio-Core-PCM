@@ -21,14 +21,14 @@ import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
  * This is the item provider adapter for a
  * {@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload} object. <!-- begin-user-doc --> <!--
  * end-user-doc -->
- *
+ * 
  * @generated
  */
 public class ClosedWorkloadItemProvider extends WorkloadItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -36,7 +36,7 @@ public class ClosedWorkloadItemProvider extends WorkloadItemProvider {
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ClosedWorkloadItemProvider(final AdapterFactory adapterFactory) {
@@ -46,12 +46,13 @@ public class ClosedWorkloadItemProvider extends WorkloadItemProvider {
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null) {
+        if (this.itemPropertyDescriptors == null)
+        {
             super.getPropertyDescriptors(object);
 
             this.addPopulationPropertyDescriptor(object);
@@ -62,17 +63,25 @@ public class ClosedWorkloadItemProvider extends WorkloadItemProvider {
     /**
      * This adds a property descriptor for the Population feature. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addPopulationPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_ClosedWorkload_population_feature"),
-                this.getString("_UI_PropertyDescriptor_description", "_UI_ClosedWorkload_population_feature",
-                        "_UI_ClosedWorkload_type"),
-                UsagemodelPackage.Literals.CLOSED_WORKLOAD__POPULATION, true, false, false,
-                ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+        this.itemPropertyDescriptors.add
+        (this.createItemPropertyDescriptor
+                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                                this.getResourceLocator(),
+                                this.getString("_UI_ClosedWorkload_population_feature"),
+                                this.getString("_UI_PropertyDescriptor_description",
+                                        "_UI_ClosedWorkload_population_feature",
+                                        "_UI_ClosedWorkload_type"),
+                                UsagemodelPackage.Literals.CLOSED_WORKLOAD__POPULATION,
+                                true,
+                                false,
+                                false,
+                                ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+                                null,
+                                null));
     }
 
     /**
@@ -86,7 +95,8 @@ public class ClosedWorkloadItemProvider extends WorkloadItemProvider {
      */
     @Override
     public Collection<? extends EStructuralFeature> getChildrenFeatures(final Object object) {
-        if (this.childrenFeatures == null) {
+        if (this.childrenFeatures == null)
+        {
             super.getChildrenFeatures(object);
             this.childrenFeatures.add(UsagemodelPackage.Literals.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD);
         }
@@ -95,7 +105,7 @@ public class ClosedWorkloadItemProvider extends WorkloadItemProvider {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -108,7 +118,7 @@ public class ClosedWorkloadItemProvider extends WorkloadItemProvider {
 
     /**
      * This returns ClosedWorkload.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -132,14 +142,15 @@ public class ClosedWorkloadItemProvider extends WorkloadItemProvider {
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void notifyChanged(final Notification notification) {
         this.updateChildren(notification);
 
-        switch (notification.getFeatureID(ClosedWorkload.class)) {
+        switch (notification.getFeatureID(ClosedWorkload.class))
+        {
         case UsagemodelPackage.CLOSED_WORKLOAD__POPULATION:
             this.fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
             return;
@@ -153,16 +164,17 @@ public class ClosedWorkloadItemProvider extends WorkloadItemProvider {
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     protected void collectNewChildDescriptors(final Collection<Object> newChildDescriptors, final Object object) {
         super.collectNewChildDescriptors(newChildDescriptors, object);
 
-        newChildDescriptors
-                .add(this.createChildParameter(UsagemodelPackage.Literals.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD,
-                        CoreFactory.eINSTANCE.createPCMRandomVariable()));
+        newChildDescriptors.add
+        (this.createChildParameter
+                        (UsagemodelPackage.Literals.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD,
+                                CoreFactory.eINSTANCE.createPCMRandomVariable()));
     }
 
 }

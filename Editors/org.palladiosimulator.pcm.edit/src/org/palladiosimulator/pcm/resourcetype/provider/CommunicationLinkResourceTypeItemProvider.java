@@ -24,7 +24,7 @@ public class CommunicationLinkResourceTypeItemProvider extends ResourceTypeItemP
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
@@ -32,7 +32,7 @@ public class CommunicationLinkResourceTypeItemProvider extends ResourceTypeItemP
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     public CommunicationLinkResourceTypeItemProvider(final AdapterFactory adapterFactory) {
@@ -42,12 +42,13 @@ public class CommunicationLinkResourceTypeItemProvider extends ResourceTypeItemP
     /**
      * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null) {
+        if (this.itemPropertyDescriptors == null)
+        {
             super.getPropertyDescriptors(object);
 
             this.addNetworkInducedFailureType__CommunicationLinkResourceTypePropertyDescriptor(object);
@@ -58,30 +59,38 @@ public class CommunicationLinkResourceTypeItemProvider extends ResourceTypeItemP
     /**
      * This adds a property descriptor for the Network Induced Failure Type Communication Link
      * Resource Type feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected void addNetworkInducedFailureType__CommunicationLinkResourceTypePropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
-                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString(
-                        "_UI_CommunicationLinkResourceType_networkInducedFailureType__CommunicationLinkResourceType_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_CommunicationLinkResourceType_networkInducedFailureType__CommunicationLinkResourceType_feature",
-                        "_UI_CommunicationLinkResourceType_type"),
-                ResourcetypePackage.Literals.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE,
-                true, false, true, null, null, null));
+        this.itemPropertyDescriptors
+        .add
+        (this.createItemPropertyDescriptor
+                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
+                                this.getResourceLocator(),
+                                this.getString("_UI_CommunicationLinkResourceType_networkInducedFailureType__CommunicationLinkResourceType_feature"),
+                                this.getString(
+                                        "_UI_PropertyDescriptor_description",
+                                        "_UI_CommunicationLinkResourceType_networkInducedFailureType__CommunicationLinkResourceType_feature",
+                                        "_UI_CommunicationLinkResourceType_type"),
+                                ResourcetypePackage.Literals.COMMUNICATION_LINK_RESOURCE_TYPE__NETWORK_INDUCED_FAILURE_TYPE_COMMUNICATION_LINK_RESOURCE_TYPE,
+                                true,
+                                false,
+                                true,
+                                null,
+                                null,
+                                null));
     }
 
     /**
      * This returns CommunicationLinkResourceType.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Object getImage(final Object object) {
-        return this.overlayImage(object,
-                this.getResourceLocator().getImage("full/obj16/CommunicationLinkResourceType"));
+        return this
+                .overlayImage(object, this.getResourceLocator().getImage("full/obj16/CommunicationLinkResourceType"));
     }
 
     /**
@@ -105,7 +114,7 @@ public class CommunicationLinkResourceTypeItemProvider extends ResourceTypeItemP
      * This handles model notifications by calling {@link #updateChildren} to update any cached
      * children and by creating a viewer notification, which it passes to {@link #fireNotifyChanged}
      * . <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -117,7 +126,7 @@ public class CommunicationLinkResourceTypeItemProvider extends ResourceTypeItemP
     /**
      * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that
      * can be created under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

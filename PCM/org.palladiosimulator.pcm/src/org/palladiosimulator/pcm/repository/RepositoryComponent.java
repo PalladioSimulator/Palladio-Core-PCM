@@ -14,12 +14,12 @@ import org.palladiosimulator.pcm.core.entity.InterfaceProvidingRequiringEntity;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent
  * <em>Repository Repository Component</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getRepositoryComponent()
  * @model abstract="true"

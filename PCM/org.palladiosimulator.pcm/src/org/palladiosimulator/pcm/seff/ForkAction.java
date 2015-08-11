@@ -29,13 +29,13 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.seff.ForkAction#getAsynchronousForkedBehaviours_ForkAction
  * <em>Asynchronous Forked Behaviours Fork Action</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.seff.ForkAction#getSynchronisingBehaviours_ForkAction
- * <em>Synchronising Behaviours Fork Action</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.ForkAction#getSynchronisingBehaviours_ForkAction <em>
+ * Synchronising Behaviours Fork Action</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getForkAction()
  * @model

@@ -15,7 +15,6 @@ import org.palladiosimulator.pcm.resourcetype.ResourceInterface;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.core.entity.ResourceRequiredRole#getRequiredResourceInterface__ResourceRequiredRole
@@ -24,6 +23,7 @@ import org.palladiosimulator.pcm.resourcetype.ResourceInterface;
  * {@link org.palladiosimulator.pcm.core.entity.ResourceRequiredRole#getResourceInterfaceRequiringEntity__ResourceRequiredRole
  * <em>Resource Interface Requiring Entity Resource Required Role</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.core.entity.EntityPackage#getResourceRequiredRole()
  * @model

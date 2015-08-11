@@ -21,6 +21,8 @@ import org.palladiosimulator.pcm.usagemodel.util.UsagemodelValidator;
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Stop</b></em>'. <!--
  * end-user-doc -->
+ * <p>
+ * </p>
  *
  * @generated
  */
@@ -81,25 +83,31 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
      */
     @Override
     public boolean StopHasNoSuccessor(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (STOP_HAS_NO_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+        if (STOP_HAS_NO_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
+        {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(UsagemodelPackage.Literals.STOP);
-            try {
+            try
+            {
                 STOP_HAS_NO_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(STOP_HAS_NO_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe) {
+            } catch (final ParserException pe)
+            {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(STOP_HAS_NO_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
-            if (diagnostics != null) {
-                diagnostics
-                        .add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
+        if (!EOCL_ENV.createQuery(STOP_HAS_NO_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this))
+        {
+            if (diagnostics != null)
+            {
+                diagnostics.add
+                        (new BasicDiagnostic
+                        (Diagnostic.ERROR,
+                                UsagemodelValidator.DIAGNOSTIC_SOURCE,
                                 UsagemodelValidator.STOP__STOP_HAS_NO_SUCCESSOR,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "StopHasNoSuccessor",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                        "StopHasNoSuccessor", EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }

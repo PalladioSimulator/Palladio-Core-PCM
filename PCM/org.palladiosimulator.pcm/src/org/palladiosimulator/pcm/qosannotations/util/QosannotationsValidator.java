@@ -100,7 +100,8 @@ public class QosannotationsValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID) {
+        switch (classifierID)
+        {
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION:
             return this.validateSpecifiedQoSAnnotation((SpecifiedQoSAnnotation) value, diagnostics, context);
         case QosannotationsPackage.QO_SANNOTATIONS:
@@ -154,7 +155,8 @@ public class QosannotationsValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validateQoSAnnotations_MultipleReliabilityAnnotationsPerExternalCallNotAllowed(
-                    qoSAnnotations, diagnostics, context);
+                    qoSAnnotations,
+                    diagnostics, context);
         }
         return result;
     }
@@ -177,7 +179,8 @@ public class QosannotationsValidator extends EObjectValidator {
      */
     public boolean validateSpecifiedOutputParameterAbstraction(
             final SpecifiedOutputParameterAbstraction specifiedOutputParameterAbstraction,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return this.validate_EveryDefaultConstraint(specifiedOutputParameterAbstraction, diagnostics, context);
     }
 

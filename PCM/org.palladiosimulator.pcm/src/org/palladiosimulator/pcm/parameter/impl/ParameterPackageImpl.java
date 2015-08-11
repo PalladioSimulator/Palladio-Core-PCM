@@ -145,8 +145,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
         // Obtain or create and register package
         final ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
-                .get(eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-                        : new ParameterPackageImpl());
+                .get(eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE
+                        .get(eNS_URI) : new ParameterPackageImpl());
 
         isInited = true;
 
@@ -156,75 +156,69 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
         // Obtain or create and register interdependencies
         final PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(PcmPackage.eNS_URI) : PcmPackage.eINSTANCE);
+                .getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
+                        .getEPackage(PcmPackage.eNS_URI) : PcmPackage.eINSTANCE);
         final CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
+                .getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
+                        .getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
         final EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
+                .getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
         final CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI)
-                        : CompositionPackage.eINSTANCE);
+                .getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
         final UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI)
-                        : UsagemodelPackage.eINSTANCE);
+                .getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
         final RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI)
-                        : RepositoryPackage.eINSTANCE);
+                .getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
         final ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI)
+                .getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(ResourcetypePackage.eNS_URI)
                         : ResourcetypePackage.eINSTANCE);
         final ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
+                .getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
         final ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI)
-                        : ReliabilityPackage.eINSTANCE);
+                .getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
         final SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
+                .getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
+                        .getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
         final SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(SeffPerformancePackage.eNS_URI)
+                .getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(SeffPerformancePackage.eNS_URI)
                         : SeffPerformancePackage.eINSTANCE);
         final SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(SeffReliabilityPackage.eNS_URI)
+                .getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(SeffReliabilityPackage.eNS_URI)
                         : SeffReliabilityPackage.eINSTANCE);
         final QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI)
+                .getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(QosannotationsPackage.eNS_URI)
                         : QosannotationsPackage.eINSTANCE);
         final QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(QosPerformancePackage.eNS_URI)
+                .getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(QosPerformancePackage.eNS_URI)
                         : QosPerformancePackage.eINSTANCE);
         final QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(QosReliabilityPackage.eNS_URI)
+                .getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(QosReliabilityPackage.eNS_URI)
                         : QosReliabilityPackage.eINSTANCE);
         final SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
+                .getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
         final ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI)
+                .getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(ResourceenvironmentPackage.eNS_URI)
                         : ResourceenvironmentPackage.eINSTANCE);
         final AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI)
-                        : AllocationPackage.eINSTANCE);
+                .getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
         final SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl
-                        ? EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI)
-                        : SubsystemPackage.eINSTANCE);
+                .getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE
+                .getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
 
         // Create package meta-data objects
         theParameterPackage.createPackageContents();
@@ -575,15 +569,16 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
         this.initEReference(this.getVariableUsage_VariableCharacterisation_VariableUsage(),
                 this.getVariableCharacterisation(),
                 this.getVariableCharacterisation_VariableUsage_VariableCharacterisation(),
-                "variableCharacterisation_VariableUsage", null, 0, -1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                "variableCharacterisation_VariableUsage", null, 0, -1, VariableUsage.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+                !IS_ORDERED);
         this.initEReference(this.getVariableUsage_UserData_VariableUsage(), theUsagemodelPackage.getUserData(),
                 theUsagemodelPackage.getUserData_UserDataParameterUsages_UserData(), "userData_VariableUsage", null, 0,
                 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getVariableUsage_CallAction__VariableUsage(), theSeffPackage.getCallAction(),
-                theSeffPackage.getCallAction_InputVariableUsages__CallAction(), "callAction__VariableUsage", null, 0, 1,
-                VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                theSeffPackage.getCallAction_InputVariableUsages__CallAction(), "callAction__VariableUsage", null, 0,
+                1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getVariableUsage_SynchronisationPoint_VariableUsage(),
                 theSeffPackage.getSynchronisationPoint(),
@@ -617,24 +612,26 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
                 theUsagemodelPackage.getEntryLevelSystemCall(),
                 theUsagemodelPackage.getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall(),
                 "entryLevelSystemCall_InputParameterUsage", null, 0, 1, VariableUsage.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED);
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getVariableUsage_EntryLevelSystemCall_OutputParameterUsage(),
                 theUsagemodelPackage.getEntryLevelSystemCall(),
                 theUsagemodelPackage.getEntryLevelSystemCall_OutputParameterUsages_EntryLevelSystemCall(),
                 "entryLevelSystemCall_OutputParameterUsage", null, 0, 1, VariableUsage.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED);
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getVariableUsage_NamedReference__VariableUsage(),
-                theStoexPackage.getAbstractNamedReference(), null, "namedReference__VariableUsage", null, 1, 1,
-                VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                theStoexPackage.getAbstractNamedReference(),
+                null, "namedReference__VariableUsage", null, 1, 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.variableCharacterisationEClass, VariableCharacterisation.class, "VariableCharacterisation",
+        this.initEClass(this.variableCharacterisationEClass, VariableCharacterisation.class,
+                "VariableCharacterisation",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getVariableCharacterisation_Type(), this.getVariableCharacterisationType(), "type",
-                null, 1, 1, VariableCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
-                !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                null, 1, 1,
+                VariableCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getVariableCharacterisation_Specification_VariableCharacterisation(),
                 theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_VariableCharacterisation_Specification(),
@@ -642,17 +639,19 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
         this.initEReference(this.getVariableCharacterisation_VariableUsage_VariableCharacterisation(),
-                this.getVariableUsage(), this.getVariableUsage_VariableCharacterisation_VariableUsage(),
+                this.getVariableUsage(),
+                this.getVariableUsage_VariableCharacterisation_VariableUsage(),
                 "variableUsage_VariableCharacterisation", null, 0, 1, VariableCharacterisation.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED);
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.characterisedVariableEClass, CharacterisedVariable.class, "CharacterisedVariable",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                !IS_ABSTRACT,
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getCharacterisedVariable_CharacterisationType(),
-                this.getVariableCharacterisationType(), "characterisationType", null, 1, 1, CharacterisedVariable.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED);
+                this.getVariableCharacterisationType(),
+                "characterisationType", null, 1, 1, CharacterisedVariable.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         // Initialize enums and add enum literals
         this.initEEnum(this.variableCharacterisationTypeEEnum, VariableCharacterisationType.class,

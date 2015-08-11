@@ -160,8 +160,7 @@ public interface SubsystemPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
-            + 0;
+    int SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 0;
 
     /**
      * The number of structural features of the '<em>Sub System</em>' class. <!-- begin-user-doc -->

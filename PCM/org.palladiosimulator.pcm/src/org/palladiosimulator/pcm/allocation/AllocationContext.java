@@ -20,7 +20,6 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.allocation.AllocationContext#getResourceContainer_AllocationContext
@@ -28,12 +27,14 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
  * <li>
  * {@link org.palladiosimulator.pcm.allocation.AllocationContext#getAssemblyContext_AllocationContext
  * <em>Assembly Context Allocation Context</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.allocation.AllocationContext#getAllocation_AllocationContext
+ * <li>
+ * {@link org.palladiosimulator.pcm.allocation.AllocationContext#getAllocation_AllocationContext
  * <em>Allocation Allocation Context</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcm.allocation.AllocationContext#getEventChannel__AllocationContext
  * <em>Event Channel Allocation Context</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcm.allocation.AllocationPackage#getAllocationContext()
  * @model

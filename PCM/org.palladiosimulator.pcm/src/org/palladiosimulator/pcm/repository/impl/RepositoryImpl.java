@@ -23,19 +23,19 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.impl.RepositoryImpl#getRepositoryDescription
- * <em>Repository Description</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.RepositoryImpl#getRepositoryDescription <em>
+ * Repository Description</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.repository.impl.RepositoryImpl#getComponents__Repository
  * <em>Components Repository</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.repository.impl.RepositoryImpl#getInterfaces__Repository
  * <em>Interfaces Repository</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.repository.impl.RepositoryImpl#getFailureTypes__Repository
  * <em>Failure Types Repository</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.impl.RepositoryImpl#getDataTypes__Repository
- * <em>Data Types Repository</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.RepositoryImpl#getDataTypes__Repository <em>
+ * Data Types Repository</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -156,19 +156,23 @@ public class RepositoryImpl extends EntityImpl implements Repository {
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getComponents__Repository())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getComponents__Repository()).basicAdd(
+                    otherEnd,
+                    msgs);
         case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getInterfaces__Repository())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getInterfaces__Repository()).basicAdd(
+                    otherEnd,
+                    msgs);
         case RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getFailureTypes__Repository())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getFailureTypes__Repository()).basicAdd(
+                    otherEnd, msgs);
         case RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getDataTypes__Repository())
-                    .basicAdd(otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getDataTypes__Repository()).basicAdd(
+                    otherEnd,
+                    msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -181,7 +185,8 @@ public class RepositoryImpl extends EntityImpl implements Repository {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
             return ((InternalEList<?>) this.getComponents__Repository()).basicRemove(otherEnd, msgs);
         case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
@@ -201,7 +206,8 @@ public class RepositoryImpl extends EntityImpl implements Repository {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
             return this.getRepositoryDescription();
         case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
@@ -224,7 +230,8 @@ public class RepositoryImpl extends EntityImpl implements Repository {
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
             this.setRepositoryDescription((String) newValue);
             return;
@@ -255,7 +262,8 @@ public class RepositoryImpl extends EntityImpl implements Repository {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
             this.setRepositoryDescription(REPOSITORY_DESCRIPTION_EDEFAULT);
             return;
@@ -282,7 +290,8 @@ public class RepositoryImpl extends EntityImpl implements Repository {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
             return REPOSITORY_DESCRIPTION_EDEFAULT == null ? this.getRepositoryDescription() != null
                     : !REPOSITORY_DESCRIPTION_EDEFAULT.equals(this.getRepositoryDescription());

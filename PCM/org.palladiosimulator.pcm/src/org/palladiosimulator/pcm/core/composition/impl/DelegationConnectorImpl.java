@@ -10,6 +10,8 @@ import org.palladiosimulator.pcm.core.composition.DelegationConnector;
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
  * <em><b>Delegation Connector</b></em>'. <!-- end-user-doc -->
+ * <p>
+ * </p>
  *
  * @generated
  */

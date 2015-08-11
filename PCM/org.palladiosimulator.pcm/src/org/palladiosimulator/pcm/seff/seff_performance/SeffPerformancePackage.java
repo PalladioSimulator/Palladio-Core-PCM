@@ -93,33 +93,6 @@ public interface SeffPerformancePackage extends EPackage {
     int INFRASTRUCTURE_CALL__ENTITY_NAME = SeffPackage.CALL_ACTION__ENTITY_NAME;
 
     /**
-     * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int INFRASTRUCTURE_CALL__PREDECESSOR_ABSTRACT_ACTION = SeffPackage.CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION;
-
-    /**
-     * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int INFRASTRUCTURE_CALL__SUCCESSOR_ABSTRACT_ACTION = SeffPackage.CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION;
-
-    /**
-     * The feature id for the '<em><b>Resource Demanding Behaviour Abstract Action</b></em>'
-     * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int INFRASTRUCTURE_CALL__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION = SeffPackage.CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION;
-
-    /**
      * The feature id for the '<em><b>Input Variable Usages Call Action</b></em>' containment
      * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -201,33 +174,6 @@ public interface SeffPerformancePackage extends EPackage {
      * @ordered
      */
     int RESOURCE_CALL__ENTITY_NAME = SeffPackage.CALL_ACTION__ENTITY_NAME;
-
-    /**
-     * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int RESOURCE_CALL__PREDECESSOR_ABSTRACT_ACTION = SeffPackage.CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION;
-
-    /**
-     * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int RESOURCE_CALL__SUCCESSOR_ABSTRACT_ACTION = SeffPackage.CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION;
-
-    /**
-     * The feature id for the '<em><b>Resource Demanding Behaviour Abstract Action</b></em>'
-     * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int RESOURCE_CALL__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION = SeffPackage.CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION;
 
     /**
      * The feature id for the '<em><b>Input Variable Usages Call Action</b></em>' containment

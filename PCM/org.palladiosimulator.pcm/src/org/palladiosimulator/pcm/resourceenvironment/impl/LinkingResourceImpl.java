@@ -21,7 +21,6 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcm.resourceenvironment.impl.LinkingResourceImpl#getConnectedResourceContainers_LinkingResource
@@ -33,6 +32,7 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
  * {@link org.palladiosimulator.pcm.resourceenvironment.impl.LinkingResourceImpl#getResourceEnvironment_LinkingResource
  * <em>Resource Environment Linking Resource</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -85,10 +85,11 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
      */
     @Override
     public CommunicationLinkResourceSpecification getCommunicationLinkResourceSpecifications_LinkingResource() {
-        return (CommunicationLinkResourceSpecification) this.eDynamicGet(
-                ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE,
-                ResourceenvironmentPackage.Literals.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE,
-                true, true);
+        return (CommunicationLinkResourceSpecification) this
+                .eDynamicGet(
+                        ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE,
+                        ResourceenvironmentPackage.Literals.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE,
+                        true, true);
     }
 
     /**
@@ -99,9 +100,11 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
     public NotificationChain basicSetCommunicationLinkResourceSpecifications_LinkingResource(
             final CommunicationLinkResourceSpecification newCommunicationLinkResourceSpecifications_LinkingResource,
             NotificationChain msgs) {
-        msgs = this.eDynamicInverseAdd((InternalEObject) newCommunicationLinkResourceSpecifications_LinkingResource,
-                ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE,
-                msgs);
+        msgs = this
+                .eDynamicInverseAdd(
+                        (InternalEObject) newCommunicationLinkResourceSpecifications_LinkingResource,
+                        ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE,
+                        msgs);
         return msgs;
     }
 
@@ -126,10 +129,11 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
      */
     @Override
     public ResourceEnvironment getResourceEnvironment_LinkingResource() {
-        return (ResourceEnvironment) this.eDynamicGet(
-                ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE,
-                ResourceenvironmentPackage.Literals.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE, true,
-                true);
+        return (ResourceEnvironment) this
+                .eDynamicGet(
+                        ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE,
+                        ResourceenvironmentPackage.Literals.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE,
+                        true, true);
     }
 
     /**
@@ -164,15 +168,18 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE:
             final CommunicationLinkResourceSpecification communicationLinkResourceSpecifications_LinkingResource = this
-                    .getCommunicationLinkResourceSpecifications_LinkingResource();
+            .getCommunicationLinkResourceSpecifications_LinkingResource();
             if (communicationLinkResourceSpecifications_LinkingResource != null) {
-                msgs = ((InternalEObject) communicationLinkResourceSpecifications_LinkingResource).eInverseRemove(this,
-                        EOPPOSITE_FEATURE_BASE
-                                - ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE,
-                        null, msgs);
+                msgs = ((InternalEObject) communicationLinkResourceSpecifications_LinkingResource)
+                        .eInverseRemove(
+                                this,
+                                EOPPOSITE_FEATURE_BASE
+                                        - ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE,
+                                null, msgs);
             }
             return this.basicSetCommunicationLinkResourceSpecifications_LinkingResource(
                     (CommunicationLinkResourceSpecification) otherEnd, msgs);
@@ -193,7 +200,8 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE:
             return this.basicSetCommunicationLinkResourceSpecifications_LinkingResource(null, msgs);
         case ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE:
@@ -209,7 +217,8 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID()) {
+        switch (this.eContainerFeatureID())
+        {
         case ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE:
             return this.eInternalContainer().eInverseRemove(this,
                     ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__LINKING_RESOURCES_RESOURCE_ENVIRONMENT,
@@ -225,7 +234,8 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE:
             return this.getConnectedResourceContainers_LinkingResource();
         case ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE:
@@ -244,15 +254,15 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE:
             this.getConnectedResourceContainers_LinkingResource().clear();
-            this.getConnectedResourceContainers_LinkingResource()
-                    .addAll((Collection<? extends ResourceContainer>) newValue);
+            this.getConnectedResourceContainers_LinkingResource().addAll(
+                    (Collection<? extends ResourceContainer>) newValue);
             return;
         case ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE:
-            this.setCommunicationLinkResourceSpecifications_LinkingResource(
-                    (CommunicationLinkResourceSpecification) newValue);
+            this.setCommunicationLinkResourceSpecifications_LinkingResource((CommunicationLinkResourceSpecification) newValue);
             return;
         case ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE:
             this.setResourceEnvironment_LinkingResource((ResourceEnvironment) newValue);
@@ -268,13 +278,13 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE:
             this.getConnectedResourceContainers_LinkingResource().clear();
             return;
         case ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE:
-            this.setCommunicationLinkResourceSpecifications_LinkingResource(
-                    (CommunicationLinkResourceSpecification) null);
+            this.setCommunicationLinkResourceSpecifications_LinkingResource((CommunicationLinkResourceSpecification) null);
             return;
         case ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE:
             this.setResourceEnvironment_LinkingResource((ResourceEnvironment) null);
@@ -290,7 +300,8 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ResourceenvironmentPackage.LINKING_RESOURCE__CONNECTED_RESOURCE_CONTAINERS_LINKING_RESOURCE:
             return !this.getConnectedResourceContainers_LinkingResource().isEmpty();
         case ResourceenvironmentPackage.LINKING_RESOURCE__COMMUNICATION_LINK_RESOURCE_SPECIFICATIONS_LINKING_RESOURCE:

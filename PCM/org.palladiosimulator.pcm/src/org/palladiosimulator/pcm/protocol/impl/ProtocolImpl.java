@@ -13,11 +13,11 @@ import org.palladiosimulator.pcm.protocol.ProtocolPackage;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.protocol.impl.ProtocolImpl#getProtocolTypeID
- * <em>Protocol Type ID</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.protocol.impl.ProtocolImpl#getProtocolTypeID <em>Protocol
+ * Type ID</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -88,7 +88,8 @@ public abstract class ProtocolImpl extends CDOObjectImpl implements Protocol {
     @Override
     public void setProtocolTypeID(final String newProtocolTypeID) {
         this.eDynamicSet(ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID,
-                ProtocolPackage.Literals.PROTOCOL__PROTOCOL_TYPE_ID, newProtocolTypeID);
+                ProtocolPackage.Literals.PROTOCOL__PROTOCOL_TYPE_ID,
+                newProtocolTypeID);
     }
 
     /**
@@ -98,7 +99,8 @@ public abstract class ProtocolImpl extends CDOObjectImpl implements Protocol {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID:
             return this.getProtocolTypeID();
         }
@@ -112,7 +114,8 @@ public abstract class ProtocolImpl extends CDOObjectImpl implements Protocol {
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID:
             this.setProtocolTypeID((String) newValue);
             return;
@@ -127,7 +130,8 @@ public abstract class ProtocolImpl extends CDOObjectImpl implements Protocol {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID:
             this.setProtocolTypeID(PROTOCOL_TYPE_ID_EDEFAULT);
             return;
@@ -142,10 +146,11 @@ public abstract class ProtocolImpl extends CDOObjectImpl implements Protocol {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID) {
+        switch (featureID)
+        {
         case ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID:
-            return PROTOCOL_TYPE_ID_EDEFAULT == null ? this.getProtocolTypeID() != null
-                    : !PROTOCOL_TYPE_ID_EDEFAULT.equals(this.getProtocolTypeID());
+            return PROTOCOL_TYPE_ID_EDEFAULT == null ? this.getProtocolTypeID() != null : !PROTOCOL_TYPE_ID_EDEFAULT
+                    .equals(this.getProtocolTypeID());
         }
         return super.eIsSet(featureID);
     }
