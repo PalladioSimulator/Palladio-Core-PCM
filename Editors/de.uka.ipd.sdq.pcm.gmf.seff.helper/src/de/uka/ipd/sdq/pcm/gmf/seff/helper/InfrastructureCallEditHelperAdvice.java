@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.helper;
 
@@ -20,25 +20,26 @@ import org.palladiosimulator.pcm.repository.InfrastructureInterface;
 import org.palladiosimulator.pcm.repository.InfrastructureRequiredRole;
 import org.palladiosimulator.pcm.repository.InfrastructureSignature;
 import org.palladiosimulator.pcm.repository.RepositoryPackage;
+
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
 /**
  * Advice for the EditHelper of InfrastructureCall. Displays the dialogs for selection of
  * infrastructure required role and signature.
- * 
+ *
  * @author groenda
  */
 public class InfrastructureCallEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
      * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
      */
     /**
      * Gets the after configure command.
-     * 
+     *
      * @param request
      *            the request
      * @return the after configure command
@@ -74,7 +75,7 @@ public class InfrastructureCallEditHelperAdvice extends AbstractEditHelperAdvice
         // set the signature for InfrastructureCall
         final InfrastructureSignature signature = (InfrastructureSignature) dialog.getResult();
         // set the required role for InfrastructureCall
-        if (dialog.getViewerRootElement() instanceof InfrastructureRequiredRole) {
+        if (dialog.getRootOfResult() instanceof InfrastructureRequiredRole) {
             requiredRole = (InfrastructureRequiredRole) dialog.getRootOfResult();
         }
 
@@ -93,7 +94,7 @@ public class InfrastructureCallEditHelperAdvice extends AbstractEditHelperAdvice
 
     /**
      * Search basic component.
-     * 
+     *
      * @param elementToConfigure
      *            the element to configure
      * @return the e object
