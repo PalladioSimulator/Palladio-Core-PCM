@@ -8,5 +8,33 @@
             id="org.palladiosimulator.editors.sirius.usage.design.closedWorkloadThinkTime">
       </javaActions>
    </extension>
+   <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.palladiosimulator.editors.usage.externaljavaactions.VariableCharacterisationNameAction"
+            id="org.palladiosimulator.editors.usage.externaljavaactions.varcharname">
+      </javaActions>
+   </extension>
+   <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.palladiosimulator.editors.usage.externaljavaactions.DelayTimeAction"
+            id="org.palladiosimulator.editors.usage.externaljavaactions.delaytime">
+      </javaActions>
+   </extension>
+   <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.palladiosimulator.editors.usage.externaljavaactions.OpenWorkloadInterArrivalTimeAction"
+            id="org.palladiosimulator.editors.usage.externaljavaactions.interarrivaltime">
+      </javaActions>
+   </extension>
+   <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.palladiosimulator.editors.usage.externaljavaactions.LoopIterationsAction"
+            id="org.palladiosimulator.editors.usage.externaljavaactions.loopiterations">
+      </javaActions>
+   </extension>
 
 </plugin>

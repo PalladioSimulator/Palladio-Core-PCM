@@ -5,17 +5,12 @@ import java.util.Collection;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.diagram.DNodeListElement;
 import org.palladiosimulator.editors.ui.dialog.OpenStoExDialog;
-import org.palladiosimulator.pcm.core.PCMRandomVariable;
-import org.palladiosimulator.pcm.usagemodel.ClosedWorkload;
+import org.palladiosimulator.pcm.usagemodel.Delay;
 
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
-public class ClosedWorkloadThinkTimeAction extends OpenStoExDialog {
-
-	public ClosedWorkloadThinkTimeAction() {
-
-	}
+public class DelayTimeAction extends OpenStoExDialog {
 
 	@Override
 	public boolean canExecute(Collection<? extends EObject> arg0) {
@@ -24,11 +19,10 @@ public class ClosedWorkloadThinkTimeAction extends OpenStoExDialog {
 
 	@Override
 	public RandomVariable getRandomVariable(DNodeListElement element) {
-		ClosedWorkload workload = (ClosedWorkload) element.getTarget();
-		PCMRandomVariable rv = workload.getThinkTime_ClosedWorkload();
-		return rv;
+		Delay d = (Delay) element.getTarget();
+		return d.getTimeSpecification_Delay();
 	}
-	
+
 	@Override
 	protected TypeEnum getExpectedType(RandomVariable rv) {
 		return TypeEnum.DOUBLE;
