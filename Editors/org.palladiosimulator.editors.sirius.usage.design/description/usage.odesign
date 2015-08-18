@@ -12,7 +12,7 @@
           </style>
         </edgeMappings>
         <containerMappings name="usageScenario" semanticCandidatesExpression="feature:usageScenario_UsageModel" domainClass="usagemodel.UsageScenario">
-          <subContainerMappings name="scenarioBehavior" semanticCandidatesExpression="feature:scenarioBehaviour_UsageScenario" domainClass="usagemodel.ScenarioBehaviour">
+          <subContainerMappings name="scenarioBehavior" semanticCandidatesExpression="feature:scenarioBehaviour_UsageScenario" domainClass="usagemodel.ScenarioBehaviour" reusedContainerMappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']">
             <subNodeMappings name="start" semanticCandidatesExpression="feature:actions_ScenarioBehaviour" domainClass="usagemodel.Start">
               <style xsi:type="style:DotDescription" labelExpression="">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -29,8 +29,8 @@
             </subNodeMappings>
             <subContainerMappings name="branch" semanticCandidatesExpression="feature:actions_ScenarioBehaviour" domainClass="usagemodel.Branch">
               <subContainerMappings name="branchTransition" labelDirectEdit="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='editBranchPropability']" semanticCandidatesExpression="feature:branchTransitions_Branch" domainClass="usagemodel.BranchTransition">
-                <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="branchBehavior" semanticCandidatesExpression="feature:branchedBehaviour_BranchTransition" domainClass="usagemodel.ScenarioBehaviour" reusedNodeMappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subNodeMappings[name='start'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subNodeMappings[name='stop']" reusedContainerMappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='entryLevelSystemCall'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='loop'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='branch']" importedMapping="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']">
-                  <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" labelExpression="">
+                <subContainerMappings name="branchedBehaviour" semanticCandidatesExpression="feature:branchedBehaviour_BranchTransition" domainClass="usagemodel.ScenarioBehaviour" reusedNodeMappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subNodeMappings[name='start'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subNodeMappings[name='stop']" reusedContainerMappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='delay'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='entryLevelSystemCall'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='loop'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='branch']">
+                  <style xsi:type="style:FlatContainerStyleDescription" labelExpression="[' '/]">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -51,16 +51,31 @@
                 <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
               </style>
             </subContainerMappings>
-            <subContainerMappings name="loop" semanticCandidatesExpression="feature:loop_ScenarioBehaviour" doubleClickDescription="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='doubleCLickLoopIterationsDialog']" domainClass="usagemodel.Loop">
-              <subContainerMappings name="scenarioBehaviorLoop" semanticCandidatesExpression="feature:bodyBehaviour_Loop" domainClass="usagemodel.ScenarioBehaviour" reusedContainerMappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']">
-                <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" labelExpression="feature:entityName">
+            <subContainerMappings name="loop" semanticCandidatesExpression="feature:actions_ScenarioBehaviour" domainClass="usagemodel.Loop" childrenPresentation="VerticalStack">
+              <subContainerMappings name="loopIterations" labelDirectEdit="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='est']" semanticCandidatesExpression="[self/]" domainClass="usagemodel.Loop" childrenPresentation="List">
+                <subNodeMappings name="iterationsNode" semanticCandidatesExpression="[self/]" doubleClickDescription="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='doubleClickLoopIterationsDialog']" domainClass="usagemodel.Loop">
+                  <style xsi:type="style:NoteDescription" showIcon="false" labelExpression="['Iterations: ' + self.loopIteration_Loop.specification/]" labelPosition="node" resizeKind="NSEW">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+                  </style>
+                </subNodeMappings>
+                <style xsi:type="style:FlatContainerStyleDescription" arcHeight="1" showIcon="false" labelExpression="['Iterations: ' + self.loopIteration_Loop.specification/]">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
                   <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
                 </style>
               </subContainerMappings>
-              <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" labelExpression="['&lt;&lt;Loop>> ' + self.entityName/]">
+              <subContainerMappings name="scenarioBehaviorLoop" semanticCandidatesExpression="feature:bodyBehaviour_Loop" domainClass="usagemodel.ScenarioBehaviour" reusedNodeMappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subNodeMappings[name='start'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subNodeMappings[name='stop']" reusedContainerMappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='branch'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='delay'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='entryLevelSystemCall'] //@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='loop']">
+                <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" labelExpression="[' '/]">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                </style>
+              </subContainerMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" labelExpression="['&lt;&lt;Loop>>'/]">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -176,7 +191,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.scenarioBehaviour_AbstractUserAction/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.Start" referenceName="actions_ScenarioBehaviour" variableName="start"/>
               </firstModelOperations>
             </initialOperation>
@@ -185,7 +200,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.scenarioBehaviour_AbstractUserAction/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.Stop" referenceName="actions_ScenarioBehaviour" variableName="Stop"/>
               </firstModelOperations>
             </initialOperation>
@@ -194,7 +209,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.scenarioBehaviour_AbstractUserAction/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.Delay" referenceName="actions_ScenarioBehaviour" variableName="usageDelay">
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self/]">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="core.PCMRandomVariable" referenceName="timeSpecification_Delay">
@@ -209,7 +224,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.scenarioBehaviour_AbstractUserAction/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.EntryLevelSystemCall" referenceName="actions_ScenarioBehaviour"/>
               </firstModelOperations>
             </initialOperation>
@@ -218,8 +233,19 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.scenarioBehaviour_AbstractUserAction/]">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.Loop" referenceName="loop_ScenarioBehaviour"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.Loop" referenceName="actions_ScenarioBehaviour">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self/]"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="core.PCMRandomVariable" referenceName="loopIteration_Loop">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="specification" valueExpression="['1'/]"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.ScenarioBehaviour" referenceName="bodyBehaviour_Loop">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self/]">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.Start" referenceName="actions_ScenarioBehaviour"/>
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.Stop" referenceName="actions_ScenarioBehaviour"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -227,7 +253,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.scenarioBehaviour_AbstractUserAction/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.Branch" referenceName="actions_ScenarioBehaviour"/>
               </firstModelOperations>
             </initialOperation>
@@ -247,10 +273,18 @@
               <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="delayTimeDialog" id="org.palladiosimulator.editors.usage.externaljavaactions.delaytime"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="doubleCLickLoopIterationsDialog" mappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='loop']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="doubleClickLoopIterationsDialog" mappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='loop']/@subContainerMappings[name='loopIterations']/@subNodeMappings[name='iterationsNode']">
             <element name="element"/>
             <elementView name="elementView"/>
-            <initialOperation/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="loopIterationsAction" id="org.palladiosimulator.editors.usage.externaljavaactions.loopiterations"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="est">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="test" id="org.palladiosimulator.editors.usage.externaljavaactions.loopiterations"/>
+            </initialOperation>
           </ownedTools>
         </toolSections>
         <toolSections name="actionDetails" label="Action Details">
@@ -258,7 +292,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.entryLevelSystemCall_InputParameterUsage/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="parameter.VariableUsage" referenceName="inputParameterUsages_EntryLevelSystemCall"/>
               </firstModelOperations>
             </initialOperation>
@@ -267,7 +301,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.variableUsage_VariableCharacterisation/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="parameter.VariableCharacterisation" referenceName="variableCharacterisation_VariableUsage">
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self/]">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="core.PCMRandomVariable" referenceName="specification_VariableCharacterisation">
@@ -283,7 +317,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.usageScenario_SenarioBehaviour/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.ScenarioBehaviour" referenceName="scenarioBehaviour_UsageScenario"/>
               </firstModelOperations>
             </initialOperation>
@@ -292,8 +326,17 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.branch_BranchTransition/]">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.BranchTransition" referenceName="branchTransitions_Branch"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.BranchTransition" referenceName="branchTransitions_Branch">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self/]">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.ScenarioBehaviour" referenceName="branchedBehaviour_BranchTransition">
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self/]">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.Start" referenceName="actions_ScenarioBehaviour"/>
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.Stop" referenceName="actions_ScenarioBehaviour"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -331,7 +374,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.usageScenario_Workload/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.OpenWorkload" referenceName="workload_UsageScenario">
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self/]">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="core.PCMRandomVariable" referenceName="interArrivalTime_OpenWorkload">
@@ -346,7 +389,7 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.usageScenario_Workload/]">
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.ClosedWorkload" referenceName="workload_UsageScenario">
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self/]">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="core.PCMRandomVariable" referenceName="thinkTime_ClosedWorkload">
@@ -362,9 +405,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.UsageScenario" referenceName="usageScenario_UsageModel" variableName="defaultScenario">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="entityName" valueExpression="['scenario'/]"/>
-                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.UsageScenario" referenceName="usageScenario_UsageModel" variableName="defaultScenario"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
