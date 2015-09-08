@@ -36,5 +36,12 @@
             id="org.palladiosimulator.editors.usage.externaljavaactions.loopiterations">
       </javaActions>
    </extension>
+   <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.palladiosimulator.editors.usage.externaljavaactions.EntryLevelSystemCallCreationDialog"
+            id="org.palladiosimulator.editors.usage.externaljavaactions.systemcall">
+      </javaActions>
+   </extension>
 
 </plugin>

@@ -11,4 +11,5 @@ Require-Bundle: org.eclipse.sirius;bundle-version="3.0.0",
  org.palladiosimulator.pcm,
  org.palladiosimulator.editors.dialogs,
  de.uka.ipd.sdq.stoex.analyser,
- de.uka.ipd.sdq.pcm.stochasticexpressions
+ de.uka.ipd.sdq.pcm.stochasticexpressions,
+ org.eclipse.emf.transaction
