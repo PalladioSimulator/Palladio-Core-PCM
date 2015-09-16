@@ -13,12 +13,12 @@ import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference;
  * <em><b>Resource Environment Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentReferenceImpl#getResourceEnvironment
  * <em>Resource Environment</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -95,8 +95,7 @@ public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl imp
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT:
             if (resolve) {
                 return this.getResourceEnvironment();
@@ -113,8 +112,7 @@ public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl imp
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT:
             this.setResourceEnvironment((ResourceEnvironment) newValue);
             return;
@@ -129,8 +127,7 @@ public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl imp
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT:
             this.setResourceEnvironment((ResourceEnvironment) null);
             return;
@@ -145,8 +142,7 @@ public abstract class ResourceEnvironmentReferenceImpl extends CDOObjectImpl imp
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT:
             return this.basicGetResourceEnvironment() != null;
         }

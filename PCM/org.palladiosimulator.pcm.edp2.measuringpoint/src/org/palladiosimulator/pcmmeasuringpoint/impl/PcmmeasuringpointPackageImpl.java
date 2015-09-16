@@ -32,6 +32,8 @@ import org.palladiosimulator.pcmmeasuringpoint.OperationReference;
 import org.palladiosimulator.pcmmeasuringpoint.PassiveResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointFactory;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
+import org.palladiosimulator.pcmmeasuringpoint.ResourceContainerMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.ResourceContainerReference;
 import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference;
 import org.palladiosimulator.pcmmeasuringpoint.SubSystemOperationMeasuringPoint;
@@ -196,6 +198,20 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
     private EClass resourceEnvironmentReferenceEClass = null;
 
     /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass resourceContainerMeasuringPointEClass = null;
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    private EClass resourceContainerReferenceEClass = null;
+
+    /**
      * Creates an instance of the model <b>Package</b>, registered with
      * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package package URI
      * value.
@@ -242,7 +258,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         // Obtain or create and register package
         final PcmmeasuringpointPackageImpl thePcmmeasuringpointPackage = (PcmmeasuringpointPackageImpl) (EPackage.Registry.INSTANCE
                 .get(eNS_URI) instanceof PcmmeasuringpointPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-                : new PcmmeasuringpointPackageImpl());
+                        : new PcmmeasuringpointPackageImpl());
 
         isInited = true;
 
@@ -612,6 +628,36 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
      * @generated
      */
     @Override
+    public EClass getResourceContainerMeasuringPoint() {
+        return this.resourceContainerMeasuringPointEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EClass getResourceContainerReference() {
+        return this.resourceContainerReferenceEClass;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public EReference getResourceContainerReference_ResourceContainer() {
+        return (EReference) this.resourceContainerReferenceEClass.getEStructuralFeatures().get(0);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
     public PcmmeasuringpointFactory getPcmmeasuringpointFactory() {
         return (PcmmeasuringpointFactory) this.getEFactoryInstance();
     }
@@ -692,6 +738,11 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         this.resourceEnvironmentReferenceEClass = this.createEClass(RESOURCE_ENVIRONMENT_REFERENCE);
         this.createEReference(this.resourceEnvironmentReferenceEClass,
                 RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT);
+
+        this.resourceContainerMeasuringPointEClass = this.createEClass(RESOURCE_CONTAINER_MEASURING_POINT);
+
+        this.resourceContainerReferenceEClass = this.createEClass(RESOURCE_CONTAINER_REFERENCE);
+        this.createEReference(this.resourceContainerReferenceEClass, RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER);
     }
 
     /**
@@ -743,8 +794,8 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         this.assemblyOperationMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
         this.assemblyOperationMeasuringPointEClass.getESuperTypes().add(this.getOperationReference());
         this.assemblyOperationMeasuringPointEClass.getESuperTypes().add(this.getAssemblyReference());
-        this.assemblyPassiveResourceMeasuringPointEClass.getESuperTypes().add(
-                theMeasuringpointPackage.getMeasuringPoint());
+        this.assemblyPassiveResourceMeasuringPointEClass.getESuperTypes()
+                .add(theMeasuringpointPackage.getMeasuringPoint());
         this.assemblyPassiveResourceMeasuringPointEClass.getESuperTypes().add(this.getAssemblyReference());
         this.assemblyPassiveResourceMeasuringPointEClass.getESuperTypes().add(this.getPassiveResourceReference());
         this.activeResourceMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
@@ -760,12 +811,14 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         this.usageScenarioMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
         this.usageScenarioMeasuringPointEClass.getESuperTypes().add(this.getUsageScenarioReference());
         this.entryLevelSystemCallMeasuringPointEClass.getESuperTypes()
-        .add(theMeasuringpointPackage.getMeasuringPoint());
+                .add(theMeasuringpointPackage.getMeasuringPoint());
         this.entryLevelSystemCallMeasuringPointEClass.getESuperTypes().add(this.getEntryLevelSystemCallReference());
         this.externalCallActionMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
         this.externalCallActionMeasuringPointEClass.getESuperTypes().add(this.getExternalCallActionReference());
         this.resourceEnvironmentMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
         this.resourceEnvironmentMeasuringPointEClass.getESuperTypes().add(this.getResourceEnvironmentReference());
+        this.resourceContainerMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
+        this.resourceContainerMeasuringPointEClass.getESuperTypes().add(this.getResourceContainerReference());
 
         // Initialize classes and features; add operations and parameters
         this.initEClass(this.assemblyOperationMeasuringPointEClass, AssemblyOperationMeasuringPoint.class,
@@ -783,36 +836,31 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         this.initEClass(this.operationReferenceEClass, OperationReference.class, "OperationReference", IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getOperationReference_Role(), theRepositoryPackage_1.getRole(), null, "role", null, 1,
-                1,
-                OperationReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                1, OperationReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getOperationReference_OperationSignature(),
-                theRepositoryPackage_1.getOperationSignature(),
-                null, "operationSignature", null, 1, 1, OperationReference.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                theRepositoryPackage_1.getOperationSignature(), null, "operationSignature", null, 1, 1,
+                OperationReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.assemblyReferenceEClass, AssemblyReference.class, "AssemblyReference", IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getAssemblyReference_Assembly(), theCompositionPackage.getAssemblyContext(), null,
-                "assembly",
-                null, 1, 1, AssemblyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                "assembly", null, 1, 1, AssemblyReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.systemReferenceEClass, SystemReference.class, "SystemReference", IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getSystemReference_System(), theSystemPackage.getSystem(), null, "system", null, 1, 1,
                 SystemReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        this.initEClass(this.passiveResourceReferenceEClass, PassiveResourceReference.class,
-                "PassiveResourceReference",
+        this.initEClass(this.passiveResourceReferenceEClass, PassiveResourceReference.class, "PassiveResourceReference",
                 IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getPassiveResourceReference_PassiveResource(),
-                theRepositoryPackage_1.getPassiveResource(),
-                null, "passiveResource", null, 1, 1, PassiveResourceReference.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                theRepositoryPackage_1.getPassiveResource(), null, "passiveResource", null, 1, 1,
+                PassiveResourceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.activeResourceReferenceEClass, ActiveResourceReference.class, "ActiveResourceReference",
                 IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -821,15 +869,13 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
                 ActiveResourceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEAttribute(this.getActiveResourceReference_ReplicaID(), this.ecorePackage.getEInt(), "replicaID", "0",
-                1, 1,
-                ActiveResourceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                1, 1, ActiveResourceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.linkingResourceMeasuringPointEClass, LinkingResourceMeasuringPoint.class,
                 "LinkingResourceMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        this.initEClass(this.linkingResourceReferenceEClass, LinkingResourceReference.class,
-                "LinkingResourceReference",
+        this.initEClass(this.linkingResourceReferenceEClass, LinkingResourceReference.class, "LinkingResourceReference",
                 IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getLinkingResourceReference_LinkingResource(),
                 theResourceenvironmentPackage.getLinkingResource(), null, "linkingResource", null, 1, 1,
@@ -842,21 +888,17 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         this.initEClass(this.subSystemReferenceEClass, SubSystemReference.class, "SubSystemReference", IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getSubSystemReference_Subsystem(), theSubsystemPackage.getSubSystem(), null,
-                "subsystem", null,
-                1, 1, SubSystemReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                "subsystem", null, 1, 1, SubSystemReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.usageScenarioMeasuringPointEClass, UsageScenarioMeasuringPoint.class,
-                "UsageScenarioMeasuringPoint",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                "UsageScenarioMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         this.initEClass(this.usageScenarioReferenceEClass, UsageScenarioReference.class, "UsageScenarioReference",
-                IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getUsageScenarioReference_UsageScenario(), theUsagemodelPackage.getUsageScenario(),
-                null,
-                "usageScenario", null, 1, 1, UsageScenarioReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                null, "usageScenario", null, 1, 1, UsageScenarioReference.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.entryLevelSystemCallMeasuringPointEClass, EntryLevelSystemCallMeasuringPoint.class,
                 "EntryLevelSystemCallMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -865,11 +907,9 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
                 "ExternalCallActionMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         this.initEClass(this.externalCallActionReferenceEClass, ExternalCallActionReference.class,
-                "ExternalCallActionReference",
-                IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                "ExternalCallActionReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getExternalCallActionReference_ExternalCall(), theSeffPackage.getExternalCallAction(),
-                null,
-                "externalCall", null, 1, 1, ExternalCallActionReference.class, !IS_TRANSIENT, !IS_VOLATILE,
+                null, "externalCall", null, 1, 1, ExternalCallActionReference.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.entryLevelSystemCallReferenceEClass, EntryLevelSystemCallReference.class,
@@ -887,6 +927,16 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         this.initEReference(this.getResourceEnvironmentReference_ResourceEnvironment(),
                 theResourceenvironmentPackage.getResourceEnvironment(), null, "resourceEnvironment", null, 1, 1,
                 ResourceEnvironmentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+        this.initEClass(this.resourceContainerMeasuringPointEClass, ResourceContainerMeasuringPoint.class,
+                "ResourceContainerMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+        this.initEClass(this.resourceContainerReferenceEClass, ResourceContainerReference.class,
+                "ResourceContainerReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEReference(this.getResourceContainerReference_ResourceContainer(),
+                theResourceenvironmentPackage.getResourceContainer(), null, "resourceContainer", null, 1, 1,
+                ResourceContainerReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         // Create resource

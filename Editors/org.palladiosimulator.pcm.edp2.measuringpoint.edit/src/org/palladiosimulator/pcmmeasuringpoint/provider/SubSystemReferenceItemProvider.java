@@ -26,7 +26,7 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * @generated
  */
 public class SubSystemReferenceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
@@ -46,8 +46,7 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null)
-        {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
             this.addSubsystemPropertyDescriptor(object);
@@ -62,21 +61,13 @@ IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, II
      * @generated
      */
     protected void addSubsystemPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add
-        (this.createItemPropertyDescriptor
-                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                                this.getResourceLocator(),
-                                this.getString("_UI_SubSystemReference_subsystem_feature"),
-                                this.getString("_UI_PropertyDescriptor_description",
-                                        "_UI_SubSystemReference_subsystem_feature",
-                                        "_UI_SubSystemReference_type"),
-                                PcmmeasuringpointPackage.Literals.SUB_SYSTEM_REFERENCE__SUBSYSTEM,
-                                true,
-                                false,
-                                true,
-                                null,
-                                null,
-                                null));
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_SubSystemReference_subsystem_feature"),
+                this.getString("_UI_PropertyDescriptor_description", "_UI_SubSystemReference_subsystem_feature",
+                        "_UI_SubSystemReference_type"),
+                PcmmeasuringpointPackage.Literals.SUB_SYSTEM_REFERENCE__SUBSYSTEM, true, false, true, null, null,
+                null));
     }
 
     /**

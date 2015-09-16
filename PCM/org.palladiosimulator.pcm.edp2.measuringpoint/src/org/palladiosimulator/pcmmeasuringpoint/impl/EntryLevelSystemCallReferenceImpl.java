@@ -13,12 +13,12 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <em><b>Entry Level System Call Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallReferenceImpl#getEntryLevelSystemCall
  * <em>Entry Level System Call</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -97,8 +97,7 @@ public abstract class EntryLevelSystemCallReferenceImpl extends CDOObjectImpl im
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.ENTRY_LEVEL_SYSTEM_CALL_REFERENCE__ENTRY_LEVEL_SYSTEM_CALL:
             if (resolve) {
                 return this.getEntryLevelSystemCall();
@@ -115,8 +114,7 @@ public abstract class EntryLevelSystemCallReferenceImpl extends CDOObjectImpl im
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.ENTRY_LEVEL_SYSTEM_CALL_REFERENCE__ENTRY_LEVEL_SYSTEM_CALL:
             this.setEntryLevelSystemCall((EntryLevelSystemCall) newValue);
             return;
@@ -131,8 +129,7 @@ public abstract class EntryLevelSystemCallReferenceImpl extends CDOObjectImpl im
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.ENTRY_LEVEL_SYSTEM_CALL_REFERENCE__ENTRY_LEVEL_SYSTEM_CALL:
             this.setEntryLevelSystemCall((EntryLevelSystemCall) null);
             return;
@@ -147,8 +144,7 @@ public abstract class EntryLevelSystemCallReferenceImpl extends CDOObjectImpl im
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.ENTRY_LEVEL_SYSTEM_CALL_REFERENCE__ENTRY_LEVEL_SYSTEM_CALL:
             return this.basicGetEntryLevelSystemCall() != null;
         }

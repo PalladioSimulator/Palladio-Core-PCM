@@ -61,4 +61,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="resourceEnvironment" lowerBound="1"
         eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceEnvironment"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceContainerMeasuringPoint" eSuperTypes="../../org.palladiosimulator.edp2/model/EDP2.ecore#//measuringpoint/MeasuringPoint #//ResourceContainerReference"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ResourceContainerReference" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer" lowerBound="1"
+        eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//resourceenvironment/ResourceContainer"/>
+  </eClassifiers>
 </ecore:EPackage>

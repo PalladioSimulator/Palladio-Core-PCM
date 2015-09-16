@@ -16,12 +16,12 @@ import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference;
  * <em><b>Usage Scenario Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.UsageScenarioMeasuringPointImpl#getUsageScenario
  * <em>Usage Scenario</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -53,8 +53,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
      */
     @Override
     public UsageScenario getUsageScenario() {
-        return (UsageScenario) this.eDynamicGet(
-                PcmmeasuringpointPackage.USAGE_SCENARIO_MEASURING_POINT__USAGE_SCENARIO,
+        return (UsageScenario) this.eDynamicGet(PcmmeasuringpointPackage.USAGE_SCENARIO_MEASURING_POINT__USAGE_SCENARIO,
                 PcmmeasuringpointPackage.Literals.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO, true, true);
     }
 
@@ -64,8 +63,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
      * @generated
      */
     public UsageScenario basicGetUsageScenario() {
-        return (UsageScenario) this.eDynamicGet(
-                PcmmeasuringpointPackage.USAGE_SCENARIO_MEASURING_POINT__USAGE_SCENARIO,
+        return (UsageScenario) this.eDynamicGet(PcmmeasuringpointPackage.USAGE_SCENARIO_MEASURING_POINT__USAGE_SCENARIO,
                 PcmmeasuringpointPackage.Literals.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO, false, true);
     }
 
@@ -87,8 +85,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.USAGE_SCENARIO_MEASURING_POINT__USAGE_SCENARIO:
             if (resolve) {
                 return this.getUsageScenario();
@@ -105,8 +102,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.USAGE_SCENARIO_MEASURING_POINT__USAGE_SCENARIO:
             this.setUsageScenario((UsageScenario) newValue);
             return;
@@ -121,8 +117,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.USAGE_SCENARIO_MEASURING_POINT__USAGE_SCENARIO:
             this.setUsageScenario((UsageScenario) null);
             return;
@@ -137,8 +132,7 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.USAGE_SCENARIO_MEASURING_POINT__USAGE_SCENARIO:
             return this.basicGetUsageScenario() != null;
         }
@@ -152,10 +146,8 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == UsageScenarioReference.class)
-        {
-            switch (derivedFeatureID)
-            {
+        if (baseClass == UsageScenarioReference.class) {
+            switch (derivedFeatureID) {
             case PcmmeasuringpointPackage.USAGE_SCENARIO_MEASURING_POINT__USAGE_SCENARIO:
                 return PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO;
             default:
@@ -172,10 +164,8 @@ public class UsageScenarioMeasuringPointImpl extends MeasuringPointImpl implemen
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == UsageScenarioReference.class)
-        {
-            switch (baseFeatureID)
-            {
+        if (baseClass == UsageScenarioReference.class) {
+            switch (baseFeatureID) {
             case PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO:
                 return PcmmeasuringpointPackage.USAGE_SCENARIO_MEASURING_POINT__USAGE_SCENARIO;
             default:

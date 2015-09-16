@@ -20,6 +20,8 @@ import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.OperationReference;
 import org.palladiosimulator.pcmmeasuringpoint.PassiveResourceReference;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
+import org.palladiosimulator.pcmmeasuringpoint.ResourceContainerMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.ResourceContainerReference;
 import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference;
 import org.palladiosimulator.pcmmeasuringpoint.SubSystemOperationMeasuringPoint;
@@ -54,8 +56,7 @@ public class PcmmeasuringpointSwitch<T> extends Switch<T> {
      * @generated
      */
     public PcmmeasuringpointSwitch() {
-        if (modelPackage == null)
-        {
+        if (modelPackage == null) {
             modelPackage = PcmmeasuringpointPackage.eINSTANCE;
         }
     }
@@ -64,7 +65,8 @@ public class PcmmeasuringpointSwitch<T> extends Switch<T> {
      * Checks whether this is a switch for the given package. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @parameter ePackage the package in question.
+     * @param ePackage
+     *            the package in question.
      * @return whether this is a switch for the given package.
      * @generated
      */
@@ -82,8 +84,7 @@ public class PcmmeasuringpointSwitch<T> extends Switch<T> {
      */
     @Override
     protected T doSwitch(final int classifierID, final EObject theEObject) {
-        switch (classifierID)
-        {
+        switch (classifierID) {
         case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT: {
             final AssemblyOperationMeasuringPoint assemblyOperationMeasuringPoint = (AssemblyOperationMeasuringPoint) theEObject;
             T result = this.caseAssemblyOperationMeasuringPoint(assemblyOperationMeasuringPoint);
@@ -319,6 +320,28 @@ public class PcmmeasuringpointSwitch<T> extends Switch<T> {
         case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_REFERENCE: {
             final ResourceEnvironmentReference resourceEnvironmentReference = (ResourceEnvironmentReference) theEObject;
             T result = this.caseResourceEnvironmentReference(resourceEnvironmentReference);
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PcmmeasuringpointPackage.RESOURCE_CONTAINER_MEASURING_POINT: {
+            final ResourceContainerMeasuringPoint resourceContainerMeasuringPoint = (ResourceContainerMeasuringPoint) theEObject;
+            T result = this.caseResourceContainerMeasuringPoint(resourceContainerMeasuringPoint);
+            if (result == null) {
+                result = this.caseMeasuringPoint(resourceContainerMeasuringPoint);
+            }
+            if (result == null) {
+                result = this.caseResourceContainerReference(resourceContainerMeasuringPoint);
+            }
+            if (result == null) {
+                result = this.defaultCase(theEObject);
+            }
+            return result;
+        }
+        case PcmmeasuringpointPackage.RESOURCE_CONTAINER_REFERENCE: {
+            final ResourceContainerReference resourceContainerReference = (ResourceContainerReference) theEObject;
+            T result = this.caseResourceContainerReference(resourceContainerReference);
             if (result == null) {
                 result = this.defaultCase(theEObject);
             }
@@ -663,6 +686,38 @@ public class PcmmeasuringpointSwitch<T> extends Switch<T> {
      * @generated
      */
     public T caseResourceEnvironmentReference(final ResourceEnvironmentReference object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Resource Container Measuring Point</em>'. <!-- begin-user-doc --> This implementation
+     * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Resource Container Measuring Point</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseResourceContainerMeasuringPoint(final ResourceContainerMeasuringPoint object) {
+        return null;
+    }
+
+    /**
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Resource Container Reference</em>'. <!-- begin-user-doc --> This implementation returns
+     * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     *
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Resource Container Reference</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
+    public T caseResourceContainerReference(final ResourceContainerReference object) {
         return null;
     }
 

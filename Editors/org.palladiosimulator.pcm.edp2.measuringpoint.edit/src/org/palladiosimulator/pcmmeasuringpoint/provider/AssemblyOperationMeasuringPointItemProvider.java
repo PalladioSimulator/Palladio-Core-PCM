@@ -41,8 +41,7 @@ public class AssemblyOperationMeasuringPointItemProvider extends MeasuringPointI
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null)
-        {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
             this.addRolePropertyDescriptor(object);
@@ -59,21 +58,12 @@ public class AssemblyOperationMeasuringPointItemProvider extends MeasuringPointI
      * @generated
      */
     protected void addRolePropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add
-        (this.createItemPropertyDescriptor
-                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                                this.getResourceLocator(),
-                                this.getString("_UI_OperationReference_role_feature"),
-                                this.getString("_UI_PropertyDescriptor_description",
-                                        "_UI_OperationReference_role_feature",
-                                        "_UI_OperationReference_type"),
-                                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__ROLE,
-                                true,
-                                false,
-                                true,
-                                null,
-                                null,
-                                null));
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_OperationReference_role_feature"),
+                this.getString("_UI_PropertyDescriptor_description", "_UI_OperationReference_role_feature",
+                        "_UI_OperationReference_type"),
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__ROLE, true, false, true, null, null, null));
     }
 
     /**
@@ -83,21 +73,13 @@ public class AssemblyOperationMeasuringPointItemProvider extends MeasuringPointI
      * @generated
      */
     protected void addOperationSignaturePropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add
-        (this.createItemPropertyDescriptor
-                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                                this.getResourceLocator(),
-                                this.getString("_UI_OperationReference_operationSignature_feature"),
-                                this.getString("_UI_PropertyDescriptor_description",
-                                        "_UI_OperationReference_operationSignature_feature",
-                                        "_UI_OperationReference_type"),
-                                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__OPERATION_SIGNATURE,
-                                true,
-                                false,
-                                true,
-                                null,
-                                null,
-                                null));
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_OperationReference_operationSignature_feature"),
+                this.getString("_UI_PropertyDescriptor_description",
+                        "_UI_OperationReference_operationSignature_feature", "_UI_OperationReference_type"),
+                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__OPERATION_SIGNATURE, true, false, true, null,
+                null, null));
     }
 
     /**
@@ -107,21 +89,12 @@ public class AssemblyOperationMeasuringPointItemProvider extends MeasuringPointI
      * @generated
      */
     protected void addAssemblyPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add
-        (this.createItemPropertyDescriptor
-                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                                this.getResourceLocator(),
-                                this.getString("_UI_AssemblyReference_assembly_feature"),
-                                this.getString("_UI_PropertyDescriptor_description",
-                                        "_UI_AssemblyReference_assembly_feature",
-                                        "_UI_AssemblyReference_type"),
-                                PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY,
-                                true,
-                                false,
-                                true,
-                                null,
-                                null,
-                                null));
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_AssemblyReference_assembly_feature"),
+                this.getString("_UI_PropertyDescriptor_description", "_UI_AssemblyReference_assembly_feature",
+                        "_UI_AssemblyReference_type"),
+                PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, true, false, true, null, null, null));
     }
 
     /**
@@ -145,9 +118,8 @@ public class AssemblyOperationMeasuringPointItemProvider extends MeasuringPointI
     @Override
     public String getText(final Object object) {
         final String label = ((AssemblyOperationMeasuringPoint) object).getStringRepresentation();
-        return label == null || label.length() == 0 ?
-                this.getString("_UI_AssemblyOperationMeasuringPoint_type") :
-                    this.getString("_UI_AssemblyOperationMeasuringPoint_type") + " " + label;
+        return label == null || label.length() == 0 ? this.getString("_UI_AssemblyOperationMeasuringPoint_type")
+                : this.getString("_UI_AssemblyOperationMeasuringPoint_type") + " " + label;
     }
 
     /**

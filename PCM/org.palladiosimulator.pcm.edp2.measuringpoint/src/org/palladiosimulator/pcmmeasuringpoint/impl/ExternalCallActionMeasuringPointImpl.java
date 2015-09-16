@@ -16,12 +16,12 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <em><b>External Call Action Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ExternalCallActionMeasuringPointImpl#getExternalCall
  * <em>External Call</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -88,8 +88,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_MEASURING_POINT__EXTERNAL_CALL:
             if (resolve) {
                 return this.getExternalCall();
@@ -106,8 +105,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_MEASURING_POINT__EXTERNAL_CALL:
             this.setExternalCall((ExternalCallAction) newValue);
             return;
@@ -122,8 +120,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_MEASURING_POINT__EXTERNAL_CALL:
             this.setExternalCall((ExternalCallAction) null);
             return;
@@ -138,8 +135,7 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_MEASURING_POINT__EXTERNAL_CALL:
             return this.basicGetExternalCall() != null;
         }
@@ -153,10 +149,8 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == ExternalCallActionReference.class)
-        {
-            switch (derivedFeatureID)
-            {
+        if (baseClass == ExternalCallActionReference.class) {
+            switch (derivedFeatureID) {
             case PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_MEASURING_POINT__EXTERNAL_CALL:
                 return PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_REFERENCE__EXTERNAL_CALL;
             default:
@@ -173,10 +167,8 @@ public class ExternalCallActionMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == ExternalCallActionReference.class)
-        {
-            switch (baseFeatureID)
-            {
+        if (baseClass == ExternalCallActionReference.class) {
+            switch (baseFeatureID) {
             case PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_REFERENCE__EXTERNAL_CALL:
                 return PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_MEASURING_POINT__EXTERNAL_CALL;
             default:

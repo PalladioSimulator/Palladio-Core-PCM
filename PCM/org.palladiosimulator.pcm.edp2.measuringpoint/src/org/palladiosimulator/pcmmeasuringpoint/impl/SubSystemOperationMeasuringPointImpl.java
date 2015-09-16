@@ -19,6 +19,7 @@ import org.palladiosimulator.pcmmeasuringpoint.SubSystemReference;
  * <em><b>Sub System Operation Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SubSystemOperationMeasuringPointImpl#getSubsystem
@@ -30,7 +31,6 @@ import org.palladiosimulator.pcmmeasuringpoint.SubSystemReference;
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SubSystemOperationMeasuringPointImpl#getOperationSignature
  * <em>Operation Signature</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -161,8 +161,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__SUBSYSTEM:
             if (resolve) {
                 return this.getSubsystem();
@@ -189,8 +188,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__SUBSYSTEM:
             this.setSubsystem((SubSystem) newValue);
             return;
@@ -211,8 +209,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__SUBSYSTEM:
             this.setSubsystem((SubSystem) null);
             return;
@@ -233,8 +230,7 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__SUBSYSTEM:
             return this.basicGetSubsystem() != null;
         case PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__ROLE:
@@ -252,20 +248,16 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == SubSystemReference.class)
-        {
-            switch (derivedFeatureID)
-            {
+        if (baseClass == SubSystemReference.class) {
+            switch (derivedFeatureID) {
             case PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__SUBSYSTEM:
                 return PcmmeasuringpointPackage.SUB_SYSTEM_REFERENCE__SUBSYSTEM;
             default:
                 return -1;
             }
         }
-        if (baseClass == OperationReference.class)
-        {
-            switch (derivedFeatureID)
-            {
+        if (baseClass == OperationReference.class) {
+            switch (derivedFeatureID) {
             case PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__ROLE:
                 return PcmmeasuringpointPackage.OPERATION_REFERENCE__ROLE;
             case PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE:
@@ -284,20 +276,16 @@ public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == SubSystemReference.class)
-        {
-            switch (baseFeatureID)
-            {
+        if (baseClass == SubSystemReference.class) {
+            switch (baseFeatureID) {
             case PcmmeasuringpointPackage.SUB_SYSTEM_REFERENCE__SUBSYSTEM:
                 return PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__SUBSYSTEM;
             default:
                 return -1;
             }
         }
-        if (baseClass == OperationReference.class)
-        {
-            switch (baseFeatureID)
-            {
+        if (baseClass == OperationReference.class) {
+            switch (baseFeatureID) {
             case PcmmeasuringpointPackage.OPERATION_REFERENCE__ROLE:
                 return PcmmeasuringpointPackage.SUB_SYSTEM_OPERATION_MEASURING_POINT__ROLE;
             case PcmmeasuringpointPackage.OPERATION_REFERENCE__OPERATION_SIGNATURE:

@@ -19,6 +19,7 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <em><b>Assembly Operation Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyOperationMeasuringPointImpl#getRole
@@ -30,7 +31,6 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyOperationMeasuringPointImpl#getAssembly
  * <em>Assembly</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -128,8 +128,7 @@ public class AssemblyOperationMeasuringPointImpl extends MeasuringPointImpl impl
      */
     @Override
     public AssemblyContext getAssembly() {
-        return (AssemblyContext) this.eDynamicGet(
-                PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY,
+        return (AssemblyContext) this.eDynamicGet(PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY,
                 PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, true, true);
     }
 
@@ -139,8 +138,7 @@ public class AssemblyOperationMeasuringPointImpl extends MeasuringPointImpl impl
      * @generated
      */
     public AssemblyContext basicGetAssembly() {
-        return (AssemblyContext) this.eDynamicGet(
-                PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY,
+        return (AssemblyContext) this.eDynamicGet(PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY,
                 PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, false, true);
     }
 
@@ -204,8 +202,7 @@ public class AssemblyOperationMeasuringPointImpl extends MeasuringPointImpl impl
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ROLE:
             if (resolve) {
                 return this.getRole();
@@ -232,8 +229,7 @@ public class AssemblyOperationMeasuringPointImpl extends MeasuringPointImpl impl
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ROLE:
             this.setRole((Role) newValue);
             return;
@@ -254,8 +250,7 @@ public class AssemblyOperationMeasuringPointImpl extends MeasuringPointImpl impl
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ROLE:
             this.setRole((Role) null);
             return;
@@ -276,8 +271,7 @@ public class AssemblyOperationMeasuringPointImpl extends MeasuringPointImpl impl
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ROLE:
             return this.basicGetRole() != null;
         case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE:
@@ -295,10 +289,8 @@ public class AssemblyOperationMeasuringPointImpl extends MeasuringPointImpl impl
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == OperationReference.class)
-        {
-            switch (derivedFeatureID)
-            {
+        if (baseClass == OperationReference.class) {
+            switch (derivedFeatureID) {
             case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ROLE:
                 return PcmmeasuringpointPackage.OPERATION_REFERENCE__ROLE;
             case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE:
@@ -307,10 +299,8 @@ public class AssemblyOperationMeasuringPointImpl extends MeasuringPointImpl impl
                 return -1;
             }
         }
-        if (baseClass == AssemblyReference.class)
-        {
-            switch (derivedFeatureID)
-            {
+        if (baseClass == AssemblyReference.class) {
+            switch (derivedFeatureID) {
             case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY:
                 return PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY;
             default:
@@ -327,10 +317,8 @@ public class AssemblyOperationMeasuringPointImpl extends MeasuringPointImpl impl
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == OperationReference.class)
-        {
-            switch (baseFeatureID)
-            {
+        if (baseClass == OperationReference.class) {
+            switch (baseFeatureID) {
             case PcmmeasuringpointPackage.OPERATION_REFERENCE__ROLE:
                 return PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ROLE;
             case PcmmeasuringpointPackage.OPERATION_REFERENCE__OPERATION_SIGNATURE:
@@ -339,10 +327,8 @@ public class AssemblyOperationMeasuringPointImpl extends MeasuringPointImpl impl
                 return -1;
             }
         }
-        if (baseClass == AssemblyReference.class)
-        {
-            switch (baseFeatureID)
-            {
+        if (baseClass == AssemblyReference.class) {
+            switch (baseFeatureID) {
             case PcmmeasuringpointPackage.ASSEMBLY_REFERENCE__ASSEMBLY:
                 return PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT__ASSEMBLY;
             default:

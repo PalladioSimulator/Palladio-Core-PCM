@@ -12,11 +12,11 @@ import org.palladiosimulator.pcmmeasuringpoint.SystemReference;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemReferenceImpl#getSystem <em>System
- * </em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemReferenceImpl#getSystem
+ * <em>System</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -92,8 +92,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM:
             if (resolve) {
                 return this.getSystem();
@@ -110,8 +109,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM:
             this.setSystem((org.palladiosimulator.pcm.system.System) newValue);
             return;
@@ -126,8 +124,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM:
             this.setSystem((org.palladiosimulator.pcm.system.System) null);
             return;
@@ -142,8 +139,7 @@ public abstract class SystemReferenceImpl extends CDOObjectImpl implements Syste
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.SYSTEM_REFERENCE__SYSTEM:
             return this.basicGetSystem() != null;
         }

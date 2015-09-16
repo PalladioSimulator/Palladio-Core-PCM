@@ -13,11 +13,11 @@ import org.palladiosimulator.pcmmeasuringpoint.SubSystemReference;
  * <em><b>Sub System Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.SubSystemReferenceImpl#getSubsystem <em>
- * Subsystem</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.SubSystemReferenceImpl#getSubsystem
+ * <em>Subsystem</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -91,8 +91,7 @@ public abstract class SubSystemReferenceImpl extends CDOObjectImpl implements Su
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.SUB_SYSTEM_REFERENCE__SUBSYSTEM:
             if (resolve) {
                 return this.getSubsystem();
@@ -109,8 +108,7 @@ public abstract class SubSystemReferenceImpl extends CDOObjectImpl implements Su
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.SUB_SYSTEM_REFERENCE__SUBSYSTEM:
             this.setSubsystem((SubSystem) newValue);
             return;
@@ -125,8 +123,7 @@ public abstract class SubSystemReferenceImpl extends CDOObjectImpl implements Su
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.SUB_SYSTEM_REFERENCE__SUBSYSTEM:
             this.setSubsystem((SubSystem) null);
             return;
@@ -141,8 +138,7 @@ public abstract class SubSystemReferenceImpl extends CDOObjectImpl implements Su
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.SUB_SYSTEM_REFERENCE__SUBSYSTEM:
             return this.basicGetSubsystem() != null;
         }

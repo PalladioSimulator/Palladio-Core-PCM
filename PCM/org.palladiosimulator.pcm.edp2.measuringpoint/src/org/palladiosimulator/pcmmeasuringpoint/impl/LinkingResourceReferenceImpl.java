@@ -13,12 +13,12 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <em><b>Linking Resource Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.LinkingResourceReferenceImpl#getLinkingResource
  * <em>Linking Resource</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -60,8 +60,7 @@ public abstract class LinkingResourceReferenceImpl extends CDOObjectImpl impleme
      */
     @Override
     public LinkingResource getLinkingResource() {
-        return (LinkingResource) this.eDynamicGet(
-                PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE,
+        return (LinkingResource) this.eDynamicGet(PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE,
                 PcmmeasuringpointPackage.Literals.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE, true, true);
     }
 
@@ -71,8 +70,7 @@ public abstract class LinkingResourceReferenceImpl extends CDOObjectImpl impleme
      * @generated
      */
     public LinkingResource basicGetLinkingResource() {
-        return (LinkingResource) this.eDynamicGet(
-                PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE,
+        return (LinkingResource) this.eDynamicGet(PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE,
                 PcmmeasuringpointPackage.Literals.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE, false, true);
     }
 
@@ -94,8 +92,7 @@ public abstract class LinkingResourceReferenceImpl extends CDOObjectImpl impleme
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE:
             if (resolve) {
                 return this.getLinkingResource();
@@ -112,8 +109,7 @@ public abstract class LinkingResourceReferenceImpl extends CDOObjectImpl impleme
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE:
             this.setLinkingResource((LinkingResource) newValue);
             return;
@@ -128,8 +124,7 @@ public abstract class LinkingResourceReferenceImpl extends CDOObjectImpl impleme
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE:
             this.setLinkingResource((LinkingResource) null);
             return;
@@ -144,8 +139,7 @@ public abstract class LinkingResourceReferenceImpl extends CDOObjectImpl impleme
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE:
             return this.basicGetLinkingResource() != null;
         }

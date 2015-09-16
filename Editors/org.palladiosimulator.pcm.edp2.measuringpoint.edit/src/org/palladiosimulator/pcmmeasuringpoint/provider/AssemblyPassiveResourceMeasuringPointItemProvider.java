@@ -41,8 +41,7 @@ public class AssemblyPassiveResourceMeasuringPointItemProvider extends Measuring
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null)
-        {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
             this.addAssemblyPropertyDescriptor(object);
@@ -58,21 +57,12 @@ public class AssemblyPassiveResourceMeasuringPointItemProvider extends Measuring
      * @generated
      */
     protected void addAssemblyPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add
-        (this.createItemPropertyDescriptor
-                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                                this.getResourceLocator(),
-                                this.getString("_UI_AssemblyReference_assembly_feature"),
-                                this.getString("_UI_PropertyDescriptor_description",
-                                        "_UI_AssemblyReference_assembly_feature",
-                                        "_UI_AssemblyReference_type"),
-                                PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY,
-                                true,
-                                false,
-                                true,
-                                null,
-                                null,
-                                null));
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_AssemblyReference_assembly_feature"),
+                this.getString("_UI_PropertyDescriptor_description", "_UI_AssemblyReference_assembly_feature",
+                        "_UI_AssemblyReference_type"),
+                PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, true, false, true, null, null, null));
     }
 
     /**
@@ -82,21 +72,13 @@ public class AssemblyPassiveResourceMeasuringPointItemProvider extends Measuring
      * @generated
      */
     protected void addPassiveResourcePropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add
-        (this.createItemPropertyDescriptor
-                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                                this.getResourceLocator(),
-                                this.getString("_UI_PassiveResourceReference_passiveResource_feature"),
-                                this.getString("_UI_PropertyDescriptor_description",
-                                        "_UI_PassiveResourceReference_passiveResource_feature",
-                                        "_UI_PassiveResourceReference_type"),
-                                PcmmeasuringpointPackage.Literals.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE,
-                                true,
-                                false,
-                                true,
-                                null,
-                                null,
-                                null));
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_PassiveResourceReference_passiveResource_feature"),
+                this.getString("_UI_PropertyDescriptor_description",
+                        "_UI_PassiveResourceReference_passiveResource_feature", "_UI_PassiveResourceReference_type"),
+                PcmmeasuringpointPackage.Literals.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE, true, false, true, null,
+                null, null));
     }
 
     /**
@@ -120,9 +102,8 @@ public class AssemblyPassiveResourceMeasuringPointItemProvider extends Measuring
     @Override
     public String getText(final Object object) {
         final String label = ((AssemblyPassiveResourceMeasuringPoint) object).getStringRepresentation();
-        return label == null || label.length() == 0 ?
-                this.getString("_UI_AssemblyPassiveResourceMeasuringPoint_type") :
-                    this.getString("_UI_AssemblyPassiveResourceMeasuringPoint_type") + " " + label;
+        return label == null || label.length() == 0 ? this.getString("_UI_AssemblyPassiveResourceMeasuringPoint_type")
+                : this.getString("_UI_AssemblyPassiveResourceMeasuringPoint_type") + " " + label;
     }
 
     /**

@@ -11,13 +11,13 @@ import org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecifica
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.ActiveResourceReference#getActiveResource <em>
- * Active Resource</em>}</li>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.ActiveResourceReference#getReplicaID <em>
- * Replica ID</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcmmeasuringpoint.ActiveResourceReference#getActiveResource
+ * <em>Active Resource</em>}</li>
+ * <li>{@link org.palladiosimulator.pcmmeasuringpoint.ActiveResourceReference#getReplicaID
+ * <em>Replica ID</em>}</li>
+ * </ul>
  *
  * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getActiveResourceReference()
  * @model abstract="true"

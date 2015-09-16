@@ -41,8 +41,7 @@ public class ExternalCallActionMeasuringPointItemProvider extends MeasuringPoint
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null)
-        {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
             this.addExternalCallPropertyDescriptor(object);
@@ -57,21 +56,13 @@ public class ExternalCallActionMeasuringPointItemProvider extends MeasuringPoint
      * @generated
      */
     protected void addExternalCallPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add
-        (this.createItemPropertyDescriptor
-                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                                this.getResourceLocator(),
-                                this.getString("_UI_ExternalCallActionReference_externalCall_feature"),
-                                this.getString("_UI_PropertyDescriptor_description",
-                                        "_UI_ExternalCallActionReference_externalCall_feature",
-                                        "_UI_ExternalCallActionReference_type"),
-                                PcmmeasuringpointPackage.Literals.EXTERNAL_CALL_ACTION_REFERENCE__EXTERNAL_CALL,
-                                true,
-                                false,
-                                true,
-                                null,
-                                null,
-                                null));
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_ExternalCallActionReference_externalCall_feature"),
+                this.getString("_UI_PropertyDescriptor_description",
+                        "_UI_ExternalCallActionReference_externalCall_feature", "_UI_ExternalCallActionReference_type"),
+                PcmmeasuringpointPackage.Literals.EXTERNAL_CALL_ACTION_REFERENCE__EXTERNAL_CALL, true, false, true,
+                null, null, null));
     }
 
     /**
@@ -95,9 +86,8 @@ public class ExternalCallActionMeasuringPointItemProvider extends MeasuringPoint
     @Override
     public String getText(final Object object) {
         final String label = ((ExternalCallActionMeasuringPoint) object).getStringRepresentation();
-        return label == null || label.length() == 0 ?
-                this.getString("_UI_ExternalCallActionMeasuringPoint_type") :
-                    this.getString("_UI_ExternalCallActionMeasuringPoint_type") + " " + label;
+        return label == null || label.length() == 0 ? this.getString("_UI_ExternalCallActionMeasuringPoint_type")
+                : this.getString("_UI_ExternalCallActionMeasuringPoint_type") + " " + label;
     }
 
     /**

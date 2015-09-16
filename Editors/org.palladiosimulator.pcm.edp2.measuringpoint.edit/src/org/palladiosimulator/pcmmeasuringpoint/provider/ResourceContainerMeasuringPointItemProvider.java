@@ -9,24 +9,19 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.palladiosimulator.edp2.models.measuringpoint.provider.MeasuringPointItemProvider;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
+import org.palladiosimulator.pcmmeasuringpoint.ResourceContainerMeasuringPoint;
 
 /**
  * This is the item provider adapter for a
- * {@link org.palladiosimulator.pcmmeasuringpoint.AssemblyReference} object. <!-- begin-user-doc -->
- * <!-- end-user-doc -->
- * 
+ * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceContainerMeasuringPoint} object. <!--
+ * begin-user-doc --> <!-- end-user-doc -->
+ *
  * @generated
  */
-public class AssemblyReferenceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ResourceContainerMeasuringPointItemProvider extends MeasuringPointItemProvider {
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
@@ -34,7 +29,7 @@ public class AssemblyReferenceItemProvider extends ItemProviderAdapter implement
      * 
      * @generated
      */
-    public AssemblyReferenceItemProvider(final AdapterFactory adapterFactory) {
+    public ResourceContainerMeasuringPointItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -49,24 +44,38 @@ public class AssemblyReferenceItemProvider extends ItemProviderAdapter implement
         if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            this.addAssemblyPropertyDescriptor(object);
+            this.addResourceContainerPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Assembly feature. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * This adds a property descriptor for the Resource Container feature. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * 
      * @generated
      */
-    protected void addAssemblyPropertyDescriptor(final Object object) {
+    protected void addResourceContainerPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_AssemblyReference_assembly_feature"),
-                this.getString("_UI_PropertyDescriptor_description", "_UI_AssemblyReference_assembly_feature",
-                        "_UI_AssemblyReference_type"),
-                PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, true, false, true, null, null, null));
+                this.getString("_UI_ResourceContainerReference_resourceContainer_feature"),
+                this.getString("_UI_PropertyDescriptor_description",
+                        "_UI_ResourceContainerReference_resourceContainer_feature",
+                        "_UI_ResourceContainerReference_type"),
+                PcmmeasuringpointPackage.Literals.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER, true, false, true,
+                null, null, null));
+    }
+
+    /**
+     * This returns ResourceContainerMeasuringPoint.gif. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @generated
+     */
+    @Override
+    public Object getImage(final Object object) {
+        return this.overlayImage(object,
+                this.getResourceLocator().getImage("full/obj16/ResourceContainerMeasuringPoint"));
     }
 
     /**
@@ -77,7 +86,9 @@ public class AssemblyReferenceItemProvider extends ItemProviderAdapter implement
      */
     @Override
     public String getText(final Object object) {
-        return this.getString("_UI_AssemblyReference_type");
+        final String label = ((ResourceContainerMeasuringPoint) object).getStringRepresentation();
+        return label == null || label.length() == 0 ? this.getString("_UI_ResourceContainerMeasuringPoint_type")
+                : this.getString("_UI_ResourceContainerMeasuringPoint_type") + " " + label;
     }
 
     /**

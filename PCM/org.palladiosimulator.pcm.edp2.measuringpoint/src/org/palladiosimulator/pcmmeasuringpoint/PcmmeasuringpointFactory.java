@@ -112,6 +112,15 @@ public interface PcmmeasuringpointFactory extends EFactory {
     ResourceEnvironmentMeasuringPoint createResourceEnvironmentMeasuringPoint();
 
     /**
+     * Returns a new object of class '<em>Resource Container Measuring Point</em>'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return a new object of class '<em>Resource Container Measuring Point</em>'.
+     * @generated
+     */
+    ResourceContainerMeasuringPoint createResourceContainerMeasuringPoint();
+
+    /**
      * Returns the package supported by this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the package supported by this factory.

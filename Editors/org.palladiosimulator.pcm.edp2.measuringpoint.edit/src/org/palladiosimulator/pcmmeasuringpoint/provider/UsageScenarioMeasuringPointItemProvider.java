@@ -41,8 +41,7 @@ public class UsageScenarioMeasuringPointItemProvider extends MeasuringPointItemP
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null)
-        {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
             this.addUsageScenarioPropertyDescriptor(object);
@@ -57,21 +56,13 @@ public class UsageScenarioMeasuringPointItemProvider extends MeasuringPointItemP
      * @generated
      */
     protected void addUsageScenarioPropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add
-        (this.createItemPropertyDescriptor
-                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                                this.getResourceLocator(),
-                                this.getString("_UI_UsageScenarioReference_usageScenario_feature"),
-                                this.getString("_UI_PropertyDescriptor_description",
-                                        "_UI_UsageScenarioReference_usageScenario_feature",
-                                        "_UI_UsageScenarioReference_type"),
-                                PcmmeasuringpointPackage.Literals.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO,
-                                true,
-                                false,
-                                true,
-                                null,
-                                null,
-                                null));
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_UsageScenarioReference_usageScenario_feature"),
+                this.getString("_UI_PropertyDescriptor_description", "_UI_UsageScenarioReference_usageScenario_feature",
+                        "_UI_UsageScenarioReference_type"),
+                PcmmeasuringpointPackage.Literals.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO, true, false, true, null,
+                null, null));
     }
 
     /**
@@ -93,9 +84,8 @@ public class UsageScenarioMeasuringPointItemProvider extends MeasuringPointItemP
     @Override
     public String getText(final Object object) {
         final String label = ((UsageScenarioMeasuringPoint) object).getStringRepresentation();
-        return label == null || label.length() == 0 ?
-                this.getString("_UI_UsageScenarioMeasuringPoint_type") :
-                    this.getString("_UI_UsageScenarioMeasuringPoint_type") + " " + label;
+        return label == null || label.length() == 0 ? this.getString("_UI_UsageScenarioMeasuringPoint_type")
+                : this.getString("_UI_UsageScenarioMeasuringPoint_type") + " " + label;
     }
 
     /**

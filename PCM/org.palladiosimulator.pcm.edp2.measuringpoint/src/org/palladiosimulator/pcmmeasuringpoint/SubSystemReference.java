@@ -11,11 +11,11 @@ import org.palladiosimulator.pcm.subsystem.SubSystem;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.SubSystemReference#getSubsystem <em>Subsystem
- * </em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcmmeasuringpoint.SubSystemReference#getSubsystem
+ * <em>Subsystem</em>}</li>
+ * </ul>
  *
  * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getSubSystemReference()
  * @model abstract="true"

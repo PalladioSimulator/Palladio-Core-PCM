@@ -13,12 +13,12 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <em><b>Passive Resource Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.PassiveResourceReferenceImpl#getPassiveResource
  * <em>Passive Resource</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -60,8 +60,7 @@ public abstract class PassiveResourceReferenceImpl extends CDOObjectImpl impleme
      */
     @Override
     public PassiveResource getPassiveResource() {
-        return (PassiveResource) this.eDynamicGet(
-                PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE,
+        return (PassiveResource) this.eDynamicGet(PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE,
                 PcmmeasuringpointPackage.Literals.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE, true, true);
     }
 
@@ -71,8 +70,7 @@ public abstract class PassiveResourceReferenceImpl extends CDOObjectImpl impleme
      * @generated
      */
     public PassiveResource basicGetPassiveResource() {
-        return (PassiveResource) this.eDynamicGet(
-                PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE,
+        return (PassiveResource) this.eDynamicGet(PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE,
                 PcmmeasuringpointPackage.Literals.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE, false, true);
     }
 
@@ -94,8 +92,7 @@ public abstract class PassiveResourceReferenceImpl extends CDOObjectImpl impleme
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE:
             if (resolve) {
                 return this.getPassiveResource();
@@ -112,8 +109,7 @@ public abstract class PassiveResourceReferenceImpl extends CDOObjectImpl impleme
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE:
             this.setPassiveResource((PassiveResource) newValue);
             return;
@@ -128,8 +124,7 @@ public abstract class PassiveResourceReferenceImpl extends CDOObjectImpl impleme
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE:
             this.setPassiveResource((PassiveResource) null);
             return;
@@ -144,8 +139,7 @@ public abstract class PassiveResourceReferenceImpl extends CDOObjectImpl impleme
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE:
             return this.basicGetPassiveResource() != null;
         }

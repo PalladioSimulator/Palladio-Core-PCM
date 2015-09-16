@@ -20,12 +20,12 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
 
 /**
  * This is the item provider adapter for a
- * {@link org.palladiosimulator.pcmmeasuringpoint.AssemblyReference} object. <!-- begin-user-doc -->
- * <!-- end-user-doc -->
- * 
+ * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceContainerReference} object. <!--
+ * begin-user-doc --> <!-- end-user-doc -->
+ *
  * @generated
  */
-public class AssemblyReferenceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+public class ResourceContainerReferenceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
         IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 
     /**
@@ -34,7 +34,7 @@ public class AssemblyReferenceItemProvider extends ItemProviderAdapter implement
      * 
      * @generated
      */
-    public AssemblyReferenceItemProvider(final AdapterFactory adapterFactory) {
+    public ResourceContainerReferenceItemProvider(final AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
@@ -49,24 +49,26 @@ public class AssemblyReferenceItemProvider extends ItemProviderAdapter implement
         if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
-            this.addAssemblyPropertyDescriptor(object);
+            this.addResourceContainerPropertyDescriptor(object);
         }
         return this.itemPropertyDescriptors;
     }
 
     /**
-     * This adds a property descriptor for the Assembly feature. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * This adds a property descriptor for the Resource Container feature. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
      * 
      * @generated
      */
-    protected void addAssemblyPropertyDescriptor(final Object object) {
+    protected void addResourceContainerPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_AssemblyReference_assembly_feature"),
-                this.getString("_UI_PropertyDescriptor_description", "_UI_AssemblyReference_assembly_feature",
-                        "_UI_AssemblyReference_type"),
-                PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, true, false, true, null, null, null));
+                this.getString("_UI_ResourceContainerReference_resourceContainer_feature"),
+                this.getString("_UI_PropertyDescriptor_description",
+                        "_UI_ResourceContainerReference_resourceContainer_feature",
+                        "_UI_ResourceContainerReference_type"),
+                PcmmeasuringpointPackage.Literals.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER, true, false, true,
+                null, null, null));
     }
 
     /**
@@ -77,7 +79,7 @@ public class AssemblyReferenceItemProvider extends ItemProviderAdapter implement
      */
     @Override
     public String getText(final Object object) {
-        return this.getString("_UI_AssemblyReference_type");
+        return this.getString("_UI_ResourceContainerReference_type");
     }
 
     /**

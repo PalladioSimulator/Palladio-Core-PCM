@@ -121,7 +121,8 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSEMBLY_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 1;
+    int ASSEMBLY_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT
+            + 1;
 
     /**
      * The feature id for the '<em><b>Assembly</b></em>' reference. <!-- begin-user-doc --> <!--
@@ -207,7 +208,8 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__PASSIVE_RESOURCE = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 1;
+    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT__PASSIVE_RESOURCE = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT
+            + 1;
 
     /**
      * The number of structural features of the '<em>Assembly Passive Resource Measuring Point</em>'
@@ -216,7 +218,8 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT_FEATURE_COUNT = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 2;
+    int ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT_FEATURE_COUNT = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT
+            + 2;
 
     /**
      * The meta object id for the '
@@ -661,7 +664,8 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_SYSTEM_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 2;
+    int SUB_SYSTEM_OPERATION_MEASURING_POINT__OPERATION_SIGNATURE = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT
+            + 2;
 
     /**
      * The number of structural features of the '<em>Sub System Operation Measuring Point</em>'
@@ -858,7 +862,8 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ENTRY_LEVEL_SYSTEM_CALL_MEASURING_POINT__ENTRY_LEVEL_SYSTEM_CALL = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 0;
+    int ENTRY_LEVEL_SYSTEM_CALL_MEASURING_POINT__ENTRY_LEVEL_SYSTEM_CALL = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT
+            + 0;
 
     /**
      * The number of structural features of the '<em>Entry Level System Call Measuring Point</em>'
@@ -1008,7 +1013,8 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 0;
+    int RESOURCE_ENVIRONMENT_MEASURING_POINT__RESOURCE_ENVIRONMENT = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT
+            + 0;
 
     /**
      * The number of structural features of the '<em>Resource Environment Measuring Point</em>'
@@ -1036,6 +1042,93 @@ public interface PcmmeasuringpointPackage extends EPackage {
      * @ordered
      */
     int RESOURCE_ENVIRONMENT_REFERENCE_FEATURE_COUNT = 1;
+
+    /**
+     * The meta object id for the '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceContainerMeasuringPointImpl
+     * <em>Resource Container Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @see org.palladiosimulator.pcmmeasuringpoint.impl.ResourceContainerMeasuringPointImpl
+     * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getResourceContainerMeasuringPoint()
+     * @generated
+     */
+    int RESOURCE_CONTAINER_MEASURING_POINT = 21;
+
+    /**
+     * The feature id for the '<em><b>Measuring Point Repository</b></em>' container reference. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int RESOURCE_CONTAINER_MEASURING_POINT__MEASURING_POINT_REPOSITORY = MeasuringpointPackage.MEASURING_POINT__MEASURING_POINT_REPOSITORY;
+
+    /**
+     * The feature id for the '<em><b>String Representation</b></em>' attribute. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int RESOURCE_CONTAINER_MEASURING_POINT__STRING_REPRESENTATION = MeasuringpointPackage.MEASURING_POINT__STRING_REPRESENTATION;
+
+    /**
+     * The feature id for the '<em><b>Resource URI Representation</b></em>' attribute. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int RESOURCE_CONTAINER_MEASURING_POINT__RESOURCE_URI_REPRESENTATION = MeasuringpointPackage.MEASURING_POINT__RESOURCE_URI_REPRESENTATION;
+
+    /**
+     * The feature id for the '<em><b>Resource Container</b></em>' reference. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int RESOURCE_CONTAINER_MEASURING_POINT__RESOURCE_CONTAINER = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT
+            + 0;
+
+    /**
+     * The number of structural features of the '<em>Resource Container Measuring Point</em>' class.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int RESOURCE_CONTAINER_MEASURING_POINT_FEATURE_COUNT = MeasuringpointPackage.MEASURING_POINT_FEATURE_COUNT + 1;
+
+    /**
+     * The meta object id for the '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceContainerReferenceImpl
+     * <em>Resource Container Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @see org.palladiosimulator.pcmmeasuringpoint.impl.ResourceContainerReferenceImpl
+     * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getResourceContainerReference()
+     * @generated
+     */
+    int RESOURCE_CONTAINER_REFERENCE = 22;
+
+    /**
+     * The feature id for the '<em><b>Resource Container</b></em>' reference. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER = 0;
+
+    /**
+     * The number of structural features of the '<em>Resource Container Reference</em>' class. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int RESOURCE_CONTAINER_REFERENCE_FEATURE_COUNT = 1;
 
     /**
      * Returns the meta object for class '
@@ -1430,6 +1523,40 @@ public interface PcmmeasuringpointPackage extends EPackage {
     EReference getResourceEnvironmentReference_ResourceEnvironment();
 
     /**
+     * Returns the meta object for class '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceContainerMeasuringPoint
+     * <em>Resource Container Measuring Point</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>Resource Container Measuring Point</em>'.
+     * @see org.palladiosimulator.pcmmeasuringpoint.ResourceContainerMeasuringPoint
+     * @generated
+     */
+    EClass getResourceContainerMeasuringPoint();
+
+    /**
+     * Returns the meta object for class '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceContainerReference
+     * <em>Resource Container Reference</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>Resource Container Reference</em>'.
+     * @see org.palladiosimulator.pcmmeasuringpoint.ResourceContainerReference
+     * @generated
+     */
+    EClass getResourceContainerReference();
+
+    /**
+     * Returns the meta object for the reference '
+     * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceContainerReference#getResourceContainer
+     * <em>Resource Container</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the reference '<em>Resource Container</em>'.
+     * @see org.palladiosimulator.pcmmeasuringpoint.ResourceContainerReference#getResourceContainer()
+     * @see #getResourceContainerReference()
+     * @generated
+     */
+    EReference getResourceContainerReference_ResourceContainer();
+
+    /**
      * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -1471,7 +1598,8 @@ public interface PcmmeasuringpointPackage extends EPackage {
          * <em>Assembly Passive Resource Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
-         * @see org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyPassiveResourceMeasuringPointImpl
+         * @see org.palladiosimulator.pcmmeasuringpoint.impl.
+         *      AssemblyPassiveResourceMeasuringPointImpl
          * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getAssemblyPassiveResourceMeasuringPoint()
          * @generated
          */
@@ -1807,6 +1935,39 @@ public interface PcmmeasuringpointPackage extends EPackage {
          */
         EReference RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT = eINSTANCE
                 .getResourceEnvironmentReference_ResourceEnvironment();
+
+        /**
+         * The meta object literal for the '
+         * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceContainerMeasuringPointImpl
+         * <em>Resource Container Measuring Point</em>}' class. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         *
+         * @see org.palladiosimulator.pcmmeasuringpoint.impl.ResourceContainerMeasuringPointImpl
+         * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getResourceContainerMeasuringPoint()
+         * @generated
+         */
+        EClass RESOURCE_CONTAINER_MEASURING_POINT = eINSTANCE.getResourceContainerMeasuringPoint();
+
+        /**
+         * The meta object literal for the '
+         * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceContainerReferenceImpl
+         * <em>Resource Container Reference</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
+         * -->
+         *
+         * @see org.palladiosimulator.pcmmeasuringpoint.impl.ResourceContainerReferenceImpl
+         * @see org.palladiosimulator.pcmmeasuringpoint.impl.PcmmeasuringpointPackageImpl#getResourceContainerReference()
+         * @generated
+         */
+        EClass RESOURCE_CONTAINER_REFERENCE = eINSTANCE.getResourceContainerReference();
+
+        /**
+         * The meta object literal for the '<em><b>Resource Container</b></em>' reference feature.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER = eINSTANCE
+                .getResourceContainerReference_ResourceContainer();
 
     }
 

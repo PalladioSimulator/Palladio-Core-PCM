@@ -15,6 +15,7 @@ import org.palladiosimulator.pcmmeasuringpoint.ExternalCallActionMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointFactory;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
+import org.palladiosimulator.pcmmeasuringpoint.ResourceContainerMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.SubSystemOperationMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.SystemOperationMeasuringPoint;
@@ -33,16 +34,13 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
      * @generated
      */
     public static PcmmeasuringpointFactory init() {
-        try
-        {
+        try {
             final PcmmeasuringpointFactory thePcmmeasuringpointFactory = (PcmmeasuringpointFactory) EPackage.Registry.INSTANCE
                     .getEFactory(PcmmeasuringpointPackage.eNS_URI);
-            if (thePcmmeasuringpointFactory != null)
-            {
+            if (thePcmmeasuringpointFactory != null) {
                 return thePcmmeasuringpointFactory;
             }
-        } catch (final Exception exception)
-        {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new PcmmeasuringpointFactoryImpl();
@@ -64,8 +62,7 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID())
-        {
+        switch (eClass.getClassifierID()) {
         case PcmmeasuringpointPackage.ASSEMBLY_OPERATION_MEASURING_POINT:
             return this.createAssemblyOperationMeasuringPoint();
         case PcmmeasuringpointPackage.ASSEMBLY_PASSIVE_RESOURCE_MEASURING_POINT:
@@ -86,6 +83,8 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
             return this.createExternalCallActionMeasuringPoint();
         case PcmmeasuringpointPackage.RESOURCE_ENVIRONMENT_MEASURING_POINT:
             return this.createResourceEnvironmentMeasuringPoint();
+        case PcmmeasuringpointPackage.RESOURCE_CONTAINER_MEASURING_POINT:
+            return this.createResourceContainerMeasuringPoint();
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
@@ -199,6 +198,17 @@ public class PcmmeasuringpointFactoryImpl extends EFactoryImpl implements Pcmmea
     public ResourceEnvironmentMeasuringPoint createResourceEnvironmentMeasuringPoint() {
         final ResourceEnvironmentMeasuringPointImpl resourceEnvironmentMeasuringPoint = new ResourceEnvironmentMeasuringPointImpl();
         return resourceEnvironmentMeasuringPoint;
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public ResourceContainerMeasuringPoint createResourceContainerMeasuringPoint() {
+        final ResourceContainerMeasuringPointImpl resourceContainerMeasuringPoint = new ResourceContainerMeasuringPointImpl();
+        return resourceContainerMeasuringPoint;
     }
 
     /**

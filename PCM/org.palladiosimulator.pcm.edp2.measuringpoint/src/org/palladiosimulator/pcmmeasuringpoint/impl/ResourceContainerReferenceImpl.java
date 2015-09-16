@@ -4,32 +4,32 @@ package org.palladiosimulator.pcmmeasuringpoint.impl;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.internal.cdo.CDOObjectImpl;
-import org.palladiosimulator.pcm.usagemodel.UsageScenario;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
-import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference;
+import org.palladiosimulator.pcmmeasuringpoint.ResourceContainerReference;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Usage Scenario Reference</b></em>'. <!-- end-user-doc -->
+ * <em><b>Resource Container Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
  * <li>
- * {@link org.palladiosimulator.pcmmeasuringpoint.impl.UsageScenarioReferenceImpl#getUsageScenario
- * <em>Usage Scenario</em>}</li>
+ * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceContainerReferenceImpl#getResourceContainer
+ * <em>Resource Container</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implements UsageScenarioReference {
+public abstract class ResourceContainerReferenceImpl extends CDOObjectImpl implements ResourceContainerReference {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
-    protected UsageScenarioReferenceImpl() {
+    protected ResourceContainerReferenceImpl() {
         super();
     }
 
@@ -40,7 +40,7 @@ public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implement
      */
     @Override
     protected EClass eStaticClass() {
-        return PcmmeasuringpointPackage.Literals.USAGE_SCENARIO_REFERENCE;
+        return PcmmeasuringpointPackage.Literals.RESOURCE_CONTAINER_REFERENCE;
     }
 
     /**
@@ -59,9 +59,10 @@ public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implement
      * @generated
      */
     @Override
-    public UsageScenario getUsageScenario() {
-        return (UsageScenario) this.eDynamicGet(PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO,
-                PcmmeasuringpointPackage.Literals.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO, true, true);
+    public ResourceContainer getResourceContainer() {
+        return (ResourceContainer) this.eDynamicGet(
+                PcmmeasuringpointPackage.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER,
+                PcmmeasuringpointPackage.Literals.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER, true, true);
     }
 
     /**
@@ -69,9 +70,10 @@ public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implement
      *
      * @generated
      */
-    public UsageScenario basicGetUsageScenario() {
-        return (UsageScenario) this.eDynamicGet(PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO,
-                PcmmeasuringpointPackage.Literals.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO, false, true);
+    public ResourceContainer basicGetResourceContainer() {
+        return (ResourceContainer) this.eDynamicGet(
+                PcmmeasuringpointPackage.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER,
+                PcmmeasuringpointPackage.Literals.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER, false, true);
     }
 
     /**
@@ -80,9 +82,10 @@ public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implement
      * @generated
      */
     @Override
-    public void setUsageScenario(final UsageScenario newUsageScenario) {
-        this.eDynamicSet(PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO,
-                PcmmeasuringpointPackage.Literals.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO, newUsageScenario);
+    public void setResourceContainer(final ResourceContainer newResourceContainer) {
+        this.eDynamicSet(PcmmeasuringpointPackage.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER,
+                PcmmeasuringpointPackage.Literals.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER,
+                newResourceContainer);
     }
 
     /**
@@ -93,11 +96,11 @@ public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implement
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
-        case PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO:
+        case PcmmeasuringpointPackage.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER:
             if (resolve) {
-                return this.getUsageScenario();
+                return this.getResourceContainer();
             }
-            return this.basicGetUsageScenario();
+            return this.basicGetResourceContainer();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -110,8 +113,8 @@ public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implement
     @Override
     public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
-        case PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO:
-            this.setUsageScenario((UsageScenario) newValue);
+        case PcmmeasuringpointPackage.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER:
+            this.setResourceContainer((ResourceContainer) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -125,8 +128,8 @@ public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implement
     @Override
     public void eUnset(final int featureID) {
         switch (featureID) {
-        case PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO:
-            this.setUsageScenario((UsageScenario) null);
+        case PcmmeasuringpointPackage.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER:
+            this.setResourceContainer((ResourceContainer) null);
             return;
         }
         super.eUnset(featureID);
@@ -140,10 +143,10 @@ public abstract class UsageScenarioReferenceImpl extends CDOObjectImpl implement
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
-        case PcmmeasuringpointPackage.USAGE_SCENARIO_REFERENCE__USAGE_SCENARIO:
-            return this.basicGetUsageScenario() != null;
+        case PcmmeasuringpointPackage.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER:
+            return this.basicGetResourceContainer() != null;
         }
         return super.eIsSet(featureID);
     }
 
-} // UsageScenarioReferenceImpl
+} // ResourceContainerReferenceImpl

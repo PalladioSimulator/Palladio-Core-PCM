@@ -41,8 +41,7 @@ public class LinkingResourceMeasuringPointItemProvider extends MeasuringPointIte
      */
     @Override
     public List<IItemPropertyDescriptor> getPropertyDescriptors(final Object object) {
-        if (this.itemPropertyDescriptors == null)
-        {
+        if (this.itemPropertyDescriptors == null) {
             super.getPropertyDescriptors(object);
 
             this.addLinkingResourcePropertyDescriptor(object);
@@ -57,21 +56,13 @@ public class LinkingResourceMeasuringPointItemProvider extends MeasuringPointIte
      * @generated
      */
     protected void addLinkingResourcePropertyDescriptor(final Object object) {
-        this.itemPropertyDescriptors.add
-        (this.createItemPropertyDescriptor
-                        (((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(),
-                                this.getResourceLocator(),
-                                this.getString("_UI_LinkingResourceReference_linkingResource_feature"),
-                                this.getString("_UI_PropertyDescriptor_description",
-                                        "_UI_LinkingResourceReference_linkingResource_feature",
-                                        "_UI_LinkingResourceReference_type"),
-                                PcmmeasuringpointPackage.Literals.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE,
-                                true,
-                                false,
-                                true,
-                                null,
-                                null,
-                                null));
+        this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
+                ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
+                this.getString("_UI_LinkingResourceReference_linkingResource_feature"),
+                this.getString("_UI_PropertyDescriptor_description",
+                        "_UI_LinkingResourceReference_linkingResource_feature", "_UI_LinkingResourceReference_type"),
+                PcmmeasuringpointPackage.Literals.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE, true, false, true, null,
+                null, null));
     }
 
     /**
@@ -81,8 +72,8 @@ public class LinkingResourceMeasuringPointItemProvider extends MeasuringPointIte
      */
     @Override
     public Object getImage(final Object object) {
-        return this
-                .overlayImage(object, this.getResourceLocator().getImage("full/obj16/LinkingResourceMeasuringPoint"));
+        return this.overlayImage(object,
+                this.getResourceLocator().getImage("full/obj16/LinkingResourceMeasuringPoint"));
     }
 
     /**
@@ -94,9 +85,8 @@ public class LinkingResourceMeasuringPointItemProvider extends MeasuringPointIte
     @Override
     public String getText(final Object object) {
         final String label = ((LinkingResourceMeasuringPoint) object).getStringRepresentation();
-        return label == null || label.length() == 0 ?
-                this.getString("_UI_LinkingResourceMeasuringPoint_type") :
-                    this.getString("_UI_LinkingResourceMeasuringPoint_type") + " " + label;
+        return label == null || label.length() == 0 ? this.getString("_UI_LinkingResourceMeasuringPoint_type")
+                : this.getString("_UI_LinkingResourceMeasuringPoint_type") + " " + label;
     }
 
     /**

@@ -16,6 +16,7 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <em><b>Active Resource Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ActiveResourceMeasuringPointImpl#getActiveResource
@@ -24,7 +25,6 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ActiveResourceMeasuringPointImpl#getReplicaID
  * <em>Replica ID</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -122,8 +122,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.ACTIVE_RESOURCE_MEASURING_POINT__ACTIVE_RESOURCE:
             if (resolve) {
                 return this.getActiveResource();
@@ -142,8 +141,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.ACTIVE_RESOURCE_MEASURING_POINT__ACTIVE_RESOURCE:
             this.setActiveResource((ProcessingResourceSpecification) newValue);
             return;
@@ -161,8 +159,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.ACTIVE_RESOURCE_MEASURING_POINT__ACTIVE_RESOURCE:
             this.setActiveResource((ProcessingResourceSpecification) null);
             return;
@@ -180,8 +177,7 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.ACTIVE_RESOURCE_MEASURING_POINT__ACTIVE_RESOURCE:
             return this.basicGetActiveResource() != null;
         case PcmmeasuringpointPackage.ACTIVE_RESOURCE_MEASURING_POINT__REPLICA_ID:
@@ -197,10 +193,8 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == ActiveResourceReference.class)
-        {
-            switch (derivedFeatureID)
-            {
+        if (baseClass == ActiveResourceReference.class) {
+            switch (derivedFeatureID) {
             case PcmmeasuringpointPackage.ACTIVE_RESOURCE_MEASURING_POINT__ACTIVE_RESOURCE:
                 return PcmmeasuringpointPackage.ACTIVE_RESOURCE_REFERENCE__ACTIVE_RESOURCE;
             case PcmmeasuringpointPackage.ACTIVE_RESOURCE_MEASURING_POINT__REPLICA_ID:
@@ -219,10 +213,8 @@ public class ActiveResourceMeasuringPointImpl extends MeasuringPointImpl impleme
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == ActiveResourceReference.class)
-        {
-            switch (baseFeatureID)
-            {
+        if (baseClass == ActiveResourceReference.class) {
+            switch (baseFeatureID) {
             case PcmmeasuringpointPackage.ACTIVE_RESOURCE_REFERENCE__ACTIVE_RESOURCE:
                 return PcmmeasuringpointPackage.ACTIVE_RESOURCE_MEASURING_POINT__ACTIVE_RESOURCE;
             case PcmmeasuringpointPackage.ACTIVE_RESOURCE_REFERENCE__REPLICA_ID:

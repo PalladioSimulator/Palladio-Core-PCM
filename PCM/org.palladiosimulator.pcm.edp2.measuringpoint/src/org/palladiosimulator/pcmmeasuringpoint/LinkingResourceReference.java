@@ -11,11 +11,11 @@ import org.palladiosimulator.pcm.resourceenvironment.LinkingResource;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcmmeasuringpoint.LinkingResourceReference#getLinkingResource
  * <em>Linking Resource</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getLinkingResourceReference()
  * @model abstract="true"

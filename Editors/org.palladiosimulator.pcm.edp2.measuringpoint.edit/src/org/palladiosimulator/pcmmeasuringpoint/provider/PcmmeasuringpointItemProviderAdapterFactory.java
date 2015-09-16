@@ -41,7 +41,7 @@ import org.palladiosimulator.pcmmeasuringpoint.util.PcmmeasuringpointAdapterFact
  * @generated
  */
 public class PcmmeasuringpointItemProviderAdapterFactory extends PcmmeasuringpointAdapterFactory
-implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+        implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 
     /**
      * This keeps track of the root adapter factory that delegates to this adapter factory. <!--
@@ -98,8 +98,7 @@ implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
      */
     @Override
     public Adapter createAssemblyOperationMeasuringPointAdapter() {
-        if (this.assemblyOperationMeasuringPointItemProvider == null)
-        {
+        if (this.assemblyOperationMeasuringPointItemProvider == null) {
             this.assemblyOperationMeasuringPointItemProvider = new AssemblyOperationMeasuringPointItemProvider(this);
         }
 
@@ -124,8 +123,7 @@ implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
      */
     @Override
     public Adapter createAssemblyPassiveResourceMeasuringPointAdapter() {
-        if (this.assemblyPassiveResourceMeasuringPointItemProvider == null)
-        {
+        if (this.assemblyPassiveResourceMeasuringPointItemProvider == null) {
             this.assemblyPassiveResourceMeasuringPointItemProvider = new AssemblyPassiveResourceMeasuringPointItemProvider(
                     this);
         }
@@ -151,8 +149,7 @@ implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
      */
     @Override
     public Adapter createActiveResourceMeasuringPointAdapter() {
-        if (this.activeResourceMeasuringPointItemProvider == null)
-        {
+        if (this.activeResourceMeasuringPointItemProvider == null) {
             this.activeResourceMeasuringPointItemProvider = new ActiveResourceMeasuringPointItemProvider(this);
         }
 
@@ -177,8 +174,7 @@ implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
      */
     @Override
     public Adapter createSystemOperationMeasuringPointAdapter() {
-        if (this.systemOperationMeasuringPointItemProvider == null)
-        {
+        if (this.systemOperationMeasuringPointItemProvider == null) {
             this.systemOperationMeasuringPointItemProvider = new SystemOperationMeasuringPointItemProvider(this);
         }
 
@@ -203,8 +199,7 @@ implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
      */
     @Override
     public Adapter createLinkingResourceMeasuringPointAdapter() {
-        if (this.linkingResourceMeasuringPointItemProvider == null)
-        {
+        if (this.linkingResourceMeasuringPointItemProvider == null) {
             this.linkingResourceMeasuringPointItemProvider = new LinkingResourceMeasuringPointItemProvider(this);
         }
 
@@ -229,8 +224,7 @@ implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
      */
     @Override
     public Adapter createSubSystemOperationMeasuringPointAdapter() {
-        if (this.subSystemOperationMeasuringPointItemProvider == null)
-        {
+        if (this.subSystemOperationMeasuringPointItemProvider == null) {
             this.subSystemOperationMeasuringPointItemProvider = new SubSystemOperationMeasuringPointItemProvider(this);
         }
 
@@ -255,8 +249,7 @@ implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
      */
     @Override
     public Adapter createUsageScenarioMeasuringPointAdapter() {
-        if (this.usageScenarioMeasuringPointItemProvider == null)
-        {
+        if (this.usageScenarioMeasuringPointItemProvider == null) {
             this.usageScenarioMeasuringPointItemProvider = new UsageScenarioMeasuringPointItemProvider(this);
         }
 
@@ -281,8 +274,7 @@ implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
      */
     @Override
     public Adapter createEntryLevelSystemCallMeasuringPointAdapter() {
-        if (this.entryLevelSystemCallMeasuringPointItemProvider == null)
-        {
+        if (this.entryLevelSystemCallMeasuringPointItemProvider == null) {
             this.entryLevelSystemCallMeasuringPointItemProvider = new EntryLevelSystemCallMeasuringPointItemProvider(
                     this);
         }
@@ -308,8 +300,7 @@ implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
      */
     @Override
     public Adapter createExternalCallActionMeasuringPointAdapter() {
-        if (this.externalCallActionMeasuringPointItemProvider == null)
-        {
+        if (this.externalCallActionMeasuringPointItemProvider == null) {
             this.externalCallActionMeasuringPointItemProvider = new ExternalCallActionMeasuringPointItemProvider(this);
         }
 
@@ -334,12 +325,37 @@ implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
      */
     @Override
     public Adapter createResourceEnvironmentMeasuringPointAdapter() {
-        if (this.resourceEnvironmentMeasuringPointItemProvider == null)
-        {
-            this.resourceEnvironmentMeasuringPointItemProvider = new ResourceEnvironmentMeasuringPointItemProvider(this);
+        if (this.resourceEnvironmentMeasuringPointItemProvider == null) {
+            this.resourceEnvironmentMeasuringPointItemProvider = new ResourceEnvironmentMeasuringPointItemProvider(
+                    this);
         }
 
         return this.resourceEnvironmentMeasuringPointItemProvider;
+    }
+
+    /**
+     * This keeps track of the one adapter used for all
+     * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceContainerMeasuringPoint} instances.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    protected ResourceContainerMeasuringPointItemProvider resourceContainerMeasuringPointItemProvider;
+
+    /**
+     * This creates an adapter for a
+     * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceContainerMeasuringPoint}. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Adapter createResourceContainerMeasuringPointAdapter() {
+        if (this.resourceContainerMeasuringPointItemProvider == null) {
+            this.resourceContainerMeasuringPointItemProvider = new ResourceContainerMeasuringPointItemProvider(this);
+        }
+
+        return this.resourceContainerMeasuringPointItemProvider;
     }
 
     /**
@@ -392,11 +408,9 @@ implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
      */
     @Override
     public Object adapt(final Object object, final Object type) {
-        if (this.isFactoryForType(type))
-        {
+        if (this.isFactoryForType(type)) {
             final Object adapter = super.adapt(object, type);
-            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter)))
-            {
+            if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
                 return adapter;
             }
         }
@@ -434,8 +448,7 @@ implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
     public void fireNotifyChanged(final Notification notification) {
         this.changeNotifier.fireNotifyChanged(notification);
 
-        if (this.parentAdapterFactory != null)
-        {
+        if (this.parentAdapterFactory != null) {
             this.parentAdapterFactory.fireNotifyChanged(notification);
         }
     }
@@ -477,6 +490,9 @@ implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
         }
         if (this.resourceEnvironmentMeasuringPointItemProvider != null) {
             this.resourceEnvironmentMeasuringPointItemProvider.dispose();
+        }
+        if (this.resourceContainerMeasuringPointItemProvider != null) {
+            this.resourceContainerMeasuringPointItemProvider.dispose();
         }
     }
 
@@ -529,56 +545,49 @@ implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
              */
             @Override
             public Object caseMeasuringPointRepository(final MeasuringPointRepository object) {
-                this.newChildDescriptors.add
-                (this.createChildParameter
-                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                                        PcmmeasuringpointFactory.eINSTANCE.createAssemblyOperationMeasuringPoint()));
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createAssemblyOperationMeasuringPoint()));
 
-                this.newChildDescriptors.add
-                (this.createChildParameter
-                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                                        PcmmeasuringpointFactory.eINSTANCE
-                                                .createAssemblyPassiveResourceMeasuringPoint()));
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createAssemblyPassiveResourceMeasuringPoint()));
 
-                this.newChildDescriptors.add
-                (this.createChildParameter
-                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                                        PcmmeasuringpointFactory.eINSTANCE.createActiveResourceMeasuringPoint()));
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createActiveResourceMeasuringPoint()));
 
-                this.newChildDescriptors.add
-                (this.createChildParameter
-                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                                        PcmmeasuringpointFactory.eINSTANCE.createSystemOperationMeasuringPoint()));
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createSystemOperationMeasuringPoint()));
 
-                this.newChildDescriptors.add
-                (this.createChildParameter
-                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                                        PcmmeasuringpointFactory.eINSTANCE.createLinkingResourceMeasuringPoint()));
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createLinkingResourceMeasuringPoint()));
 
-                this.newChildDescriptors.add
-                (this.createChildParameter
-                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                                        PcmmeasuringpointFactory.eINSTANCE.createSubSystemOperationMeasuringPoint()));
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createSubSystemOperationMeasuringPoint()));
 
-                this.newChildDescriptors.add
-                (this.createChildParameter
-                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                                        PcmmeasuringpointFactory.eINSTANCE.createUsageScenarioMeasuringPoint()));
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createUsageScenarioMeasuringPoint()));
 
-                this.newChildDescriptors.add
-                (this.createChildParameter
-                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                                        PcmmeasuringpointFactory.eINSTANCE.createEntryLevelSystemCallMeasuringPoint()));
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createEntryLevelSystemCallMeasuringPoint()));
 
-                this.newChildDescriptors.add
-                (this.createChildParameter
-                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                                        PcmmeasuringpointFactory.eINSTANCE.createExternalCallActionMeasuringPoint()));
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createExternalCallActionMeasuringPoint()));
 
-                this.newChildDescriptors.add
-                (this.createChildParameter
-                                (MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
-                                        PcmmeasuringpointFactory.eINSTANCE.createResourceEnvironmentMeasuringPoint()));
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createResourceEnvironmentMeasuringPoint()));
+
+                this.newChildDescriptors.add(this.createChildParameter(
+                        MeasuringpointPackage.Literals.MEASURING_POINT_REPOSITORY__MEASURING_POINTS,
+                        PcmmeasuringpointFactory.eINSTANCE.createResourceContainerMeasuringPoint()));
 
                 return null;
             }

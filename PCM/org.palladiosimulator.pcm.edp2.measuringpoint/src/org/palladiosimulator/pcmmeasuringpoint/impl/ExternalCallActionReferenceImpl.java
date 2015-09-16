@@ -13,12 +13,12 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <em><b>External Call Action Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ExternalCallActionReferenceImpl#getExternalCall
  * <em>External Call</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -94,8 +94,7 @@ public abstract class ExternalCallActionReferenceImpl extends CDOObjectImpl impl
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_REFERENCE__EXTERNAL_CALL:
             if (resolve) {
                 return this.getExternalCall();
@@ -112,8 +111,7 @@ public abstract class ExternalCallActionReferenceImpl extends CDOObjectImpl impl
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_REFERENCE__EXTERNAL_CALL:
             this.setExternalCall((ExternalCallAction) newValue);
             return;
@@ -128,8 +126,7 @@ public abstract class ExternalCallActionReferenceImpl extends CDOObjectImpl impl
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_REFERENCE__EXTERNAL_CALL:
             this.setExternalCall((ExternalCallAction) null);
             return;
@@ -144,8 +141,7 @@ public abstract class ExternalCallActionReferenceImpl extends CDOObjectImpl impl
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case PcmmeasuringpointPackage.EXTERNAL_CALL_ACTION_REFERENCE__EXTERNAL_CALL:
             return this.basicGetExternalCall() != null;
         }

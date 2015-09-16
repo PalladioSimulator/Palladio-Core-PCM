@@ -6,33 +6,33 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.emfutils.EMFLoadHelper;
 import org.palladiosimulator.edp2.models.measuringpoint.impl.MeasuringPointImpl;
-import org.palladiosimulator.pcm.resourceenvironment.LinkingResource;
-import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceMeasuringPoint;
-import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceReference;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
+import org.palladiosimulator.pcmmeasuringpoint.ResourceContainerMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.ResourceContainerReference;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Linking Resource Measuring Point</b></em>'. <!-- end-user-doc -->
+ * <em><b>Resource Container Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
  * <li>
- * {@link org.palladiosimulator.pcmmeasuringpoint.impl.LinkingResourceMeasuringPointImpl#getLinkingResource
- * <em>Linking Resource</em>}</li>
+ * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceContainerMeasuringPointImpl#getResourceContainer
+ * <em>Resource Container</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implements LinkingResourceMeasuringPoint {
+public class ResourceContainerMeasuringPointImpl extends MeasuringPointImpl implements ResourceContainerMeasuringPoint {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
-    protected LinkingResourceMeasuringPointImpl() {
+    protected ResourceContainerMeasuringPointImpl() {
         super();
     }
 
@@ -43,7 +43,7 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
      */
     @Override
     protected EClass eStaticClass() {
-        return PcmmeasuringpointPackage.Literals.LINKING_RESOURCE_MEASURING_POINT;
+        return PcmmeasuringpointPackage.Literals.RESOURCE_CONTAINER_MEASURING_POINT;
     }
 
     /**
@@ -52,10 +52,10 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
      * @generated
      */
     @Override
-    public LinkingResource getLinkingResource() {
-        return (LinkingResource) this.eDynamicGet(
-                PcmmeasuringpointPackage.LINKING_RESOURCE_MEASURING_POINT__LINKING_RESOURCE,
-                PcmmeasuringpointPackage.Literals.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE, true, true);
+    public ResourceContainer getResourceContainer() {
+        return (ResourceContainer) this.eDynamicGet(
+                PcmmeasuringpointPackage.RESOURCE_CONTAINER_MEASURING_POINT__RESOURCE_CONTAINER,
+                PcmmeasuringpointPackage.Literals.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER, true, true);
     }
 
     /**
@@ -63,10 +63,10 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
      *
      * @generated
      */
-    public LinkingResource basicGetLinkingResource() {
-        return (LinkingResource) this.eDynamicGet(
-                PcmmeasuringpointPackage.LINKING_RESOURCE_MEASURING_POINT__LINKING_RESOURCE,
-                PcmmeasuringpointPackage.Literals.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE, false, true);
+    public ResourceContainer basicGetResourceContainer() {
+        return (ResourceContainer) this.eDynamicGet(
+                PcmmeasuringpointPackage.RESOURCE_CONTAINER_MEASURING_POINT__RESOURCE_CONTAINER,
+                PcmmeasuringpointPackage.Literals.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER, false, true);
     }
 
     /**
@@ -75,9 +75,10 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
      * @generated
      */
     @Override
-    public void setLinkingResource(final LinkingResource newLinkingResource) {
-        this.eDynamicSet(PcmmeasuringpointPackage.LINKING_RESOURCE_MEASURING_POINT__LINKING_RESOURCE,
-                PcmmeasuringpointPackage.Literals.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE, newLinkingResource);
+    public void setResourceContainer(final ResourceContainer newResourceContainer) {
+        this.eDynamicSet(PcmmeasuringpointPackage.RESOURCE_CONTAINER_MEASURING_POINT__RESOURCE_CONTAINER,
+                PcmmeasuringpointPackage.Literals.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER,
+                newResourceContainer);
     }
 
     /**
@@ -88,11 +89,11 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
         switch (featureID) {
-        case PcmmeasuringpointPackage.LINKING_RESOURCE_MEASURING_POINT__LINKING_RESOURCE:
+        case PcmmeasuringpointPackage.RESOURCE_CONTAINER_MEASURING_POINT__RESOURCE_CONTAINER:
             if (resolve) {
-                return this.getLinkingResource();
+                return this.getResourceContainer();
             }
-            return this.basicGetLinkingResource();
+            return this.basicGetResourceContainer();
         }
         return super.eGet(featureID, resolve, coreType);
     }
@@ -105,8 +106,8 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
     @Override
     public void eSet(final int featureID, final Object newValue) {
         switch (featureID) {
-        case PcmmeasuringpointPackage.LINKING_RESOURCE_MEASURING_POINT__LINKING_RESOURCE:
-            this.setLinkingResource((LinkingResource) newValue);
+        case PcmmeasuringpointPackage.RESOURCE_CONTAINER_MEASURING_POINT__RESOURCE_CONTAINER:
+            this.setResourceContainer((ResourceContainer) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -120,8 +121,8 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
     @Override
     public void eUnset(final int featureID) {
         switch (featureID) {
-        case PcmmeasuringpointPackage.LINKING_RESOURCE_MEASURING_POINT__LINKING_RESOURCE:
-            this.setLinkingResource((LinkingResource) null);
+        case PcmmeasuringpointPackage.RESOURCE_CONTAINER_MEASURING_POINT__RESOURCE_CONTAINER:
+            this.setResourceContainer((ResourceContainer) null);
             return;
         }
         super.eUnset(featureID);
@@ -135,8 +136,8 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
-        case PcmmeasuringpointPackage.LINKING_RESOURCE_MEASURING_POINT__LINKING_RESOURCE:
-            return this.basicGetLinkingResource() != null;
+        case PcmmeasuringpointPackage.RESOURCE_CONTAINER_MEASURING_POINT__RESOURCE_CONTAINER:
+            return this.basicGetResourceContainer() != null;
         }
         return super.eIsSet(featureID);
     }
@@ -148,10 +149,10 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == LinkingResourceReference.class) {
+        if (baseClass == ResourceContainerReference.class) {
             switch (derivedFeatureID) {
-            case PcmmeasuringpointPackage.LINKING_RESOURCE_MEASURING_POINT__LINKING_RESOURCE:
-                return PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE;
+            case PcmmeasuringpointPackage.RESOURCE_CONTAINER_MEASURING_POINT__RESOURCE_CONTAINER:
+                return PcmmeasuringpointPackage.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER;
             default:
                 return -1;
             }
@@ -166,10 +167,10 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == LinkingResourceReference.class) {
+        if (baseClass == ResourceContainerReference.class) {
             switch (baseFeatureID) {
-            case PcmmeasuringpointPackage.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE:
-                return PcmmeasuringpointPackage.LINKING_RESOURCE_MEASURING_POINT__LINKING_RESOURCE;
+            case PcmmeasuringpointPackage.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER:
+                return PcmmeasuringpointPackage.RESOURCE_CONTAINER_MEASURING_POINT__RESOURCE_CONTAINER;
             default:
                 return -1;
             }
@@ -184,19 +185,23 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
      */
     @Override
     public String getStringRepresentation() {
-        if (this.getLinkingResource() == null) {
+        if (this.getResourceContainer() == null) {
             return "";
         }
 
-        if (this.getLinkingResource().getEntityName() == null) {
+        if (this.getResourceContainer().getEntityName() == null) {
             return super.getStringRepresentation();
         }
 
         EcoreUtil.resolveAll(this);
+
         final StringBuilder result = new StringBuilder();
 
-        result.append("Linking Resource: ");
-        result.append(this.getLinkingResource().getEntityName());
+        result.append("Resource Container ");
+        result.append(this.getResourceContainer().getEntityName());
+        result.append(" [");
+        result.append(this.getResourceContainer().getId());
+        result.append("]");
 
         return result.toString();
     }
@@ -208,11 +213,11 @@ public class LinkingResourceMeasuringPointImpl extends MeasuringPointImpl implem
      */
     @Override
     public String getResourceURIRepresentation() {
-        if (this.getLinkingResource() == null) {
+        if (this.getResourceContainer() == null) {
             return "";
         }
         EcoreUtil.resolveAll(this);
-        return EMFLoadHelper.getResourceURI(this.getLinkingResource());
+        return EMFLoadHelper.getResourceURI(this.getResourceContainer());
     }
 
-} // LinkingResourceMeasuringPointImpl
+} // ResourceContainerMeasuringPointImpl
