@@ -13,12 +13,12 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <em><b>Entry Level System Call Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallReferenceImpl#getEntryLevelSystemCall
  * <em>Entry Level System Call</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

@@ -58,12 +58,12 @@ public class EntryLevelSystemCallMeasuringPointItemProvider extends MeasuringPoi
     protected void addEntryLevelSystemCallPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_EntryLevelSystemCallReference_entryLevelSystemCall_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
+                this.getString("_UI_EntryLevelSystemCallReference_entryLevelSystemCall_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
                         "_UI_EntryLevelSystemCallReference_entryLevelSystemCall_feature",
                         "_UI_EntryLevelSystemCallReference_type"),
-                PcmmeasuringpointPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL_REFERENCE__ENTRY_LEVEL_SYSTEM_CALL, true,
-                false, true, null, null, null));
+                        PcmmeasuringpointPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL_REFERENCE__ENTRY_LEVEL_SYSTEM_CALL, true,
+                        false, true, null, null, null));
     }
 
     /**

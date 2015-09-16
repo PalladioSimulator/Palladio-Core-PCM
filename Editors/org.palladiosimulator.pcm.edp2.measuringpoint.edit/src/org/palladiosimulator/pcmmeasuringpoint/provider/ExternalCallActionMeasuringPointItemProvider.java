@@ -58,11 +58,11 @@ public class ExternalCallActionMeasuringPointItemProvider extends MeasuringPoint
     protected void addExternalCallPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_ExternalCallActionReference_externalCall_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_ExternalCallActionReference_externalCall_feature", "_UI_ExternalCallActionReference_type"),
-                PcmmeasuringpointPackage.Literals.EXTERNAL_CALL_ACTION_REFERENCE__EXTERNAL_CALL, true, false, true,
-                null, null, null));
+                this.getString("_UI_ExternalCallActionReference_externalCall_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_ExternalCallActionReference_externalCall_feature",
+                        "_UI_ExternalCallActionReference_type"),
+                        PcmmeasuringpointPackage.Literals.EXTERNAL_CALL_ACTION_REFERENCE__EXTERNAL_CALL, true, false, true,
+                        null, null, null));
     }
 
     /**

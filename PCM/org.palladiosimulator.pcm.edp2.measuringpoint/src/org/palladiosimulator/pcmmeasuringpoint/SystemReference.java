@@ -10,11 +10,10 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.SystemReference#getSystem <em>System</em>}
- * </li>
+ * <li>{@link org.palladiosimulator.pcmmeasuringpoint.SystemReference#getSystem <em>System</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getSystemReference()
  * @model abstract="true"

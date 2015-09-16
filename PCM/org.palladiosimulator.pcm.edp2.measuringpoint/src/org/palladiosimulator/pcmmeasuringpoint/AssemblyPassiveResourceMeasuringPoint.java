@@ -13,6 +13,6 @@ import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
  * @model
  * @generated
  */
-public interface AssemblyPassiveResourceMeasuringPoint
-        extends MeasuringPoint, AssemblyReference, PassiveResourceReference {
+public interface AssemblyPassiveResourceMeasuringPoint extends MeasuringPoint, AssemblyReference,
+        PassiveResourceReference {
 } // AssemblyPassiveResourceMeasuringPoint

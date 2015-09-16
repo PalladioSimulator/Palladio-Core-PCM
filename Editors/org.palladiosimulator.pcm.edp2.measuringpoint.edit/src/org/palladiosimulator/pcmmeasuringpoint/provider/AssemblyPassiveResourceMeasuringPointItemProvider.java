@@ -59,10 +59,10 @@ public class AssemblyPassiveResourceMeasuringPointItemProvider extends Measuring
     protected void addAssemblyPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_AssemblyReference_assembly_feature"),
-                this.getString("_UI_PropertyDescriptor_description", "_UI_AssemblyReference_assembly_feature",
-                        "_UI_AssemblyReference_type"),
-                PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, true, false, true, null, null, null));
+                this.getString("_UI_AssemblyReference_assembly_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_AssemblyReference_assembly_feature",
+                        "_UI_AssemblyReference_type"), PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY,
+                        true, false, true, null, null, null));
     }
 
     /**
@@ -74,11 +74,11 @@ public class AssemblyPassiveResourceMeasuringPointItemProvider extends Measuring
     protected void addPassiveResourcePropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_PassiveResourceReference_passiveResource_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_PassiveResourceReference_passiveResource_feature", "_UI_PassiveResourceReference_type"),
-                PcmmeasuringpointPackage.Literals.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE, true, false, true, null,
-                null, null));
+                this.getString("_UI_PassiveResourceReference_passiveResource_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_PassiveResourceReference_passiveResource_feature",
+                        "_UI_PassiveResourceReference_type"),
+                        PcmmeasuringpointPackage.Literals.PASSIVE_RESOURCE_REFERENCE__PASSIVE_RESOURCE, true, false, true,
+                        null, null, null));
     }
 
     /**

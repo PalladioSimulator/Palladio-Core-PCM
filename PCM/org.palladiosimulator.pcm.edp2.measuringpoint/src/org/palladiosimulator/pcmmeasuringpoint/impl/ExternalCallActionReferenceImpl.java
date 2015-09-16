@@ -13,12 +13,12 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <em><b>External Call Action Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ExternalCallActionReferenceImpl#getExternalCall
  * <em>External Call</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

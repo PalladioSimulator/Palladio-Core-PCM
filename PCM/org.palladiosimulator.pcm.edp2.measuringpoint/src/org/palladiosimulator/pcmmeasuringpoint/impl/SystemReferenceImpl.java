@@ -12,11 +12,11 @@ import org.palladiosimulator.pcmmeasuringpoint.SystemReference;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemReferenceImpl#getSystem
- * <em>System</em>}</li>
+ * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemReferenceImpl#getSystem <em>System
+ * </em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

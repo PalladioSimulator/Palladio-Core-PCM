@@ -60,10 +60,10 @@ public class SystemOperationMeasuringPointItemProvider extends MeasuringPointIte
     protected void addRolePropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_OperationReference_role_feature"),
-                this.getString("_UI_PropertyDescriptor_description", "_UI_OperationReference_role_feature",
-                        "_UI_OperationReference_type"),
-                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__ROLE, true, false, true, null, null, null));
+                this.getString("_UI_OperationReference_role_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_OperationReference_role_feature",
+                        "_UI_OperationReference_type"), PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__ROLE,
+                        true, false, true, null, null, null));
     }
 
     /**
@@ -75,11 +75,11 @@ public class SystemOperationMeasuringPointItemProvider extends MeasuringPointIte
     protected void addOperationSignaturePropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_OperationReference_operationSignature_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_OperationReference_operationSignature_feature", "_UI_OperationReference_type"),
-                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__OPERATION_SIGNATURE, true, false, true, null,
-                null, null));
+                this.getString("_UI_OperationReference_operationSignature_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_OperationReference_operationSignature_feature",
+                        "_UI_OperationReference_type"),
+                        PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__OPERATION_SIGNATURE, true, false, true, null,
+                        null, null));
     }
 
     /**
@@ -91,10 +91,10 @@ public class SystemOperationMeasuringPointItemProvider extends MeasuringPointIte
     protected void addSystemPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_SystemReference_system_feature"),
-                this.getString("_UI_PropertyDescriptor_description", "_UI_SystemReference_system_feature",
-                        "_UI_SystemReference_type"),
-                PcmmeasuringpointPackage.Literals.SYSTEM_REFERENCE__SYSTEM, true, false, true, null, null, null));
+                this.getString("_UI_SystemReference_system_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_SystemReference_system_feature",
+                        "_UI_SystemReference_type"), PcmmeasuringpointPackage.Literals.SYSTEM_REFERENCE__SYSTEM, true,
+                        false, true, null, null, null));
     }
 
     /**
@@ -104,8 +104,8 @@ public class SystemOperationMeasuringPointItemProvider extends MeasuringPointIte
      */
     @Override
     public Object getImage(final Object object) {
-        return this.overlayImage(object,
-                this.getResourceLocator().getImage("full/obj16/SystemOperationMeasuringPoint"));
+        return this
+                .overlayImage(object, this.getResourceLocator().getImage("full/obj16/SystemOperationMeasuringPoint"));
     }
 
     /**
@@ -117,8 +117,8 @@ public class SystemOperationMeasuringPointItemProvider extends MeasuringPointIte
     @Override
     public String getText(final Object object) {
         final String label = ((SystemOperationMeasuringPoint) object).getStringRepresentation();
-        return label == null || label.length() == 0 ? this.getString("_UI_SystemOperationMeasuringPoint_type")
-                : this.getString("_UI_SystemOperationMeasuringPoint_type") + " " + label;
+        return label == null || label.length() == 0 ? this.getString("_UI_SystemOperationMeasuringPoint_type") : this
+                .getString("_UI_SystemOperationMeasuringPoint_type") + " " + label;
     }
 
     /**

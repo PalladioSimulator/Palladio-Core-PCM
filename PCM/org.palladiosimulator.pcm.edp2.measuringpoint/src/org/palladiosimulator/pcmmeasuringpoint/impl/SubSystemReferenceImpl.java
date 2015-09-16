@@ -13,11 +13,11 @@ import org.palladiosimulator.pcmmeasuringpoint.SubSystemReference;
  * <em><b>Sub System Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.SubSystemReferenceImpl#getSubsystem
- * <em>Subsystem</em>}</li>
+ * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.SubSystemReferenceImpl#getSubsystem <em>
+ * Subsystem</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

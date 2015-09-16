@@ -29,7 +29,7 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * @generated
  */
 public class ActiveResourceReferenceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
@@ -67,11 +67,11 @@ public class ActiveResourceReferenceItemProvider extends ItemProviderAdapter imp
     protected void addActiveResourcePropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_ActiveResourceReference_activeResource_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_ActiveResourceReference_activeResource_feature", "_UI_ActiveResourceReference_type"),
-                PcmmeasuringpointPackage.Literals.ACTIVE_RESOURCE_REFERENCE__ACTIVE_RESOURCE, true, false, true, null,
-                null, null));
+                this.getString("_UI_ActiveResourceReference_activeResource_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_ActiveResourceReference_activeResource_feature",
+                        "_UI_ActiveResourceReference_type"),
+                        PcmmeasuringpointPackage.Literals.ACTIVE_RESOURCE_REFERENCE__ACTIVE_RESOURCE, true, false, true, null,
+                        null, null));
     }
 
     /**
@@ -83,11 +83,11 @@ public class ActiveResourceReferenceItemProvider extends ItemProviderAdapter imp
     protected void addReplicaIDPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_ActiveResourceReference_replicaID_feature"),
-                this.getString("_UI_PropertyDescriptor_description", "_UI_ActiveResourceReference_replicaID_feature",
+                this.getString("_UI_ActiveResourceReference_replicaID_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_ActiveResourceReference_replicaID_feature",
                         "_UI_ActiveResourceReference_type"),
-                PcmmeasuringpointPackage.Literals.ACTIVE_RESOURCE_REFERENCE__REPLICA_ID, true, false, false,
-                ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+                        PcmmeasuringpointPackage.Literals.ACTIVE_RESOURCE_REFERENCE__REPLICA_ID, true, false, false,
+                        ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
     }
 
     /**

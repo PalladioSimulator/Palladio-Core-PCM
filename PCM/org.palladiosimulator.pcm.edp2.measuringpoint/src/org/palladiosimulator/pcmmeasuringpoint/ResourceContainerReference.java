@@ -11,12 +11,12 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceContainerReference#getResourceContainer
  * <em>Resource Container</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getResourceContainerReference()
  * @model abstract="true"

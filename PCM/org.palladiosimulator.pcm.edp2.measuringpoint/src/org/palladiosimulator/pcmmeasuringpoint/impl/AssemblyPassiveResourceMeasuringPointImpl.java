@@ -18,7 +18,6 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <em><b>Assembly Passive Resource Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyPassiveResourceMeasuringPointImpl#getAssembly
@@ -27,11 +26,12 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyPassiveResourceMeasuringPointImpl#getPassiveResource
  * <em>Passive Resource</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
-public class AssemblyPassiveResourceMeasuringPointImpl extends MeasuringPointImpl
-        implements AssemblyPassiveResourceMeasuringPoint {
+public class AssemblyPassiveResourceMeasuringPointImpl extends MeasuringPointImpl implements
+        AssemblyPassiveResourceMeasuringPoint {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

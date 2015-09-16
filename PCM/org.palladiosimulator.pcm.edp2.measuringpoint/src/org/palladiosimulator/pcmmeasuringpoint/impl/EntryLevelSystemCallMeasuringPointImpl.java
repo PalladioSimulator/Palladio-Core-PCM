@@ -16,17 +16,17 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <em><b>Entry Level System Call Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.EntryLevelSystemCallMeasuringPointImpl#getEntryLevelSystemCall
  * <em>Entry Level System Call</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
-public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl
-        implements EntryLevelSystemCallMeasuringPoint {
+public class EntryLevelSystemCallMeasuringPointImpl extends MeasuringPointImpl implements
+        EntryLevelSystemCallMeasuringPoint {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

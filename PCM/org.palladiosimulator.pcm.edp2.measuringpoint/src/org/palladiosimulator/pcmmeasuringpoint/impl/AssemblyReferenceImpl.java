@@ -13,11 +13,11 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyReferenceImpl#getAssembly
- * <em>Assembly</em>}</li>
+ * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.AssemblyReferenceImpl#getAssembly <em>
+ * Assembly</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

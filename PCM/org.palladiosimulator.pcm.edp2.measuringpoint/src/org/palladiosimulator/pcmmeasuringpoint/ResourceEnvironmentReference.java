@@ -11,12 +11,12 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference#getResourceEnvironment
  * <em>Resource Environment</em>}</li>
  * </ul>
+ * </p>
  *
  * @see org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage#getResourceEnvironmentReference()
  * @model abstract="true"

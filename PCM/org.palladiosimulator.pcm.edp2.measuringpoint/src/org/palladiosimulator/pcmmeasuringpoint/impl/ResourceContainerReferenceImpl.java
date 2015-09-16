@@ -13,12 +13,12 @@ import org.palladiosimulator.pcmmeasuringpoint.ResourceContainerReference;
  * <em><b>Resource Container Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceContainerReferenceImpl#getResourceContainer
  * <em>Resource Container</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

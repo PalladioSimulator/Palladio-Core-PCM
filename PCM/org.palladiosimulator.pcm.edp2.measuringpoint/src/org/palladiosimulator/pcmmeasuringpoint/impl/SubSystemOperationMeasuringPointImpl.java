@@ -19,7 +19,6 @@ import org.palladiosimulator.pcmmeasuringpoint.SubSystemReference;
  * <em><b>Sub System Operation Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SubSystemOperationMeasuringPointImpl#getSubsystem
@@ -31,11 +30,12 @@ import org.palladiosimulator.pcmmeasuringpoint.SubSystemReference;
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SubSystemOperationMeasuringPointImpl#getOperationSignature
  * <em>Operation Signature</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
-public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl
-        implements SubSystemOperationMeasuringPoint {
+public class SubSystemOperationMeasuringPointImpl extends MeasuringPointImpl implements
+        SubSystemOperationMeasuringPoint {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

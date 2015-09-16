@@ -18,9 +18,9 @@ import org.palladiosimulator.pcmmeasuringpoint.SystemReference;
  * <em><b>System Operation Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemOperationMeasuringPointImpl#getRole
+ * <li>
+ * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemOperationMeasuringPointImpl#getRole
  * <em>Role</em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemOperationMeasuringPointImpl#getOperationSignature
@@ -29,6 +29,7 @@ import org.palladiosimulator.pcmmeasuringpoint.SystemReference;
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.SystemOperationMeasuringPointImpl#getSystem
  * <em>System</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

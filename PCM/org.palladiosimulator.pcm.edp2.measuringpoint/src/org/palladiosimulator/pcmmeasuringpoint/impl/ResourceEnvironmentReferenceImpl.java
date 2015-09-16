@@ -13,12 +13,12 @@ import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference;
  * <em><b>Resource Environment Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentReferenceImpl#getResourceEnvironment
  * <em>Resource Environment</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

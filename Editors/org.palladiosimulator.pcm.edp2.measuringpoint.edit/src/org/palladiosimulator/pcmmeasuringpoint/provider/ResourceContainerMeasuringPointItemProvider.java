@@ -58,12 +58,12 @@ public class ResourceContainerMeasuringPointItemProvider extends MeasuringPointI
     protected void addResourceContainerPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_ResourceContainerReference_resourceContainer_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
+                this.getString("_UI_ResourceContainerReference_resourceContainer_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
                         "_UI_ResourceContainerReference_resourceContainer_feature",
                         "_UI_ResourceContainerReference_type"),
-                PcmmeasuringpointPackage.Literals.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER, true, false, true,
-                null, null, null));
+                        PcmmeasuringpointPackage.Literals.RESOURCE_CONTAINER_REFERENCE__RESOURCE_CONTAINER, true, false, true,
+                        null, null, null));
     }
 
     /**
@@ -87,8 +87,8 @@ public class ResourceContainerMeasuringPointItemProvider extends MeasuringPointI
     @Override
     public String getText(final Object object) {
         final String label = ((ResourceContainerMeasuringPoint) object).getStringRepresentation();
-        return label == null || label.length() == 0 ? this.getString("_UI_ResourceContainerMeasuringPoint_type")
-                : this.getString("_UI_ResourceContainerMeasuringPoint_type") + " " + label;
+        return label == null || label.length() == 0 ? this.getString("_UI_ResourceContainerMeasuringPoint_type") : this
+                .getString("_UI_ResourceContainerMeasuringPoint_type") + " " + label;
     }
 
     /**

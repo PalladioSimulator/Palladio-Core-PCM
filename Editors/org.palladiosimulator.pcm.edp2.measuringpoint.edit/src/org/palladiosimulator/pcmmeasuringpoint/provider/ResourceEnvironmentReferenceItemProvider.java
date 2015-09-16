@@ -25,8 +25,9 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  *
  * @generated
  */
-public class ResourceEnvironmentReferenceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class ResourceEnvironmentReferenceItemProvider extends ItemProviderAdapter implements
+IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
+IItemPropertySource {
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
@@ -63,12 +64,12 @@ public class ResourceEnvironmentReferenceItemProvider extends ItemProviderAdapte
     protected void addResourceEnvironmentPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_ResourceEnvironmentReference_resourceEnvironment_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
+                this.getString("_UI_ResourceEnvironmentReference_resourceEnvironment_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description",
                         "_UI_ResourceEnvironmentReference_resourceEnvironment_feature",
                         "_UI_ResourceEnvironmentReference_type"),
-                PcmmeasuringpointPackage.Literals.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT, true, false,
-                true, null, null, null));
+                        PcmmeasuringpointPackage.Literals.RESOURCE_ENVIRONMENT_REFERENCE__RESOURCE_ENVIRONMENT, true, false,
+                        true, null, null, null));
     }
 
     /**

@@ -26,7 +26,7 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * @generated
  */
 public class LinkingResourceReferenceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
@@ -63,11 +63,11 @@ public class LinkingResourceReferenceItemProvider extends ItemProviderAdapter im
     protected void addLinkingResourcePropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_LinkingResourceReference_linkingResource_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_LinkingResourceReference_linkingResource_feature", "_UI_LinkingResourceReference_type"),
-                PcmmeasuringpointPackage.Literals.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE, true, false, true, null,
-                null, null));
+                this.getString("_UI_LinkingResourceReference_linkingResource_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_LinkingResourceReference_linkingResource_feature",
+                        "_UI_LinkingResourceReference_type"),
+                        PcmmeasuringpointPackage.Literals.LINKING_RESOURCE_REFERENCE__LINKING_RESOURCE, true, false, true,
+                        null, null, null));
     }
 
     /**

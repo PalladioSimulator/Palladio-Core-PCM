@@ -13,12 +13,12 @@ import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioReference;
  * <em><b>Usage Scenario Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.UsageScenarioReferenceImpl#getUsageScenario
  * <em>Usage Scenario</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

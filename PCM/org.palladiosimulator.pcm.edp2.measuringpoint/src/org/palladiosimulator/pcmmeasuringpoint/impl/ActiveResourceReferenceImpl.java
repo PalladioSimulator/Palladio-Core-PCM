@@ -13,7 +13,6 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <em><b>Active Resource Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ActiveResourceReferenceImpl#getActiveResource
@@ -21,6 +20,7 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.ActiveResourceReferenceImpl#getReplicaID
  * <em>Replica ID</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

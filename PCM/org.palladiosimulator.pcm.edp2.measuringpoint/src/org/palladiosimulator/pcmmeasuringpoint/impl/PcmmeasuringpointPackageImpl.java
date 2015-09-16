@@ -258,7 +258,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         // Obtain or create and register package
         final PcmmeasuringpointPackageImpl thePcmmeasuringpointPackage = (PcmmeasuringpointPackageImpl) (EPackage.Registry.INSTANCE
                 .get(eNS_URI) instanceof PcmmeasuringpointPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-                        : new PcmmeasuringpointPackageImpl());
+                : new PcmmeasuringpointPackageImpl());
 
         isInited = true;
 
@@ -794,8 +794,8 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         this.assemblyOperationMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
         this.assemblyOperationMeasuringPointEClass.getESuperTypes().add(this.getOperationReference());
         this.assemblyOperationMeasuringPointEClass.getESuperTypes().add(this.getAssemblyReference());
-        this.assemblyPassiveResourceMeasuringPointEClass.getESuperTypes()
-                .add(theMeasuringpointPackage.getMeasuringPoint());
+        this.assemblyPassiveResourceMeasuringPointEClass.getESuperTypes().add(
+                theMeasuringpointPackage.getMeasuringPoint());
         this.assemblyPassiveResourceMeasuringPointEClass.getESuperTypes().add(this.getAssemblyReference());
         this.assemblyPassiveResourceMeasuringPointEClass.getESuperTypes().add(this.getPassiveResourceReference());
         this.activeResourceMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
@@ -811,7 +811,7 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
         this.usageScenarioMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
         this.usageScenarioMeasuringPointEClass.getESuperTypes().add(this.getUsageScenarioReference());
         this.entryLevelSystemCallMeasuringPointEClass.getESuperTypes()
-                .add(theMeasuringpointPackage.getMeasuringPoint());
+        .add(theMeasuringpointPackage.getMeasuringPoint());
         this.entryLevelSystemCallMeasuringPointEClass.getESuperTypes().add(this.getEntryLevelSystemCallReference());
         this.externalCallActionMeasuringPointEClass.getESuperTypes().add(theMeasuringpointPackage.getMeasuringPoint());
         this.externalCallActionMeasuringPointEClass.getESuperTypes().add(this.getExternalCallActionReference());
@@ -840,8 +840,8 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEReference(this.getOperationReference_OperationSignature(),
                 theRepositoryPackage_1.getOperationSignature(), null, "operationSignature", null, 1, 1,
-                OperationReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                OperationReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.assemblyReferenceEClass, AssemblyReference.class, "AssemblyReference", IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -855,8 +855,8 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
                 SystemReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-        this.initEClass(this.passiveResourceReferenceEClass, PassiveResourceReference.class, "PassiveResourceReference",
-                IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEClass(this.passiveResourceReferenceEClass, PassiveResourceReference.class,
+                "PassiveResourceReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getPassiveResourceReference_PassiveResource(),
                 theRepositoryPackage_1.getPassiveResource(), null, "passiveResource", null, 1, 1,
                 PassiveResourceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
@@ -869,14 +869,14 @@ public class PcmmeasuringpointPackageImpl extends EPackageImpl implements Pcmmea
                 ActiveResourceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
         this.initEAttribute(this.getActiveResourceReference_ReplicaID(), this.ecorePackage.getEInt(), "replicaID", "0",
-                1, 1, ActiveResourceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                1, 1, ActiveResourceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+                !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
         this.initEClass(this.linkingResourceMeasuringPointEClass, LinkingResourceMeasuringPoint.class,
                 "LinkingResourceMeasuringPoint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-        this.initEClass(this.linkingResourceReferenceEClass, LinkingResourceReference.class, "LinkingResourceReference",
-                IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+        this.initEClass(this.linkingResourceReferenceEClass, LinkingResourceReference.class,
+                "LinkingResourceReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getLinkingResourceReference_LinkingResource(),
                 theResourceenvironmentPackage.getLinkingResource(), null, "linkingResource", null, 1, 1,
                 LinkingResourceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,

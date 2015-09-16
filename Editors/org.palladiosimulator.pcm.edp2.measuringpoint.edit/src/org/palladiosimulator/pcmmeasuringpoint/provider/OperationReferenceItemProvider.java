@@ -26,7 +26,7 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * @generated
  */
 public class OperationReferenceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
@@ -64,10 +64,10 @@ public class OperationReferenceItemProvider extends ItemProviderAdapter implemen
     protected void addRolePropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_OperationReference_role_feature"),
-                this.getString("_UI_PropertyDescriptor_description", "_UI_OperationReference_role_feature",
-                        "_UI_OperationReference_type"),
-                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__ROLE, true, false, true, null, null, null));
+                this.getString("_UI_OperationReference_role_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_OperationReference_role_feature",
+                        "_UI_OperationReference_type"), PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__ROLE,
+                        true, false, true, null, null, null));
     }
 
     /**
@@ -79,11 +79,11 @@ public class OperationReferenceItemProvider extends ItemProviderAdapter implemen
     protected void addOperationSignaturePropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_OperationReference_operationSignature_feature"),
-                this.getString("_UI_PropertyDescriptor_description",
-                        "_UI_OperationReference_operationSignature_feature", "_UI_OperationReference_type"),
-                PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__OPERATION_SIGNATURE, true, false, true, null,
-                null, null));
+                this.getString("_UI_OperationReference_operationSignature_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_OperationReference_operationSignature_feature",
+                        "_UI_OperationReference_type"),
+                        PcmmeasuringpointPackage.Literals.OPERATION_REFERENCE__OPERATION_SIGNATURE, true, false, true, null,
+                        null, null));
     }
 
     /**

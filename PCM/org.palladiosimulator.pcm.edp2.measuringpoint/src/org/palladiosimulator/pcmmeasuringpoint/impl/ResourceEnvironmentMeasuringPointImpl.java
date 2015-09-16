@@ -16,17 +16,17 @@ import org.palladiosimulator.pcmmeasuringpoint.ResourceEnvironmentReference;
  * <em><b>Resource Environment Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.ResourceEnvironmentMeasuringPointImpl#getResourceEnvironment
  * <em>Resource Environment</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
-public class ResourceEnvironmentMeasuringPointImpl extends MeasuringPointImpl
-        implements ResourceEnvironmentMeasuringPoint {
+public class ResourceEnvironmentMeasuringPointImpl extends MeasuringPointImpl implements
+        ResourceEnvironmentMeasuringPoint {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

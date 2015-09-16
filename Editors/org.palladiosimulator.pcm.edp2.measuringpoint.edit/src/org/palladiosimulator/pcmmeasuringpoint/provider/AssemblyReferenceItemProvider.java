@@ -26,7 +26,7 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * @generated
  */
 public class AssemblyReferenceItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
-        IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 
     /**
      * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!--
@@ -63,10 +63,10 @@ public class AssemblyReferenceItemProvider extends ItemProviderAdapter implement
     protected void addAssemblyPropertyDescriptor(final Object object) {
         this.itemPropertyDescriptors.add(this.createItemPropertyDescriptor(
                 ((ComposeableAdapterFactory) this.adapterFactory).getRootAdapterFactory(), this.getResourceLocator(),
-                this.getString("_UI_AssemblyReference_assembly_feature"),
-                this.getString("_UI_PropertyDescriptor_description", "_UI_AssemblyReference_assembly_feature",
-                        "_UI_AssemblyReference_type"),
-                PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY, true, false, true, null, null, null));
+                this.getString("_UI_AssemblyReference_assembly_feature"), this.getString(
+                        "_UI_PropertyDescriptor_description", "_UI_AssemblyReference_assembly_feature",
+                        "_UI_AssemblyReference_type"), PcmmeasuringpointPackage.Literals.ASSEMBLY_REFERENCE__ASSEMBLY,
+                        true, false, true, null, null, null));
     }
 
     /**

@@ -16,12 +16,12 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <em><b>Linking Resource Measuring Point</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.LinkingResourceMeasuringPointImpl#getLinkingResource
  * <em>Linking Resource</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

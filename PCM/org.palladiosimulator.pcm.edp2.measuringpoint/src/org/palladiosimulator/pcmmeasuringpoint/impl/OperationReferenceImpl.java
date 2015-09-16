@@ -14,14 +14,14 @@ import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointPackage;
  * <em><b>Operation Reference</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.OperationReferenceImpl#getRole
- * <em>Role</em>}</li>
+ * <li>{@link org.palladiosimulator.pcmmeasuringpoint.impl.OperationReferenceImpl#getRole <em>Role
+ * </em>}</li>
  * <li>
  * {@link org.palladiosimulator.pcmmeasuringpoint.impl.OperationReferenceImpl#getOperationSignature
  * <em>Operation Signature</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

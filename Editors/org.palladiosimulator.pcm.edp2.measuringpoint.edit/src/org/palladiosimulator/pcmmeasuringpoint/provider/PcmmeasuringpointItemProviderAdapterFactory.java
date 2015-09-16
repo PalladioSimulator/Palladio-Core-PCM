@@ -40,8 +40,8 @@ import org.palladiosimulator.pcmmeasuringpoint.util.PcmmeasuringpointAdapterFact
  * 
  * @generated
  */
-public class PcmmeasuringpointItemProviderAdapterFactory extends PcmmeasuringpointAdapterFactory
-        implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class PcmmeasuringpointItemProviderAdapterFactory extends PcmmeasuringpointAdapterFactory implements
+ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 
     /**
      * This keeps track of the root adapter factory that delegates to this adapter factory. <!--
@@ -326,8 +326,7 @@ public class PcmmeasuringpointItemProviderAdapterFactory extends Pcmmeasuringpoi
     @Override
     public Adapter createResourceEnvironmentMeasuringPointAdapter() {
         if (this.resourceEnvironmentMeasuringPointItemProvider == null) {
-            this.resourceEnvironmentMeasuringPointItemProvider = new ResourceEnvironmentMeasuringPointItemProvider(
-                    this);
+            this.resourceEnvironmentMeasuringPointItemProvider = new ResourceEnvironmentMeasuringPointItemProvider(this);
         }
 
         return this.resourceEnvironmentMeasuringPointItemProvider;
