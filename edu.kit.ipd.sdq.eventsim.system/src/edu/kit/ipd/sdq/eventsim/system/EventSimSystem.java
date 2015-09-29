@@ -5,8 +5,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.osgi.service.component.ComponentContext;
+import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
-import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.component.IUser;
 import edu.kit.ipd.sdq.simcomp.events.IEventHandler;

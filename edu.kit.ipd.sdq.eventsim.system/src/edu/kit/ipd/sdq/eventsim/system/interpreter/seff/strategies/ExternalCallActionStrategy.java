@@ -1,7 +1,8 @@
 package edu.kit.ipd.sdq.eventsim.system.interpreter.seff.strategies;
 
-import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
+import org.palladiosimulator.pcm.seff.ExternalCallAction;
+import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF;
+
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.IRequestTraversalInstruction;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.ISeffTraversalStrategy;

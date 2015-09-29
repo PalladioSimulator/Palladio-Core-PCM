@@ -1,9 +1,10 @@
 package edu.kit.ipd.sdq.eventsim.system.staticstructure.commands;
 
-import de.uka.ipd.sdq.pcm.allocation.Allocation;
-import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
+import org.palladiosimulator.pcm.allocation.Allocation;
+import org.palladiosimulator.pcm.allocation.AllocationContext;
+import org.palladiosimulator.pcm.core.composition.AssemblyContext;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
+
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.AllocationRegistry;

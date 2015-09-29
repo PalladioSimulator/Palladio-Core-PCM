@@ -1,10 +1,10 @@
 package edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.strategies;
 
 import org.apache.log4j.Logger;
+import org.palladiosimulator.pcm.core.PCMRandomVariable;
+import org.palladiosimulator.pcm.usagemodel.Loop;
+import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour;
 
-import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-import de.uka.ipd.sdq.pcm.usagemodel.Loop;
-import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.ITraversalStrategyState;

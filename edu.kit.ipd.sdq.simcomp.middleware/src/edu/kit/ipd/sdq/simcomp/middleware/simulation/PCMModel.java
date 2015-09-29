@@ -12,19 +12,19 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.osgi.framework.Bundle;
+import org.palladiosimulator.pcm.allocation.Allocation;
+import org.palladiosimulator.pcm.allocation.AllocationPackage;
+import org.palladiosimulator.pcm.repository.Repository;
+import org.palladiosimulator.pcm.repository.RepositoryPackage;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
+import org.palladiosimulator.pcm.resourcetype.ResourceRepository;
+import org.palladiosimulator.pcm.resourcetype.ResourcetypePackage;
+import org.palladiosimulator.pcm.system.System;
+import org.palladiosimulator.pcm.system.SystemPackage;
+import org.palladiosimulator.pcm.usagemodel.UsageModel;
+import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
 
-import de.uka.ipd.sdq.pcm.allocation.Allocation;
-import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-import de.uka.ipd.sdq.pcm.system.System;
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 
 /**

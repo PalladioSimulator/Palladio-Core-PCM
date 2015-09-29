@@ -6,13 +6,10 @@ import java.util.Map;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecification;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
+import org.palladiosimulator.pcm.resourcetype.ResourceType;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
-import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
-import de.uka.ipd.sdq.probespec.framework.ProbeType;
-import de.uka.ipd.sdq.probespec.framework.probes.IProbeStrategyRegistry;
 import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.resources.active.AbstractActiveResource;
@@ -21,10 +18,6 @@ import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
 import edu.kit.ipd.sdq.eventsim.entities.IEntityListener;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimulatedProcess;
-import edu.kit.ipd.sdq.eventsim.resources.probespec.commands.BuildActiveResourceCalculators;
-import edu.kit.ipd.sdq.eventsim.resources.probespec.commands.MountActiveResourceProbes;
-import edu.kit.ipd.sdq.eventsim.resources.probespec.probes.TakeScheduledResourceDemandStrategy;
-import edu.kit.ipd.sdq.eventsim.resources.probespec.probes.TakeScheduledResourceStateStrategy;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 import edu.kit.ipd.sdq.simcomp.component.IRequest;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
@@ -53,22 +46,23 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 		SimulationModel simModel = (SimulationModel) this.getSimulationMiddleware().getSimulationModel();
 		this.schedulingFactory = new SchedulingFactory(simModel);
 
-		this.initProbeSpecification();
+		// TODO init probespec
+//		this.initProbeSpecification();
 	}
 
-	private void initProbeSpecification() {
-		ProbeSpecContext probeContext = this.getSimulationMiddleware().getProbeSpecContext();
-		IProbeStrategyRegistry strategyRegistry = probeContext.getProbeStrategyRegistry();
-
-		/* RESOURCE_DEMAND */
-		// active resources
-		strategyRegistry.registerProbeStrategy(new TakeScheduledResourceDemandStrategy(), ProbeType.RESOURCE_DEMAND, SimActiveResource.class);
-
-		/* RESOURCE_STATE */
-		// active resources
-		strategyRegistry.registerProbeStrategy(new TakeScheduledResourceStateStrategy(), ProbeType.RESOURCE_STATE, SimActiveResource.class);
-
-	}
+//	private void initProbeSpecification() {
+//		ProbeSpecContext probeContext = this.getSimulationMiddleware().getProbeSpecContext();
+//		IProbeStrategyRegistry strategyRegistry = probeContext.getProbeStrategyRegistry();
+//
+//		/* RESOURCE_DEMAND */
+//		// active resources
+//		strategyRegistry.registerProbeStrategy(new TakeScheduledResourceDemandStrategy(), ProbeType.RESOURCE_DEMAND, SimActiveResource.class);
+//
+//		/* RESOURCE_STATE */
+//		// active resources
+//		strategyRegistry.registerProbeStrategy(new TakeScheduledResourceStateStrategy(), ProbeType.RESOURCE_STATE, SimActiveResource.class);
+//
+//	}
 
 	public void consume(IRequest request, ResourceContainer resourceContainer, ResourceType resourceType, double absoluteDemand) {
 
@@ -120,8 +114,8 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 		this.containerToResourceMap.put(compoundKey(specification, type), resource);
 
 		// initialise probe spec
-		this.execute(new BuildActiveResourceCalculators(this, resource));
-		this.execute(new MountActiveResourceProbes(this, resource));
+//		this.execute(new BuildActiveResourceCalculators(this, resource));
+//		this.execute(new MountActiveResourceProbes(this, resource));
 	}
 
 	/**

@@ -1,9 +1,9 @@
 package edu.kit.ipd.sdq.eventsim.resources;
 
 import org.osgi.service.component.ComponentContext;
+import org.palladiosimulator.pcm.core.composition.AssemblyContext;
+import org.palladiosimulator.pcm.repository.PassiveResource;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import edu.kit.ipd.sdq.simcomp.component.IRequest;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.events.IEventHandler;

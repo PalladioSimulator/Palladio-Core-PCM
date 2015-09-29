@@ -2,15 +2,15 @@ package edu.kit.ipd.sdq.eventsim.system.command;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.palladiosimulator.pcm.core.composition.AssemblyContext;
+import org.palladiosimulator.pcm.core.composition.Connector;
+import org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector;
+import org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity;
+import org.palladiosimulator.pcm.repository.OperationProvidedRole;
+import org.palladiosimulator.pcm.system.System;
+import org.palladiosimulator.pcm.system.SystemPackage;
+import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.core.composition.Connector;
-import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
-import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
-import de.uka.ipd.sdq.pcm.system.System;
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
-import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.UnexpectedModelStructureException;

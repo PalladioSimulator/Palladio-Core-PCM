@@ -1,7 +1,8 @@
 package edu.kit.ipd.sdq.eventsim.system.command.seff;
 
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
+import org.palladiosimulator.pcm.seff.AbstractAction;
+import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour;
+
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.UnexpectedModelStructureException;

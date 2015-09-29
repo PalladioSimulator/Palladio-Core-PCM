@@ -1,8 +1,9 @@
 package edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.instructions;
 
-import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
-import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
-import de.uka.ipd.sdq.pcm.usagemodel.Start;
+import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
+import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour;
+import org.palladiosimulator.pcm.usagemodel.Start;
+
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalInstruction;

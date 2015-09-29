@@ -2,8 +2,9 @@ package edu.kit.ipd.sdq.eventsim.system.interpreter.seff.strategies;
 
 import java.util.List;
 
-import de.uka.ipd.sdq.pcm.seff.ForkAction;
-import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
+import org.palladiosimulator.pcm.seff.ForkAction;
+import org.palladiosimulator.pcm.seff.ForkedBehaviour;
+
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.EventSimException;
 import edu.kit.ipd.sdq.eventsim.system.EventSimSystemModel;
 import edu.kit.ipd.sdq.eventsim.system.entities.ForkedRequest;

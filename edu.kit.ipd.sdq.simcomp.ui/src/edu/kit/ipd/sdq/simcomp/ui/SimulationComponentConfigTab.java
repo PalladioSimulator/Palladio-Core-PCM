@@ -16,9 +16,9 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
+import org.palladiosimulator.analyzer.workflow.ConstantsContainer;
 
 import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
-import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentImpl;

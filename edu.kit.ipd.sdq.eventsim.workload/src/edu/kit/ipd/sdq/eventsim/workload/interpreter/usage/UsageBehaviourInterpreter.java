@@ -3,11 +3,11 @@ package edu.kit.ipd.sdq.eventsim.workload.interpreter.usage;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
+import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
+import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour;
+import org.palladiosimulator.pcm.usagemodel.Start;
+import org.palladiosimulator.pcm.usagemodel.UsageScenario;
 
-import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
-import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
-import de.uka.ipd.sdq.pcm.usagemodel.Start;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.StateExchange;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;

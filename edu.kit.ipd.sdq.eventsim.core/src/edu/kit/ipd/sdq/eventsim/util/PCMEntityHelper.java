@@ -1,6 +1,6 @@
 package edu.kit.ipd.sdq.eventsim.util;
 
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import org.palladiosimulator.pcm.core.entity.Entity;
 
 /**
  * Provides helper methods for PCM entities implementing the {@link Entity} interface.

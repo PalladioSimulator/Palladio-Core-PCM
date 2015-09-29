@@ -3,10 +3,10 @@ package edu.kit.ipd.sdq.eventsim.system;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.palladiosimulator.pcm.core.composition.AssemblyContext;
+import org.palladiosimulator.pcm.repository.OperationSignature;
+import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.repository.OperationSignature;
-import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.IUserState;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.StateExchange;
@@ -21,8 +21,6 @@ import edu.kit.ipd.sdq.eventsim.system.handler.AfterSystemCallParameterHandler;
 import edu.kit.ipd.sdq.eventsim.system.handler.BeforeSystemCallParameterHandler;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.SeffBehaviourInterpreter;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.SeffInterpreterConfiguration;
-import edu.kit.ipd.sdq.eventsim.system.probespec.commands.BuildResponseTimeCalculators;
-import edu.kit.ipd.sdq.eventsim.system.probespec.commands.MountExternalCallProbes;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.AllocationRegistry;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.SimulatedResourceContainer;
@@ -104,11 +102,13 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 	 */
 	private void initProbeSpecification() {
 
+		// TODO
+		
 		// build calculators
-		this.execute(new BuildResponseTimeCalculators(this));
+//		this.execute(new BuildResponseTimeCalculators(this));
 
 		// mount probes
-		this.execute(new MountExternalCallProbes(this.seffInterpreter.getConfiguration(), this.getSimulationMiddleware()));
+//		this.execute(new MountExternalCallProbes(this.seffInterpreter.getConfiguration(), this.getSimulationMiddleware()));
 	}
 
 	/**

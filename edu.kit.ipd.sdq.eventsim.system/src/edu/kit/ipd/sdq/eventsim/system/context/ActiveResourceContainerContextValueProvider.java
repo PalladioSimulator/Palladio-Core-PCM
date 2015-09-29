@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 import edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider;
 

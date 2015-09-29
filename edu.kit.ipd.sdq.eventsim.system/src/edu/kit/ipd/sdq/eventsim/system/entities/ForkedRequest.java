@@ -1,9 +1,9 @@
 package edu.kit.ipd.sdq.eventsim.system.entities;
 
-import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
-import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
-import de.uka.ipd.sdq.probespec.framework.RequestContext;
-import de.uka.ipd.sdq.probespec.framework.garbagecollection.IRegionBasedGarbageCollector;
+import org.palladiosimulator.pcm.seff.ForkedBehaviour;
+import org.palladiosimulator.probeframework.ProbeFrameworkContext;
+import org.palladiosimulator.probeframework.measurement.RequestContext;
+
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.entities.IEntityListener;
 
@@ -20,8 +20,8 @@ public class ForkedRequest extends Request {
         this.asynchronous = asynchronous;
         this.parent = parent;
 
-        ProbeSpecContext probeSpecContext = model.getSimulationMiddleware().getProbeSpecContext();
-        this.addEntityListener(new GarbageCollectionListener(probeSpecContext.getBlackboardGarbageCollector()));
+        ProbeFrameworkContext probeSpecContext = model.getSimulationMiddleware().getProbeSpecContext();
+//        this.addEntityListener(new GarbageCollectionListener(probeSpecContext.getBlackboardGarbageCollector()));
     }
 
     @Override
@@ -50,32 +50,32 @@ public class ForkedRequest extends Request {
         return "ForkedRequest#" + this.getEntityId() + " of " + this.parent.getName();
     }
 
-    /**
-     * This handler increments the fork counter of the associated request when the fork is about to
-     * start its execution. As soon as the fork has finished its execution, the counter is being
-     * decremented.
-     * 
-     * @author Philipp Merkle
-     * 
-     */
-    private final class GarbageCollectionListener implements IEntityListener {
-
-        private IRegionBasedGarbageCollector<RequestContext> garbageCollector;
-
-        public GarbageCollectionListener(IRegionBasedGarbageCollector<RequestContext> garbageCollector) {
-            this.garbageCollector = garbageCollector;
-        }
-
-        @Override
-        public void leftSystem() {
-            garbageCollector.leaveRegion(ForkedRequest.this.getRequestContext().rootContext());
-        }
-
-        @Override
-        public void enteredSystem() {
-            garbageCollector.enterRegion(ForkedRequest.this.getRequestContext().rootContext());
-        }
-
-    }
+//    /**
+//     * This handler increments the fork counter of the associated request when the fork is about to
+//     * start its execution. As soon as the fork has finished its execution, the counter is being
+//     * decremented.
+//     * 
+//     * @author Philipp Merkle
+//     * 
+//     */
+//    private final class GarbageCollectionListener implements IEntityListener {
+//
+//        private IRegionBasedGarbageCollector<RequestContext> garbageCollector;
+//
+//        public GarbageCollectionListener(IRegionBasedGarbageCollector<RequestContext> garbageCollector) {
+//            this.garbageCollector = garbageCollector;
+//        }
+//
+//        @Override
+//        public void leftSystem() {
+//            garbageCollector.leaveRegion(ForkedRequest.this.getRequestContext().rootContext());
+//        }
+//
+//        @Override
+//        public void enteredSystem() {
+//            garbageCollector.enterRegion(ForkedRequest.this.getRequestContext().rootContext());
+//        }
+//
+//    }
 
 }

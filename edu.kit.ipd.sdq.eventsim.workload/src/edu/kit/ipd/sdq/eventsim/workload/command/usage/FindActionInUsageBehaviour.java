@@ -1,7 +1,8 @@
 package edu.kit.ipd.sdq.eventsim.workload.command.usage;
 
-import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
-import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
+import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
+import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour;
+
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.UnexpectedModelStructureException;

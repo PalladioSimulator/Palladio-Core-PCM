@@ -3,11 +3,12 @@ package edu.kit.ipd.sdq.eventsim.workload.generator;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
-import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-import de.uka.ipd.sdq.pcm.usagemodel.Workload;
+import org.palladiosimulator.pcm.usagemodel.ClosedWorkload;
+import org.palladiosimulator.pcm.usagemodel.OpenWorkload;
+import org.palladiosimulator.pcm.usagemodel.UsageScenario;
+import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
+import org.palladiosimulator.pcm.usagemodel.Workload;
+
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.UnexpectedModelStructureException;

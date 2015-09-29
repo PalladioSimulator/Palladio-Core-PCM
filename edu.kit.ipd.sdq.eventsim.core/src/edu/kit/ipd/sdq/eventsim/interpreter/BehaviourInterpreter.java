@@ -2,10 +2,10 @@ package edu.kit.ipd.sdq.eventsim.interpreter;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.EClass;
+import org.palladiosimulator.pcm.core.entity.Entity;
+import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF;
+import org.palladiosimulator.pcm.usagemodel.UsageScenario;
 
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.TraversalException;
 import edu.kit.ipd.sdq.eventsim.interpreter.instructions.EndTraversal;

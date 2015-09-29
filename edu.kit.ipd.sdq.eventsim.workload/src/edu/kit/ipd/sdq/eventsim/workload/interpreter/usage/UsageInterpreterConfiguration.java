@@ -8,9 +8,9 @@ import java.util.Map;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.EClass;
+import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
+import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
 
-import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.interpreter.InterpreterConfiguration;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;

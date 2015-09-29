@@ -1,6 +1,7 @@
 package edu.kit.ipd.sdq.simcomp.system.component;
 
-import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
+import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
+
 import edu.kit.ipd.sdq.simcomp.component.ISimulationComponent;
 import edu.kit.ipd.sdq.simcomp.component.IUser;
 

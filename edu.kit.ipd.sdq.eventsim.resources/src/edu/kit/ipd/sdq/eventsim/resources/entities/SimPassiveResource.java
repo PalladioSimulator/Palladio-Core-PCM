@@ -69,14 +69,14 @@ public class SimPassiveResource extends EventSimEntity {
     /**
      * Returns the number of remaining instances.
      */
-    public int getAvailable() {
+    public long getAvailable() {
         return schedulerResource.getAvailable();
     }
 
     /**
      * Returns the maximal number of instances that can be hold at the same time.
      */
-    public int getCapacity() {
+    public long getCapacity() {
         return schedulerResource.getCapacity();
     }
 
@@ -106,19 +106,19 @@ public class SimPassiveResource extends EventSimEntity {
         this.listeners.remove(l);
     }
 
-    protected void fireRequest(SimulatedProcess process, int num) {
+    protected void fireRequest(SimulatedProcess process, long num) {
         for (IPassiveResourceListener l : listeners) {
             l.request(process, num);
         }
     }
 
-    protected void fireAcquire(SimulatedProcess process, int num) {
+    protected void fireAcquire(SimulatedProcess process, long num) {
         for (IPassiveResourceListener l : listeners) {
             l.acquire(process, num);
         }
     }
 
-    protected void fireRelease(SimulatedProcess process, int num) {
+    protected void fireRelease(SimulatedProcess process, long num) {
         for (IPassiveResourceListener l : listeners) {
             l.release(process, num);
         }
@@ -134,17 +134,17 @@ public class SimPassiveResource extends EventSimEntity {
         resource.addObserver(new IPassiveResourceSensor() {
 
             @Override
-            public void request(ISchedulableProcess process, int num) {
+            public void request(ISchedulableProcess process, long num) {
                 SimPassiveResource.this.fireRequest((SimulatedProcess) process, num);
             }
 
             @Override
-            public void release(ISchedulableProcess process, int num) {
+            public void release(ISchedulableProcess process, long num) {
                 SimPassiveResource.this.fireRelease((SimulatedProcess) process, num);
             }
 
             @Override
-            public void acquire(ISchedulableProcess process, int num) {
+            public void acquire(ISchedulableProcess process, long num) {
                 SimPassiveResource.this.fireAcquire((SimulatedProcess) process, num);
             }
 

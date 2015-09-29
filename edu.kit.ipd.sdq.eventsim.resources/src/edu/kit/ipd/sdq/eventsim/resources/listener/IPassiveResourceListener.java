@@ -25,16 +25,16 @@ public interface IPassiveResourceListener {
      * The given process has requested {@code num} instances of the passive resource but not yet
      * acquired them.
      */
-    public void request(SimulatedProcess process, int num);
+    public void request(SimulatedProcess process, long num);
 
     /**
      * The given process has successfully acquired {@code num} instances of the passive resource.
      */
-    public void acquire(SimulatedProcess process, int num);
+    public void acquire(SimulatedProcess process, long num);
 
     /**
      * The given process has released {@code num} instances of the passive resource.
      */
-    public void release(SimulatedProcess process, int num);
+    public void release(SimulatedProcess process, long num);
 
 }

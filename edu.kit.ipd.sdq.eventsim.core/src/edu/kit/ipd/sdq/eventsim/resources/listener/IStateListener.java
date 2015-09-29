@@ -20,6 +20,6 @@ public interface IStateListener {
      *            an identifier for the resource instance, for instance a CPU core. If the resource
      *            has only one instance, the instanceId must be 0 for that instance.
      */
-    public void stateChanged(int state, int instanceId);
+    public void stateChanged(long state, int instanceId);
 
 }

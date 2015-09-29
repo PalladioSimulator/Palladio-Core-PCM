@@ -2,11 +2,12 @@ package edu.kit.ipd.sdq.eventsim.system.interpreter.seff.strategies;
 
 import java.util.List;
 
-import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
-import de.uka.ipd.sdq.pcm.seff.BranchAction;
-import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
-import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
+import org.palladiosimulator.pcm.seff.AbstractBranchTransition;
+import org.palladiosimulator.pcm.seff.BranchAction;
+import org.palladiosimulator.pcm.seff.GuardedBranchTransition;
+import org.palladiosimulator.pcm.seff.ProbabilisticBranchTransition;
+import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour;
+
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.UnexpectedModelStructureException;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;

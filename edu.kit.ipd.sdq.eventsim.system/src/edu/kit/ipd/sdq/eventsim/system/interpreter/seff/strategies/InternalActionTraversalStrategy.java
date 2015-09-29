@@ -4,10 +4,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
-import de.uka.ipd.sdq.pcm.seff.InternalAction;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
+import org.palladiosimulator.pcm.resourcetype.ResourceType;
+import org.palladiosimulator.pcm.seff.InternalAction;
+import org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand;
+
 import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.ITraversalStrategyState;
 import edu.kit.ipd.sdq.eventsim.system.Activator;

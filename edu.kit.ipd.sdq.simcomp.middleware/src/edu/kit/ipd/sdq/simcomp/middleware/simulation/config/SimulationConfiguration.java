@@ -5,8 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.palladiosimulator.analyzer.workflow.ConstantsContainer;
+
 import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
-import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentImpl;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentRequiredType;
 import edu.kit.ipd.sdq.simcomp.config.ISimulationComponentConfiguration;
@@ -104,5 +105,11 @@ public class SimulationConfiguration extends AbstractSimulationConfig implements
 		}
 
 		return componentConfig.getCompositionRulesForRequiredType(requiredType);
+	}
+
+	@Override
+	public long[] getRandomSeed() {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException();
 	}
 }

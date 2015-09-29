@@ -1,7 +1,8 @@
 package edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.strategies;
 
-import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-import de.uka.ipd.sdq.pcm.usagemodel.Delay;
+import org.palladiosimulator.pcm.core.PCMRandomVariable;
+import org.palladiosimulator.pcm.usagemodel.Delay;
+
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;

@@ -2,9 +2,9 @@ package edu.kit.ipd.sdq.eventsim.system.entities;
 
 import org.apache.log4j.Logger;
 import org.osgi.service.useradmin.User;
+import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
+import org.palladiosimulator.probeframework.measurement.RequestContext;
 
-import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
-import de.uka.ipd.sdq.probespec.framework.RequestContext;
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.debug.DebugEntityListener;

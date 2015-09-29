@@ -1,6 +1,7 @@
 package edu.kit.ipd.sdq.eventsim.system.events;
 
-import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
+import org.palladiosimulator.pcm.seff.ForkedBehaviour;
+
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 import edu.kit.ipd.sdq.eventsim.system.EventSimSystemModel;
 import edu.kit.ipd.sdq.eventsim.system.entities.ForkedRequest;

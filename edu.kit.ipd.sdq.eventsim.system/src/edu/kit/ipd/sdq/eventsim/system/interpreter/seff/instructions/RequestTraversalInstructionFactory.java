@@ -1,7 +1,8 @@
 package edu.kit.ipd.sdq.eventsim.system.interpreter.seff.instructions;
 
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
+import org.palladiosimulator.pcm.seff.AbstractAction;
+import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour;
+
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.interpreter.instructions.EndTraversal;
 import edu.kit.ipd.sdq.eventsim.interpreter.instructions.InterruptTraversal;

@@ -8,11 +8,12 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.debug.ui;bundle-version="3.9.0",
  edu.kit.ipd.sdq.simcomp,
- de.uka.ipd.sdq.workflow.pcm,
  de.uka.ipd.sdq.codegen.simucontroller,
  org.eclipse.osgi.services,
  edu.kit.ipd.sdq.simcomp.middleware,
- de.uka.ipd.sdq.simulation
+ de.uka.ipd.sdq.simulation,
+ org.palladiosimulator.analyzer.workflow;bundle-version="1.0.0",
+ org.palladiosimulator.pcm;bundle-version="4.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Service-Component: OSGI-INF/*.xml

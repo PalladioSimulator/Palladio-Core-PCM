@@ -1,8 +1,8 @@
 package edu.kit.ipd.sdq.eventsim.system.staticstructure;
 
-import de.uka.ipd.sdq.pcm.repository.OperationInterface;
-import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
+import org.palladiosimulator.pcm.repository.OperationInterface;
+import org.palladiosimulator.pcm.repository.OperationProvidedRole;
+import org.palladiosimulator.pcm.repository.OperationRequiredRole;
 
 /**
  * A role instance is a role that is either provided or required by a {@link ComponentInstance}.

@@ -25,14 +25,9 @@ import org.osgi.service.event.Event;
 import org.osgi.service.event.EventAdmin;
 import org.osgi.service.event.EventConstants;
 import org.osgi.service.event.EventHandler;
+import org.palladiosimulator.probeframework.ProbeFrameworkContext;
+import org.palladiosimulator.probeframework.measurement.RequestContext;
 
-import de.uka.ipd.sdq.probespec.framework.BlackboardFactory;
-import de.uka.ipd.sdq.probespec.framework.ISampleBlackboard;
-import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
-import de.uka.ipd.sdq.probespec.framework.ProbeType;
-import de.uka.ipd.sdq.probespec.framework.RequestContext;
-import de.uka.ipd.sdq.probespec.framework.garbagecollection.IRegionBasedGarbageCollector;
-import de.uka.ipd.sdq.probespec.framework.probes.ProbeStrategyRegistry;
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.simucomframework.SimuComDefaultRandomNumberGenerator;
 import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
@@ -56,9 +51,6 @@ import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
 import edu.kit.ipd.sdq.simcomp.events.SimulationEvent;
 import edu.kit.ipd.sdq.simcomp.events.SimulationFinalizeEvent;
 import edu.kit.ipd.sdq.simcomp.events.SimulationStopEvent;
-import edu.kit.ipd.sdq.simcomp.middleware.probespec.CalculatorFactory;
-import edu.kit.ipd.sdq.simcomp.middleware.probespec.SimCompGarbageCollector;
-import edu.kit.ipd.sdq.simcomp.middleware.probespec.probes.TakeSimulatedTimeStrategy;
 import edu.kit.ipd.sdq.simcomp.middleware.simulation.MaxMeasurementsStopCondition;
 import edu.kit.ipd.sdq.simcomp.middleware.simulation.SimulationModel;
 import edu.kit.ipd.sdq.simcomp.middleware.simulation.config.SimulationConfiguration;
@@ -80,7 +72,7 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	private ISimulationConfiguration simConfig;
 	private IPCMModel pcmModel;
 	private EventAdmin eventAdmin;
-	private ProbeSpecContext probeSpecContext;
+	private ProbeFrameworkContext probeSpecContext;
 	private int measurementCount;
 	private List<ServiceRegistration<?>> eventHandlerRegistry;
 	private List<ServiceRegistration<?>> eventHandlerToRemove;
@@ -132,7 +124,8 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 		ServiceReference<EventAdmin> eventAdminServiceReference = bundleContext.getServiceReference(EventAdmin.class);
 		this.eventAdmin = bundleContext.getService(eventAdminServiceReference);
 
-		this.initPropeFramework();
+		// TODO: init probe framework
+//		this.initPropeFramework();
 
 		this.setupStopConditions(config);
 	}
@@ -140,25 +133,25 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	/**
 	 * Initialize probe framework
 	 */
-	private void initPropeFramework() {
-		// initialize probe specification context
-		probeSpecContext = new ProbeSpecContext();
-
-		// create a blackboard of the specified type
-		AbstractSimulationConfig config = (AbstractSimulationConfig) this.getSimulationConfiguration();
-		ISampleBlackboard blackboard = BlackboardFactory.createBlackboard(config.getBlackboardType(), probeSpecContext.getThreadManager());
-
-		// initialize ProbeSpecification context
-		probeSpecContext.initialise(blackboard, new ProbeStrategyRegistry(), new CalculatorFactory(this));
-
-		// install garbage collector which removes samples when they become
-		// obsolete
-		IRegionBasedGarbageCollector<RequestContext> garbageCollector = new SimCompGarbageCollector(blackboard);
-		probeSpecContext.setBlackboardGarbageCollector(garbageCollector);
-
-		// register simulation time strategy
-		probeSpecContext.getProbeStrategyRegistry().registerProbeStrategy(new TakeSimulatedTimeStrategy(), ProbeType.CURRENT_TIME, null);
-	}
+//	private void initPropeFramework() {
+//		// initialize probe specification context
+//		probeSpecContext = new ProbeSpecContext();
+//
+//		// create a blackboard of the specified type
+//		AbstractSimulationConfig config = (AbstractSimulationConfig) this.getSimulationConfiguration();
+//		ISampleBlackboard blackboard = BlackboardFactory.createBlackboard(config.getBlackboardType(), probeSpecContext.getThreadManager());
+//
+//		// initialize ProbeSpecification context
+//		probeSpecContext.initialise(blackboard, new ProbeStrategyRegistry(), new CalculatorFactory(this));
+//
+//		// install garbage collector which removes samples when they become
+//		// obsolete
+//		IRegionBasedGarbageCollector<RequestContext> garbageCollector = new SimCompGarbageCollector(blackboard);
+//		probeSpecContext.setBlackboardGarbageCollector(garbageCollector);
+//
+//		// register simulation time strategy
+//		probeSpecContext.getProbeStrategyRegistry().registerProbeStrategy(new TakeSimulatedTimeStrategy(), ProbeType.CURRENT_TIME, null);
+//	}
 
 	/**
 	 * Setup the simulation stop conditions based on the simulation
@@ -444,7 +437,7 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	}
 
 	@Override
-	public ProbeSpecContext getProbeSpecContext() {
+	public ProbeFrameworkContext getProbeSpecContext() {
 		return probeSpecContext;
 	}
 

@@ -2,9 +2,10 @@ package edu.kit.ipd.sdq.eventsim.system.interpreter.seff.strategies;
 
 import java.util.List;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.repository.PassiveResource;
-import de.uka.ipd.sdq.pcm.seff.AcquireAction;
+import org.palladiosimulator.pcm.core.composition.AssemblyContext;
+import org.palladiosimulator.pcm.repository.PassiveResource;
+import org.palladiosimulator.pcm.seff.AcquireAction;
+
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.EventSimException;
 import edu.kit.ipd.sdq.eventsim.system.Activator;
 import edu.kit.ipd.sdq.eventsim.system.EventSimSystem;

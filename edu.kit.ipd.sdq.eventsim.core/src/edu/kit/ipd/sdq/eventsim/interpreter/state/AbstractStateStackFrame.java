@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Queue;
 
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import org.palladiosimulator.pcm.core.entity.Entity;
 
 /**
  * A stack frame which holds information of the traversal progress.

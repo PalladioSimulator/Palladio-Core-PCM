@@ -2,8 +2,9 @@ package edu.kit.ipd.sdq.eventsim.util;
 
 import java.util.List;
 
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import org.palladiosimulator.pcm.parameter.VariableCharacterisation;
+import org.palladiosimulator.pcm.parameter.VariableUsage;
+
 import de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;

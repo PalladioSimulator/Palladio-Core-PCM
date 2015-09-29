@@ -2,9 +2,10 @@ package edu.kit.ipd.sdq.simcomp.controller.workflow.jobs;
 
 import java.io.PrintStream;
 
+import org.palladiosimulator.analyzer.workflow.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
+
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.AbstractCreateMetaDataFilesJob;
 import de.uka.ipd.sdq.workflow.jobs.IJob;
-import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
 
 /**
  * This job creates the meta data files for the simulation code plugin project.

@@ -1,7 +1,8 @@
 package edu.kit.ipd.sdq.eventsim.system.interpreter.listener;
 
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
-import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
+import org.palladiosimulator.pcm.seff.AbstractAction;
+import org.palladiosimulator.pcm.seff.ExternalCallAction;
+
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.EventSimException;
 import edu.kit.ipd.sdq.eventsim.interpreter.listener.ITraversalListener;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;

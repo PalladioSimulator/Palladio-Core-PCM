@@ -1,8 +1,9 @@
 package edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.strategies;
 
-import de.uka.ipd.sdq.pcm.usagemodel.Branch;
-import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
-import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
+import org.palladiosimulator.pcm.usagemodel.Branch;
+import org.palladiosimulator.pcm.usagemodel.BranchTransition;
+import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour;
+
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;

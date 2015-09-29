@@ -1,10 +1,10 @@
 package edu.kit.ipd.sdq.eventsim.workload.generator;
 
-import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
-import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
-import de.uka.ipd.sdq.probespec.framework.RequestContext;
-import de.uka.ipd.sdq.probespec.framework.garbagecollection.IRegionBasedGarbageCollector;
+import org.palladiosimulator.pcm.core.PCMRandomVariable;
+import org.palladiosimulator.pcm.usagemodel.ClosedWorkload;
+import org.palladiosimulator.pcm.usagemodel.UsageScenario;
+import org.palladiosimulator.probeframework.measurement.RequestContext;
+
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import edu.kit.ipd.sdq.eventsim.entities.IEntityListener;
 import edu.kit.ipd.sdq.eventsim.workload.EventSimWorkloadModel;
@@ -28,7 +28,7 @@ public class ClosedWorkloadGenerator implements IWorkloadGenerator {
     private final ClosedWorkload workload;
     private final int population;
     private final PCMRandomVariable thinkTime;
-    private final IRegionBasedGarbageCollector<RequestContext> blackboardGarbageCollector;
+//    private final IRegionBasedGarbageCollector<RequestContext> blackboardGarbageCollector;
 
     /**
      * Constructs a closed workload in accordance with the specified workload description.
@@ -45,7 +45,7 @@ public class ClosedWorkloadGenerator implements IWorkloadGenerator {
         this.thinkTime = workload.getThinkTime_ClosedWorkload();
 
         ISimulationMiddleware middleware = model.getSimulationMiddleware();
-        this.blackboardGarbageCollector = middleware.getProbeSpecContext().getBlackboardGarbageCollector();
+//        this.blackboardGarbageCollector = middleware.getProbeSpecContext().getBlackboardGarbageCollector();
     }
 
     /**
@@ -72,7 +72,7 @@ public class ClosedWorkloadGenerator implements IWorkloadGenerator {
 
             @Override
             public void enteredSystem() {
-                ClosedWorkloadGenerator.this.blackboardGarbageCollector.enterRegion(user.getRequestContext().rootContext());
+//                ClosedWorkloadGenerator.this.blackboardGarbageCollector.enterRegion(user.getRequestContext().rootContext());
             }
 
             @Override
@@ -80,7 +80,7 @@ public class ClosedWorkloadGenerator implements IWorkloadGenerator {
             	// trigger event that the user finished his work
             	model.getSimulationMiddleware().triggerEvent(new WorkloadUserFinished(user));
 
-                ClosedWorkloadGenerator.this.blackboardGarbageCollector.leaveRegion(user.getRequestContext().rootContext());
+//                ClosedWorkloadGenerator.this.blackboardGarbageCollector.leaveRegion(user.getRequestContext().rootContext());
                 ClosedWorkloadGenerator.this.spawnUser();
             }
 

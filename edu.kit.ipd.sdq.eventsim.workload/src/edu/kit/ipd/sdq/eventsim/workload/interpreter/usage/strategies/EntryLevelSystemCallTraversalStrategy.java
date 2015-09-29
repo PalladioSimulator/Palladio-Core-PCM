@@ -2,7 +2,8 @@ package edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.strategies;
 
 import java.util.List;
 
-import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
+import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
+
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.workload.Activator;
 import edu.kit.ipd.sdq.eventsim.workload.EventSimWorkload;

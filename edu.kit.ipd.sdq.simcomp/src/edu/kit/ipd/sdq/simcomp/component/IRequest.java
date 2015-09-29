@@ -1,6 +1,7 @@
 package edu.kit.ipd.sdq.simcomp.component;
 
-import de.uka.ipd.sdq.probespec.framework.RequestContext;
+import org.palladiosimulator.probeframework.measurement.RequestContext;
+
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 
 /**

@@ -5,9 +5,10 @@ import java.util.List;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
+import org.palladiosimulator.pcm.resourcetype.ResourceType;
 
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
+import edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource;
 import edu.kit.ipd.sdq.eventsim.staticstructure.IResourceContainer;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 

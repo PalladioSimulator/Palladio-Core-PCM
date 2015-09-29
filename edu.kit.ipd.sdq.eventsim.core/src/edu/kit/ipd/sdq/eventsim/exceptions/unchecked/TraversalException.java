@@ -1,7 +1,8 @@
 package edu.kit.ipd.sdq.eventsim.exceptions.unchecked;
 
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
-import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
+import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour;
+import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour;
+
 import edu.kit.ipd.sdq.eventsim.exceptions.UncheckedSimulationException;
 
 /**

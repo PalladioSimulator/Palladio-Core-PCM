@@ -1,11 +1,14 @@
 package edu.kit.ipd.sdq.eventsim.resources.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
+import org.omg.CORBA.Request;
 
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
@@ -38,7 +41,7 @@ public class SimActiveResource extends EventSimEntity {
     private List<IOverallUtilizationListener> overallUtilizationListener;
     private SchedulingPolicy schedulingStrategy;
     private double totalDemandedTime;
-    private int queueLength;
+    private long[] queueLength;
 
     /**
      * Constructs an active resource that wraps the specified resource.
@@ -65,6 +68,7 @@ public class SimActiveResource extends EventSimEntity {
         }
         overallUtilizationListener = new ArrayList<IOverallUtilizationListener>();
         demandListener = new ArrayList<IDemandListener>();
+        queueLength = new long[numberOfInstances];
     }
 
     /**
@@ -75,8 +79,8 @@ public class SimActiveResource extends EventSimEntity {
     private void setupStateListenerAdapter(IActiveResource resource) {
         resource.addObserver(new IActiveResourceStateSensor() {
             @Override
-            public void update(int state, int instanceId) {
-                queueLength = state;
+            public void update(long state, int instanceId) {
+            	queueLength[instanceId] = state;
                 fireStateEvent(state, instanceId);
             }
 
@@ -103,7 +107,7 @@ public class SimActiveResource extends EventSimEntity {
         this.totalDemandedTime += concreteDemand;
         
         // TODO What resource service ID has to passed here?
-        schedulerResource.process(process, 1, concreteDemand);
+        schedulerResource.process(process, 1, Collections.<String, Serializable> emptyMap(), concreteDemand);
 
         // notify demands listeners
         fireDemand(concreteDemand);
@@ -158,8 +162,8 @@ public class SimActiveResource extends EventSimEntity {
      *         this value is rather the queue length plus (!) the number of jobs being processed at
      *         the moment.
      */
-    public int getQueueLength() {
-        return queueLength;
+    public long getQueueLength(int instanceId) {
+        return queueLength[instanceId];
     }
 
     public SchedulingPolicy getSchedulingStrategy() {
@@ -212,7 +216,7 @@ public class SimActiveResource extends EventSimEntity {
      * @param instance
      *            the affected resource instance
      */
-    protected void fireStateEvent(int state, int instance) {
+    protected void fireStateEvent(long state, int instance) {
         for (IStateListener l : stateListener.get(instance)) {
             l.stateChanged(state, instance);
         }

@@ -1,6 +1,7 @@
 package edu.kit.ipd.sdq.eventsim.interpreter.listener;
 
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import org.palladiosimulator.pcm.core.entity.Entity;
+
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEntityDelegator;
 import edu.kit.ipd.sdq.eventsim.interpreter.BehaviourInterpreter;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.AbstractInterpreterState;

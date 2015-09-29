@@ -1,6 +1,7 @@
 package edu.kit.ipd.sdq.simcomp.component;
 
-import de.uka.ipd.sdq.probespec.framework.RequestContext;
+import org.palladiosimulator.probeframework.measurement.RequestContext;
+
 
 /**
  * Represents a system user which is spawned by an {@link IWorkload} to perform calls to an {@link ISystem}

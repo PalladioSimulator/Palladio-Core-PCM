@@ -1,15 +1,15 @@
 package edu.kit.ipd.sdq.simcomp.component;
 
-import de.uka.ipd.sdq.pcm.allocation.Allocation;
-import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
-import de.uka.ipd.sdq.pcm.system.System;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
+import org.palladiosimulator.pcm.allocation.Allocation;
+import org.palladiosimulator.pcm.repository.Repository;
+import org.palladiosimulator.pcm.resourceenvironment.ResourceEnvironment;
+import org.palladiosimulator.pcm.resourcetype.ResourceRepository;
+import org.palladiosimulator.pcm.system.System;
+import org.palladiosimulator.pcm.usagemodel.UsageModel;
 
 /**
  * Represents the PCM model of a component-based system to simulate.
- *  
+ * 
  * @author Christoph Föhrdes
  */
 public interface IPCMModel {

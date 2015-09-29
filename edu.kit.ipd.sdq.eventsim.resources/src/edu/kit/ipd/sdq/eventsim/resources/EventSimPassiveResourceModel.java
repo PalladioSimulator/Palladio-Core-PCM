@@ -3,17 +3,12 @@ package edu.kit.ipd.sdq.eventsim.resources;
 import java.util.HashMap;
 import java.util.Map;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.repository.PassiveResource;
-import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
-import de.uka.ipd.sdq.probespec.framework.ProbeType;
-import de.uka.ipd.sdq.probespec.framework.probes.IProbeStrategyRegistry;
+import org.palladiosimulator.pcm.core.composition.AssemblyContext;
+import org.palladiosimulator.pcm.repository.PassiveResource;
+
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimulatedProcess;
-import edu.kit.ipd.sdq.eventsim.resources.probespec.commands.BuildPassiveResourceCalculators;
-import edu.kit.ipd.sdq.eventsim.resources.probespec.commands.MountPassiveResourceProbes;
-import edu.kit.ipd.sdq.eventsim.resources.probespec.probes.TakePassiveResourceStateStrategy;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 import edu.kit.ipd.sdq.simcomp.component.IRequest;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
@@ -34,18 +29,20 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
 	@Override
 	public void init() {
 		// initialize the probe specification
-		this.initProbeSpecification();
+		
+		// TODO init probespec
+//		this.initProbeSpecification();
 	}
 
-	private void initProbeSpecification() {
-		ProbeSpecContext probeContext = this.getSimulationMiddleware().getProbeSpecContext();
-		IProbeStrategyRegistry strategyRegistry = probeContext.getProbeStrategyRegistry();
-
-		/* RESOURCE_STATE */
-		// passive resources
-		strategyRegistry.registerProbeStrategy(new TakePassiveResourceStateStrategy(), ProbeType.RESOURCE_STATE, SimPassiveResource.class);
-
-	}
+//	private void initProbeSpecification() {
+//		ProbeSpecContext probeContext = this.getSimulationMiddleware().getProbeSpecContext();
+//		IProbeStrategyRegistry strategyRegistry = probeContext.getProbeStrategyRegistry();
+//
+//		/* RESOURCE_STATE */
+//		// passive resources
+//		strategyRegistry.registerProbeStrategy(new TakePassiveResourceStateStrategy(), ProbeType.RESOURCE_STATE, SimPassiveResource.class);
+//
+//	}
 
 	public boolean acquire(IRequest request, AssemblyContext assCtx, PassiveResource specification, int i, boolean b, double timeoutValue) {
         SimPassiveResource res = this.getPassiveResource(specification, assCtx);
@@ -91,11 +88,11 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
             // register the created passive resource
             contextToResourceMap.put(compoundKey(assCtx, specification), simResource);
             
-    		// build calculators
-    		this.execute(new BuildPassiveResourceCalculators(this, simResource));
-    		
-    		// mount probes
-    		this.execute(new MountPassiveResourceProbes(this, simResource));
+//    		// build calculators
+//    		this.execute(new BuildPassiveResourceCalculators(this, simResource));
+//    		
+//    		// mount probes
+//    		this.execute(new MountPassiveResourceProbes(this, simResource));
         }
         return contextToResourceMap.get(compoundKey(assCtx, specification));
     }
