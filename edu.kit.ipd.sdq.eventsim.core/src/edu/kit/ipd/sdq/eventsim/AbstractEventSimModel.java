@@ -8,6 +8,7 @@ import edu.kit.ipd.sdq.eventsim.command.PCMModelCommandExecutor;
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
+import edu.kit.ipd.sdq.simcomp.middleware.simulation.config.SimulationConfiguration;
 
 /**
  * This class is the basis for a simulation component based on EventSim. It
@@ -23,8 +24,11 @@ abstract public class AbstractEventSimModel {
 	private final List<EventSimEntity> activeEntitiesList;
 
 	public AbstractEventSimModel(ISimulationMiddleware middleware) {
+		// TODO get rid of cast
+		SimulationConfiguration cfg = (SimulationConfiguration)middleware.getSimulationConfiguration();
+		
 		this.middleware = middleware;
-		this.config = new EventSimConfig(middleware.getSimulationConfiguration().getConfigurationMap(), middleware.getSimulationConfiguration().isDebug());
+		this.config = new EventSimConfig(cfg.getConfigurationMap(), cfg.isDebug(), cfg.getPCMModel());
 		this.executor = new PCMModelCommandExecutor(middleware.getPCMModel());
 		this.activeEntitiesList = new CopyOnWriteArrayList<EventSimEntity>();
 	}

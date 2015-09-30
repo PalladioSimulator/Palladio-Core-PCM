@@ -36,7 +36,7 @@ public class SimulationComponentWorkflowConfiguration extends AbstractSimulation
 	}
 
 	@Override
-	public AbstractSimulationConfig getSimulationConfiguration() {
+	public SimulationConfiguration getSimulationConfiguration() {
 		return this.simulationConfig;
 	}
 

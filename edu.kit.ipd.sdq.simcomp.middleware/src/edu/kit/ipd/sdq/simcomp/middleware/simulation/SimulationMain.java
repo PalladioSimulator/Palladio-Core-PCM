@@ -16,8 +16,8 @@ import de.uka.ipd.sdq.simulation.IStatusObserver;
 import de.uka.ipd.sdq.simulation.SimulationResult;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.config.ISimulationConfiguration;
 import edu.kit.ipd.sdq.simcomp.middleware.Activator;
+import edu.kit.ipd.sdq.simcomp.middleware.simulation.config.SimulationConfiguration;
 
 /**
  * The entry point for a simulation component based simulation. This class is
@@ -70,12 +70,12 @@ public abstract class SimulationMain implements ISimulationControl, BundleActiva
 		Activator middlewareActivator = Activator.getDefault();
 		this.simulationMiddleware = middlewareActivator.getSimulationMiddleware();
 
-		ISimulationConfiguration simConfig = (ISimulationConfiguration) configuration;
+		SimulationConfiguration simConfig = (SimulationConfiguration) configuration;
 
 		// load the PCM model to be simulated
 		final IPath usageModelLocation = this.createRelativePathToModelFile(simConfig.getUsageModelFile());
 		final IPath allocationModelLocation = this.createRelativePathToModelFile(simConfig.getAllocationModelFile());
-		IPCMModel pcmModel = PCMModel.loadFromBundle(this.bundleContext.getBundle(), usageModelLocation, allocationModelLocation);
+		IPCMModel pcmModel = simConfig.getPCMModel();// PCMModel.loadFromBundle(this.bundleContext.getBundle(), usageModelLocation, allocationModelLocation);
 
 		// initialize the middleware
 		this.simulationMiddleware.initialize(simConfig, pcmModel);

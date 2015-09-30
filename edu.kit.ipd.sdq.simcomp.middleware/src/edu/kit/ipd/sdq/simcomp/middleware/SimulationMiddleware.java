@@ -347,7 +347,7 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 			logger.debug("Cleaning up...");
 		}
 
-		probeSpecContext.finish();
+//		probeSpecContext.finish();
 		
 		notifyStopListeners();
 

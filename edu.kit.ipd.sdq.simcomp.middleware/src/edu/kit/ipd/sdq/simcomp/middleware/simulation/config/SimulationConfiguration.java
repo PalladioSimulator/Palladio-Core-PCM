@@ -13,6 +13,7 @@ import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentRequiredType;
 import edu.kit.ipd.sdq.simcomp.config.ISimulationComponentConfiguration;
 import edu.kit.ipd.sdq.simcomp.config.ISimulationConfiguration;
 import edu.kit.ipd.sdq.simcomp.config.ISimulatorCompositonRule;
+import edu.kit.ipd.sdq.simcomp.middleware.simulation.PCMModel;
 
 /**
  * A configuration object for a simulation component based advanced simulator
@@ -35,8 +36,11 @@ public class SimulationConfiguration extends AbstractSimulationConfig implements
 	Map<SimulationComponentImpl, ISimulationComponentConfiguration> componentsConfig;
 	Map<SimulationComponentRequiredType, SimulationComponentImpl> requiredTypeToSimCompMap;
 
+	// TODO files obsolete!?
 	private final String usageModelFile;
 	private final String allocationModelFile;
+	
+    private PCMModel model;
 
 	public SimulationConfiguration(Map<String, Object> configuration, boolean debug) {
 		super(configuration, debug);
@@ -109,7 +113,15 @@ public class SimulationConfiguration extends AbstractSimulationConfig implements
 
 	@Override
 	public long[] getRandomSeed() {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException();
+		return super.randomSeed;
 	}
+	
+	public PCMModel getPCMModel() {
+		return model;
+	}
+
+	public void setModel(PCMModel model) {
+		this.model = model;
+	}
+	
 }

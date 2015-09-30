@@ -56,11 +56,11 @@ public class CreateSimulationComponentMetaDataFilesJob extends AbstractCreateMet
 		"org.eclipse.osgi", 
 		"de.uka.ipd.sdq.scheduler", 
 		"org.jscience", 
-		"de.uka.ipd.sdq.probespec.framework", 
-		"de.uka.ipd.sdq.pipesandfilters", 
-		"de.uka.ipd.sdq.pipesandfilters.framework", 
-		"de.uka.ipd.sdq.reliability.core", 
-		"de.fzi.se.accuracy", 
+//		"de.uka.ipd.sdq.probespec.framework", 
+//		"de.uka.ipd.sdq.pipesandfilters", 
+//		"de.uka.ipd.sdq.pipesandfilters.framework", 
+//		"de.uka.ipd.sdq.reliability.core", 
+//		"de.fzi.se.accuracy", 
 		"de.uka.ipd.sdq.probfunction.math", 
 		"edu.kit.ipd.sdq.simcomp.middleware"
 	};

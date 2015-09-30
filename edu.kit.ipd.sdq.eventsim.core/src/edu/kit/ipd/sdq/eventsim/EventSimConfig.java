@@ -7,6 +7,8 @@ import org.palladiosimulator.pcm.allocation.Allocation;
 import org.palladiosimulator.pcm.usagemodel.UsageModel;
 
 import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
+import edu.kit.ipd.sdq.eventsim.command.PCMModelCommandExecutor;
+import edu.kit.ipd.sdq.simcomp.middleware.simulation.PCMModel;
 
 /**
  * This class encapsulates the configuration of an EventSim simulation run. The configuration is
@@ -20,8 +22,7 @@ public class EventSimConfig extends AbstractSimulationConfig {
 
     private static final long serialVersionUID = -1484769217776789788L;
 
-    private final String usageModelFile;
-    private final String allocationModelFile;
+    private PCMModel model;
 
     /**
      * Constructs the configuration for the specified key-value map.
@@ -31,32 +32,9 @@ public class EventSimConfig extends AbstractSimulationConfig {
      * @param debug
      *            true, if the debugging mode should be used; false else
      */
-    public EventSimConfig(final Map<String, Object> configuration, final boolean debug) {
+    public EventSimConfig(final Map<String, Object> configuration, final boolean debug, PCMModel model) {
         super(configuration, debug);
-        try {
-            this.usageModelFile = (String) configuration.get(ConstantsContainer.USAGE_FILE);
-            this.allocationModelFile = (String) configuration.get(ConstantsContainer.ALLOCATION_FILE);
-        } catch (final Exception e) {
-            throw new RuntimeException("Setting up properties failed, please check launch config (check all tabs).", e);
-        }
-    }
-
-    /**
-     * Returns the location of the file containing the {@link UsageModel}.
-     * 
-     * @return the usage model file location
-     */
-    public String getUsageModelFile() {
-        return this.usageModelFile;
-    }
-
-    /**
-     * Returns the location of the file containing the {@link Allocation}.
-     * 
-     * @return the allocation file location
-     */
-    public String getAllocationModelFile() {
-        return this.allocationModelFile;
+        this.model = model;
     }
 
     /**
@@ -66,8 +44,14 @@ public class EventSimConfig extends AbstractSimulationConfig {
     private EventSimConfig() {
         // this constructor is not intended to be called.
         super(null, false);
-        this.usageModelFile = null;
-        this.allocationModelFile = null;
     }
+    
+	public PCMModel getModel() {
+		return model;
+	}
+
+	public void setModel(PCMModel model) {
+		this.model = model;
+	}
 
 }

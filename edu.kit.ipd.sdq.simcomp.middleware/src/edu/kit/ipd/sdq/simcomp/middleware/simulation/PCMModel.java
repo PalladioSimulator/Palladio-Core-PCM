@@ -71,7 +71,7 @@ public class PCMModel implements IPCMModel {
      * Default constructor. This constructor is not intended to be used from outside this class.
      * Instead, the {@code loadFromBundle()} method is supposed to be used.
      */
-    protected PCMModel(final Allocation allocationModel, final Repository repositoryModel,
+    public PCMModel(final Allocation allocationModel, final Repository repositoryModel,
             final ResourceEnvironment resourceModel, final System systemModel, final UsageModel usageModel,
             final ResourceRepository resourceRepository) {
         this.allocationModel = allocationModel;
