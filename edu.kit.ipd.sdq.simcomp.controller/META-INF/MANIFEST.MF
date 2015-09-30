@@ -11,7 +11,8 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.simulation,
  edu.kit.ipd.sdq.simcomp,
  edu.kit.ipd.sdq.simcomp.middleware,
- org.palladiosimulator.analyzer.workflow;bundle-version="1.0.0"
+ org.palladiosimulator.analyzer.workflow;bundle-version="1.0.0",
+ org.palladiosimulator.pcm;bundle-version="4.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: edu.kit.ipd.sdq.simcomp.controller.runconfig,
