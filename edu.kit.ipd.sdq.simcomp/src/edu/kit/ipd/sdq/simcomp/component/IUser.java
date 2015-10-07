@@ -1,6 +1,5 @@
 package edu.kit.ipd.sdq.simcomp.component;
 
-import org.palladiosimulator.probeframework.measurement.RequestContext;
 
 
 /**
@@ -16,12 +15,5 @@ public interface IUser {
 	 * @return A unique identifier
 	 */
 	public String getId();
-
-	/**
-	 * The unique identifier for the probe framework
-	 * 
-	 * @return A request context
-	 */
-	public RequestContext getRequestContext();
 	
 }

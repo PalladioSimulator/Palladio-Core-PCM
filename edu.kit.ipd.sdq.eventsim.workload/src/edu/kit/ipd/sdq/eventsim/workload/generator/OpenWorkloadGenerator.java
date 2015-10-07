@@ -3,14 +3,12 @@ package edu.kit.ipd.sdq.eventsim.workload.generator;
 import org.palladiosimulator.pcm.core.PCMRandomVariable;
 import org.palladiosimulator.pcm.usagemodel.OpenWorkload;
 import org.palladiosimulator.pcm.usagemodel.UsageScenario;
-import org.palladiosimulator.probeframework.measurement.RequestContext;
 
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import edu.kit.ipd.sdq.eventsim.entities.IEntityListener;
 import edu.kit.ipd.sdq.eventsim.workload.EventSimWorkloadModel;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;
 import edu.kit.ipd.sdq.eventsim.workload.events.BeginUsageTraversalEvent;
-import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.workload.events.WorkloadUserFinished;
 
 /**
@@ -26,7 +24,6 @@ public class OpenWorkloadGenerator implements IWorkloadGenerator {
     private final EventSimWorkloadModel model;
     private final OpenWorkload workload;
     private final PCMRandomVariable interarrivalTime;
-//    private final IRegionBasedGarbageCollector<RequestContext> blackboardGarbageCollector;
 
     /**
      * Constructs an open workload in accordance with the specified workload description.
@@ -40,9 +37,6 @@ public class OpenWorkloadGenerator implements IWorkloadGenerator {
         this.model = model;
         this.workload = workload;
         this.interarrivalTime = workload.getInterArrivalTime_OpenWorkload();
-
-        ISimulationMiddleware middleware = model.getSimulationMiddleware();
-//        this.blackboardGarbageCollector = middleware.getProbeSpecContext().getBlackboardGarbageCollector();
     }
 
     /**
@@ -68,7 +62,6 @@ public class OpenWorkloadGenerator implements IWorkloadGenerator {
 
             @Override
             public void enteredSystem() {
-//                OpenWorkloadGenerator.this.blackboardGarbageCollector.enterRegion(user.getRequestContext().rootContext());
                 final double waitingTime = StackContext.evaluateStatic(OpenWorkloadGenerator.this.interarrivalTime.getSpecification(), Double.class);
                 OpenWorkloadGenerator.this.spawnUser(waitingTime);
             }
@@ -77,8 +70,6 @@ public class OpenWorkloadGenerator implements IWorkloadGenerator {
             public void leftSystem() {
             	// trigger event that the user finished his work
             	model.getSimulationMiddleware().triggerEvent(new WorkloadUserFinished(user));
-
-//                OpenWorkloadGenerator.this.blackboardGarbageCollector.leaveRegion(user.getRequestContext().rootContext());
             }
 
         });

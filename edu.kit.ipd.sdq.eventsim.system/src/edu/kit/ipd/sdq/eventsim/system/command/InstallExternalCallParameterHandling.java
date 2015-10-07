@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
-import edu.kit.ipd.sdq.eventsim.system.command.seff.FindExternalCallActionsInSeff;
+import edu.kit.ipd.sdq.eventsim.system.command.seff.FindActionsInSeff;
 import edu.kit.ipd.sdq.eventsim.system.command.seff.FindSeffsForAssemblyContext;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.listener.AbstractExternalCallListener;
@@ -54,7 +54,7 @@ public class InstallExternalCallParameterHandling implements IPCMCommand<Void> {
         for (final AssemblyContext assemblyCtx : pcm.getSystemModel().getAssemblyContexts__ComposedStructure()) {
             final List<ResourceDemandingSEFF> seffs = executor.execute(new FindSeffsForAssemblyContext(assemblyCtx));
             for (ResourceDemandingSEFF s : seffs) {
-                externalCalls.addAll(executor.execute(new FindExternalCallActionsInSeff(s)));
+                externalCalls.addAll(executor.execute(new FindActionsInSeff<>(s, ExternalCallAction.class)));
             }
         }
         if (externalCalls != null) {

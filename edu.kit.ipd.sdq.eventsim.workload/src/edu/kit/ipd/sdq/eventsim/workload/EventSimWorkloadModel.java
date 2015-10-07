@@ -53,8 +53,7 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 	 * This method prepares the EventSim workload simulator and creates the
 	 * initial events to start the workload generation.
 	 */
-	public void init() {
-
+	public void init() {		
 		// initialise behaviour interpreters
 		usageInterpreter = new UsageBehaviourInterpreter(new UsageInterpreterConfiguration());
 

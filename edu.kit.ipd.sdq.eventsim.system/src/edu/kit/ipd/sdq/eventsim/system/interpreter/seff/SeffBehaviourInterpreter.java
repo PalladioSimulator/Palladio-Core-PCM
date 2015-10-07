@@ -14,7 +14,7 @@ import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.interpreter.BehaviourInterpreter;
-import edu.kit.ipd.sdq.eventsim.system.command.seff.FindActionInResourceDemandingBehaviour;
+import edu.kit.ipd.sdq.eventsim.system.command.seff.FindActionInBehaviour;
 import edu.kit.ipd.sdq.eventsim.system.entities.ForkedRequest;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.listener.ISeffTraversalListener;
@@ -61,7 +61,7 @@ public class SeffBehaviourInterpreter extends BehaviourInterpreter<AbstractActio
 
         // find start action
         final ResourceDemandingSEFF seff = component.getServiceEffectSpecification(signature);
-        final StartAction startAction = this.model.execute(new FindActionInResourceDemandingBehaviour<StartAction>(seff, StartAction.class));
+        final StartAction startAction = this.model.execute(new FindActionInBehaviour<StartAction>(seff, StartAction.class));
 
         // begin traversal
         state.setCurrentPosition(startAction);
@@ -85,7 +85,7 @@ public class SeffBehaviourInterpreter extends BehaviourInterpreter<AbstractActio
         request.setRequestState(state);
 
         // find start action
-        final StartAction startAction = this.model.execute(new FindActionInResourceDemandingBehaviour<StartAction>(behaviour, StartAction.class));
+        final StartAction startAction = this.model.execute(new FindActionInBehaviour<StartAction>(behaviour, StartAction.class));
 
         // begin traversal
         state.setCurrentPosition(startAction);

@@ -2,7 +2,6 @@ package edu.kit.ipd.sdq.eventsim.workload.entities;
 
 import org.apache.log4j.Logger;
 import org.palladiosimulator.pcm.usagemodel.UsageScenario;
-import org.palladiosimulator.probeframework.measurement.RequestContext;
 
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
@@ -29,12 +28,6 @@ public class User extends EventSimEntity implements IUser {
     
     private UserState state;
 
-	/**
-     * the request context is a unique identifier for this user, which is required for the Probe
-     * Specification.
-     */
-    private final RequestContext requestContext;
-
     /**
      * Constructs a new User that is supposed to traverse the specified usage scenario.
      * 
@@ -46,10 +39,6 @@ public class User extends EventSimEntity implements IUser {
     public User(final AbstractEventSimModel model, final UsageScenario scenario) {
         super(model, "User");
         this.scenario = scenario;
-
-        // set the request context of this user. As this entity's ID is unique, we can use it to
-        // construct the request context
-        this.requestContext = new RequestContext(Long.toString(this.getEntityId()));
 
         // install debug listener, if debugging is enabled
         if (logger.isDebugEnabled()) {
@@ -72,15 +61,6 @@ public class User extends EventSimEntity implements IUser {
      */
     public UsageScenario getUsageScenario() {
         return this.scenario;
-    }
-
-    /**
-     * Returns the RequestContext required by the Probe Specification to identify this User.
-     * 
-     * @return a unique identifier, encapsulated in a RequestContext, for this User
-     */
-    public RequestContext getRequestContext() {
-        return this.requestContext;
     }
 
     public UserState getUserState() {

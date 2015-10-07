@@ -3,7 +3,6 @@ package edu.kit.ipd.sdq.eventsim.system.entities;
 import org.apache.log4j.Logger;
 import org.osgi.service.useradmin.User;
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
-import org.palladiosimulator.probeframework.measurement.RequestContext;
 
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
@@ -33,12 +32,6 @@ public class Request extends EventSimEntity implements IRequest {
     private RequestState state;
 
     /**
-     * the request context is a unique identifier for this Request, which is required for the Probe
-     * Specification.
-     */
-    private RequestContext requestContext;
-
-    /**
      * the activation event encapsulates the bahaviour that is to be performed when this Request is
      * activated after it has been passivated before (see also: activate and passivate methods).
      */
@@ -66,13 +59,6 @@ public class Request extends EventSimEntity implements IRequest {
         }
     }
 
-    protected RequestContext createRequestContext() {
-        // set the request context of this request. As this entity's ID is unique, we can use it to
-        // construct the request context
-        RequestContext parentContex = this.user.getRequestContext();
-        return new RequestContext(Long.toString(this.getEntityId()), parentContex);
-    }
-
     /**
      * Returns the user that has issued this Request.
      * 
@@ -92,19 +78,6 @@ public class Request extends EventSimEntity implements IRequest {
     }
 
     /**
-     * Returns the RequestContext required by the Probe Specification to identify this Request.
-     * 
-     * @return a unique identifier, encapsulated in a RequestContext, for this Request
-     */
-    @Override
-    public RequestContext getRequestContext() {
-        if (this.requestContext == null) {
-            this.requestContext = createRequestContext();
-        }
-        return this.requestContext;
-    }
-
-    /**
      * {@inheritDoc}
      */
     @Override
@@ -112,7 +85,11 @@ public class Request extends EventSimEntity implements IRequest {
         return "Request#" + this.getEntityId() + " of " + this.getUser().getId();
     }
 
-    /**
+	public Request getParent() {
+		return null;
+	}
+
+	/**
      * {@inheritDoc}
      */
     @Override
@@ -167,5 +144,7 @@ public class Request extends EventSimEntity implements IRequest {
 	public long getId() {
 		return getEntityId();
 	}
+	
+	
 
 }

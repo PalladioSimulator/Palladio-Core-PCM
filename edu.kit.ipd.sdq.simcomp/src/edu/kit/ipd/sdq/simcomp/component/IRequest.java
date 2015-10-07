@@ -1,7 +1,5 @@
 package edu.kit.ipd.sdq.simcomp.component;
 
-import org.palladiosimulator.probeframework.measurement.RequestContext;
-
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 
 /**
@@ -10,15 +8,8 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
  * @author Christoph Föhrdes
  */
 public interface IRequest {
-	
+
 	public long getId();
-	
-	/**
-	 * The unique identifier for the probe framework
-	 * 
-	 * @return A request context
-	 */
-	public RequestContext getRequestContext();
 
 	/**
 	 * Returns the user who initiated the request.
@@ -26,9 +17,9 @@ public interface IRequest {
 	 * @return The creator of the request
 	 */
 	public IUser getUser();
-	
+
 	public void activate();
-	
+
 	public void passivate(AbstractSimEventDelegator<?> activationEvent);
 
 }

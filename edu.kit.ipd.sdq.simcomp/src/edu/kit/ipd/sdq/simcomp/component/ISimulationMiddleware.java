@@ -2,8 +2,6 @@ package edu.kit.ipd.sdq.simcomp.component;
 
 import java.util.List;
 
-import org.palladiosimulator.probeframework.ProbeFrameworkContext;
-
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.simulation.IStatusObserver;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
@@ -165,13 +163,13 @@ public interface ISimulationMiddleware {
 	 */
 	public void registerEventHandler(String eventId, IEventHandler<? extends SimulationEvent> handler, boolean unregisterOnReset);
 
-	/**
-	 * Gives access to the central probe specification context of the probe
-	 * framework.
-	 * 
-	 * @return The probe specification context
-	 */
-	ProbeFrameworkContext getProbeSpecContext();
+//	/**
+//	 * Gives access to the central probe specification context of the probe
+//	 * framework.
+//	 * 
+//	 * @return The probe specification context
+//	 */
+//	MeasurementSink getProbeSpecContext();
 
 	/**
 	 * Gives access the the amount of measurements done in the current

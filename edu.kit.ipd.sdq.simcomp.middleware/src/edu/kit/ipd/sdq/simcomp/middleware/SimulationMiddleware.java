@@ -25,8 +25,6 @@ import org.osgi.service.event.Event;
 import org.osgi.service.event.EventAdmin;
 import org.osgi.service.event.EventConstants;
 import org.osgi.service.event.EventHandler;
-import org.palladiosimulator.probeframework.ProbeFrameworkContext;
-import org.palladiosimulator.probeframework.measurement.RequestContext;
 
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.simucomframework.SimuComDefaultRandomNumberGenerator;
@@ -72,7 +70,7 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	private ISimulationConfiguration simConfig;
 	private IPCMModel pcmModel;
 	private EventAdmin eventAdmin;
-	private ProbeFrameworkContext probeSpecContext;
+//	private MeasurementSink probeSpecContext;
 	private int measurementCount;
 	private List<ServiceRegistration<?>> eventHandlerRegistry;
 	private List<ServiceRegistration<?>> eventHandlerToRemove;
@@ -125,6 +123,7 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 		this.eventAdmin = bundleContext.getService(eventAdminServiceReference);
 
 		// TODO: init probe framework
+//		probeSpecContext = new OtherMeasurementSink();
 //		this.initPropeFramework();
 
 		this.setupStopConditions(config);
@@ -152,6 +151,7 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 //		// register simulation time strategy
 //		probeSpecContext.getProbeStrategyRegistry().registerProbeStrategy(new TakeSimulatedTimeStrategy(), ProbeType.CURRENT_TIME, null);
 //	}
+	
 
 	/**
 	 * Setup the simulation stop conditions based on the simulation
@@ -348,6 +348,7 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 		}
 
 //		probeSpecContext.finish();
+//		probeSpecContext.end();
 		
 		notifyStopListeners();
 
@@ -436,10 +437,10 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 		measurementCount = 0;
 	}
 
-	@Override
-	public ProbeFrameworkContext getProbeSpecContext() {
-		return probeSpecContext;
-	}
+//	@Override
+//	public MeasurementSink getProbeSpecContext() {
+//		return probeSpecContext;
+//	}
 
 	@Override
 	public SimulationModel getSimulationModel() {

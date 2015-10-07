@@ -50,6 +50,8 @@
 //        // build a calculator for each UsageScenario
 //        UsageModel usageModel = pcm.getUsageModel();
 //        for (UsageScenario s : usageModel.getUsageScenario_UsageModel()) {
+//        	executor.execute(new Find)
+//        	
 //            Calculator calculator = probeSpecContext.getCalculatorFactory().buildResponseTimeCalculator(
 //                    s.getEntityName(), probeSpecContext.obtainProbeSetId(s.getId() + "_start"),
 //                    probeSpecContext.obtainProbeSetId(s.getId() + "_end"));

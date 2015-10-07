@@ -17,15 +17,15 @@ import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
  * @param <R>
  *            the type of the action that is to be searched for
  */
-public class FindActionInResourceDemandingBehaviour<R extends AbstractAction> implements IPCMCommand<R> {
+public class FindActionInBehaviour<R extends AbstractAction> implements IPCMCommand<R> {
 
     private ResourceDemandingBehaviour behaviour;
     private Class<R> actionClass;
 
-    public FindActionInResourceDemandingBehaviour(ResourceDemandingBehaviour seff, Class<R> actionClass) {
-        assert (seff != null) : "The argument behaviour may not be null";
+    public FindActionInBehaviour(ResourceDemandingBehaviour behaviour, Class<R> actionClass) {
+        assert (behaviour != null) : "The argument behaviour may not be null";
         assert (actionClass != null) : "The argument actionClass may not be null";
-        this.behaviour = seff;
+        this.behaviour = behaviour;
         this.actionClass = actionClass;
     }
 
@@ -65,7 +65,7 @@ public class FindActionInResourceDemandingBehaviour<R extends AbstractAction> im
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		FindActionInResourceDemandingBehaviour other = (FindActionInResourceDemandingBehaviour) obj;
+		FindActionInBehaviour other = (FindActionInBehaviour) obj;
 		if (actionClass == null) {
 			if (other.actionClass != null)
 				return false;

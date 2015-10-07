@@ -1,6 +1,8 @@
 //package edu.kit.ipd.sdq.eventsim.workload.probespec.commands;
 //
-//import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
+//import java.util.SortedMap;
+//import java.util.TreeMap;
+//
 //import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour;
 //import org.palladiosimulator.pcm.usagemodel.Start;
 //import org.palladiosimulator.pcm.usagemodel.Stop;
@@ -8,19 +10,18 @@
 //
 //import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 //import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
-//import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 //import edu.kit.ipd.sdq.eventsim.interpreter.listener.ITraversalListener;
 //import edu.kit.ipd.sdq.eventsim.workload.command.usage.FindActionInUsageBehaviour;
-//import edu.kit.ipd.sdq.eventsim.workload.entities.User;
-//import edu.kit.ipd.sdq.eventsim.workload.interpreter.listener.IUsageTraversalListener;
 //import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.UsageInterpreterConfiguration;
 //import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 //import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
+//import edu.kit.ipd.sdq.simcomp.persistence.Measurement;
+//import edu.kit.ipd.sdq.simcomp.persistence.factory.CalculatorBuilder;
 //
 ///**
-// * This command registers a {@link ITraversalListener} at the start and at the stop action of a
-// * {@link UsageScenario}. The listeners take a {@link ProbeType#CURRENT_TIME} sample in order to
-// * enable the calculation of the usage scenario's response time.
+// * This command registers a {@link ITraversalListener} at the start and at the stop action of a {@link UsageScenario}.
+// * The listeners take a {@link ProbeType#CURRENT_TIME} sample in order to enable the calculation of the usage scenario's
+// * response time.
 // * 
 // * @author Philipp Merkle
 // * @author Christoph Föhrdes
@@ -28,81 +29,48 @@
 // */
 //public class MountUsageScenarioProbes implements IPCMCommand<Void> {
 //
-//    private final UsageInterpreterConfiguration interpreterConfig;
+//	private final UsageInterpreterConfiguration interpreterConfig;
 //	private ISimulationMiddleware middleware;
-//    
-//    public MountUsageScenarioProbes(UsageInterpreterConfiguration interpreterConfig, ISimulationMiddleware middleware) {
-//        this.interpreterConfig = interpreterConfig;
-//        this.middleware = middleware;
-//    }
-//    
-//    /**
-//     * {@inheritDoc}
-//     */
-//    @Override
-//    public Void execute(IPCMModel pcm, ICommandExecutor<IPCMModel> executor) {
-//        for (UsageScenario s : pcm.getUsageModel().getUsageScenario_UsageModel()) {
-//            ScenarioBehaviour behaviour = s.getScenarioBehaviour_UsageScenario();
-//            final Start start = executor.execute(new FindActionInUsageBehaviour<Start>(behaviour, Start.class));
-//            final Stop stop = executor.execute(new FindActionInUsageBehaviour<Stop>(behaviour, Stop.class));
 //
-//            // add a traversal listener to the usage scenario's start action
-//            this.interpreterConfig.addTraversalListener(start, new IUsageTraversalListener() {
+//	private final SortedMap<String, Measurement> mm;
 //
-//                @Override
-//                public void before(AbstractUserAction action, User u, UserState state) {
-//                    // take current time sample
-//                    ProbeSpecContext probeSpecContext = middleware.getProbeSpecContext();
-//                    probeSpecContext.getSampleBlackboard().addSample(
-//                            ProbeSpecUtils.buildProbeSetSample(probeSpecContext.getProbeStrategyRegistry()
-//                                    .getProbeStrategy(ProbeType.CURRENT_TIME, null).takeSample(start.getId(),
-//                                            u.getModel().getSimulationControl()), u.getRequestContext(), start.getId(),
-//                                    probeSpecContext.obtainProbeSetId(start.getScenarioBehaviour_AbstractUserAction()
-//                                            .getUsageScenario_SenarioBehaviour().getId()
-//                                            + "_start")));
-//                }
+//	public MountUsageScenarioProbes(UsageInterpreterConfiguration interpreterConfig, ISimulationMiddleware middleware) {
+//		mm = new TreeMap<String, Measurement>();
+//		this.interpreterConfig = interpreterConfig;
+//		this.middleware = middleware;
+//	}
 //
-//                @Override
-//                public void after(AbstractUserAction action, User u, UserState state) {
-//                    // nothing to do
-//                }
+//	// private String makeKey(Measurement m) {
+//	// return m.getWhere() + ":" + m.getWho().getId();
+//	// }
 //
-//            });
+//	/**
+//	 * {@inheritDoc}
+//	 */
+//	@Override
+//	public Void execute(IPCMModel pcm, ICommandExecutor<IPCMModel> executor) {
+//		for (UsageScenario s : pcm.getUsageModel().getUsageScenario_UsageModel()) {
+//			ScenarioBehaviour behaviour = s.getScenarioBehaviour_UsageScenario();
+//			final Start start = executor.execute(new FindActionInUsageBehaviour<Start>(behaviour, Start.class));
+//			final Stop stop = executor.execute(new FindActionInUsageBehaviour<Stop>(behaviour, Stop.class));
 //
-//            // add a traversal listener to the usage scenario's stop action
-//            this.interpreterConfig.addTraversalListener(stop, new IUsageTraversalListener() {
+//			// //////////////////
+//			UsageProbeFactory f = new UsageProbeFactory(interpreterConfig);
+//			CalculatorBuilder.createBinary(new ResponseTimeCalculatorUsage()).from(f.probeFor(start, "before"))
+//					.to(f.probeFor(stop, "after"));
+//			// //////////////////
+//		}
 //
-//                @Override
-//                public void after(AbstractUserAction action, User u, UserState state) {
-//                    // take current time sample
-//                    ProbeSpecContext probeSpecContext = middleware.getProbeSpecContext();
-//                    probeSpecContext.getSampleBlackboard().addSample(
-//                            ProbeSpecUtils.buildProbeSetSample(probeSpecContext.getProbeStrategyRegistry()
-//                                    .getProbeStrategy(ProbeType.CURRENT_TIME, null).takeSample(start.getId(),
-//                                            u.getModel().getSimulationControl()), u.getRequestContext(), start.getId(),
-//                                    probeSpecContext.obtainProbeSetId(start.getScenarioBehaviour_AbstractUserAction()
-//                                            .getUsageScenario_SenarioBehaviour().getId()
-//                                            + "_end")));
-//                }
+//		// this command is not supposed to return a value
+//		return null;
+//	}
 //
-//                @Override
-//                public void before(AbstractUserAction action, User who, UserState state) {
-//                    // nothing to do
-//                }
-//
-//            });
-//        }
-//
-//        // this command is not supposed to return a value
-//        return null;
-//    }
-//
-//    /**
-//     * {@inheritDoc}
-//     */
-//    @Override
-//    public boolean cachable() {
-//        return false;
-//    }
+//	/**
+//	 * {@inheritDoc}
+//	 */
+//	@Override
+//	public boolean cachable() {
+//		return false;
+//	}
 //
 //}

@@ -10,7 +10,7 @@ public class Activator implements BundleActivator {
 	private static BundleContext context;
 	private static Activator plugin;
 
-	static BundleContext getContext() {
+	public static BundleContext getContext() {
 		return context;
 	}
 

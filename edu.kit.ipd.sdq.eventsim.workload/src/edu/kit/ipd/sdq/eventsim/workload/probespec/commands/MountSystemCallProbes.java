@@ -2,20 +2,17 @@
 //
 //import java.util.Set;
 //
-//import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
 //import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 //import org.palladiosimulator.pcm.usagemodel.UsageScenario;
 //
 //import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 //import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
-//import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 //import edu.kit.ipd.sdq.eventsim.interpreter.listener.ITraversalListener;
 //import edu.kit.ipd.sdq.eventsim.workload.command.usage.FindSystemCallsOfScenario;
-//import edu.kit.ipd.sdq.eventsim.workload.entities.User;
-//import edu.kit.ipd.sdq.eventsim.workload.interpreter.listener.IUsageTraversalListener;
 //import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.UsageInterpreterConfiguration;
 //import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 //import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
+//import edu.kit.ipd.sdq.simcomp.persistence.factory.CalculatorBuilder;
 //
 ///**
 // * This command registers a {@link ITraversalListener} before and after each
@@ -44,30 +41,37 @@
 //        for (UsageScenario s : pcm.getUsageModel().getUsageScenario_UsageModel()) {
 //            Set<EntryLevelSystemCall> calls = executor.execute(new FindSystemCallsOfScenario(s));
 //            for (final EntryLevelSystemCall c : calls) {
-//                this.interpreterConfig.addTraversalListener(c, new IUsageTraversalListener() {
-//
-//                    @Override
-//                    public void before(AbstractUserAction action, User u, UserState state) {
-//                        // take current time sample
-//                        ProbeSpecContext probeSpecContext = middleware.getProbeSpecContext();
-//                        probeSpecContext.getSampleBlackboard().addSample(
-//                                ProbeSpecUtils.buildProbeSetSample(probeSpecContext.getProbeStrategyRegistry()
-//                                        .getProbeStrategy(ProbeType.CURRENT_TIME, null).takeSample(c.getId(),
-//                                                u.getModel().getSimulationControl()), u.getRequestContext(), c.getId(),
-//                                        probeSpecContext.obtainProbeSetId(c.getId() + "_start")));
-//                    }
-//
-//                    @Override
-//                    public void after(AbstractUserAction action, User u, UserState state) {
-//                        // take current time sample
-//                        ProbeSpecContext probeSpecContext = middleware.getProbeSpecContext();
-//                        probeSpecContext.getSampleBlackboard().addSample(
-//                                ProbeSpecUtils.buildProbeSetSample(probeSpecContext.getProbeStrategyRegistry()
-//                                        .getProbeStrategy(ProbeType.CURRENT_TIME, null).takeSample(c.getId(),
-//                                                u.getModel().getSimulationControl()), u.getRequestContext(), c.getId(),
-//                                        probeSpecContext.obtainProbeSetId(c.getId() + "_end")));
-//                    }
-//                });
+//            	// //////////////////
+//    			UsageProbeFactory f = new UsageProbeFactory(interpreterConfig);
+//    			CalculatorBuilder.createBinary(new ResponseTimeCalculatorElsc()).from(f.probeFor(c, "before"))
+//    					.to(f.probeFor(c, "after"));
+//    			// //////////////////
+//            	
+//            	
+////                this.interpreterConfig.addTraversalListener(c, new IUsageTraversalListener() {
+////
+////                    @Override
+////                    public void before(AbstractUserAction action, User u, UserState state) {
+////                        // take current time sample
+////                        ProbeSpecContext probeSpecContext = middleware.getProbeSpecContext();
+////                        probeSpecContext.getSampleBlackboard().addSample(
+////                                ProbeSpecUtils.buildProbeSetSample(probeSpecContext.getProbeStrategyRegistry()
+////                                        .getProbeStrategy(ProbeType.CURRENT_TIME, null).takeSample(c.getId(),
+////                                                u.getModel().getSimulationControl()), u.getRequestContext(), c.getId(),
+////                                        probeSpecContext.obtainProbeSetId(c.getId() + "_start")));
+////                    }
+////
+////                    @Override
+////                    public void after(AbstractUserAction action, User u, UserState state) {
+////                        // take current time sample
+////                        ProbeSpecContext probeSpecContext = middleware.getProbeSpecContext();
+////                        probeSpecContext.getSampleBlackboard().addSample(
+////                                ProbeSpecUtils.buildProbeSetSample(probeSpecContext.getProbeStrategyRegistry()
+////                                        .getProbeStrategy(ProbeType.CURRENT_TIME, null).takeSample(c.getId(),
+////                                                u.getModel().getSimulationControl()), u.getRequestContext(), c.getId(),
+////                                        probeSpecContext.obtainProbeSetId(c.getId() + "_end")));
+////                    }
+////                });
 //            }
 //        }
 //
