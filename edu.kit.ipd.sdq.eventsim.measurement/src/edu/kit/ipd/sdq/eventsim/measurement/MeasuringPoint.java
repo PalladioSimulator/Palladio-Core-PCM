@@ -1,5 +1,6 @@
 package edu.kit.ipd.sdq.eventsim.measurement;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -12,17 +13,12 @@ public class MeasuringPoint<E> {
 
 	private String property;
 
-	private Set<Object> contexts;
+	private Object[] contexts;
 
 	public MeasuringPoint(E element, String property, Object... contexts) {
 		this.element = element;
 		this.property = property;
-		this.contexts = new HashSet<Object>(4);
-		
-		// create set from contexts array
-		for(Object c : contexts) {
-			this.contexts.add(c);	
-		}
+		this.contexts = contexts;
 	}
 
 	public MeasuringPoint(E element, Object... contexts) {
@@ -32,24 +28,42 @@ public class MeasuringPoint<E> {
 	public E getElement() {
 		return element;
 	}
-	
+
 	public String getProperty() {
 		return property;
 	}
 
-	public Set<Object> getContexts() {
-		return Collections.unmodifiableSet(contexts);
+	public Object[] getContexts() {
+		return contexts;
+	}
+
+	public boolean equalsOrIsMoreSpecific(MeasuringPoint<E> other) {
+		if (!other.element.equals(element)) {
+			return false;
+		}
+		if (!other.property.equals(property)) {
+			return false;
+		}
+		// check if measurement context of this class are a superset of the other class's contexts.
+		Set<Object> localContexts = new HashSet<>();
+		Collections.addAll(localContexts, contexts);
+		for (Object c : other.contexts) {
+			if (!localContexts.contains(c)) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("MeasuringPoint [element=").append(toString(element)).append(", property=").append(property)
-				.append(", contexts=").append(toString(contexts)).append("]");
+		builder.append("MeasuringPoint [element=").append(objectToString(element)).append(", property=")
+				.append(property).append(", contexts=").append(Arrays.toString(contexts)).append("]");
 		return builder.toString();
 	}
 
-	private String toString(Object o) {
+	private String objectToString(Object o) {
 		if (Entity.class.isInstance(o)) {
 			Entity entity = (Entity) o;
 			final StringBuilder builder = new StringBuilder();
@@ -64,17 +78,6 @@ public class MeasuringPoint<E> {
 		} else {
 			return o.toString();
 		}
-	}
-	
-	private String toString(Set<Object> objects) {
-		StringBuilder b = new StringBuilder().append("[");
-		for(Object o : objects) {
-			b.append(toString(o)).append(",");
-		}
-		if (b.length() > 1)
-			b.deleteCharAt(b.length() - 1);
-		b.append("]");
-		return b.toString();
 	}
 
 	@Override

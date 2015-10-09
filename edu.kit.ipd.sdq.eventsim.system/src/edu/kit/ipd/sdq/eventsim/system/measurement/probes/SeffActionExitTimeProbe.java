@@ -1,10 +1,5 @@
 package edu.kit.ipd.sdq.eventsim.system.measurement.probes;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
-
-import org.palladiosimulator.pcm.core.composition.AssemblyContext;
 import org.palladiosimulator.pcm.seff.AbstractAction;
 
 import edu.kit.ipd.sdq.eventsim.measurement.Measurement;
@@ -34,12 +29,9 @@ public class SeffActionExitTimeProbe<E extends AbstractAction> extends
 
 					@Override
 					public void after(AbstractAction action, Request request, RequestState state) {
-						// make sure that the current measurement context matches the measurement context prescribed by
-						// the measuring point; do not emit a measurement, if measurement contexts do not match
-						Set<Object> contexts = extractContexts(request, state);
-						Optional<Object> difference = getMeasuringPoint().getContexts().stream()
-								.filter(ctx -> !contexts.contains(ctx)).findFirst();
-						if (difference.isPresent()) {
+						// process the currently observed measurement only when it originates from a measurement context
+						// equal to or more specific than this probe's measurement context.
+						if (!p.equalsOrIsMoreSpecific(getMeasuringPoint())) {
 							return;
 						}
 
@@ -56,14 +48,6 @@ public class SeffActionExitTimeProbe<E extends AbstractAction> extends
 					}
 				});
 
-	}
-
-	private Set<Object> extractContexts(Request request, RequestState state) {
-		AssemblyContext assemblyCtx = state.getComponent().getAssemblyCtx();
-		Set<Object> contextSet = new HashSet<Object>();
-		contextSet.add(assemblyCtx);
-		return contextSet;
-		// return new Object[]{assemblyCtx};
 	}
 
 }
