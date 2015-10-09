@@ -1,6 +1,5 @@
 package edu.kit.ipd.sdq.eventsim.measurement;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -44,7 +43,7 @@ public class MeasuringPoint<E> {
 		if (!other.property.equals(property)) {
 			return false;
 		}
-		// check if measurement context of this class are a superset of the other class's contexts.
+		// check if measurement contexts of this class are a superset of the other class's contexts.
 		Set<Object> localContexts = new HashSet<>();
 		Collections.addAll(localContexts, contexts);
 		for (Object c : other.contexts) {
@@ -59,7 +58,7 @@ public class MeasuringPoint<E> {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("MeasuringPoint [element=").append(objectToString(element)).append(", property=")
-				.append(property).append(", contexts=").append(Arrays.toString(contexts)).append("]");
+				.append(property).append(", contexts=").append(objectArrayToString(contexts)).append("]");
 		return builder.toString();
 	}
 
@@ -78,6 +77,17 @@ public class MeasuringPoint<E> {
 		} else {
 			return o.toString();
 		}
+	}
+	
+	private String objectArrayToString(Object[] objects) {
+		StringBuilder b = new StringBuilder().append("[");
+		for(Object o : objects) {
+			b.append(objectToString(o)).append(",");
+		}
+		if (b.length() > 1)
+			b.deleteCharAt(b.length() - 1);
+		b.append("]");
+		return b.toString();
 	}
 
 	@Override
