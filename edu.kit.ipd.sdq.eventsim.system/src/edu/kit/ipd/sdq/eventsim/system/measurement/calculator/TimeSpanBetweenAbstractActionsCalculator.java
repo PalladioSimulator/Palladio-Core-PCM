@@ -47,7 +47,7 @@ public class TimeSpanBetweenAbstractActionsCalculator extends
 		}
 
 		double when = to.getWhen();
-		double timeDifference = to.getMeasurement() - from.getMeasurement();
+		double timeDifference = to.getValue() - from.getValue();
 
 		MeasuringPoint<AbstractAction> mp = new MeasuringPoint<AbstractAction>(to.getWhere().getElement(), "time_span",
 				to.getWhere().getContexts());

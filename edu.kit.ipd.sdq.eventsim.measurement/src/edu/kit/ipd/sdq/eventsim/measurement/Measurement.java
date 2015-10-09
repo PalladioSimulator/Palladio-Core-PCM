@@ -1,23 +1,29 @@
 package edu.kit.ipd.sdq.eventsim.measurement;
 
+import java.lang.ref.WeakReference;
+
+import org.apache.log4j.Logger;
+
 
 public class Measurement<E, T> {
 
+	private static final Logger log = Logger.getLogger(Measurement.class); 
+	
 	private Metric what;
 	
 	private MeasuringPoint<E> where;
 	
-	private T who;
+	private WeakReference<T> who;
 	
-	private double measurement;
+	private double value;
 	
 	private double when;
 	
-	public Measurement(Metric what, MeasuringPoint<E> where, T who, double measurement, double when) {
+	public Measurement(Metric what, MeasuringPoint<E> where, T who, double value, double when) {
 		this.what = what;
 		this.where = where;
-		this.who = who;
-		this.measurement = measurement;
+		this.who = new WeakReference<T>(who);
+		this.value = value;
 		this.when = when;
 	}
 
@@ -30,20 +36,25 @@ public class Measurement<E, T> {
 	}
 
 	public T getWho() {
-		return who;
+		T trigger = who.get();
+		if(trigger == null) {
+			// TODO refine message
+			log.warn("Trigger of measurement has been garbage-collected already");
+		}
+		return trigger;
 	}
 
 	public double getWhen() {
 		return when;
 	}
 	
-	public double getMeasurement() {
-		return measurement;
+	public double getValue() {
+		return value;
 	}
 
 	@Override
 	public String toString() {
-		return "Measurement [what=" + what + ", where=" + where + ", who=" + who + ", measurement=" + measurement
+		return "Measurement [what=" + what + ", where=" + where + ", who=" + who.get() + ", value=" + value
 				+ ", when=" + when + "]";
 	}
 
@@ -52,7 +63,7 @@ public class Measurement<E, T> {
 		final int prime = 31;
 		int result = 1;
 		long temp;
-		temp = Double.doubleToLongBits(measurement);
+		temp = Double.doubleToLongBits(value);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		result = prime * result + ((what == null) ? 0 : what.hashCode());
 		temp = Double.doubleToLongBits(when);
@@ -72,7 +83,7 @@ public class Measurement<E, T> {
 			return false;
 		@SuppressWarnings("rawtypes")
 		Measurement other = (Measurement) obj;
-		if (Double.doubleToLongBits(measurement) != Double.doubleToLongBits(other.measurement))
+		if (Double.doubleToLongBits(value) != Double.doubleToLongBits(other.value))
 			return false;
 		if (what != other.what)
 			return false;
@@ -90,7 +101,5 @@ public class Measurement<E, T> {
 			return false;
 		return true;
 	}
-	
-	
 	
 }

@@ -1,6 +1,7 @@
 package edu.kit.ipd.sdq.eventsim.system.interpreter.seff;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +14,7 @@ import org.palladiosimulator.pcm.seff.SeffPackage;
 import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
 
 import edu.kit.ipd.sdq.eventsim.interpreter.InterpreterConfiguration;
+import edu.kit.ipd.sdq.eventsim.interpreter.listener.ITraversalListener;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.listener.ISeffTraversalListener;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.strategies.AcquireActionTraversalStrategy;
@@ -137,12 +139,20 @@ public class SeffInterpreterConfiguration implements InterpreterConfiguration<Ab
 
     @Override
     public List<ISeffTraversalListener> getTraversalListenerList() {
-        return traversalListenerList;
+        return Collections.unmodifiableList(traversalListenerList);
     }
 
     @Override
     public Map<AbstractAction, List<ISeffTraversalListener>> getTraversalListenerMap() {
-        return traversalListenerMap;
+        return Collections.unmodifiableMap(traversalListenerMap);
     }
+    
+	/**
+	 * Removes all {@link ITraversalListener}s.
+	 */
+	public void removeTraversalListeners() {
+		traversalListenerList.clear();
+		traversalListenerMap.clear();
+	}
     
 }

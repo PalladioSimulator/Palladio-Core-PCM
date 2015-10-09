@@ -3,6 +3,7 @@ package edu.kit.ipd.sdq.eventsim.resources;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.collections15.map.ReferenceMap;
 import org.palladiosimulator.pcm.core.composition.AssemblyContext;
 import org.palladiosimulator.pcm.repository.PassiveResource;
 
@@ -17,13 +18,13 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
 
     // maps (AssemblyContext ID, PassiveResource ID) -> SimPassiveResource
     private Map<String, SimPassiveResource> contextToResourceMap;
-    private Map<IRequest, SimulatedProcess> requestToSimulatedProcessMap;
+    private ReferenceMap<IRequest, SimulatedProcess> requestToSimulatedProcessMap;
 	
 	public EventSimPassiveResourceModel(ISimulationMiddleware middleware) {
 		super(middleware);
 		contextToResourceMap = new HashMap<String, SimPassiveResource>();
 		
-		requestToSimulatedProcessMap = new HashMap<IRequest, SimulatedProcess>();
+		requestToSimulatedProcessMap = new ReferenceMap<IRequest, SimulatedProcess>(ReferenceMap.WEAK, ReferenceMap.WEAK);
 	}
 
 	@Override

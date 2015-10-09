@@ -71,7 +71,6 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 	}
 
 	public void init() {
-
 		// initialise behavior interpreters
 		seffInterpreter = new SeffBehaviourInterpreter(new SeffInterpreterConfiguration(), this);
 
@@ -93,6 +92,15 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 		
 		// install extern call parameter handling
 		this.execute(new InstallExternalCallParameterHandling(this.seffInterpreter.getConfiguration()));
+	}
+	
+	
+
+	@Override
+	public void finalise() {
+		super.finalise();
+		
+		seffInterpreter.getConfiguration().removeTraversalListeners();
 	}
 
 	/**

@@ -1,5 +1,7 @@
 package edu.kit.ipd.sdq.eventsim.debug;
 
+import java.lang.ref.WeakReference;
+
 import org.apache.log4j.Logger;
 
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
@@ -16,7 +18,7 @@ public class DebugEntityListener implements IEntityListener {
 
     private static final Logger logger = Logger.getLogger(DebugEntityListener.class);
 
-    private final EventSimEntity entity;
+    private final WeakReference<EventSimEntity> entity;
 
     /**
      * Constructs a new debug listener for the specified entity.
@@ -25,7 +27,7 @@ public class DebugEntityListener implements IEntityListener {
      *            the entity that is to be observed by this listener
      */
     public DebugEntityListener(final EventSimEntity entity) {
-        this.entity = entity;
+        this.entity = new WeakReference<EventSimEntity>(entity);
     }
 
     /**
@@ -33,8 +35,7 @@ public class DebugEntityListener implements IEntityListener {
      */
     @Override
     public void enteredSystem() {
-    	if(logger.isDebugEnabled())
-    		logger.debug("ENTERED SYSTEM: " + this.entity.getName());
+		logger.debug("ENTERED SYSTEM: " + this.entity.get().getName());
     }
 
     /**
@@ -42,8 +43,7 @@ public class DebugEntityListener implements IEntityListener {
      */
     @Override
     public void leftSystem() {
-    	if(logger.isDebugEnabled())
-    		logger.debug("LEFT SYSTEM: " + this.entity.getName());
+		logger.debug("LEFT SYSTEM: " + this.entity.get().getName());
     }
 
 }

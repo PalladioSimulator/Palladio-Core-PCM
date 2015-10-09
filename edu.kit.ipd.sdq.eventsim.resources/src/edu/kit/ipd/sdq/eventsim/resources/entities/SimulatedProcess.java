@@ -24,7 +24,7 @@ public class SimulatedProcess extends EventSimEntity implements ISchedulableProc
     private final String id;
     private final ArrayList<IActiveResource> terminatedObservers;
     private final IRequest request;
-    private boolean finished;
+    private boolean terminated;
     private int priority;
     
     /**
@@ -90,19 +90,19 @@ public class SimulatedProcess extends EventSimEntity implements ISchedulableProc
      */
     @Override
     public boolean isFinished() {
-        return this.finished;
+        return terminated;
     }
 
-    /**
-     * Sets the state of this simulated process to finished. When called the first time, this method
-     * notifies all observers that has been registered by the {@code addTerminatedObserver} method.
-     */
-    public void setFinished() {
-        boolean wasAlreadyFinished = this.finished;
-        this.finished = true;
-
-        if (!wasAlreadyFinished) {
-            // TODO is this the correct position to notify the listeners?
+	/**
+	 * Terminates this simulated process. Notifies all observers that has been registered by the
+	 * {@code addTerminatedObserver} method.
+	 * <p>
+	 * If this simulated process terminated already, calling this method has no effect.
+	 */
+    public void terminate() {
+        if (!terminated) {
+        	terminated = true;
+            notifyLeftSystem();
             fireTerminated();
         }
     }
@@ -126,7 +126,7 @@ public class SimulatedProcess extends EventSimEntity implements ISchedulableProc
     /**
      * Notifies the observers which have been registered via
      * {@link #addTerminatedObserver(IActiveResource)} that the process has ended it execution. This
-     * is automatically done, when {@link #setFinished()} method is being invoked.
+     * is automatically done, when {@link #terminate()} method is being invoked.
      */
     @Override
     public void fireTerminated() {
@@ -147,7 +147,7 @@ public class SimulatedProcess extends EventSimEntity implements ISchedulableProc
     @Override
     public void timeout(String timeoutFailureName) {
         // TODO Failures are not yet supported
-        throw new RuntimeException("Encountered a timeout but simulation of failures is not yet supported.");
+        throw new RuntimeException("Encountered a timeout but simulation of failures is not supported.");
     }
         
 

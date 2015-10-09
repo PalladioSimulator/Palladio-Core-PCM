@@ -1,8 +1,10 @@
 package edu.kit.ipd.sdq.eventsim.resources;
 
+import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.WeakHashMap;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -31,13 +33,15 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 
 	// maps (ResourceContainer ID, ResourceType ID) -> SimActiveResource
 	private Map<String, SimActiveResource> containerToResourceMap;
+	
+	// TODO extract class
 	private Map<IRequest, SimulatedProcess> requestToSimulatedProcessMap;
 
 	public EventSimActiveResourceModel(ISimulationMiddleware middleware) {
 		super(middleware);
 
 		containerToResourceMap = new HashMap<String, SimActiveResource>();
-		requestToSimulatedProcessMap = new HashMap<IRequest, SimulatedProcess>();
+		requestToSimulatedProcessMap = new WeakHashMap<IRequest, SimulatedProcess>();
 	}
 
 	@Override
@@ -175,23 +179,21 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 	 */
 	private class RequestFinishedHandler implements IEntityListener {
 
-		private IRequest request;
-		private SimulatedProcess process;
+		private WeakReference<SimulatedProcess> process;
 
-		public RequestFinishedHandler(IRequest request, SimulatedProcess process) {
-			this.request = request;
-			this.process = process;
-		}
-
-		@Override
-		public void leftSystem() {
-			process.setFinished();
-			requestToSimulatedProcessMap.remove(request);
+		public RequestFinishedHandler(SimulatedProcess process) {
+			this.process = new WeakReference<SimulatedProcess>(process);
 		}
 
 		@Override
 		public void enteredSystem() {
 			// nothing to do
+		}
+
+		@Override
+		public void leftSystem() {
+			process.get().terminate();
+			requestToSimulatedProcessMap.remove(process.get().getRequest());
 		}
 
 	}
@@ -207,8 +209,8 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 			SimulatedProcess process = new SimulatedProcess(this, request, Long.toString(request.getId()));
 
 			// add listener for request finish
-			EventSimEntity entity = (EventSimEntity) request;
-			entity.addEntityListener(new RequestFinishedHandler(request, process));
+			EventSimEntity requestEntity = (EventSimEntity) request;
+			requestEntity.addEntityListener(new RequestFinishedHandler(process));
 
 			requestToSimulatedProcessMap.put(request, process);
 		}

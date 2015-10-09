@@ -2,76 +2,72 @@ package edu.kit.ipd.sdq.eventsim.measurement.probe;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.WeakHashMap;
+
+import org.apache.log4j.Logger;
 
 import edu.kit.ipd.sdq.eventsim.measurement.Measurement;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasuringPoint;
 
+/**
+ * Caches {@link Measurement}s, at most one entry--the most recent one--per (trigger, {@link MeasuringPoint})-pair.
+ * <p>
+ * Entries whose trigger have been garbage-collected, will be automatically evicted from the cache. For this to work,
+ * {@link Measurement}s MAY NOT strongly reference their respective trigger.
+ * 
+ * @author Philipp Merkle
+ *
+ * @param <E>
+ * @param <T>
+ */
 public class MeasurementCache<E, T> {
 
-	private Map<MeasuringPointAndTrigger, Measurement<E, T>> measurements;
+	private static final Logger log = Logger.getLogger(MeasurementCache.class);
+
+	/**
+	 * Caches measurements for (trigger, measuring point)-pairs. After a trigger has been garbage-collected, the
+	 * corresponding entry will be removed automatically, thanks to weakly-referenced keys in the outer map.
+	 * <p>
+	 * Values/measurements in the inner map MUST NOT strongly reference the trigger used as key in the outer map.
+	 * Otherwise, entries cannot be evicted from the cache.
+	 */
+	private WeakHashMap<T, Map<MeasuringPoint<E>, Measurement<E, T>>> measurements;
 
 	public MeasurementCache() {
-		this.measurements = new HashMap<>();
+		this.measurements = new WeakHashMap<>();
 	}
-	
+
 	public void put(Measurement<E, T> m) {
-		measurements.put(new MeasuringPointAndTrigger(m.getWhere(), m.getWho()), m);
+		T trigger = m.getWho();
+		if (!measurements.containsKey(trigger)) {
+			measurements.put(trigger, new HashMap<>());
+		}
+		measurements.get(trigger).put(m.getWhere(), m);
+
+		// System.out.println(String.format("Measurement cache for %s contains %s elements", m.getWhere(),
+		// measurements.size()));
+		// System.gc();
+
+		if (log.isDebugEnabled())
+			log.debug(String.format("Measurement cache for %s contains %s elements", m.getWhere(), measurements.size()));
 	}
 
-	public Measurement<E, T> getLastMeasurement(T t, MeasuringPoint<E> p) {
-		return measurements.get(new MeasuringPointAndTrigger(p, t));
-	}
-	
-	private class MeasuringPointAndTrigger {
-		
-		private MeasuringPoint<E> where;
-		
-		private T who;
-		
-		public MeasuringPointAndTrigger(MeasuringPoint<E> where, T who) {
-			this.who = who;
-			this.where = where;
+	/**
+	 * 
+	 * @param trigger
+	 *            the trigger
+	 * @param mp
+	 *            the measuring point
+	 * @return the requested measurement, or {@code null}, if no such measurement can be found because it has been
+	 *         evicted from the cache already, or because no such measurement has been added before.
+	 */
+	public Measurement<E, T> getLastMeasurement(T trigger, MeasuringPoint<E> mp) {
+		if (!measurements.containsKey(trigger)) {
+			log.warn(String.format("Requested last measurement for trigger %s, but corresponding measurements have "
+					+ "been evicted already or never have been added to the measurement cache.", trigger));
+			return null;
 		}
-
-		@Override
-		public int hashCode() {
-			final int prime = 31;
-			int result = 1;
-			result = prime * result + getOuterType().hashCode();
-			result = prime * result + ((where == null) ? 0 : where.hashCode());
-			result = prime * result + ((who == null) ? 0 : who.hashCode());
-			return result;
-		}
-
-		@Override
-		public boolean equals(Object obj) {
-			if (this == obj)
-				return true;
-			if (obj == null)
-				return false;
-			if (getClass() != obj.getClass())
-				return false;
-			@SuppressWarnings("unchecked")
-			MeasuringPointAndTrigger other = (MeasuringPointAndTrigger) obj;
-			if (!getOuterType().equals(other.getOuterType()))
-				return false;
-			if (where == null) {
-				if (other.where != null)
-					return false;
-			} else if (!where.equals(other.where))
-				return false;
-			if (who == null) {
-				if (other.who != null)
-					return false;
-			} else if (!who.equals(other.who))
-				return false;
-			return true;
-		}
-
-		private MeasurementCache<E, T> getOuterType() {
-			return MeasurementCache.this;
-		}
-		
+		return measurements.get(trigger).get(mp);
 	}
 
 }
