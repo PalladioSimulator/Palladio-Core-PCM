@@ -5,13 +5,15 @@ import org.palladiosimulator.pcm.seff.AbstractAction;
 
 import edu.kit.ipd.sdq.eventsim.measurement.Measurement;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasuringPoint;
+import edu.kit.ipd.sdq.eventsim.measurement.MeasuringPointPair;
 import edu.kit.ipd.sdq.eventsim.measurement.Metric;
+import edu.kit.ipd.sdq.eventsim.measurement.Pair;
 import edu.kit.ipd.sdq.eventsim.measurement.calculator.AbstractBinaryCalculator;
 import edu.kit.ipd.sdq.eventsim.measurement.probe.IProbe;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 
 public class TimeSpanBetweenAbstractActionsCalculator extends
-		AbstractBinaryCalculator<AbstractAction, AbstractAction, AbstractAction, Request> {
+		AbstractBinaryCalculator<AbstractAction, AbstractAction, Request> {
 
 	private static final Logger log = Logger.getLogger(TimeSpanBetweenAbstractActionsCalculator.class);
 
@@ -40,7 +42,7 @@ public class TimeSpanBetweenAbstractActionsCalculator extends
 	}
 
 	@Override
-	public Measurement<AbstractAction, Request> calculate(Measurement<AbstractAction, Request> from,
+	public Measurement<Pair<AbstractAction, AbstractAction>, Request> calculate(Measurement<AbstractAction, Request> from,
 			Measurement<AbstractAction, Request> to) {
 		if (from == null) {
 			return null;
@@ -53,7 +55,12 @@ public class TimeSpanBetweenAbstractActionsCalculator extends
 				to.getWhere().getContexts());
 
 		// TODO AbstractAction doesn't fit here actually
-		return new Measurement<AbstractAction, Request>(Metric.TIME_SPAN, mp, to.getWho(), timeDifference, when);
+//		return new Measurement<AbstractAction, Request>(Metric.TIME_SPAN, mp, to.getWho(), timeDifference, when);
+		
+		
+		return new Measurement<Pair<AbstractAction, AbstractAction>, Request>(Metric.TIME_SPAN,
+				new MeasuringPointPair<>(from.getWhere().getElement(), to.getWhere().getElement(), "timespan", to
+						.getWhere().getContexts()), to.getWho(), timeDifference, when);
 	}
 
 }

@@ -4,13 +4,15 @@ import org.palladiosimulator.pcm.seff.ExternalCallAction;
 
 import edu.kit.ipd.sdq.eventsim.measurement.Measurement;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasuringPoint;
+import edu.kit.ipd.sdq.eventsim.measurement.MeasuringPointPair;
 import edu.kit.ipd.sdq.eventsim.measurement.Metric;
+import edu.kit.ipd.sdq.eventsim.measurement.Pair;
 import edu.kit.ipd.sdq.eventsim.measurement.calculator.AbstractBinaryCalculator;
 import edu.kit.ipd.sdq.eventsim.measurement.probe.IProbe;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 
 public class ResponseTimeOfExternalCallsCalculator extends
-		AbstractBinaryCalculator<ExternalCallAction, ExternalCallAction, ExternalCallAction, Request> {
+		AbstractBinaryCalculator<ExternalCallAction, ExternalCallAction, Request> {
 
 	@Override
 	public void setup(IProbe<ExternalCallAction, Request> fromProbe, IProbe<ExternalCallAction, Request> toProbe) {
@@ -20,7 +22,7 @@ public class ResponseTimeOfExternalCallsCalculator extends
 	}
 
 	@Override
-	public Measurement<ExternalCallAction, Request> calculate(Measurement<ExternalCallAction, Request> from,
+	public Measurement<Pair<ExternalCallAction, ExternalCallAction>, Request> calculate(Measurement<ExternalCallAction, Request> from,
 			Measurement<ExternalCallAction, Request> to) {
 		if(from == null) {
 			return null;
@@ -32,7 +34,9 @@ public class ResponseTimeOfExternalCallsCalculator extends
 		MeasuringPoint<ExternalCallAction> mp = new MeasuringPoint<ExternalCallAction>(to.getWhere().getElement(),
 				"responsetime", to.getWhere().getContexts());
 
-		return new Measurement<ExternalCallAction, Request>(Metric.TIME_SPAN, mp, to.getWho(), responseTime, when);
+		return new Measurement<Pair<ExternalCallAction, ExternalCallAction>, Request>(Metric.TIME_SPAN,
+				new MeasuringPointPair<>(from.getWhere().getElement(), to.getWhere().getElement(), "responsetime", to
+						.getWhere().getContexts()), to.getWho(), responseTime, when);
 	}
 
 }
