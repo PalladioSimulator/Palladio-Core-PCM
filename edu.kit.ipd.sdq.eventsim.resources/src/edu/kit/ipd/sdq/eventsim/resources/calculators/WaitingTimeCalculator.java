@@ -48,6 +48,7 @@ public class WaitingTimeCalculator extends
 		double when = to.getWhen();
 		double waitingTime = to.getValue() - from.getValue();
 
+		// TODO current position not yet accurate
 		return new Measurement<SimPassiveResource, SimulatedProcess>(Metric.WAITING_TIME, new MeasuringPoint<>(from
 				.getWhere().getElement(), "waiting_time", to.getWhere().getContexts()), to.getWho(), waitingTime, when, from.getWho().getCurrentPosition().getId());
 	}

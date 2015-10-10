@@ -59,7 +59,7 @@ public class Measurement<E, T> {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Measurement [what=").append(what).append(", where=").append(where).append(", who=").append(who)
+		builder.append("Measurement [what=").append(what).append(", where=").append(where).append(", who=").append(who.get())
 				.append(", value=").append(value).append(", when=").append(when).append(", metadata=")
 				.append(Arrays.toString(metadata)).append("]");
 		return builder.toString();

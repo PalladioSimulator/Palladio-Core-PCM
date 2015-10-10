@@ -85,17 +85,13 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
      */
     public SimPassiveResource findOrCreateResource(PassiveResource specification, AssemblyContext assCtx) {
         if (!contextToResourceMap.containsKey(compoundKey(assCtx, specification))) {
-
             // create passive resource
             SimPassiveResource resource = ResourceFactory.createPassiveResource(this, specification, assCtx);
 
             // register the created passive resource
             contextToResourceMap.put(compoundKey(assCtx, specification), resource);
             
-//    		// build calculators
-//    		this.execute(new BuildPassiveResourceCalculators(this, simResource));
-//    		
-    		// mount probes
+    		// create probes and calculators
     		measurementFacade.createProbe(resource, "queue_length").forEachMeasurement(
     				m -> getSimulationMiddleware().getMeasurementStore().put(m));
     		
@@ -103,8 +99,7 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
 					.to(resource, "release").forEachMeasurement(m -> getSimulationMiddleware().getMeasurementStore().put(m));
 			
 			measurementFacade.createCalculator(new WaitingTimeCalculator()).from(resource, "request")
-					.to(resource, "acquire").forEachMeasurement(m -> System.out.println(m));
-//    		this.execute(new MountPassiveResourceProbes(this, simResource));
+					.to(resource, "acquire").forEachMeasurement(m -> getSimulationMiddleware().getMeasurementStore().put(m));
         }
         return contextToResourceMap.get(compoundKey(assCtx, specification));
     }
