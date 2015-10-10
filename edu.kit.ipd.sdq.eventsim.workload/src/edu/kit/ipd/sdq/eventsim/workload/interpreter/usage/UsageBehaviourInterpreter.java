@@ -12,6 +12,7 @@ import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.StateExchange;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.interpreter.BehaviourInterpreter;
+import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.workload.command.usage.FindActionInUsageBehaviour;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.listener.IUsageTraversalListener;
@@ -67,7 +68,7 @@ public class UsageBehaviourInterpreter extends BehaviourInterpreter<AbstractUser
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public IUsageTraversalStrategy<? extends AbstractUserAction> loadTraversalStrategy(final EClass eclass) {
+	public ITraversalStrategy<AbstractUserAction, ? extends AbstractUserAction, User, UserState> loadTraversalStrategy(final EClass eclass) {
 		return this.configuration.getHandlerMap().get(eclass);
 	}
 

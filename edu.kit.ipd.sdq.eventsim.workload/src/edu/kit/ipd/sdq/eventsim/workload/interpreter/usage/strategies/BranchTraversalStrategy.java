@@ -1,15 +1,16 @@
 package edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.strategies;
 
+import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
 import org.palladiosimulator.pcm.usagemodel.Branch;
 import org.palladiosimulator.pcm.usagemodel.BranchTransition;
 import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour;
 
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
+import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalInstruction;
+import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;
-import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.IUsageTraversalInstruction;
-import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.IUsageTraversalStrategy;
-import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.instructions.UsageTraversalInstructionFactory;
+import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.instructions.TraverseUsageBehaviourInstruction;
 
 /**
  * This traversal strategy is responsible for {@link Branch} actions.
@@ -17,13 +18,13 @@ import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.instructions.UsageTra
  * @author Philipp Merkle
  * 
  */
-public class BranchTraversalStrategy implements IUsageTraversalStrategy<Branch> {
+public class BranchTraversalStrategy implements ITraversalStrategy<AbstractUserAction, Branch, User, UserState> {
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public IUsageTraversalInstruction traverse(final Branch branch, final User user, final UserState state) {
+    public ITraversalInstruction<AbstractUserAction, UserState> traverse(final Branch branch, final User user, final UserState state) {
     	AbstractEventSimModel model = user.getEventSimModel();
         ScenarioBehaviour behaviour = null;
         double sum = 0;
@@ -41,7 +42,7 @@ public class BranchTraversalStrategy implements IUsageTraversalStrategy<Branch> 
         // TODO log a warn message
         assert (enteredTransition) : "No branch transition has been entered.";
 
-        return UsageTraversalInstructionFactory.traverseScenarioBehaviour(model, behaviour, branch.getSuccessor());
+        return new TraverseUsageBehaviourInstruction(model, behaviour, branch.getSuccessor());
     }
 
 }

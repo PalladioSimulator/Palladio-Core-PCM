@@ -8,7 +8,6 @@ import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalInstruction;
 import edu.kit.ipd.sdq.eventsim.workload.command.usage.FindActionInUsageBehaviour;
-import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.IUsageTraversalInstruction;
 
 /**
  * TODO: adjust javadoc since the term scope is slightly outdated and should be better denoted by
@@ -21,7 +20,7 @@ import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.IUsageTraversalInstru
  * @author Philipp Merkle
  * 
  */
-public class TraverseUsageBehaviourInstruction implements ITraversalInstruction<AbstractUserAction, UserState>, IUsageTraversalInstruction {
+public class TraverseUsageBehaviourInstruction implements ITraversalInstruction<AbstractUserAction, UserState> {
 
     private final AbstractEventSimModel model;
     private final ScenarioBehaviour behaviour;

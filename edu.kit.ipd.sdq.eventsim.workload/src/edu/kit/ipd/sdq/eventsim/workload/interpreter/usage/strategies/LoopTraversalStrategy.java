@@ -2,16 +2,18 @@ package edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.strategies;
 
 import org.apache.log4j.Logger;
 import org.palladiosimulator.pcm.core.PCMRandomVariable;
+import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
 import org.palladiosimulator.pcm.usagemodel.Loop;
 import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour;
 
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
+import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalInstruction;
+import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalStrategy;
+import edu.kit.ipd.sdq.eventsim.interpreter.instructions.TraverseNextAction;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.ITraversalStrategyState;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;
-import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.IUsageTraversalInstruction;
-import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.IUsageTraversalStrategy;
-import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.instructions.UsageTraversalInstructionFactory;
+import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.instructions.TraverseUsageBehaviourInstruction;
 
 /**
  * This traversal strategy is responsible for {@link Loop} actions.
@@ -19,7 +21,7 @@ import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.instructions.UsageTra
  * @author Philipp Merkle
  * 
  */
-public class LoopTraversalStrategy implements IUsageTraversalStrategy<Loop> {
+public class LoopTraversalStrategy implements ITraversalStrategy<AbstractUserAction, Loop, User, UserState> {
 
     private static Logger logger = Logger.getLogger(LoopTraversalStrategy.class);
 
@@ -27,7 +29,7 @@ public class LoopTraversalStrategy implements IUsageTraversalStrategy<Loop> {
      * {@inheritDoc}
      */
     @Override
-    public IUsageTraversalInstruction traverse(final Loop loop, final User user, final UserState state) {
+    public ITraversalInstruction<AbstractUserAction, UserState> traverse(final Loop loop, final User user, final UserState state) {
         // restore or create state
         LoopTraversalState internalState = (LoopTraversalState) state.getInternalState(loop);
         if (internalState == null) {
@@ -43,12 +45,12 @@ public class LoopTraversalStrategy implements IUsageTraversalStrategy<Loop> {
             // traverse the body behaviour
             internalState.incrementCurrentIteration();
             final ScenarioBehaviour bheaviour = loop.getBodyBehaviour_Loop();
-            return UsageTraversalInstructionFactory.traverseScenarioBehaviour(user.getEventSimModel(), bheaviour, loop);
+            return new TraverseUsageBehaviourInstruction(user.getEventSimModel(), bheaviour, loop);
         } else {
             if (logger.isDebugEnabled()) {
                 logger.debug("Completed loop traversal");
             }
-            return UsageTraversalInstructionFactory.traverseNextAction(loop.getSuccessor());
+            return new TraverseNextAction<>(loop.getSuccessor());
         }
     }
 

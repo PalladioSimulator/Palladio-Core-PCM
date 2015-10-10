@@ -12,6 +12,7 @@ import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
 import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
 
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
+import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.interpreter.InterpreterConfiguration;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.listener.IUsageTraversalListener;
@@ -26,9 +27,9 @@ public class UsageInterpreterConfiguration implements InterpreterConfiguration<A
 
     private static final Logger logger = Logger.getLogger(UsageInterpreterConfiguration.class);
     
-    private final Map<EClass, IUsageTraversalStrategy<? extends AbstractUserAction>> handlerMap = new HashMap<EClass, IUsageTraversalStrategy<? extends AbstractUserAction>>();
-    private final Map<AbstractUserAction, List<IUsageTraversalListener>> traversalListenerMap = new HashMap<AbstractUserAction, List<IUsageTraversalListener>>();
-    private final List<IUsageTraversalListener> traversalListenerList = new ArrayList<IUsageTraversalListener>();
+    private final Map<EClass, ITraversalStrategy<AbstractUserAction, ? extends AbstractUserAction, User, UserState>> handlerMap = new HashMap<>();
+    private final Map<AbstractUserAction, List<IUsageTraversalListener>> traversalListenerMap = new HashMap<>();
+    private final List<IUsageTraversalListener> traversalListenerList = new ArrayList<>();
 
     public UsageInterpreterConfiguration() {
         registerDefaultHandlers();
@@ -53,8 +54,8 @@ public class UsageInterpreterConfiguration implements InterpreterConfiguration<A
      * @param handler
      *            the handler that is to be registered
      */
-    public void registerActionHandler(final EClass actionClass,
-            final IUsageTraversalStrategy<AbstractUserAction> handler) {
+	public void registerActionHandler(final EClass actionClass,
+			final ITraversalStrategy<AbstractUserAction, ? extends AbstractUserAction, User, UserState> handler) {
         assert (UsagemodelPackage.eINSTANCE.getAbstractUserAction().isSuperTypeOf(actionClass)) : "The parameter \"action\" has to be a subtype of AbstractUserAction, but was "
                 + actionClass.getName();
         if (handlerMap.containsKey(actionClass)) {
@@ -132,7 +133,7 @@ public class UsageInterpreterConfiguration implements InterpreterConfiguration<A
     }
     
     @Override
-    public Map<EClass, IUsageTraversalStrategy<? extends AbstractUserAction>> getHandlerMap() {
+    public Map<EClass, ITraversalStrategy<AbstractUserAction, ? extends AbstractUserAction, User, UserState>> getHandlerMap() {
         return handlerMap;
     }
 

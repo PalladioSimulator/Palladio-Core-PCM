@@ -1,12 +1,14 @@
 package edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.strategies;
 
+import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
 import org.palladiosimulator.pcm.usagemodel.Stop;
 
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
+import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalInstruction;
+import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalStrategy;
+import edu.kit.ipd.sdq.eventsim.interpreter.instructions.EndTraversal;
+import edu.kit.ipd.sdq.eventsim.interpreter.instructions.TraverseAfterLeavingScope;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;
-import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.IUsageTraversalInstruction;
-import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.IUsageTraversalStrategy;
-import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.instructions.UsageTraversalInstructionFactory;
 
 /**
  * This traversal strategy is responsible for {@link Stop} actions.
@@ -14,18 +16,18 @@ import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.instructions.UsageTra
  * @author Philipp Merkle
  *
  */
-public class StopTraversalStrategy implements IUsageTraversalStrategy<Stop> {
+public class StopTraversalStrategy implements ITraversalStrategy<AbstractUserAction, Stop, User, UserState> {
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public IUsageTraversalInstruction traverse(final Stop stop, final User user,
+    public ITraversalInstruction<AbstractUserAction, UserState> traverse(final Stop stop, final User user,
             final UserState state) {
         if (state.hasOpenScope()) {
-            return UsageTraversalInstructionFactory.traverseAfterLeavingScope();
+        	return new TraverseAfterLeavingScope<>();
         } else {
-            return UsageTraversalInstructionFactory.endTraversal();
+        	return new EndTraversal<>();
         }
     }
 
