@@ -34,6 +34,7 @@ import de.uka.ipd.sdq.simulation.IStatusObserver;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 import de.uka.ipd.sdq.simulation.preferences.SimulationPreferencesHelper;
+import edu.kit.ipd.sdq.eventsim.measurement.r.RMeasurementStore;
 import edu.kit.ipd.sdq.simcomp.component.AbstractSimulationContext;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationComponent;
@@ -76,6 +77,8 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	private List<ServiceRegistration<?>> eventHandlerToRemove;
 	private IRandomGenerator randomNumberGenerator;
 	private List<SimulationComponentImpl> simCompMetadata = null;
+	
+	private RMeasurementStore store = new RMeasurementStore();
 
 	public SimulationMiddleware() {
 		this.eventHandlerRegistry = new ArrayList<ServiceRegistration<?>>();
@@ -355,6 +358,9 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 		if (logger.isEnabledFor(Level.INFO)) {
 			logger.info("Simulation took " + this.getSimulationControl().getCurrentSimulationTime() + " simulation seconds");
 		}
+		
+		store.finish();
+		store.print();
 	}
 
 	@Override
@@ -537,6 +543,11 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 			randomNumberGenerator = new SimuComDefaultRandomNumberGenerator(simConfig.getRandomSeed());
 		}
 		return randomNumberGenerator;
+	}
+
+	@Override
+	public RMeasurementStore getMeasurementStore() {
+		return store;
 	}
 
 	/**

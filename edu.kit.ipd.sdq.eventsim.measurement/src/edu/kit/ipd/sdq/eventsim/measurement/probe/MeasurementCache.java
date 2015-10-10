@@ -43,13 +43,14 @@ public class MeasurementCache<E, T> {
 			measurements.put(trigger, new HashMap<>());
 		}
 		measurements.get(trigger).put(m.getWhere(), m);
-
+		
 		// System.out.println(String.format("Measurement cache for %s contains %s elements", m.getWhere(),
 		// measurements.size()));
 		// System.gc();
 
 		if (log.isDebugEnabled())
-			log.debug(String.format("Measurement cache for %s contains %s elements", m.getWhere(), measurements.size()));
+			log.debug("Cached measurement: " + m);
+//			log.debug(String.format("Measurement cache for %s contains %s elements", m.getWhere(), measurements.size()));
 	}
 
 	/**
@@ -63,8 +64,8 @@ public class MeasurementCache<E, T> {
 	 */
 	public Measurement<E, T> getLastMeasurement(T trigger, MeasuringPoint<E> mp) {
 		if (!measurements.containsKey(trigger)) {
-			log.warn(String.format("Requested last measurement for trigger %s, but corresponding measurements have "
-					+ "been evicted already or never have been added to the measurement cache.", trigger));
+//			log.warn(String.format("Requested last measurement for trigger %s, but corresponding measurements have "
+//					+ "been evicted already or never have been added to the measurement cache.", trigger));
 			return null;
 		}
 		return measurements.get(trigger).get(mp);

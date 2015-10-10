@@ -1,6 +1,7 @@
 package edu.kit.ipd.sdq.eventsim.measurement;
 
 import java.lang.ref.WeakReference;
+import java.util.Arrays;
 
 import org.apache.log4j.Logger;
 
@@ -19,12 +20,15 @@ public class Measurement<E, T> {
 	
 	private double when;
 	
-	public Measurement(Metric what, MeasuringPoint<E> where, T who, double value, double when) {
+	private Object[] metadata;
+	
+	public Measurement(Metric what, MeasuringPoint<E> where, T who, double value, double when, Object... metadata) {
 		this.what = what;
 		this.where = where;
 		this.who = new WeakReference<T>(who);
 		this.value = value;
 		this.when = when;
+		this.metadata = metadata;
 	}
 
 	public Metric getWhat() {
@@ -37,10 +41,10 @@ public class Measurement<E, T> {
 
 	public T getWho() {
 		T trigger = who.get();
-		if(trigger == null) {
-			// TODO refine message
-			log.warn("Trigger of measurement has been garbage-collected already");
-		}
+//		if(trigger == null) {
+//			// TODO refine message
+//			log.warn("Trigger of measurement has been garbage-collected already");
+//		}
 		return trigger;
 	}
 
@@ -54,8 +58,11 @@ public class Measurement<E, T> {
 
 	@Override
 	public String toString() {
-		return "Measurement [what=" + what + ", where=" + where + ", who=" + who.get() + ", value=" + value
-				+ ", when=" + when + "]";
+		StringBuilder builder = new StringBuilder();
+		builder.append("Measurement [what=").append(what).append(", where=").append(where).append(", who=").append(who)
+				.append(", value=").append(value).append(", when=").append(when).append(", metadata=")
+				.append(Arrays.toString(metadata)).append("]");
+		return builder.toString();
 	}
 
 	@Override

@@ -18,6 +18,7 @@ import de.uka.ipd.sdq.scheduler.resources.active.AbstractActiveResource;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
 import edu.kit.ipd.sdq.eventsim.entities.IEntityListener;
+import edu.kit.ipd.sdq.eventsim.measurement.MeasurementFacade;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimulatedProcess;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
@@ -37,6 +38,8 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 	// TODO extract class
 	private Map<IRequest, SimulatedProcess> requestToSimulatedProcessMap;
 
+	private MeasurementFacade<ResourceProbeConfiguration> measurementFacade;
+	
 	public EventSimActiveResourceModel(ISimulationMiddleware middleware) {
 		super(middleware);
 
@@ -50,10 +53,11 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 		SimulationModel simModel = (SimulationModel) this.getSimulationMiddleware().getSimulationModel();
 		this.schedulingFactory = new SchedulingFactory(simModel);
 
-		// TODO init probespec
-//		this.initProbeSpecification();
-	}
+		measurementFacade = new MeasurementFacade<>(new ResourceProbeConfiguration(), Activator.getContext()
+				.getBundle());
 
+	}
+	
 //	private void initProbeSpecification() {
 //		ProbeSpecContext probeContext = this.getSimulationMiddleware().getProbeSpecContext();
 //		IProbeStrategyRegistry strategyRegistry = probeContext.getProbeStrategyRegistry();
@@ -116,6 +120,12 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 		}
 
 		this.containerToResourceMap.put(compoundKey(specification, type), resource);
+		
+		// create corresponding probe
+		measurementFacade.createProbe(resource, "queue_length").forEachMeasurement(
+				m -> getSimulationMiddleware().getMeasurementStore().put(m));
+		measurementFacade.createProbe(resource, "resource_demand").forEachMeasurement(
+				m -> getSimulationMiddleware().getMeasurementStore().put(m));
 
 		// initialise probe spec
 //		this.execute(new BuildActiveResourceCalculators(this, resource));
@@ -206,7 +216,11 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 	 */
 	public SimulatedProcess getOrCreateSimulatedProcess(IRequest request) {
 		if (!requestToSimulatedProcessMap.containsKey(request)) {
-			SimulatedProcess process = new SimulatedProcess(this, request, Long.toString(request.getId()));
+			SimulatedProcess parent = null;
+			if(request.getParent() != null) {
+				parent = getOrCreateSimulatedProcess(request.getParent());
+			}
+			SimulatedProcess process = new SimulatedProcess(this, parent, request);
 
 			// add listener for request finish
 			EventSimEntity requestEntity = (EventSimEntity) request;
@@ -216,5 +230,20 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 		}
 		return requestToSimulatedProcessMap.get(request);
 	}
+	
+	
+//	public SimulatedProcess getOrCreateSimulatedProcess(IRequest request) {
+//		if (!requestToSimulatedProcessMap.containsKey(request)) {
+//			SimulatedProcess process = new SimulatedProcess(this, request, Long.toString(request.getId()));
+//
+//			// add listener for request finish
+//			EventSimEntity requestEntity = (EventSimEntity) request;
+//			requestEntity.addEntityListener(new RequestFinishedHandler(process));
+//
+//			requestToSimulatedProcessMap.put(request, process);
+//		}
+//		return requestToSimulatedProcessMap.get(request);
+//	}
+	
 
 }

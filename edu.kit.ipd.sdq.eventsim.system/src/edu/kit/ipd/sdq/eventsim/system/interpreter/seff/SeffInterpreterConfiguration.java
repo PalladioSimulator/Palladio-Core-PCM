@@ -13,6 +13,7 @@ import org.palladiosimulator.pcm.seff.AbstractAction;
 import org.palladiosimulator.pcm.seff.SeffPackage;
 import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
 
+import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.interpreter.InterpreterConfiguration;
 import edu.kit.ipd.sdq.eventsim.interpreter.listener.ITraversalListener;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
@@ -33,9 +34,9 @@ public class SeffInterpreterConfiguration implements InterpreterConfiguration<Ab
 
     private static final Logger logger = Logger.getLogger(SeffInterpreterConfiguration.class);
     
-    private final Map<EClass, ISeffTraversalStrategy<? extends AbstractAction>> handlerMap = new HashMap<EClass, ISeffTraversalStrategy<? extends AbstractAction>>();
-    private final Map<AbstractAction, List<ISeffTraversalListener>> traversalListenerMap = new HashMap<AbstractAction, List<ISeffTraversalListener>>();
-    private final List<ISeffTraversalListener> traversalListenerList = new ArrayList<ISeffTraversalListener>();
+    private final Map<EClass, ITraversalStrategy<AbstractAction, ? extends AbstractAction, Request, RequestState>> handlerMap = new HashMap<>();
+    private final Map<AbstractAction, List<ISeffTraversalListener>> traversalListenerMap = new HashMap<>();
+    private final List<ISeffTraversalListener> traversalListenerList = new ArrayList<>();
     
     public SeffInterpreterConfiguration() {
         registerDefaultHandlers();
@@ -64,7 +65,7 @@ public class SeffInterpreterConfiguration implements InterpreterConfiguration<Ab
      * @param handler
      *            the handler that is to be registered
      */
-    public void registerActionHandler(final EClass actionClass, final ISeffTraversalStrategy<AbstractAction> handler) {
+    public void registerActionHandler(final EClass actionClass, final ITraversalStrategy<AbstractAction, ? extends AbstractAction, Request, RequestState> handler) {
         assert (UsagemodelPackage.eINSTANCE.getAbstractUserAction().isSuperTypeOf(actionClass)) : "The parameter \"action\" has to be a subtype of AbstractUserAction, but was "
                 + actionClass.getName();
         if (handlerMap.containsKey(actionClass)) {
@@ -133,7 +134,7 @@ public class SeffInterpreterConfiguration implements InterpreterConfiguration<Ab
     }
 
     @Override
-    public Map<EClass, ISeffTraversalStrategy<? extends AbstractAction>> getHandlerMap() {
+    public Map<EClass, ITraversalStrategy<AbstractAction, ? extends AbstractAction, Request, RequestState>> getHandlerMap() {
         return handlerMap;
     }
 

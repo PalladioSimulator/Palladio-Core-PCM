@@ -2,6 +2,7 @@ package edu.kit.ipd.sdq.eventsim.system.entities;
 
 import org.apache.log4j.Logger;
 import org.osgi.service.useradmin.User;
+import org.palladiosimulator.pcm.seff.AbstractAction;
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
@@ -85,6 +86,7 @@ public class Request extends EventSimEntity implements IRequest {
         return "Request#" + this.getEntityId() + " of " + this.getUser().getId();
     }
 
+    @Override
 	public Request getParent() {
 		return null;
 	}
@@ -144,7 +146,10 @@ public class Request extends EventSimEntity implements IRequest {
 	public long getId() {
 		return getEntityId();
 	}
-	
-	
+
+	@Override
+	public AbstractAction getCurrentPosition() {
+		return getRequestState().getCurrentPosition();
+	}
 
 }

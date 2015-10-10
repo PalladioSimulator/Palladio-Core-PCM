@@ -7,7 +7,6 @@ import org.palladiosimulator.pcm.seff.StartAction;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalInstruction;
 import edu.kit.ipd.sdq.eventsim.system.command.seff.FindActionInBehaviour;
-import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.IRequestTraversalInstruction;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
 
@@ -23,7 +22,7 @@ import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
  * 
  */
 public class TraverseComponentBehaviourInstruction implements
-        ITraversalInstruction<AbstractAction, RequestState>, IRequestTraversalInstruction {
+        ITraversalInstruction<AbstractAction, RequestState> {
 
     private final AbstractEventSimModel model;
     private final ComponentInstance component;

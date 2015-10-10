@@ -4,6 +4,14 @@ public enum Metric {
 
 	CURRENT_TIME,
 
-	TIME_SPAN;
+	TIME_SPAN,
+	
+	QUEUE_LENGTH,
+	
+	RESOURCE_DEMAND,
+	
+	HOLD_TIME,
+	
+	WAITING_TIME;
 
 }

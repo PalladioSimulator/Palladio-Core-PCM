@@ -1,6 +1,9 @@
 package edu.kit.ipd.sdq.eventsim.resources.entities;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+
+import org.palladiosimulator.pcm.seff.AbstractAction;
 
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
@@ -21,11 +24,11 @@ import edu.kit.ipd.sdq.simcomp.component.IRequest;
  */
 public class SimulatedProcess extends EventSimEntity implements ISchedulableProcess {
 
-    private final String id;
     private final ArrayList<IActiveResource> terminatedObservers;
-    private final IRequest request;
+    private final WeakReference<IRequest> request;
     private boolean terminated;
     private int priority;
+    private SimulatedProcess parent;    
     
     /**
      * Creates a simulated process with the specified id and registers the passed listener.
@@ -38,10 +41,10 @@ public class SimulatedProcess extends EventSimEntity implements ISchedulableProc
      *            the listener that is to be notified when this simulated process is being activated
      *            or passivated
      */
-    public SimulatedProcess(AbstractEventSimModel model, final IRequest request, final String id) {
-        super(model, SimulatedProcess.class.getName());
-        this.request = request;
-        this.id = id;
+    public SimulatedProcess(AbstractEventSimModel model, SimulatedProcess parent, final IRequest request) {
+    	super(model, SimulatedProcess.class.getName());
+    	this.parent = parent;
+        this.request = new WeakReference<>(request);
         this.terminatedObservers = new ArrayList<IActiveResource>();
     }
 
@@ -50,7 +53,7 @@ public class SimulatedProcess extends EventSimEntity implements ISchedulableProc
      */
     @Override
     public void activate() {
-        request.activate();
+        request.get().activate();
     }
 
     /**
@@ -66,7 +69,8 @@ public class SimulatedProcess extends EventSimEntity implements ISchedulableProc
      */
     @Override
     public String getId() {
-        return this.id;
+    	// TODO correct?
+        return "SimulatedProcess" + getEntityId();
     }
 
     /**
@@ -82,8 +86,12 @@ public class SimulatedProcess extends EventSimEntity implements ISchedulableProc
      * Returns the request that created this simulated process.
      */
     public IRequest getRequest() {
-        return request;
+        return request.get();
     }
+    
+    public SimulatedProcess getParent() {
+		return parent;
+	}
 
     /**
      * {@inheritDoc}
@@ -149,6 +157,18 @@ public class SimulatedProcess extends EventSimEntity implements ISchedulableProc
         // TODO Failures are not yet supported
         throw new RuntimeException("Encountered a timeout but simulation of failures is not supported.");
     }
-        
+
+	@Override
+	public String getName() {
+		if (parent != null) {
+			return super.getName() + ", parent of " + parent.getName();
+		} else {
+			return super.getName();
+		}
+	}
+	
+	public AbstractAction getCurrentPosition() {
+		return request.get().getCurrentPosition();
+	}
 
 }

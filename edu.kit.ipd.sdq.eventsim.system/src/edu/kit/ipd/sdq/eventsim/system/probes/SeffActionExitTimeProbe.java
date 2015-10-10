@@ -1,4 +1,4 @@
-package edu.kit.ipd.sdq.eventsim.system.measurement.probes;
+package edu.kit.ipd.sdq.eventsim.system.probes;
 
 import org.palladiosimulator.pcm.seff.AbstractAction;
 

@@ -2,12 +2,15 @@ package edu.kit.ipd.sdq.eventsim.resources;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.WeakHashMap;
 
-import org.apache.commons.collections15.map.ReferenceMap;
 import org.palladiosimulator.pcm.core.composition.AssemblyContext;
 import org.palladiosimulator.pcm.repository.PassiveResource;
 
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
+import edu.kit.ipd.sdq.eventsim.measurement.MeasurementFacade;
+import edu.kit.ipd.sdq.eventsim.resources.calculators.HoldTimeCalculator;
+import edu.kit.ipd.sdq.eventsim.resources.calculators.WaitingTimeCalculator;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimulatedProcess;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
@@ -18,21 +21,21 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
 
     // maps (AssemblyContext ID, PassiveResource ID) -> SimPassiveResource
     private Map<String, SimPassiveResource> contextToResourceMap;
-    private ReferenceMap<IRequest, SimulatedProcess> requestToSimulatedProcessMap;
+    private WeakHashMap<IRequest, SimulatedProcess> requestToSimulatedProcessMap;
 	
+    private MeasurementFacade<ResourceProbeConfiguration> measurementFacade;
+    
 	public EventSimPassiveResourceModel(ISimulationMiddleware middleware) {
 		super(middleware);
 		contextToResourceMap = new HashMap<String, SimPassiveResource>();
 		
-		requestToSimulatedProcessMap = new ReferenceMap<IRequest, SimulatedProcess>(ReferenceMap.WEAK, ReferenceMap.WEAK);
+		requestToSimulatedProcessMap = new WeakHashMap<>();
 	}
 
 	@Override
 	public void init() {
-		// initialize the probe specification
-		
-		// TODO init probespec
-//		this.initProbeSpecification();
+		measurementFacade = new MeasurementFacade<>(new ResourceProbeConfiguration(), Activator.getContext()
+				.getBundle());
 	}
 
 //	private void initProbeSpecification() {
@@ -84,15 +87,23 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
         if (!contextToResourceMap.containsKey(compoundKey(assCtx, specification))) {
 
             // create passive resource
-            SimPassiveResource simResource = ResourceFactory.createPassiveResource(this, specification, assCtx);
+            SimPassiveResource resource = ResourceFactory.createPassiveResource(this, specification, assCtx);
 
             // register the created passive resource
-            contextToResourceMap.put(compoundKey(assCtx, specification), simResource);
+            contextToResourceMap.put(compoundKey(assCtx, specification), resource);
             
 //    		// build calculators
 //    		this.execute(new BuildPassiveResourceCalculators(this, simResource));
 //    		
-//    		// mount probes
+    		// mount probes
+    		measurementFacade.createProbe(resource, "queue_length").forEachMeasurement(
+    				m -> getSimulationMiddleware().getMeasurementStore().put(m));
+    		
+			measurementFacade.createCalculator(new HoldTimeCalculator()).from(resource, "acquire")
+					.to(resource, "release").forEachMeasurement(m -> getSimulationMiddleware().getMeasurementStore().put(m));
+			
+			measurementFacade.createCalculator(new WaitingTimeCalculator()).from(resource, "request")
+					.to(resource, "acquire").forEachMeasurement(m -> System.out.println(m));
 //    		this.execute(new MountPassiveResourceProbes(this, simResource));
         }
         return contextToResourceMap.get(compoundKey(assCtx, specification));
@@ -106,13 +117,32 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
      * 
      * @return the simulated process
      */
-    public SimulatedProcess getOrCreateSimulatedProcess(IRequest request) {
-        if (!requestToSimulatedProcessMap.containsKey(request)) {
-        	SimulatedProcess p = new SimulatedProcess(this, request, Long.toString(request.getId()));
-        	requestToSimulatedProcessMap.put(request, p);
-        }
-        return requestToSimulatedProcessMap.get(request);
-    }
+//    public SimulatedProcess getOrCreateSimulatedProcess(IRequest request) {
+//        if (!requestToSimulatedProcessMap.containsKey(request)) {
+//        	SimulatedProcess p = new SimulatedProcess(this, request, Long.toString(request.getId()));
+//        	requestToSimulatedProcessMap.put(request, p);
+//        }
+//        return requestToSimulatedProcessMap.get(request);
+//    }
+    
+    
+    // TODO duplicate from active resource model
+	public SimulatedProcess getOrCreateSimulatedProcess(IRequest request) {
+		if (!requestToSimulatedProcessMap.containsKey(request)) {
+			SimulatedProcess parent = null;
+			if(request.getParent() != null) {
+				parent = getOrCreateSimulatedProcess(request.getParent());
+			}
+			SimulatedProcess process = new SimulatedProcess(this, parent, request);
+
+//			// add listener for request finish
+//			EventSimEntity requestEntity = (EventSimEntity) request;
+//			requestEntity.addEntityListener(new RequestFinishedHandler(process));
+
+			requestToSimulatedProcessMap.put(request, process);
+		}
+		return requestToSimulatedProcessMap.get(request);
+	}
     
 	private String compoundKey(AssemblyContext specification,
 			PassiveResource resource) {

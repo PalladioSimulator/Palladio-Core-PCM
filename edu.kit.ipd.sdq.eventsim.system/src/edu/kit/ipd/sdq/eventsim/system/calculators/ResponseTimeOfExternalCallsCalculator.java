@@ -1,4 +1,4 @@
-package edu.kit.ipd.sdq.eventsim.system.measurement.calculator;
+package edu.kit.ipd.sdq.eventsim.system.calculators;
 
 import org.palladiosimulator.pcm.seff.ExternalCallAction;
 
@@ -12,7 +12,7 @@ import edu.kit.ipd.sdq.eventsim.measurement.probe.IProbe;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 
 public class ResponseTimeOfExternalCallsCalculator extends
-		AbstractBinaryCalculator<ExternalCallAction, ExternalCallAction, Request> {
+		AbstractBinaryCalculator<Pair<ExternalCallAction, ExternalCallAction>, ExternalCallAction, ExternalCallAction, Request> {
 
 	@Override
 	public void setup(IProbe<ExternalCallAction, Request> fromProbe, IProbe<ExternalCallAction, Request> toProbe) {

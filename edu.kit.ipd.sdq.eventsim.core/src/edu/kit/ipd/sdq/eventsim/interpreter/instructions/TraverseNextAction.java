@@ -13,7 +13,7 @@ import edu.kit.ipd.sdq.eventsim.interpreter.state.AbstractInterpreterState;
  * @param <A>
  *            the least common parent type of all actions that are intended to be traversed
  */
-public abstract class TraverseNextAction<A extends Entity, S extends AbstractInterpreterState<A>> implements
+public class TraverseNextAction<A extends Entity, S extends AbstractInterpreterState<A>> implements
         ITraversalInstruction<A, S> {
 
     private final A nextAction;

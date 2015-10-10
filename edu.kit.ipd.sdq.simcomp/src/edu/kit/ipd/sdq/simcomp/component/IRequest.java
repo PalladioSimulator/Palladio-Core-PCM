@@ -1,5 +1,7 @@
 package edu.kit.ipd.sdq.simcomp.component;
 
+import org.palladiosimulator.pcm.seff.AbstractAction;
+
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 
 /**
@@ -21,5 +23,9 @@ public interface IRequest {
 	public void activate();
 
 	public void passivate(AbstractSimEventDelegator<?> activationEvent);
+	
+	public IRequest getParent();
+	
+	public AbstractAction getCurrentPosition();
 
 }

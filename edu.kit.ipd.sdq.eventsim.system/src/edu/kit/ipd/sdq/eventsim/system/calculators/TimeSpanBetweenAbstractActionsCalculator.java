@@ -1,4 +1,4 @@
-package edu.kit.ipd.sdq.eventsim.system.measurement.calculator;
+package edu.kit.ipd.sdq.eventsim.system.calculators;
 
 import org.apache.log4j.Logger;
 import org.palladiosimulator.pcm.seff.AbstractAction;
@@ -13,7 +13,7 @@ import edu.kit.ipd.sdq.eventsim.measurement.probe.IProbe;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 
 public class TimeSpanBetweenAbstractActionsCalculator extends
-		AbstractBinaryCalculator<AbstractAction, AbstractAction, Request> {
+		AbstractBinaryCalculator<Pair<AbstractAction, AbstractAction>, AbstractAction, AbstractAction, Request> {
 
 	private static final Logger log = Logger.getLogger(TimeSpanBetweenAbstractActionsCalculator.class);
 

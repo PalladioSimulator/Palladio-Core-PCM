@@ -14,6 +14,7 @@ import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.interpreter.BehaviourInterpreter;
+import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.system.command.seff.FindActionInBehaviour;
 import edu.kit.ipd.sdq.eventsim.system.entities.ForkedRequest;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
@@ -102,7 +103,7 @@ public class SeffBehaviourInterpreter extends BehaviourInterpreter<AbstractActio
      */
     @SuppressWarnings("unchecked")
     @Override
-    public ISeffTraversalStrategy<? extends AbstractAction> loadTraversalStrategy(final EClass eclass) {
+    public ITraversalStrategy<AbstractAction, ? extends AbstractAction, Request, RequestState> loadTraversalStrategy(final EClass eclass) {
         return this.configuration.getHandlerMap().get(eclass);
     }
 

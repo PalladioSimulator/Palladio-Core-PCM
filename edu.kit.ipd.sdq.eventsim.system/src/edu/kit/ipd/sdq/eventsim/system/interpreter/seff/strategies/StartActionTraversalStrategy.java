@@ -1,11 +1,12 @@
 package edu.kit.ipd.sdq.eventsim.system.interpreter.seff.strategies;
 
+import org.palladiosimulator.pcm.seff.AbstractAction;
 import org.palladiosimulator.pcm.seff.StartAction;
 
+import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalInstruction;
+import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalStrategy;
+import edu.kit.ipd.sdq.eventsim.interpreter.instructions.TraverseNextAction;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
-import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.IRequestTraversalInstruction;
-import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.ISeffTraversalStrategy;
-import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.instructions.RequestTraversalInstructionFactory;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
 
 /**
@@ -14,15 +15,15 @@ import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
  * @author Philipp Merkle
  * 
  */
-public class StartActionTraversalStrategy implements ISeffTraversalStrategy<StartAction> {
+public class StartActionTraversalStrategy implements ITraversalStrategy<AbstractAction, StartAction, Request, RequestState> {
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public IRequestTraversalInstruction traverse(final StartAction action, final Request request,
+    public ITraversalInstruction<AbstractAction, RequestState> traverse(final StartAction action, final Request request,
             final RequestState state) {
-        return RequestTraversalInstructionFactory.traverseNextAction(action.getSuccessor_AbstractAction());
+    	return new TraverseNextAction<>(action.getSuccessor_AbstractAction());
     }
 
 }

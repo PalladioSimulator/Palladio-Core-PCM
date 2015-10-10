@@ -2,6 +2,7 @@ package edu.kit.ipd.sdq.eventsim.system.interpreter.seff.strategies;
 
 import java.util.List;
 
+import org.palladiosimulator.pcm.seff.AbstractAction;
 import org.palladiosimulator.pcm.seff.AbstractBranchTransition;
 import org.palladiosimulator.pcm.seff.BranchAction;
 import org.palladiosimulator.pcm.seff.GuardedBranchTransition;
@@ -10,9 +11,9 @@ import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour;
 
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.UnexpectedModelStructureException;
+import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalInstruction;
+import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
-import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.IRequestTraversalInstruction;
-import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.ISeffTraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.instructions.TraverseComponentBehaviourInstruction;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
@@ -23,13 +24,13 @@ import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
  * @author Philipp Merkle
  * 
  */
-public class BranchActionTraversalStrategy implements ISeffTraversalStrategy<BranchAction> {
+public class BranchActionTraversalStrategy implements ITraversalStrategy<AbstractAction, BranchAction, Request, RequestState> {
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public IRequestTraversalInstruction traverse(final BranchAction action, final Request request, final RequestState state) {
+    public ITraversalInstruction<AbstractAction, RequestState> traverse(final BranchAction action, final Request request, final RequestState state) {
         AbstractEventSimModel model = request.getEventSimModel();
         ResourceDemandingBehaviour behaviour = null;
 

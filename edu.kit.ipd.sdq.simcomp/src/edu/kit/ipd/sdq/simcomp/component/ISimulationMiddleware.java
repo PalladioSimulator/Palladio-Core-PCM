@@ -6,6 +6,7 @@ import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.simulation.IStatusObserver;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
+import edu.kit.ipd.sdq.eventsim.measurement.r.RMeasurementStore;
 import edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentImpl;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
@@ -197,5 +198,7 @@ public interface ISimulationMiddleware {
 	void reset();
 
 	IRandomGenerator getRandomGenerator();
+	
+	RMeasurementStore getMeasurementStore();
 
 }

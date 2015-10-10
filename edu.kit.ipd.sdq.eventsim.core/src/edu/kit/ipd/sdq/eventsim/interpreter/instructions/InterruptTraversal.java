@@ -20,7 +20,7 @@ import edu.kit.ipd.sdq.eventsim.interpreter.state.AbstractInterpreterState;
  * @see ResumeSeffTraversalEvent
  * @see SeffBehaviourInterpreter#resumeTraversal()
  */
-public abstract class InterruptTraversal<A extends Entity, S extends AbstractInterpreterState<A>> implements
+public class InterruptTraversal<A extends Entity, S extends AbstractInterpreterState<A>> implements
         ITraversalInstruction<A, S> {
 
     private final A resumeAction;

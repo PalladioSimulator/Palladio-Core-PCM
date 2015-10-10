@@ -6,10 +6,14 @@ import java.util.Queue;
 
 import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 import org.palladiosimulator.pcm.resourcetype.ResourceType;
+import org.palladiosimulator.pcm.seff.AbstractAction;
 import org.palladiosimulator.pcm.seff.InternalAction;
 import org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand;
 
 import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
+import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalInstruction;
+import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalStrategy;
+import edu.kit.ipd.sdq.eventsim.interpreter.instructions.InterruptTraversal;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.ITraversalStrategyState;
 import edu.kit.ipd.sdq.eventsim.system.Activator;
 import edu.kit.ipd.sdq.eventsim.system.EventSimSystem;
@@ -17,9 +21,6 @@ import edu.kit.ipd.sdq.eventsim.system.EventSimSystemModel;
 import edu.kit.ipd.sdq.eventsim.system.context.ActiveResourceSimulationContext;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.events.ResumeSeffTraversalEvent;
-import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.IRequestTraversalInstruction;
-import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.ISeffTraversalStrategy;
-import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.instructions.RequestTraversalInstructionFactory;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.resource.active.component.IActiveResource;
@@ -31,13 +32,13 @@ import edu.kit.ipd.sdq.simcomp.resource.active.component.IActiveResource;
  * @author Christoph Föhrdes
  * 
  */
-public class InternalActionTraversalStrategy implements ISeffTraversalStrategy<InternalAction> {
+public class InternalActionTraversalStrategy implements ITraversalStrategy<AbstractAction, InternalAction, Request, RequestState> {
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	public IRequestTraversalInstruction traverse(final InternalAction action, final Request request, final RequestState state) {
+	public ITraversalInstruction<AbstractAction, RequestState> traverse(final InternalAction action, final Request request, final RequestState state) {
 		// restore or create state
 		InternalActionTraversalState internalState = (InternalActionTraversalState) state.getInternalState(action);
 		if (internalState == null) {
@@ -69,10 +70,10 @@ public class InternalActionTraversalStrategy implements ISeffTraversalStrategy<I
 		EventSimSystemModel systemModel = (EventSimSystemModel) request.getEventSimModel();
 		if (internalState.hasPendingDemands()) {
 			request.passivate(new ResumeSeffTraversalEvent(systemModel, state));
-			return RequestTraversalInstructionFactory.interruptTraversal(action);
+			return new InterruptTraversal<>(action);
 		} else {
 			request.passivate(new ResumeSeffTraversalEvent(systemModel, state));
-			return RequestTraversalInstructionFactory.interruptTraversal(action.getSuccessor_AbstractAction());
+			return new InterruptTraversal<>(action.getSuccessor_AbstractAction());
 		}
 
 	}

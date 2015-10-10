@@ -10,12 +10,12 @@ import edu.kit.ipd.sdq.eventsim.measurement.ProbeConfiguration;
 
 /**
  * 
- * @author pmerkle
+ * @author Philipp Merkle
  *
  * @param <E>
- *            probed element type
+ *            the type of the probed element
  * @param <T>
- *            triggering element type
+ *            the type of the triggering element
  */
 public abstract class AbstractProbe<E, T, C extends ProbeConfiguration> implements IProbe<E, T> {
 

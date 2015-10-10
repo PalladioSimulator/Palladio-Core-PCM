@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 import org.palladiosimulator.pcm.core.composition.AssemblyContext;
 import org.palladiosimulator.pcm.repository.OperationSignature;
 import org.palladiosimulator.pcm.seff.ExternalCallAction;
-import org.palladiosimulator.pcm.seff.InternalAction;
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
@@ -15,7 +14,7 @@ import edu.kit.ipd.sdq.eventsim.core.palladio.state.StateExchange;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasurementFacade;
 import edu.kit.ipd.sdq.eventsim.measurement.probe.ProbeFactory;
-import edu.kit.ipd.sdq.eventsim.measurement.r.RMeasurementStore;
+import edu.kit.ipd.sdq.eventsim.system.calculators.ResponseTimeOfExternalCallsCalculator;
 import edu.kit.ipd.sdq.eventsim.system.command.BuildComponentInstances;
 import edu.kit.ipd.sdq.eventsim.system.command.FindAssemblyContextForSystemCall;
 import edu.kit.ipd.sdq.eventsim.system.command.InstallExternalCallParameterHandling;
@@ -27,8 +26,6 @@ import edu.kit.ipd.sdq.eventsim.system.handler.AfterSystemCallParameterHandler;
 import edu.kit.ipd.sdq.eventsim.system.handler.BeforeSystemCallParameterHandler;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.SeffBehaviourInterpreter;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.SeffInterpreterConfiguration;
-import edu.kit.ipd.sdq.eventsim.system.measurement.calculator.ResponseTimeOfExternalCallsCalculator;
-import edu.kit.ipd.sdq.eventsim.system.measurement.calculator.TimeSpanBetweenAbstractActionsCalculator;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.AllocationRegistry;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.SimulatedResourceContainer;
@@ -66,8 +63,6 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 	private Map<String, ComponentInstance> componentRegistry;
 	
 	private ProbeFactory<SystemMeasurementConfiguration> probeFactory;
-	
-	private RMeasurementStore store = new RMeasurementStore();
 
 	public EventSimSystemModel(ISimulationMiddleware middleware) {
 		super(middleware);
@@ -104,10 +99,6 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 		super.finalise();
 		
 		seffInterpreter.getConfiguration().removeTraversalListeners();
-		
-		// TODO
-		store.finish();
-		store.print();
 	}
 
 	/**
@@ -133,14 +124,14 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 				call -> measurementFacade.createCalculator(new ResponseTimeOfExternalCallsCalculator())
 						.from(call.getAction(), "before", call.getAssemblyContext())
 						.to(call.getAction(), "after", call.getAssemblyContext())
-						.forEachMeasurement(m -> store.putPair(m)));
+						.forEachMeasurement(m -> getSimulationMiddleware().getMeasurementStore().putPair(m)));
 		
-		// calculation time of internal actions [just as a proof of concept] 
-		execute(new FindAllActionsByType<>(InternalAction.class)).forEach(
-				action -> measurementFacade.createCalculator(new TimeSpanBetweenAbstractActionsCalculator())
-						.from(action.getAction(), "before", action.getAssemblyContext())
-						.to(action.getAction(), "after", action.getAssemblyContext())
-						.forEachMeasurement(m -> store.putPair(m)));
+//		// calculation time of internal actions [just as a proof of concept] 
+//		execute(new FindAllActionsByType<>(InternalAction.class)).forEach(
+//				action -> measurementFacade.createCalculator(new TimeSpanBetweenAbstractActionsCalculator())
+//						.from(action.getAction(), "before", action.getAssemblyContext())
+//						.to(action.getAction(), "after", action.getAssemblyContext())
+//						.forEachMeasurement(m -> getSimulationMiddleware().getMeasurementStore().putPair(m)));
 		
 		// calculation time between two specific internal actions (one inside a fork) [just as a proof of concept]
 //		Optional<ActionContext<InternalAction>> a1 = execute(new FindAllActionsByType<>(InternalAction.class)).stream()
