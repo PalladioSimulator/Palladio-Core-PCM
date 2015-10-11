@@ -67,11 +67,11 @@ public class FindActionsInSeff<A extends AbstractAction> implements IPCMCommand<
 				// cast is safe
 				actions.add((A) currentAction);
 			} else if (SeffPackage.eINSTANCE.getBranchAction().isInstance(currentAction)) {
-				actions.addAll(findExternalCallsInBranch((BranchAction) currentAction, executor));
+				actions.addAll(findActionsInBranch((BranchAction) currentAction, executor));
 			} else if (SeffPackage.eINSTANCE.getLoopAction().isInstance(currentAction)) {
-				actions.addAll(findExternalCallsInLoop((LoopAction) currentAction, executor));
+				actions.addAll(findActionsInLoop((LoopAction) currentAction, executor));
 			} else if (SeffPackage.eINSTANCE.getForkAction().isInstance(currentAction)) {
-				actions.addAll(findExternalCallsInFork((ForkAction) currentAction, executor));
+				actions.addAll(findActionsInFork((ForkAction) currentAction, executor));
 			}
 			currentAction = currentAction.getSuccessor_AbstractAction();
 		}
@@ -81,7 +81,7 @@ public class FindActionsInSeff<A extends AbstractAction> implements IPCMCommand<
 	/**
 	 * Searches for and returns all external calls that are contained in the specified branch.
 	 */
-	private List<A> findExternalCallsInBranch(BranchAction branch, ICommandExecutor<IPCMModel> executor) {
+	private List<A> findActionsInBranch(BranchAction branch, ICommandExecutor<IPCMModel> executor) {
 		List<A> calls = new ArrayList<>();
 		for (AbstractBranchTransition t : branch.getBranches_Branch()) {
 			calls.addAll(findActionsByType(t.getBranchBehaviour_BranchTransition(), executor));
@@ -92,14 +92,14 @@ public class FindActionsInSeff<A extends AbstractAction> implements IPCMCommand<
 	/**
 	 * Searches for and returns all external calls that are contained in the specified loop.
 	 */
-	private List<A> findExternalCallsInLoop(LoopAction loop, ICommandExecutor<IPCMModel> executor) {
+	private List<A> findActionsInLoop(LoopAction loop, ICommandExecutor<IPCMModel> executor) {
 		return findActionsByType(loop.getBodyBehaviour_Loop(), executor);
 	}
 
 	/**
 	 * Searches for and returns all external calls that are contained in the specified fork.
 	 */
-	private List<A> findExternalCallsInFork(ForkAction fork, ICommandExecutor<IPCMModel> executor) {
+	private List<A> findActionsInFork(ForkAction fork, ICommandExecutor<IPCMModel> executor) {
 		List<A> calls = new ArrayList<>();
 		for (ResourceDemandingBehaviour b : fork.getAsynchronousForkedBehaviours_ForkAction()) {
 			calls.addAll(findActionsByType(b, executor));

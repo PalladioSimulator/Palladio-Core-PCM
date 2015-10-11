@@ -13,7 +13,6 @@ import edu.kit.ipd.sdq.eventsim.core.palladio.state.IUserState;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.StateExchange;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasurementFacade;
-import edu.kit.ipd.sdq.eventsim.measurement.probe.ProbeFactory;
 import edu.kit.ipd.sdq.eventsim.system.calculators.ResponseTimeOfExternalCallsCalculator;
 import edu.kit.ipd.sdq.eventsim.system.command.BuildComponentInstances;
 import edu.kit.ipd.sdq.eventsim.system.command.FindAssemblyContextForSystemCall;
@@ -61,8 +60,6 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 	private SimulatedResourceEnvironment resourceEnvironment;
 	private AllocationRegistry resourceAllocation;
 	private Map<String, ComponentInstance> componentRegistry;
-	
-	private ProbeFactory<SystemMeasurementConfiguration> probeFactory;
 
 	public EventSimSystemModel(ISimulationMiddleware middleware) {
 		super(middleware);
@@ -145,10 +142,6 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 //		measurementFacade.createCalculator(new TimeSpanBetweenAbstractActionsCalculator())
 //				.from(a1.get().getAction(), "before", assCtx).to(a2.get().getAction(), "after", assCtx)
 //				.forEachMeasurement(m -> System.out.println("-> " + m));
-	}
-	
-	public ProbeFactory<SystemMeasurementConfiguration> getProbeFactory() {
-		return probeFactory;
 	}
 
 	/**
