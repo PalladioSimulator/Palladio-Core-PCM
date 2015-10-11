@@ -1,5 +1,10 @@
 package edu.kit.ipd.sdq.eventsim.measurement.r;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import org.apache.log4j.Logger;
 import org.palladiosimulator.pcm.core.entity.Entity;
 import org.rosuda.REngine.REXP;
 import org.rosuda.REngine.REXPDouble;
@@ -14,7 +19,9 @@ import edu.kit.ipd.sdq.eventsim.measurement.Pair;
 
 public class RMeasurementStore {
 
-	private static final int BUFFER_SIZE = 100_000;
+	private static final Logger log = Logger.getLogger(RMeasurementStore.class);
+
+	private static final int BUFFER_CAPACITY = 100_000;
 
 	private RConnection conn;
 
@@ -22,15 +29,17 @@ public class RMeasurementStore {
 
 	private int processed;
 
+	private long rTime;
+
 	public RMeasurementStore() {
 		try {
 			conn = new RConnection();
-			conn.eval("tmp <- data.frame()");
+			conn.voidEval("library(data.table)");
 		} catch (RserveException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			log.error("Rserve reported an error in initialization. Check if the package \"data.table\" is "
+					+ "installed in R.", e);
 		}
-		buffer = new Buffer(BUFFER_SIZE);
+		buffer = new Buffer(BUFFER_CAPACITY);
 	}
 
 	public <F extends Entity, S extends Entity> void putPair(Measurement<Pair<F, S>, ?> m) {
@@ -50,40 +59,90 @@ public class RMeasurementStore {
 	}
 
 	public void finish() {
-		buffer.shrinkToFillLevel();
+		buffer.shrinkToSize();
 		pushBufferToR(buffer);
-		buffer.reset();
+		createSingleDataFrameFromBufferedDataFrames();
+		storeRDS();
+		log.info(String.format("Finished R processing. Total time spent in R: %.2f seconds.", rTime / 1000.0));
+		
+		// clean up
+		buffer = new Buffer(BUFFER_CAPACITY); // restore buffer to initial (non-shrinked) size
+		processed = 0;
+		rTime = 0;
+	}
+
+	private void storeRDS() {
+		long start = System.currentTimeMillis();
+		try {
+			conn.voidEval("saveRDS(mm, 'D:/test.rds')");
+		} catch (RserveException e) {
+			log.error("Rserve reported an error while saving measurements to RDS file.", e);
+		}
+		long end = System.currentTimeMillis();
+		rTime += end - start;
+		log.info(String.format("Saved measurements into RDS file. Took %.2f seconds.", (end - start) / 1000.0));
 	}
 
 	public void print() {
 		try {
-			// df = conn.eval("mm$when");
 			REXP size = conn.eval("length(mm$when)");
-			// System.out.println(df.asNativeJavaObject().toString());
 			System.out.printf("Expecting %s measurements to be processed.\n", processed);
 			System.out.printf("Measurements actually contained in R: %s\n", size.asIntegers()[0]);
+
+			// String s = conn.eval("paste(capture.output(print(mm[1:100,])),collapse='\\n')").asString();
+			// System.out.println(s);
 		} catch (RserveException | REXPMismatchException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	private void pushBufferToR(Buffer buffer) {
+		long start = System.currentTimeMillis();
+		int size = buffer.size;
 		if (processed == 0) {
 			try {
-				conn.assign("mm", createDataFrameFromBuffer(buffer));
-			} catch (RserveException e) {
-				e.printStackTrace();
-			}
-		} else {
-			try {
-				conn.assign("tmp", createDataFrameFromBuffer(buffer));
-				conn.voidEval("mm <- rbind(mm, tmp)");
+				conn.voidEval("mm <- list()");
 			} catch (RserveException e) {
 				e.printStackTrace();
 			}
 		}
-		processed += buffer.fillLevel;
+
+		try {
+			conn.assign("buffer", createDataFrameFromBuffer(buffer));
+			conn.voidEval("mm[[length(mm)+1]] <- buffer");
+		} catch (RserveException e) {
+			e.printStackTrace();
+		}
+		processed += buffer.size;
+		buffer.reset();
+		convertCategoricalColumnsToFactorColumns();
+		long end = System.currentTimeMillis();
+		rTime += end - start;
+		if (log.isDebugEnabled())
+			log.debug(String.format("Pushed %d measuements to R. Took %.2f seconds.", size, (end - start) / 1000.0));
+	}
+
+	private void convertCategoricalColumnsToFactorColumns() {
+		try {
+			conn.voidEval("buffer$what <- as.factor(buffer$what)");
+			conn.voidEval("buffer$where.element <- as.factor(buffer$where.element)");
+			conn.voidEval("buffer$where.property <- as.factor(buffer$where.property)");
+			conn.voidEval("buffer$who <- as.factor(buffer$who)");
+		} catch (RserveException e) {
+			log.error("Rserve reported an error while converting categorical columns to factors", e);
+		}
+	}
+
+	private void createSingleDataFrameFromBufferedDataFrames() {
+		long start = System.currentTimeMillis();
+		try {
+			conn.voidEval("mm<-rbindlist(mm)");
+		} catch (RserveException e) {
+			e.printStackTrace();
+		}
+		long end = System.currentTimeMillis();
+		rTime += end - start;
+		log.info(String.format("Merged buffers into single dataframe. Took %.2f seconds.", (end - start) / 1000.0));
 	}
 
 	private REXP createDataFrameFromBuffer(Buffer buffer) {
@@ -96,12 +155,14 @@ public class RMeasurementStore {
 			rList.put("value", new REXPDouble(buffer.value));
 			rList.put("when", new REXPDouble(buffer.when));
 
+			for (Entry<String, String[]> context : buffer.contexts.entrySet()) {
+				rList.put(context.getKey(), new REXPString(context.getValue()));
+			}
 			return REXP.createDataFrame(rList);
 		} catch (REXPMismatchException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// indicates a programming error => throw unchecked
+			throw new RuntimeException(e);
 		}
-		return null; // TODO
 	}
 
 	private class Buffer {
@@ -109,88 +170,106 @@ public class RMeasurementStore {
 		String[] what;
 		String[] whereElement;
 		String[] whereProperty;
-		// TODO contexts
 		String[] who;
 		double[] value;
 		double[] when;
+
+		Map<String, String[]> contexts;
 
 		/**
 		 * the number of elements effectively contained in this buffer. Once this number equals the buffer size, the
 		 * buffer is considered full
 		 */
-		int fillLevel = 0;
+		int size = 0;
 
-		final int size;
+		final int capacity;
 
-		public Buffer(int size) {
-			this.size = size;
+		public Buffer(int capacity) {
+			this.capacity = capacity;
 
-			what = new String[size];
-			whereElement = new String[size];
-			whereProperty = new String[size];
-			who = new String[size];
-			value = new double[size];
-			when = new double[size];
+			what = new String[capacity];
+			whereElement = new String[capacity];
+			whereProperty = new String[capacity];
+			who = new String[capacity];
+			value = new double[capacity];
+			when = new double[capacity];
+
+			contexts = new HashMap<>();
 		}
 
-		// TODO fix code duplication
 		public <F extends Entity, S extends Entity> void putPair(Measurement<Pair<F, S>, ?> m) {
-			what[fillLevel] = m.getWhat().toString();
-			// TODO
-			whereElement[fillLevel] = m.getWhere().getElement().getFirst().getId() + ","
+			whereElement[size] = m.getWhere().getElement().getFirst().getId() + ","
 					+ m.getWhere().getElement().getSecond().getId();
-			whereProperty[fillLevel] = m.getWhere().getProperty();
-			who[fillLevel] = m.getWho().toString();
-			value[fillLevel] = m.getValue();
-			when[fillLevel] = m.getWhen();
-			fillLevel++;
+			whereProperty[size] = m.getWhere().getProperty();
+
+			putCommonProperties(m);
+			size++;
 		}
 
 		public <E> void put(Measurement<E, ?> m) {
-			what[fillLevel] = m.getWhat().toString();
 			if (Entity.class.isInstance(m.getWhere().getElement())) {
-				whereElement[fillLevel] = ((Entity) m.getWhere().getElement()).getId();
+				whereElement[size] = ((Entity) m.getWhere().getElement()).getId();
 			} else {
-				whereElement[fillLevel] = m.getWhere().getElement().toString();
+				whereElement[size] = m.getWhere().getElement().toString();
 			}
-			whereProperty[fillLevel] = m.getWhere().getProperty();
-			if (m.getWho() != null) {
-				who[fillLevel] = m.getWho().toString();
-			} else {
-				who[fillLevel] = null;
-			}
-			value[fillLevel] = m.getValue();
-			when[fillLevel] = m.getWhen();
-			fillLevel++;
+			whereProperty[size] = m.getWhere().getProperty();
+
+			putCommonProperties(m);
+			size++;
 		}
 
-		public void shrinkToFillLevel() {
+		private <E> void putCommonProperties(Measurement<E, ?> m) {
+			what[size] = m.getWhat().toString();
+
+			for (Object o : m.getWhere().getContexts()) {
+				String key = o.getClass().getSimpleName();
+				if (!contexts.containsKey(key)) {
+					contexts.put(key, new String[capacity]);
+				}
+				contexts.get(key)[size] = ((Entity) o).getId();
+			}
+
+			if (m.getWho() != null) {
+				who[size] = m.getWho().toString();
+			} else {
+				who[size] = null;
+			}
+			value[size] = m.getValue();
+			when[size] = m.getWhen();
+		}
+
+		public void shrinkToSize() {
 			what = shrinkArray(what);
 			whereElement = shrinkArray(whereElement);
 			whereProperty = shrinkArray(whereProperty);
+
 			who = shrinkArray(who);
 			value = shrinkArray(value);
 			when = shrinkArray(when);
+
+			for (String key : contexts.keySet()) {
+				contexts.put(key, shrinkArray(contexts.get(key)));
+			}
 		}
 
 		private String[] shrinkArray(String[] src) {
-			String[] dest = new String[fillLevel];
-			System.arraycopy(src, 0, dest, 0, fillLevel);
+			String[] dest = new String[size];
+			System.arraycopy(src, 0, dest, 0, size);
 			return dest;
 		}
 
 		private double[] shrinkArray(double[] src) {
-			double[] dest = new double[fillLevel];
-			System.arraycopy(src, 0, dest, 0, fillLevel);
+			double[] dest = new double[size];
+			System.arraycopy(src, 0, dest, 0, size);
 			return dest;
 		}
 
 		public boolean isFull() {
-			return fillLevel == size;
+			return size == capacity;
 		}
 
 		public void reset() {
-			fillLevel = 0;
+			size = 0;
 		}
 
 	}
