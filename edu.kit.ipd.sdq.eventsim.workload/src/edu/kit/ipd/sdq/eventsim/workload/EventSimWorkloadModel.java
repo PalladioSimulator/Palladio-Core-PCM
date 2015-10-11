@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.osgi.framework.BundleContext;
+import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
+import org.palladiosimulator.pcm.usagemodel.Start;
+import org.palladiosimulator.pcm.usagemodel.Stop;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
@@ -13,6 +16,12 @@ import edu.kit.ipd.sdq.eventsim.core.palladio.state.IStateExchangeService;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.StateExchange;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.StateExchangeService;
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
+import edu.kit.ipd.sdq.eventsim.measurement.MeasurementFacade;
+import edu.kit.ipd.sdq.eventsim.measurement.Metric;
+import edu.kit.ipd.sdq.eventsim.workload.calculators.TimeSpanBetweenUserActionsCalculator;
+import edu.kit.ipd.sdq.eventsim.workload.command.usage.FindActionsInUsageScenario;
+import edu.kit.ipd.sdq.eventsim.workload.command.usage.FindAllUserActionsByType;
+import edu.kit.ipd.sdq.eventsim.workload.command.usage.FindUsageScenarios;
 import edu.kit.ipd.sdq.eventsim.workload.debug.DebugUsageTraversalListener;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;
 import edu.kit.ipd.sdq.eventsim.workload.events.ResumeUsageTraversalEvent;
@@ -29,11 +38,9 @@ import edu.kit.ipd.sdq.simcomp.workload.events.WorkloadUserFinished;
 /**
  * The EventSim workload simulation model. This is the central class of the workload simulation.
  * 
- * run. Before the simulation starts, it initialises the simulation in the
- * {@code init()} method. During the simulation, it provides information about
- * the PCM model that is to be simulated, the simulation configuration and the
- * simulation status. Finally, it cleans up after a simulation run in the
- * {finalise()} method.
+ * run. Before the simulation starts, it initialises the simulation in the {@code init()} method. During the simulation,
+ * it provides information about the PCM model that is to be simulated, the simulation configuration and the simulation
+ * status. Finally, it cleans up after a simulation run in the {finalise()} method.
  * 
  * @author Philipp Merkle
  * @author Christoph Föhrdes
@@ -42,7 +49,7 @@ import edu.kit.ipd.sdq.simcomp.workload.events.WorkloadUserFinished;
 public class EventSimWorkloadModel extends AbstractEventSimModel {
 
 	private static final Logger logger = Logger.getLogger(EventSimWorkloadModel.class);
-	
+
 	private UsageBehaviourInterpreter usageInterpreter;
 
 	public EventSimWorkloadModel(ISimulationMiddleware middleware) {
@@ -50,10 +57,10 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 	}
 
 	/**
-	 * This method prepares the EventSim workload simulator and creates the
-	 * initial events to start the workload generation.
+	 * This method prepares the EventSim workload simulator and creates the initial events to start the workload
+	 * generation.
 	 */
-	public void init() {		
+	public void init() {
 		// initialise behaviour interpreters
 		usageInterpreter = new UsageBehaviourInterpreter(new UsageInterpreterConfiguration());
 
@@ -67,11 +74,11 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 			DebugUsageTraversalListener.install(this.usageInterpreter.getConfiguration());
 		}
 
-		this.initProbeSpecification();
+		setupMeasurements();
 
-		this.registerEventHandler();
+		registerEventHandler();
 
-		this.registerStateExchangeService();
+		registerStateExchangeService();
 
 		// ...and start the simulation by generating the workload
 		final List<IWorkloadGenerator> workloadGenerators = this.execute(new BuildWorkloadGenerator(this));
@@ -94,44 +101,57 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 	private void registerEventHandler() {
 
 		// setup system processed request event listener
-		this.getSimulationMiddleware().registerEventHandler(SystemRequestProcessed.EVENT_ID, new IEventHandler<SystemRequestProcessed>() {
+		this.getSimulationMiddleware().registerEventHandler(SystemRequestProcessed.EVENT_ID,
+				new IEventHandler<SystemRequestProcessed>() {
 
-			@Override
-			public void handle(SystemRequestProcessed simulationEvent) {
-				// resume usage traversal after system finished processing
-				IRequest request = simulationEvent.getRequest();
-				User user = (User) request.getUser();
+					@Override
+					public void handle(SystemRequestProcessed simulationEvent) {
+						// resume usage traversal after system finished processing
+						IRequest request = simulationEvent.getRequest();
+						User user = (User) request.getUser();
 
-                new ResumeUsageTraversalEvent(EventSimWorkloadModel.this, user.getUserState()).schedule((User) request.getUser(), 0);
-			}
+						new ResumeUsageTraversalEvent(EventSimWorkloadModel.this, user.getUserState()).schedule(
+								(User) request.getUser(), 0);
+					}
 
-		});
-		
+				});
+
 		// setup state exchange service cleanup listener
-		this.getSimulationMiddleware().registerEventHandler(WorkloadUserFinished.EVENT_ID, new IEventHandler<WorkloadUserFinished>() {
+		this.getSimulationMiddleware().registerEventHandler(WorkloadUserFinished.EVENT_ID,
+				new IEventHandler<WorkloadUserFinished>() {
 
-			@Override
-			public void handle(WorkloadUserFinished simulationEvent) {
-				StateExchange.cleanupUserState(simulationEvent.getUser().getId());
-			}
+					@Override
+					public void handle(WorkloadUserFinished simulationEvent) {
+						StateExchange.cleanupUserState(simulationEvent.getUser().getId());
+					}
 
-		});
+				});
 
 	}
 
-	/**
-	 * Initializes the Probe Specification by setting up the calculators and mounting the probes.
-	 */
-	private void initProbeSpecification() {
+	private void setupMeasurements() {
+		// initialize measurement facade
+		MeasurementFacade<WorkloadMeasurementConfiguration> measurementFacade = new MeasurementFacade<>(
+				WorkloadMeasurementConfiguration.from(this), Activator.getContext().getBundle());
 
-		// TODO
-		
-		// build calculators
-//		this.execute(new BuildUsageResponseTimeCalculators(this));
+		// response time of system calls
+		execute(new FindAllUserActionsByType<>(EntryLevelSystemCall.class)).forEach(
+				call -> measurementFacade
+						.createCalculator(new TimeSpanBetweenUserActionsCalculator(Metric.RESPONSE_TIME))
+						.from(call, "before").to(call, "after")
+						.forEachMeasurement(m -> getSimulationMiddleware().getMeasurementStore().putPair(m)));
 
-		// mount probes
-//		this.execute(new MountUsageScenarioProbes(this.usageInterpreter.getConfiguration(), this.getSimulationMiddleware()));
-//		this.execute(new MountSystemCallProbes(this.usageInterpreter.getConfiguration(), this.getSimulationMiddleware()));
+		// response time of usage scenarios
+		execute(new FindUsageScenarios()).forEach(scenario -> {
+			// TODO recursive vs. non-recursive
+				Start start = execute(new FindActionsInUsageScenario<>(scenario, Start.class)).get(0);
+				Stop stop = execute(new FindActionsInUsageScenario<>(scenario, Stop.class)).get(0);
+				measurementFacade.createCalculator(new TimeSpanBetweenUserActionsCalculator(Metric.RESPONSE_TIME))
+						.from(start, "before").to(stop, "after")
+						.forEachMeasurement(m -> getSimulationMiddleware().getMeasurementStore().putPair(m));
+				// TODO redefine measurement point (Start/Stop --> UsageScenario)
+			});
+
 	}
 
 	@Override

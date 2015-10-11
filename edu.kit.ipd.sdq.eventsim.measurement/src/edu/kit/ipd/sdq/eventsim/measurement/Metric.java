@@ -12,6 +12,8 @@ public enum Metric {
 	
 	HOLD_TIME,
 	
-	WAITING_TIME;
+	WAITING_TIME,
+	
+	RESPONSE_TIME;
 
 }
