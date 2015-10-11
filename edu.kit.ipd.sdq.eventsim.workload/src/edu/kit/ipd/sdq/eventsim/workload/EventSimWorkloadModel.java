@@ -144,8 +144,8 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 		// response time of usage scenarios
 		execute(new FindUsageScenarios()).forEach(scenario -> {
 			// TODO recursive vs. non-recursive
-				Start start = execute(new FindActionsInUsageScenario<>(scenario, Start.class)).get(0);
-				Stop stop = execute(new FindActionsInUsageScenario<>(scenario, Stop.class)).get(0);
+				Start start = execute(new FindActionsInUsageScenario<>(scenario, Start.class, false)).get(0);
+				Stop stop = execute(new FindActionsInUsageScenario<>(scenario, Stop.class, false)).get(0);
 				measurementFacade.createCalculator(new TimeSpanBetweenUserActionsCalculator(Metric.RESPONSE_TIME))
 						.from(start, "before").to(stop, "after")
 						.forEachMeasurement(m -> getSimulationMiddleware().getMeasurementStore().putPair(m));

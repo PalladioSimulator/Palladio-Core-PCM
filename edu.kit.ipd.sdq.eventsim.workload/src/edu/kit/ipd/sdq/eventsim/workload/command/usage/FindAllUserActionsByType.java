@@ -33,7 +33,7 @@ public class FindAllUserActionsByType<A extends AbstractUserAction> implements I
 		List<A> result = new ArrayList<>();
 
 		for (UsageScenario s : pcm.getUsageModel().getUsageScenario_UsageModel()) {
-			result.addAll(executor.execute(new FindActionsInUsageScenario<A>(s, actionType)));
+			result.addAll(executor.execute(new FindActionsInUsageScenario<A>(s, actionType, true)));
 		}
 		return result;
 	}

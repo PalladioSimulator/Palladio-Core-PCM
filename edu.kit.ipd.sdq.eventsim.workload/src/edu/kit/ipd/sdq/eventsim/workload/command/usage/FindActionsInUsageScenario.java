@@ -30,15 +30,18 @@ public class FindActionsInUsageScenario<A extends AbstractUserAction> implements
 
 	private Class<A> actionType;
 
+	private boolean recurse;
+
 	/**
 	 * Constructs a command that returns all EntryLevelSystemCalls contained in the given usage scenario.
 	 * 
 	 * @param scenario
 	 *            the usage scenario
 	 */
-	public FindActionsInUsageScenario(UsageScenario scenario, Class<A> actionType) {
+	public FindActionsInUsageScenario(UsageScenario scenario, Class<A> actionType, boolean recurse) {
 		this.scenario = scenario;
 		this.actionType = actionType;
+		this.recurse = recurse;
 	}
 
 	/**
@@ -64,9 +67,13 @@ public class FindActionsInUsageScenario<A extends AbstractUserAction> implements
 				// cast is safe
 				actions.add((A) currentAction);
 			} else if (UsagemodelPackage.eINSTANCE.getBranch().isInstance(currentAction)) {
-				actions.addAll(findActionsInBranch((Branch) currentAction, executor));
+				if (recurse) {
+					actions.addAll(findActionsInBranch((Branch) currentAction, executor));
+				}
 			} else if (UsagemodelPackage.eINSTANCE.getLoop().isInstance(currentAction)) {
-				actions.addAll(findActionsInLoop((Loop) currentAction, executor));
+				if (recurse) {
+					actions.addAll(findActionsInLoop((Loop) currentAction, executor));
+				}
 			}
 			currentAction = currentAction.getSuccessor();
 		}
