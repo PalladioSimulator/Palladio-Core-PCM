@@ -17,6 +17,15 @@ import org.rosuda.REngine.Rserve.RserveException;
 import edu.kit.ipd.sdq.eventsim.measurement.Measurement;
 import edu.kit.ipd.sdq.eventsim.measurement.Pair;
 
+/**
+ * Stores {@link Measurement}s into R using Rserve (for details on Rserve see https://rforge.net/Rserve).
+ * <p>
+ * Measurements are buffered and sent to R as a batch once the buffer size reaches its capacity. Increasing the buffer
+ * capacity improves performance at the cost of higher memory consumption.
+ * 
+ * @author Philipp Merkle
+ *
+ */
 public class RMeasurementStore {
 
 	private static final Logger log = Logger.getLogger(RMeasurementStore.class);
@@ -27,8 +36,10 @@ public class RMeasurementStore {
 
 	private Buffer buffer;
 
+	/** the number of measurements processed since the last reset (or instantiation) */
 	private int processed;
 
+	/** the total time spent in R */
 	private long rTime;
 
 	public RMeasurementStore() {
@@ -46,7 +57,6 @@ public class RMeasurementStore {
 		buffer.putPair(m);
 		if (buffer.isFull()) {
 			pushBufferToR(buffer);
-			buffer.reset();
 		}
 	}
 
@@ -54,7 +64,6 @@ public class RMeasurementStore {
 		buffer.put(m);
 		if (buffer.isFull()) {
 			pushBufferToR(buffer);
-			buffer.reset();
 		}
 	}
 
@@ -64,7 +73,7 @@ public class RMeasurementStore {
 		createSingleDataFrameFromBufferedDataFrames();
 		storeRDS();
 		log.info(String.format("Finished R processing. Total time spent in R: %.2f seconds.", rTime / 1000.0));
-		
+
 		// clean up
 		buffer = new Buffer(BUFFER_CAPACITY); // restore buffer to initial (non-shrinked) size
 		processed = 0;
