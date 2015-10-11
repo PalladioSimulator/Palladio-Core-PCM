@@ -39,8 +39,8 @@ public class PassiveQueueLengthProbe extends AbstractProbe<SimPassiveResource, V
 				
 				long state = resource.getCapacity() - resource.getAvailable();
 				
-				Measurement<SimPassiveResource, Void> m = new Measurement<>(Metric.QUEUE_LENGTH,
-						getMeasuringPoint(), null, state, simTime);
+				Measurement<SimPassiveResource, Void> m = new Measurement<>(Metric.QUEUE_LENGTH, getMeasuringPoint()
+						.withAddedContexts(resource.getAssemblyContext()), null, state, simTime);
 
 				// store
 				// cache.put(m); TODO cache not needed! --> account for in abstract superclass/constructor? or

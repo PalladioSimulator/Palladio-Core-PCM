@@ -64,7 +64,7 @@ public class ResourceFactory {
 			throw new EventSimException("Unknown scheduling policy: " + schedulingPolicy.toString());
 		}
 
-		final SimActiveResource r = new SimActiveResource(model, resource, processingRate.getSpecification(), numberOfReplicas, schedulingPolicy);
+		final SimActiveResource r = new SimActiveResource(model, resource, processingRate.getSpecification(), numberOfReplicas, schedulingPolicy, specification);
 
 		return r;
 	}

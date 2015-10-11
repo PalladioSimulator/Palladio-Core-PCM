@@ -3,6 +3,9 @@ package edu.kit.ipd.sdq.eventsim.resources.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.palladiosimulator.pcm.core.composition.AssemblyContext;
+import org.palladiosimulator.pcm.repository.PassiveResource;
+
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.sensors.IPassiveResourceSensor;
@@ -96,6 +99,14 @@ public class SimPassiveResource extends EventSimEntity {
      */
     public String getResourceName() {
         return schedulerResource.getName();
+    }
+    
+    public AssemblyContext getAssemblyContext() {
+    	return schedulerResource.getAssemblyContext();
+    }
+    
+    public PassiveResource getSpecification() {
+    	return schedulerResource.getResource();
     }
 
     public void addListener(final IPassiveResourceListener l) {

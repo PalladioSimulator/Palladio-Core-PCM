@@ -1,5 +1,6 @@
 package edu.kit.ipd.sdq.eventsim.measurement;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -22,6 +23,17 @@ public class MeasuringPoint<E> {
 
 	public MeasuringPoint(E element, Object... contexts) {
 		this(element, "", contexts);
+	}
+
+	public MeasuringPoint<E> withAddedContexts(Object... contexts) {
+		Set<Object> contextsSet = new HashSet<Object>();
+		contextsSet.addAll(Arrays.asList(this.contexts));
+		contextsSet.addAll(Arrays.asList(contexts));
+		return new MeasuringPoint<>(this.element, this.property, contextsSet.toArray());
+	}
+	
+	public MeasuringPoint<E> withProperty(String property) {
+		return new MeasuringPoint<>(this.element, property, this.contexts);
 	}
 
 	public E getElement() {
@@ -78,10 +90,10 @@ public class MeasuringPoint<E> {
 			return o.toString();
 		}
 	}
-	
+
 	private String objectArrayToString(Object[] objects) {
 		StringBuilder b = new StringBuilder().append("[");
-		for(Object o : objects) {
+		for (Object o : objects) {
 			b.append(objectToString(o)).append(",");
 		}
 		if (b.length() > 1)

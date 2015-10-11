@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.omg.CORBA.Request;
+import org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecification;
 
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
@@ -42,7 +43,8 @@ public class SimActiveResource extends EventSimEntity {
     private SchedulingPolicy schedulingStrategy;
     private double totalDemandedTime;
     private long[] queueLength;
-
+	private ProcessingResourceSpecification specification;
+    
     /**
      * Constructs an active resource that wraps the specified resource.
      * 
@@ -52,14 +54,16 @@ public class SimActiveResource extends EventSimEntity {
      *            the wrapped scheduler resource
      * @param processingRate
      * @param numberOfInstances
+     * @param specification 
      */
     public SimActiveResource(AbstractEventSimModel model, IActiveResource resource, String processingRate,
-            int numberOfInstances, SchedulingPolicy schedulingStrategy) {
+            int numberOfInstances, SchedulingPolicy schedulingStrategy, ProcessingResourceSpecification specification) {
         super(model, "SimActiveResource");
         this.schedulerResource = resource;
         this.processingRate = processingRate;
         this.numberOfInstances = numberOfInstances;
         this.schedulingStrategy = schedulingStrategy;
+        this.specification = specification;
 
         this.setupStateListenerAdapter(this.schedulerResource);
         stateListener = new HashMap<Integer, List<IStateListener>>();
@@ -170,6 +174,10 @@ public class SimActiveResource extends EventSimEntity {
         return schedulingStrategy;
     }
 
+    public ProcessingResourceSpecification getSpecification() {
+    	return specification;
+    }
+    
     public void addDemandListener(IDemandListener listener) {
         demandListener.add(listener);
     }

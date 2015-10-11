@@ -10,7 +10,7 @@ public class SimLinkingResource extends SimActiveResource {
 	private String latencySpecification;
 
 	public SimLinkingResource(AbstractEventSimModel model, IActiveResource resource, String latencySpecification, String throughputSpecification) {
-		super(model, resource, throughputSpecification, 1, SchedulingPolicy.FCFS);
+		super(model, resource, throughputSpecification, 1, SchedulingPolicy.FCFS, null); // TODO SimLinkingResource resource should not inherit SimActiveResource. Use composition!
 		this.latencySpecification = latencySpecification;
 	}
 

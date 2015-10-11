@@ -1,11 +1,15 @@
 package edu.kit.ipd.sdq.eventsim.measurement.r;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
+import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.pcm.core.entity.Entity;
+import org.palladiosimulator.pcm.repository.PassiveResource;
+import org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecification;
 import org.rosuda.REngine.REXP;
 import org.rosuda.REngine.REXPDouble;
 import org.rosuda.REngine.REXPMismatchException;
@@ -21,7 +25,7 @@ import edu.kit.ipd.sdq.eventsim.measurement.Pair;
  * Stores {@link Measurement}s into R using Rserve (for details on Rserve see https://rforge.net/Rserve).
  * <p>
  * Measurements are buffered and sent to R as a batch once the buffer size reaches its capacity. Increasing the buffer
- * capacity improves performance at the cost of higher memory consumption.
+ * capacity improves performance at the cost of higher memory consumption (this needs to be further evaluated, however).
  * 
  * @author Philipp Merkle
  *
@@ -39,7 +43,7 @@ public class RMeasurementStore {
 	/** the number of measurements processed since the last reset (or instantiation) */
 	private int processed;
 
-	/** the total time spent in R */
+	/** the total time spent in R since the last reset (or instantiation) */
 	private long rTime;
 
 	public RMeasurementStore() {
@@ -81,6 +85,7 @@ public class RMeasurementStore {
 	}
 
 	private void storeRDS() {
+		log.info("Saving measurements into RDS file. This can take a moment...");
 		long start = System.currentTimeMillis();
 		try {
 			conn.voidEval("saveRDS(mm, 'D:/test.rds')");
@@ -118,13 +123,13 @@ public class RMeasurementStore {
 
 		try {
 			conn.assign("buffer", createDataFrameFromBuffer(buffer));
+			convertCategoricalColumnsToFactorColumns();
 			conn.voidEval("mm[[length(mm)+1]] <- buffer");
 		} catch (RserveException e) {
 			e.printStackTrace();
 		}
 		processed += buffer.size;
 		buffer.reset();
-		convertCategoricalColumnsToFactorColumns();
 		long end = System.currentTimeMillis();
 		rTime += end - start;
 		if (log.isDebugEnabled())
@@ -134,9 +139,13 @@ public class RMeasurementStore {
 	private void convertCategoricalColumnsToFactorColumns() {
 		try {
 			conn.voidEval("buffer$what <- as.factor(buffer$what)");
-			conn.voidEval("buffer$where.element <- as.factor(buffer$where.element)");
+			conn.voidEval("buffer$where.first.type <- as.factor(buffer$where.first.type)");
+			conn.voidEval("buffer$where.first.id <- as.factor(buffer$where.first.id)");
+			conn.voidEval("buffer$where.second.type <- as.factor(buffer$where.second.type)");
+			conn.voidEval("buffer$where.second.id <- as.factor(buffer$where.second.id)");
 			conn.voidEval("buffer$where.property <- as.factor(buffer$where.property)");
-			conn.voidEval("buffer$who <- as.factor(buffer$who)");
+			conn.voidEval("buffer$who.type <- as.factor(buffer$who.type)");
+			conn.voidEval("buffer$who.id <- as.factor(buffer$who.id)");
 		} catch (RserveException e) {
 			log.error("Rserve reported an error while converting categorical columns to factors", e);
 		}
@@ -145,7 +154,7 @@ public class RMeasurementStore {
 	private void createSingleDataFrameFromBufferedDataFrames() {
 		long start = System.currentTimeMillis();
 		try {
-			conn.voidEval("mm<-rbindlist(mm)");
+			conn.voidEval("mm <- rbindlist(mm)");
 		} catch (RserveException e) {
 			e.printStackTrace();
 		}
@@ -158,9 +167,13 @@ public class RMeasurementStore {
 		try {
 			RList rList = new RList(6, true);
 			rList.put("what", new REXPString(buffer.what));
-			rList.put("where.element", new REXPString(buffer.whereElement));
+			rList.put("where.first.type", new REXPString(buffer.whereFirstType));
+			rList.put("where.first.id", new REXPString(buffer.whereFirstId));
+			rList.put("where.second.type", new REXPString(buffer.whereSecondType));
+			rList.put("where.second.id", new REXPString(buffer.whereSecondId));
 			rList.put("where.property", new REXPString(buffer.whereProperty));
-			rList.put("who", new REXPString(buffer.who));
+			rList.put("who.type", new REXPString(buffer.whoType));
+			rList.put("who.id", new REXPString(buffer.whoId));
 			rList.put("value", new REXPDouble(buffer.value));
 			rList.put("when", new REXPDouble(buffer.when));
 
@@ -177,9 +190,13 @@ public class RMeasurementStore {
 	private class Buffer {
 
 		String[] what;
-		String[] whereElement;
+		String[] whereFirstId;
+		String[] whereFirstType;
+		String[] whereSecondId;
+		String[] whereSecondType;
 		String[] whereProperty;
-		String[] who;
+		String[] whoType;
+		String[] whoId;
 		double[] value;
 		double[] when;
 
@@ -197,9 +214,13 @@ public class RMeasurementStore {
 			this.capacity = capacity;
 
 			what = new String[capacity];
-			whereElement = new String[capacity];
+			whereFirstId = new String[capacity];
+			whereFirstType = new String[capacity];
+			whereSecondId = new String[capacity];
+			whereSecondType = new String[capacity];
 			whereProperty = new String[capacity];
-			who = new String[capacity];
+			whoType = new String[capacity];
+			whoId = new String[capacity];
 			value = new double[capacity];
 			when = new double[capacity];
 
@@ -207,20 +228,75 @@ public class RMeasurementStore {
 		}
 
 		public <F extends Entity, S extends Entity> void putPair(Measurement<Pair<F, S>, ?> m) {
-			whereElement[size] = m.getWhere().getElement().getFirst().getId() + ","
-					+ m.getWhere().getElement().getSecond().getId();
+			F first = m.getWhere().getElement().getFirst();
+			S second = m.getWhere().getElement().getSecond();
+			whereFirstId[size] = toIdString(first);
+			whereFirstType[size] = toTypeString(first);
+			whereSecondId[size] = toIdString(second);
+			whereSecondType[size] = toTypeString(second);
+
 			whereProperty[size] = m.getWhere().getProperty();
 
 			putCommonProperties(m);
 			size++;
 		}
 
-		public <E> void put(Measurement<E, ?> m) {
-			if (Entity.class.isInstance(m.getWhere().getElement())) {
-				whereElement[size] = ((Entity) m.getWhere().getElement()).getId();
+		private String toIdString(Object o) {
+			if (Entity.class.isInstance(o)) {
+				return ((Entity) o).getId();
+			} else if (o.getClass().getName().equals("edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource")) {
+				// TODO fix hard-coded class name
+				try {
+					ProcessingResourceSpecification r = (ProcessingResourceSpecification) o.getClass().getMethod("getSpecification").invoke(o);
+					return r.getId();
+				} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException
+						| NoSuchMethodException | SecurityException e) {
+					// indicates a programming error => throw unchecked
+					throw new RuntimeException(e);
+				}
+			} else if (o.getClass().getName().equals("edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource")) {
+				// TODO fix hard-coded class name
+				try {
+					PassiveResource r = (PassiveResource) o.getClass().getMethod("getSpecification").invoke(o);
+					return r.getId();
+				} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException
+						| NoSuchMethodException | SecurityException e) {
+					// indicates a programming error => throw unchecked
+					throw new RuntimeException(e);
+				}
+			} else if (o.getClass().getSuperclass().getName()
+					.equals("edu.kit.ipd.sdq.eventsim.entities.EventSimEntity")) {
+				// TODO fix hard-coded class name
+				try {
+					return o.getClass().getMethod("getEntityId").invoke(o).toString();
+				} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException
+						| NoSuchMethodException | SecurityException e) {
+					// indicates a programming error => throw unchecked
+					throw new RuntimeException(e);
+				}
 			} else {
-				whereElement[size] = m.getWhere().getElement().toString();
+				// TODO refine
+				return o.toString();
 			}
+		}
+
+		private String toTypeString(Object o) {
+			if (EObject.class.isInstance(o)) {
+				return stripNamespace(((EObject) o).eClass().getInstanceClassName());
+
+			} else {
+				return stripNamespace(o.getClass().getName());
+			}
+		}
+
+		private String stripNamespace(String className) {
+			String[] typeSplit = className.split("\\.");
+			return typeSplit[typeSplit.length - 1];
+		}
+
+		public <E> void put(Measurement<E, ?> m) {
+			whereFirstId[size] = toIdString(m.getWhere().getElement());
+			whereFirstType[size] = toTypeString(m.getWhere().getElement());
 			whereProperty[size] = m.getWhere().getProperty();
 
 			putCommonProperties(m);
@@ -231,17 +307,19 @@ public class RMeasurementStore {
 			what[size] = m.getWhat().toString();
 
 			for (Object o : m.getWhere().getContexts()) {
-				String key = o.getClass().getSimpleName();
+				String key = toTypeString(o);
 				if (!contexts.containsKey(key)) {
 					contexts.put(key, new String[capacity]);
 				}
-				contexts.get(key)[size] = ((Entity) o).getId();
+				contexts.get(key)[size] = toIdString(o);
 			}
 
 			if (m.getWho() != null) {
-				who[size] = m.getWho().toString();
+				whoType[size] = toTypeString(m.getWho());
+				whoId[size] = toIdString(m.getWho());
 			} else {
-				who[size] = null;
+				whoType[size] = null;
+				whoId[size] = null;
 			}
 			value[size] = m.getValue();
 			when[size] = m.getWhen();
@@ -249,10 +327,14 @@ public class RMeasurementStore {
 
 		public void shrinkToSize() {
 			what = shrinkArray(what);
-			whereElement = shrinkArray(whereElement);
+			whereFirstId = shrinkArray(whereFirstId);
+			whereFirstType = shrinkArray(whereFirstType);
+			whereSecondId = shrinkArray(whereSecondId);
+			whereSecondType = shrinkArray(whereSecondType);
 			whereProperty = shrinkArray(whereProperty);
 
-			who = shrinkArray(who);
+			whoType = shrinkArray(whoType);
+			whoId = shrinkArray(whoId);
 			value = shrinkArray(value);
 			when = shrinkArray(when);
 
