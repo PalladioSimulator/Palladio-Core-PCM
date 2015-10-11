@@ -361,6 +361,9 @@ public class RMeasurementStore {
 
 		public void reset() {
 			size = 0;
+			// contexts map is filled sparsely, hence buffered entries are not guaranteed to be overwritten by the next
+			// "buffering run" is full.
+			contexts = new HashMap<>();
 		}
 
 	}
