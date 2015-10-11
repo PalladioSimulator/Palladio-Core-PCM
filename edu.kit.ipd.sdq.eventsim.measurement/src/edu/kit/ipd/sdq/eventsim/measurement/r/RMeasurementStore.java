@@ -297,6 +297,8 @@ public class RMeasurementStore {
 		public <E> void put(Measurement<E, ?> m) {
 			whereFirstId[size] = toIdString(m.getWhere().getElement());
 			whereFirstType[size] = toTypeString(m.getWhere().getElement());
+			whereSecondId[size] = null;
+			whereSecondType[size] = null;
 			whereProperty[size] = m.getWhere().getProperty();
 
 			putCommonProperties(m);
