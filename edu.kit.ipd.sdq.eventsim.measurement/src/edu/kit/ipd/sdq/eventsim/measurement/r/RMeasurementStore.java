@@ -290,16 +290,10 @@ public class RMeasurementStore {
 
 		private String toTypeString(Object o) {
 			if (EObject.class.isInstance(o)) {
-				return stripNamespace(((EObject) o).eClass().getInstanceClassName());
-
+				return ((EObject) o).eClass().getInstanceClass().getSimpleName();
 			} else {
-				return stripNamespace(o.getClass().getName());
+				return o.getClass().getSimpleName();
 			}
-		}
-
-		private String stripNamespace(String className) {
-			String[] typeSplit = className.split("\\.");
-			return typeSplit[typeSplit.length - 1];
 		}
 
 		public <E> void put(Measurement<E, ?> m) {
