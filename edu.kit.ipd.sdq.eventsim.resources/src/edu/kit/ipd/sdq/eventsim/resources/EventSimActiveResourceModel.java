@@ -19,7 +19,9 @@ import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
 import edu.kit.ipd.sdq.eventsim.entities.IEntityListener;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasurementFacade;
+import edu.kit.ipd.sdq.eventsim.measurement.r.RMeasurementStore;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource;
+import edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimulatedProcess;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 import edu.kit.ipd.sdq.simcomp.component.IRequest;
@@ -55,7 +57,10 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 
 		measurementFacade = new MeasurementFacade<>(new ResourceProbeConfiguration(), Activator.getContext()
 				.getBundle());
-
+		
+		RMeasurementStore rstore = getSimulationMiddleware().getMeasurementStore();
+		rstore.addIdExtractor(SimActiveResource.class, c -> ((SimActiveResource)c).getSpecification().getId());
+		rstore.addIdExtractor(SimulatedProcess.class, c -> Long.toString(((SimulatedProcess)c).getEntityId()));
 	}
 	
 //	private void initProbeSpecification() {

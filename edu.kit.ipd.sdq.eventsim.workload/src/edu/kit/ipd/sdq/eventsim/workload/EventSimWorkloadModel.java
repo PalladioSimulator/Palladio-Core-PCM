@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.osgi.framework.BundleContext;
+import org.palladiosimulator.pcm.seff.AbstractAction;
+import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 import org.palladiosimulator.pcm.usagemodel.Start;
 import org.palladiosimulator.pcm.usagemodel.Stop;
@@ -18,6 +20,7 @@ import edu.kit.ipd.sdq.eventsim.core.palladio.state.StateExchangeService;
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasurementFacade;
 import edu.kit.ipd.sdq.eventsim.measurement.Metric;
+import edu.kit.ipd.sdq.eventsim.measurement.r.RMeasurementStore;
 import edu.kit.ipd.sdq.eventsim.workload.calculators.TimeSpanBetweenUserActionsCalculator;
 import edu.kit.ipd.sdq.eventsim.workload.command.usage.FindActionsInUsageScenario;
 import edu.kit.ipd.sdq.eventsim.workload.command.usage.FindAllUserActionsByType;
@@ -133,6 +136,10 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 		// initialize measurement facade
 		MeasurementFacade<WorkloadMeasurementConfiguration> measurementFacade = new MeasurementFacade<>(
 				WorkloadMeasurementConfiguration.from(this), Activator.getContext().getBundle());
+		
+		RMeasurementStore rstore = getSimulationMiddleware().getMeasurementStore();
+		rstore.addIdExtractor(User.class, c -> Long.toString(((User)c).getEntityId()));
+		rstore.addIdExtractor(AbstractUserAction.class, c -> ((AbstractUserAction)c).getId());
 
 		// response time of system calls
 		execute(new FindAllUserActionsByType<>(EntryLevelSystemCall.class)).forEach(

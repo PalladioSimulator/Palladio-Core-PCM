@@ -4,7 +4,9 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.palladiosimulator.pcm.core.composition.AssemblyContext;
+import org.palladiosimulator.pcm.core.entity.Entity;
 import org.palladiosimulator.pcm.repository.OperationSignature;
+import org.palladiosimulator.pcm.seff.AbstractAction;
 import org.palladiosimulator.pcm.seff.ExternalCallAction;
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
@@ -13,12 +15,14 @@ import edu.kit.ipd.sdq.eventsim.core.palladio.state.IUserState;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.StateExchange;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasurementFacade;
+import edu.kit.ipd.sdq.eventsim.measurement.r.RMeasurementStore;
 import edu.kit.ipd.sdq.eventsim.system.calculators.ResponseTimeOfExternalCallsCalculator;
 import edu.kit.ipd.sdq.eventsim.system.command.BuildComponentInstances;
 import edu.kit.ipd.sdq.eventsim.system.command.FindAssemblyContextForSystemCall;
 import edu.kit.ipd.sdq.eventsim.system.command.InstallExternalCallParameterHandling;
 import edu.kit.ipd.sdq.eventsim.system.command.seff.FindAllActionsByType;
 import edu.kit.ipd.sdq.eventsim.system.debug.DebugSeffTraversalListener;
+import edu.kit.ipd.sdq.eventsim.system.entities.ForkedRequest;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.events.BeginSeffTraversalEvent;
 import edu.kit.ipd.sdq.eventsim.system.handler.AfterSystemCallParameterHandler;
@@ -114,7 +118,10 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 		MeasurementFacade<SystemMeasurementConfiguration> measurementFacade = new MeasurementFacade<>(
 				SystemMeasurementConfiguration.from(this), Activator.getContext().getBundle());
 
-
+		RMeasurementStore rstore = getSimulationMiddleware().getMeasurementStore();
+		rstore.addIdExtractor(Request.class, c -> Long.toString(((Request)c).getId()));
+		rstore.addIdExtractor(ForkedRequest.class, c -> Long.toString(((ForkedRequest)c).getEntityId()));
+		rstore.addIdExtractor(Entity.class, c -> ((Entity)c).getId());
 		
 		// response time of external calls
 		execute(new FindAllActionsByType<>(ExternalCallAction.class)).forEach(

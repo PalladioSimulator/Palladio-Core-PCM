@@ -1,15 +1,13 @@
 package edu.kit.ipd.sdq.eventsim.measurement.r;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.function.Function;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.pcm.core.entity.Entity;
-import org.palladiosimulator.pcm.repository.PassiveResource;
-import org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecification;
 import org.rosuda.REngine.REXP;
 import org.rosuda.REngine.REXPDouble;
 import org.rosuda.REngine.REXPMismatchException;
@@ -46,7 +44,14 @@ public class RMeasurementStore {
 	/** the total time spent in R since the last reset (or instantiation) */
 	private long rTime;
 
+	private Map<Class<? extends Object>, Function<Object, String>> idExtractorMap;
+
+	public void addIdExtractor(Class<? extends Object> elementClass, Function<Object, String> function) {
+		idExtractorMap.put(elementClass, function);
+	}
+
 	public RMeasurementStore() {
+		idExtractorMap = new HashMap<>();
 		try {
 			conn = new RConnection();
 			conn.voidEval("library(data.table)");
@@ -57,7 +62,7 @@ public class RMeasurementStore {
 		buffer = new Buffer(BUFFER_CAPACITY);
 	}
 
-	public <F extends Entity, S extends Entity> void putPair(Measurement<Pair<F, S>, ?> m) {
+	public <F extends Entity, S extends Entity, T> void putPair(Measurement<Pair<F, S>, T> m) {
 		buffer.putPair(m);
 		if (buffer.isFull()) {
 			pushBufferToR(buffer);
@@ -145,7 +150,6 @@ public class RMeasurementStore {
 			conn.voidEval("buffer$where.second.id <- as.factor(buffer$where.second.id)");
 			conn.voidEval("buffer$where.property <- as.factor(buffer$where.property)");
 			conn.voidEval("buffer$who.type <- as.factor(buffer$who.type)");
-			conn.voidEval("buffer$who.id <- as.factor(buffer$who.id)");
 		} catch (RserveException e) {
 			log.error("Rserve reported an error while converting categorical columns to factors", e);
 		}
@@ -227,7 +231,7 @@ public class RMeasurementStore {
 			contexts = new HashMap<>();
 		}
 
-		public <F extends Entity, S extends Entity> void putPair(Measurement<Pair<F, S>, ?> m) {
+		public <F extends Entity, S extends Entity, T> void putPair(Measurement<Pair<F, S>, T> m) {
 			F first = m.getWhere().getElement().getFirst();
 			S second = m.getWhere().getElement().getSecond();
 			whereFirstId[size] = toIdString(first);
@@ -241,43 +245,47 @@ public class RMeasurementStore {
 			size++;
 		}
 
-		private String toIdString(Object o) {
-			if (Entity.class.isInstance(o)) {
-				return ((Entity) o).getId();
-			} else if (o.getClass().getName().equals("edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource")) {
-				// TODO fix hard-coded class name
-				try {
-					ProcessingResourceSpecification r = (ProcessingResourceSpecification) o.getClass().getMethod("getSpecification").invoke(o);
-					return r.getId();
-				} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException
-						| NoSuchMethodException | SecurityException e) {
-					// indicates a programming error => throw unchecked
-					throw new RuntimeException(e);
-				}
-			} else if (o.getClass().getName().equals("edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource")) {
-				// TODO fix hard-coded class name
-				try {
-					PassiveResource r = (PassiveResource) o.getClass().getMethod("getSpecification").invoke(o);
-					return r.getId();
-				} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException
-						| NoSuchMethodException | SecurityException e) {
-					// indicates a programming error => throw unchecked
-					throw new RuntimeException(e);
-				}
-			} else if (o.getClass().getSuperclass().getName()
-					.equals("edu.kit.ipd.sdq.eventsim.entities.EventSimEntity")) {
-				// TODO fix hard-coded class name
-				try {
-					return o.getClass().getMethod("getEntityId").invoke(o).toString();
-				} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException
-						| NoSuchMethodException | SecurityException e) {
-					// indicates a programming error => throw unchecked
-					throw new RuntimeException(e);
-				}
-			} else {
-				// TODO refine
-				return o.toString();
+		private Function<Object, String> findIdExtractorForType(Class<?> type) {
+			if (type == null) {
+				return null;
 			}
+			if (type.equals(Object.class)) {
+				return null;
+			}
+			if (idExtractorMap.containsKey(type)) {
+				return idExtractorMap.get(type);
+			} else {
+				Function<Object, String> x = findIdExtractorForType(type.getSuperclass());
+				if (x != null) {
+					return x;
+				}
+
+				for (Class<?> iface : type.getInterfaces()) {
+					x = findIdExtractorForType(iface);
+					if (x != null) {
+						return x;
+					}
+				}
+			}
+			return null;
+		}
+
+		private String toIdString(Object o) {
+			Function<Object, String> extractor = idExtractorMap.get(o.getClass());
+			if (extractor == null) {
+				// try to find extractor for one of the type's supertypes (classes + interfaces)
+				extractor = findIdExtractorForType(o.getClass());
+				if (extractor != null) {
+					// found extractor for a supertype -> store that mapping to prevent the same lookup over and over
+					// again
+					idExtractorMap.put(o.getClass(), extractor);
+				} else {
+					// fallback
+					log.warn("Could not find id extractor for class " + o.getClass() + ".");
+					return o.toString();
+				}
+			}
+			return extractor.apply(o);
 		}
 
 		private String toTypeString(Object o) {

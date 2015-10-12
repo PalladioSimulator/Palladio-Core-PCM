@@ -9,6 +9,7 @@ import org.palladiosimulator.pcm.repository.PassiveResource;
 
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasurementFacade;
+import edu.kit.ipd.sdq.eventsim.measurement.r.RMeasurementStore;
 import edu.kit.ipd.sdq.eventsim.resources.calculators.HoldTimeCalculator;
 import edu.kit.ipd.sdq.eventsim.resources.calculators.WaitingTimeCalculator;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource;
@@ -36,6 +37,9 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
 	public void init() {
 		measurementFacade = new MeasurementFacade<>(new ResourceProbeConfiguration(), Activator.getContext()
 				.getBundle());
+		
+		RMeasurementStore rstore = getSimulationMiddleware().getMeasurementStore();
+		rstore.addIdExtractor(SimPassiveResource.class, c -> ((SimPassiveResource)c).getSpecification().getId());
 	}
 
 //	private void initProbeSpecification() {
