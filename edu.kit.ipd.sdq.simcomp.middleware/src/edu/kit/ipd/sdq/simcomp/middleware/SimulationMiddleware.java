@@ -349,18 +349,12 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 		if (logger.isDebugEnabled()) {
 			logger.debug("Cleaning up...");
 		}
-
-//		probeSpecContext.finish();
-//		probeSpecContext.end();
 		
 		notifyStopListeners();
 
-		if (logger.isEnabledFor(Level.INFO)) {
-			logger.info("Simulation took " + this.getSimulationControl().getCurrentSimulationTime() + " simulation seconds");
-		}
-		
 		store.finish();
-		store.print();
+		
+		logger.info("Simulation took " + this.getSimulationControl().getCurrentSimulationTime() + " simulation seconds");
 	}
 
 	@Override
