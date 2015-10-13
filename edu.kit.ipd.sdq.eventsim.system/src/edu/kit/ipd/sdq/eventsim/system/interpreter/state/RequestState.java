@@ -23,6 +23,7 @@ import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
 public class RequestState extends AbstractInterpreterState<AbstractAction> implements IRequestState, Cloneable {
 
     private static final Logger logger = Logger.getLogger(RequestState.class);
+    private static final boolean debug = logger.isDebugEnabled(); 
 
     private final Stack<RequestStateStackFrame> stack;
     private final StackContext stoExContext;
@@ -39,7 +40,7 @@ public class RequestState extends AbstractInterpreterState<AbstractAction> imple
      */
     @Override
     public void pushStackFrame() {
-        if (logger.isDebugEnabled()) {
+        if (debug) {
             logger.debug("Entering scope");
         }
         final RequestStateStackFrame f = new RequestStateStackFrame();
@@ -52,7 +53,7 @@ public class RequestState extends AbstractInterpreterState<AbstractAction> imple
     @Override
     public void popStackFrame() {
         assert !this.stack.isEmpty() : "Tried to leave scope but there is no outer scope";
-        if (logger.isDebugEnabled()) {
+        if (debug) {
             logger.debug("Leaving scope");
         }
         this.stack.pop();
