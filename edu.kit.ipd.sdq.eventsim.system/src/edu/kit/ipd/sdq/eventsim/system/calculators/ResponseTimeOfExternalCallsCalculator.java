@@ -16,6 +16,7 @@ public class ResponseTimeOfExternalCallsCalculator extends
 
 	@Override
 	public void setup(IProbe<ExternalCallAction, Request> fromProbe, IProbe<ExternalCallAction, Request> toProbe) {
+		fromProbe.enableCaching();
 		toProbe.forEachMeasurement(measurement -> {
 			notify(calculate(fromProbe.getLastMeasurementOf(measurement.getWho()), measurement));
 		});

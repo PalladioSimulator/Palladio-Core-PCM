@@ -54,7 +54,19 @@ public interface IProbe<E, T> extends MeasurementProducer<E, T> {
 			public MeasuringPoint<E> getMeasuringPoint() {
 				return new MeasuringPoint<E>(element, property, contexts);
 			}
+
+			@Override
+			public void enableCaching() {
+			}
+
+			@Override
+			public void disableCaching() {
+			}
 		};
 	}
+	
+	public void enableCaching();
+	
+	public void disableCaching();	
 
 }

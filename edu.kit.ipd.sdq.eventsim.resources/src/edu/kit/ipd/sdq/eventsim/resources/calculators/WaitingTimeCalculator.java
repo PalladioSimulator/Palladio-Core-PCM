@@ -18,6 +18,7 @@ public class WaitingTimeCalculator extends
 	@Override
 	public void setup(IProbe<SimPassiveResource, SimulatedProcess> fromProbe,
 			IProbe<SimPassiveResource, SimulatedProcess> toProbe) {
+		fromProbe.enableCaching();
 		toProbe.forEachMeasurement(m -> {
 			// find "from"-measurement
 			SimulatedProcess process = m.getWho();

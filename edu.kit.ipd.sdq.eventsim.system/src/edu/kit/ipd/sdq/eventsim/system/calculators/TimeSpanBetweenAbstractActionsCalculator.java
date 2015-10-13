@@ -22,6 +22,7 @@ public class TimeSpanBetweenAbstractActionsCalculator extends
 		// if(fromProbe == null || toProbe == null) {
 		// log.warn("Cancelled setup of %s because one of the probes supplied is null.");
 		// }
+		fromProbe.enableCaching();
 		toProbe.forEachMeasurement(m -> {
 			// find "from"-measurement
 			Request request = m.getWho();

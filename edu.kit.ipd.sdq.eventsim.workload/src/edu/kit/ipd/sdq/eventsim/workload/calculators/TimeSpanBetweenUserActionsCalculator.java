@@ -28,6 +28,7 @@ public class TimeSpanBetweenUserActionsCalculator
 		// if(fromProbe == null || toProbe == null) {
 		// log.warn("Cancelled setup of %s because one of the probes supplied is null.");
 		// }
+		fromProbe.enableCaching();
 		toProbe.forEachMeasurement(m -> {
 			// find "from"-measurement
 			User user = m.getWho();
