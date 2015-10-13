@@ -35,6 +35,7 @@ public class EventSimActiveResource implements IActiveResource {
 	 */
 	public void finalise() {
 		this.model.finalise();
+		this.model = null;
 	}
 
 	/**

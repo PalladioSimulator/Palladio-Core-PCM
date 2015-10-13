@@ -97,6 +97,8 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 		      it.remove();
 		}
 
+		measurementFacade = null;
+		
 		AbstractActiveResource.cleanProcesses();
 	}
 

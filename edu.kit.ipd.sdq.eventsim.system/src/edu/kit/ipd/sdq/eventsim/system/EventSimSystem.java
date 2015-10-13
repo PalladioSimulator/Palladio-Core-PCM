@@ -45,6 +45,7 @@ public class EventSimSystem implements ISystem {
 	 */
 	public void finalise() {
 		this.model.finalise();
+		this.model = null;
 	}
 
 	/**

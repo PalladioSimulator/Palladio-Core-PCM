@@ -59,6 +59,18 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
 		return acquired;
 	}
 
+	/* (non-Javadoc)
+	 * @see edu.kit.ipd.sdq.eventsim.AbstractEventSimModel#finalise()
+	 */
+	@Override
+	public void finalise() {
+		super.finalise();
+		
+		contextToResourceMap.clear();
+		
+		measurementFacade = null;
+	}
+
 	public void release(IRequest request, AssemblyContext assCtx, PassiveResource specification, int i) {
         final SimPassiveResource res = this.getPassiveResource(specification, assCtx);
         res.release(getOrCreateSimulatedProcess(request), 1);

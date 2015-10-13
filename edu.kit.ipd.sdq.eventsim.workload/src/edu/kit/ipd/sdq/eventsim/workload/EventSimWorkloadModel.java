@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.osgi.framework.BundleContext;
-import org.palladiosimulator.pcm.seff.AbstractAction;
 import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 import org.palladiosimulator.pcm.usagemodel.Start;
@@ -55,6 +54,8 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 
 	private UsageBehaviourInterpreter usageInterpreter;
 
+	private MeasurementFacade<WorkloadMeasurementConfiguration> measurementFacade;
+	
 	public EventSimWorkloadModel(ISimulationMiddleware middleware) {
 		super(middleware);
 	}
@@ -134,7 +135,7 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 
 	private void setupMeasurements() {
 		// initialize measurement facade
-		MeasurementFacade<WorkloadMeasurementConfiguration> measurementFacade = new MeasurementFacade<>(
+		measurementFacade = new MeasurementFacade<>(
 				WorkloadMeasurementConfiguration.from(this), Activator.getContext().getBundle());
 		
 		RMeasurementStore rstore = getSimulationMiddleware().getMeasurementStore();
@@ -165,7 +166,10 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 	public void finalise() {
 		super.finalise();
 
+		// TODO move to middleware
 		EventSimEntity.resetIdGenerator();
+		
+		measurementFacade = null;
 	}
 
 	/**

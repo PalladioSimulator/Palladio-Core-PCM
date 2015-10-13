@@ -52,6 +52,7 @@ public class EventSimWorkload implements IWorkload {
 	 */
 	public void finalise() {
 		this.model.finalise();
+		this.model = null;
 	}
 
 	/**

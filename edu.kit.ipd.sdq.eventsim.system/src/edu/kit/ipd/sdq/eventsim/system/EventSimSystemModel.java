@@ -64,6 +64,8 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 	private SimulatedResourceEnvironment resourceEnvironment;
 	private AllocationRegistry resourceAllocation;
 	private Map<String, ComponentInstance> componentRegistry;
+	
+	private MeasurementFacade<SystemMeasurementConfiguration> measurementFacade;
 
 	public EventSimSystemModel(ISimulationMiddleware middleware) {
 		super(middleware);
@@ -100,6 +102,8 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 		super.finalise();
 		
 		seffInterpreter.getConfiguration().removeTraversalListeners();
+		
+		measurementFacade = null;
 	}
 
 	/**
@@ -115,7 +119,7 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 
 	private void setupMeasurements() {
 		// initialize measurement facade
-		MeasurementFacade<SystemMeasurementConfiguration> measurementFacade = new MeasurementFacade<>(
+		measurementFacade = new MeasurementFacade<>(
 				SystemMeasurementConfiguration.from(this), Activator.getContext().getBundle());
 
 		RMeasurementStore rstore = getSimulationMiddleware().getMeasurementStore();

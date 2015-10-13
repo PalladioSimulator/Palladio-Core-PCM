@@ -40,6 +40,7 @@ public class EventSimPassiveResource implements IPassiveResource {
 	 */
 	public void finalise() {
 		this.model.finalise();
+		this.model = null;
 	}
 
 	/**
