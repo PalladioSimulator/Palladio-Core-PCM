@@ -3,6 +3,8 @@ package edu.kit.ipd.sdq.eventsim.measurement.r;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.function.Function;
 
 import org.apache.log4j.Logger;
@@ -32,7 +34,7 @@ public class RMeasurementStore {
 
 	private static final Logger log = Logger.getLogger(RMeasurementStore.class);
 
-	private static final int BUFFER_CAPACITY = 100_000;
+	private static final int BUFFER_CAPACITY = 10_000;
 
 	private RConnection conn;
 
@@ -46,12 +48,17 @@ public class RMeasurementStore {
 
 	private Map<Class<? extends Object>, Function<Object, String>> idExtractorMap;
 
-	public void addIdExtractor(Class<? extends Object> elementClass, Function<Object, String> function) {
-		idExtractorMap.put(elementClass, function);
-	}
+	private BlockingQueue<RJob> rJobQueue;
+
+	private Thread rJobProcessor;
+
+	private int bufferNumber;
 
 	public RMeasurementStore() {
 		idExtractorMap = new HashMap<>();
+		rJobQueue = new LinkedBlockingQueue<>();
+		rJobProcessor = new Thread(new RJobProcessor(rJobQueue));
+		rJobProcessor.start();
 		try {
 			conn = new RConnection();
 			conn.voidEval("library(data.table)");
@@ -62,133 +69,57 @@ public class RMeasurementStore {
 		buffer = new Buffer(BUFFER_CAPACITY);
 	}
 
+	public void addIdExtractor(Class<? extends Object> elementClass, Function<Object, String> function) {
+		idExtractorMap.put(elementClass, function);
+	}
+
 	public <F extends Entity, S extends Entity, T> void putPair(Measurement<Pair<F, S>, T> m) {
 		buffer.putPair(m);
 		if (buffer.isFull()) {
-			pushBufferToR(buffer);
+			try {
+				rJobQueue.put(new PushBufferToRJob(conn, buffer, bufferNumber++));
+			} catch (InterruptedException e) {
+				log.error(e);
+			}
+			buffer = new Buffer(BUFFER_CAPACITY);
 		}
 	}
 
 	public <E> void put(Measurement<E, ?> m) {
 		buffer.put(m);
+		// TODO remove duplicated code
 		if (buffer.isFull()) {
-			pushBufferToR(buffer);
+			try {
+				rJobQueue.put(new PushBufferToRJob(conn, buffer, bufferNumber++));
+			} catch (InterruptedException e) {
+				log.error(e);
+			}
+			buffer = new Buffer(BUFFER_CAPACITY);
 		}
 	}
 
 	public void finish() {
 		buffer.shrinkToSize();
-		pushBufferToR(buffer);
-		createSingleDataFrameFromBufferedDataFrames();
-		storeRDS();
-		log.info(String.format("Finished R processing. Total time spent in R: %.2f seconds.", rTime / 1000.0));
+		try {
+			rJobQueue.put(new PushBufferToRJob(conn, buffer, bufferNumber++));
+			rJobQueue.put(new FinalizeRProcessing(conn));
+		} catch (InterruptedException e) {
+			log.error(e);
+		}
+
+		// wait until R processing is finished
+		try {
+			rJobProcessor.join();
+		} catch (InterruptedException e) {
+			log.error(e);
+		}
+		log.info("Finished R processing.");
 
 		// clean up
-		buffer = new Buffer(BUFFER_CAPACITY); // restore buffer to initial (non-shrinked) size
-		processed = 0;
+		buffer = new Buffer(BUFFER_CAPACITY);
+		bufferNumber = 0;
 		rTime = 0;
-	}
-
-	private void storeRDS() {
-		log.info("Saving measurements into RDS file. This can take a moment...");
-		long start = System.currentTimeMillis();
-		try {
-			conn.voidEval("saveRDS(mm, 'D:/test.rds')");
-		} catch (RserveException e) {
-			log.error("Rserve reported an error while saving measurements to RDS file.", e);
-		}
-		long end = System.currentTimeMillis();
-		rTime += end - start;
-		log.info(String.format("Saved measurements into RDS file. Took %.2f seconds.", (end - start) / 1000.0));
-	}
-
-	public void print() {
-		try {
-			REXP size = conn.eval("length(mm$when)");
-			System.out.printf("Expecting %s measurements to be processed.\n", processed);
-			System.out.printf("Measurements actually contained in R: %s\n", size.asIntegers()[0]);
-
-			// String s = conn.eval("paste(capture.output(print(mm[1:100,])),collapse='\\n')").asString();
-			// System.out.println(s);
-		} catch (RserveException | REXPMismatchException e) {
-			e.printStackTrace();
-		}
-	}
-
-	private void pushBufferToR(Buffer buffer) {
-		long start = System.currentTimeMillis();
-		int size = buffer.size;
-		if (processed == 0) {
-			try {
-				conn.voidEval("mm <- list()");
-			} catch (RserveException e) {
-				e.printStackTrace();
-			}
-		}
-
-		try {
-			conn.assign("buffer", createDataFrameFromBuffer(buffer));
-			convertCategoricalColumnsToFactorColumns();
-			conn.voidEval("mm[[length(mm)+1]] <- buffer");
-		} catch (RserveException e) {
-			e.printStackTrace();
-		}
-		processed += buffer.size;
-		buffer.reset();
-		long end = System.currentTimeMillis();
-		rTime += end - start;
-		if (log.isDebugEnabled())
-			log.debug(String.format("Pushed %d measuements to R. Took %.2f seconds.", size, (end - start) / 1000.0));
-	}
-
-	private void convertCategoricalColumnsToFactorColumns() {
-		try {
-			conn.voidEval("buffer$what <- as.factor(buffer$what)");
-			conn.voidEval("buffer$where.first.type <- as.factor(buffer$where.first.type)");
-			conn.voidEval("buffer$where.first.id <- as.factor(buffer$where.first.id)");
-			conn.voidEval("buffer$where.second.type <- as.factor(buffer$where.second.type)");
-			conn.voidEval("buffer$where.second.id <- as.factor(buffer$where.second.id)");
-			conn.voidEval("buffer$where.property <- as.factor(buffer$where.property)");
-			conn.voidEval("buffer$who.type <- as.factor(buffer$who.type)");
-		} catch (RserveException e) {
-			log.error("Rserve reported an error while converting categorical columns to factors", e);
-		}
-	}
-
-	private void createSingleDataFrameFromBufferedDataFrames() {
-		long start = System.currentTimeMillis();
-		try {
-			conn.voidEval("mm <- rbindlist(mm)");
-		} catch (RserveException e) {
-			e.printStackTrace();
-		}
-		long end = System.currentTimeMillis();
-		rTime += end - start;
-		log.info(String.format("Merged buffers into single dataframe. Took %.2f seconds.", (end - start) / 1000.0));
-	}
-
-	private REXP createDataFrameFromBuffer(Buffer buffer) {
-		try {
-			RList rList = new RList(6, true);
-			rList.put("what", new REXPString(buffer.what));
-			rList.put("where.first.type", new REXPString(buffer.whereFirstType));
-			rList.put("where.first.id", new REXPString(buffer.whereFirstId));
-			rList.put("where.second.type", new REXPString(buffer.whereSecondType));
-			rList.put("where.second.id", new REXPString(buffer.whereSecondId));
-			rList.put("where.property", new REXPString(buffer.whereProperty));
-			rList.put("who.type", new REXPString(buffer.whoType));
-			rList.put("who.id", new REXPString(buffer.whoId));
-			rList.put("value", new REXPDouble(buffer.value));
-			rList.put("when", new REXPDouble(buffer.when));
-
-			for (Entry<String, String[]> context : buffer.contexts.entrySet()) {
-				rList.put(context.getKey(), new REXPString(context.getValue()));
-			}
-			return REXP.createDataFrame(rList);
-		} catch (REXPMismatchException e) {
-			// indicates a programming error => throw unchecked
-			throw new RuntimeException(e);
-		}
+		processed = 0;
 	}
 
 	private class Buffer {
@@ -369,11 +300,166 @@ public class RMeasurementStore {
 			return size == capacity;
 		}
 
-		public void reset() {
-			size = 0;
-			// contexts map is filled sparsely, hence buffered entries are not guaranteed to be overwritten by the next
-			// "buffering run" is full.
-			contexts = new HashMap<>();
+	}
+
+	private static abstract class RJob {
+
+		protected RConnection connection;
+
+		public RJob(RConnection connection) {
+			this.connection = connection;
+		}
+
+		public abstract void process();
+
+	}
+
+	private static class RJobProcessor implements Runnable {
+
+		private BlockingQueue<RJob> queue;
+
+		public RJobProcessor(BlockingQueue<RJob> queue) {
+			this.queue = queue;
+		}
+
+		@Override
+		public void run() {
+			boolean keepRunning = true;
+			while (keepRunning) {
+				try {
+					RJob job = queue.take();
+					job.process();
+					if (job.getClass().equals(FinalizeRProcessing.class)) {
+						keepRunning = false;
+					}
+				} catch (InterruptedException e) {
+					log.error(e);
+				}
+			}
+		}
+
+	}
+
+	private static class PushBufferToRJob extends RJob {
+
+		private Buffer buffer;
+
+		private int bufferNumber;
+
+		public PushBufferToRJob(RConnection connection, Buffer buffer, int bufferNumber) {
+			super(connection);
+			this.buffer = buffer;
+			this.bufferNumber = bufferNumber;
+		}
+
+		@Override
+		public void process() {
+			pushBufferToR();
+		}
+
+		private void convertCategoricalColumnsToFactorColumns() {
+			try {
+				connection.voidEval("buffer$what <- as.factor(buffer$what)");
+				connection.voidEval("buffer$where.first.type <- as.factor(buffer$where.first.type)");
+				connection.voidEval("buffer$where.first.id <- as.factor(buffer$where.first.id)");
+				connection.voidEval("buffer$where.second.type <- as.factor(buffer$where.second.type)");
+				connection.voidEval("buffer$where.second.id <- as.factor(buffer$where.second.id)");
+				connection.voidEval("buffer$where.property <- as.factor(buffer$where.property)");
+				connection.voidEval("buffer$who.type <- as.factor(buffer$who.type)");
+			} catch (RserveException e) {
+				log.error("Rserve reported an error while converting categorical columns to factors", e);
+			}
+		}
+
+		private void pushBufferToR() {
+			long start = System.currentTimeMillis();
+			int size = buffer.size;
+			if (bufferNumber == 0) {
+				try {
+					connection.voidEval("mm <- list()");
+				} catch (RserveException e) {
+					e.printStackTrace();
+				}
+			}
+
+			try {
+				connection.assign("buffer", createDataFrameFromBuffer(buffer));
+				convertCategoricalColumnsToFactorColumns();
+				connection.voidEval("mm[[length(mm)+1]] <- buffer");
+			} catch (RserveException e) {
+				e.printStackTrace();
+			}
+			long end = System.currentTimeMillis();
+			// rTime += end - start;
+			if (log.isDebugEnabled())
+				log.debug(String.format("Pushed %d measuements to R. Took %.2f seconds.", size, (end - start) / 1000.0));
+		}
+
+		private REXP createDataFrameFromBuffer(Buffer buffer) {
+			try {
+				RList rList = new RList(6, true);
+				rList.put("what", new REXPString(buffer.what));
+				rList.put("where.first.type", new REXPString(buffer.whereFirstType));
+				rList.put("where.first.id", new REXPString(buffer.whereFirstId));
+				rList.put("where.second.type", new REXPString(buffer.whereSecondType));
+				rList.put("where.second.id", new REXPString(buffer.whereSecondId));
+				rList.put("where.property", new REXPString(buffer.whereProperty));
+				rList.put("who.type", new REXPString(buffer.whoType));
+				rList.put("who.id", new REXPString(buffer.whoId));
+				rList.put("value", new REXPDouble(buffer.value));
+				rList.put("when", new REXPDouble(buffer.when));
+
+				for (Entry<String, String[]> context : buffer.contexts.entrySet()) {
+					rList.put(context.getKey(), new REXPString(context.getValue()));
+				}
+				return REXP.createDataFrame(rList);
+			} catch (REXPMismatchException e) {
+				// indicates a programming error => throw unchecked
+				throw new RuntimeException(e);
+			}
+		}
+
+	}
+
+	/**
+	 * Insert into buffer queue to bring buffer processor to a stop.
+	 */
+	private static class FinalizeRProcessing extends RJob {
+
+		public FinalizeRProcessing(RConnection connection) {
+			super(connection);
+		}
+
+		@Override
+		public void process() {
+			createSingleDataFrameFromBufferedDataFrames();
+			storeRDS();
+			// log.info(String.format("Finished R processing. Total time spent in R: %.2f seconds.", rTime / 1000.0));
+		}
+
+		private void storeRDS() {
+			log.info("Saving measurements into RDS file. This can take a moment...");
+			long start = System.currentTimeMillis();
+			try {
+				connection.voidEval("saveRDS(mm, 'D:/test.rds')");
+			} catch (RserveException e) {
+				log.error("Rserve reported an error while saving measurements to RDS file.", e);
+			}
+			long end = System.currentTimeMillis();
+			// rTime += end - start;
+			log.info(String.format("Saved measurements into RDS file. Took %.2f seconds.", (end - start) / 1000.0));
+		}
+
+		private void createSingleDataFrameFromBufferedDataFrames() {
+			long start = System.currentTimeMillis();
+			try {
+				connection.voidEval("mm <- rbindlist(mm)");
+			} catch (RserveException e) {
+				e.printStackTrace();
+			}
+			long end = System.currentTimeMillis();
+			// rTime += end - start;
+			log.info(String.format("Merged buffers into single dataframe. Took %.2f seconds.", (end - start) / 1000.0));
 		}
 
 	}
