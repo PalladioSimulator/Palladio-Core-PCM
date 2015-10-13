@@ -76,6 +76,42 @@ public abstract class AbstractProbe<E, T, C extends ProbeConfiguration> implemen
 		}
 	}
 
+	
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((measuringPoint == null) ? 0 : measuringPoint.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		@SuppressWarnings("rawtypes")
+		AbstractProbe other = (AbstractProbe) obj;
+		if (measuringPoint == null) {
+			if (other.measuringPoint != null)
+				return false;
+		} else if (!measuringPoint.equals(other.measuringPoint))
+			return false;
+		return true;
+	}
+
+
+
 	private class DisabledCache extends MeasurementCache<E, T> {
 
 		@Override

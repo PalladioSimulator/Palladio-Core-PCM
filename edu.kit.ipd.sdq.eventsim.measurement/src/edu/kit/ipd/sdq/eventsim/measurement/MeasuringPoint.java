@@ -106,7 +106,7 @@ public class MeasuringPoint<E> {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((contexts == null) ? 0 : contexts.hashCode());
+		result = prime * result + Arrays.hashCode(contexts);
 		result = prime * result + ((element == null) ? 0 : element.hashCode());
 		result = prime * result + ((property == null) ? 0 : property.hashCode());
 		return result;
@@ -122,10 +122,7 @@ public class MeasuringPoint<E> {
 			return false;
 		@SuppressWarnings("rawtypes")
 		MeasuringPoint other = (MeasuringPoint) obj;
-		if (contexts == null) {
-			if (other.contexts != null)
-				return false;
-		} else if (!contexts.equals(other.contexts))
+		if (!Arrays.equals(contexts, other.contexts))
 			return false;
 		if (element == null) {
 			if (other.element != null)
