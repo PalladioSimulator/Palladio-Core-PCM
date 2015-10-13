@@ -21,7 +21,6 @@ import edu.kit.ipd.sdq.eventsim.entities.IEntityListener;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasurementFacade;
 import edu.kit.ipd.sdq.eventsim.measurement.r.RMeasurementStore;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource;
-import edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimulatedProcess;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 import edu.kit.ipd.sdq.simcomp.component.IRequest;

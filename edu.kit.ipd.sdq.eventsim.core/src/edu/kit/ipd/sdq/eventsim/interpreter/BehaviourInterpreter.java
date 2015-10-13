@@ -51,7 +51,8 @@ import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
  */
 public abstract class BehaviourInterpreter<A extends Entity, E extends EventSimEntity, S extends AbstractInterpreterState<A>> {
 
-    private static Logger logger = Logger.getLogger(BehaviourInterpreter.class);
+    private static final Logger logger = Logger.getLogger(BehaviourInterpreter.class);
+    private static final boolean debug = logger.isDebugEnabled();
     
     /**
      * Begins or resumes the traversal with the specified action.
@@ -75,7 +76,7 @@ public abstract class BehaviourInterpreter<A extends Entity, E extends EventSimE
                         + PCMEntityHelper.toString(currentAction));
             }
 
-            if (logger.isDebugEnabled()) {
+            if (debug) {
                 logger.debug("Encountered action " + PCMEntityHelper.toString(currentAction) + " at t="
                         + entity.getModel().getSimulationControl().getCurrentSimulationTime());
             }
