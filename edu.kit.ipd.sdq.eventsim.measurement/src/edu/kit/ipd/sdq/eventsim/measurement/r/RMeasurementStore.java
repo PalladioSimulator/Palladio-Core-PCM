@@ -36,8 +36,6 @@ public class RMeasurementStore {
 
 	private static final int BUFFER_CAPACITY = 10_000;
 
-	private RConnection conn;
-
 	private Buffer buffer;
 
 	/** the number of measurements processed since the last reset (or instantiation) */
@@ -59,13 +57,6 @@ public class RMeasurementStore {
 		rJobQueue = new LinkedBlockingQueue<>();
 		rJobProcessor = new Thread(new RJobProcessor(rJobQueue));
 		rJobProcessor.start();
-		try {
-			conn = new RConnection();
-			conn.voidEval("library(data.table)");
-		} catch (RserveException e) {
-			log.error("Rserve reported an error in initialization. Check if the package \"data.table\" is "
-					+ "installed in R.", e);
-		}
 		buffer = new Buffer(BUFFER_CAPACITY);
 	}
 
@@ -77,7 +68,7 @@ public class RMeasurementStore {
 		buffer.putPair(m);
 		if (buffer.isFull()) {
 			try {
-				rJobQueue.put(new PushBufferToRJob(conn, buffer, bufferNumber++));
+				rJobQueue.put(new PushBufferToRJob(buffer, bufferNumber++));
 			} catch (InterruptedException e) {
 				log.error(e);
 			}
@@ -90,7 +81,7 @@ public class RMeasurementStore {
 		// TODO remove duplicated code
 		if (buffer.isFull()) {
 			try {
-				rJobQueue.put(new PushBufferToRJob(conn, buffer, bufferNumber++));
+				rJobQueue.put(new PushBufferToRJob(buffer, bufferNumber++));
 			} catch (InterruptedException e) {
 				log.error(e);
 			}
@@ -101,8 +92,8 @@ public class RMeasurementStore {
 	public void finish() {
 		buffer.shrinkToSize();
 		try {
-			rJobQueue.put(new PushBufferToRJob(conn, buffer, bufferNumber++));
-			rJobQueue.put(new FinalizeRProcessing(conn));
+			rJobQueue.put(new PushBufferToRJob(buffer, bufferNumber++));
+			rJobQueue.put(new FinalizeRProcessing());
 		} catch (InterruptedException e) {
 			log.error(e);
 		}
@@ -304,31 +295,39 @@ public class RMeasurementStore {
 
 	private static abstract class RJob {
 
-		protected RConnection connection;
-
-		public RJob(RConnection connection) {
-			this.connection = connection;
-		}
-
-		public abstract void process();
+		public abstract void process(RConnection connection);
 
 	}
 
 	private static class RJobProcessor implements Runnable {
 
 		private BlockingQueue<RJob> queue;
-
+		
 		public RJobProcessor(BlockingQueue<RJob> queue) {
 			this.queue = queue;
 		}
 
+		private RConnection connectToR() {
+			try {
+				RConnection connection = new RConnection();
+				connection.voidEval("library(data.table)");
+				return connection;
+			} catch (RserveException e) {
+				log.error("Rserve reported an error in initialization. Check if the package \"data.table\" is "
+						+ "installed in R.", e);
+				return null; // TODO better throw exception
+			}
+		}
+		
 		@Override
 		public void run() {
+			RConnection connection = connectToR();
+			
 			boolean keepRunning = true;
 			while (keepRunning) {
 				try {
 					RJob job = queue.take();
-					job.process();
+					job.process(connection);
 					if (job.getClass().equals(FinalizeRProcessing.class)) {
 						keepRunning = false;
 					}
@@ -346,18 +345,17 @@ public class RMeasurementStore {
 
 		private int bufferNumber;
 
-		public PushBufferToRJob(RConnection connection, Buffer buffer, int bufferNumber) {
-			super(connection);
+		public PushBufferToRJob(Buffer buffer, int bufferNumber) {
 			this.buffer = buffer;
 			this.bufferNumber = bufferNumber;
 		}
 
 		@Override
-		public void process() {
-			pushBufferToR();
+		public void process(RConnection connection) {
+			pushBufferToR(connection);
 		}
 
-		private void convertCategoricalColumnsToFactorColumns() {
+		private void convertCategoricalColumnsToFactorColumns(RConnection connection) {
 			try {
 				connection.voidEval("buffer$what <- as.factor(buffer$what)");
 				connection.voidEval("buffer$where.first.type <- as.factor(buffer$where.first.type)");
@@ -371,7 +369,7 @@ public class RMeasurementStore {
 			}
 		}
 
-		private void pushBufferToR() {
+		private void pushBufferToR(RConnection connection) {
 			long start = System.currentTimeMillis();
 			int size = buffer.size;
 			if (bufferNumber == 0) {
@@ -384,7 +382,7 @@ public class RMeasurementStore {
 
 			try {
 				connection.assign("buffer", createDataFrameFromBuffer(buffer));
-				convertCategoricalColumnsToFactorColumns();
+				convertCategoricalColumnsToFactorColumns(connection);
 				connection.voidEval("mm[[length(mm)+1]] <- buffer");
 			} catch (RserveException e) {
 				e.printStackTrace();
@@ -426,18 +424,16 @@ public class RMeasurementStore {
 	 */
 	private static class FinalizeRProcessing extends RJob {
 
-		public FinalizeRProcessing(RConnection connection) {
-			super(connection);
-		}
-
 		@Override
-		public void process() {
-			createSingleDataFrameFromBufferedDataFrames();
-			storeRDS();
+		public void process(RConnection connection) {
+			createSingleDataFrameFromBufferedDataFrames(connection);
+			storeRDS(connection);
 			// log.info(String.format("Finished R processing. Total time spent in R: %.2f seconds.", rTime / 1000.0));
+			
+			connection.close();
 		}
 
-		private void storeRDS() {
+		private void storeRDS(RConnection connection) {
 			log.info("Saving measurements into RDS file. This can take a moment...");
 			long start = System.currentTimeMillis();
 			try {
@@ -450,7 +446,7 @@ public class RMeasurementStore {
 			log.info(String.format("Saved measurements into RDS file. Took %.2f seconds.", (end - start) / 1000.0));
 		}
 
-		private void createSingleDataFrameFromBufferedDataFrames() {
+		private void createSingleDataFrameFromBufferedDataFrames(RConnection connection) {
 			long start = System.currentTimeMillis();
 			try {
 				connection.voidEval("mm <- rbindlist(mm)");
