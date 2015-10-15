@@ -1,7 +1,5 @@
 package edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.strategies;
 
-import java.util.List;
-
 import org.palladiosimulator.pcm.usagemodel.AbstractUserAction;
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
@@ -37,8 +35,7 @@ public class EntryLevelSystemCallTraversalStrategy implements ITraversalStrategy
 		ISimulationMiddleware middleware = user.getEventSimModel().getSimulationMiddleware();
 
 		EventSimWorkload workload = (EventSimWorkload) Activator.getDefault().getWorkloadComponent();
-		List<ISystem> systemComponents = workload.getSystemComponents();
-		ISystem system = (ISystem) middleware.getSimulationComponent(EventSimWorkload.class, ISystem.class, systemComponents, null);
+		ISystem system = workload.getSystemComponent();
 
 		// perform a service call
 		system.callService(user, call);

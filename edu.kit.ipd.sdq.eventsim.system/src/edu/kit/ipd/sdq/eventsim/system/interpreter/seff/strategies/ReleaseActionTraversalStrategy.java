@@ -13,6 +13,7 @@ import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.interpreter.instructions.TraverseNextAction;
 import edu.kit.ipd.sdq.eventsim.system.Activator;
 import edu.kit.ipd.sdq.eventsim.system.EventSimSystem;
+import edu.kit.ipd.sdq.eventsim.system.EventSimSystemModel;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
@@ -39,11 +40,14 @@ public class ReleaseActionTraversalStrategy implements ITraversalStrategy<Abstra
         request.setRequestState(state);
 
         // fetch passive resource simulation component
-        EventSimSystem system = (EventSimSystem) Activator.getDefault().getSystemComponent();
-		List<IPassiveResource> passiveResourceComponents = system.getPassiveResourceComponents();
-		ISimulationMiddleware middleware = request.getEventSimModel().getSimulationMiddleware();
-		// TODO (SimComp): provide passive resource context
-		IPassiveResource passiveResource = (IPassiveResource) middleware.getSimulationComponent(EventSimSystem.class,IPassiveResource.class, passiveResourceComponents, null);
+//        EventSimSystem system = (EventSimSystem) Activator.getDefault().getSystemComponent();
+//		List<IPassiveResource> passiveResourceComponents = system.getPassiveResourceComponents();
+//		ISimulationMiddleware middleware = request.getEventSimModel().getSimulationMiddleware();
+//		// TODO (SimComp): provide passive resource context
+//		IPassiveResource passiveResource = (IPassiveResource) middleware.getSimulationComponent(EventSimSystem.class,IPassiveResource.class, passiveResourceComponents, null);
+        
+        // TODO get rid of cast
+        IPassiveResource passiveResource = ((EventSimSystemModel)request.getEventSimModel()).getPassiveResourceComponent();
 
         final PassiveResource passiveResouce = action.getPassiveResource_ReleaseAction();
         AssemblyContext ctx = state.getComponent().getAssemblyCtx();

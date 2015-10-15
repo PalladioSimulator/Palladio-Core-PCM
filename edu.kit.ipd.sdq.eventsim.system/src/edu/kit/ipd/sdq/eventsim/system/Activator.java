@@ -3,8 +3,6 @@ package edu.kit.ipd.sdq.eventsim.system;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
-import edu.kit.ipd.sdq.simcomp.system.component.ISystem;
-
 public class Activator implements BundleActivator {
 
 	private static BundleContext context;
@@ -23,7 +21,7 @@ public class Activator implements BundleActivator {
 		return plugin;
 	}
 
-	private ISystem systemComponent;
+//	private ISystem systemComponent;
 
 	/*
 	 * (non-Javadoc)
@@ -43,17 +41,17 @@ public class Activator implements BundleActivator {
 		Activator.plugin = null;
 	}
 
-	public void bindSystemComponent(ISystem systemComponent) {
-		System.out.println("System bound to activator");
-		this.systemComponent = systemComponent;
-	}
+//	public void bindSystemComponent(ISystem systemComponent) {
+//		System.out.println("System bound to activator");
+//		this.systemComponent = systemComponent;
+//	}
 
-	public void unbindSystemComponent() {
-		this.systemComponent = null;
-	}
-
-	public ISystem getSystemComponent() {
-		return systemComponent;
-	}
+//	public void unbindSystemComponent() {
+//		this.systemComponent = null;
+//	}
+//
+//	public ISystem getSystemComponent() {
+//		return systemComponent;
+//	}
 
 }

@@ -1,7 +1,5 @@
 package edu.kit.ipd.sdq.eventsim.system.interpreter.seff.strategies;
 
-import java.util.List;
-
 import org.palladiosimulator.pcm.core.composition.AssemblyContext;
 import org.palladiosimulator.pcm.repository.PassiveResource;
 import org.palladiosimulator.pcm.seff.AbstractAction;
@@ -12,13 +10,10 @@ import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalInstruction;
 import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.interpreter.instructions.InterruptTraversal;
 import edu.kit.ipd.sdq.eventsim.interpreter.instructions.TraverseNextAction;
-import edu.kit.ipd.sdq.eventsim.system.Activator;
-import edu.kit.ipd.sdq.eventsim.system.EventSimSystem;
 import edu.kit.ipd.sdq.eventsim.system.EventSimSystemModel;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.events.ResumeSeffTraversalEvent;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
-import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.resource.passive.component.IPassiveResource;
 
 /**
@@ -43,11 +38,14 @@ public class AcquireActionTraversalStrategy implements ITraversalStrategy<Abstra
         request.setRequestState(state);
 
         // fetch passive resource simulation component
-        EventSimSystem system = (EventSimSystem) Activator.getDefault().getSystemComponent();
-		List<IPassiveResource> passiveResourceComponents = system.getPassiveResourceComponents();
-		ISimulationMiddleware middleware = request.getEventSimModel().getSimulationMiddleware();
+//        EventSimSystem system = (EventSimSystem) Activator.getDefault().getSystemComponent();
+//		List<IPassiveResource> passiveResourceComponents = system.getPassiveResourceComponents();
+//		ISimulationMiddleware middleware = request.getEventSimModel().getSimulationMiddleware();
 		// TODO (SimComp): provide passive resource context
-		IPassiveResource passiveResource = (IPassiveResource) middleware.getSimulationComponent(EventSimSystem.class, IPassiveResource.class, passiveResourceComponents, null);
+//		IPassiveResource passiveResource = (IPassiveResource) middleware.getSimulationComponent(EventSimSystem.class, IPassiveResource.class, passiveResourceComponents, null);
+        
+        // TODO get rid of cast
+        IPassiveResource passiveResource = ((EventSimSystemModel)request.getEventSimModel()).getPassiveResourceComponent();
 
         final PassiveResource passiveResouce = action.getPassiveresource_AcquireAction();
         AssemblyContext ctx = state.getComponent().getAssemblyCtx();

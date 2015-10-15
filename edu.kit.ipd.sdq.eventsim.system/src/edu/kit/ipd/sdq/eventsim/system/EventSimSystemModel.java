@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 import org.palladiosimulator.pcm.core.composition.AssemblyContext;
 import org.palladiosimulator.pcm.core.entity.Entity;
 import org.palladiosimulator.pcm.repository.OperationSignature;
-import org.palladiosimulator.pcm.seff.AbstractAction;
 import org.palladiosimulator.pcm.seff.ExternalCallAction;
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
@@ -37,6 +36,8 @@ import edu.kit.ipd.sdq.eventsim.system.staticstructure.commands.BuildResourceAll
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.commands.BuildSimulatedResourceEnvironment;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.component.IUser;
+import edu.kit.ipd.sdq.simcomp.resource.active.component.IActiveResource;
+import edu.kit.ipd.sdq.simcomp.resource.passive.component.IPassiveResource;
 import edu.kit.ipd.sdq.simcomp.system.events.SystemRequestProcessed;
 import edu.kit.ipd.sdq.simcomp.system.events.SystemRequestStart;
 
@@ -67,8 +68,13 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 	
 	private MeasurementFacade<SystemMeasurementConfiguration> measurementFacade;
 
-	public EventSimSystemModel(ISimulationMiddleware middleware) {
+	private IActiveResource activeResourceComponent;
+	private IPassiveResource passiveResourceComponent;
+	
+	public EventSimSystemModel(ISimulationMiddleware middleware, IActiveResource activeResourceComponent, IPassiveResource passiveResourceComponent) {
 		super(middleware);
+		this.activeResourceComponent = activeResourceComponent;
+		this.passiveResourceComponent = passiveResourceComponent;
 	}
 
 	public void init() {
@@ -222,6 +228,14 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 	 */
 	public ComponentInstance getComponent(final AssemblyContext assemblyContext) {
 		return this.componentRegistry.get(assemblyContext.getId());
+	}
+	
+	public IActiveResource getActiveResourceComponent() {
+		return activeResourceComponent;
+	}
+	
+	public IPassiveResource getPassiveResourceComponent() {
+		return passiveResourceComponent;
 	}
 
 }

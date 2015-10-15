@@ -1,7 +1,6 @@
 package edu.kit.ipd.sdq.eventsim.system.interpreter.seff.strategies;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
@@ -15,10 +14,7 @@ import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalInstruction;
 import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.interpreter.instructions.InterruptTraversal;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.ITraversalStrategyState;
-import edu.kit.ipd.sdq.eventsim.system.Activator;
-import edu.kit.ipd.sdq.eventsim.system.EventSimSystem;
 import edu.kit.ipd.sdq.eventsim.system.EventSimSystemModel;
-import edu.kit.ipd.sdq.eventsim.system.context.ActiveResourceSimulationContext;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.events.ResumeSeffTraversalEvent;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
@@ -59,10 +55,13 @@ public class InternalActionTraversalStrategy implements ITraversalStrategy<Abstr
 		String resourceTypeDescriptor = type.getEntityName() + "#" + type.getId();
 
 		// fetch simulation component based on context
-		EventSimSystem system = (EventSimSystem) Activator.getDefault().getSystemComponent();
-		List<IActiveResource> activeResourceComponents = system.getActiveResourceComponents();
-		ActiveResourceSimulationContext context = new ActiveResourceSimulationContext(containerDescriptor, resourceTypeDescriptor);
-		IActiveResource activeResource = (IActiveResource) middleware.getSimulationComponent(EventSimSystem.class, IActiveResource.class, activeResourceComponents, context);
+//		EventSimSystem system = (EventSimSystem) Activator.getDefault().getSystemComponent();
+//		List<IActiveResource> activeResourceComponents = system.getActiveResourceComponents();
+//		ActiveResourceSimulationContext context = new ActiveResourceSimulationContext(containerDescriptor, resourceTypeDescriptor);
+//		IActiveResource activeResource = (IActiveResource) middleware.getSimulationComponent(EventSimSystem.class, IActiveResource.class, activeResourceComponents, context);
+		
+        // TODO get rid of cast
+        IActiveResource activeResource = ((EventSimSystemModel)request.getEventSimModel()).getActiveResourceComponent();
 
 		// consume the resource demand
 		activeResource.consume(request, state.getComponent().getResourceContainer().getSpecification(), type, evaluatedDemand);

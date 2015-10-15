@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" deactivate="deactivate" immediate="true" name="edu.kit.ipd.sdq.eventsim.system.EventSimSystem">
+   <service>
+      <provide interface="edu.kit.ipd.sdq.simcomp.system.component.ISystem"/>
+   </service>
+   <reference bind="bindActiveResourceComponent" cardinality="1..1" interface="edu.kit.ipd.sdq.simcomp.resource.active.component.IActiveResource" name="ActiveResourceComponent" policy="static" unbind="unbindActiveResourceComponent"/>
+   <reference bind="bindPassiveResourceComponent" cardinality="1..1" interface="edu.kit.ipd.sdq.simcomp.resource.passive.component.IPassiveResource" name="PassiveResourceComponent" policy="static" unbind="unbindPassiveResourceComponent"/>
+   <reference bind="bindSimulationMiddleware" cardinality="1..1" interface="edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware" name="SimulationMiddleware" policy="static" unbind="unbindSimulationMiddleware"/>
+   <implementation class="edu.kit.ipd.sdq.eventsim.system.EventSimSystem"/>
+</scr:component>

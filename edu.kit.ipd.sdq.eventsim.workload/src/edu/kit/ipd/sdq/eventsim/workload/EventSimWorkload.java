@@ -1,10 +1,13 @@
 package edu.kit.ipd.sdq.eventsim.workload;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.log4j.Logger;
 import org.osgi.service.component.ComponentContext;
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Deactivate;
+import org.osgi.service.component.annotations.Reference;
+import org.osgi.service.component.annotations.ReferenceCardinality;
+import org.osgi.service.component.annotations.ReferencePolicy;
 
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
@@ -19,19 +22,21 @@ import edu.kit.ipd.sdq.simcomp.workload.events.WorkloadUserFinished;
  * 
  * @author Christoph Föhrdes
  */
+@Component(immediate = true)
 public class EventSimWorkload implements IWorkload {
 
 	private static final Logger logger = Logger.getLogger(EventSimWorkload.class);
 
 	private ISimulationMiddleware middleware;
-	private List<ISystem> systemComponents;
+//	private List<ISystem> systemComponents;
+	private ISystem systemComponent;
 	private EventSimWorkloadModel model;
 
 	private Activator workloadActivator;
 
-	public EventSimWorkload() {
-		systemComponents = new ArrayList<ISystem>();
-	}
+//	public EventSimWorkload() {
+//		systemComponents = new ArrayList<ISystem>();
+//	}
 
 	@Override
 	public void generate() {
@@ -56,8 +61,7 @@ public class EventSimWorkload implements IWorkload {
 	}
 
 	/**
-	 * Registers the event handler which will start the workload generation
-	 * process.
+	 * Registers the event handler which will start the workload generation process.
 	 */
 	private void registerEventHandler() {
 		// initialization event handler
@@ -71,14 +75,15 @@ public class EventSimWorkload implements IWorkload {
 		}, false);
 
 		// clean up event handler
-		this.middleware.registerEventHandler(SimulationFinalizeEvent.EVENT_ID, new IEventHandler<SimulationFinalizeEvent>() {
+		this.middleware.registerEventHandler(SimulationFinalizeEvent.EVENT_ID,
+				new IEventHandler<SimulationFinalizeEvent>() {
 
-			@Override
-			public void handle(SimulationFinalizeEvent event) {
-				EventSimWorkload.this.finalise();
-			}
+					@Override
+					public void handle(SimulationFinalizeEvent event) {
+						EventSimWorkload.this.finalise();
+					}
 
-		}, false);
+				}, false);
 
 		// measurement count event handler
 		this.middleware.registerEventHandler(WorkloadUserFinished.EVENT_ID, new IEventHandler<WorkloadUserFinished>() {
@@ -92,28 +97,27 @@ public class EventSimWorkload implements IWorkload {
 		}, false);
 	}
 
+	@Reference(policy = ReferencePolicy.DYNAMIC, cardinality = ReferenceCardinality.AT_LEAST_ONE)
 	public void bindSystemComponent(ISystem system) {
 		System.out.println("System bound to Workload");
 
-		this.systemComponents.add(system);
+		this.systemComponent = system;
 	}
 
 	public void unbindSystemComponent(ISystem system) {
-		if (this.systemComponents.contains(system)) {
-			this.systemComponents.remove(system);
-		}
+		this.systemComponent = null;
 	}
 
-	public List<ISystem> getSystemComponents() {
-		return this.systemComponents;
+	public ISystem getSystemComponent() {
+		return systemComponent;
 	}
 
 	/**
-	 * Binds a simulation middleware instance to the simulation component.
-	 * Called by the declarative service framework.
+	 * Binds a simulation middleware instance to the simulation component. Called by the declarative service framework.
 	 * 
 	 * @param middleware
 	 */
+	@Reference(policy = ReferencePolicy.DYNAMIC)
 	public void bindSimulationMiddleware(ISimulationMiddleware middleware) {
 		this.middleware = middleware;
 
@@ -122,8 +126,8 @@ public class EventSimWorkload implements IWorkload {
 	}
 
 	/**
-	 * Unbind a simulation middleware instance from the simulation component
-	 * when it is deactivated. Called by the declarative service framework.
+	 * Unbind a simulation middleware instance from the simulation component when it is deactivated. Called by the
+	 * declarative service framework.
 	 * 
 	 * @param middleware
 	 */
@@ -134,11 +138,11 @@ public class EventSimWorkload implements IWorkload {
 	}
 
 	/**
-	 * Declarative service lifecycle method called when the workload simulation
-	 * component is activated.
+	 * Declarative service lifecycle method called when the workload simulation component is activated.
 	 * 
 	 * @param context
 	 */
+	@Activate
 	public void activate(ComponentContext context) {
 		System.out.println("Workload activated");
 
@@ -147,11 +151,11 @@ public class EventSimWorkload implements IWorkload {
 	}
 
 	/**
-	 * Declarative service lifecycle method called when the workload simulation
-	 * component is deactivated.
+	 * Declarative service lifecycle method called when the workload simulation component is deactivated.
 	 * 
 	 * @param context
 	 */
+	@Deactivate
 	public void deactivate(ComponentContext context) {
 		this.workloadActivator.unbindWorkloadComponent();
 		this.workloadActivator = null;
