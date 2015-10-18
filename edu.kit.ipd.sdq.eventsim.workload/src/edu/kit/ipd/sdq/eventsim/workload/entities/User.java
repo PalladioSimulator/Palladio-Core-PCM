@@ -4,11 +4,11 @@ import org.apache.log4j.Logger;
 import org.palladiosimulator.pcm.usagemodel.UsageScenario;
 
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
+import edu.kit.ipd.sdq.eventsim.api.IUser;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.debug.DebugEntityListener;
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
 import edu.kit.ipd.sdq.eventsim.workload.generator.IWorkloadGenerator;
-import edu.kit.ipd.sdq.simcomp.component.IUser;
 
 /**
  * This entity represents a user of the system under simulation. Users issue system calls while

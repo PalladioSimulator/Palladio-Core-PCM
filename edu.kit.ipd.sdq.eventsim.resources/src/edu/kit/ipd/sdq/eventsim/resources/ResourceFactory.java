@@ -11,16 +11,15 @@ import org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecifica
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
-import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy;
 import de.uka.ipd.sdq.simucomframework.resources.SimSimpleFairPassiveResource;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.EventSimException;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.SimulationModel;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimLinkingResource;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource;
-import edu.kit.ipd.sdq.simcomp.middleware.simulation.SimulationModel;
 
 public class ResourceFactory {
 

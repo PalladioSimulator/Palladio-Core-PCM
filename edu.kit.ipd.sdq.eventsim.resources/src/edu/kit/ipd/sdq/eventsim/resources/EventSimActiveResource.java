@@ -1,28 +1,27 @@
 package edu.kit.ipd.sdq.eventsim.resources;
 
-import org.osgi.service.component.ComponentContext;
 import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 import org.palladiosimulator.pcm.resourcetype.ResourceType;
 
-import edu.kit.ipd.sdq.simcomp.component.IRequest;
-import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
-import edu.kit.ipd.sdq.simcomp.events.SimulationFinalizeEvent;
-import edu.kit.ipd.sdq.simcomp.events.SimulationInitEvent;
-import edu.kit.ipd.sdq.simcomp.resource.active.component.IActiveResource;
+import edu.kit.ipd.sdq.eventsim.api.IActiveResource;
+import edu.kit.ipd.sdq.eventsim.api.IRequest;
+import edu.kit.ipd.sdq.eventsim.middleware.ISimulationMiddleware;
+import edu.kit.ipd.sdq.eventsim.middleware.events.IEventHandler;
+import edu.kit.ipd.sdq.eventsim.middleware.events.SimulationFinalizeEvent;
+import edu.kit.ipd.sdq.eventsim.middleware.events.SimulationInitEvent;
 
 public class EventSimActiveResource implements IActiveResource {
 
 	private ISimulationMiddleware middleware;
-	private Activator resourceActivator;
 	private EventSimActiveResourceModel model;
-
-	/**
-	 * Initializes the active resource simulation component
-	 */
-	public void init() {
+	
+	public EventSimActiveResource(ISimulationMiddleware middleware) {
+		this.middleware = middleware;
+		
 		this.model = new EventSimActiveResourceModel(this.middleware);
 		this.model.init();
+		
+		this.registerEventHandler();
 	}
 
 	@Override
@@ -46,7 +45,8 @@ public class EventSimActiveResource implements IActiveResource {
 
 			@Override
 			public void handle(SimulationInitEvent event) {
-				EventSimActiveResource.this.init();
+//				EventSimActiveResource.this.init();
+				// TODO ?
 			}
 
 		}, false);
@@ -61,52 +61,4 @@ public class EventSimActiveResource implements IActiveResource {
 		}, false);
 	}
 
-	/**
-	 * Binds a simulation middleware instance to the simulation component.
-	 * Called by the declarative service framework.
-	 * 
-	 * @param middleware
-	 */
-	public void bindSimulationMiddleware(ISimulationMiddleware middleware) {
-		this.middleware = middleware;
-
-		// when the middleware is bound we register for some events
-		this.registerEventHandler();
-	}
-
-	/**
-	 * Unbind a simulation middleware instance from the simulation component
-	 * when it is deactivated. Called by the declarative service framework.
-	 * 
-	 * @param middleware
-	 */
-	public void unbindSimulationMiddleware(ISimulationMiddleware middleware) {
-		if (this.middleware.equals(middleware)) {
-			this.middleware = null;
-		}
-	}
-
-	/**
-	 * Declarative service lifecycle method called when the active resource
-	 * simulation component is activated.
-	 * 
-	 * @param context
-	 */
-	public void activate(ComponentContext context) {
-		System.out.println("ActiveResource activated");
-
-		this.resourceActivator = Activator.getDefault();
-		this.resourceActivator.bindActiveResourceComponent(this);
-	}
-
-	/**
-	 * Declarative service lifecycle method called when the active resource
-	 * simulation component is deactivated.
-	 * 
-	 * @param context
-	 */
-	public void deactivate(ComponentContext context) {
-		this.resourceActivator.unbindActiveResourceComponent();
-		this.resourceActivator = null;
-	}
 }

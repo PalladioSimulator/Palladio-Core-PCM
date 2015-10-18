@@ -3,7 +3,7 @@ package edu.kit.ipd.sdq.eventsim.command;
 import java.util.HashMap;
 import java.util.Map;
 
-import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.PCMModel;
 
 /**
  * 
@@ -16,15 +16,15 @@ import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
  * @author Philipp Merkle
  * 
  */
-public class CachingPCMModelCommandExecutor implements ICommandExecutor<IPCMModel> {
+public class CachingPCMModelCommandExecutor implements ICommandExecutor<PCMModel> {
 
     // TODO the caching strategy (CACHE_ALL, LRU, LFU, ...) could be implemented by using the
     // strategy pattern
 
-    private final IPCMModel pcm;
+    private final PCMModel pcm;
 
     // maps commands to result
-    private final Map<ICommand<?, IPCMModel>, Object> cache;
+    private final Map<ICommand<?, PCMModel>, Object> cache;
 
     /**
      * Constructs an executor that is capable of executing {@link ICommand}s operating on PCM
@@ -34,9 +34,9 @@ public class CachingPCMModelCommandExecutor implements ICommandExecutor<IPCMMode
      * @param pcm
      *            the PCM model on which the executed commands are to operate
      */
-    public CachingPCMModelCommandExecutor(final IPCMModel pcm) {
+    public CachingPCMModelCommandExecutor(final PCMModel pcm) {
         this.pcm = pcm;
-        this.cache = new HashMap<ICommand<?, IPCMModel>, Object>();
+        this.cache = new HashMap<ICommand<?, PCMModel>, Object>();
     }
 
     /**
@@ -44,7 +44,7 @@ public class CachingPCMModelCommandExecutor implements ICommandExecutor<IPCMMode
      */
     @SuppressWarnings("unchecked")
     @Override
-    public <T> T execute(final ICommand<T, IPCMModel> command) {
+    public <T> T execute(final ICommand<T, PCMModel> command) {
         // check, whether we may cache the command
         if (!command.cachable()) {
             return command.execute(this.pcm, this);

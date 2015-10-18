@@ -14,7 +14,7 @@ import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
 
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
-import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.PCMModel;
 
 /**
  * This command returns all {@link AbstractUserAction}s of a specified type that are contained in the specified
@@ -48,7 +48,7 @@ public class FindActionsInUsageScenario<A extends AbstractUserAction> implements
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<A> execute(IPCMModel pcm, ICommandExecutor<IPCMModel> executor) {
+	public List<A> execute(PCMModel pcm, ICommandExecutor<PCMModel> executor) {
 		ScenarioBehaviour behaviour = scenario.getScenarioBehaviour_UsageScenario();
 		return findActionsByType(behaviour, executor);
 	}
@@ -56,7 +56,7 @@ public class FindActionsInUsageScenario<A extends AbstractUserAction> implements
 	/**
 	 * Searches for and returns all system calls that are contained in the specified scenario behaviour
 	 */
-	private List<A> findActionsByType(ScenarioBehaviour behaviour, ICommandExecutor<IPCMModel> executor) {
+	private List<A> findActionsByType(ScenarioBehaviour behaviour, ICommandExecutor<PCMModel> executor) {
 		List<A> actions = new ArrayList<>();
 
 		// find start action
@@ -83,7 +83,7 @@ public class FindActionsInUsageScenario<A extends AbstractUserAction> implements
 	/**
 	 * Searches for and returns all system calls that are contained in the specified branch.
 	 */
-	private List<A> findActionsInBranch(Branch action, ICommandExecutor<IPCMModel> executor) {
+	private List<A> findActionsInBranch(Branch action, ICommandExecutor<PCMModel> executor) {
 		List<A> calls = new ArrayList<>();
 		for (BranchTransition t : action.getBranchTransitions_Branch()) {
 			ScenarioBehaviour behaviour = t.getBranchedBehaviour_BranchTransition();
@@ -95,7 +95,7 @@ public class FindActionsInUsageScenario<A extends AbstractUserAction> implements
 	/**
 	 * Searches for and returns all system calls that are contained in the specified loop.
 	 */
-	private List<A> findActionsInLoop(Loop action, ICommandExecutor<IPCMModel> executor) {
+	private List<A> findActionsInLoop(Loop action, ICommandExecutor<PCMModel> executor) {
 		ScenarioBehaviour behaviour = action.getBodyBehaviour_Loop();
 		return findActionsByType(behaviour, executor);
 	}

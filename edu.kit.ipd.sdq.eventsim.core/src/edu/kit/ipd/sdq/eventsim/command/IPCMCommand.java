@@ -1,6 +1,6 @@
 package edu.kit.ipd.sdq.eventsim.command;
 
-import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.PCMModel;
 
 /**
  * Instances of this interface provide operations that require access to a PCM model in order to
@@ -13,7 +13,7 @@ import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
  *            return a value.
  * @see ICommand
  */
-public interface IPCMCommand<R> extends ICommand<R, IPCMModel> {
+public interface IPCMCommand<R> extends ICommand<R, PCMModel> {
 
     // the sole purpose of this interface is to set ICommand's type parameter <M> for commands that
     // operate on a PCM model

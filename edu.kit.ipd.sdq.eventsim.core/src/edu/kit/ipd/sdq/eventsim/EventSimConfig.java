@@ -2,13 +2,8 @@ package edu.kit.ipd.sdq.eventsim;
 
 import java.util.Map;
 
-import org.palladiosimulator.analyzer.workflow.ConstantsContainer;
-import org.palladiosimulator.pcm.allocation.Allocation;
-import org.palladiosimulator.pcm.usagemodel.UsageModel;
-
 import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
-import edu.kit.ipd.sdq.eventsim.command.PCMModelCommandExecutor;
-import edu.kit.ipd.sdq.simcomp.middleware.simulation.PCMModel;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.PCMModel;
 
 /**
  * This class encapsulates the configuration of an EventSim simulation run. The configuration is

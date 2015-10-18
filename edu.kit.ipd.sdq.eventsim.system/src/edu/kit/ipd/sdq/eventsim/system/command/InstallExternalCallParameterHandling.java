@@ -15,6 +15,7 @@ import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.PCMModel;
 import edu.kit.ipd.sdq.eventsim.system.command.seff.FindActionsInSeff;
 import edu.kit.ipd.sdq.eventsim.system.command.seff.FindSeffsForAssemblyContext;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
@@ -23,7 +24,6 @@ import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.SeffInterpreterConfigura
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
 import edu.kit.ipd.sdq.eventsim.util.ParameterHelper;
-import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 
 /**
  * This command sets up the handling of PCM parameter characterisations for {@link ExternalCallAction}s.
@@ -49,7 +49,7 @@ public class InstallExternalCallParameterHandling implements IPCMCommand<Void> {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Void execute(final IPCMModel pcm, final ICommandExecutor<IPCMModel> executor) {
+	public Void execute(final PCMModel pcm, final ICommandExecutor<PCMModel> executor) {
 		// find all external calls
 		final Set<ExternalCallAction> externalCalls = new LinkedHashSet<ExternalCallAction>();
 		for (final AssemblyContext assemblyCtx : pcm.getSystemModel().getAssemblyContexts__ComposedStructure()) {

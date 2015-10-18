@@ -8,8 +8,8 @@ import org.palladiosimulator.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
+import edu.kit.ipd.sdq.eventsim.api.IRequest;
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
-import edu.kit.ipd.sdq.simcomp.component.IRequest;
 
 /**
  * A simulated process is a process that can be scheduled on an active or passive resource. Whenever

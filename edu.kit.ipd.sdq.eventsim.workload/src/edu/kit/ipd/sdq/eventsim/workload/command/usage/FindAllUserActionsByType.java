@@ -8,7 +8,7 @@ import org.palladiosimulator.pcm.usagemodel.UsageScenario;
 
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
-import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.PCMModel;
 
 /**
  * TODO
@@ -29,7 +29,7 @@ public class FindAllUserActionsByType<A extends AbstractUserAction> implements I
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<A> execute(IPCMModel pcm, ICommandExecutor<IPCMModel> executor) {
+	public List<A> execute(PCMModel pcm, ICommandExecutor<PCMModel> executor) {
 		List<A> result = new ArrayList<>();
 
 		for (UsageScenario s : pcm.getUsageModel().getUsageScenario_UsageModel()) {

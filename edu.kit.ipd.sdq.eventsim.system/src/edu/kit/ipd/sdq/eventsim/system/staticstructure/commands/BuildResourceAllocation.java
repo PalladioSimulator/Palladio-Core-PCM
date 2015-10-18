@@ -7,10 +7,10 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.PCMModel;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.AllocationRegistry;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.SimulatedResourceContainer;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.SimulatedResourceEnvironment;
-import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 
 /**
  * This command allocates each {@link AssemblyContext} to the resource container instance (
@@ -39,7 +39,7 @@ public class BuildResourceAllocation implements IPCMCommand<AllocationRegistry> 
      * {@inheritDoc}
      */
     @Override
-    public AllocationRegistry execute(IPCMModel pcm, ICommandExecutor<IPCMModel> executor) {
+    public AllocationRegistry execute(PCMModel pcm, ICommandExecutor<PCMModel> executor) {
         AllocationRegistry registry = new AllocationRegistry();
 
         // for each allocation

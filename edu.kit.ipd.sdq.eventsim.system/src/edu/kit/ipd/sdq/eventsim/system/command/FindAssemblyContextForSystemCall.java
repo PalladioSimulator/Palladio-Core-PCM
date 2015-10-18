@@ -14,8 +14,8 @@ import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.UnexpectedModelStructureException;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.PCMModel;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
-import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 
 /**
  * This command returns the {@link AssemblyContext} that provides a specified
@@ -45,7 +45,7 @@ public class FindAssemblyContextForSystemCall implements IPCMCommand<AssemblyCon
      * {@inheritDoc}
      */
     @Override
-    public AssemblyContext execute(IPCMModel pcm, ICommandExecutor<IPCMModel> executor) {
+    public AssemblyContext execute(PCMModel pcm, ICommandExecutor<PCMModel> executor) {
         // find the system which is referred to by the call
         InterfaceProvidingEntity entity = call.getProvidedRole_EntryLevelSystemCall().getProvidingEntity_ProvidedRole();
         System system = castToSystemOrThrowException(entity);

@@ -8,15 +8,15 @@ import org.palladiosimulator.pcm.core.composition.AssemblyContext;
 import org.palladiosimulator.pcm.repository.PassiveResource;
 
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
+import edu.kit.ipd.sdq.eventsim.api.IRequest;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasurementFacade;
 import edu.kit.ipd.sdq.eventsim.measurement.r.RMeasurementStore;
+import edu.kit.ipd.sdq.eventsim.middleware.ISimulationMiddleware;
 import edu.kit.ipd.sdq.eventsim.resources.calculators.HoldTimeCalculator;
 import edu.kit.ipd.sdq.eventsim.resources.calculators.WaitingTimeCalculator;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimulatedProcess;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
-import edu.kit.ipd.sdq.simcomp.component.IRequest;
-import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 
 public class EventSimPassiveResourceModel extends AbstractEventSimModel {
 
@@ -52,9 +52,9 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
 //
 //	}
 
-	public boolean acquire(IRequest request, AssemblyContext assCtx, PassiveResource specification, int i, boolean b, double timeoutValue) {
+	public boolean acquire(IRequest request, AssemblyContext assCtx, PassiveResource specification, int num) {
         SimPassiveResource res = this.getPassiveResource(specification, assCtx);
-        boolean acquired = res.acquire(getOrCreateSimulatedProcess(request), i, b, timeoutValue);
+        boolean acquired = res.acquire(getOrCreateSimulatedProcess(request), num, false, -1);
 
 		return acquired;
 	}

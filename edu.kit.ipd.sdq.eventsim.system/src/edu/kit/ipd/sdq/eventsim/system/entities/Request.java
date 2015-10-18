@@ -1,17 +1,16 @@
 package edu.kit.ipd.sdq.eventsim.system.entities;
 
 import org.apache.log4j.Logger;
-import org.osgi.service.useradmin.User;
 import org.palladiosimulator.pcm.seff.AbstractAction;
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
+import edu.kit.ipd.sdq.eventsim.api.IRequest;
+import edu.kit.ipd.sdq.eventsim.api.IUser;
 import edu.kit.ipd.sdq.eventsim.debug.DebugEntityListener;
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
-import edu.kit.ipd.sdq.simcomp.component.IRequest;
-import edu.kit.ipd.sdq.simcomp.component.IUser;
 
 /**
  * This entity represents the execution of a system call, which has been issued by a {@link User}.

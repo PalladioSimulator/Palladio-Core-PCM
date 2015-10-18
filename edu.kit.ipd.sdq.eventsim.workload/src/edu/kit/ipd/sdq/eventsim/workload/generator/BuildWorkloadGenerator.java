@@ -12,8 +12,8 @@ import org.palladiosimulator.pcm.usagemodel.Workload;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.UnexpectedModelStructureException;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.PCMModel;
 import edu.kit.ipd.sdq.eventsim.workload.EventSimWorkloadModel;
-import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 
 /**
  * This command creates and returns a list of all {@link IWorkloadGenerator}s for a PCM usage model.
@@ -39,7 +39,7 @@ public class BuildWorkloadGenerator implements IPCMCommand<List<IWorkloadGenerat
      * {@inheritDoc}
      */
     @Override
-    public List<IWorkloadGenerator> execute(final IPCMModel pcm, final ICommandExecutor<IPCMModel> executor) {
+    public List<IWorkloadGenerator> execute(final PCMModel pcm, final ICommandExecutor<PCMModel> executor) {
         final List<IWorkloadGenerator> workloads = new ArrayList<IWorkloadGenerator>();
         for (final UsageScenario u : pcm.getUsageModel().getUsageScenario_UsageModel()) {
             final Workload w = u.getWorkload_UsageScenario();

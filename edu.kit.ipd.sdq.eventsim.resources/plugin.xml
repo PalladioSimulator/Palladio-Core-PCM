@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-   <extension
-         point="edu.kit.ipd.sdq.simcomp.middleware.simulationComponent">
-      <simulation_component
-            component_class="edu.kit.ipd.sdq.eventsim.resources.EventSimActiveResource"
-            id="edu.kit.ipd.sdq.eventsim.resources.active"
-            name="Active Resource Simulation Component (EventSim)">
-         <provided_type
-               type="edu.kit.ipd.sdq.simcomp.resource.active">
-         </provided_type>
-      </simulation_component>
-      <simulation_component
-            component_class="edu.kit.ipd.sdq.eventsim.resources.EventSimPassiveResource"
-            id="edu.kit.ipd.sdq.eventsim.resources.passive"
-            name="Passive Resource Simulation Component (EventSim)">
-         <provided_type
-               type="edu.kit.ipd.sdq.simcomp.resource.passive">
-         </provided_type>
-      </simulation_component>
-   </extension>
 
 </plugin>

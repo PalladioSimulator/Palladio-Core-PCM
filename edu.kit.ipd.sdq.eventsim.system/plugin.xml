@@ -1,32 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-   <extension
-         point="edu.kit.ipd.sdq.simcomp.middleware.simulationComponent">
-      <simulation_component
-            component_class="edu.kit.ipd.sdq.eventsim.system.EventSimSystem"
-            id="edu.kit.ipd.sdq.eventsim.system"
-            name="System Simulation Component (EventSim)">
-         <provided_type
-               type="edu.kit.ipd.sdq.simcomp.system">
-         </provided_type>
-         <required_type
-               type="edu.kit.ipd.sdq.simcomp.resource.active">
-            <context_field
-                  id="system.to.active_resource.ctx.container"
-                  name="Container"
-                  value_provider="edu.kit.ipd.sdq.eventsim.system.context.ActiveResourceContainerContextValueProvider">
-            </context_field>
-            <context_field
-                  id="system.to.active_resource.ctx.resoruce_type"
-                  name="Resource Type"
-                  value_provider="edu.kit.ipd.sdq.eventsim.system.context.ActiveResourceResourceTypeContextValueProvider">
-            </context_field>
-         </required_type>
-         <required_type
-               type="edu.kit.ipd.sdq.simcomp.resource.passive">
-         </required_type>
-      </simulation_component>
-   </extension>
 
 </plugin>

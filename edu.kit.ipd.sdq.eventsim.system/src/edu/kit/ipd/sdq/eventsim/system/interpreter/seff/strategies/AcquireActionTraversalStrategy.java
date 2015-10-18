@@ -5,6 +5,7 @@ import org.palladiosimulator.pcm.repository.PassiveResource;
 import org.palladiosimulator.pcm.seff.AbstractAction;
 import org.palladiosimulator.pcm.seff.AcquireAction;
 
+import edu.kit.ipd.sdq.eventsim.api.IPassiveResource;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.EventSimException;
 import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalInstruction;
 import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalStrategy;
@@ -14,7 +15,6 @@ import edu.kit.ipd.sdq.eventsim.system.EventSimSystemModel;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.events.ResumeSeffTraversalEvent;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
-import edu.kit.ipd.sdq.simcomp.resource.passive.component.IPassiveResource;
 
 /**
  * This traversal strategy is responsible for {@link AcquireAction}s.
@@ -45,15 +45,14 @@ public class AcquireActionTraversalStrategy implements ITraversalStrategy<Abstra
 //		IPassiveResource passiveResource = (IPassiveResource) middleware.getSimulationComponent(EventSimSystem.class, IPassiveResource.class, passiveResourceComponents, null);
         
         // TODO get rid of cast
-        IPassiveResource passiveResource = ((EventSimSystemModel)request.getEventSimModel()).getPassiveResourceComponent();
-
         final PassiveResource passiveResouce = action.getPassiveresource_AcquireAction();
         AssemblyContext ctx = state.getComponent().getAssemblyCtx();
-        final boolean acquired = passiveResource.acquire(request, ctx, passiveResouce, 1, false, action.getTimeoutValue());
+        final boolean acquired = ((EventSimSystemModel)request.getEventSimModel()).getAcquireCallback().acquire(request, ctx, passiveResouce, 1);
+        
+        // TODO warning if timeout is set to true in model
         
         if (acquired) {
         	return new TraverseNextAction<>(action.getSuccessor_AbstractAction());
-//            return RequestTraversalInstructionFactory.traverseNextAction(action.getSuccessor_AbstractAction());
         } else {
         	EventSimSystemModel model = (EventSimSystemModel) request.getEventSimModel();
             request.passivate(new ResumeSeffTraversalEvent(model, state));

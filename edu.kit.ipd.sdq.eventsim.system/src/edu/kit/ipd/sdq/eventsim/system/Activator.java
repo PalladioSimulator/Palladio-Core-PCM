@@ -21,8 +21,6 @@ public class Activator implements BundleActivator {
 		return plugin;
 	}
 
-//	private ISystem systemComponent;
-
 	/*
 	 * (non-Javadoc)
 	 * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
@@ -40,18 +38,5 @@ public class Activator implements BundleActivator {
 		Activator.context = null;
 		Activator.plugin = null;
 	}
-
-//	public void bindSystemComponent(ISystem systemComponent) {
-//		System.out.println("System bound to activator");
-//		this.systemComponent = systemComponent;
-//	}
-
-//	public void unbindSystemComponent() {
-//		this.systemComponent = null;
-//	}
-//
-//	public ISystem getSystemComponent() {
-//		return systemComponent;
-//	}
 
 }

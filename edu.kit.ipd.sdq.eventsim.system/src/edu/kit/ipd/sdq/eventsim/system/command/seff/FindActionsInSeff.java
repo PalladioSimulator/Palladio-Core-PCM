@@ -16,7 +16,7 @@ import org.palladiosimulator.pcm.seff.SynchronisationPoint;
 
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
-import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.PCMModel;
 
 /**
  * This command returns all {@link AbstractAction}s of a specified type that are contained in the specified SEFF. The
@@ -49,19 +49,19 @@ public class FindActionsInSeff<A extends AbstractAction> implements IPCMCommand<
 	 * {@inheritDoc}
 	 */
 	@Override
-	public List<A> execute(IPCMModel pcm, ICommandExecutor<IPCMModel> executor) {
+	public List<A> execute(PCMModel pcm, ICommandExecutor<PCMModel> executor) {
 		return findActionsByType(seff, executor);
 	}
 
 	/**
 	 * Searches for and returns all external calls that are contained in the specified resource demanding behaviour.
 	 */
-	private List<A> findActionsByType(ResourceDemandingBehaviour behaviour, ICommandExecutor<IPCMModel> executor) {
+	private List<A> findActionsByType(ResourceDemandingBehaviour behaviour, ICommandExecutor<PCMModel> executor) {
 		List<A> actions = new ArrayList<>();
 
 		// find start action
-		AbstractAction currentAction = executor.execute(new FindActionInBehaviour<StartAction>(
-				behaviour, StartAction.class));
+		AbstractAction currentAction = executor
+				.execute(new FindActionInBehaviour<StartAction>(behaviour, StartAction.class));
 		while (currentAction != null) {
 			if (actionType.isInstance(currentAction)) {
 				// cast is safe
@@ -81,7 +81,7 @@ public class FindActionsInSeff<A extends AbstractAction> implements IPCMCommand<
 	/**
 	 * Searches for and returns all external calls that are contained in the specified branch.
 	 */
-	private List<A> findActionsInBranch(BranchAction branch, ICommandExecutor<IPCMModel> executor) {
+	private List<A> findActionsInBranch(BranchAction branch, ICommandExecutor<PCMModel> executor) {
 		List<A> calls = new ArrayList<>();
 		for (AbstractBranchTransition t : branch.getBranches_Branch()) {
 			calls.addAll(findActionsByType(t.getBranchBehaviour_BranchTransition(), executor));
@@ -92,14 +92,14 @@ public class FindActionsInSeff<A extends AbstractAction> implements IPCMCommand<
 	/**
 	 * Searches for and returns all external calls that are contained in the specified loop.
 	 */
-	private List<A> findActionsInLoop(LoopAction loop, ICommandExecutor<IPCMModel> executor) {
+	private List<A> findActionsInLoop(LoopAction loop, ICommandExecutor<PCMModel> executor) {
 		return findActionsByType(loop.getBodyBehaviour_Loop(), executor);
 	}
 
 	/**
 	 * Searches for and returns all external calls that are contained in the specified fork.
 	 */
-	private List<A> findActionsInFork(ForkAction fork, ICommandExecutor<IPCMModel> executor) {
+	private List<A> findActionsInFork(ForkAction fork, ICommandExecutor<PCMModel> executor) {
 		List<A> calls = new ArrayList<>();
 		for (ResourceDemandingBehaviour b : fork.getAsynchronousForkedBehaviours_ForkAction()) {
 			calls.addAll(findActionsByType(b, executor));

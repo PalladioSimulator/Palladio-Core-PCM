@@ -9,14 +9,14 @@ import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
+import edu.kit.ipd.sdq.eventsim.api.events.SystemRequestStart;
+import edu.kit.ipd.sdq.eventsim.middleware.events.IEventHandler;
 import edu.kit.ipd.sdq.eventsim.system.EventSimSystemModel;
 import edu.kit.ipd.sdq.eventsim.system.command.FindAssemblyContextForSystemCall;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
 import edu.kit.ipd.sdq.eventsim.util.ParameterHelper;
-import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
-import edu.kit.ipd.sdq.simcomp.system.events.SystemRequestStart;
 
 public class BeforeSystemCallParameterHandler implements IEventHandler<SystemRequestStart> {
 

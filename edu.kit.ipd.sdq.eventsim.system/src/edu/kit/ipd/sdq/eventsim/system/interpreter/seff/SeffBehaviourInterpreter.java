@@ -12,6 +12,7 @@ import org.palladiosimulator.pcm.seff.StartAction;
 
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
+import edu.kit.ipd.sdq.eventsim.api.events.SystemRequestStart;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.interpreter.BehaviourInterpreter;
 import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalStrategy;
@@ -23,7 +24,6 @@ import edu.kit.ipd.sdq.eventsim.system.interpreter.state.ForkedRequestState;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
-import edu.kit.ipd.sdq.simcomp.system.events.SystemRequestStart;
 
 /**
  * An interpreter for {@link ResourceDemandingSEFF}s.

@@ -6,7 +6,7 @@ import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.UnexpectedModelStructureException;
-import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.PCMModel;
 
 /**
  * This command searches for an action of the specified type in the specified scenario behaviour and
@@ -43,7 +43,7 @@ public class FindActionInUsageBehaviour<R extends AbstractUserAction> implements
      */
     @SuppressWarnings("unchecked")
     @Override
-    public R execute(IPCMModel pcm, ICommandExecutor<IPCMModel> executor) {
+    public R execute(PCMModel pcm, ICommandExecutor<PCMModel> executor) {
         for (AbstractUserAction action : behaviour.getActions_ScenarioBehaviour()) {
             if (actionClass.isInstance(action)) {
                 return (R) action;

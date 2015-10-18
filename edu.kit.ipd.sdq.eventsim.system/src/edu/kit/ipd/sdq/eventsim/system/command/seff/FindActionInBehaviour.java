@@ -6,7 +6,7 @@ import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.UnexpectedModelStructureException;
-import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.PCMModel;
 
 /**
  * This command searches for an action of the specified type in the specified service effect
@@ -31,7 +31,7 @@ public class FindActionInBehaviour<R extends AbstractAction> implements IPCMComm
 
     @SuppressWarnings("unchecked")
     @Override
-    public R execute(IPCMModel pcm, ICommandExecutor<IPCMModel> executor) {
+    public R execute(PCMModel pcm, ICommandExecutor<PCMModel> executor) {
         for (AbstractAction action : behaviour.getSteps_Behaviour()) {
             if (actionClass.isInstance(action)) {
                 return (R) action;

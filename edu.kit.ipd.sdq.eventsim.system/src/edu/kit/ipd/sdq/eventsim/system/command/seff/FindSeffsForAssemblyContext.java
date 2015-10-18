@@ -14,7 +14,7 @@ import org.palladiosimulator.pcm.seff.ServiceEffectSpecification;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.EventSimException;
-import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.PCMModel;
 
 /**
  * This command returns all {@link ResourceDemandingSEFF}s provided by the component that is
@@ -41,7 +41,7 @@ public class FindSeffsForAssemblyContext implements IPCMCommand<List<ResourceDem
      * {@inheritDoc}
      */
     @Override
-    public List<ResourceDemandingSEFF> execute(IPCMModel pcm, ICommandExecutor<IPCMModel> executor) {
+    public List<ResourceDemandingSEFF> execute(PCMModel pcm, ICommandExecutor<PCMModel> executor) {
         // find basic component
         // TODO: support composite components etc.
         BasicComponent basicComponent = findBasicComponent(assemblyCtx);

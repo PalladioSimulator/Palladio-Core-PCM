@@ -7,11 +7,9 @@ import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalInstruction;
 import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.interpreter.instructions.InterruptTraversal;
-import edu.kit.ipd.sdq.eventsim.workload.Activator;
-import edu.kit.ipd.sdq.eventsim.workload.EventSimWorkload;
+import edu.kit.ipd.sdq.eventsim.middleware.ISimulationMiddleware;
+import edu.kit.ipd.sdq.eventsim.workload.EventSimWorkloadModel;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;
-import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.system.component.ISystem;
 
 /**
  * This traversal strategy is responsible to create service calls on a system
@@ -34,11 +32,8 @@ public class EntryLevelSystemCallTraversalStrategy implements ITraversalStrategy
 		// fetch the system simulation component
 		ISimulationMiddleware middleware = user.getEventSimModel().getSimulationMiddleware();
 
-		EventSimWorkload workload = (EventSimWorkload) Activator.getDefault().getWorkloadComponent();
-		ISystem system = workload.getSystemComponent();
-
 		// perform a service call
-		system.callService(user, call);
+		((EventSimWorkloadModel) user.getEventSimModel()).getSystemCallCallback().call(user, call);
 
 		// interrupt the usage traversal until service call simulation finished
 		return new InterruptTraversal<>(call.getSuccessor());

@@ -9,11 +9,11 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.PCMModel;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.CommunicationLink;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.SimulatedResourceContainer;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.SimulatedResourceEnvironment;
-import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 
 /**
  * This command creates the {@link SimulatedResourceEnvironment}.
@@ -39,7 +39,7 @@ public class BuildSimulatedResourceEnvironment implements IPCMCommand<SimulatedR
      * {@inheritDoc}
      */
     @Override
-    public SimulatedResourceEnvironment execute(IPCMModel pcm, ICommandExecutor<IPCMModel> executor) {
+    public SimulatedResourceEnvironment execute(PCMModel pcm, ICommandExecutor<PCMModel> executor) {
         SimulatedResourceEnvironment environment = new SimulatedResourceEnvironment();
 
         // build resource container

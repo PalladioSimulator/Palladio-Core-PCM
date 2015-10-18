@@ -13,6 +13,11 @@ import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
+import edu.kit.ipd.sdq.eventsim.api.IRequest;
+import edu.kit.ipd.sdq.eventsim.api.ISystem;
+import edu.kit.ipd.sdq.eventsim.api.IWorkload.SystemCallListener;
+import edu.kit.ipd.sdq.eventsim.api.events.SystemRequestProcessed;
+import edu.kit.ipd.sdq.eventsim.api.events.WorkloadUserFinished;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.IStateExchangeService;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.StateExchange;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.StateExchangeService;
@@ -20,6 +25,8 @@ import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasurementFacade;
 import edu.kit.ipd.sdq.eventsim.measurement.Metric;
 import edu.kit.ipd.sdq.eventsim.measurement.r.RMeasurementStore;
+import edu.kit.ipd.sdq.eventsim.middleware.ISimulationMiddleware;
+import edu.kit.ipd.sdq.eventsim.middleware.events.IEventHandler;
 import edu.kit.ipd.sdq.eventsim.workload.calculators.TimeSpanBetweenUserActionsCalculator;
 import edu.kit.ipd.sdq.eventsim.workload.command.usage.FindActionsInUsageScenario;
 import edu.kit.ipd.sdq.eventsim.workload.command.usage.FindAllUserActionsByType;
@@ -31,11 +38,6 @@ import edu.kit.ipd.sdq.eventsim.workload.generator.BuildWorkloadGenerator;
 import edu.kit.ipd.sdq.eventsim.workload.generator.IWorkloadGenerator;
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.UsageBehaviourInterpreter;
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.UsageInterpreterConfiguration;
-import edu.kit.ipd.sdq.simcomp.component.IRequest;
-import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
-import edu.kit.ipd.sdq.simcomp.system.events.SystemRequestProcessed;
-import edu.kit.ipd.sdq.simcomp.workload.events.WorkloadUserFinished;
 
 /**
  * The EventSim workload simulation model. This is the central class of the workload simulation.
@@ -56,10 +58,17 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 
 	private MeasurementFacade<WorkloadMeasurementConfiguration> measurementFacade;
 	
-	public EventSimWorkloadModel(ISimulationMiddleware middleware) {
+	private SystemCallListener systemCallCallback;
+	
+	public EventSimWorkloadModel(ISimulationMiddleware middleware, SystemCallListener systemCallCallback) {
 		super(middleware);
+		this.systemCallCallback = systemCallCallback;
 	}
-
+	
+	public SystemCallListener getSystemCallCallback() {
+		return systemCallCallback;
+	}
+	
 	/**
 	 * This method prepares the EventSim workload simulator and creates the initial events to start the workload
 	 * generation.

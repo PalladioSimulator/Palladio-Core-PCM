@@ -10,11 +10,19 @@ import org.palladiosimulator.pcm.seff.ExternalCallAction;
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
+import edu.kit.ipd.sdq.eventsim.api.IPassiveResource;
+import edu.kit.ipd.sdq.eventsim.api.ISystem.ActiveResourceListener;
+import edu.kit.ipd.sdq.eventsim.api.ISystem.PassiveResourceAcquireListener;
+import edu.kit.ipd.sdq.eventsim.api.ISystem.PassiveResourceReleaseListener;
+import edu.kit.ipd.sdq.eventsim.api.IUser;
+import edu.kit.ipd.sdq.eventsim.api.events.SystemRequestProcessed;
+import edu.kit.ipd.sdq.eventsim.api.events.SystemRequestStart;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.IUserState;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.StateExchange;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.measurement.MeasurementFacade;
 import edu.kit.ipd.sdq.eventsim.measurement.r.RMeasurementStore;
+import edu.kit.ipd.sdq.eventsim.middleware.ISimulationMiddleware;
 import edu.kit.ipd.sdq.eventsim.system.calculators.ResponseTimeOfExternalCallsCalculator;
 import edu.kit.ipd.sdq.eventsim.system.command.BuildComponentInstances;
 import edu.kit.ipd.sdq.eventsim.system.command.FindAssemblyContextForSystemCall;
@@ -34,12 +42,6 @@ import edu.kit.ipd.sdq.eventsim.system.staticstructure.SimulatedResourceContaine
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.SimulatedResourceEnvironment;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.commands.BuildResourceAllocation;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.commands.BuildSimulatedResourceEnvironment;
-import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.component.IUser;
-import edu.kit.ipd.sdq.simcomp.resource.active.component.IActiveResource;
-import edu.kit.ipd.sdq.simcomp.resource.passive.component.IPassiveResource;
-import edu.kit.ipd.sdq.simcomp.system.events.SystemRequestProcessed;
-import edu.kit.ipd.sdq.simcomp.system.events.SystemRequestStart;
 
 
 /**
@@ -68,13 +70,16 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 	
 	private MeasurementFacade<SystemMeasurementConfiguration> measurementFacade;
 
-	private IActiveResource activeResourceComponent;
-	private IPassiveResource passiveResourceComponent;
+	private ActiveResourceListener activeResourceCallback;
+	private PassiveResourceAcquireListener acquireCallback;
+	private PassiveResourceReleaseListener releaseCallback;
 	
-	public EventSimSystemModel(ISimulationMiddleware middleware, IActiveResource activeResourceComponent, IPassiveResource passiveResourceComponent) {
+	public EventSimSystemModel(ISimulationMiddleware middleware, ActiveResourceListener activeResourceCallback,
+			PassiveResourceAcquireListener acquireCallback, PassiveResourceReleaseListener releaseCallback) {
 		super(middleware);
-		this.activeResourceComponent = activeResourceComponent;
-		this.passiveResourceComponent = passiveResourceComponent;
+		this.activeResourceCallback = activeResourceCallback;
+		this.acquireCallback = acquireCallback;
+		this.releaseCallback = releaseCallback;
 	}
 
 	public void init() {
@@ -230,12 +235,16 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 		return this.componentRegistry.get(assemblyContext.getId());
 	}
 	
-	public IActiveResource getActiveResourceComponent() {
-		return activeResourceComponent;
+	public ActiveResourceListener getActiveResourceCallback() {
+		return activeResourceCallback;
 	}
 	
-	public IPassiveResource getPassiveResourceComponent() {
-		return passiveResourceComponent;
+	public PassiveResourceAcquireListener getAcquireCallback() {
+		return acquireCallback;
+	}
+	
+	public PassiveResourceReleaseListener getReleaseCallback() {
+		return releaseCallback;
 	}
 
 }

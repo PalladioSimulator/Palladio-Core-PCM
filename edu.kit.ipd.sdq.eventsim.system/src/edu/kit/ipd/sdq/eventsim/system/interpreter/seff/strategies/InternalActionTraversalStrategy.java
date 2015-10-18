@@ -10,16 +10,16 @@ import org.palladiosimulator.pcm.seff.InternalAction;
 import org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand;
 
 import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
+import edu.kit.ipd.sdq.eventsim.api.IActiveResource;
 import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalInstruction;
 import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.interpreter.instructions.InterruptTraversal;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.ITraversalStrategyState;
+import edu.kit.ipd.sdq.eventsim.middleware.ISimulationMiddleware;
 import edu.kit.ipd.sdq.eventsim.system.EventSimSystemModel;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.events.ResumeSeffTraversalEvent;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
-import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.resource.active.component.IActiveResource;
 
 /**
  * This traversal strategy is responsible for {@link InternalAction}s.
@@ -60,11 +60,10 @@ public class InternalActionTraversalStrategy implements ITraversalStrategy<Abstr
 //		ActiveResourceSimulationContext context = new ActiveResourceSimulationContext(containerDescriptor, resourceTypeDescriptor);
 //		IActiveResource activeResource = (IActiveResource) middleware.getSimulationComponent(EventSimSystem.class, IActiveResource.class, activeResourceComponents, context);
 		
-        // TODO get rid of cast
-        IActiveResource activeResource = ((EventSimSystemModel)request.getEventSimModel()).getActiveResourceComponent();
-
 		// consume the resource demand
-		activeResource.consume(request, state.getComponent().getResourceContainer().getSpecification(), type, evaluatedDemand);
+        // TODO get rid of cast
+		((EventSimSystemModel) request.getEventSimModel()).getActiveResourceCallback().consume(request,
+				state.getComponent().getResourceContainer().getSpecification(), type, evaluatedDemand);
 
 		EventSimSystemModel systemModel = (EventSimSystemModel) request.getEventSimModel();
 		if (internalState.hasPendingDemands()) {

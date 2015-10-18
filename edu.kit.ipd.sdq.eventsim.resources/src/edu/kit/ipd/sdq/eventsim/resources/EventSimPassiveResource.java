@@ -1,21 +1,24 @@
 package edu.kit.ipd.sdq.eventsim.resources;
 
-import org.osgi.service.component.ComponentContext;
 import org.palladiosimulator.pcm.core.composition.AssemblyContext;
 import org.palladiosimulator.pcm.repository.PassiveResource;
 
-import edu.kit.ipd.sdq.simcomp.component.IRequest;
-import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
-import edu.kit.ipd.sdq.simcomp.events.SimulationFinalizeEvent;
-import edu.kit.ipd.sdq.simcomp.events.SimulationInitEvent;
-import edu.kit.ipd.sdq.simcomp.resource.passive.component.IPassiveResource;
+import edu.kit.ipd.sdq.eventsim.api.IPassiveResource;
+import edu.kit.ipd.sdq.eventsim.api.IRequest;
+import edu.kit.ipd.sdq.eventsim.middleware.ISimulationMiddleware;
+import edu.kit.ipd.sdq.eventsim.middleware.events.IEventHandler;
+import edu.kit.ipd.sdq.eventsim.middleware.events.SimulationFinalizeEvent;
+import edu.kit.ipd.sdq.eventsim.middleware.events.SimulationInitEvent;
 
 public class EventSimPassiveResource implements IPassiveResource {
 
 	private ISimulationMiddleware middleware;
-	private Activator resourceActivator;
 	private EventSimPassiveResourceModel model;
+
+	public EventSimPassiveResource(ISimulationMiddleware middleware) {
+		this.middleware = middleware;
+		this.registerEventHandler();
+	}
 
 	/**
 	 * Initializes the passive resource simulation component
@@ -26,13 +29,13 @@ public class EventSimPassiveResource implements IPassiveResource {
 	}
 
 	@Override
-	public boolean acquire(IRequest request, AssemblyContext ctx, PassiveResource specification, int i, boolean b, double timeoutValue) {
-		return this.model.acquire(request, ctx, specification, i, b, timeoutValue);
+	public boolean acquire(IRequest request, AssemblyContext ctx, PassiveResource specification, int num) {
+		return this.model.acquire(request, ctx, specification, num);
 	}
 
 	@Override
-	public void release(IRequest request, AssemblyContext ctx, PassiveResource specification, int i) {
-		this.model.release(request, ctx, specification, i);
+	public void release(IRequest request, AssemblyContext ctx, PassiveResource specification, int num) {
+		this.model.release(request, ctx, specification, num);
 	}
 
 	/**
@@ -66,52 +69,4 @@ public class EventSimPassiveResource implements IPassiveResource {
 		}, false);
 	}
 
-	/**
-	 * Binds a simulation middleware instance to the simulation component.
-	 * Called by the declarative service framework.
-	 * 
-	 * @param middleware
-	 */
-	public void bindSimulationMiddleware(ISimulationMiddleware middleware) {
-		this.middleware = middleware;
-
-		// when the middleware is bound we register for some events
-		this.registerEventHandler();
-	}
-
-	/**
-	 * Unbind a simulation middleware instance from the simulation component
-	 * when it is deactivated. Called by the declarative service framework.
-	 * 
-	 * @param middleware
-	 */
-	public void unbindSimulationMiddleware(ISimulationMiddleware middleware) {
-		if (this.middleware.equals(middleware)) {
-			this.middleware = null;
-		}
-	}
-
-	/**
-	 * Declarative service lifecycle method called when the passive resource
-	 * simulation component is activated.
-	 * 
-	 * @param context
-	 */
-	public void activate(ComponentContext context) {
-		System.out.println("PassiveResource activated");
-
-		this.resourceActivator = Activator.getDefault();
-		this.resourceActivator.bindPassiveResourceComponent(this);
-	}
-
-	/**
-	 * Declarative service lifecycle method called when the passive resource
-	 * simulation component is deactivated.
-	 * 
-	 * @param context
-	 */
-	public void deactivate(ComponentContext context) {
-		this.resourceActivator.unbindPassiveResourceComponent();
-		this.resourceActivator = null;
-	}
 }

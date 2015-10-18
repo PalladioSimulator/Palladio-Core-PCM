@@ -21,13 +21,13 @@ import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.EventSimException;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.PCMModel;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.AllocationRegistry;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.RoleInstance;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.SimulatedResourceContainer;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 import edu.kit.ipd.sdq.eventsim.util.ParameterHelper;
-import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 
 /**
  * This command creates a component instance for each {@link BasicComponent} encapsulated in an
@@ -62,7 +62,7 @@ public class BuildComponentInstances implements IPCMCommand<Map<String, Componen
      * {@inheritDoc}
      */
     @Override
-    public Map<String, ComponentInstance> execute(IPCMModel pcm, ICommandExecutor<IPCMModel> executor) {
+    public Map<String, ComponentInstance> execute(PCMModel pcm, ICommandExecutor<PCMModel> executor) {
         // create component instances and provided services
         Map<String, ComponentInstance> componentsMap = new HashMap<String, ComponentInstance>();
 

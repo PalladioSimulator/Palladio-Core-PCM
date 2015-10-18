@@ -6,9 +6,9 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import edu.kit.ipd.sdq.eventsim.command.ICommand;
 import edu.kit.ipd.sdq.eventsim.command.PCMModelCommandExecutor;
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
-import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
-import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.middleware.simulation.config.SimulationConfiguration;
+import edu.kit.ipd.sdq.eventsim.middleware.ISimulationMiddleware;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.PCMModel;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.config.SimulationConfiguration;
 
 /**
  * This class is the basis for a simulation component based on EventSim. It
@@ -51,7 +51,7 @@ abstract public class AbstractEventSimModel {
 	 *            the command that is to be executed
 	 * @return the command's result
 	 */
-	public <T> T execute(final ICommand<T, IPCMModel> command) {
+	public <T> T execute(final ICommand<T, PCMModel> command) {
 		return this.executor.execute(command);
 	}
 

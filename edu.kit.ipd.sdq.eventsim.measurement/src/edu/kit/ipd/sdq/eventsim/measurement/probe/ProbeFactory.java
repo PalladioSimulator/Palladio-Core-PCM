@@ -45,7 +45,7 @@ public class ProbeFactory<C extends ProbeConfiguration> {
 	@SuppressWarnings("unchecked")
 	public <E, T> IProbe<E, T> create(E element, String property, Object... measurementContexts) {
 		// try finding a probe capable of probing elements of the given type.
-		// starts with the most specific element type.
+		// start with the most specific element type.
 		Class<? extends AbstractProbe<?, ?, C>> probeClass = probesMap.get(new MeasuredElementAndProperty(
 				getInstanceClass(element), property));
 		// if no probe is responsible for elements of the given type, try finding a probe for a supertype.
@@ -70,6 +70,7 @@ public class ProbeFactory<C extends ProbeConfiguration> {
 			Constructor<? extends AbstractProbe<?, ?, C>> c = probeClass.getConstructor(MeasuringPoint.class,
 					configuration.getClass());
 			p = c.newInstance(new MeasuringPoint<E>(element, property, measurementContexts), configuration);
+			log.debug("Created probe " + p + " (element=" + element + ", property=" + property + ")");
 		} catch (InstantiationException | IllegalAccessException | NoSuchMethodException | SecurityException
 				| IllegalArgumentException | InvocationTargetException e) {
 			log.error("Exception while invoking probe constructor.", e);

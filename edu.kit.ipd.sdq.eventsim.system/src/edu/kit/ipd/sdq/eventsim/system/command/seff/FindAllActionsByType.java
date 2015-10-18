@@ -10,7 +10,7 @@ import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF;
 
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
-import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.PCMModel;
 
 /**
  * TODO
@@ -31,7 +31,7 @@ public class FindAllActionsByType<A extends AbstractAction> implements IPCMComma
      * {@inheritDoc}
      */
     @Override
-    public List<ActionContext<A>> execute(IPCMModel pcm, ICommandExecutor<IPCMModel> executor) {
+    public List<ActionContext<A>> execute(PCMModel pcm, ICommandExecutor<PCMModel> executor) {
     	List<ActionContext<A>> result = new ArrayList<>();
         for (AllocationContext allocationCtx : pcm.getAllocationModel().getAllocationContexts_Allocation()) {
             AssemblyContext assemblyCtx = allocationCtx.getAssemblyContext_AllocationContext();

@@ -63,6 +63,9 @@ public class MeasurementCache<E, T> {
 	 *         evicted from the cache already, or because no such measurement has been added before.
 	 */
 	public Measurement<E, T> getLastMeasurement(T trigger, MeasuringPoint<E> mp) {
+		if(!measurements.containsKey(trigger)) {
+			return null; // TODO warning?
+		}
 		Measurement<E, T> m = measurements.get(trigger).get(mp);
 		if(m == null) {
 //			log.warn(String.format("Requested last measurement for trigger %s, but corresponding measurements have "

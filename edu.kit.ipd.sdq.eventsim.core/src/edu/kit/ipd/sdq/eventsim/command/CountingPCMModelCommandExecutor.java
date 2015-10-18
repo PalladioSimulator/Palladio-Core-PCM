@@ -6,7 +6,7 @@ import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 
-import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.PCMModel;
 
 public class CountingPCMModelCommandExecutor extends PCMModelCommandExecutor {
 
@@ -16,13 +16,13 @@ public class CountingPCMModelCommandExecutor extends PCMModelCommandExecutor {
 	private Map<Class<? extends ICommand>, Integer> counts;
 	
 	@SuppressWarnings("rawtypes")
-	public CountingPCMModelCommandExecutor(IPCMModel pcm) {
+	public CountingPCMModelCommandExecutor(PCMModel pcm) {
 		super(pcm);
 		counts = new HashMap<Class<? extends ICommand>, Integer>();
 	}
 
 	@Override
-	public <T> T execute(ICommand<T, IPCMModel> command) {
+	public <T> T execute(ICommand<T, PCMModel> command) {
 		Integer c = counts.get(command.getClass());
 		if(c == null) {
 			c = 0;

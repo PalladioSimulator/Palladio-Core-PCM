@@ -1,6 +1,6 @@
 package edu.kit.ipd.sdq.eventsim.command;
 
-import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
+import edu.kit.ipd.sdq.eventsim.middleware.simulation.PCMModel;
 
 /**
  * Use this class to execute {@link ICommand}s requiring access to a PCM model.
@@ -9,9 +9,9 @@ import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
  * 
  * @see ICommandExecutor
  */
-public class PCMModelCommandExecutor implements ICommandExecutor<IPCMModel> {
+public class PCMModelCommandExecutor implements ICommandExecutor<PCMModel> {
 
-    private final IPCMModel pcm;
+    private final PCMModel pcm;
 
     /**
      * Constructs an executor that is capable of executing {@link ICommand}s operating on PCM
@@ -20,7 +20,7 @@ public class PCMModelCommandExecutor implements ICommandExecutor<IPCMModel> {
      * @param pcm
      *            the PCM model on which the executed commands are to operate
      */
-    public PCMModelCommandExecutor(final IPCMModel pcm) {
+    public PCMModelCommandExecutor(final PCMModel pcm) {
         this.pcm = pcm;
     }
 
@@ -28,7 +28,7 @@ public class PCMModelCommandExecutor implements ICommandExecutor<IPCMModel> {
      * {@inheritDoc}
      */
     @Override
-    public <T> T execute(final ICommand<T, IPCMModel> command) {
+    public <T> T execute(final ICommand<T, PCMModel> command) {
         return command.execute(this.pcm, this);
     }
 
