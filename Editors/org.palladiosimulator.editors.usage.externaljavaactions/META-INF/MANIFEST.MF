@@ -12,4 +12,7 @@ Require-Bundle: org.eclipse.sirius;bundle-version="3.0.0",
  org.palladiosimulator.editors.dialogs,
  de.uka.ipd.sdq.stoex.analyser,
  de.uka.ipd.sdq.pcm.stochasticexpressions,
- org.eclipse.emf.transaction
+ org.eclipse.emf.transaction,
+ org.modelversioning.emfprofile,
+ org.modelversioning.emfprofile.registry,
+ org.eclipse.emf.edit.ui

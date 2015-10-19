@@ -1,14 +1,22 @@
 package org.palladiosimulator.editors.usage.externaljavaactions;
 
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
+import org.eclipse.emf.common.command.BasicCommandStack;
+import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 import org.eclipse.ui.PlatformUI;
+import org.modelversioning.emfprofile.Profile;
+import org.modelversioning.emfprofile.registry.IProfileRegistry;
 import org.palladiosimulator.editors.dialogs.selection.PalladioSelectEObjectDialog;
 import org.palladiosimulator.pcm.repository.OperationInterface;
 import org.palladiosimulator.pcm.repository.OperationProvidedRole;
@@ -26,12 +34,12 @@ public class EntryLevelSystemCallCreationDialog implements IExternalJavaAction {
 		return true;
 	}
 	
-	private EObject getUsageModel(EObject object) {
-		if (object instanceof UsageModel) {
-			return object;
-		} else {
-			return getUsageModel(object.eContainer());
+	private UsageModel getModel(ScenarioBehaviour beh) {
+		EObject element = beh;
+		while (!(element instanceof UsageModel)) {
+			element = element.eContainer();
 		}
+		return (UsageModel) element;
 	}
 
 	@Override
@@ -42,8 +50,13 @@ public class EntryLevelSystemCallCreationDialog implements IExternalJavaAction {
 		EntryLevelSystemCall newElement = UsagemodelFactory.eINSTANCE.createEntryLevelSystemCall();
         beh.getActions_ScenarioBehaviour().add(newElement);
 
+        UsageModel usage = getModel(beh);
+        Collection<Profile> profiles = IProfileRegistry.eINSTANCE.getRegisteredProfiles();
         
-		
+        AdapterFactoryEditingDomain domain = new AdapterFactoryEditingDomain(new AdapterFactoryImpl(), new BasicCommandStack());
+        
+        System.out.println(newElement.eResource().getResourceSet().getResources());
+        Resource r = newElement.eResource().getResourceSet().getResource(URI.createURI("platform:/resource/MediaStoreExample/PrioritizingMediaStore.system"), true);
 		OperationSignature signature = null;
 		OperationProvidedRole providedRole = null;
 		ArrayList<Object> filterList = new ArrayList<Object>();
@@ -58,7 +71,7 @@ public class EntryLevelSystemCallCreationDialog implements IExternalJavaAction {
 
 		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), filterList, additionalReferences,
-				newElement);
+				domain.getResourceSet());
 		dialog.setProvidedService(OperationProvidedRole.class);
 		dialog.open();
 		if (dialog.getResult() == null) {
