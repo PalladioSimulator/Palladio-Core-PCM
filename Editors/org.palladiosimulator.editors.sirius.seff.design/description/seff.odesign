@@ -8,6 +8,7 @@
       <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.1#//seff/seff_performance"/>
       <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.1#//seff/seff_reliability"/>
       <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.1#//parameter"/>
+      <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.1#//reliability"/>
       <defaultLayer name="Default">
         <nodeMappings name="seffStartNode" semanticCandidatesExpression="[steps_Behaviour/]" domainClass="seff.StartAction">
           <style xsi:type="style:DotDescription" showIcon="false" labelExpression="" hideLabelByDefault="true">
@@ -31,7 +32,37 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="seffInternalAction" semanticCandidatesExpression="[steps_Behaviour/]" domainClass="seff.InternalAction">
+        <containerMappings name="seffInternalAction" semanticCandidatesExpression="[steps_Behaviour/]" domainClass="seff.InternalAction" childrenPresentation="VerticalStack">
+          <subContainerMappings name="seffResourceDemand" semanticCandidatesExpression="[resourceDemand_Action/]" domainClass="seff_performance.ParametricResourceDemand" childrenPresentation="List">
+            <subNodeMappings name="seffRequiredResourceDemands" semanticCandidatesExpression="[self/]" domainClass="seff_performance.ParametricResourceDemand">
+              <style xsi:type="style:BundledImageDescription" labelExpression="[specification_ParametericResourceDemand.specification +' &lt;' + requiredResource_ParametricResourceDemand.entityName + '>'/]" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="ResoureDemands">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="seffFailureOccuranceDescriptionContainer" semanticCandidatesExpression="[internalFailureOccurrenceDescriptions__InternalAction/]" domainClass="seff.InternalAction">
+            <subNodeMappings name="seffFailureOccuranceDescription" semanticCandidatesExpression="[self/]" domainClass="reliability.FailureOccurrenceDescription">
+              <style xsi:type="style:BundledImageDescription" labelExpression="[failureProbability/]" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" labelExpression="InternalFailureOccuranceDescription">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
           <style xsi:type="style:FlatContainerStyleDescription" labelExpression="['&lt;&lt;InternalAction>> \n' + self.entityName /]">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -168,7 +199,7 @@
                 <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
               </style>
             </subContainerMappings>
-            <subContainerMappings name="seffBranchBehaviour" semanticCandidatesExpression="[branchBehaviour_BranchTransition/]" domainClass="seff.ResourceDemandingBehaviour">
+            <subContainerMappings name="seffBranchBehaviour" semanticCandidatesExpression="[branchBehaviour_BranchTransition/]" domainClass="seff.ResourceDemandingBehaviour" reusedNodeMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@nodeMappings[name='seffStartNode'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@nodeMappings[name='seffStopNode']" reusedContainerMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffAcquireAction'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffBranchAction'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffCollectionIteratorAction'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffEmitEventAction'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffExternalCallAction'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffForkAction'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffInternalAction'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffLoop'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffRecoveryAction'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffReleaseAction'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffSetVariableAction']">
               <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
