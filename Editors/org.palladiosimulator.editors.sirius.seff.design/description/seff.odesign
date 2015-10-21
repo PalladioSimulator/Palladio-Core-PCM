@@ -41,14 +41,14 @@
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
-            <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="ResoureDemands">
+            <style xsi:type="style:FlatContainerStyleDescription" showIcon="false" labelExpression="ResoureDemand">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="seffFailureOccuranceDescriptionContainer" semanticCandidatesExpression="[internalFailureOccurrenceDescriptions__InternalAction/]" domainClass="seff.InternalAction">
+          <subContainerMappings name="seffFailureOccuranceDescriptionContainer" semanticCandidatesExpression="[internalFailureOccurrenceDescriptions__InternalAction/]" domainClass="seff.InternalAction" childrenPresentation="List">
             <subNodeMappings name="seffFailureOccuranceDescription" semanticCandidatesExpression="[self/]" domainClass="reliability.FailureOccurrenceDescription">
               <style xsi:type="style:BundledImageDescription" labelExpression="[failureProbability/]" labelPosition="node" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
