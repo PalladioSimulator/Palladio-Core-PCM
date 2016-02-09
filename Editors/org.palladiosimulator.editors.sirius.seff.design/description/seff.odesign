@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="Seff Editor" version="10.0.0.201505222000">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="Seff Editor" version="10.0.0.201505222000">
   <ownedViewpoints name="seff" modelFileExtension="*.repository">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Seff Diagram" domainClass="seff.ResourceDemandingSEFF" enablePopupBars="true">
       <metamodel href="http://sdq.ipd.uka.de/StochasticExpressions/2.2#/"/>
@@ -7,6 +7,7 @@
       <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.1#//seff"/>
       <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.1#//seff/seff_performance"/>
       <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.1#//seff/seff_reliability"/>
+      <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.1#//reliability"/>
       <defaultLayer name="Default">
         <nodeMappings name="seffStartNode" semanticCandidatesExpression="[steps_Behaviour/]" domainClass="seff.StartAction">
           <style xsi:type="style:DotDescription" showIcon="false" labelExpression="" hideLabelByDefault="true">
@@ -30,8 +31,39 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="seffInternalAction" semanticCandidatesExpression="[steps_Behaviour/]" domainClass="seff.InternalAction">
-          <style xsi:type="style:FlatContainerStyleDescription" labelExpression="['&lt;&lt;InternalAction>> \n' + self.entityName /]">
+        <containerMappings name="seffInternalAction" semanticCandidatesExpression="[steps_Behaviour/]" domainClass="seff.InternalAction" childrenPresentation="VerticalStack">
+          <borderedNodeMappings name="seffInternalActionName" semanticCandidatesExpression="[self/]" domainClass="seff.InternalAction">
+            <style xsi:type="style:SquareDescription" labelExpression="[self.entityName/]" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="10" height="3">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <subContainerMappings name="seffResourceDemand" semanticCandidatesExpression="[self.resourceDemand_Action/]" domainClass="seff_performance.ParametricResourceDemand">
+            <style xsi:type="style:FlatContainerStyleDescription" labelExpression="[self.specification_ParametericResourceDemand.specification + ' &lt;' + self.requiredResource_ParametricResourceDemand.entityName + '>'/]" labelAlignment="LEFT">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="seffFailureOccurenceDescription" semanticCandidatesExpression="[self.internalFailureOccurrenceDescriptions__InternalAction/]" domainClass="reliability.InternalFailureOccurrenceDescription">
+            <style xsi:type="style:FlatContainerStyleDescription" labelExpression="['[' + self.softwareInducedFailureType__InternalFailureOccurrenceDescription.entityName + '] ' + self.failureProbability/]" labelAlignment="LEFT">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="seffInfrastructureCall" semanticCandidatesExpression="[self.infrastructureCall__Action/]" domainClass="seff_performance.InfrastructureCall">
+            <style xsi:type="style:FlatContainerStyleDescription" labelExpression="[self.numberOfCalls__InfrastructureCall.specification + ' x ' + self.requiredRole__InfrastructureCall.entityName + '.' + self.signature__InfrastructureCall.entityName/]" labelAlignment="LEFT">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" labelExpression="['&lt;&lt;InternalAction>>'/]">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -280,7 +312,158 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </containerMappings>
-        <toolSections name="Actions"/>
+        <toolSections name="Actions">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="startActionCreation" label="startAction" nodeMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@nodeMappings[name='seffStartNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.StartAction" referenceName="steps_Behaviour"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="stopActionCreation" label="stopAction" nodeMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@nodeMappings[name='seffStopNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.StopAction" referenceName="steps_Behaviour"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="internalActionCreation" label="InternalAction" containerMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffInternalAction']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.InternalAction" referenceName="steps_Behaviour" variableName="temporary"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="externalCallActionCreation" label="ExternalCallAction" containerMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffExternalCallAction']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="emitEventActionCreation" label="EmitEventAction" containerMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffEmitEventAction']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.EmitEventAction" referenceName="steps_Behaviour" variableName="temporary"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="setVariableActionCreation" label="SetVariableAction" containerMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffSetVariableAction']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.SetVariableAction" referenceName="steps_Behaviour"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="aquireActionCreation" label="AquireAction" containerMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffAcquireAction']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.AcquireAction" referenceName="steps_Behaviour"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="releaseActionCreation" label="ReleaseAction" containerMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffReleaseAction']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.ReleaseAction" referenceName="steps_Behaviour"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="loopActionCreation" label="LoopAction" containerMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffLoop']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.LoopAction" referenceName="steps_Behaviour"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="collectionIteratorActionCreation" label="CollectionIteratorAction" containerMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffCollectionIteratorAction']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.CollectionIteratorAction" referenceName="steps_Behaviour"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="branchActionCreation" label="BranchAction" containerMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffBranchAction']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.BranchAction" referenceName="steps_Behaviour"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="forkCreation" label="ForkAction" containerMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffForkAction']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.ForkAction" referenceName="steps_Behaviour"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="recoveryActionCreation" label="RecoveryAction" containerMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffRecoveryAction']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff_reliability.RecoveryAction" referenceName="steps_Behaviour"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Action Details">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="resourceDemandCreation" label="Resource Demand" containerMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffInternalAction']/@subContainerMappings[name='seffResourceDemand']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff_performance.ParametricResourceDemand" referenceName="resourceDemand_Action"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="VariableUsageCreation" label="Variable Usage" containerMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffExternalCallAction']/@subContainerMappings[name='seffInputVariableUsage'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffExternalCallAction']/@subContainerMappings[name='seffOutputVariableUsage'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffSetVariableAction']/@subContainerMappings[name='seffLocalVariableUsageSetVariableAction']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="parameter.VariableUsage" referenceName="callAction_VariableUsage"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Links">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="controlFlowCreation" label="Control Flow" edgeMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@edgeMappings[name='seffControlFlow']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="successor_AbstractAction" valueExpression="var:target">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:target">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="predecessor_AbstractAction" valueExpression="var:source"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
       </defaultLayer>
     </ownedRepresentations>
   </ownedViewpoints>
