@@ -316,7 +316,7 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="parameter.VariableCharacterisation" referenceName="variableCharacterisation_VariableUsage">
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self/]">
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="core.PCMRandomVariable" referenceName="specification_VariableCharacterisation">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="specification" valueExpression="1"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="specification" valueExpression="['1'/]"/>
                     </subModelOperations>
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="STRUCTURE"/>
                   </subModelOperations>
