@@ -9,6 +9,7 @@
       <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.1#//seff/seff_reliability"/>
       <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.1#//reliability"/>
       <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core"/>
+      <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.1#//repository"/>
       <defaultLayer name="Default">
         <nodeMappings name="seffStartNode" semanticCandidatesExpression="[steps_Behaviour/]" domainClass="seff.StartAction">
           <style xsi:type="style:DotDescription" showIcon="false" labelExpression="" hideLabelByDefault="true">
@@ -41,7 +42,7 @@
           </style>
         </edgeMappings>
         <containerMappings name="seffInternalAction" semanticCandidatesExpression="[steps_Behaviour/]" domainClass="seff.InternalAction" childrenPresentation="VerticalStack">
-          <borderedNodeMappings name="seffInternalActionName" semanticCandidatesExpression="[self/]" domainClass="seff.InternalAction">
+          <borderedNodeMappings name="seffInternalActionName" labelDirectEdit="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='directEditNameBySingleClick']" semanticCandidatesExpression="[self/]" domainClass="seff.InternalAction">
             <style xsi:type="style:SquareDescription" labelExpression="[self.entityName/]" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="10" height="3">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -213,8 +214,23 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
           </style>
         </containerMappings>
-        <containerMappings name="seffCollectionIteratorAction" semanticCandidatesExpression="[steps_Behaviour/]" domainClass="seff.CollectionIteratorAction">
-          <style xsi:type="style:FlatContainerStyleDescription" labelExpression="">
+        <containerMappings name="seffCollectionIteratorAction" semanticCandidatesExpression="[steps_Behaviour/]" domainClass="seff.CollectionIteratorAction" childrenPresentation="VerticalStack">
+          <borderedNodeMappings name="seffCollectionIteratorActionName" labelDirectEdit="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='directEditNameBySingleClick']" semanticCandidatesExpression="[self/]" domainClass="seff.CollectionIteratorAction">
+            <style xsi:type="style:SquareDescription" labelExpression="[self.entityName/]" labelPosition="node" resizeKind="NSEW" width="15" height="4">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </borderedNodeMappings>
+          <subContainerMappings name="seffCollectionIteratorActionBehaviour" semanticCandidatesExpression="[self.bodyBehaviour_Loop/]" domainClass="seff.ResourceDemandingBehaviour" reusedNodeMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@nodeMappings[name='seffStartNode'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@nodeMappings[name='seffStopNode']" reusedContainerMappings="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffAcquireAction'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffBranchAction'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffCollectionIteratorAction'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffEmitEventAction'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffExternalCallAction'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffForkAction'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffInternalAction'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffInternalCallAction'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffLoop'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffRecoveryAction'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffReleaseAction'] //@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@containerMappings[name='seffSetVariableAction']">
+            <style xsi:type="style:FlatContainerStyleDescription" labelExpression="" widthComputationExpression="19" heightComputationExpression="4">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" labelExpression="['&lt;&lt;CollectionIteratorAction>> \n Param: ' + self.parameter_CollectionIteratorAction.parameterName/]">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -222,8 +238,15 @@
           </style>
         </containerMappings>
         <containerMappings name="seffBranchAction" semanticCandidatesExpression="[steps_Behaviour/]" domainClass="seff.BranchAction">
+          <borderedNodeMappings name="seffBranchName" labelDirectEdit="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='directEditNameBySingleClick']" semanticCandidatesExpression="[self/]" domainClass="seff.BranchAction">
+            <style xsi:type="style:SquareDescription" labelExpression="[self.entityName/]" labelPosition="node" resizeKind="NSEW" width="15" height="3">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </borderedNodeMappings>
           <subContainerMappings name="seffGuardedBranchTransition" semanticCandidatesExpression="[self.branches_Branch/]" domainClass="seff.GuardedBranchTransition" childrenPresentation="VerticalStack">
-            <borderedNodeMappings name="seffGuardedBranchTransitionName" semanticCandidatesExpression="[self/]" domainClass="seff.GuardedBranchTransition">
+            <borderedNodeMappings name="seffGuardedBranchTransitionName" labelDirectEdit="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='directEditNameBySingleClick']" semanticCandidatesExpression="[self/]" domainClass="seff.GuardedBranchTransition">
               <style xsi:type="style:SquareDescription" labelExpression="[self.entityName/]" labelPosition="node" resizeKind="NSEW" width="15" height="3">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -246,7 +269,7 @@
             </style>
           </subContainerMappings>
           <subContainerMappings name="seffProbabilisticBranchTransition" semanticCandidatesExpression="[self.branches_Branch/]" domainClass="seff.ProbabilisticBranchTransition" childrenPresentation="VerticalStack">
-            <borderedNodeMappings name="seffProbabilisticTransitionName" semanticCandidatesExpression="[self/]" domainClass="seff.ProbabilisticBranchTransition">
+            <borderedNodeMappings name="seffProbabilisticTransitionName" labelDirectEdit="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='directEditNameBySingleClick']" semanticCandidatesExpression="[self/]" domainClass="seff.ProbabilisticBranchTransition">
               <style xsi:type="style:SquareDescription" labelExpression="[self.entityName/]" labelPosition="node" resizeKind="NSEW" width="15" height="3">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -268,7 +291,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" labelExpression="['&lt;&lt;Branch>>\n'+self.entityName/]" widthComputationExpression="30" heightComputationExpression="20">
+          <style xsi:type="style:FlatContainerStyleDescription" labelExpression="['&lt;&lt;Branch>>\n'/]" widthComputationExpression="30" heightComputationExpression="20">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -276,7 +299,7 @@
           </style>
         </containerMappings>
         <containerMappings name="seffForkAction" semanticCandidatesExpression="[steps_Behaviour/]" domainClass="seff.ForkAction">
-          <borderedNodeMappings name="seffForkActionName" semanticCandidatesExpression="[self/]" domainClass="seff.ForkAction">
+          <borderedNodeMappings name="seffForkActionName" labelDirectEdit="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='directEditNameBySingleClick']" semanticCandidatesExpression="[self/]" domainClass="seff.ForkAction">
             <style xsi:type="style:SquareDescription" labelExpression="[self.entityName/]" sizeComputationExpression="[self.entityName.size()/]" labelPosition="node" resizeKind="NSEW" width="15" height="3">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -315,7 +338,7 @@
           </style>
         </containerMappings>
         <containerMappings name="seffRecoveryAction" semanticCandidatesExpression="[steps_Behaviour/]" domainClass="seff_reliability.RecoveryAction">
-          <borderedNodeMappings name="seffRecoveryActionName" semanticCandidatesExpression="[self/]" domainClass="seff_reliability.RecoveryAction">
+          <borderedNodeMappings name="seffRecoveryActionName" labelDirectEdit="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='directEditNameBySingleClick']" semanticCandidatesExpression="[self/]" domainClass="seff_reliability.RecoveryAction">
             <style xsi:type="style:SquareDescription" labelExpression="[self.entityName/]" sizeComputationExpression="[self.entityName.size()/]" labelPosition="node" resizeKind="NSEW" width="15" height="3">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -323,7 +346,7 @@
             </style>
           </borderedNodeMappings>
           <subContainerMappings name="seffRestRecoveryActionBehaviour" semanticCandidatesExpression="[self.recoveryActionBehaviours__RecoveryAction/]" domainClass="seff_reliability.RecoveryActionBehaviour">
-            <borderedNodeMappings name="seffRecoveryActionBehaviourName" semanticCandidatesExpression="[self/]" domainClass="seff_reliability.RecoveryActionBehaviour">
+            <borderedNodeMappings name="seffRecoveryActionBehaviourName" labelDirectEdit="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='directEditNameBySingleClick']" semanticCandidatesExpression="[self/]" domainClass="seff_reliability.RecoveryActionBehaviour">
               <style xsi:type="style:SquareDescription" labelExpression="[self.entityName/]" labelPosition="node" resizeKind="EAST_WEST" width="15" height="3">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -345,7 +368,7 @@
           </style>
         </containerMappings>
         <containerMappings name="seffLoop" semanticCandidatesExpression="[self.steps_Behaviour/]" domainClass="seff.LoopAction">
-          <borderedNodeMappings name="seffLoopName" semanticCandidatesExpression="[self/]" domainClass="seff.LoopAction">
+          <borderedNodeMappings name="seffLoopName" labelDirectEdit="//@ownedViewpoints[name='seff']/@ownedRepresentations[name='Seff%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='directEditNameBySingleClick']" semanticCandidatesExpression="[self/]" domainClass="seff.LoopAction">
             <style xsi:type="style:SquareDescription" labelExpression="[self.entityName/]" labelPosition="node" resizeKind="NSEW" width="15" height="5">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -467,7 +490,19 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.CollectionIteratorAction" referenceName="steps_Behaviour"/>
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.CollectionIteratorAction" referenceName="steps_Behaviour">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="repository.Parameter" referenceName="parameter_CollectionIteratorAction" variableName="param">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="parameterName" valueExpression="ids"/>
+                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.ResourceDemandingBehaviour" referenceName="bodyBehaviour_Loop" variableName="behaviour">
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:behaviour">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.StartAction" referenceName="steps_Behaviour" variableName="start"/>
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.StopAction" referenceName="steps_Behaviour" variableName="stop"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -495,6 +530,14 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff_reliability.RecoveryAction" referenceName="steps_Behaviour"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" documentation="Makes it possible to edit the given name of a diagram element directly by clicking on it with a single mouse click" name="directEditNameBySingleClick">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:0">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="entityName" valueExpression="var:arg0"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -559,17 +602,37 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:Switch">
-                  <cases conditionExpression="[self.eClass().name.equalsIgnoreCase('LoopAction')/]">
-                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.ResourceDemandingBehaviour" referenceName="bodyBehaviour_Loop"/>
+                  <cases conditionExpression="[self.eClass().name.equalsIgnoreCase('LoopAction') or self.eClass().name.equalsIgnoreCase('CollectionIteratorAction')/]">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.ResourceDemandingBehaviour" referenceName="bodyBehaviour_Loop" variableName="behaviour">
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:behaviour">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.StartAction" referenceName="steps_Behaviour" variableName="start"/>
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.StopAction" referenceName="steps_Behaviour" variableName="stop"/>
+                      </subModelOperations>
+                    </subModelOperations>
                   </cases>
                   <cases conditionExpression="[self.eClass().name.equalsIgnoreCase('ForkAction')/]">
-                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.ForkedBehaviour" referenceName="asynchronousForkedBehaviours_ForkAction"/>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.ForkedBehaviour" referenceName="asynchronousForkedBehaviours_ForkAction" variableName="behaviour">
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:behaviour">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.StartAction" referenceName="steps_Behaviour" variableName="start"/>
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.StopAction" referenceName="steps_Behaviour" variableName="stop"/>
+                      </subModelOperations>
+                    </subModelOperations>
                   </cases>
                   <cases conditionExpression="[self.eClass().name.equalsIgnoreCase('SynchronisationPoint')/]">
-                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.ForkedBehaviour" referenceName="synchronousForkedBehaviours_SynchronisationPoint"/>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.ForkedBehaviour" referenceName="synchronousForkedBehaviours_SynchronisationPoint" variableName="behaviour">
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:behaviour">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.StartAction" referenceName="steps_Behaviour" variableName="start"/>
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.StopAction" referenceName="steps_Behaviour" variableName="stop"/>
+                      </subModelOperations>
+                    </subModelOperations>
                   </cases>
                   <default>
-                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.ResourceDemandingBehaviour" referenceName="branchBehaviour_BranchTransition"/>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.ResourceDemandingBehaviour" referenceName="branchBehaviour_BranchTransition" variableName="behaviour">
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:behaviour">
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.StartAction" referenceName="steps_Behaviour" variableName="start"/>
+                        <subModelOperations xsi:type="tool_1:CreateInstance" typeName="seff.StopAction" referenceName="steps_Behaviour" variableName="stop"/>
+                      </subModelOperations>
+                    </subModelOperations>
                   </default>
                 </subModelOperations>
               </firstModelOperations>
