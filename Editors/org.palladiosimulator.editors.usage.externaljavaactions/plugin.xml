@@ -43,5 +43,33 @@
             id="org.palladiosimulator.editors.usage.externaljavaactions.systemcall">
       </javaActions>
    </extension>
+   <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.palladiosimulator.editors.seff.externaljavaactions.DeleteRecoveryFlow"
+            id="org.palladiosimulator.editors.seff.externaljavaactions.deleteRecoveryFlow">
+      </javaActions>
+   </extension>
+   <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.palladiosimulator.editors.seff.externaljavaactions.ResourceDemandOpenStoexDialog"
+            id="org.palladiosimulator.editors.seff.externaljavaactions.resourceDemand">
+      </javaActions>
+   </extension>
+   <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.palladiosimulator.editors.seff.externaljavaactions.GuardedBranchTransistionConditionDialog"
+            id="org.palladiosimulator.editors.seff.externaljavaactions.guardedBranchTransition">
+      </javaActions>
+   </extension>
+   <extension
+         point="org.eclipse.sirius.externalJavaAction">
+      <javaActions
+            actionClass="org.palladiosimulator.editors.seff.externaljavaactions.LoopIterationCountDialog"
+            id="org.palladiosimulator.editors.seff.externaljavaactions.loopIterationCount">
+      </javaActions>
+   </extension>
 
 </plugin>

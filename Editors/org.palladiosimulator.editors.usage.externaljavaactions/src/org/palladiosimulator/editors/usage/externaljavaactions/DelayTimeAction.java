@@ -3,7 +3,6 @@ package org.palladiosimulator.editors.usage.externaljavaactions;
 import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.sirius.diagram.DNodeListElement;
 import org.palladiosimulator.editors.ui.dialog.OpenStoExDialog;
 import org.palladiosimulator.pcm.usagemodel.Delay;
 
@@ -18,8 +17,8 @@ public class DelayTimeAction extends OpenStoExDialog {
 	}
 
 	@Override
-	public RandomVariable getRandomVariable(DNodeListElement element) {
-		Delay d = (Delay) element.getTarget();
+	public RandomVariable getRandomVariable(EObject element) {
+		Delay d = (Delay) element;
 		return d.getTimeSpecification_Delay();
 	}
 

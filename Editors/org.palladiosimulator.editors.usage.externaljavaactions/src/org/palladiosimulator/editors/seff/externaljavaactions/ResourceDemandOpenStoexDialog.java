@@ -1,18 +1,14 @@
-package org.palladiosimulator.editors.usage.externaljavaactions;
+package org.palladiosimulator.editors.seff.externaljavaactions;
 
 import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.editors.ui.dialog.OpenStoExDialog;
-import org.palladiosimulator.pcm.usagemodel.OpenWorkload;
+import org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand;
 
 import de.uka.ipd.sdq.stoex.RandomVariable;
 
-public class OpenWorkloadInterArrivalTimeAction extends OpenStoExDialog {
-
-	public OpenWorkloadInterArrivalTimeAction() {
-
-	}
+public class ResourceDemandOpenStoexDialog extends OpenStoExDialog {
 
 	@Override
 	public boolean canExecute(Collection<? extends EObject> arg0) {
@@ -21,8 +17,8 @@ public class OpenWorkloadInterArrivalTimeAction extends OpenStoExDialog {
 
 	@Override
 	public RandomVariable getRandomVariable(EObject element) {
-		OpenWorkload ow = (OpenWorkload) element;
-		return ow.getInterArrivalTime_OpenWorkload();
+		ParametricResourceDemand rd = (ParametricResourceDemand) element;
+		return rd.getSpecification_ParametericResourceDemand();
 	}
 
 }

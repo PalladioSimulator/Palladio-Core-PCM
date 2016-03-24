@@ -3,7 +3,6 @@ package org.palladiosimulator.editors.usage.externaljavaactions;
 import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.sirius.diagram.DNodeListElement;
 import org.palladiosimulator.editors.ui.dialog.OpenStoExDialog;
 import org.palladiosimulator.pcm.core.PCMRandomVariable;
 import org.palladiosimulator.pcm.usagemodel.ClosedWorkload;
@@ -23,12 +22,12 @@ public class ClosedWorkloadThinkTimeAction extends OpenStoExDialog {
 	}
 
 	@Override
-	public RandomVariable getRandomVariable(DNodeListElement element) {
-		ClosedWorkload workload = (ClosedWorkload) element.getTarget();
+	public RandomVariable getRandomVariable(EObject element) {
+		ClosedWorkload workload = (ClosedWorkload) element;
 		PCMRandomVariable rv = workload.getThinkTime_ClosedWorkload();
 		return rv;
 	}
-	
+
 	@Override
 	protected TypeEnum getExpectedType(RandomVariable rv) {
 		return TypeEnum.DOUBLE;

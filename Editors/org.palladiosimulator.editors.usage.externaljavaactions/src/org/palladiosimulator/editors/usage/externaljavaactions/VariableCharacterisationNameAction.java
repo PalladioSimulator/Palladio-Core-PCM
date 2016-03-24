@@ -3,7 +3,6 @@ package org.palladiosimulator.editors.usage.externaljavaactions;
 import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.sirius.diagram.DNodeListElement;
 import org.palladiosimulator.editors.ui.dialog.OpenStoExDialog;
 import org.palladiosimulator.pcm.parameter.VariableCharacterisation;
 
@@ -20,8 +19,8 @@ public class VariableCharacterisationNameAction extends OpenStoExDialog {
 	}
 
 	@Override
-	public RandomVariable getRandomVariable(DNodeListElement element) {
-		VariableCharacterisation vc = (VariableCharacterisation) element.getTarget();
+	public RandomVariable getRandomVariable(EObject element) {
+		VariableCharacterisation vc = (VariableCharacterisation) element;
 		return vc.getSpecification_VariableCharacterisation();
 	}
 

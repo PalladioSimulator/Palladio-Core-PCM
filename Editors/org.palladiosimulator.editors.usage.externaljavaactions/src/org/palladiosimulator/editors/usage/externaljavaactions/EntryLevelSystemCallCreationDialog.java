@@ -1,6 +1,5 @@
 package org.palladiosimulator.editors.usage.externaljavaactions;
 
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
@@ -27,13 +26,19 @@ import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour;
 import org.palladiosimulator.pcm.usagemodel.UsageModel;
 import org.palladiosimulator.pcm.usagemodel.UsagemodelFactory;
 
+/**
+ * This dialog doesn't work as intended and should be rewritten!
+ * 
+ * @author Michael
+ *
+ */
 public class EntryLevelSystemCallCreationDialog implements IExternalJavaAction {
 
 	@Override
 	public boolean canExecute(Collection<? extends EObject> arg0) {
 		return true;
 	}
-	
+
 	private UsageModel getModel(ScenarioBehaviour beh) {
 		EObject element = beh;
 		while (!(element instanceof UsageModel)) {
@@ -46,17 +51,19 @@ public class EntryLevelSystemCallCreationDialog implements IExternalJavaAction {
 	public void execute(Collection<? extends EObject> arg0, Map<String, Object> arg1) {
 		Object element = (Object) arg0.iterator().next();
 		ScenarioBehaviour beh = (ScenarioBehaviour) element;
-		
-		EntryLevelSystemCall newElement = UsagemodelFactory.eINSTANCE.createEntryLevelSystemCall();
-        beh.getActions_ScenarioBehaviour().add(newElement);
 
-        UsageModel usage = getModel(beh);
-        Collection<Profile> profiles = IProfileRegistry.eINSTANCE.getRegisteredProfiles();
-        
-        AdapterFactoryEditingDomain domain = new AdapterFactoryEditingDomain(new AdapterFactoryImpl(), new BasicCommandStack());
-        
-        System.out.println(newElement.eResource().getResourceSet().getResources());
-        Resource r = newElement.eResource().getResourceSet().getResource(URI.createURI("platform:/resource/MediaStoreExample/PrioritizingMediaStore.system"), true);
+		EntryLevelSystemCall newElement = UsagemodelFactory.eINSTANCE.createEntryLevelSystemCall();
+		beh.getActions_ScenarioBehaviour().add(newElement);
+
+		UsageModel usage = getModel(beh);
+		Collection<Profile> profiles = IProfileRegistry.eINSTANCE.getRegisteredProfiles();
+
+		AdapterFactoryEditingDomain domain = new AdapterFactoryEditingDomain(new AdapterFactoryImpl(),
+				new BasicCommandStack());
+
+		System.out.println(newElement.eResource().getResourceSet().getResources());
+		Resource r = newElement.eResource().getResourceSet()
+				.getResource(URI.createURI("platform:/resource/MediaStoreExample/PrioritizingMediaStore.system"), true);
 		OperationSignature signature = null;
 		OperationProvidedRole providedRole = null;
 		ArrayList<Object> filterList = new ArrayList<Object>();
