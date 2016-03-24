@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.editors.ui.dialog.OpenStoExDialog;
-import org.palladiosimulator.pcm.usagemodel.Loop;
+import org.palladiosimulator.pcm.seff.LoopAction;
 
 import de.uka.ipd.sdq.stoex.RandomVariable;
 
@@ -17,8 +17,8 @@ public class LoopIterationCountDialog extends OpenStoExDialog {
 
 	@Override
 	public RandomVariable getRandomVariable(EObject element) {
-		Loop l = (Loop) element;
-		return l.getLoopIteration_Loop();
+		LoopAction l = (LoopAction) element;
+		return l.getIterationCount_LoopAction();
 	}
 
 }

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.DNodeListElement;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
@@ -25,6 +26,8 @@ public abstract class OpenStoExDialog implements IExternalJavaAction {
 			rv = getRandomVariable(((DNodeListElement) check).getTarget());
 		} else if (check instanceof DNodeContainer) {
 			rv = getRandomVariable(((DNodeContainer) check).getTarget());
+		} else if (check instanceof DNode) {
+			rv = getRandomVariable(((DNode) check).getTarget());
 		}
 		StochasticExpressionEditDialog dialog = new StochasticExpressionEditDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(), getExpectedType(rv));
