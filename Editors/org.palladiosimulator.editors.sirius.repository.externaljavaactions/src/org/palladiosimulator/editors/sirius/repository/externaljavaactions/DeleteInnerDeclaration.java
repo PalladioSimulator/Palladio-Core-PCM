@@ -1,4 +1,4 @@
-package repositoryexternalactions;
+package org.palladiosimulator.editors.sirius.repository.externaljavaactions;
 
 import java.util.ArrayList;
 import java.util.Collection;

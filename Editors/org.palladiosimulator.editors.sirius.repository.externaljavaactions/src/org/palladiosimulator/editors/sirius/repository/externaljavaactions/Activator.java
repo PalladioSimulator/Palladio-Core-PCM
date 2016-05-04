@@ -1,4 +1,4 @@
-package repositoryexternalactions;
+package org.palladiosimulator.editors.sirius.repository.externaljavaactions;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
