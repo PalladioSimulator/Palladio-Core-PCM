@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: repository.design
 Bundle-SymbolicName: org.palladiosimulator.editors.sirius.repository;singleton:=true
 Bundle-Version: 1.0.0
-Bundle-Activator: repository.design.Activator
+Bundle-Activator: org.palladiosimulator.editors.sirius.repository.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
