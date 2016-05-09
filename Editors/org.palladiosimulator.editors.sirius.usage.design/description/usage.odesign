@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="usage" version="10.0.0.201505222000">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="usage" version="10.1.0.201507271600">
   <ownedViewpoints name="usagemodel" modelFileExtension="*.usagemodel">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="usagemodel_diagram" domainClass="usagemodel.UsageModel" rootExpression="[self/]">
       <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.1#//usagemodel"/>
       <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.1#//core"/>
       <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.1#//system"/>
       <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.1#//allocation"/>
+      <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.1#//parameter"/>
       <defaultLayer name="Default">
         <nodeMappings name="userData" semanticCandidatesExpression="[self.userData_UsageModel/]" domainClass="usagemodel.UserData">
           <style xsi:type="style:NoteDescription" labelExpression="[self/]" labelPosition="node" resizeKind="NSEW">
@@ -22,20 +23,18 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="usageScenario" semanticCandidatesExpression="[self.usageScenario_UsageModel/]" domainClass="usagemodel.UsageScenario">
+        <containerMappings name="usageScenario" labelDirectEdit="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Edit%20Name']" semanticCandidatesExpression="[self.usageScenario_UsageModel/]" domainClass="usagemodel.UsageScenario">
           <subContainerMappings name="scenarioBehavior" semanticCandidatesExpression="[self.scenarioBehaviour_UsageScenario/]" domainClass="usagemodel.ScenarioBehaviour">
             <subNodeMappings name="start" semanticCandidatesExpression="feature:actions_ScenarioBehaviour" domainClass="usagemodel.Start">
-              <style xsi:type="style:DotDescription" labelExpression="">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.palladiosimulator.editors.sirius.usage.design/icons/start.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="stop" semanticCandidatesExpression="feature:actions_ScenarioBehaviour" domainClass="usagemodel.Stop">
-              <style xsi:type="style:DotDescription" borderSizeComputationExpression="5" labelExpression="" sizeComputationExpression="4" strokeSizeComputationExpression="4">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/org.palladiosimulator.editors.sirius.usage.design/icons/end.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subContainerMappings name="branch" semanticCandidatesExpression="feature:actions_ScenarioBehaviour" domainClass="usagemodel.Branch">
@@ -94,23 +93,15 @@
               </style>
             </subContainerMappings>
             <subContainerMappings name="entryLevelSystemCall" semanticCandidatesExpression="feature:actions_ScenarioBehaviour" domainClass="usagemodel.EntryLevelSystemCall">
-              <subContainerMappings name="variableUsage" semanticCandidatesExpression="feature:inputParameterUsages_EntryLevelSystemCall" domainClass="parameter.VariableUsage">
-                <subContainerMappings name="variableCharacterisation" semanticCandidatesExpression="[self.variableCharacterisation_VariableUsage/]" domainClass="parameter.VariableCharacterisation" childrenPresentation="List">
-                  <subNodeMappings name="varCharName" semanticCandidatesExpression="[self/]" doubleClickDescription="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='variableCharacterisationEditDialog']" domainClass="parameter.VariableCharacterisation">
-                    <style xsi:type="style:BundledImageDescription" labelExpression="[self.type + ' = ' + self.specification_VariableCharacterisation.specification/]" resizeKind="NSEW">
-                      <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                      <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                    </style>
-                  </subNodeMappings>
-                  <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" showIcon="false" labelExpression="VariableCharacterisation">
+              <subContainerMappings name="variableUsage" semanticCandidatesExpression="feature:inputParameterUsages_EntryLevelSystemCall" domainClass="parameter.VariableUsage" childrenPresentation="List">
+                <subNodeMappings name="variableCharacterisation" semanticCandidatesExpression="feature:variableCharacterisation_VariableUsage" doubleClickDescription="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='variableCharacterisationEditDialog']" domainClass="parameter.VariableCharacterisation">
+                  <style xsi:type="style:SquareDescription" labelExpression="aql:self.type + ' = ' + self.specification_VariableCharacterisation.specification" labelPosition="node" resizeKind="NSEW">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                     <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                    <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
                   </style>
-                </subContainerMappings>
-                <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" labelExpression="[self.namedReference__VariableUsage.referenceName/]">
+                </subNodeMappings>
+                <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" labelExpression="Variable Usage">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -190,7 +181,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" labelExpression="[self.entityName/]" backgroundStyle="GradientTopToBottom">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="1" arcHeight="1" borderSizeComputationExpression="1" labelExpression="[self.entityName/]" backgroundStyle="GradientTopToBottom">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -203,7 +194,9 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.Start" referenceName="actions_ScenarioBehaviour" variableName="start"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[container.eAllContents()->selectByType(Start)->size() = 0/]">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.Start" referenceName="actions_ScenarioBehaviour" variableName="start"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -212,7 +205,9 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.Stop" referenceName="actions_ScenarioBehaviour" variableName="Stop"/>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="[container.eAllContents()->selectByType(Stop)->size() = 0/]">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.Stop" referenceName="actions_ScenarioBehaviour" variableName="Stop"/>
+                </subModelOperations>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -308,18 +303,16 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ContainerCreationDescription" name="VariableCharacterisationCreation" label="Variable Characterisation" containerMappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='entryLevelSystemCall']/@subContainerMappings[name='variableUsage']/@subContainerMappings[name='variableCharacterisation']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="VariableCharacterisation" nodeMappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='entryLevelSystemCall']/@subContainerMappings[name='variableUsage']/@subNodeMappings[name='variableCharacterisation']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="parameter.VariableCharacterisation" referenceName="variableCharacterisation_VariableUsage">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self/]">
-                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="core.PCMRandomVariable" referenceName="specification_VariableCharacterisation">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="specification" valueExpression="['1'/]"/>
-                    </subModelOperations>
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="STRUCTURE"/>
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="core.PCMRandomVariable" referenceName="specification_VariableCharacterisation">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="specification" valueExpression="['1'/]"/>
                   </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="type" valueExpression="STRUCTURE"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -359,11 +352,13 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="variableCharacterisationEditDialog" mappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='entryLevelSystemCall']/@subContainerMappings[name='variableUsage']/@subContainerMappings[name='variableCharacterisation']/@subNodeMappings[name='varCharName']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="variableCharacterisationEditDialog" mappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='entryLevelSystemCall']/@subContainerMappings[name='variableUsage']/@subNodeMappings[name='variableCharacterisation']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="varCharNameDialog" id="org.palladiosimulator.editors.usage.externaljavaactions.varcharname"/>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="varCharNameDialog" id="org.palladiosimulator.editors.usage.externaljavaactions.varcharname">
+                <parameters name="elementView" value="[elementView/]"/>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -453,6 +448,12 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="usagemodel.UserData" referenceName="userData_UsageModel"/>
               </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DirectEditLabel" name="Edit Name">
+            <mask mask="{0}"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="entityName" valueExpression="var:0"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
