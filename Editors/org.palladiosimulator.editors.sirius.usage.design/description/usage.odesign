@@ -26,13 +26,13 @@
         <containerMappings name="usageScenario" labelDirectEdit="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Edit%20Name']" semanticCandidatesExpression="[self.usageScenario_UsageModel/]" domainClass="usagemodel.UsageScenario">
           <subContainerMappings name="scenarioBehavior" labelDirectEdit="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Edit%20Name']" semanticCandidatesExpression="[self.scenarioBehaviour_UsageScenario/]" domainClass="usagemodel.ScenarioBehaviour">
             <subNodeMappings name="start" semanticCandidatesExpression="feature:actions_ScenarioBehaviour" domainClass="usagemodel.Start">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" labelPosition="node" workspacePath="/org.palladiosimulator.editors.sirius.usage.design/icons/start.png">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" labelPosition="node" workspacePath="/org.palladiosimulator.editors.usage.design/icons/start.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
             </subNodeMappings>
             <subNodeMappings name="stop" semanticCandidatesExpression="feature:actions_ScenarioBehaviour" domainClass="usagemodel.Stop">
-              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="4" labelPosition="node" workspacePath="/org.palladiosimulator.editors.sirius.usage.design/icons/end.png">
+              <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="4" labelPosition="node" workspacePath="/org.palladiosimulator.editors.usage.design/icons/end.png">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </style>
@@ -62,7 +62,7 @@
               </style>
             </subContainerMappings>
             <subContainerMappings name="loop" semanticCandidatesExpression="feature:actions_ScenarioBehaviour" domainClass="usagemodel.Loop" childrenPresentation="VerticalStack">
-              <subContainerMappings name="loopIterations" labelDirectEdit="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='est']" semanticCandidatesExpression="[self/]" domainClass="usagemodel.Loop" childrenPresentation="List">
+              <subContainerMappings name="loopIterations" semanticCandidatesExpression="[self/]" domainClass="usagemodel.Loop" childrenPresentation="List">
                 <subNodeMappings name="iterationsNode" semanticCandidatesExpression="[self/]" doubleClickDescription="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='doubleClickLoopIterationsDialog']" domainClass="usagemodel.Loop">
                   <style xsi:type="style:NoteDescription" showIcon="false" labelExpression="['Iterations: ' + self.loopIteration_Loop.specification/]" labelPosition="node" resizeKind="NSEW">
                     <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -231,7 +231,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="entryLevelSystemCallAction" id="org.palladiosimulator.editors.usage.externaljavaactions.systemcall"/>
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="entryLevelSystemCallAction" id="EntryLevelSystemCallCreationDialog"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -276,20 +276,14 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="delayTimeDialog" id="org.palladiosimulator.editors.usage.externaljavaactions.delaytime"/>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="delayTimeDialog" id="DelayTimeAction"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DoubleClickDescription" name="doubleClickLoopIterationsDialog" mappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='loop']/@subContainerMappings[name='loopIterations']/@subNodeMappings[name='iterationsNode']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="loopIterationsAction" id="org.palladiosimulator.editors.usage.externaljavaactions.loopiterations"/>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:DirectEditLabel" name="est">
-            <mask mask="{0}"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="test" id="org.palladiosimulator.editors.usage.externaljavaactions.loopiterations"/>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="loopIterationsAction" id="LoopIterationsAction"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -356,7 +350,7 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="varCharNameDialog" id="org.palladiosimulator.editors.usage.externaljavaactions.varcharname">
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="varCharNameDialog" id="VariableCharacterisationNameAction">
                 <parameters name="elementView" value="[elementView/]"/>
               </firstModelOperations>
             </initialOperation>
@@ -420,14 +414,14 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="thinkTimeDialog" id="org.palladiosimulator.editors.sirius.usage.design.closedWorkloadThinkTime"/>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="thinkTimeDialog" id="ClosedWorkloadThinkTimeAction"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DoubleClickDescription" name="openWorkloadInterArrivalTimeDialog" mappings="//@ownedViewpoints[name='usagemodel']/@ownedRepresentations[name='usagemodel_diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='openWorkload']/@subNodeMappings[name='interArrivalTime']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="interArrivalTimeDialog" id="org.palladiosimulator.editors.usage.externaljavaactions.interarrivaltime"/>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="interArrivalTimeDialog" id="OpenWorkloadInterArrivalTimeAction"/>
             </initialOperation>
           </ownedTools>
         </toolSections>

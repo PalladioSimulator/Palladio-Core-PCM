@@ -1,4 +1,4 @@
-package org.palladiosimulator.editors.sirius.usage.design;
+package org.palladiosimulator.editors.usage.design;
 
 import java.util.HashSet;
 import java.util.Set;
