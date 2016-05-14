@@ -12,13 +12,13 @@
       <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.1#//repository"/>
       <defaultLayer name="Default">
         <nodeMappings name="StartNode" semanticCandidatesExpression="[steps_Behaviour/]" domainClass="seff.StartAction">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" labelPosition="node" workspacePath="/org.palladiosimulator.editors.sirius.seff.design/icons/start.png">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" labelPosition="node" workspacePath="/org.palladiosimulator.editors.seff.design/icons/start.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </nodeMappings>
         <nodeMappings name="StopNode" semanticCandidatesExpression="[steps_Behaviour/]" domainClass="seff.StopAction">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="4" labelPosition="node" workspacePath="/org.palladiosimulator.editors.sirius.seff.design/icons/end.png">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="" sizeComputationExpression="4" labelPosition="node" workspacePath="/org.palladiosimulator.editors.seff.design/icons/end.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
@@ -485,7 +485,7 @@
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="seffLoopIterationCountDialog" id="org.palladiosimulator.editors.seff.externaljavaactions.loopIterationCount"/>
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="seffLoopIterationCountDialog" id="LoopIterationCountDialog"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -657,7 +657,7 @@
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="seffVariableCharacterisationStoEx" id="org.palladiosimulator.editors.usage.externaljavaactions.varcharname"/>
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="seffVariableCharacterisationStoEx" id="VariableCharacterisationNameAction"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -666,7 +666,7 @@
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="seffResourceDemandDialog" id="org.palladiosimulator.editors.seff.externaljavaactions.resourceDemand"/>
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="seffResourceDemandDialog" id="ResourceDemandOpenStoexDialog"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -675,7 +675,7 @@
             <elementView name="elementView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="seffGuardedBranchTransistionDialog" id="org.palladiosimulator.editors.seff.externaljavaactions.guardedBranchTransition"/>
+                <subModelOperations xsi:type="tool_1:ExternalJavaAction" name="seffGuardedBranchTransistionDialog" id="GuardedBranchTransistionConditionDialog"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>

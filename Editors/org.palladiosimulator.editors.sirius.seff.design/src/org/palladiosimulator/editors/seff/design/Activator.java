@@ -1,4 +1,4 @@
-package org.palladiosimulator.editors.sirius.seff.design;
+package org.palladiosimulator.editors.seff.design;
 
 import java.util.HashSet;
 import java.util.Set;
