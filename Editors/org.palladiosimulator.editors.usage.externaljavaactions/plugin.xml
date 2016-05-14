@@ -5,70 +5,42 @@
          point="org.eclipse.sirius.externalJavaAction">
       <javaActions
             actionClass="org.palladiosimulator.editors.usage.externaljavaactions.ClosedWorkloadThinkTimeAction"
-            id="org.palladiosimulator.editors.sirius.usage.design.closedWorkloadThinkTime">
+            id="ClosedWorkloadThinkTimeAction">
       </javaActions>
    </extension>
    <extension
          point="org.eclipse.sirius.externalJavaAction">
       <javaActions
             actionClass="org.palladiosimulator.editors.usage.externaljavaactions.VariableCharacterisationNameAction"
-            id="org.palladiosimulator.editors.usage.externaljavaactions.varcharname">
+            id="VariableCharacterisationNameAction">
       </javaActions>
    </extension>
    <extension
          point="org.eclipse.sirius.externalJavaAction">
       <javaActions
             actionClass="org.palladiosimulator.editors.usage.externaljavaactions.DelayTimeAction"
-            id="org.palladiosimulator.editors.usage.externaljavaactions.delaytime">
+            id="DelayTimeAction">
       </javaActions>
    </extension>
    <extension
          point="org.eclipse.sirius.externalJavaAction">
       <javaActions
             actionClass="org.palladiosimulator.editors.usage.externaljavaactions.OpenWorkloadInterArrivalTimeAction"
-            id="org.palladiosimulator.editors.usage.externaljavaactions.interarrivaltime">
+            id="OpenWorkloadInterArrivalTimeAction">
       </javaActions>
    </extension>
    <extension
          point="org.eclipse.sirius.externalJavaAction">
       <javaActions
             actionClass="org.palladiosimulator.editors.usage.externaljavaactions.LoopIterationsAction"
-            id="org.palladiosimulator.editors.usage.externaljavaactions.loopiterations">
+            id="LoopIterationsAction">
       </javaActions>
    </extension>
    <extension
          point="org.eclipse.sirius.externalJavaAction">
       <javaActions
             actionClass="org.palladiosimulator.editors.usage.externaljavaactions.EntryLevelSystemCallCreationDialog"
-            id="org.palladiosimulator.editors.usage.externaljavaactions.systemcall">
-      </javaActions>
-   </extension>
-   <extension
-         point="org.eclipse.sirius.externalJavaAction">
-      <javaActions
-            actionClass="org.palladiosimulator.editors.seff.externaljavaactions.DeleteRecoveryFlow"
-            id="org.palladiosimulator.editors.seff.externaljavaactions.deleteRecoveryFlow">
-      </javaActions>
-   </extension>
-   <extension
-         point="org.eclipse.sirius.externalJavaAction">
-      <javaActions
-            actionClass="org.palladiosimulator.editors.seff.externaljavaactions.ResourceDemandOpenStoexDialog"
-            id="org.palladiosimulator.editors.seff.externaljavaactions.resourceDemand">
-      </javaActions>
-   </extension>
-   <extension
-         point="org.eclipse.sirius.externalJavaAction">
-      <javaActions
-            actionClass="org.palladiosimulator.editors.seff.externaljavaactions.GuardedBranchTransistionConditionDialog"
-            id="org.palladiosimulator.editors.seff.externaljavaactions.guardedBranchTransition">
-      </javaActions>
-   </extension>
-   <extension
-         point="org.eclipse.sirius.externalJavaAction">
-      <javaActions
-            actionClass="org.palladiosimulator.editors.seff.externaljavaactions.LoopIterationCountDialog"
-            id="org.palladiosimulator.editors.seff.externaljavaactions.loopIterationCount">
+            id="EntryLevelSystemCallCreationDialog">
       </javaActions>
    </extension>
 
