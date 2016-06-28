@@ -16,23 +16,20 @@ PCM Editors build.
          id="org.palladiosimulator.editors.gmf.feature"
          version="0.0.0"/>
 
-   <includes
-         id="org.palladiosimulator.editors.tree.feature"
-         version="0.0.0"/>
-
    <requires>
       <import plugin="org.junit"/>
+      <import plugin="org.eclipse.core.runtime"/>
    </requires>
 
    <plugin
-         id="org.palladiosimulator.editors.tests"
+         id="org.palladiosimulator.branding"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.palladiosimulator.branding"
+         id="org.palladiosimulator.editors.gmf.tests"
          download-size="0"
          install-size="0"
          version="0.0.0"
