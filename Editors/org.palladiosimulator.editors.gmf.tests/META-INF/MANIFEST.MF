@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PCM GMF Editors Tests
+Bundle-SymbolicName: org.palladiosimulator.editors.gmf.tests
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.palladiosimulator.editors.gmf.tests.Activator
+Bundle-Vendor: palladiosimulator.org
+Require-Bundle: org.eclipse.core.runtime,
+ org.junit
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
