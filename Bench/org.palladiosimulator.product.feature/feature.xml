@@ -19,7 +19,7 @@
    </license>
 
    <requires>
-      <import feature="org.palladiosimulator.editors.gmf.feature" version="4.0.0" match="equivalent"/>
+      <import feature="org.palladiosimulator.editors.feature" version="4.0.0" match="equivalent"/>
       <import feature="org.palladiosimulator.editors.tree.feature" version="4.0.0" match="equivalent"/>
       <import feature="org.palladiosimulator.edp2.feature" version="1.0.0" match="equivalent"/>
       <import feature="org.palladiosimulator.edp2.ui.feature" version="1.0.0" match="equivalent"/>
