@@ -21,7 +21,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationProcessingRateLabelEditPart;
 
-import org.palladiosimulator.editors.dialogs.resource.OpenProcessingRateDialog;
+import org.palladiosimulator.editors.commons.dialogs.resource.OpenProcessingRateDialog;
 import org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecification;
 
 // TODO: Auto-generated Javadoc

@@ -278,16 +278,16 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
          </propertySection>
          <!-- Added the following two property sections: -->
          <propertySection
-               class="org.palladiosimulator.editors.tabs.ComponentParametersPropertySection"
+               class="org.palladiosimulator.editors.commons.tabs.ComponentParametersPropertySection"
                enablesFor="1"
-               filter="org.palladiosimulator.editors.tabs.AssemblyContextFilter"
+               filter="org.palladiosimulator.editors.commons.tabs.AssemblyContextFilter"
                id="property.section.componentParam"
                tab="property.tab.componentParam">
          </propertySection>
          <propertySection
-               class="org.palladiosimulator.editors.tabs.EventChannelSinkConnectorSection"
+               class="org.palladiosimulator.editors.commons.tabs.EventChannelSinkConnectorSection"
                enablesFor="1"
-               filter="org.palladiosimulator.editors.tabs.EventConnectorFilter"
+               filter="org.palladiosimulator.editors.commons.tabs.EventConnectorFilter"
                id="property.section.filter"
                tab="property.tab.filter">
          </propertySection>

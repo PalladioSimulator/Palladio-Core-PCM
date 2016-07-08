@@ -59,7 +59,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegi
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelParserProvider;
 
-import org.palladiosimulator.editors.dialogs.repository.OpenCapacityDialog;
+import org.palladiosimulator.editors.commons.dialogs.repository.OpenCapacityDialog;
 import org.palladiosimulator.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 

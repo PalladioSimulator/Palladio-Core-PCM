@@ -232,23 +232,23 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
          </propertySection>
          <!-- Added the following three property sections: -->
          <propertySection
-               class="org.palladiosimulator.editors.tabs.OperationsPropertySection"
+               class="org.palladiosimulator.editors.commons.tabs.OperationsPropertySection"
                enablesFor="1"
-               filter="org.palladiosimulator.editors.tabs.OperationInterfaceFilter"
+               filter="org.palladiosimulator.editors.commons.tabs.OperationInterfaceFilter"
                id="property.section.interfaceOps"
                tab="property.tab.interfaceOps">
          </propertySection>
          <propertySection
-               class="org.palladiosimulator.editors.tabs.EventTypesPropertySection"
+               class="org.palladiosimulator.editors.commons.tabs.EventTypesPropertySection"
                enablesFor="1"
-               filter="org.palladiosimulator.editors.tabs.EventGroupFilter"
+               filter="org.palladiosimulator.editors.commons.tabs.EventGroupFilter"
                id="property.section.eventGroupEventTypes"
                tab="property.tab.eventGroupEventTypes">
          </propertySection>
          <propertySection
-               class="org.palladiosimulator.editors.tabs.InfrastructureSignaturesPropertySection"
+               class="org.palladiosimulator.editors.commons.tabs.InfrastructureSignaturesPropertySection"
                enablesFor="1"
-               filter="org.palladiosimulator.editors.tabs.InfrastructureInterfaceFilter"
+               filter="org.palladiosimulator.editors.commons.tabs.InfrastructureInterfaceFilter"
                id="property.section.infrastructureSignatures"
                tab="property.tab.infrastructureSignatures">
          </propertySection>           

@@ -22,7 +22,7 @@ import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationLatencyLabelEditPart;
 
-import org.palladiosimulator.editors.dialogs.resource.OpenLatencyDialog;
+import org.palladiosimulator.editors.commons.dialogs.resource.OpenLatencyDialog;
 import org.palladiosimulator.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 
 // TODO: Auto-generated Javadoc

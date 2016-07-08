@@ -51,7 +51,7 @@ import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
-import org.palladiosimulator.editors.dialogs.resource.OpenProcessingRateDialog;
+import org.palladiosimulator.editors.commons.dialogs.resource.OpenProcessingRateDialog;
 import org.palladiosimulator.pcm.resourceenvironment.ProcessingResourceSpecification;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;

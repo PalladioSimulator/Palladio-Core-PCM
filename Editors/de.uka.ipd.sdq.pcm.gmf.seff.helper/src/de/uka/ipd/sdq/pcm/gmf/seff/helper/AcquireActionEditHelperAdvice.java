@@ -17,7 +17,7 @@ import org.eclipse.ui.PlatformUI;
 
 import com.sun.corba.se.spi.activation.Repository;
 
-import org.palladiosimulator.editors.dialogs.selection.PalladioSelectEObjectDialog;
+import org.palladiosimulator.editors.commons.dialogs.selection.PalladioSelectEObjectDialog;
 import org.palladiosimulator.pcm.repository.BasicComponent;
 import org.palladiosimulator.pcm.repository.PassiveResource;
 import org.palladiosimulator.pcm.seff.SeffPackage;

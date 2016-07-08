@@ -31,7 +31,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
-import org.palladiosimulator.editors.dialogs.seff.OpenBranchConditionDialog;
+import org.palladiosimulator.editors.commons.dialogs.seff.OpenBranchConditionDialog;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.GuardedBranchTransitionCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.GuardedBranchTransitionItemSemanticEditPolicy;

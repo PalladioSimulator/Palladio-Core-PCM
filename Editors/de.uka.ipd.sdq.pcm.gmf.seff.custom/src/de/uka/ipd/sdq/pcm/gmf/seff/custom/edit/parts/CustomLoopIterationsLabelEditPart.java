@@ -21,7 +21,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
 
-import org.palladiosimulator.editors.dialogs.seff.OpenLoopIterationsDialog;
+import org.palladiosimulator.editors.commons.dialogs.seff.OpenLoopIterationsDialog;
 import org.palladiosimulator.pcm.seff.LoopAction;
 
 /**

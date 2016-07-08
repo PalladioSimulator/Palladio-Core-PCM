@@ -48,7 +48,7 @@ import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
-import org.palladiosimulator.editors.dialogs.usage.OpenLoopIterationsDialog;
+import org.palladiosimulator.editors.commons.dialogs.usage.OpenLoopIterationsDialog;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;

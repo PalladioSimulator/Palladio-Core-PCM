@@ -49,7 +49,7 @@ import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
-import org.palladiosimulator.editors.dialogs.OpenStoExDialog;
+import org.palladiosimulator.editors.commons.dialogs.OpenStoExDialog;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextNonResizableEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableCharacterisation2ItemSemanticEditPolicy;

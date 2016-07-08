@@ -47,7 +47,7 @@ import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
-import org.palladiosimulator.editors.dialogs.usage.OpenInterArrivalTimeDialog;
+import org.palladiosimulator.editors.commons.dialogs.usage.OpenInterArrivalTimeDialog;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;

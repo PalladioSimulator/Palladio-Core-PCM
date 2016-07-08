@@ -22,7 +22,7 @@ import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationThroughputLabelEditPart;
 
-import org.palladiosimulator.editors.dialogs.resource.OpenThroughputDialog;
+import org.palladiosimulator.editors.commons.dialogs.resource.OpenThroughputDialog;
 import org.palladiosimulator.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 
 // TODO: Auto-generated Javadoc

@@ -55,7 +55,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegi
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelParserProvider;
 
-import org.palladiosimulator.editors.dialogs.OpenStoExDialog;
+import org.palladiosimulator.editors.commons.dialogs.OpenStoExDialog;
 import org.palladiosimulator.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.Expression;

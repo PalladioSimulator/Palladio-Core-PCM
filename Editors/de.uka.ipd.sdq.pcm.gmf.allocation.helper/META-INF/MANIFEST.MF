@@ -16,6 +16,6 @@ Require-Bundle: org.eclipse.ui,
  org.palladiosimulator.pcm.ui,
  de.uka.ipd.sdq.dialogs,
  org.eclipse.gmf.runtime.diagram.ui,
- org.palladiosimulator.editors.dialogs
+ org.palladiosimulator.editors.commons.dialogs
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

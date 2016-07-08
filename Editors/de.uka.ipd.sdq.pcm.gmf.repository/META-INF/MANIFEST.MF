@@ -49,12 +49,12 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.stoex;bundle-version="2.2.0";visibility:=reexport,
  de.uka.ipd.sdq.stoex.edit;bundle-version="2.2.0";visibility:=reexport,
  org.palladiosimulator.pcm.ui;bundle-version="2.0.0",
- org.palladiosimulator.editors.tabs;bundle-version="2.0.1",
+ org.palladiosimulator.editors.commons.tabs;bundle-version="2.0.1",
  de.uka.ipd.sdq.units;bundle-version="2.1.0";visibility:=reexport,
  de.uka.ipd.sdq.units.edit;bundle-version="2.1.0";visibility:=reexport,
  de.uka.ipd.sdq.stoex.analyser;bundle-version="2.0.0",
  de.uka.ipd.sdq.pcm.stochasticexpressions;bundle-version="2.0.0",
- org.palladiosimulator.editors.dialogs;bundle-version="1.0.0"
+ org.palladiosimulator.editors.commons.dialogs;bundle-version="1.0.0"
 Eclipse-LazyStart: true
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
