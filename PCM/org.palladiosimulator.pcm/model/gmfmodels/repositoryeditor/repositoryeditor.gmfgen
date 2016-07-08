@@ -50,7 +50,7 @@
       <diagramRunTimeClass href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="PassiveResourceEditHelper"/>
       <viewmap xsi:type="gmfgen:InnerClassViewmap" className="PassiveResourceLabellFigure" classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class PassiveResourceLabellFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public PassiveResourceLabellFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;PassiveResource&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
-      <behaviour xsi:type="gmfgen:CustomBehaviour" key="EditPolicyRoles.OPEN_ROLE" editPolicyQualifiedClassName="org.palladiosimulator.editors.dialogs.repository.OpenCapacityDialog"/>
+      <behaviour xsi:type="gmfgen:CustomBehaviour" key="EditPolicyRoles.OPEN_ROLE" editPolicyQualifiedClassName="org.palladiosimulator.editors.commons.dialogs.repository.OpenCapacityDialog"/>
       <modelFacet>
         <metaClass href="../../pcm.genmodel#//pcm/repository/PassiveResource"/>
         <containmentMetaFeature href="../../pcm.genmodel#//pcm/repository/BasicComponent/passiveResource_BasicComponent"/>
@@ -81,7 +81,7 @@
       <diagramRunTimeClass href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType xsi:type="gmfgen:MetamodelType" editHelperClassName="VariableCharacterisationEditHelper"/>
       <viewmap xsi:type="gmfgen:FigureViewmap" figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
-      <behaviour xsi:type="gmfgen:CustomBehaviour" key="EditPolicyRoles.OPEN_ROLE" editPolicyQualifiedClassName="org.palladiosimulator.editors.dialogs.OpenStoExDialog"/>
+      <behaviour xsi:type="gmfgen:CustomBehaviour" key="EditPolicyRoles.OPEN_ROLE" editPolicyQualifiedClassName="org.palladiosimulator.editors.commons.dialogs.OpenStoExDialog"/>
       <modelFacet>
         <metaClass href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation"/>
         <containmentMetaFeature href="../../pcm.genmodel#//pcm/parameter/VariableUsage/variableCharacterisation_VariableUsage"/>

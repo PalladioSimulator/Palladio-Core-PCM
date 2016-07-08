@@ -109,7 +109,7 @@
         <behaviour
             xsi:type="gmfgen:CustomBehaviour"
             key="EditPolicyRoles.OPEN_ROLE"
-            editPolicyQualifiedClassName="org.palladiosimulator.editors.dialogs.resource.OpenSchedulingPolicyDialog"/>
+            editPolicyQualifiedClassName="org.palladiosimulator.editors.commons.dialogs.resource.OpenSchedulingPolicyDialog"/>
         <modelFacet
             parser="//@labelParsers/@implementations.1"/>
       </labels>
