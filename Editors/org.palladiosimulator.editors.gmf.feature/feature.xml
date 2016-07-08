@@ -59,9 +59,9 @@ This feature brings GMF-based editors to Palladio.
       <import plugin="org.eclipse.ui.navigator.resources"/>
       <import plugin="org.eclipse.emf.validation"/>
       <import plugin="org.eclipse.gmf.runtime.draw2d.ui"/>
-      <import plugin="org.palladiosimulator.editors.tabs" version="2.0.1" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.editors.commons.tabs" version="2.0.1" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.pcm.ui" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.editors.dialogs" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.editors.commons.dialogs" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.gmf.runtime.notation.providers"/>
       <import plugin="de.uka.ipd.sdq.stoex.analyser" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm.stochasticexpressions" version="2.0.0" match="greaterOrEqual"/>
@@ -75,7 +75,7 @@ This feature brings GMF-based editors to Palladio.
       <import plugin="de.uka.ipd.sdq.pcm.gmf.resource" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.query"/>
       <import plugin="de.uka.ipd.sdq.dialogs" version="2.0.1" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.editors.propertytabs" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.editors.commons.propertytabs" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ocl.ecore"/>
       <import plugin="org.eclipse.core.commands" version="3.5.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.gmf.runtime.common.core" version="1.2.0" match="greaterOrEqual"/>
@@ -239,21 +239,21 @@ This feature brings GMF-based editors to Palladio.
          unpack="false"/>
 
    <plugin
-         id="org.palladiosimulator.editors.dialogs"
+         id="org.palladiosimulator.editors.commons.dialogs"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.palladiosimulator.editors.propertytabs"
+         id="org.palladiosimulator.editors.commons.propertytabs"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="org.palladiosimulator.editors.tabs"
+         id="org.palladiosimulator.editors.commons.tabs"
          download-size="0"
          install-size="0"
          version="0.0.0"
