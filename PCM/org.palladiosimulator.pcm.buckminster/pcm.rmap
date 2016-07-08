@@ -16,10 +16,10 @@
 
   <rm:searchPath name="PCM">
     <rm:provider resolutionFilter="(resolveFrom=nightly)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/palladio/core/pcm/nightly/"/>
+      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/palladio/pcm/nightly/"/>
     </rm:provider>
     <rm:provider resolutionFilter="(resolveFrom=release)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
-      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/palladio/core/pcm/releases/latest/"/>
+      <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/palladio/pcm/releases/latest/"/>
     </rm:provider>
     <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="svn" source="true">
       <rm:uri format="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Palladio/Core/trunk/PCM#{0}">
