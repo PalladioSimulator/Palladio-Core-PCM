@@ -1,7 +1,7 @@
 <project name="Palladio Product Packaging">
 	<property environment="env"/>
 	<property name="shared.TP" value="/var/lib/jenkins/jobs/Build Eclipse Target Platform/lastSuccessful/archive/targetPlatform" />
-	<property name="neon.p2" value="file:/var/lib/jenkins/eclipse/p2.mirrors/mars" />
+	<property name="neon.p2" value="file:/var/lib/jenkins/eclipse/p2.mirrors/neon" />
 	
 	<target name="create.product"> 
         <property name="product.install.directory" location="${sp:destination}"/>
