@@ -1,8 +1,8 @@
 instructions.configure=org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:https${#58}//sdqweb.ipd.kit.edu/eclipse/palladiosimulator/nightly/,type:0,name:Palladio Update Site,enabled:true); \
   org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:https${#58}//sdqweb.ipd.kit.edu/eclipse/palladiosimulator/nightly/,type:1,name:Palladio Update Site,enabled:true); \
-  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/releases/luna/,type:0,name:Luna,enabled:true); \
-  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/releases/luna/,type:1,name:Luna,enabled:true); \
-  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/releases/updates/4.4/,type:0,name:Luna updates,enabled:true); \
-  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/releases/updates/4.4/,type:1,name:Luna updates,enabled:true); \
-  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/repository/,type:0,name:Orbit,enabled:true); \
-  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/repository/,type:1,name:Orbit,enabled:true);
+  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/releases/neon/,type:0,name:Neon,enabled:true); \
+  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/releases/neon/,type:1,name:Neon,enabled:true); \
+  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/releases/updates/4.6/,type:0,name:Neon updates,enabled:true); \
+  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/releases/updates/4.6/,type:1,name:Neon updates,enabled:true); \
+  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/tools/orbit/downloads/drops/R20160520211859/repository/,type:0,name:Orbit,enabled:true); \
+  org.eclipse.equinox.p2.touchpoint.eclipse.addRepository(location:http${#58}//download.eclipse.org/tools/orbit/downloads/drops/R20160520211859/repository/,type:1,name:Orbit,enabled:true);
