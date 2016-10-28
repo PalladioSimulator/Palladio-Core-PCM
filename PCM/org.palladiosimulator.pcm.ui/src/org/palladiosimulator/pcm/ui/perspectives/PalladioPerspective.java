@@ -1,6 +1,7 @@
 package org.palladiosimulator.pcm.ui.perspectives;
 
 import org.eclipse.debug.ui.IDebugUIConstants;
+import org.eclipse.sirius.ui.tools.api.views.modelexplorerview.IModelExplorerView;
 import org.eclipse.ui.IFolderLayout;
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
@@ -33,7 +34,7 @@ public class PalladioPerspective implements IPerspectiveFactory {
         // Top left: Project view and Experiments view
         final IFolderLayout topLeftFolder = layout
                 .createFolder("topLeft", IPageLayout.LEFT, (float) 0.25, editorAreaId);
-        topLeftFolder.addView(IPageLayout.ID_PROJECT_EXPLORER);
+        topLeftFolder.addView(IModelExplorerView.ID);
         topLeftFolder.addView(this.EXPERIMENTS_VIEW);
 
         // Bottom left: Outline view.
