@@ -3105,6 +3105,9 @@
           containment="true" eOpposite="#//resourceenvironment/ResourceContainer/parentResourceContainer__ResourceContainer"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parentResourceContainer__ResourceContainer"
           ordered="false" eType="#//resourceenvironment/ResourceContainer" eOpposite="#//resourceenvironment/ResourceContainer/nestedResourceContainers__ResourceContainer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="hddResourceSpecifications"
+          upperBound="-1" eType="#//resourceenvironment/HDDProcessingResourceSpecification"
+          eOpposite="#//resourceenvironment/HDDProcessingResourceSpecification/resourceContainer"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceSpecification" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -3179,6 +3182,15 @@
           <details key="documentation" value="Specifies the maximum throughput of this linking resource in byte per simulated time unit. "/>
         </eAnnotations>
       </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="HDDProcessingResourceSpecification"
+        eSuperTypes="#//resourceenvironment/ProcessingResourceSpecification">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="writeProcessingRate"
+          ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="readProcessingRate" ordered="false"
+          lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer" eType="#//resourceenvironment/ResourceContainer"
+          eOpposite="#//resourceenvironment/ResourceContainer/hddResourceSpecifications"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="allocation" nsURI="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1"
