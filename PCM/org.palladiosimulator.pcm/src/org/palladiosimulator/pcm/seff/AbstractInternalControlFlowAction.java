@@ -9,8 +9,8 @@ import org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand;
 import org.palladiosimulator.pcm.seff.seff_performance.ResourceCall;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Abstract Internal Control Flow Action</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Abstract Internal Control
+ * Flow Action</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
  * <p>
@@ -20,18 +20,15 @@ import org.palladiosimulator.pcm.seff.seff_performance.ResourceCall;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction#getResourceDemand_Action
+ * <li>{@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction#getResourceDemand_Action
  * <em>Resource Demand Action</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction#getInfrastructureCall__Action
+ * <li>{@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction#getInfrastructureCall__Action
  * <em>Infrastructure Call Action</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction#getResourceCall__Action
+ * <li>{@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction#getResourceCall__Action
  * <em>Resource Call Action</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getAbstractInternalControlFlowAction()
  * @model abstract="true"
@@ -44,14 +41,14 @@ public interface AbstractInternalControlFlowAction extends AbstractAction {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Resource Demand Action</b></em>' containment reference list.
      * The list contents are of type
      * {@link org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand}. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand#getAction_ParametricResourceDemand
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand#getAction_ParametricResourceDemand
      * <em>Action Parametric Resource Demand</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Resource Demand Action</em>' containment reference list isn't
@@ -71,8 +68,8 @@ public interface AbstractInternalControlFlowAction extends AbstractAction {
      * Returns the value of the '<em><b>Infrastructure Call Action</b></em>' containment reference
      * list. The list contents are of type
      * {@link org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall}. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall#getAction__InfrastructureCall
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall#getAction__InfrastructureCall
      * <em>Action Infrastructure Call</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Infrastructure Call Action</em>' containment reference list isn't
@@ -92,8 +89,8 @@ public interface AbstractInternalControlFlowAction extends AbstractAction {
      * Returns the value of the '<em><b>Resource Call Action</b></em>' containment reference list.
      * The list contents are of type
      * {@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall}. It is bidirectional and
-     * its opposite is '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getAction__ResourceCall
+     * its opposite is
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getAction__ResourceCall
      * <em>Action Resource Call</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Resource Call Action</em>' containment reference list isn't clear,

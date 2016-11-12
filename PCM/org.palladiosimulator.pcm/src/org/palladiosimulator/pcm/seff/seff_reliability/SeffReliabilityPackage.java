@@ -31,7 +31,7 @@ public interface SeffReliabilityPackage extends EPackage {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -63,8 +63,8 @@ public interface SeffReliabilityPackage extends EPackage {
             .init();
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.seff.seff_reliability.impl.FailureHandlingEntityImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.seff.seff_reliability.impl.FailureHandlingEntityImpl
      * <em>Failure Handling Entity</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.seff.seff_reliability.impl.FailureHandlingEntityImpl
@@ -110,8 +110,8 @@ public interface SeffReliabilityPackage extends EPackage {
     int FAILURE_HANDLING_ENTITY_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl
      * <em>Recovery Action Behaviour</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl
@@ -154,17 +154,18 @@ public interface SeffReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 0;
+    int RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT
+            + 0;
 
     /**
-     * The feature id for the '
-     * <em><b>Abstract Branch Transition Resource Demanding Behaviour</b></em>' container reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Abstract Branch Transition Resource Demanding
+     * Behaviour</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 1;
+    int RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT
+            + 1;
 
     /**
      * The feature id for the '<em><b>Steps Behaviour</b></em>' containment reference list. <!--
@@ -176,14 +177,14 @@ public interface SeffReliabilityPackage extends EPackage {
     int RECOVERY_ACTION_BEHAVIOUR__STEPS_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 2;
 
     /**
-     * The feature id for the '
-     * <em><b>Failure Handling Alternatives Recovery Action Behaviour</b></em>' reference list. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the ' <em><b>Failure Handling Alternatives Recovery Action
+     * Behaviour</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 3;
+    int RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT
+            + 3;
 
     /**
      * The feature id for the '<em><b>Recovery Action Recovery Action Behaviour</b></em>' container
@@ -192,7 +193,8 @@ public interface SeffReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 4;
+    int RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR = FAILURE_HANDLING_ENTITY_FEATURE_COUNT
+            + 4;
 
     /**
      * The number of structural features of the '<em>Recovery Action Behaviour</em>' class. <!--
@@ -204,9 +206,9 @@ public interface SeffReliabilityPackage extends EPackage {
     int RECOVERY_ACTION_BEHAVIOUR_FEATURE_COUNT = FAILURE_HANDLING_ENTITY_FEATURE_COUNT + 5;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionImpl
-     * <em>Recovery Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionImpl <em>Recovery
+     * Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionImpl
      * @see org.palladiosimulator.pcm.seff.seff_reliability.impl.SeffReliabilityPackageImpl#getRecoveryAction()
@@ -293,7 +295,8 @@ public interface SeffReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RECOVERY_ACTION__PRIMARY_BEHAVIOUR_RECOVERY_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 0;
+    int RECOVERY_ACTION__PRIMARY_BEHAVIOUR_RECOVERY_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT
+            + 0;
 
     /**
      * The feature id for the '<em><b>Recovery Action Behaviours Recovery Action</b></em>'
@@ -302,7 +305,8 @@ public interface SeffReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 1;
+    int RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT
+            + 1;
 
     /**
      * The number of structural features of the '<em>Recovery Action</em>' class. <!--
@@ -314,9 +318,9 @@ public interface SeffReliabilityPackage extends EPackage {
     int RECOVERY_ACTION_FEATURE_COUNT = SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 2;
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour
-     * <em>Recovery Action Behaviour</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour <em>Recovery
+     * Action Behaviour</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Recovery Action Behaviour</em>'.
      * @see org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour
@@ -325,13 +329,13 @@ public interface SeffReliabilityPackage extends EPackage {
     EClass getRecoveryActionBehaviour();
 
     /**
-     * Returns the meta object for the reference list '
-     * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour#getFailureHandlingAlternatives__RecoveryActionBehaviour
+     * Returns the meta object for the reference list
+     * '{@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour#getFailureHandlingAlternatives__RecoveryActionBehaviour
      * <em>Failure Handling Alternatives Recovery Action Behaviour</em>}'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
-     * @return the meta object for the reference list '
-     *         <em>Failure Handling Alternatives Recovery Action Behaviour</em>'.
+     * @return the meta object for the reference list '<em>Failure Handling Alternatives Recovery
+     *         Action Behaviour</em>'.
      * @see org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour#getFailureHandlingAlternatives__RecoveryActionBehaviour()
      * @see #getRecoveryActionBehaviour()
      * @generated
@@ -339,13 +343,13 @@ public interface SeffReliabilityPackage extends EPackage {
     EReference getRecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour
      * <em>Recovery Action Recovery Action Behaviour</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Recovery Action Recovery Action Behaviour</em>'.
+     * @return the meta object for the container reference '<em>Recovery Action Recovery Action
+     *         Behaviour</em>'.
      * @see org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour()
      * @see #getRecoveryActionBehaviour()
      * @generated
@@ -353,9 +357,9 @@ public interface SeffReliabilityPackage extends EPackage {
     EReference getRecoveryActionBehaviour_RecoveryAction__RecoveryActionBehaviour();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction
-     * <em>Recovery Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction <em>Recovery
+     * Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Recovery Action</em>'.
      * @see org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction
@@ -364,8 +368,8 @@ public interface SeffReliabilityPackage extends EPackage {
     EClass getRecoveryAction();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction
      * <em>Primary Behaviour Recovery Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Primary Behaviour Recovery Action</em>'.
@@ -376,13 +380,13 @@ public interface SeffReliabilityPackage extends EPackage {
     EReference getRecoveryAction_PrimaryBehaviour__RecoveryAction();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction#getRecoveryActionBehaviours__RecoveryAction
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction#getRecoveryActionBehaviours__RecoveryAction
      * <em>Recovery Action Behaviours Recovery Action</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Recovery Action Behaviours Recovery Action</em>'.
+     * @return the meta object for the containment reference list '<em>Recovery Action Behaviours
+     *         Recovery Action</em>'.
      * @see org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction#getRecoveryActionBehaviours__RecoveryAction()
      * @see #getRecoveryAction()
      * @generated
@@ -390,9 +394,9 @@ public interface SeffReliabilityPackage extends EPackage {
     EReference getRecoveryAction_RecoveryActionBehaviours__RecoveryAction();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.seff.seff_reliability.FailureHandlingEntity
-     * <em>Failure Handling Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.seff.seff_reliability.FailureHandlingEntity <em>Failure
+     * Handling Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Failure Handling Entity</em>'.
      * @see org.palladiosimulator.pcm.seff.seff_reliability.FailureHandlingEntity
@@ -406,8 +410,8 @@ public interface SeffReliabilityPackage extends EPackage {
      * <em>Failure Types Failure Handling Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @return the meta object for the reference list '
-     *         <em>Failure Types Failure Handling Entity</em>'.
+     * @return the meta object for the reference list ' <em>Failure Types Failure Handling
+     *         Entity</em>'.
      * @see org.palladiosimulator.pcm.seff.seff_reliability.FailureHandlingEntity#getFailureTypes_FailureHandlingEntity()
      * @see #getFailureHandlingEntity()
      * @generated
@@ -438,8 +442,8 @@ public interface SeffReliabilityPackage extends EPackage {
     interface Literals {
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl
          * <em>Recovery Action Behaviour</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl
@@ -449,9 +453,8 @@ public interface SeffReliabilityPackage extends EPackage {
         EClass RECOVERY_ACTION_BEHAVIOUR = eINSTANCE.getRecoveryActionBehaviour();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Failure Handling Alternatives Recovery Action Behaviour</b></em>' reference list
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Failure Handling Alternatives Recovery Action
+         * Behaviour</b></em>' reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -459,9 +462,9 @@ public interface SeffReliabilityPackage extends EPackage {
                 .getRecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Recovery Action Recovery Action Behaviour</b></em>' container reference feature.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Recovery Action Recovery Action
+         * Behaviour</b></em>' container reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -469,8 +472,8 @@ public interface SeffReliabilityPackage extends EPackage {
                 .getRecoveryActionBehaviour_RecoveryAction__RecoveryActionBehaviour();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionImpl
          * <em>Recovery Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionImpl
@@ -489,9 +492,9 @@ public interface SeffReliabilityPackage extends EPackage {
                 .getRecoveryAction_PrimaryBehaviour__RecoveryAction();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Recovery Action Behaviours Recovery Action</b></em>' containment reference list
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Recovery Action Behaviours Recovery
+         * Action</b></em>' containment reference list feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -499,8 +502,8 @@ public interface SeffReliabilityPackage extends EPackage {
                 .getRecoveryAction_RecoveryActionBehaviours__RecoveryAction();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.seff_reliability.impl.FailureHandlingEntityImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.seff_reliability.impl.FailureHandlingEntityImpl
          * <em>Failure Handling Entity</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.seff_reliability.impl.FailureHandlingEntityImpl

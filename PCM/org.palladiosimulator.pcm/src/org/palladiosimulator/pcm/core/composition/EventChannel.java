@@ -13,20 +13,17 @@ import org.palladiosimulator.pcm.repository.EventGroup;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.core.composition.EventChannel#getEventGroup__EventChannel
  * <em>Event Group Event Channel</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.EventChannel#getEventChannelSourceConnector__EventChannel
+ * <li>{@link org.palladiosimulator.pcm.core.composition.EventChannel#getEventChannelSourceConnector__EventChannel
  * <em>Event Channel Source Connector Event Channel</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.EventChannel#getEventChannelSinkConnector__EventChannel
+ * <li>{@link org.palladiosimulator.pcm.core.composition.EventChannel#getEventChannelSinkConnector__EventChannel
  * <em>Event Channel Sink Connector Event Channel</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.EventChannel#getParentStructure__EventChannel
+ * <li>{@link org.palladiosimulator.pcm.core.composition.EventChannel#getParentStructure__EventChannel
  * <em>Parent Structure Event Channel</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getEventChannel()
  * @model
@@ -39,7 +36,7 @@ public interface EventChannel extends Entity {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Event Group Event Channel</b></em>' reference. <!--
@@ -59,8 +56,8 @@ public interface EventChannel extends Entity {
     EventGroup getEventGroup__EventChannel();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannel#getEventGroup__EventChannel
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannel#getEventGroup__EventChannel
      * <em>Event Group Event Channel</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
@@ -74,8 +71,8 @@ public interface EventChannel extends Entity {
      * Returns the value of the '<em><b>Event Channel Source Connector Event Channel</b></em>'
      * reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector}. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getEventChannel__EventChannelSourceConnector
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getEventChannel__EventChannelSourceConnector
      * <em>Event Channel Event Channel Source Connector</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Event Channel Source Connector Event Channel</em>' reference list
@@ -96,8 +93,8 @@ public interface EventChannel extends Entity {
      * Returns the value of the '<em><b>Event Channel Sink Connector Event Channel</b></em>'
      * reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector}. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getEventChannel__EventChannelSinkConnector
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getEventChannel__EventChannelSinkConnector
      * <em>Event Channel Event Channel Sink Connector</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Event Channel Sink Connector Event Channel</em>' reference list
@@ -116,8 +113,8 @@ public interface EventChannel extends Entity {
 
     /**
      * Returns the value of the '<em><b>Parent Structure Event Channel</b></em>' container
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getEventChannel__ComposedStructure
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getEventChannel__ComposedStructure
      * <em>Event Channel Composed Structure</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Parent Structure Event Channel</em>' container reference isn't
@@ -136,8 +133,8 @@ public interface EventChannel extends Entity {
     ComposedStructure getParentStructure__EventChannel();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannel#getParentStructure__EventChannel
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannel#getParentStructure__EventChannel
      * <em>Parent Structure Event Channel</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

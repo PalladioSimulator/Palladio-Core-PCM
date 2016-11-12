@@ -36,12 +36,11 @@ import org.palladiosimulator.pcm.parameter.VariableUsage;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.SetVariableAction#getLocalVariableUsages_SetVariableAction
+ * <li>{@link org.palladiosimulator.pcm.seff.SetVariableAction#getLocalVariableUsages_SetVariableAction
  * <em>Local Variable Usages Set Variable Action</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getSetVariableAction()
  * @model
@@ -54,14 +53,14 @@ public interface SetVariableAction extends AbstractInternalControlFlowAction {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Local Variable Usages Set Variable Action</b></em>'
      * containment reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.parameter.VariableUsage}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getSetVariableAction_VariableUsage
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getSetVariableAction_VariableUsage
      * <em>Set Variable Action Variable Usage</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Local Variable Usages Set Variable Action</em>' containment

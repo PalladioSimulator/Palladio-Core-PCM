@@ -3,10 +3,9 @@
  */
 package org.palladiosimulator.pcm.resourcetype.util;
 
-import java.util.List;
-
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.Switch;
 import org.palladiosimulator.pcm.core.entity.Entity;
 import org.palladiosimulator.pcm.core.entity.NamedElement;
 import org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingEntity;
@@ -32,14 +31,14 @@ import de.uka.ipd.sdq.units.UnitCarryingElement;
  * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage
  * @generated
  */
-public class ResourcetypeSwitch<T> {
+public class ResourcetypeSwitch<T> extends Switch<T> {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -54,21 +53,23 @@ public class ResourcetypeSwitch<T> {
      * @generated
      */
     public ResourcetypeSwitch() {
-        if (modelPackage == null)
-        {
+        if (modelPackage == null) {
             modelPackage = ResourcetypePackage.eINSTANCE;
         }
     }
 
     /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
-     * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Checks whether this is a switch for the given package. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
-     * @return the first non-null result returned by a <code>caseXXX</code> call.
+     * @param ePackage
+     *            the package in question.
+     * @return whether this is a switch for the given package.
      * @generated
      */
-    public T doSwitch(final EObject theEObject) {
-        return this.doSwitch(theEObject.eClass(), theEObject);
+    @Override
+    protected boolean isSwitchFor(final EPackage ePackage) {
+        return ePackage == modelPackage;
     }
 
     /**
@@ -78,30 +79,9 @@ public class ResourcetypeSwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(final EClass theEClass, final EObject theEObject) {
-        if (theEClass.eContainer() == modelPackage)
-        {
-            return this.doSwitch(theEClass.getClassifierID(), theEObject);
-        }
-        else
-        {
-            final List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ?
-                    this.defaultCase(theEObject) :
-                    this.doSwitch(eSuperTypes.get(0), theEObject);
-        }
-    }
-
-    /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
-     * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the first non-null result returned by a <code>caseXXX</code> call.
-     * @generated
-     */
+    @Override
     protected T doSwitch(final int classifierID, final EObject theEObject) {
-        switch (classifierID)
-        {
+        switch (classifierID) {
         case ResourcetypePackage.RESOURCE_SIGNATURE: {
             final ResourceSignature resourceSignature = (ResourceSignature) theEObject;
             T result = this.caseResourceSignature(resourceSignature);
@@ -242,14 +222,14 @@ public class ResourcetypeSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Resource Signature</em>
-     * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
-     * terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Resource
+     * Signature</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
+     * non-null result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Resource Signature</em>
-     *         '.
+     * @return the result of interpreting the object as an instance of '<em>Resource
+     *         Signature</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -258,14 +238,14 @@ public class ResourcetypeSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Processing Resource Type</em>'. <!-- begin-user-doc --> This implementation returns null;
-     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Processing Resource
+     * Type</em>'. <!-- begin-user-doc --> This implementation returns null; returning a non-null
+     * result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Processing Resource Type</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Processing Resource
+     *         Type</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -289,14 +269,14 @@ public class ResourcetypeSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Resource Repository</em>
-     * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
-     * terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Resource
+     * Repository</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
+     * non-null result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Resource Repository</em>
-     *         '.
+     * @return the result of interpreting the object as an instance of '<em>Resource
+     *         Repository</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -320,14 +300,14 @@ public class ResourcetypeSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Communication Link Resource Type</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Communication Link
+     * Resource Type</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
+     * non-null result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Communication Link Resource Type</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Communication Link
+     *         Resource Type</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -336,14 +316,14 @@ public class ResourcetypeSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Resource Interface</em>
-     * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
-     * terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Resource
+     * Interface</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
+     * non-null result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Resource Interface</em>
-     *         '.
+     * @return the result of interpreting the object as an instance of '<em>Resource
+     *         Interface</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -397,14 +377,14 @@ public class ResourcetypeSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Unit Carrying Element</em>'. <!-- begin-user-doc --> This implementation returns null;
-     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Unit Carrying
+     * Element</em>'. <!-- begin-user-doc --> This implementation returns null; returning a non-null
+     * result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Unit Carrying Element</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Unit Carrying
+     *         Element</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -413,14 +393,14 @@ public class ResourcetypeSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Resource Interface Providing Entity</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Resource Interface
+     * Providing Entity</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
+     * non-null result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Resource Interface Providing Entity</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Resource Interface
+     *         Providing Entity</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -439,6 +419,7 @@ public class ResourcetypeSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
+    @Override
     public T defaultCase(final EObject object) {
         return null;
     }

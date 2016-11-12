@@ -20,21 +20,17 @@ import org.palladiosimulator.pcm.repository.OperationRequiredRole;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getRequiringAssemblyContext_AssemblyConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getRequiringAssemblyContext_AssemblyConnector
  * <em>Requiring Assembly Context Assembly Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getProvidingAssemblyContext_AssemblyConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getProvidingAssemblyContext_AssemblyConnector
  * <em>Providing Assembly Context Assembly Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getProvidedRole_AssemblyConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getProvidedRole_AssemblyConnector
  * <em>Provided Role Assembly Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getRequiredRole_AssemblyConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getRequiredRole_AssemblyConnector
  * <em>Required Role Assembly Connector</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getAssemblyConnector()
  * @model
@@ -47,7 +43,7 @@ public interface AssemblyConnector extends Connector {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Requiring Assembly Context Assembly Connector</b></em>'
@@ -67,8 +63,8 @@ public interface AssemblyConnector extends Connector {
     AssemblyContext getRequiringAssemblyContext_AssemblyConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getRequiringAssemblyContext_AssemblyConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getRequiringAssemblyContext_AssemblyConnector
      * <em>Requiring Assembly Context Assembly Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -98,8 +94,8 @@ public interface AssemblyConnector extends Connector {
     AssemblyContext getProvidingAssemblyContext_AssemblyConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getProvidingAssemblyContext_AssemblyConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getProvidingAssemblyContext_AssemblyConnector
      * <em>Providing Assembly Context Assembly Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -129,8 +125,8 @@ public interface AssemblyConnector extends Connector {
     OperationProvidedRole getProvidedRole_AssemblyConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getProvidedRole_AssemblyConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getProvidedRole_AssemblyConnector
      * <em>Provided Role Assembly Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -159,8 +155,8 @@ public interface AssemblyConnector extends Connector {
     OperationRequiredRole getRequiredRole_AssemblyConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getRequiredRole_AssemblyConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getRequiredRole_AssemblyConnector
      * <em>Required Role Assembly Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -181,8 +177,8 @@ public interface AssemblyConnector extends Connector {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)\n\n'"
+     * @model annotation= "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
+     *        body='self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)\n\n'"
      * @generated
      */
     boolean AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(DiagnosticChain diagnostics,
@@ -198,8 +194,8 @@ public interface AssemblyConnector extends Connector {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)\n\n'"
+     * @model annotation= "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
+     *        body='self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)\n\n'"
      * @generated
      */
     boolean AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(DiagnosticChain diagnostics,
@@ -218,8 +214,9 @@ public interface AssemblyConnector extends Connector {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.providedRole_AssemblyConnector.providedInterface__OperationProvidedRole = self.requiredRole_AssemblyConnector.requiredInterface__OperationRequiredRole'"
+     * @model annotation= "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
+     *        body='self.providedRole_AssemblyConnector.providedInterface__OperationProvidedRole =
+     *        self.requiredRole_AssemblyConnector.requiredInterface__OperationRequiredRole'"
      * @generated
      */
     boolean AssemblyConnectorsReferencedInterfacesMustMatch(DiagnosticChain diagnostics, Map<Object, Object> context);

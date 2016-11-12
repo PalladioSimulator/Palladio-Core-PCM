@@ -36,7 +36,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -44,16 +44,13 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
      * @generated
      */
     public static UsagemodelFactory init() {
-        try
-        {
+        try {
             final UsagemodelFactory theUsagemodelFactory = (UsagemodelFactory) EPackage.Registry.INSTANCE
                     .getEFactory(UsagemodelPackage.eNS_URI);
-            if (theUsagemodelFactory != null)
-            {
+            if (theUsagemodelFactory != null) {
                 return theUsagemodelFactory;
             }
-        } catch (final Exception exception)
-        {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new UsagemodelFactoryImpl();
@@ -75,8 +72,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID())
-        {
+        switch (eClass.getClassifierID()) {
         case UsagemodelPackage.USAGE_SCENARIO:
             return this.createUsageScenario();
         case UsagemodelPackage.USER_DATA:

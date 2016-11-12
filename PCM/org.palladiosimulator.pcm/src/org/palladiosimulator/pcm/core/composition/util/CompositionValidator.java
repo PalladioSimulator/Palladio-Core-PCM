@@ -42,7 +42,7 @@ public class CompositionValidator extends EObjectValidator {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -195,8 +195,7 @@ public class CompositionValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID)
-        {
+        switch (classifierID) {
         case CompositionPackage.DELEGATION_CONNECTOR:
             return this.validateDelegationConnector((DelegationConnector) value, diagnostics, context);
         case CompositionPackage.CONNECTOR:
@@ -205,7 +204,8 @@ public class CompositionValidator extends EObjectValidator {
             return this.validateComposedStructure((ComposedStructure) value, diagnostics, context);
         case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
             return this.validateResourceRequiredDelegationConnector((ResourceRequiredDelegationConnector) value,
-                    diagnostics, context);
+                    diagnostics,
+                    context);
         case CompositionPackage.EVENT_CHANNEL:
             return this.validateEventChannel((EventChannel) value, diagnostics, context);
         case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR:
@@ -237,7 +237,8 @@ public class CompositionValidator extends EObjectValidator {
                     diagnostics, context);
         case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
             return this.validateRequiredResourceDelegationConnector((RequiredResourceDelegationConnector) value,
-                    diagnostics, context);
+                    diagnostics,
+                    context);
         case CompositionPackage.ASSEMBLY_CONTEXT:
             return this.validateAssemblyContext((AssemblyContext) value, diagnostics, context);
         default:
@@ -285,6 +286,9 @@ public class CompositionValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(composedStructure, diagnostics, context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(composedStructure, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(composedStructure, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -320,8 +324,8 @@ public class CompositionValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the MultipleConnectorsConstraintForAssemblyConnectors constraint of '
-     * <em>Composed Structure</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the MultipleConnectorsConstraintForAssemblyConnectors constraint of '<em>Composed
+     * Structure</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -383,12 +387,17 @@ public class CompositionValidator extends EObjectValidator {
         if (!this.validate_NoCircularContainment(providedDelegationConnector, diagnostics, context)) {
             return false;
         }
-        boolean result = this.validate_EveryMultiplicityConforms(providedDelegationConnector, diagnostics, context);
+        boolean result = this.validate_EveryMultiplicityConforms(providedDelegationConnector, diagnostics,
+                context);
         if (result || diagnostics != null) {
             result &= this.validate_EveryDataValueConforms(providedDelegationConnector, diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryReferenceIsContained(providedDelegationConnector, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(providedDelegationConnector, diagnostics,
+                    context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(providedDelegationConnector, diagnostics, context);
@@ -441,8 +450,8 @@ public class CompositionValidator extends EObjectValidator {
     public boolean validateProvidedDelegationConnector_ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(
             final ProvidedDelegationConnector providedDelegationConnector, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        return providedDelegationConnector.ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(
-                diagnostics, context);
+        return providedDelegationConnector
+                .ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(diagnostics, context);
     }
 
     /**
@@ -455,12 +464,17 @@ public class CompositionValidator extends EObjectValidator {
         if (!this.validate_NoCircularContainment(requiredDelegationConnector, diagnostics, context)) {
             return false;
         }
-        boolean result = this.validate_EveryMultiplicityConforms(requiredDelegationConnector, diagnostics, context);
+        boolean result = this.validate_EveryMultiplicityConforms(requiredDelegationConnector, diagnostics,
+                context);
         if (result || diagnostics != null) {
             result &= this.validate_EveryDataValueConforms(requiredDelegationConnector, diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryReferenceIsContained(requiredDelegationConnector, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(requiredDelegationConnector, diagnostics,
+                    context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(requiredDelegationConnector, diagnostics, context);
@@ -518,8 +532,8 @@ public class CompositionValidator extends EObjectValidator {
     public boolean validateRequiredDelegationConnector_ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(
             final RequiredDelegationConnector requiredDelegationConnector, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        return requiredDelegationConnector.ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(
-                diagnostics, context);
+        return requiredDelegationConnector
+                .ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(diagnostics, context);
     }
 
     /**
@@ -534,8 +548,8 @@ public class CompositionValidator extends EObjectValidator {
             final RequiredDelegationConnector requiredDelegationConnector, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
         return requiredDelegationConnector
-                .RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector(
-                        diagnostics, context);
+                .RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector(diagnostics,
+                        context);
     }
 
     /**
@@ -555,6 +569,9 @@ public class CompositionValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryReferenceIsContained(assemblyConnector, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(assemblyConnector, diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(assemblyConnector, diagnostics, context);
@@ -592,8 +609,8 @@ public class CompositionValidator extends EObjectValidator {
     public boolean validateAssemblyConnector_AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(
             final AssemblyConnector assemblyConnector, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        return assemblyConnector
-                .AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(diagnostics, context);
+        return assemblyConnector.AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(diagnostics,
+                context);
     }
 
     /**
@@ -609,8 +626,8 @@ public class CompositionValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the AssemblyConnectorsReferencedInterfacesMustMatch constraint of '
-     * <em>Assembly Connector</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the AssemblyConnectorsReferencedInterfacesMustMatch constraint of '<em>Assembly
+     * Connector</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */

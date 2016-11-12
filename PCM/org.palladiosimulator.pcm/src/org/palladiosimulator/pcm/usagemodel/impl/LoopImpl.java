@@ -16,13 +16,13 @@ import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.LoopImpl#getLoopIteration_Loop <em>Loop
  * Iteration Loop</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.LoopImpl#getBodyBehaviour_Loop <em>Body
  * Behaviour Loop</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -33,7 +33,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -133,20 +133,19 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP:
             final PCMRandomVariable loopIteration_Loop = this.getLoopIteration_Loop();
             if (loopIteration_Loop != null) {
-                msgs = ((InternalEObject) loopIteration_Loop).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-                        - UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP, null, msgs);
+                msgs = ((InternalEObject) loopIteration_Loop).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP, null, msgs);
             }
             return this.basicSetLoopIteration_Loop((PCMRandomVariable) otherEnd, msgs);
         case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
             final ScenarioBehaviour bodyBehaviour_Loop = this.getBodyBehaviour_Loop();
             if (bodyBehaviour_Loop != null) {
-                msgs = ((InternalEObject) bodyBehaviour_Loop).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-                        - UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP, null, msgs);
+                msgs = ((InternalEObject) bodyBehaviour_Loop).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP, null, msgs);
             }
             return this.basicSetBodyBehaviour_Loop((ScenarioBehaviour) otherEnd, msgs);
         }
@@ -161,8 +160,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP:
             return this.basicSetLoopIteration_Loop(null, msgs);
         case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
@@ -178,8 +176,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP:
             return this.getLoopIteration_Loop();
         case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
@@ -195,8 +192,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP:
             this.setLoopIteration_Loop((PCMRandomVariable) newValue);
             return;
@@ -214,8 +210,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP:
             this.setLoopIteration_Loop((PCMRandomVariable) null);
             return;
@@ -233,8 +228,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP:
             return this.getLoopIteration_Loop() != null;
         case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:

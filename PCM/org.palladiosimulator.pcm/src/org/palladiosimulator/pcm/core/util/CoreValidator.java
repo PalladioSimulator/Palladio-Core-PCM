@@ -25,7 +25,7 @@ public class CoreValidator extends EObjectValidator {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -98,8 +98,7 @@ public class CoreValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID)
-        {
+        switch (classifierID) {
         case CorePackage.PCM_RANDOM_VARIABLE:
             return this.validatePCMRandomVariable((PCMRandomVariable) value, diagnostics, context);
         default:
@@ -126,6 +125,9 @@ public class CoreValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(pcmRandomVariable, diagnostics, context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(pcmRandomVariable, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(pcmRandomVariable, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -138,8 +140,8 @@ public class CoreValidator extends EObjectValidator {
             result &= this.validate_EveryMapEntryUnique(pcmRandomVariable, diagnostics, context);
         }
         if (result || diagnostics != null) {
-            result &= this
-                    .validatePCMRandomVariable_SpecificationMustNotBeNULL(pcmRandomVariable, diagnostics, context);
+            result &= this.validatePCMRandomVariable_SpecificationMustNotBeNULL(pcmRandomVariable, diagnostics,
+                    context);
         }
         return result;
     }

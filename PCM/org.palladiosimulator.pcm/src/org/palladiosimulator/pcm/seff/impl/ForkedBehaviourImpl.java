@@ -16,14 +16,13 @@ import org.palladiosimulator.pcm.seff.SynchronisationPoint;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.impl.ForkedBehaviourImpl#getSynchronisationPoint_ForkedBehaviour
+ * <li>{@link org.palladiosimulator.pcm.seff.impl.ForkedBehaviourImpl#getSynchronisationPoint_ForkedBehaviour
  * <em>Synchronisation Point Forked Behaviour</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.seff.impl.ForkedBehaviourImpl#getForkAction_ForkedBehaivour
  * <em>Fork Action Forked Behaivour</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -34,7 +33,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -133,8 +132,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.FORKED_BEHAVIOUR__SYNCHRONISATION_POINT_FORKED_BEHAVIOUR:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -157,8 +155,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.FORKED_BEHAVIOUR__SYNCHRONISATION_POINT_FORKED_BEHAVIOUR:
             return this.basicSetSynchronisationPoint_ForkedBehaviour(null, msgs);
         case SeffPackage.FORKED_BEHAVIOUR__FORK_ACTION_FORKED_BEHAIVOUR:
@@ -174,8 +171,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case SeffPackage.FORKED_BEHAVIOUR__SYNCHRONISATION_POINT_FORKED_BEHAVIOUR:
             return this.eInternalContainer().eInverseRemove(this,
                     SeffPackage.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT,
@@ -194,8 +190,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.FORKED_BEHAVIOUR__SYNCHRONISATION_POINT_FORKED_BEHAVIOUR:
             return this.getSynchronisationPoint_ForkedBehaviour();
         case SeffPackage.FORKED_BEHAVIOUR__FORK_ACTION_FORKED_BEHAIVOUR:
@@ -211,8 +206,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.FORKED_BEHAVIOUR__SYNCHRONISATION_POINT_FORKED_BEHAVIOUR:
             this.setSynchronisationPoint_ForkedBehaviour((SynchronisationPoint) newValue);
             return;
@@ -230,8 +224,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.FORKED_BEHAVIOUR__SYNCHRONISATION_POINT_FORKED_BEHAVIOUR:
             this.setSynchronisationPoint_ForkedBehaviour((SynchronisationPoint) null);
             return;
@@ -249,8 +242,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.FORKED_BEHAVIOUR__SYNCHRONISATION_POINT_FORKED_BEHAVIOUR:
             return this.getSynchronisationPoint_ForkedBehaviour() != null;
         case SeffPackage.FORKED_BEHAVIOUR__FORK_ACTION_FORKED_BEHAIVOUR:

@@ -14,11 +14,11 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.repository.DataType#getRepository__DataType <em>Repository
  * Data Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getDataType()
  * @model abstract="true"
@@ -32,15 +32,15 @@ public interface DataType extends CDOObject {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Repository Data Type</b></em>' container reference. It is
      * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.repository.Repository#getDataTypes__Repository
-     * <em>Data Types Repository</em>}'. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
-     * begin-model-doc --> This property specifies the repository to which this data type belongs.
-     * <!-- end-model-doc -->
+     * {@link org.palladiosimulator.pcm.repository.Repository#getDataTypes__Repository <em>Data
+     * Types Repository</em>}'. <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc
+     * --> This property specifies the repository to which this data type belongs. <!--
+     * end-model-doc -->
      *
      * @return the value of the '<em>Repository Data Type</em>' container reference.
      * @see #setRepository__DataType(Repository)
@@ -52,10 +52,9 @@ public interface DataType extends CDOObject {
     Repository getRepository__DataType();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.DataType#getRepository__DataType
-     * <em>Repository Data Type</em>}' container reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.DataType#getRepository__DataType <em>Repository
+     * Data Type</em>}' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Repository Data Type</em>' container reference.

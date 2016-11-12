@@ -72,7 +72,8 @@ import org.palladiosimulator.pcm.core.entity.EntityPackage;
  * Notice,&nbsp;that&nbsp;unlike&nbsp;other&nbsp;behavioural&nbsp;description&nbsp;languages&nbsp;
  * for&nbsp;performance&nbsp;prediction&nbsp;(e.g.,&nbsp;[162,&nbsp;187,<br />
  * 78]),&nbsp;the&nbsp;PCM&nbsp;usage&nbsp;model&nbsp;specifically&nbsp;models&nbsp;user&nbsp;
- * behaviour&nbsp;and&nbsp;for&nbsp;example&nbsp;does&nbsp;not&nbsp;refer&nbsp;to&nbsp;resources. <br />
+ * behaviour&nbsp;and&nbsp;for&nbsp;example&nbsp;does&nbsp;not&nbsp;refer&nbsp;to&nbsp;resources.
+ * <br />
  * Other&nbsp;performance&nbsp;meta-models&nbsp;mix&nbsp;up&nbsp;the&nbsp;specification&nbsp;of&nbsp
  * ;user&nbsp;behaviour,&nbsp;component&nbsp;behaviour,&nbsp;and<br />
  * resources,&nbsp;so&nbsp;that&nbsp;a&nbsp;single&nbsp;developer&nbsp;role&nbsp;(i.e.,&nbsp;a&nbsp;
@@ -116,7 +117,8 @@ import org.palladiosimulator.pcm.core.entity.EntityPackage;
  * roles,&nbsp;because&nbsp;such&nbsp;models&nbsp;only&nbsp;contain&nbsp;concepts&nbsp;known&nbsp;to
  * &nbsp;them.<br />
  * - The&nbsp;number&nbsp;of&nbsp;loop&nbsp;iterations&nbsp;is&nbsp;not&nbsp;bound&nbsp;to&nbsp;a&
- * nbsp ;constant&nbsp;value,&nbsp;but&nbsp;can&nbsp;be&nbsp;specified&nbsp;as&nbsp;a&nbsp;random<br />
+ * nbsp
+ * ;constant&nbsp;value,&nbsp;but&nbsp;can&nbsp;be&nbsp;specified&nbsp;as&nbsp;a&nbsp;random<br />
  * variable.<br />
  * - The&nbsp;control&nbsp;flow&nbsp;constructs&nbsp;are&nbsp;arranged&nbsp;in&nbsp;a&nbsp;
  * hierarchical&nbsp;fashion&nbsp;to&nbsp;enable&nbsp;easy&nbsp;analyses.<br />
@@ -166,8 +168,10 @@ import org.palladiosimulator.pcm.core.entity.EntityPackage;
  * <!-- end-model-doc -->
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelFactory
- * @model kind="package" annotation=
- *        "http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
+ * @model kind="package" annotation= "http://www.eclipse.org/emf/2002/Ecore
+ *        invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface UsagemodelPackage extends EPackage {
@@ -177,7 +181,7 @@ public interface UsagemodelPackage extends EPackage {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -236,8 +240,8 @@ public interface UsagemodelPackage extends EPackage {
     int WORKLOAD_FEATURE_COUNT = 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.usagemodel.impl.UsageScenarioImpl <em>Usage Scenario</em>}'
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.usagemodel.impl.UsageScenarioImpl <em>Usage Scenario</em>}'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.usagemodel.impl.UsageScenarioImpl
@@ -384,9 +388,9 @@ public interface UsagemodelPackage extends EPackage {
     int USAGE_MODEL_FEATURE_COUNT = 2;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl
-     * <em>Abstract User Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl <em>Abstract User
+     * Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl
      * @see org.palladiosimulator.pcm.usagemodel.impl.UsagemodelPackageImpl#getAbstractUserAction()
@@ -449,9 +453,9 @@ public interface UsagemodelPackage extends EPackage {
     int ABSTRACT_USER_ACTION_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.usagemodel.impl.EntryLevelSystemCallImpl
-     * <em>Entry Level System Call</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.usagemodel.impl.EntryLevelSystemCallImpl <em>Entry Level
+     * System Call</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.usagemodel.impl.EntryLevelSystemCallImpl
      * @see org.palladiosimulator.pcm.usagemodel.impl.UsagemodelPackageImpl#getEntryLevelSystemCall()
@@ -529,7 +533,8 @@ public interface UsagemodelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 2;
+    int ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT
+            + 2;
 
     /**
      * The feature id for the '<em><b>Priority</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -547,7 +552,8 @@ public interface UsagemodelPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 4;
+    int ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT
+            + 4;
 
     /**
      * The number of structural features of the '<em>Entry Level System Call</em>' class. <!--
@@ -559,9 +565,9 @@ public interface UsagemodelPackage extends EPackage {
     int ENTRY_LEVEL_SYSTEM_CALL_FEATURE_COUNT = ABSTRACT_USER_ACTION_FEATURE_COUNT + 5;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.usagemodel.impl.ScenarioBehaviourImpl
-     * <em>Scenario Behaviour</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.usagemodel.impl.ScenarioBehaviourImpl <em>Scenario
+     * Behaviour</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.usagemodel.impl.ScenarioBehaviourImpl
      * @see org.palladiosimulator.pcm.usagemodel.impl.UsagemodelPackageImpl#getScenarioBehaviour()
@@ -633,9 +639,9 @@ public interface UsagemodelPackage extends EPackage {
     int SCENARIO_BEHAVIOUR_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 4;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.usagemodel.impl.BranchTransitionImpl
-     * <em>Branch Transition</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.usagemodel.impl.BranchTransitionImpl <em>Branch
+     * Transition</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.usagemodel.impl.BranchTransitionImpl
      * @see org.palladiosimulator.pcm.usagemodel.impl.UsagemodelPackageImpl#getBranchTransition()
@@ -963,9 +969,8 @@ public interface UsagemodelPackage extends EPackage {
     int START_FEATURE_COUNT = ABSTRACT_USER_ACTION_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.usagemodel.impl.OpenWorkloadImpl <em>Open Workload</em>}'
-     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the '{@link org.palladiosimulator.pcm.usagemodel.impl.OpenWorkloadImpl
+     * <em>Open Workload</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.usagemodel.impl.OpenWorkloadImpl
      * @see org.palladiosimulator.pcm.usagemodel.impl.UsagemodelPackageImpl#getOpenWorkload()
@@ -1074,9 +1079,9 @@ public interface UsagemodelPackage extends EPackage {
     int DELAY_FEATURE_COUNT = ABSTRACT_USER_ACTION_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.usagemodel.impl.ClosedWorkloadImpl <em>Closed Workload</em>}
-     * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.usagemodel.impl.ClosedWorkloadImpl <em>Closed
+     * Workload</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.usagemodel.impl.ClosedWorkloadImpl
      * @see org.palladiosimulator.pcm.usagemodel.impl.UsagemodelPackageImpl#getClosedWorkload()
@@ -1131,9 +1136,9 @@ public interface UsagemodelPackage extends EPackage {
     EClass getWorkload();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.usagemodel.Workload#getUsageScenario_Workload
-     * <em>Usage Scenario Workload</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.usagemodel.Workload#getUsageScenario_Workload <em>Usage
+     * Scenario Workload</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Usage Scenario Workload</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.Workload#getUsageScenario_Workload()
@@ -1153,8 +1158,8 @@ public interface UsagemodelPackage extends EPackage {
     EClass getUsageScenario();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getUsageModel_UsageScenario
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getUsageModel_UsageScenario
      * <em>Usage Model Usage Scenario</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Usage Model Usage Scenario</em>'.
@@ -1165,12 +1170,12 @@ public interface UsagemodelPackage extends EPackage {
     EReference getUsageScenario_UsageModel_UsageScenario();
 
     /**
-     * Returns the meta object for the containment reference '
-     * {@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getScenarioBehaviour_UsageScenario
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getScenarioBehaviour_UsageScenario
      * <em>Scenario Behaviour Usage Scenario</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference '
-     *         <em>Scenario Behaviour Usage Scenario</em>'.
+     * @return the meta object for the containment reference '<em>Scenario Behaviour Usage
+     *         Scenario</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.UsageScenario#getScenarioBehaviour_UsageScenario()
      * @see #getUsageScenario()
      * @generated
@@ -1178,8 +1183,8 @@ public interface UsagemodelPackage extends EPackage {
     EReference getUsageScenario_ScenarioBehaviour_UsageScenario();
 
     /**
-     * Returns the meta object for the containment reference '
-     * {@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario
      * <em>Workload Usage Scenario</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference '<em>Workload Usage Scenario</em>'.
@@ -1200,8 +1205,8 @@ public interface UsagemodelPackage extends EPackage {
     EClass getUserData();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.usagemodel.UserData#getAssemblyContext_userData
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.usagemodel.UserData#getAssemblyContext_userData
      * <em>Assembly Context user Data</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Assembly Context user Data</em>'.
@@ -1212,9 +1217,9 @@ public interface UsagemodelPackage extends EPackage {
     EReference getUserData_AssemblyContext_userData();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.usagemodel.UserData#getUsageModel_UserData
-     * <em>Usage Model User Data</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.usagemodel.UserData#getUsageModel_UserData <em>Usage Model
+     * User Data</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Usage Model User Data</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.UserData#getUsageModel_UserData()
@@ -1229,8 +1234,8 @@ public interface UsagemodelPackage extends EPackage {
      * <em>User Data Parameter Usages User Data</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>User Data Parameter Usages User Data</em>'.
+     * @return the meta object for the containment reference list ' <em>User Data Parameter Usages
+     *         User Data</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.UserData#getUserDataParameterUsages_UserData()
      * @see #getUserData()
      * @generated
@@ -1248,12 +1253,12 @@ public interface UsagemodelPackage extends EPackage {
     EClass getUsageModel();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.usagemodel.UsageModel#getUsageScenario_UsageModel
-     * <em>Usage Scenario Usage Model</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.usagemodel.UsageModel#getUsageScenario_UsageModel <em>Usage
+     * Scenario Usage Model</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Usage Scenario Usage Model</em>'.
+     * @return the meta object for the containment reference list '<em>Usage Scenario Usage
+     *         Model</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.UsageModel#getUsageScenario_UsageModel()
      * @see #getUsageModel()
      * @generated
@@ -1261,9 +1266,9 @@ public interface UsagemodelPackage extends EPackage {
     EReference getUsageModel_UsageScenario_UsageModel();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.usagemodel.UsageModel#getUserData_UsageModel
-     * <em>User Data Usage Model</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.usagemodel.UsageModel#getUserData_UsageModel <em>User Data
+     * Usage Model</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference list '<em>User Data Usage Model</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.UsageModel#getUserData_UsageModel()
@@ -1273,9 +1278,9 @@ public interface UsagemodelPackage extends EPackage {
     EReference getUsageModel_UserData_UsageModel();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
-     * <em>Entry Level System Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall <em>Entry Level System
+     * Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Entry Level System Call</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
@@ -1297,13 +1302,13 @@ public interface UsagemodelPackage extends EPackage {
     EReference getEntryLevelSystemCall_ProvidedRole_EntryLevelSystemCall();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getOperationSignature__EntryLevelSystemCall
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getOperationSignature__EntryLevelSystemCall
      * <em>Operation Signature Entry Level System Call</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Operation Signature Entry Level System Call</em>'.
+     * @return the meta object for the reference '<em>Operation Signature Entry Level System
+     *         Call</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getOperationSignature__EntryLevelSystemCall()
      * @see #getEntryLevelSystemCall()
      * @generated
@@ -1311,13 +1316,13 @@ public interface UsagemodelPackage extends EPackage {
     EReference getEntryLevelSystemCall_OperationSignature__EntryLevelSystemCall();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getOutputParameterUsages_EntryLevelSystemCall
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getOutputParameterUsages_EntryLevelSystemCall
      * <em>Output Parameter Usages Entry Level System Call</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Output Parameter Usages Entry Level System Call</em>'.
+     * @return the meta object for the containment reference list '<em>Output Parameter Usages Entry
+     *         Level System Call</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getOutputParameterUsages_EntryLevelSystemCall()
      * @see #getEntryLevelSystemCall()
      * @generated
@@ -1325,8 +1330,8 @@ public interface UsagemodelPackage extends EPackage {
     EReference getEntryLevelSystemCall_OutputParameterUsages_EntryLevelSystemCall();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getPriority
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getPriority
      * <em>Priority</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Priority</em>'.
@@ -1337,13 +1342,13 @@ public interface UsagemodelPackage extends EPackage {
     EAttribute getEntryLevelSystemCall_Priority();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getInputParameterUsages_EntryLevelSystemCall
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getInputParameterUsages_EntryLevelSystemCall
      * <em>Input Parameter Usages Entry Level System Call</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Input Parameter Usages Entry Level System Call</em>'.
+     * @return the meta object for the containment reference list '<em>Input Parameter Usages Entry
+     *         Level System Call</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getInputParameterUsages_EntryLevelSystemCall()
      * @see #getEntryLevelSystemCall()
      * @generated
@@ -1351,9 +1356,9 @@ public interface UsagemodelPackage extends EPackage {
     EReference getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction <em>Abstract User Action</em>}
-     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction <em>Abstract User
+     * Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Abstract User Action</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.AbstractUserAction
@@ -1362,8 +1367,8 @@ public interface UsagemodelPackage extends EPackage {
     EClass getAbstractUserAction();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getSuccessor
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getSuccessor
      * <em>Successor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Successor</em>'.
@@ -1374,8 +1379,8 @@ public interface UsagemodelPackage extends EPackage {
     EReference getAbstractUserAction_Successor();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getPredecessor
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getPredecessor
      * <em>Predecessor</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Predecessor</em>'.
@@ -1391,8 +1396,8 @@ public interface UsagemodelPackage extends EPackage {
      * <em>Scenario Behaviour Abstract User Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Scenario Behaviour Abstract User Action</em>'.
+     * @return the meta object for the container reference ' <em>Scenario Behaviour Abstract User
+     *         Action</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getScenarioBehaviour_AbstractUserAction()
      * @see #getAbstractUserAction()
      * @generated
@@ -1400,8 +1405,8 @@ public interface UsagemodelPackage extends EPackage {
     EReference getAbstractUserAction_ScenarioBehaviour_AbstractUserAction();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour <em>Scenario Behaviour</em>}'.
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour <em>Scenario Behaviour</em>}'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Scenario Behaviour</em>'.
@@ -1411,12 +1416,12 @@ public interface UsagemodelPackage extends EPackage {
     EClass getScenarioBehaviour();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getUsageScenario_SenarioBehaviour
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getUsageScenario_SenarioBehaviour
      * <em>Usage Scenario Senario Behaviour</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Usage Scenario Senario Behaviour</em>'.
+     * @return the meta object for the container reference '<em>Usage Scenario Senario
+     *         Behaviour</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getUsageScenario_SenarioBehaviour()
      * @see #getScenarioBehaviour()
      * @generated
@@ -1429,8 +1434,8 @@ public interface UsagemodelPackage extends EPackage {
      * <em>Branch Transition Scenario Behaviour</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Branch Transition Scenario Behaviour</em>'.
+     * @return the meta object for the container reference ' <em>Branch Transition Scenario
+     *         Behaviour</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getBranchTransition_ScenarioBehaviour()
      * @see #getScenarioBehaviour()
      * @generated
@@ -1438,8 +1443,8 @@ public interface UsagemodelPackage extends EPackage {
     EReference getScenarioBehaviour_BranchTransition_ScenarioBehaviour();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getLoop_ScenarioBehaviour
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getLoop_ScenarioBehaviour
      * <em>Loop Scenario Behaviour</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Loop Scenario Behaviour</em>'.
@@ -1450,12 +1455,12 @@ public interface UsagemodelPackage extends EPackage {
     EReference getScenarioBehaviour_Loop_ScenarioBehaviour();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getActions_ScenarioBehaviour
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getActions_ScenarioBehaviour
      * <em>Actions Scenario Behaviour</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Actions Scenario Behaviour</em>'.
+     * @return the meta object for the containment reference list '<em>Actions Scenario
+     *         Behaviour</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getActions_ScenarioBehaviour()
      * @see #getScenarioBehaviour()
      * @generated
@@ -1463,8 +1468,8 @@ public interface UsagemodelPackage extends EPackage {
     EReference getScenarioBehaviour_Actions_ScenarioBehaviour();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.usagemodel.BranchTransition <em>Branch Transition</em>}'.
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.usagemodel.BranchTransition <em>Branch Transition</em>}'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Branch Transition</em>'.
@@ -1474,9 +1479,9 @@ public interface UsagemodelPackage extends EPackage {
     EClass getBranchTransition();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranchProbability
-     * <em>Branch Probability</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranchProbability <em>Branch
+     * Probability</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Branch Probability</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranchProbability()
@@ -1486,8 +1491,8 @@ public interface UsagemodelPackage extends EPackage {
     EAttribute getBranchTransition_BranchProbability();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranch_BranchTransition
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranch_BranchTransition
      * <em>Branch Branch Transition</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Branch Branch Transition</em>'.
@@ -1503,8 +1508,8 @@ public interface UsagemodelPackage extends EPackage {
      * <em>Branched Behaviour Branch Transition</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @return the meta object for the containment reference '
-     *         <em>Branched Behaviour Branch Transition</em>'.
+     * @return the meta object for the containment reference ' <em>Branched Behaviour Branch
+     *         Transition</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition()
      * @see #getBranchTransition()
      * @generated
@@ -1522,12 +1527,12 @@ public interface UsagemodelPackage extends EPackage {
     EClass getBranch();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.usagemodel.Branch#getBranchTransitions_Branch
-     * <em>Branch Transitions Branch</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.usagemodel.Branch#getBranchTransitions_Branch <em>Branch
+     * Transitions Branch</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Branch Transitions Branch</em>'.
+     * @return the meta object for the containment reference list '<em>Branch Transitions
+     *         Branch</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.Branch#getBranchTransitions_Branch()
      * @see #getBranch()
      * @generated
@@ -1545,9 +1550,9 @@ public interface UsagemodelPackage extends EPackage {
     EClass getLoop();
 
     /**
-     * Returns the meta object for the containment reference '
-     * {@link org.palladiosimulator.pcm.usagemodel.Loop#getLoopIteration_Loop
-     * <em>Loop Iteration Loop</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.pcm.usagemodel.Loop#getLoopIteration_Loop <em>Loop Iteration
+     * Loop</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference '<em>Loop Iteration Loop</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.Loop#getLoopIteration_Loop()
@@ -1557,9 +1562,9 @@ public interface UsagemodelPackage extends EPackage {
     EReference getLoop_LoopIteration_Loop();
 
     /**
-     * Returns the meta object for the containment reference '
-     * {@link org.palladiosimulator.pcm.usagemodel.Loop#getBodyBehaviour_Loop
-     * <em>Body Behaviour Loop</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.pcm.usagemodel.Loop#getBodyBehaviour_Loop <em>Body Behaviour
+     * Loop</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference '<em>Body Behaviour Loop</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.Loop#getBodyBehaviour_Loop()
@@ -1599,12 +1604,12 @@ public interface UsagemodelPackage extends EPackage {
     EClass getOpenWorkload();
 
     /**
-     * Returns the meta object for the containment reference '
-     * {@link org.palladiosimulator.pcm.usagemodel.OpenWorkload#getInterArrivalTime_OpenWorkload
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.pcm.usagemodel.OpenWorkload#getInterArrivalTime_OpenWorkload
      * <em>Inter Arrival Time Open Workload</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference '
-     *         <em>Inter Arrival Time Open Workload</em>'.
+     * @return the meta object for the containment reference '<em>Inter Arrival Time Open
+     *         Workload</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.OpenWorkload#getInterArrivalTime_OpenWorkload()
      * @see #getOpenWorkload()
      * @generated
@@ -1622,9 +1627,9 @@ public interface UsagemodelPackage extends EPackage {
     EClass getDelay();
 
     /**
-     * Returns the meta object for the containment reference '
-     * {@link org.palladiosimulator.pcm.usagemodel.Delay#getTimeSpecification_Delay
-     * <em>Time Specification Delay</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.pcm.usagemodel.Delay#getTimeSpecification_Delay <em>Time
+     * Specification Delay</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference '<em>Time Specification Delay</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.Delay#getTimeSpecification_Delay()
@@ -1645,9 +1650,9 @@ public interface UsagemodelPackage extends EPackage {
     EClass getClosedWorkload();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload#getPopulation <em>Population</em>}
-     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload#getPopulation
+     * <em>Population</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Population</em>'.
      * @see org.palladiosimulator.pcm.usagemodel.ClosedWorkload#getPopulation()
@@ -1657,8 +1662,8 @@ public interface UsagemodelPackage extends EPackage {
     EAttribute getClosedWorkload_Population();
 
     /**
-     * Returns the meta object for the containment reference '
-     * {@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload
      * <em>Think Time Closed Workload</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference '<em>Think Time Closed Workload</em>'.
@@ -1692,8 +1697,8 @@ public interface UsagemodelPackage extends EPackage {
     interface Literals {
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.usagemodel.impl.WorkloadImpl <em>Workload</em>}' class.
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.usagemodel.impl.WorkloadImpl <em>Workload</em>}' class.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.usagemodel.impl.WorkloadImpl
@@ -1711,9 +1716,9 @@ public interface UsagemodelPackage extends EPackage {
         EReference WORKLOAD__USAGE_SCENARIO_WORKLOAD = eINSTANCE.getWorkload_UsageScenario_Workload();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.usagemodel.impl.UsageScenarioImpl
-         * <em>Usage Scenario</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.usagemodel.impl.UsageScenarioImpl <em>Usage
+         * Scenario</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.usagemodel.impl.UsageScenarioImpl
          * @see org.palladiosimulator.pcm.usagemodel.impl.UsagemodelPackageImpl#getUsageScenario()
@@ -1747,9 +1752,9 @@ public interface UsagemodelPackage extends EPackage {
         EReference USAGE_SCENARIO__WORKLOAD_USAGE_SCENARIO = eINSTANCE.getUsageScenario_Workload_UsageScenario();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.usagemodel.impl.UserDataImpl <em>User Data</em>}' class.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.usagemodel.impl.UserDataImpl <em>User Data</em>}'
+         * class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.usagemodel.impl.UserDataImpl
          * @see org.palladiosimulator.pcm.usagemodel.impl.UsagemodelPackageImpl#getUserData()
@@ -1783,8 +1788,8 @@ public interface UsagemodelPackage extends EPackage {
                 .getUserData_UserDataParameterUsages_UserData();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.usagemodel.impl.UsageModelImpl <em>Usage Model</em>}'
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.usagemodel.impl.UsageModelImpl <em>Usage Model</em>}'
          * class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.usagemodel.impl.UsageModelImpl
@@ -1810,9 +1815,9 @@ public interface UsagemodelPackage extends EPackage {
         EReference USAGE_MODEL__USER_DATA_USAGE_MODEL = eINSTANCE.getUsageModel_UserData_UsageModel();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.usagemodel.impl.EntryLevelSystemCallImpl
-         * <em>Entry Level System Call</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.usagemodel.impl.EntryLevelSystemCallImpl <em>Entry
+         * Level System Call</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.usagemodel.impl.EntryLevelSystemCallImpl
          * @see org.palladiosimulator.pcm.usagemodel.impl.UsagemodelPackageImpl#getEntryLevelSystemCall()
@@ -1830,9 +1835,8 @@ public interface UsagemodelPackage extends EPackage {
                 .getEntryLevelSystemCall_ProvidedRole_EntryLevelSystemCall();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Operation Signature Entry Level System Call</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Operation Signature Entry Level System
+         * Call</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -1840,9 +1844,9 @@ public interface UsagemodelPackage extends EPackage {
                 .getEntryLevelSystemCall_OperationSignature__EntryLevelSystemCall();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Output Parameter Usages Entry Level System Call</b></em>' containment reference
-         * list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Output Parameter Usages Entry Level System
+         * Call</b></em>' containment reference list feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -1858,9 +1862,9 @@ public interface UsagemodelPackage extends EPackage {
         EAttribute ENTRY_LEVEL_SYSTEM_CALL__PRIORITY = eINSTANCE.getEntryLevelSystemCall_Priority();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Input Parameter Usages Entry Level System Call</b></em>' containment reference
-         * list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Input Parameter Usages Entry Level System
+         * Call</b></em>' containment reference list feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -1868,9 +1872,9 @@ public interface UsagemodelPackage extends EPackage {
                 .getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl
-         * <em>Abstract User Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl <em>Abstract
+         * User Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.usagemodel.impl.AbstractUserActionImpl
          * @see org.palladiosimulator.pcm.usagemodel.impl.UsagemodelPackageImpl#getAbstractUserAction()
@@ -1904,9 +1908,9 @@ public interface UsagemodelPackage extends EPackage {
                 .getAbstractUserAction_ScenarioBehaviour_AbstractUserAction();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.usagemodel.impl.ScenarioBehaviourImpl
-         * <em>Scenario Behaviour</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.usagemodel.impl.ScenarioBehaviourImpl <em>Scenario
+         * Behaviour</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.usagemodel.impl.ScenarioBehaviourImpl
          * @see org.palladiosimulator.pcm.usagemodel.impl.UsagemodelPackageImpl#getScenarioBehaviour()
@@ -1951,9 +1955,9 @@ public interface UsagemodelPackage extends EPackage {
                 .getScenarioBehaviour_Actions_ScenarioBehaviour();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.usagemodel.impl.BranchTransitionImpl
-         * <em>Branch Transition</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.usagemodel.impl.BranchTransitionImpl <em>Branch
+         * Transition</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.usagemodel.impl.BranchTransitionImpl
          * @see org.palladiosimulator.pcm.usagemodel.impl.UsagemodelPackageImpl#getBranchTransition()
@@ -2056,9 +2060,9 @@ public interface UsagemodelPackage extends EPackage {
         EClass START = eINSTANCE.getStart();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.usagemodel.impl.OpenWorkloadImpl <em>Open Workload</em>}
-         * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.usagemodel.impl.OpenWorkloadImpl <em>Open
+         * Workload</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.usagemodel.impl.OpenWorkloadImpl
          * @see org.palladiosimulator.pcm.usagemodel.impl.UsagemodelPackageImpl#getOpenWorkload()
@@ -2095,9 +2099,9 @@ public interface UsagemodelPackage extends EPackage {
         EReference DELAY__TIME_SPECIFICATION_DELAY = eINSTANCE.getDelay_TimeSpecification_Delay();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.usagemodel.impl.ClosedWorkloadImpl
-         * <em>Closed Workload</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.usagemodel.impl.ClosedWorkloadImpl <em>Closed
+         * Workload</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.usagemodel.impl.ClosedWorkloadImpl
          * @see org.palladiosimulator.pcm.usagemodel.impl.UsagemodelPackageImpl#getClosedWorkload()

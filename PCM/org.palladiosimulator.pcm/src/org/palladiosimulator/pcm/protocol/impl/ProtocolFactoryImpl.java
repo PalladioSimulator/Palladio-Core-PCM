@@ -23,7 +23,7 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -31,16 +31,13 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
      * @generated
      */
     public static ProtocolFactory init() {
-        try
-        {
+        try {
             final ProtocolFactory theProtocolFactory = (ProtocolFactory) EPackage.Registry.INSTANCE
                     .getEFactory(ProtocolPackage.eNS_URI);
-            if (theProtocolFactory != null)
-            {
+            if (theProtocolFactory != null) {
                 return theProtocolFactory;
             }
-        } catch (final Exception exception)
-        {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new ProtocolFactoryImpl();
@@ -62,8 +59,7 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID())
-        {
+        switch (eClass.getClassifierID()) {
         default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }

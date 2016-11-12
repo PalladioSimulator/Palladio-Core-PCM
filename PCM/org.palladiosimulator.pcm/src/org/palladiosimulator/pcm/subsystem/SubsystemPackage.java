@@ -30,7 +30,7 @@ public interface SubsystemPackage extends EPackage {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -98,9 +98,8 @@ public interface SubsystemPackage extends EPackage {
     int SUB_SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Required Delegation Connectors Composed
+     * Structure</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -135,9 +134,8 @@ public interface SubsystemPackage extends EPackage {
     int SUB_SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Required Roles Resource Interface Requiring
+     * Entity</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -160,7 +158,8 @@ public interface SubsystemPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 0;
+    int SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
+            + 0;
 
     /**
      * The number of structural features of the '<em>Sub System</em>' class. <!-- begin-user-doc -->
@@ -205,8 +204,8 @@ public interface SubsystemPackage extends EPackage {
     interface Literals {
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.subsystem.impl.SubSystemImpl <em>Sub System</em>}'
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.subsystem.impl.SubSystemImpl <em>Sub System</em>}'
          * class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.subsystem.impl.SubSystemImpl

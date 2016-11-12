@@ -6,8 +6,8 @@ package org.palladiosimulator.pcm.core.composition;
 import org.palladiosimulator.pcm.repository.SourceRole;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Source Delegation Connector</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Source Delegation
+ * Connector</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> A SourceDelegationConnector delegates outgoing events of encapsulated
  * assembly contexts to an external souce role of the enclosing assembly context. <!-- end-model-doc
@@ -15,18 +15,15 @@ import org.palladiosimulator.pcm.repository.SourceRole;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector#getInnerSourceRole__SourceRole
+ * <li>{@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector#getInnerSourceRole__SourceRole
  * <em>Inner Source Role Source Role</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector#getOuterSourceRole__SourceRole
+ * <li>{@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector#getOuterSourceRole__SourceRole
  * <em>Outer Source Role Source Role</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector#getAssemblyContext__SourceDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector#getAssemblyContext__SourceDelegationConnector
  * <em>Assembly Context Source Delegation Connector</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getSourceDelegationConnector()
  * @model
@@ -39,7 +36,7 @@ public interface SourceDelegationConnector extends DelegationConnector {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Inner Source Role Source Role</b></em>' reference. <!--
@@ -119,8 +116,8 @@ public interface SourceDelegationConnector extends DelegationConnector {
     AssemblyContext getAssemblyContext__SourceDelegationConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector#getAssemblyContext__SourceDelegationConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector#getAssemblyContext__SourceDelegationConnector
      * <em>Assembly Context Source Delegation Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *

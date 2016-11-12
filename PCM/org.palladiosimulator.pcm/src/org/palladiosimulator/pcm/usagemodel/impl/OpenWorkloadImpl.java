@@ -26,12 +26,11 @@ import org.palladiosimulator.pcm.usagemodel.util.UsagemodelValidator;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.usagemodel.impl.OpenWorkloadImpl#getInterArrivalTime_OpenWorkload
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.OpenWorkloadImpl#getInterArrivalTime_OpenWorkload
  * <em>Inter Arrival Time Open Workload</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -42,7 +41,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -111,8 +110,8 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
      */
     protected static final String INTER_ARRIVAL_TIME_IN_OPEN_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "not self.interArrivalTime_OpenWorkload.oclIsUndefined() and self.interArrivalTime_OpenWorkload.specification <> ''";
     /**
-     * The cached OCL invariant for the '
-     * {@link #InterArrivalTimeInOpenWorkloadNeedsToBeSpecified(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL invariant for the
+     * '{@link #InterArrivalTimeInOpenWorkloadNeedsToBeSpecified(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Inter Arrival Time In Open Workload Needs To Be Specified</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -131,35 +130,28 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
     @Override
     public boolean InterArrivalTimeInOpenWorkloadNeedsToBeSpecified(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (INTER_ARRIVAL_TIME_IN_OPEN_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (INTER_ARRIVAL_TIME_IN_OPEN_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(UsagemodelPackage.Literals.OPEN_WORKLOAD);
-            try
-            {
+            try {
                 INTER_ARRIVAL_TIME_IN_OPEN_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(INTER_ARRIVAL_TIME_IN_OPEN_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                INTER_ARRIVAL_TIME_IN_OPEN_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(
-                INTER_ARRIVAL_TIME_IN_OPEN_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                UsagemodelValidator.DIAGNOSTIC_SOURCE,
-                                UsagemodelValidator.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_IN_OPEN_WORKLOAD_NEEDS_TO_BE_SPECIFIED,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "InterArrivalTimeInOpenWorkloadNeedsToBeSpecified",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+        if (!EOCL_ENV
+                .createQuery(INTER_ARRIVAL_TIME_IN_OPEN_WORKLOAD_NEEDS_TO_BE_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        UsagemodelValidator.DIAGNOSTIC_SOURCE,
+                        UsagemodelValidator.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_IN_OPEN_WORKLOAD_NEEDS_TO_BE_SPECIFIED,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "InterArrivalTimeInOpenWorkloadNeedsToBeSpecified",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -173,13 +165,13 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD:
             final PCMRandomVariable interArrivalTime_OpenWorkload = this.getInterArrivalTime_OpenWorkload();
             if (interArrivalTime_OpenWorkload != null) {
-                msgs = ((InternalEObject) interArrivalTime_OpenWorkload).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-                        - UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD, null, msgs);
+                msgs = ((InternalEObject) interArrivalTime_OpenWorkload).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD,
+                        null, msgs);
             }
             return this.basicSetInterArrivalTime_OpenWorkload((PCMRandomVariable) otherEnd, msgs);
         }
@@ -194,8 +186,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD:
             return this.basicSetInterArrivalTime_OpenWorkload(null, msgs);
         }
@@ -209,8 +200,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD:
             return this.getInterArrivalTime_OpenWorkload();
         }
@@ -224,8 +214,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD:
             this.setInterArrivalTime_OpenWorkload((PCMRandomVariable) newValue);
             return;
@@ -240,8 +229,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD:
             this.setInterArrivalTime_OpenWorkload((PCMRandomVariable) null);
             return;
@@ -256,8 +244,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD:
             return this.getInterArrivalTime_OpenWorkload() != null;
         }

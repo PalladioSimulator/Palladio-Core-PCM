@@ -10,8 +10,8 @@ import org.eclipse.emf.common.util.EList;
 import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Recovery Action Behaviour</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Recovery Action
+ * Behaviour</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
  * <p>
@@ -27,15 +27,13 @@ import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour#getFailureHandlingAlternatives__RecoveryActionBehaviour
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour#getFailureHandlingAlternatives__RecoveryActionBehaviour
  * <em>Failure Handling Alternatives Recovery Action Behaviour</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour
  * <em>Recovery Action Recovery Action Behaviour</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage#getRecoveryActionBehaviour()
  * @model
@@ -48,12 +46,11 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
-     * Returns the value of the '
-     * <em><b>Failure Handling Alternatives Recovery Action Behaviour</b></em>' reference list. The
-     * list contents are of type
+     * Returns the value of the ' <em><b>Failure Handling Alternatives Recovery Action
+     * Behaviour</b></em>' reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour}. <!--
      * begin-user-doc -->
      * <p>
@@ -72,8 +69,8 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
 
     /**
      * Returns the value of the '<em><b>Recovery Action Recovery Action Behaviour</b></em>'
-     * container reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction#getRecoveryActionBehaviours__RecoveryAction
+     * container reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction#getRecoveryActionBehaviours__RecoveryAction
      * <em>Recovery Action Behaviours Recovery Action</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Recovery Action Recovery Action Behaviour</em>' container
@@ -93,8 +90,8 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
     RecoveryAction getRecoveryAction__RecoveryActionBehaviour();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour
      * <em>Recovery Action Recovery Action Behaviour</em>}' container reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -113,8 +110,11 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->\r\n\texists(x,y:RecoveryActionBehaviour | x<>y\r\n\t\tand x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)\r\n\t\tand y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel body='not
+     *        self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->\r\n\texists(x,y:RecoveryActionBehaviour
+     *        | x<>y\r\n\t\tand
+     *        x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)\r\n\t\tand
+     *        y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))'"
      * @generated
      */
     boolean RecoveryActionBehaviourHasOnlyOnePredecessor(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -126,8 +126,8 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel body='not
+     *        self.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)'"
      * @generated
      */
     boolean RecoveryActionBehaviourIsNotSuccessorOfItself(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -139,8 +139,11 @@ public interface RecoveryActionBehaviour extends FailureHandlingEntity, Resource
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.failureHandlingAlternatives__RecoveryActionBehaviour->\r\n\texists(x,y:RecoveryActionBehaviour | x<>y and\r\n\tx.failureTypes_FailureHandlingEntity->\r\n\t\texists(f:pcm::reliability::FailureType |\r\n\t\ty.failureTypes_FailureHandlingEntity->includes(f)))'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel body='not
+     *        self.failureHandlingAlternatives__RecoveryActionBehaviour->\r\n\texists(x,y:RecoveryActionBehaviour
+     *        | x<>y
+     *        and\r\n\tx.failureTypes_FailureHandlingEntity->\r\n\t\texists(f:pcm::reliability::FailureType
+     *        |\r\n\t\ty.failureTypes_FailureHandlingEntity->includes(f)))'"
      * @generated
      */
     boolean SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(DiagnosticChain diagnostics,

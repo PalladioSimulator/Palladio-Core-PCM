@@ -13,12 +13,11 @@ import org.palladiosimulator.pcm.seff.SeffPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.impl.ReleaseActionImpl#getPassiveResource_ReleaseAction
+ * <li>{@link org.palladiosimulator.pcm.seff.impl.ReleaseActionImpl#getPassiveResource_ReleaseAction
  * <em>Passive Resource Release Action</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -29,7 +28,7 @@ public class ReleaseActionImpl extends AbstractInternalControlFlowActionImpl imp
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -89,8 +88,7 @@ public class ReleaseActionImpl extends AbstractInternalControlFlowActionImpl imp
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.RELEASE_ACTION__PASSIVE_RESOURCE_RELEASE_ACTION:
             if (resolve) {
                 return this.getPassiveResource_ReleaseAction();
@@ -107,8 +105,7 @@ public class ReleaseActionImpl extends AbstractInternalControlFlowActionImpl imp
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.RELEASE_ACTION__PASSIVE_RESOURCE_RELEASE_ACTION:
             this.setPassiveResource_ReleaseAction((PassiveResource) newValue);
             return;
@@ -123,8 +120,7 @@ public class ReleaseActionImpl extends AbstractInternalControlFlowActionImpl imp
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.RELEASE_ACTION__PASSIVE_RESOURCE_RELEASE_ACTION:
             this.setPassiveResource_ReleaseAction((PassiveResource) null);
             return;
@@ -139,8 +135,7 @@ public class ReleaseActionImpl extends AbstractInternalControlFlowActionImpl imp
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.RELEASE_ACTION__PASSIVE_RESOURCE_RELEASE_ACTION:
             return this.basicGetPassiveResource_ReleaseAction() != null;
         }

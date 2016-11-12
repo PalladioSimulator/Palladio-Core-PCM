@@ -14,12 +14,11 @@ import org.palladiosimulator.pcm.core.entity.InterfaceProvidingRequiringEntity;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent
+ * <li>{@link org.palladiosimulator.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent
  * <em>Repository Repository Component</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getRepositoryComponent()
  * @model abstract="true"
@@ -32,7 +31,7 @@ public interface RepositoryComponent extends InterfaceProvidingRequiringEntity {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Repository Repository Component</b></em>' container
@@ -52,8 +51,8 @@ public interface RepositoryComponent extends InterfaceProvidingRequiringEntity {
     Repository getRepository__RepositoryComponent();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent
      * <em>Repository Repository Component</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

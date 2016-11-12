@@ -15,15 +15,13 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.resourcetype.ResourceInterface#getResourceRepository__ResourceInterface
+ * <li>{@link org.palladiosimulator.pcm.resourcetype.ResourceInterface#getResourceRepository__ResourceInterface
  * <em>Resource Repository Resource Interface</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.resourcetype.ResourceInterface#getResourceSignatures__ResourceInterface
+ * <li>{@link org.palladiosimulator.pcm.resourcetype.ResourceInterface#getResourceSignatures__ResourceInterface
  * <em>Resource Signatures Resource Interface</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#getResourceInterface()
  * @model
@@ -36,12 +34,12 @@ public interface ResourceInterface extends Entity {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Resource Repository Resource Interface</b></em>' container
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.resourcetype.ResourceRepository#getResourceInterfaces__ResourceRepository
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.resourcetype.ResourceRepository#getResourceInterfaces__ResourceRepository
      * <em>Resource Interfaces Resource Repository</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Resource Repository Resource Interface</em>' container reference
@@ -61,8 +59,8 @@ public interface ResourceInterface extends Entity {
     ResourceRepository getResourceRepository__ResourceInterface();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.resourcetype.ResourceInterface#getResourceRepository__ResourceInterface
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.resourcetype.ResourceInterface#getResourceRepository__ResourceInterface
      * <em>Resource Repository Resource Interface</em>}' container reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -78,8 +76,8 @@ public interface ResourceInterface extends Entity {
      * Returns the value of the '<em><b>Resource Signatures Resource Interface</b></em>' containment
      * reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.resourcetype.ResourceSignature}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getResourceInterface__ResourceSignature
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getResourceInterface__ResourceSignature
      * <em>Resource Interface Resource Signature</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Resource Signatures Resource Interface</em>' containment reference

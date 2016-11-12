@@ -22,16 +22,15 @@ import org.palladiosimulator.pcm.usagemodel.UserData;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.UserDataImpl#getAssemblyContext_userData
  * <em>Assembly Context user Data</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.UserDataImpl#getUsageModel_UserData <em>
- * Usage Model User Data</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.usagemodel.impl.UserDataImpl#getUserDataParameterUsages_UserData
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.UserDataImpl#getUsageModel_UserData
+ * <em>Usage Model User Data</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.UserDataImpl#getUserDataParameterUsages_UserData
  * <em>User Data Parameter Usages User Data</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -42,7 +41,7 @@ public class UserDataImpl extends CDOObjectImpl implements UserData {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -121,7 +120,8 @@ public class UserDataImpl extends CDOObjectImpl implements UserData {
      *
      * @generated
      */
-    public NotificationChain basicSetUsageModel_UserData(final UsageModel newUsageModel_UserData, NotificationChain msgs) {
+    public NotificationChain basicSetUsageModel_UserData(final UsageModel newUsageModel_UserData,
+            NotificationChain msgs) {
         msgs = this.eBasicSetContainer((InternalEObject) newUsageModel_UserData,
                 UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA, msgs);
         return msgs;
@@ -159,8 +159,7 @@ public class UserDataImpl extends CDOObjectImpl implements UserData {
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -181,8 +180,7 @@ public class UserDataImpl extends CDOObjectImpl implements UserData {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA:
             return this.basicSetUsageModel_UserData(null, msgs);
         case UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA:
@@ -198,8 +196,7 @@ public class UserDataImpl extends CDOObjectImpl implements UserData {
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA:
             return this.eInternalContainer().eInverseRemove(this, UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL,
                     UsageModel.class, msgs);
@@ -214,8 +211,7 @@ public class UserDataImpl extends CDOObjectImpl implements UserData {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.USER_DATA__ASSEMBLY_CONTEXT_USER_DATA:
             if (resolve) {
                 return this.getAssemblyContext_userData();
@@ -237,8 +233,7 @@ public class UserDataImpl extends CDOObjectImpl implements UserData {
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.USER_DATA__ASSEMBLY_CONTEXT_USER_DATA:
             this.setAssemblyContext_userData((AssemblyContext) newValue);
             return;
@@ -260,8 +255,7 @@ public class UserDataImpl extends CDOObjectImpl implements UserData {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.USER_DATA__ASSEMBLY_CONTEXT_USER_DATA:
             this.setAssemblyContext_userData((AssemblyContext) null);
             return;
@@ -282,8 +276,7 @@ public class UserDataImpl extends CDOObjectImpl implements UserData {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.USER_DATA__ASSEMBLY_CONTEXT_USER_DATA:
             return this.basicGetAssemblyContext_userData() != null;
         case UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA:

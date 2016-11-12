@@ -16,11 +16,11 @@ import org.palladiosimulator.pcm.parameter.VariableUsage;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.seff.CallAction#getInputVariableUsages__CallAction <em>Input
  * Variable Usages Call Action</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getCallAction()
  * @model abstract="true"
@@ -33,14 +33,14 @@ public interface CallAction extends Entity {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Input Variable Usages Call Action</b></em>' containment
      * reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.parameter.VariableUsage}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getCallAction__VariableUsage
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getCallAction__VariableUsage
      * <em>Call Action Variable Usage</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Input Variable Usages Call Action</em>' containment reference list

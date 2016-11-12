@@ -10,22 +10,19 @@ import org.palladiosimulator.pcm.core.composition.SinkDelegationConnector;
 import org.palladiosimulator.pcm.repository.SinkRole;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Sink Delegation Connector</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Sink Delegation
+ * Connector</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.SinkDelegationConnectorImpl#getAssemblyContext__SinkDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.SinkDelegationConnectorImpl#getAssemblyContext__SinkDelegationConnector
  * <em>Assembly Context Sink Delegation Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.SinkDelegationConnectorImpl#getInnerSinkRole__SinkRole
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.SinkDelegationConnectorImpl#getInnerSinkRole__SinkRole
  * <em>Inner Sink Role Sink Role</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.SinkDelegationConnectorImpl#getOuterSinkRole__SinkRole
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.SinkDelegationConnectorImpl#getOuterSinkRole__SinkRole
  * <em>Outer Sink Role Sink Role</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -36,7 +33,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -66,8 +63,8 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
     public AssemblyContext getAssemblyContext__SinkDelegationConnector() {
         return (AssemblyContext) this.eDynamicGet(
                 CompositionPackage.SINK_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SINK_DELEGATION_CONNECTOR,
-                CompositionPackage.Literals.SINK_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SINK_DELEGATION_CONNECTOR,
-                true, true);
+                CompositionPackage.Literals.SINK_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SINK_DELEGATION_CONNECTOR, true,
+                true);
     }
 
     /**
@@ -168,8 +165,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.SINK_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SINK_DELEGATION_CONNECTOR:
             if (resolve) {
                 return this.getAssemblyContext__SinkDelegationConnector();
@@ -196,8 +192,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.SINK_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SINK_DELEGATION_CONNECTOR:
             this.setAssemblyContext__SinkDelegationConnector((AssemblyContext) newValue);
             return;
@@ -218,8 +213,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.SINK_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SINK_DELEGATION_CONNECTOR:
             this.setAssemblyContext__SinkDelegationConnector((AssemblyContext) null);
             return;
@@ -240,8 +234,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.SINK_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SINK_DELEGATION_CONNECTOR:
             return this.basicGetAssemblyContext__SinkDelegationConnector() != null;
         case CompositionPackage.SINK_DELEGATION_CONNECTOR__INNER_SINK_ROLE_SINK_ROLE:

@@ -23,11 +23,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.usagemodel.Branch#getBranchTransitions_Branch <em>Branch
  * Transitions Branch</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getBranch()
  * @model
@@ -40,14 +40,14 @@ public interface Branch extends AbstractUserAction {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Branch Transitions Branch</b></em>' containment reference
      * list. The list contents are of type
      * {@link org.palladiosimulator.pcm.usagemodel.BranchTransition}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranch_BranchTransition
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranch_BranchTransition
      * <em>Branch Branch Transition</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Branch Transitions Branch</em>' containment reference list isn't
@@ -70,8 +70,9 @@ public interface Branch extends AbstractUserAction {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self->collect(branchTransitions_Branch.branchProbability)->sum() > 0.999 and self->collect(branchTransitions_Branch.branchProbability)->sum() <1.001'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self->collect(branchTransitions_Branch.branchProbability)->sum() > 0.999 and
+     *        self->collect(branchTransitions_Branch.branchProbability)->sum() <1.001'"
      * @generated
      */
     boolean AllBranchProbabilitiesMustSumUpTo1(DiagnosticChain diagnostics, Map<Object, Object> context);

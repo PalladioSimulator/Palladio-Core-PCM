@@ -14,11 +14,11 @@ import org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole <em>
- * Requiring Entity Required Role</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole
+ * <em>Requiring Entity Required Role</em>}</li>
+ * </ul>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getRequiredRole()
  * @model abstract="true"
@@ -31,7 +31,7 @@ public interface RequiredRole extends Role {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Requiring Entity Required Role</b></em>' container
@@ -51,8 +51,8 @@ public interface RequiredRole extends Role {
     InterfaceRequiringEntity getRequiringEntity_RequiredRole();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole
      * <em>Requiring Entity Required Role</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

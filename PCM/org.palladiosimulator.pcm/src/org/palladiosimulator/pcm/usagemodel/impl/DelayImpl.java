@@ -15,11 +15,11 @@ import org.palladiosimulator.pcm.usagemodel.UsagemodelPackage;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.DelayImpl#getTimeSpecification_Delay <em>
- * Time Specification Delay</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.DelayImpl#getTimeSpecification_Delay
+ * <em>Time Specification Delay</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -30,7 +30,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -92,13 +92,12 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
             final PCMRandomVariable timeSpecification_Delay = this.getTimeSpecification_Delay();
             if (timeSpecification_Delay != null) {
-                msgs = ((InternalEObject) timeSpecification_Delay).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-                        - UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY, null, msgs);
+                msgs = ((InternalEObject) timeSpecification_Delay).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY, null, msgs);
             }
             return this.basicSetTimeSpecification_Delay((PCMRandomVariable) otherEnd, msgs);
         }
@@ -113,8 +112,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
             return this.basicSetTimeSpecification_Delay(null, msgs);
         }
@@ -128,8 +126,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
             return this.getTimeSpecification_Delay();
         }
@@ -143,8 +140,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
             this.setTimeSpecification_Delay((PCMRandomVariable) newValue);
             return;
@@ -159,8 +155,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
             this.setTimeSpecification_Delay((PCMRandomVariable) null);
             return;
@@ -175,8 +170,7 @@ public class DelayImpl extends AbstractUserActionImpl implements Delay {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY:
             return this.getTimeSpecification_Delay() != null;
         }

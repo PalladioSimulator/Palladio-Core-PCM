@@ -15,11 +15,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.repository.EventGroup#getEventTypes__EventGroup <em>Event
  * Types Event Group</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getEventGroup()
  * @model
@@ -32,14 +32,14 @@ public interface EventGroup extends Interface {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Event Types Event Group</b></em>' containment reference
      * list. The list contents are of type {@link org.palladiosimulator.pcm.repository.EventType}.
-     * It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.repository.EventType#getEventGroup__EventType
-     * <em>Event Group Event Type</em>}'. <!-- begin-user-doc -->
+     * It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.repository.EventType#getEventGroup__EventType <em>Event
+     * Group Event Type</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Event Types Event Group</em>' containment reference list isn't
      * clear, there really should be more of a description here...

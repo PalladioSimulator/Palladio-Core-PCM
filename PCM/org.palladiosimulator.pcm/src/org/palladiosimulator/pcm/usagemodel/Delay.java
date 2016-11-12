@@ -18,11 +18,11 @@ import org.palladiosimulator.pcm.core.PCMRandomVariable;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.usagemodel.Delay#getTimeSpecification_Delay <em>Time
  * Specification Delay</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getDelay()
  * @model
@@ -35,13 +35,13 @@ public interface Delay extends AbstractUserAction {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Time Specification Delay</b></em>' containment reference. It
-     * is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getDelay_TimeSpecification
-     * <em>Delay Time Specification</em>}'. <!-- begin-user-doc -->
+     * is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getDelay_TimeSpecification <em>Delay
+     * Time Specification</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Time Specification Delay</em>' containment reference isn't clear,
      * there really should be more of a description here...
@@ -58,10 +58,10 @@ public interface Delay extends AbstractUserAction {
     PCMRandomVariable getTimeSpecification_Delay();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.Delay#getTimeSpecification_Delay
-     * <em>Time Specification Delay</em>}' containment reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.Delay#getTimeSpecification_Delay <em>Time
+     * Specification Delay</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @param value
      *            the new value of the '<em>Time Specification Delay</em>' containment reference.

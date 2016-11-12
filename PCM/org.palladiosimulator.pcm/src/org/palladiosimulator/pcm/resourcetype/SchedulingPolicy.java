@@ -11,12 +11,11 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.resourcetype.SchedulingPolicy#getResourceRepository__SchedulingPolicy
+ * <li>{@link org.palladiosimulator.pcm.resourcetype.SchedulingPolicy#getResourceRepository__SchedulingPolicy
  * <em>Resource Repository Scheduling Policy</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#getSchedulingPolicy()
  * @model
@@ -29,12 +28,12 @@ public interface SchedulingPolicy extends Entity {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Resource Repository Scheduling Policy</b></em>' container
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.resourcetype.ResourceRepository#getSchedulingPolicies__ResourceRepository
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.resourcetype.ResourceRepository#getSchedulingPolicies__ResourceRepository
      * <em>Scheduling Policies Resource Repository</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Resource Repository Scheduling Policy</em>' container reference
@@ -54,8 +53,8 @@ public interface SchedulingPolicy extends Entity {
     ResourceRepository getResourceRepository__SchedulingPolicy();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.resourcetype.SchedulingPolicy#getResourceRepository__SchedulingPolicy
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.resourcetype.SchedulingPolicy#getResourceRepository__SchedulingPolicy
      * <em>Resource Repository Scheduling Policy</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *

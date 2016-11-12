@@ -15,14 +15,13 @@ import org.palladiosimulator.pcm.core.entity.NamedElement;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.repository.InnerDeclaration#getDatatype_InnerDeclaration
  * <em>Datatype Inner Declaration</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.InnerDeclaration#getCompositeDataType_InnerDeclaration
+ * <li>{@link org.palladiosimulator.pcm.repository.InnerDeclaration#getCompositeDataType_InnerDeclaration
  * <em>Composite Data Type Inner Declaration</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getInnerDeclaration()
  * @model
@@ -35,7 +34,7 @@ public interface InnerDeclaration extends NamedElement {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Datatype Inner Declaration</b></em>' reference. <!--
@@ -65,8 +64,8 @@ public interface InnerDeclaration extends NamedElement {
 
     /**
      * Returns the value of the '<em><b>Composite Data Type Inner Declaration</b></em>' container
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.repository.CompositeDataType#getInnerDeclaration_CompositeDataType
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.repository.CompositeDataType#getInnerDeclaration_CompositeDataType
      * <em>Inner Declaration Composite Data Type</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Composite Data Type Inner Declaration</em>' container reference
@@ -86,8 +85,8 @@ public interface InnerDeclaration extends NamedElement {
     CompositeDataType getCompositeDataType_InnerDeclaration();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.InnerDeclaration#getCompositeDataType_InnerDeclaration
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.InnerDeclaration#getCompositeDataType_InnerDeclaration
      * <em>Composite Data Type Inner Declaration</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *

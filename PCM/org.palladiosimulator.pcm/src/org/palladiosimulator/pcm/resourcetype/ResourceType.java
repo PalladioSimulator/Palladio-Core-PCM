@@ -16,12 +16,11 @@ import de.uka.ipd.sdq.units.UnitCarryingElement;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.resourcetype.ResourceType#getResourceRepository_ResourceType
+ * <li>{@link org.palladiosimulator.pcm.resourcetype.ResourceType#getResourceRepository_ResourceType
  * <em>Resource Repository Resource Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#getResourceType()
  * @model abstract="true"
@@ -34,12 +33,12 @@ public interface ResourceType extends Entity, UnitCarryingElement, ResourceInter
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Resource Repository Resource Type</b></em>' container
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.resourcetype.ResourceRepository#getAvailableResourceTypes_ResourceRepository
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.resourcetype.ResourceRepository#getAvailableResourceTypes_ResourceRepository
      * <em>Available Resource Types Resource Repository</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Resource Repository Resource Type</em>' container reference isn't
@@ -58,8 +57,8 @@ public interface ResourceType extends Entity, UnitCarryingElement, ResourceInter
     ResourceRepository getResourceRepository_ResourceType();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.resourcetype.ResourceType#getResourceRepository_ResourceType
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.resourcetype.ResourceType#getResourceRepository_ResourceType
      * <em>Resource Repository Resource Type</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *

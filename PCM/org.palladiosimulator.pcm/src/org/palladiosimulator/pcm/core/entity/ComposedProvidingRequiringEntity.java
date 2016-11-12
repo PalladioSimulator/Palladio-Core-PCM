@@ -9,8 +9,8 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.palladiosimulator.pcm.core.composition.ComposedStructure;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Composed Providing Requiring Entity</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Composed Providing
+ * Requiring Entity</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> The ComposedProvidingRequiringEntity combines the properties of an
  * InterfaceProvidingRequiringEntity and a ComposedStructure. It is inherited by all classes that,
@@ -43,7 +43,7 @@ public interface ComposedProvidingRequiringEntity extends ComposedStructure, Int
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> This constraint
@@ -55,8 +55,11 @@ public interface ComposedProvidingRequiringEntity extends ComposedStructure, Int
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='self.providedRoles_InterfaceProvidingEntity->forAll(role|self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector = role))\n\n'"
+     * @model annotation= "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
+     *        body='self.providedRoles_InterfaceProvidingEntity->forAll(role|self.connectors__ComposedStructure->select(conn
+     *        |
+     *        conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector
+     *        = role))\n\n'"
      * @generated
      */
     boolean ProvidedRolesMustBeBound(DiagnosticChain diagnostics, Map<Object, Object> context);

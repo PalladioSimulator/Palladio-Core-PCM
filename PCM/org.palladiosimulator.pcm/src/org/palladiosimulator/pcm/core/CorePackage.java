@@ -24,8 +24,10 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
  * composed from other entities. <!-- end-model-doc -->
  *
  * @see org.palladiosimulator.pcm.core.CoreFactory
- * @model kind="package" annotation=
- *        "http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
+ * @model kind="package" annotation= "http://www.eclipse.org/emf/2002/Ecore
+ *        invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface CorePackage extends EPackage {
@@ -35,7 +37,7 @@ public interface CorePackage extends EPackage {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -109,7 +111,8 @@ public interface CorePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 1;
+    int PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT
+            + 1;
 
     /**
      * The feature id for the '<em><b>Variable Characterisation Specification</b></em>' container
@@ -145,7 +148,8 @@ public interface CorePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_RANDOM_VARIABLE__PARAMETRIC_RESOURCE_DEMAND_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 5;
+    int PCM_RANDOM_VARIABLE__PARAMETRIC_RESOURCE_DEMAND_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT
+            + 5;
 
     /**
      * The feature id for the '<em><b>Loop Action PCM Random Variable</b></em>' container reference.
@@ -163,7 +167,8 @@ public interface CorePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_RANDOM_VARIABLE__GUARDED_BRANCH_TRANSITION_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 7;
+    int PCM_RANDOM_VARIABLE__GUARDED_BRANCH_TRANSITION_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT
+            + 7;
 
     /**
      * The feature id for the '<em><b>Specified Execution Time PCM Random Variable</b></em>'
@@ -172,7 +177,8 @@ public interface CorePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 8;
+    int PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT
+            + 8;
 
     /**
      * The feature id for the '<em><b>Event Channel Sink Connector Filter Condition</b></em>'
@@ -181,7 +187,8 @@ public interface CorePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 9;
+    int PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT
+            + 9;
 
     /**
      * The feature id for the '<em><b>Assembly Event Connector Filter Condition</b></em>' container
@@ -190,7 +197,8 @@ public interface CorePackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 10;
+    int PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT
+            + 10;
 
     /**
      * The feature id for the '<em><b>Loop Loop Iteration</b></em>' container reference. <!--
@@ -220,34 +228,34 @@ public interface CorePackage extends EPackage {
     int PCM_RANDOM_VARIABLE__DELAY_TIME_SPECIFICATION = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 13;
 
     /**
-     * The feature id for the '
-     * <em><b>Communication Link Resource Specifcation throughput PCM Random Variable</b></em>'
-     * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Communication Link Resource Specifcation throughput PCM Random
+     * Variable</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 14;
+    int PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT
+            + 14;
 
     /**
-     * The feature id for the '
-     * <em><b>Processing Resource Specification processing Rate PCM Random Variable</b></em>'
-     * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Processing Resource Specification processing Rate PCM Random
+     * Variable</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 15;
+    int PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT
+            + 15;
 
     /**
-     * The feature id for the '
-     * <em><b>Communication Link Resource Specification latency PCM Random Variable</b></em>'
-     * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Communication Link Resource Specification latency PCM Random
+     * Variable</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 16;
+    int PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT
+            + 16;
 
     /**
      * The number of structural features of the '<em>PCM Random Variable</em>' class. <!--
@@ -269,12 +277,12 @@ public interface CorePackage extends EPackage {
     EClass getPCMRandomVariable();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getClosedWorkload_PCMRandomVariable
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getClosedWorkload_PCMRandomVariable
      * <em>Closed Workload PCM Random Variable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Closed Workload PCM Random Variable</em>'.
+     * @return the meta object for the container reference '<em>Closed Workload PCM Random
+     *         Variable</em>'.
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getClosedWorkload_PCMRandomVariable()
      * @see #getPCMRandomVariable()
      * @generated
@@ -282,13 +290,13 @@ public interface CorePackage extends EPackage {
     EReference getPCMRandomVariable_ClosedWorkload_PCMRandomVariable();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getPassiveResource_capacity_PCMRandomVariable
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getPassiveResource_capacity_PCMRandomVariable
      * <em>Passive Resource capacity PCM Random Variable</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Passive Resource capacity PCM Random Variable</em>'.
+     * @return the meta object for the container reference '<em>Passive Resource capacity PCM Random
+     *         Variable</em>'.
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getPassiveResource_capacity_PCMRandomVariable()
      * @see #getPCMRandomVariable()
      * @generated
@@ -301,8 +309,8 @@ public interface CorePackage extends EPackage {
      * <em>Variable Characterisation Specification</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Variable Characterisation Specification</em>'.
+     * @return the meta object for the container reference ' <em>Variable Characterisation
+     *         Specification</em>'.
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getVariableCharacterisation_Specification()
      * @see #getPCMRandomVariable()
      * @generated
@@ -315,8 +323,8 @@ public interface CorePackage extends EPackage {
      * <em>Infrastructure Call PCM Random Variable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Infrastructure Call PCM Random Variable</em>'.
+     * @return the meta object for the container reference ' <em>Infrastructure Call PCM Random
+     *         Variable</em>'.
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getInfrastructureCall__PCMRandomVariable()
      * @see #getPCMRandomVariable()
      * @generated
@@ -324,12 +332,12 @@ public interface CorePackage extends EPackage {
     EReference getPCMRandomVariable_InfrastructureCall__PCMRandomVariable();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getResourceCall__PCMRandomVariable
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getResourceCall__PCMRandomVariable
      * <em>Resource Call PCM Random Variable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Resource Call PCM Random Variable</em>'.
+     * @return the meta object for the container reference '<em>Resource Call PCM Random
+     *         Variable</em>'.
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getResourceCall__PCMRandomVariable()
      * @see #getPCMRandomVariable()
      * @generated
@@ -337,13 +345,13 @@ public interface CorePackage extends EPackage {
     EReference getPCMRandomVariable_ResourceCall__PCMRandomVariable();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getParametricResourceDemand_PCMRandomVariable
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getParametricResourceDemand_PCMRandomVariable
      * <em>Parametric Resource Demand PCM Random Variable</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Parametric Resource Demand PCM Random Variable</em>'.
+     * @return the meta object for the container reference '<em>Parametric Resource Demand PCM
+     *         Random Variable</em>'.
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getParametricResourceDemand_PCMRandomVariable()
      * @see #getPCMRandomVariable()
      * @generated
@@ -351,12 +359,12 @@ public interface CorePackage extends EPackage {
     EReference getPCMRandomVariable_ParametricResourceDemand_PCMRandomVariable();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getLoopAction_PCMRandomVariable
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getLoopAction_PCMRandomVariable
      * <em>Loop Action PCM Random Variable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '<em>Loop Action PCM Random Variable</em>
-     *         '.
+     * @return the meta object for the container reference '<em>Loop Action PCM Random
+     *         Variable</em>'.
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getLoopAction_PCMRandomVariable()
      * @see #getPCMRandomVariable()
      * @generated
@@ -364,13 +372,13 @@ public interface CorePackage extends EPackage {
     EReference getPCMRandomVariable_LoopAction_PCMRandomVariable();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getGuardedBranchTransition_PCMRandomVariable
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getGuardedBranchTransition_PCMRandomVariable
      * <em>Guarded Branch Transition PCM Random Variable</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Guarded Branch Transition PCM Random Variable</em>'.
+     * @return the meta object for the container reference '<em>Guarded Branch Transition PCM Random
+     *         Variable</em>'.
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getGuardedBranchTransition_PCMRandomVariable()
      * @see #getPCMRandomVariable()
      * @generated
@@ -378,13 +386,13 @@ public interface CorePackage extends EPackage {
     EReference getPCMRandomVariable_GuardedBranchTransition_PCMRandomVariable();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getSpecifiedExecutionTime_PCMRandomVariable
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getSpecifiedExecutionTime_PCMRandomVariable
      * <em>Specified Execution Time PCM Random Variable</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Specified Execution Time PCM Random Variable</em>'.
+     * @return the meta object for the container reference '<em>Specified Execution Time PCM Random
+     *         Variable</em>'.
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getSpecifiedExecutionTime_PCMRandomVariable()
      * @see #getPCMRandomVariable()
      * @generated
@@ -392,13 +400,13 @@ public interface CorePackage extends EPackage {
     EReference getPCMRandomVariable_SpecifiedExecutionTime_PCMRandomVariable();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getEventChannelSinkConnector__FilterCondition
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getEventChannelSinkConnector__FilterCondition
      * <em>Event Channel Sink Connector Filter Condition</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Event Channel Sink Connector Filter Condition</em>'.
+     * @return the meta object for the container reference '<em>Event Channel Sink Connector Filter
+     *         Condition</em>'.
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getEventChannelSinkConnector__FilterCondition()
      * @see #getPCMRandomVariable()
      * @generated
@@ -406,13 +414,13 @@ public interface CorePackage extends EPackage {
     EReference getPCMRandomVariable_EventChannelSinkConnector__FilterCondition();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getAssemblyEventConnector__FilterCondition
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getAssemblyEventConnector__FilterCondition
      * <em>Assembly Event Connector Filter Condition</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Assembly Event Connector Filter Condition</em>'.
+     * @return the meta object for the container reference '<em>Assembly Event Connector Filter
+     *         Condition</em>'.
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getAssemblyEventConnector__FilterCondition()
      * @see #getPCMRandomVariable()
      * @generated
@@ -420,9 +428,9 @@ public interface CorePackage extends EPackage {
     EReference getPCMRandomVariable_AssemblyEventConnector__FilterCondition();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getLoop_LoopIteration
-     * <em>Loop Loop Iteration</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getLoop_LoopIteration <em>Loop Loop
+     * Iteration</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Loop Loop Iteration</em>'.
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getLoop_LoopIteration()
@@ -432,12 +440,12 @@ public interface CorePackage extends EPackage {
     EReference getPCMRandomVariable_Loop_LoopIteration();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getOpenWorkload_PCMRandomVariable
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getOpenWorkload_PCMRandomVariable
      * <em>Open Workload PCM Random Variable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Open Workload PCM Random Variable</em>'.
+     * @return the meta object for the container reference '<em>Open Workload PCM Random
+     *         Variable</em>'.
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getOpenWorkload_PCMRandomVariable()
      * @see #getPCMRandomVariable()
      * @generated
@@ -445,9 +453,9 @@ public interface CorePackage extends EPackage {
     EReference getPCMRandomVariable_OpenWorkload_PCMRandomVariable();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getDelay_TimeSpecification
-     * <em>Delay Time Specification</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getDelay_TimeSpecification <em>Delay
+     * Time Specification</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Delay Time Specification</em>'.
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getDelay_TimeSpecification()
@@ -462,8 +470,8 @@ public interface CorePackage extends EPackage {
      * <em>Communication Link Resource Specifcation throughput PCM Random Variable</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Communication Link Resource Specifcation throughput PCM Random Variable</em>'.
+     * @return the meta object for the container reference ' <em>Communication Link Resource
+     *         Specifcation throughput PCM Random Variable</em>'.
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable()
      * @see #getPCMRandomVariable()
      * @generated
@@ -476,8 +484,8 @@ public interface CorePackage extends EPackage {
      * <em>Processing Resource Specification processing Rate PCM Random Variable</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Processing Resource Specification processing Rate PCM Random Variable</em>'.
+     * @return the meta object for the container reference ' <em>Processing Resource Specification
+     *         processing Rate PCM Random Variable</em>'.
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getProcessingResourceSpecification_processingRate_PCMRandomVariable()
      * @see #getPCMRandomVariable()
      * @generated
@@ -490,8 +498,8 @@ public interface CorePackage extends EPackage {
      * <em>Communication Link Resource Specification latency PCM Random Variable</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Communication Link Resource Specification latency PCM Random Variable</em>'.
+     * @return the meta object for the container reference ' <em>Communication Link Resource
+     *         Specification latency PCM Random Variable</em>'.
      * @see org.palladiosimulator.pcm.core.PCMRandomVariable#getCommunicationLinkResourceSpecification_latency_PCMRandomVariable()
      * @see #getPCMRandomVariable()
      * @generated
@@ -522,9 +530,9 @@ public interface CorePackage extends EPackage {
     interface Literals {
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl
-         * <em>PCM Random Variable</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl <em>PCM Random
+         * Variable</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl
          * @see org.palladiosimulator.pcm.core.impl.CorePackageImpl#getPCMRandomVariable()
@@ -542,9 +550,9 @@ public interface CorePackage extends EPackage {
                 .getPCMRandomVariable_ClosedWorkload_PCMRandomVariable();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Passive Resource capacity PCM Random Variable</b></em>' container reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Passive Resource capacity PCM Random
+         * Variable</b></em>' container reference feature. <!-- begin-user-doc --> <!-- end-user-doc
+         * -->
          *
          * @generated
          */
@@ -579,9 +587,9 @@ public interface CorePackage extends EPackage {
                 .getPCMRandomVariable_ResourceCall__PCMRandomVariable();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Parametric Resource Demand PCM Random Variable</b></em>' container reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Parametric Resource Demand PCM Random
+         * Variable</b></em>' container reference feature. <!-- begin-user-doc --> <!-- end-user-doc
+         * -->
          *
          * @generated
          */
@@ -598,9 +606,9 @@ public interface CorePackage extends EPackage {
                 .getPCMRandomVariable_LoopAction_PCMRandomVariable();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Guarded Branch Transition PCM Random Variable</b></em>' container reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Guarded Branch Transition PCM Random
+         * Variable</b></em>' container reference feature. <!-- begin-user-doc --> <!-- end-user-doc
+         * -->
          *
          * @generated
          */
@@ -608,9 +616,9 @@ public interface CorePackage extends EPackage {
                 .getPCMRandomVariable_GuardedBranchTransition_PCMRandomVariable();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Specified Execution Time PCM Random Variable</b></em>' container reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Specified Execution Time PCM Random
+         * Variable</b></em>' container reference feature. <!-- begin-user-doc --> <!-- end-user-doc
+         * -->
          *
          * @generated
          */
@@ -618,9 +626,9 @@ public interface CorePackage extends EPackage {
                 .getPCMRandomVariable_SpecifiedExecutionTime_PCMRandomVariable();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Event Channel Sink Connector Filter Condition</b></em>' container reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Event Channel Sink Connector Filter
+         * Condition</b></em>' container reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -628,9 +636,9 @@ public interface CorePackage extends EPackage {
                 .getPCMRandomVariable_EventChannelSinkConnector__FilterCondition();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Assembly Event Connector Filter Condition</b></em>' container reference feature.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Assembly Event Connector Filter
+         * Condition</b></em>' container reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -664,9 +672,9 @@ public interface CorePackage extends EPackage {
                 .getPCMRandomVariable_Delay_TimeSpecification();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Communication Link Resource Specifcation throughput PCM Random Variable</b></em>'
-         * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Communication Link Resource Specifcation
+         * throughput PCM Random Variable</b></em>' container reference feature. <!-- begin-user-doc
+         * --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -674,9 +682,9 @@ public interface CorePackage extends EPackage {
                 .getPCMRandomVariable_CommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Processing Resource Specification processing Rate PCM Random Variable</b></em>'
-         * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Processing Resource Specification processing Rate
+         * PCM Random Variable</b></em>' container reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -684,9 +692,9 @@ public interface CorePackage extends EPackage {
                 .getPCMRandomVariable_ProcessingResourceSpecification_processingRate_PCMRandomVariable();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Communication Link Resource Specification latency PCM Random Variable</b></em>'
-         * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Communication Link Resource Specification latency
+         * PCM Random Variable</b></em>' container reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */

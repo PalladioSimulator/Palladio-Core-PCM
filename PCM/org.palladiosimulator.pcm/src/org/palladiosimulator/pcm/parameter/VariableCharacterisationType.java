@@ -10,11 +10,11 @@ import java.util.List;
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
- * <!-- begin-user-doc --> A representation of the literals of the enumeration '
- * <em><b>Variable Characterisation Type</b></em>', and utility methods for working with them. <!--
- * end-user-doc --> <!-- begin-model-doc --> The variable characterisation types determine the set
- * of available meta-informations on variables. Possible values are STRUCTURE, NUMBER_OF_ELEMENTS,
- * VALUE, BYTESIZE, and TYPE. <!-- end-model-doc -->
+ * <!-- begin-user-doc --> A representation of the literals of the enumeration ' <em><b>Variable
+ * Characterisation Type</b></em>', and utility methods for working with them. <!-- end-user-doc -->
+ * <!-- begin-model-doc --> The variable characterisation types determine the set of available
+ * meta-informations on variables. Possible values are STRUCTURE, NUMBER_OF_ELEMENTS, VALUE,
+ * BYTESIZE, and TYPE. <!-- end-model-doc -->
  *
  * @see org.palladiosimulator.pcm.parameter.ParameterPackage#getVariableCharacterisationType()
  * @model
@@ -72,7 +72,7 @@ public enum VariableCharacterisationType implements Enumerator {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The '<em><b>STRUCTURE</b></em>' literal value. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -149,8 +149,7 @@ public enum VariableCharacterisationType implements Enumerator {
      *
      * @generated
      */
-    private static final VariableCharacterisationType[] VALUES_ARRAY = new VariableCharacterisationType[]
-    {
+    private static final VariableCharacterisationType[] VALUES_ARRAY = new VariableCharacterisationType[] {
             STRUCTURE,
             NUMBER_OF_ELEMENTS,
             VALUE,
@@ -164,19 +163,21 @@ public enum VariableCharacterisationType implements Enumerator {
      *
      * @generated
      */
-    public static final List<VariableCharacterisationType> VALUES = Collections.unmodifiableList(Arrays
-            .asList(VALUES_ARRAY));
+    public static final List<VariableCharacterisationType> VALUES = Collections
+            .unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
     /**
      * Returns the '<em><b>Variable Characterisation Type</b></em>' literal with the specified
      * literal value. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
+     * @param literal
+     *            the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static VariableCharacterisationType get(final String literal) {
         for (final VariableCharacterisationType result : VALUES_ARRAY) {
-            if (result.toString().equals(literal))
-            {
+            if (result.toString().equals(literal)) {
                 return result;
             }
         }
@@ -187,12 +188,14 @@ public enum VariableCharacterisationType implements Enumerator {
      * Returns the '<em><b>Variable Characterisation Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
+     * @param name
+     *            the name.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static VariableCharacterisationType getByName(final String name) {
         for (final VariableCharacterisationType result : VALUES_ARRAY) {
-            if (result.getName().equals(name))
-            {
+            if (result.getName().equals(name)) {
                 return result;
             }
         }
@@ -203,11 +206,13 @@ public enum VariableCharacterisationType implements Enumerator {
      * Returns the '<em><b>Variable Characterisation Type</b></em>' literal with the specified
      * integer value. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
+     * @param value
+     *            the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static VariableCharacterisationType get(final int value) {
-        switch (value)
-        {
+        switch (value) {
         case STRUCTURE_VALUE:
             return STRUCTURE;
         case NUMBER_OF_ELEMENTS_VALUE:

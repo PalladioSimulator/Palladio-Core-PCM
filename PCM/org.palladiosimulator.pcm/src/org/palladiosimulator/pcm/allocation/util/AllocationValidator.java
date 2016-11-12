@@ -26,7 +26,7 @@ public class AllocationValidator extends EObjectValidator {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -117,8 +117,7 @@ public class AllocationValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID)
-        {
+        switch (classifierID) {
         case AllocationPackage.ALLOCATION_CONTEXT:
             return this.validateAllocationContext((AllocationContext) value, diagnostics, context);
         case AllocationPackage.ALLOCATION:
@@ -147,6 +146,9 @@ public class AllocationValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(allocationContext, diagnostics, context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(allocationContext, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(allocationContext, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -167,8 +169,8 @@ public class AllocationValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the OneAssemblyContextOrOneEventChannelShouldBeReferred constraint of '
-     * <em>Context</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the OneAssemblyContextOrOneEventChannelShouldBeReferred constraint of
+     * '<em>Context</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -196,6 +198,9 @@ public class AllocationValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(allocation, diagnostics, context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(allocation, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(allocation, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -213,14 +218,15 @@ public class AllocationValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validateAllocation_CommunicatingServersHaveToBeConnectedByLinkingResource(allocation,
-                    diagnostics, context);
+                    diagnostics,
+                    context);
         }
         return result;
     }
 
     /**
-     * Validates the EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce constraint of '
-     * <em>Allocation</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce constraint of
+     * '<em>Allocation</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -230,8 +236,8 @@ public class AllocationValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the CommunicatingServersHaveToBeConnectedByLinkingResource constraint of '
-     * <em>Allocation</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the CommunicatingServersHaveToBeConnectedByLinkingResource constraint of
+     * '<em>Allocation</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */

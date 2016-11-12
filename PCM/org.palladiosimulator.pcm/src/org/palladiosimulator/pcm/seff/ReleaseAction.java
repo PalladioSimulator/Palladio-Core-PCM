@@ -19,11 +19,11 @@ import org.palladiosimulator.pcm.repository.PassiveResource;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.palladiosimulator.pcm.seff.ReleaseAction#getPassiveResource_ReleaseAction <em>
- * Passive Resource Release Action</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcm.seff.ReleaseAction#getPassiveResource_ReleaseAction
+ * <em>Passive Resource Release Action</em>}</li>
+ * </ul>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getReleaseAction()
  * @model
@@ -36,7 +36,7 @@ public interface ReleaseAction extends AbstractInternalControlFlowAction {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Passive Resource Release Action</b></em>' reference. <!--
@@ -56,8 +56,8 @@ public interface ReleaseAction extends AbstractInternalControlFlowAction {
     PassiveResource getPassiveResource_ReleaseAction();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.seff.ReleaseAction#getPassiveResource_ReleaseAction
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.seff.ReleaseAction#getPassiveResource_ReleaseAction
      * <em>Passive Resource Release Action</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

@@ -36,7 +36,7 @@ public class EntityValidator extends EObjectValidator {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -117,8 +117,7 @@ public class EntityValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID)
-        {
+        switch (classifierID) {
         case EntityPackage.RESOURCE_PROVIDED_ROLE:
             return this.validateResourceProvidedRole((ResourceProvidedRole) value, diagnostics, context);
         case EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY:
@@ -250,6 +249,10 @@ public class EntityValidator extends EObjectValidator {
                     context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(composedProvidingRequiringEntity,
+                    diagnostics, context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(composedProvidingRequiringEntity, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -278,8 +281,8 @@ public class EntityValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the ProvidedRolesMustBeBound constraint of '
-     * <em>Composed Providing Requiring Entity</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the ProvidedRolesMustBeBound constraint of '<em>Composed Providing Requiring
+     * Entity</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */

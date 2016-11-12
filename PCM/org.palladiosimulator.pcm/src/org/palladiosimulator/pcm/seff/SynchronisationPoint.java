@@ -9,27 +9,24 @@ import org.palladiosimulator.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Synchronisation Point</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Synchronisation
+ * Point</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> Component developers can use a SynchronisationPoint to join
  * synchronously ForkedBehaviours and specify a result of the computations with its attached
- * VariableUsages. <!-- end-model-doc -->
+ * VariableUsages. See ForkAction for a more detailed description. <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.SynchronisationPoint#getOutputParameterUsage_SynchronisationPoint
+ * <li>{@link org.palladiosimulator.pcm.seff.SynchronisationPoint#getOutputParameterUsage_SynchronisationPoint
  * <em>Output Parameter Usage Synchronisation Point</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.SynchronisationPoint#getForkAction_SynchronisationPoint
+ * <li>{@link org.palladiosimulator.pcm.seff.SynchronisationPoint#getForkAction_SynchronisationPoint
  * <em>Fork Action Synchronisation Point</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.SynchronisationPoint#getSynchronousForkedBehaviours_SynchronisationPoint
+ * <li>{@link org.palladiosimulator.pcm.seff.SynchronisationPoint#getSynchronousForkedBehaviours_SynchronisationPoint
  * <em>Synchronous Forked Behaviours Synchronisation Point</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getSynchronisationPoint()
  * @model
@@ -42,14 +39,14 @@ public interface SynchronisationPoint extends Identifier {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Output Parameter Usage Synchronisation Point</b></em>'
      * containment reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.parameter.VariableUsage}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getSynchronisationPoint_VariableUsage
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getSynchronisationPoint_VariableUsage
      * <em>Synchronisation Point Variable Usage</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Output Parameter Usage Synchronisation Point</em>' containment
@@ -68,8 +65,8 @@ public interface SynchronisationPoint extends Identifier {
 
     /**
      * Returns the value of the '<em><b>Fork Action Synchronisation Point</b></em>' container
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.seff.ForkAction#getSynchronisingBehaviours_ForkAction
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.seff.ForkAction#getSynchronisingBehaviours_ForkAction
      * <em>Synchronising Behaviours Fork Action</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Fork Action Synchronisation Point</em>' container reference isn't
@@ -88,8 +85,8 @@ public interface SynchronisationPoint extends Identifier {
     ForkAction getForkAction_SynchronisationPoint();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.seff.SynchronisationPoint#getForkAction_SynchronisationPoint
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.seff.SynchronisationPoint#getForkAction_SynchronisationPoint
      * <em>Fork Action Synchronisation Point</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -102,11 +99,11 @@ public interface SynchronisationPoint extends Identifier {
     void setForkAction_SynchronisationPoint(ForkAction value);
 
     /**
-     * Returns the value of the '<em><b>Synchronous Forked Behaviours Synchronisation Point</b></em>
-     * ' containment reference list. The list contents are of type
+     * Returns the value of the '<em><b>Synchronous Forked Behaviours Synchronisation
+     * Point</b></em>' containment reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.seff.ForkedBehaviour}. It is bidirectional and its opposite
-     * is '
-     * {@link org.palladiosimulator.pcm.seff.ForkedBehaviour#getSynchronisationPoint_ForkedBehaviour
+     * is
+     * '{@link org.palladiosimulator.pcm.seff.ForkedBehaviour#getSynchronisationPoint_ForkedBehaviour
      * <em>Synchronisation Point Forked Behaviour</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Synchronous Forked Behaviours Synchronisation Point</em>'

@@ -9,8 +9,8 @@ import org.eclipse.emf.cdo.CDOObject;
 import org.eclipse.emf.common.util.DiagnosticChain;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Failure Occurrence Description</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Failure Occurrence
+ * Description</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
  * <p>
@@ -22,12 +22,11 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.reliability.FailureOccurrenceDescription#getFailureProbability
+ * <li>{@link org.palladiosimulator.pcm.reliability.FailureOccurrenceDescription#getFailureProbability
  * <em>Failure Probability</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.reliability.ReliabilityPackage#getFailureOccurrenceDescription()
  * @model abstract="true"
@@ -41,7 +40,7 @@ public interface FailureOccurrenceDescription extends CDOObject {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Failure Probability</b></em>' attribute. <!-- begin-user-doc
@@ -61,8 +60,8 @@ public interface FailureOccurrenceDescription extends CDOObject {
     double getFailureProbability();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.reliability.FailureOccurrenceDescription#getFailureProbability
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.reliability.FailureOccurrenceDescription#getFailureProbability
      * <em>Failure Probability</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
@@ -79,8 +78,9 @@ public interface FailureOccurrenceDescription extends CDOObject {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='(self.failureProbability.oclAsType(Real) <= 1.0) and (self.failureProbability.oclAsType(Real) >= 0.0)'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='(self.failureProbability.oclAsType(Real) <= 1.0) and
+     *        (self.failureProbability.oclAsType(Real) >= 0.0)'"
      * @generated
      */
     boolean EnsureValidFailureProbabilityRange(DiagnosticChain diagnostics, Map<Object, Object> context);

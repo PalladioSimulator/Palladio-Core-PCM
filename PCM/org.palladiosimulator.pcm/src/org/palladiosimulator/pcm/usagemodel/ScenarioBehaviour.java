@@ -33,19 +33,17 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getUsageScenario_SenarioBehaviour
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getUsageScenario_SenarioBehaviour
  * <em>Usage Scenario Senario Behaviour</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getBranchTransition_ScenarioBehaviour
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getBranchTransition_ScenarioBehaviour
  * <em>Branch Transition Scenario Behaviour</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getLoop_ScenarioBehaviour <em>
- * Loop Scenario Behaviour</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getLoop_ScenarioBehaviour
+ * <em>Loop Scenario Behaviour</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getActions_ScenarioBehaviour
  * <em>Actions Scenario Behaviour</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getScenarioBehaviour()
  * @model
@@ -58,12 +56,12 @@ public interface ScenarioBehaviour extends Entity {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Usage Scenario Senario Behaviour</b></em>' container
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getScenarioBehaviour_UsageScenario
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getScenarioBehaviour_UsageScenario
      * <em>Scenario Behaviour Usage Scenario</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Usage Scenario Senario Behaviour</em>' container reference isn't
@@ -81,8 +79,8 @@ public interface ScenarioBehaviour extends Entity {
     UsageScenario getUsageScenario_SenarioBehaviour();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getUsageScenario_SenarioBehaviour
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getUsageScenario_SenarioBehaviour
      * <em>Usage Scenario Senario Behaviour</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -96,8 +94,8 @@ public interface ScenarioBehaviour extends Entity {
 
     /**
      * Returns the value of the '<em><b>Branch Transition Scenario Behaviour</b></em>' container
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition
      * <em>Branched Behaviour Branch Transition</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Branch Transition Scenario Behaviour</em>' container reference
@@ -115,8 +113,8 @@ public interface ScenarioBehaviour extends Entity {
     BranchTransition getBranchTransition_ScenarioBehaviour();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getBranchTransition_ScenarioBehaviour
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getBranchTransition_ScenarioBehaviour
      * <em>Branch Transition Scenario Behaviour</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -130,9 +128,9 @@ public interface ScenarioBehaviour extends Entity {
 
     /**
      * Returns the value of the '<em><b>Loop Scenario Behaviour</b></em>' container reference. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.usagemodel.Loop#getBodyBehaviour_Loop
-     * <em>Body Behaviour Loop</em>}'. <!-- begin-user-doc -->
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.usagemodel.Loop#getBodyBehaviour_Loop <em>Body Behaviour
+     * Loop</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Loop Scenario Behaviour</em>' container reference isn't clear,
      * there really should be more of a description here...
@@ -149,8 +147,8 @@ public interface ScenarioBehaviour extends Entity {
     Loop getLoop_ScenarioBehaviour();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getLoop_ScenarioBehaviour
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getLoop_ScenarioBehaviour
      * <em>Loop Scenario Behaviour</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -165,8 +163,8 @@ public interface ScenarioBehaviour extends Entity {
      * Returns the value of the '<em><b>Actions Scenario Behaviour</b></em>' containment reference
      * list. The list contents are of type
      * {@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getScenarioBehaviour_AbstractUserAction
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getScenarioBehaviour_AbstractUserAction
      * <em>Scenario Behaviour Abstract User Action</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Actions Scenario Behaviour</em>' containment reference list isn't
@@ -189,8 +187,8 @@ public interface ScenarioBehaviour extends Entity {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Start))->size() = 1'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Start))->size() = 1'"
      * @generated
      */
     boolean Exactlyonestart(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -202,8 +200,8 @@ public interface ScenarioBehaviour extends Entity {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Stop))->size() = 1'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Stop))->size() = 1'"
      * @generated
      */
     boolean Exactlyonestop(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -215,8 +213,11 @@ public interface ScenarioBehaviour extends Entity {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).predecessor.oclIsUndefined()) and not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).successor.oclIsUndefined())'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel body='not
+     *        self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not
+     *        s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).predecessor.oclIsUndefined())
+     *        and not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not
+     *        s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).successor.oclIsUndefined())'"
      * @generated
      */
     boolean EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(DiagnosticChain diagnostics,

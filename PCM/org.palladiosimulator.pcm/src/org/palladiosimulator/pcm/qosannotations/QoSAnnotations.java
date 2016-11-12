@@ -29,17 +29,15 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations#getSpecifiedOutputParameterAbstractions_QoSAnnotations
+ * <li>{@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations#getSpecifiedOutputParameterAbstractions_QoSAnnotations
  * <em>Specified Output Parameter Abstractions Qo SAnnotations</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations#getSystem_QoSAnnotations <em>
- * System Qo SAnnotations</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations#getSpecifiedQoSAnnotations_QoSAnnotations
+ * <li>{@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations#getSystem_QoSAnnotations
+ * <em>System Qo SAnnotations</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations#getSpecifiedQoSAnnotations_QoSAnnotations
  * <em>Specified Qo SAnnotations Qo SAnnotations</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations()
  * @model
@@ -52,15 +50,14 @@ public interface QoSAnnotations extends Entity {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
-     * Returns the value of the '
-     * <em><b>Specified Output Parameter Abstractions Qo SAnnotations</b></em>' containment
-     * reference list. The list contents are of type
+     * Returns the value of the '<em><b>Specified Output Parameter Abstractions Qo
+     * SAnnotations</b></em>' containment reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction}. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getQosAnnotations_SpecifiedOutputParameterAbstraction
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getQosAnnotations_SpecifiedOutputParameterAbstraction
      * <em>Qos Annotations Specified Output Parameter Abstraction</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Specified Output Parameter Abstractions Qo SAnnotations</em>'
@@ -80,9 +77,9 @@ public interface QoSAnnotations extends Entity {
 
     /**
      * Returns the value of the '<em><b>System Qo SAnnotations</b></em>' container reference. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.system.System#getQosAnnotations_System
-     * <em>Qos Annotations System</em>}'. <!-- begin-user-doc -->
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.system.System#getQosAnnotations_System <em>Qos Annotations
+     * System</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>System Qo SAnnotations</em>' container reference isn't clear,
      * there really should be more of a description here...
@@ -99,8 +96,8 @@ public interface QoSAnnotations extends Entity {
     org.palladiosimulator.pcm.system.System getSystem_QoSAnnotations();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations#getSystem_QoSAnnotations
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations#getSystem_QoSAnnotations
      * <em>System Qo SAnnotations</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -115,8 +112,8 @@ public interface QoSAnnotations extends Entity {
      * Returns the value of the '<em><b>Specified Qo SAnnotations Qo SAnnotations</b></em>'
      * containment reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation}. It is bidirectional
-     * and its opposite is '
-     * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation#getQosAnnotations_SpecifiedQoSAnnotation
+     * and its opposite is
+     * '{@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation#getQosAnnotations_SpecifiedQoSAnnotation
      * <em>Qos Annotations Specified Qo SAnnotation</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Specified Qo SAnnotations Qo SAnnotations</em>' containment
@@ -140,8 +137,11 @@ public interface QoSAnnotations extends Entity {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.specifiedQoSAnnotations_QoSAnnotations->select(oclIsTypeOf(pcm::qosannotations::qos_reliability::SpecifiedReliabilityAnnotation))->forAll( x, y | ( x<>y ) implies ( ( x.role_SpecifiedQoSAnnotation <> y.role_SpecifiedQoSAnnotation )  or ( x.signature_SpecifiedQoSAnnation <> y.signature_SpecifiedQoSAnnation ) ) )'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.specifiedQoSAnnotations_QoSAnnotations->select(oclIsTypeOf(pcm::qosannotations::qos_reliability::SpecifiedReliabilityAnnotation))->forAll(
+     *        x, y | ( x<>y ) implies ( ( x.role_SpecifiedQoSAnnotation <>
+     *        y.role_SpecifiedQoSAnnotation ) or ( x.signature_SpecifiedQoSAnnation <>
+     *        y.signature_SpecifiedQoSAnnation ) ) )'"
      * @generated
      */
     boolean MultipleReliabilityAnnotationsPerExternalCallNotAllowed(DiagnosticChain diagnostics,

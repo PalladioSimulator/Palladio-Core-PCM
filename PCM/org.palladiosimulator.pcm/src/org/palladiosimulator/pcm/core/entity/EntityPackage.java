@@ -38,8 +38,10 @@ import de.uka.ipd.sdq.identifier.IdentifierPackage;
  * their properties. <!-- end-model-doc -->
  *
  * @see org.palladiosimulator.pcm.core.entity.EntityFactory
- * @model kind="package" annotation=
- *        "http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
+ * @model kind="package" annotation= "http://www.eclipse.org/emf/2002/Ecore
+ *        invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface EntityPackage extends EPackage {
@@ -49,7 +51,7 @@ public interface EntityPackage extends EPackage {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -117,9 +119,9 @@ public interface EntityPackage extends EPackage {
     int ENTITY_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.entity.impl.ResourceProvidedRoleImpl
-     * <em>Resource Provided Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.entity.impl.ResourceProvidedRoleImpl <em>Resource
+     * Provided Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.core.entity.impl.ResourceProvidedRoleImpl
      * @see org.palladiosimulator.pcm.core.entity.impl.EntityPackageImpl#getResourceProvidedRole()
@@ -146,14 +148,14 @@ public interface EntityPackage extends EPackage {
     int RESOURCE_PROVIDED_ROLE__ENTITY_NAME = RepositoryPackage.ROLE__ENTITY_NAME;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Interface Providing Entity Resource Provided Role</b></em>' container
-     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Interface Providing Entity Resource Provided
+     * Role</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT + 0;
+    int RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT
+            + 0;
 
     /**
      * The feature id for the '<em><b>Provided Resource Interface Resource Provided Role</b></em>'
@@ -162,7 +164,8 @@ public interface EntityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT + 1;
+    int RESOURCE_PROVIDED_ROLE__PROVIDED_RESOURCE_INTERFACE_RESOURCE_PROVIDED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT
+            + 1;
 
     /**
      * The number of structural features of the '<em>Resource Provided Role</em>' class. <!--
@@ -174,9 +177,9 @@ public interface EntityPackage extends EPackage {
     int RESOURCE_PROVIDED_ROLE_FEATURE_COUNT = RepositoryPackage.ROLE_FEATURE_COUNT + 2;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.entity.impl.InterfaceProvidingEntityImpl
-     * <em>Interface Providing Entity</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.entity.impl.InterfaceProvidingEntityImpl <em>Interface
+     * Providing Entity</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.core.entity.impl.InterfaceProvidingEntityImpl
      * @see org.palladiosimulator.pcm.core.entity.impl.EntityPackageImpl#getInterfaceProvidingEntity()
@@ -221,8 +224,8 @@ public interface EntityPackage extends EPackage {
     int INTERFACE_PROVIDING_ENTITY_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.entity.impl.InterfaceProvidingRequiringEntityImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.entity.impl.InterfaceProvidingRequiringEntityImpl
      * <em>Interface Providing Requiring Entity</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -260,14 +263,14 @@ public interface EntityPackage extends EPackage {
     int INTERFACE_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Required Roles Resource Interface Requiring
+     * Entity</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = INTERFACE_PROVIDING_ENTITY_FEATURE_COUNT + 0;
+    int INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = INTERFACE_PROVIDING_ENTITY_FEATURE_COUNT
+            + 0;
 
     /**
      * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>'
@@ -276,7 +279,8 @@ public interface EntityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int INTERFACE_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = INTERFACE_PROVIDING_ENTITY_FEATURE_COUNT + 1;
+    int INTERFACE_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = INTERFACE_PROVIDING_ENTITY_FEATURE_COUNT
+            + 1;
 
     /**
      * The number of structural features of the '<em>Interface Providing Requiring Entity</em>'
@@ -288,9 +292,9 @@ public interface EntityPackage extends EPackage {
     int INTERFACE_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT = INTERFACE_PROVIDING_ENTITY_FEATURE_COUNT + 2;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.entity.impl.InterfaceRequiringEntityImpl
-     * <em>Interface Requiring Entity</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.entity.impl.InterfaceRequiringEntityImpl <em>Interface
+     * Requiring Entity</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.core.entity.impl.InterfaceRequiringEntityImpl
      * @see org.palladiosimulator.pcm.core.entity.impl.EntityPackageImpl#getInterfaceRequiringEntity()
@@ -317,14 +321,14 @@ public interface EntityPackage extends EPackage {
     int INTERFACE_REQUIRING_ENTITY__ENTITY_NAME = ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Required Roles Resource Interface Requiring
+     * Entity</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = ENTITY_FEATURE_COUNT + 0;
+    int INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = ENTITY_FEATURE_COUNT
+            + 0;
 
     /**
      * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>'
@@ -345,8 +349,8 @@ public interface EntityPackage extends EPackage {
     int INTERFACE_REQUIRING_ENTITY_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 2;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.entity.impl.ResourceInterfaceRequiringEntityImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.entity.impl.ResourceInterfaceRequiringEntityImpl
      * <em>Resource Interface Requiring Entity</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -375,14 +379,14 @@ public interface EntityPackage extends EPackage {
     int RESOURCE_INTERFACE_REQUIRING_ENTITY__ENTITY_NAME = ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Required Roles Resource Interface Requiring
+     * Entity</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = ENTITY_FEATURE_COUNT + 0;
+    int RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = ENTITY_FEATURE_COUNT
+            + 0;
 
     /**
      * The number of structural features of the '<em>Resource Interface Requiring Entity</em>'
@@ -394,9 +398,9 @@ public interface EntityPackage extends EPackage {
     int RESOURCE_INTERFACE_REQUIRING_ENTITY_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.entity.impl.ResourceRequiredRoleImpl
-     * <em>Resource Required Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.entity.impl.ResourceRequiredRoleImpl <em>Resource
+     * Required Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.core.entity.impl.ResourceRequiredRoleImpl
      * @see org.palladiosimulator.pcm.core.entity.impl.EntityPackageImpl#getResourceRequiredRole()
@@ -429,17 +433,18 @@ public interface EntityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_REQUIRED_ROLE__REQUIRED_RESOURCE_INTERFACE_RESOURCE_REQUIRED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT + 0;
+    int RESOURCE_REQUIRED_ROLE__REQUIRED_RESOURCE_INTERFACE_RESOURCE_REQUIRED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT
+            + 0;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Interface Requiring Entity Resource Required Role</b></em>' container
-     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Interface Requiring Entity Resource Required
+     * Role</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int RESOURCE_REQUIRED_ROLE__RESOURCE_INTERFACE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT + 1;
+    int RESOURCE_REQUIRED_ROLE__RESOURCE_INTERFACE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE = RepositoryPackage.ROLE_FEATURE_COUNT
+            + 1;
 
     /**
      * The number of structural features of the '<em>Resource Required Role</em>' class. <!--
@@ -451,8 +456,8 @@ public interface EntityPackage extends EPackage {
     int RESOURCE_REQUIRED_ROLE_FEATURE_COUNT = RepositoryPackage.ROLE_FEATURE_COUNT + 2;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.entity.impl.ResourceInterfaceProvidingEntityImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.entity.impl.ResourceInterfaceProvidingEntityImpl
      * <em>Resource Interface Providing Entity</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -481,14 +486,14 @@ public interface EntityPackage extends EPackage {
     int RESOURCE_INTERFACE_PROVIDING_ENTITY__ENTITY_NAME = ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Provided Roles Resource Interface Providing
+     * Entity</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = ENTITY_FEATURE_COUNT + 0;
+    int RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = ENTITY_FEATURE_COUNT
+            + 0;
 
     /**
      * The number of structural features of the '<em>Resource Interface Providing Entity</em>'
@@ -500,8 +505,8 @@ public interface EntityPackage extends EPackage {
     int RESOURCE_INTERFACE_PROVIDING_ENTITY_FEATURE_COUNT = ENTITY_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.entity.impl.ComposedProvidingRequiringEntityImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.entity.impl.ComposedProvidingRequiringEntityImpl
      * <em>Composed Providing Requiring Entity</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -539,9 +544,8 @@ public interface EntityPackage extends EPackage {
     int COMPOSED_PROVIDING_REQUIRING_ENTITY__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Required Delegation Connectors Composed
+     * Structure</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -573,17 +577,18 @@ public interface EntityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 0;
+    int COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT
+            + 0;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Required Roles Resource Interface Requiring
+     * Entity</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 1;
+    int COMPOSED_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT
+            + 1;
 
     /**
      * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>'
@@ -592,7 +597,8 @@ public interface EntityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPOSED_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 2;
+    int COMPOSED_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT
+            + 2;
 
     /**
      * The number of structural features of the '<em>Composed Providing Requiring Entity</em>'
@@ -604,8 +610,8 @@ public interface EntityPackage extends EPackage {
     int COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.entity.impl.NamedElementImpl <em>Named Element</em>}'
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.entity.impl.NamedElementImpl <em>Named Element</em>}'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.core.entity.impl.NamedElementImpl
@@ -633,8 +639,8 @@ public interface EntityPackage extends EPackage {
     int NAMED_ELEMENT_FEATURE_COUNT = 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.entity.impl.ResourceInterfaceProvidingRequiringEntityImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.entity.impl.ResourceInterfaceProvidingRequiringEntityImpl
      * <em>Resource Interface Providing Requiring Entity</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -663,9 +669,8 @@ public interface EntityPackage extends EPackage {
     int RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__ENTITY_NAME = RESOURCE_INTERFACE_REQUIRING_ENTITY__ENTITY_NAME;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Required Roles Resource Interface Requiring
+     * Entity</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -673,29 +678,29 @@ public interface EntityPackage extends EPackage {
     int RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY = RESOURCE_INTERFACE_REQUIRING_ENTITY__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Provided Roles Resource Interface Providing
+     * Entity</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = RESOURCE_INTERFACE_REQUIRING_ENTITY_FEATURE_COUNT + 0;
+    int RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY = RESOURCE_INTERFACE_REQUIRING_ENTITY_FEATURE_COUNT
+            + 0;
 
     /**
-     * The number of structural features of the '
-     * <em>Resource Interface Providing Requiring Entity</em>' class. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The number of structural features of the '<em>Resource Interface Providing Requiring
+     * Entity</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT = RESOURCE_INTERFACE_REQUIRING_ENTITY_FEATURE_COUNT + 1;
+    int RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT = RESOURCE_INTERFACE_REQUIRING_ENTITY_FEATURE_COUNT
+            + 1;
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole
-     * <em>Resource Provided Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole <em>Resource Provided
+     * Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Resource Provided Role</em>'.
      * @see org.palladiosimulator.pcm.core.entity.ResourceProvidedRole
@@ -704,13 +709,13 @@ public interface EntityPackage extends EPackage {
     EClass getResourceProvidedRole();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole#getResourceInterfaceProvidingEntity__ResourceProvidedRole
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole#getResourceInterfaceProvidingEntity__ResourceProvidedRole
      * <em>Resource Interface Providing Entity Resource Provided Role</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Resource Interface Providing Entity Resource Provided Role</em>'.
+     * @return the meta object for the container reference '<em>Resource Interface Providing Entity
+     *         Resource Provided Role</em>'.
      * @see org.palladiosimulator.pcm.core.entity.ResourceProvidedRole#getResourceInterfaceProvidingEntity__ResourceProvidedRole()
      * @see #getResourceProvidedRole()
      * @generated
@@ -718,13 +723,13 @@ public interface EntityPackage extends EPackage {
     EReference getResourceProvidedRole_ResourceInterfaceProvidingEntity__ResourceProvidedRole();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole#getProvidedResourceInterface__ResourceProvidedRole
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole#getProvidedResourceInterface__ResourceProvidedRole
      * <em>Provided Resource Interface Resource Provided Role</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Provided Resource Interface Resource Provided Role</em>'.
+     * @return the meta object for the reference '<em>Provided Resource Interface Resource Provided
+     *         Role</em>'.
      * @see org.palladiosimulator.pcm.core.entity.ResourceProvidedRole#getProvidedResourceInterface__ResourceProvidedRole()
      * @see #getResourceProvidedRole()
      * @generated
@@ -733,9 +738,8 @@ public interface EntityPackage extends EPackage {
 
     /**
      * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.entity.InterfaceProvidingRequiringEntity
-     * <em>Interface Providing Requiring Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
+     * {@link org.palladiosimulator.pcm.core.entity.InterfaceProvidingRequiringEntity <em>Interface
+     * Providing Requiring Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Interface Providing Requiring Entity</em>'.
      * @see org.palladiosimulator.pcm.core.entity.InterfaceProvidingRequiringEntity
@@ -744,9 +748,9 @@ public interface EntityPackage extends EPackage {
     EClass getInterfaceProvidingRequiringEntity();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity
-     * <em>Interface Providing Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity <em>Interface
+     * Providing Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Interface Providing Entity</em>'.
      * @see org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity
@@ -755,13 +759,13 @@ public interface EntityPackage extends EPackage {
     EClass getInterfaceProvidingEntity();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity#getProvidedRoles_InterfaceProvidingEntity
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity#getProvidedRoles_InterfaceProvidingEntity
      * <em>Provided Roles Interface Providing Entity</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Provided Roles Interface Providing Entity</em>'.
+     * @return the meta object for the containment reference list '<em>Provided Roles Interface
+     *         Providing Entity</em>'.
      * @see org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity#getProvidedRoles_InterfaceProvidingEntity()
      * @see #getInterfaceProvidingEntity()
      * @generated
@@ -769,9 +773,9 @@ public interface EntityPackage extends EPackage {
     EReference getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity
-     * <em>Interface Requiring Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity <em>Interface
+     * Requiring Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Interface Requiring Entity</em>'.
      * @see org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity
@@ -780,13 +784,13 @@ public interface EntityPackage extends EPackage {
     EClass getInterfaceRequiringEntity();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity#getRequiredRoles_InterfaceRequiringEntity
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity#getRequiredRoles_InterfaceRequiringEntity
      * <em>Required Roles Interface Requiring Entity</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Required Roles Interface Requiring Entity</em>'.
+     * @return the meta object for the containment reference list '<em>Required Roles Interface
+     *         Requiring Entity</em>'.
      * @see org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity#getRequiredRoles_InterfaceRequiringEntity()
      * @see #getInterfaceRequiringEntity()
      * @generated
@@ -794,9 +798,9 @@ public interface EntityPackage extends EPackage {
     EReference getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity
-     * <em>Resource Interface Requiring Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity <em>Resource
+     * Interface Requiring Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Resource Interface Requiring Entity</em>'.
      * @see org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity
@@ -805,13 +809,13 @@ public interface EntityPackage extends EPackage {
     EClass getResourceInterfaceRequiringEntity();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity#getResourceRequiredRoles__ResourceInterfaceRequiringEntity
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity#getResourceRequiredRoles__ResourceInterfaceRequiringEntity
      * <em>Resource Required Roles Resource Interface Requiring Entity</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Resource Required Roles Resource Interface Requiring Entity</em>'.
+     * @return the meta object for the containment reference list '<em>Resource Required Roles
+     *         Resource Interface Requiring Entity</em>'.
      * @see org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity#getResourceRequiredRoles__ResourceInterfaceRequiringEntity()
      * @see #getResourceInterfaceRequiringEntity()
      * @generated
@@ -819,9 +823,9 @@ public interface EntityPackage extends EPackage {
     EReference getResourceInterfaceRequiringEntity_ResourceRequiredRoles__ResourceInterfaceRequiringEntity();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.entity.ResourceRequiredRole
-     * <em>Resource Required Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.entity.ResourceRequiredRole <em>Resource Required
+     * Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Resource Required Role</em>'.
      * @see org.palladiosimulator.pcm.core.entity.ResourceRequiredRole
@@ -830,13 +834,13 @@ public interface EntityPackage extends EPackage {
     EClass getResourceRequiredRole();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.entity.ResourceRequiredRole#getRequiredResourceInterface__ResourceRequiredRole
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.entity.ResourceRequiredRole#getRequiredResourceInterface__ResourceRequiredRole
      * <em>Required Resource Interface Resource Required Role</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Required Resource Interface Resource Required Role</em>'.
+     * @return the meta object for the reference '<em>Required Resource Interface Resource Required
+     *         Role</em>'.
      * @see org.palladiosimulator.pcm.core.entity.ResourceRequiredRole#getRequiredResourceInterface__ResourceRequiredRole()
      * @see #getResourceRequiredRole()
      * @generated
@@ -844,13 +848,13 @@ public interface EntityPackage extends EPackage {
     EReference getResourceRequiredRole_RequiredResourceInterface__ResourceRequiredRole();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.core.entity.ResourceRequiredRole#getResourceInterfaceRequiringEntity__ResourceRequiredRole
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.core.entity.ResourceRequiredRole#getResourceInterfaceRequiringEntity__ResourceRequiredRole
      * <em>Resource Interface Requiring Entity Resource Required Role</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Resource Interface Requiring Entity Resource Required Role</em>'.
+     * @return the meta object for the container reference '<em>Resource Interface Requiring Entity
+     *         Resource Required Role</em>'.
      * @see org.palladiosimulator.pcm.core.entity.ResourceRequiredRole#getResourceInterfaceRequiringEntity__ResourceRequiredRole()
      * @see #getResourceRequiredRole()
      * @generated
@@ -858,9 +862,9 @@ public interface EntityPackage extends EPackage {
     EReference getResourceRequiredRole_ResourceInterfaceRequiringEntity__ResourceRequiredRole();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingEntity
-     * <em>Resource Interface Providing Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingEntity <em>Resource
+     * Interface Providing Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Resource Interface Providing Entity</em>'.
      * @see org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingEntity
@@ -869,13 +873,13 @@ public interface EntityPackage extends EPackage {
     EClass getResourceInterfaceProvidingEntity();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingEntity#getResourceProvidedRoles__ResourceInterfaceProvidingEntity
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingEntity#getResourceProvidedRoles__ResourceInterfaceProvidingEntity
      * <em>Resource Provided Roles Resource Interface Providing Entity</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Resource Provided Roles Resource Interface Providing Entity</em>'.
+     * @return the meta object for the containment reference list '<em>Resource Provided Roles
+     *         Resource Interface Providing Entity</em>'.
      * @see org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingEntity#getResourceProvidedRoles__ResourceInterfaceProvidingEntity()
      * @see #getResourceInterfaceProvidingEntity()
      * @generated
@@ -883,9 +887,9 @@ public interface EntityPackage extends EPackage {
     EReference getResourceInterfaceProvidingEntity_ResourceProvidedRoles__ResourceInterfaceProvidingEntity();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.entity.ComposedProvidingRequiringEntity
-     * <em>Composed Providing Requiring Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.entity.ComposedProvidingRequiringEntity <em>Composed
+     * Providing Requiring Entity</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Composed Providing Requiring Entity</em>'.
      * @see org.palladiosimulator.pcm.core.entity.ComposedProvidingRequiringEntity
@@ -904,9 +908,9 @@ public interface EntityPackage extends EPackage {
     EClass getNamedElement();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.palladiosimulator.pcm.core.entity.NamedElement#getEntityName <em>Entity Name</em>}
-     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.pcm.core.entity.NamedElement#getEntityName <em>Entity
+     * Name</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Entity Name</em>'.
      * @see org.palladiosimulator.pcm.core.entity.NamedElement#getEntityName()
@@ -916,8 +920,8 @@ public interface EntityPackage extends EPackage {
     EAttribute getNamedElement_EntityName();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingRequiringEntity
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingRequiringEntity
      * <em>Resource Interface Providing Requiring Entity</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -961,9 +965,9 @@ public interface EntityPackage extends EPackage {
     interface Literals {
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.entity.impl.ResourceProvidedRoleImpl
-         * <em>Resource Provided Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.entity.impl.ResourceProvidedRoleImpl <em>Resource
+         * Provided Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.core.entity.impl.ResourceProvidedRoleImpl
          * @see org.palladiosimulator.pcm.core.entity.impl.EntityPackageImpl#getResourceProvidedRole()
@@ -972,9 +976,9 @@ public interface EntityPackage extends EPackage {
         EClass RESOURCE_PROVIDED_ROLE = eINSTANCE.getResourceProvidedRole();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Resource Interface Providing Entity Resource Provided Role</b></em>' container
-         * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Resource Interface Providing Entity Resource
+         * Provided Role</b></em>' container reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -982,9 +986,8 @@ public interface EntityPackage extends EPackage {
                 .getResourceProvidedRole_ResourceInterfaceProvidingEntity__ResourceProvidedRole();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Provided Resource Interface Resource Provided Role</b></em>' reference feature.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Provided Resource Interface Resource Provided
+         * Role</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -992,8 +995,8 @@ public interface EntityPackage extends EPackage {
                 .getResourceProvidedRole_ProvidedResourceInterface__ResourceProvidedRole();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.entity.impl.InterfaceProvidingRequiringEntityImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.entity.impl.InterfaceProvidingRequiringEntityImpl
          * <em>Interface Providing Requiring Entity</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
@@ -1016,9 +1019,9 @@ public interface EntityPackage extends EPackage {
         EClass INTERFACE_PROVIDING_ENTITY = eINSTANCE.getInterfaceProvidingEntity();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Provided Roles Interface Providing
+         * Entity</b></em>' containment reference list feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -1038,9 +1041,9 @@ public interface EntityPackage extends EPackage {
         EClass INTERFACE_REQUIRING_ENTITY = eINSTANCE.getInterfaceRequiringEntity();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Required Roles Interface Requiring
+         * Entity</b></em>' containment reference list feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -1048,8 +1051,8 @@ public interface EntityPackage extends EPackage {
                 .getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.entity.impl.ResourceInterfaceRequiringEntityImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.entity.impl.ResourceInterfaceRequiringEntityImpl
          * <em>Resource Interface Requiring Entity</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
@@ -1060,9 +1063,9 @@ public interface EntityPackage extends EPackage {
         EClass RESOURCE_INTERFACE_REQUIRING_ENTITY = eINSTANCE.getResourceInterfaceRequiringEntity();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
-         * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Resource Required Roles Resource Interface
+         * Requiring Entity</b></em>' containment reference list feature. <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
          *
          * @generated
          */
@@ -1070,9 +1073,9 @@ public interface EntityPackage extends EPackage {
                 .getResourceInterfaceRequiringEntity_ResourceRequiredRoles__ResourceInterfaceRequiringEntity();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.entity.impl.ResourceRequiredRoleImpl
-         * <em>Resource Required Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.entity.impl.ResourceRequiredRoleImpl <em>Resource
+         * Required Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.core.entity.impl.ResourceRequiredRoleImpl
          * @see org.palladiosimulator.pcm.core.entity.impl.EntityPackageImpl#getResourceRequiredRole()
@@ -1081,9 +1084,8 @@ public interface EntityPackage extends EPackage {
         EClass RESOURCE_REQUIRED_ROLE = eINSTANCE.getResourceRequiredRole();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Required Resource Interface Resource Required Role</b></em>' reference feature.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Required Resource Interface Resource Required
+         * Role</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -1091,9 +1093,9 @@ public interface EntityPackage extends EPackage {
                 .getResourceRequiredRole_RequiredResourceInterface__ResourceRequiredRole();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Resource Interface Requiring Entity Resource Required Role</b></em>' container
-         * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Resource Interface Requiring Entity Resource
+         * Required Role</b></em>' container reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -1101,8 +1103,8 @@ public interface EntityPackage extends EPackage {
                 .getResourceRequiredRole_ResourceInterfaceRequiringEntity__ResourceRequiredRole();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.entity.impl.ResourceInterfaceProvidingEntityImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.entity.impl.ResourceInterfaceProvidingEntityImpl
          * <em>Resource Interface Providing Entity</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
@@ -1113,9 +1115,9 @@ public interface EntityPackage extends EPackage {
         EClass RESOURCE_INTERFACE_PROVIDING_ENTITY = eINSTANCE.getResourceInterfaceProvidingEntity();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Resource Provided Roles Resource Interface Providing Entity</b></em>' containment
-         * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Resource Provided Roles Resource Interface
+         * Providing Entity</b></em>' containment reference list feature. <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
          *
          * @generated
          */
@@ -1123,8 +1125,8 @@ public interface EntityPackage extends EPackage {
                 .getResourceInterfaceProvidingEntity_ResourceProvidedRoles__ResourceInterfaceProvidingEntity();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.entity.impl.ComposedProvidingRequiringEntityImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.entity.impl.ComposedProvidingRequiringEntityImpl
          * <em>Composed Providing Requiring Entity</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
@@ -1135,9 +1137,9 @@ public interface EntityPackage extends EPackage {
         EClass COMPOSED_PROVIDING_REQUIRING_ENTITY = eINSTANCE.getComposedProvidingRequiringEntity();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.entity.impl.NamedElementImpl
-         * <em>Named Element</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.entity.impl.NamedElementImpl <em>Named
+         * Element</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.core.entity.impl.NamedElementImpl
          * @see org.palladiosimulator.pcm.core.entity.impl.EntityPackageImpl#getNamedElement()
@@ -1154,8 +1156,8 @@ public interface EntityPackage extends EPackage {
         EAttribute NAMED_ELEMENT__ENTITY_NAME = eINSTANCE.getNamedElement_EntityName();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.entity.impl.ResourceInterfaceProvidingRequiringEntityImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.entity.impl.ResourceInterfaceProvidingRequiringEntityImpl
          * <em>Resource Interface Providing Requiring Entity</em>}' class. <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          *
@@ -1166,8 +1168,8 @@ public interface EntityPackage extends EPackage {
         EClass RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY = eINSTANCE.getResourceInterfaceProvidingRequiringEntity();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.entity.impl.EntityImpl <em>Entity</em>}' class.
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.entity.impl.EntityImpl <em>Entity</em>}' class.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.core.entity.impl.EntityImpl

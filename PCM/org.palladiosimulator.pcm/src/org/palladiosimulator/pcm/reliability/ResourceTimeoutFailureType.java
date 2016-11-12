@@ -6,8 +6,8 @@ package org.palladiosimulator.pcm.reliability;
 import org.palladiosimulator.pcm.repository.PassiveResource;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Resource Timeout Failure Type</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Resource Timeout Failure
+ * Type</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
  * <p>
@@ -19,12 +19,11 @@ import org.palladiosimulator.pcm.repository.PassiveResource;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.reliability.ResourceTimeoutFailureType#getPassiveResource__ResourceTimeoutFailureType
+ * <li>{@link org.palladiosimulator.pcm.reliability.ResourceTimeoutFailureType#getPassiveResource__ResourceTimeoutFailureType
  * <em>Passive Resource Resource Timeout Failure Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.reliability.ReliabilityPackage#getResourceTimeoutFailureType()
  * @model
@@ -37,7 +36,7 @@ public interface ResourceTimeoutFailureType extends SoftwareInducedFailureType {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Passive Resource Resource Timeout Failure Type</b></em>'
@@ -58,8 +57,8 @@ public interface ResourceTimeoutFailureType extends SoftwareInducedFailureType {
     PassiveResource getPassiveResource__ResourceTimeoutFailureType();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.reliability.ResourceTimeoutFailureType#getPassiveResource__ResourceTimeoutFailureType
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.reliability.ResourceTimeoutFailureType#getPassiveResource__ResourceTimeoutFailureType
      * <em>Passive Resource Resource Timeout Failure Type</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *

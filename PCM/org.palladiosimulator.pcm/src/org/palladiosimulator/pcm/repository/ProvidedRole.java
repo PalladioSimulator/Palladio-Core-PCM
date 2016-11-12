@@ -14,11 +14,11 @@ import org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole <em>
- * Providing Entity Provided Role</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole
+ * <em>Providing Entity Provided Role</em>}</li>
+ * </ul>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getProvidedRole()
  * @model abstract="true"
@@ -31,7 +31,7 @@ public interface ProvidedRole extends Role {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Providing Entity Provided Role</b></em>' container
@@ -51,8 +51,8 @@ public interface ProvidedRole extends Role {
     InterfaceProvidingEntity getProvidingEntity_ProvidedRole();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole
      * <em>Providing Entity Provided Role</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

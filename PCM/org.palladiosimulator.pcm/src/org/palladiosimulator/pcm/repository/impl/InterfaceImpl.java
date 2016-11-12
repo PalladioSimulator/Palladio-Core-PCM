@@ -32,18 +32,17 @@ import org.palladiosimulator.pcm.repository.util.RepositoryValidator;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.impl.InterfaceImpl#getParentInterfaces__Interface
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.InterfaceImpl#getParentInterfaces__Interface
  * <em>Parent Interfaces Interface</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.impl.InterfaceImpl#getProtocols__Interface <em>
- * Protocols Interface</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.InterfaceImpl#getProtocols__Interface
+ * <em>Protocols Interface</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.repository.impl.InterfaceImpl#getRequiredCharacterisations
  * <em>Required Characterisations</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.impl.InterfaceImpl#getRepository__Interface <em>
- * Repository Interface</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.InterfaceImpl#getRepository__Interface
+ * <em>Repository Interface</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -54,7 +53,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -147,8 +146,8 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
     }
 
     /**
-     * The cached OCL expression body for the '
-     * {@link #NoProtocolTypeIDUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL expression body for the
+     * '{@link #NoProtocolTypeIDUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Protocol Type ID Used Twice</em>}' operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -159,8 +158,8 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
     protected static final String NO_PROTOCOL_TYPE_ID_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.protocols__Interface->forAll(p1, p2 |\n"
             + "p1.protocolTypeID <> p2.protocolTypeID)\n" + "";
     /**
-     * The cached OCL invariant for the '
-     * {@link #NoProtocolTypeIDUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL invariant for the
+     * '{@link #NoProtocolTypeIDUsedTwice(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>No Protocol Type ID Used Twice</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -177,31 +176,24 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      */
     @Override
     public boolean NoProtocolTypeIDUsedTwice(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (NO_PROTOCOL_TYPE_ID_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (NO_PROTOCOL_TYPE_ID_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.INTERFACE);
-            try
-            {
+            try {
                 NO_PROTOCOL_TYPE_ID_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(NO_PROTOCOL_TYPE_ID_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(NO_PROTOCOL_TYPE_ID_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics.add
-                        (new BasicDiagnostic
-                        (Diagnostic.ERROR,
-                                RepositoryValidator.DIAGNOSTIC_SOURCE,
-                                RepositoryValidator.INTERFACE__NO_PROTOCOL_TYPE_ID_USED_TWICE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "NoProtocolTypeIDUsedTwice", EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+        if (!EOCL_ENV.createQuery(NO_PROTOCOL_TYPE_ID_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        RepositoryValidator.DIAGNOSTIC_SOURCE,
+                        RepositoryValidator.INTERFACE__NO_PROTOCOL_TYPE_ID_USED_TWICE,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                "NoProtocolTypeIDUsedTwice", EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -216,11 +208,10 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getRequiredCharacterisations()).basicAdd(
-                    otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getRequiredCharacterisations())
+                    .basicAdd(otherEnd, msgs);
         case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -238,8 +229,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
             return ((InternalEList<?>) this.getProtocols__Interface()).basicRemove(otherEnd, msgs);
         case RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS:
@@ -257,8 +247,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
             return this.eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY,
                     Repository.class, msgs);
@@ -273,8 +262,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INTERFACE__PARENT_INTERFACES_INTERFACE:
             return this.getParentInterfaces__Interface();
         case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
@@ -295,8 +283,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INTERFACE__PARENT_INTERFACES_INTERFACE:
             this.getParentInterfaces__Interface().clear();
             this.getParentInterfaces__Interface().addAll((Collection<? extends Interface>) newValue);
@@ -323,8 +310,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INTERFACE__PARENT_INTERFACES_INTERFACE:
             this.getParentInterfaces__Interface().clear();
             return;
@@ -348,8 +334,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INTERFACE__PARENT_INTERFACES_INTERFACE:
             return !this.getParentInterfaces__Interface().isEmpty();
         case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:

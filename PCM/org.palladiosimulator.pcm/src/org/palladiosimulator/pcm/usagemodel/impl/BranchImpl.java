@@ -29,11 +29,11 @@ import org.palladiosimulator.pcm.usagemodel.util.UsagemodelValidator;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.BranchImpl#getBranchTransitions_Branch <em>
- * Branch Transitions Branch</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.BranchImpl#getBranchTransitions_Branch
+ * <em>Branch Transitions Branch</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -44,7 +44,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -78,8 +78,8 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
     }
 
     /**
-     * The cached OCL expression body for the '
-     * {@link #AllBranchProbabilitiesMustSumUpTo1(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL expression body for the
+     * '{@link #AllBranchProbabilitiesMustSumUpTo1(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>All Branch Probabilities Must Sum Up To1</em>}' operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -90,8 +90,8 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
      */
     protected static final String ALL_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self->collect(branchTransitions_Branch.branchProbability)->sum() > 0.999 and self->collect(branchTransitions_Branch.branchProbability)->sum() <1.001";
     /**
-     * The cached OCL invariant for the '
-     * {@link #AllBranchProbabilitiesMustSumUpTo1(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL invariant for the
+     * '{@link #AllBranchProbabilitiesMustSumUpTo1(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>All Branch Probabilities Must Sum Up To1</em>}' invariant operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -110,33 +110,25 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
     @Override
     public boolean AllBranchProbabilitiesMustSumUpTo1(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (ALL_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (ALL_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(UsagemodelPackage.Literals.BRANCH);
-            try
-            {
+            try {
                 ALL_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(ALL_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(ALL_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics.add
-                        (new BasicDiagnostic
-                        (Diagnostic.ERROR,
-                                UsagemodelValidator.DIAGNOSTIC_SOURCE,
-                                UsagemodelValidator.BRANCH__ALL_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1,
-                                EcorePlugin.INSTANCE.getString(
-                                        "_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "AllBranchProbabilitiesMustSumUpTo1",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+        if (!EOCL_ENV.createQuery(ALL_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        UsagemodelValidator.DIAGNOSTIC_SOURCE,
+                        UsagemodelValidator.BRANCH__ALL_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                "AllBranchProbabilitiesMustSumUpTo1", EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -152,11 +144,10 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getBranchTransitions_Branch()).basicAdd(
-                    otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getBranchTransitions_Branch())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -169,8 +160,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH:
             return ((InternalEList<?>) this.getBranchTransitions_Branch()).basicRemove(otherEnd, msgs);
         }
@@ -184,8 +174,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH:
             return this.getBranchTransitions_Branch();
         }
@@ -200,8 +189,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH:
             this.getBranchTransitions_Branch().clear();
             this.getBranchTransitions_Branch().addAll((Collection<? extends BranchTransition>) newValue);
@@ -217,8 +205,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH:
             this.getBranchTransitions_Branch().clear();
             return;
@@ -233,8 +220,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH:
             return !this.getBranchTransitions_Branch().isEmpty();
         }

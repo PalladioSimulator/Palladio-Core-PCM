@@ -7,25 +7,22 @@ import org.eclipse.emf.cdo.CDOObject;
 import org.palladiosimulator.pcm.core.entity.ResourceRequiredRole;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Resource Required Delegation Connector</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Resource Required
+ * Delegation Connector</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> TODO Michael Hauck <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getInnerResourceRequiredRole_ResourceRequiredDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getInnerResourceRequiredRole_ResourceRequiredDelegationConnector
  * <em>Inner Resource Required Role Resource Required Delegation Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getOuterResourceRequiredRole_ResourceRequiredDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getOuterResourceRequiredRole_ResourceRequiredDelegationConnector
  * <em>Outer Resource Required Role Resource Required Delegation Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector
  * <em>Parent Structure Resource Required Delegation Connector</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getResourceRequiredDelegationConnector()
  * @model
@@ -39,22 +36,19 @@ public interface ResourceRequiredDelegationConnector extends CDOObject {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
-     * Returns the value of the '
-     * <em><b>Inner Resource Required Role Resource Required Delegation Connector</b></em>'
-     * reference. <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Inner Resource Required Role Resource Required Delegation
+     * Connector</b></em>' reference. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '
-     * <em>Inner Resource Required Role Resource Required Delegation Connector</em>' reference isn't
-     * clear, there really should be more of a description here...
+     * If the meaning of the ' <em>Inner Resource Required Role Resource Required Delegation
+     * Connector</em>' reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      *
-     * @return the value of the '
-     *         <em>Inner Resource Required Role Resource Required Delegation Connector</em>'
-     *         reference.
+     * @return the value of the '<em>Inner Resource Required Role Resource Required Delegation
+     *         Connector</em>' reference.
      * @see #setInnerResourceRequiredRole_ResourceRequiredDelegationConnector(ResourceRequiredRole)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getResourceRequiredDelegationConnector_InnerResourceRequiredRole_ResourceRequiredDelegationConnector()
      * @model required="true" ordered="false"
@@ -63,34 +57,30 @@ public interface ResourceRequiredDelegationConnector extends CDOObject {
     ResourceRequiredRole getInnerResourceRequiredRole_ResourceRequiredDelegationConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getInnerResourceRequiredRole_ResourceRequiredDelegationConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getInnerResourceRequiredRole_ResourceRequiredDelegationConnector
      * <em>Inner Resource Required Role Resource Required Delegation Connector</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
-     *            the new value of the '
-     *            <em>Inner Resource Required Role Resource Required Delegation Connector</em>'
-     *            reference.
+     *            the new value of the '<em>Inner Resource Required Role Resource Required
+     *            Delegation Connector</em>' reference.
      * @see #getInnerResourceRequiredRole_ResourceRequiredDelegationConnector()
      * @generated
      */
     void setInnerResourceRequiredRole_ResourceRequiredDelegationConnector(ResourceRequiredRole value);
 
     /**
-     * Returns the value of the '
-     * <em><b>Outer Resource Required Role Resource Required Delegation Connector</b></em>'
-     * reference. <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Outer Resource Required Role Resource Required Delegation
+     * Connector</b></em>' reference. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '
-     * <em>Outer Resource Required Role Resource Required Delegation Connector</em>' reference isn't
-     * clear, there really should be more of a description here...
+     * If the meaning of the ' <em>Outer Resource Required Role Resource Required Delegation
+     * Connector</em>' reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      *
-     * @return the value of the '
-     *         <em>Outer Resource Required Role Resource Required Delegation Connector</em>'
-     *         reference.
+     * @return the value of the '<em>Outer Resource Required Role Resource Required Delegation
+     *         Connector</em>' reference.
      * @see #setOuterResourceRequiredRole_ResourceRequiredDelegationConnector(ResourceRequiredRole)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getResourceRequiredDelegationConnector_OuterResourceRequiredRole_ResourceRequiredDelegationConnector()
      * @model required="true" ordered="false"
@@ -99,25 +89,23 @@ public interface ResourceRequiredDelegationConnector extends CDOObject {
     ResourceRequiredRole getOuterResourceRequiredRole_ResourceRequiredDelegationConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getOuterResourceRequiredRole_ResourceRequiredDelegationConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getOuterResourceRequiredRole_ResourceRequiredDelegationConnector
      * <em>Outer Resource Required Role Resource Required Delegation Connector</em>}' reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
-     *            the new value of the '
-     *            <em>Outer Resource Required Role Resource Required Delegation Connector</em>'
-     *            reference.
+     *            the new value of the '<em>Outer Resource Required Role Resource Required
+     *            Delegation Connector</em>' reference.
      * @see #getOuterResourceRequiredRole_ResourceRequiredDelegationConnector()
      * @generated
      */
     void setOuterResourceRequiredRole_ResourceRequiredDelegationConnector(ResourceRequiredRole value);
 
     /**
-     * Returns the value of the '
-     * <em><b>Parent Structure Resource Required Delegation Connector</b></em>' container reference.
-     * It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure
+     * Returns the value of the '<em><b>Parent Structure Resource Required Delegation
+     * Connector</b></em>' container reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure
      * <em>Resource Required Delegation Connectors Composed Structure</em>}'. <!-- begin-user-doc
      * -->
      * <p>
@@ -144,9 +132,8 @@ public interface ResourceRequiredDelegationConnector extends CDOObject {
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
-     *            the new value of the '
-     *            <em>Parent Structure Resource Required Delegation Connector</em>' container
-     *            reference.
+     *            the new value of the ' <em>Parent Structure Resource Required Delegation
+     *            Connector</em>' container reference.
      * @see #getParentStructure_ResourceRequiredDelegationConnector()
      * @generated
      */

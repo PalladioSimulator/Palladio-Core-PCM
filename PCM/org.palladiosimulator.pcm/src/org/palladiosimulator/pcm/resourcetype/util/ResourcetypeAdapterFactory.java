@@ -36,7 +36,7 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -51,8 +51,7 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public ResourcetypeAdapterFactory() {
-        if (modelPackage == null)
-        {
+        if (modelPackage == null) {
             modelPackage = ResourcetypePackage.eINSTANCE;
         }
     }
@@ -67,12 +66,10 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      */
     @Override
     public boolean isFactoryForType(final Object object) {
-        if (object == modelPackage)
-        {
+        if (object == modelPackage) {
             return true;
         }
-        if (object instanceof EObject)
-        {
+        if (object instanceof EObject) {
             return ((EObject) object).eClass().getEPackage() == modelPackage;
         }
         return false;
@@ -84,93 +81,79 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    protected ResourcetypeSwitch<Adapter> modelSwitch = new ResourcetypeSwitch<Adapter>()
-    {
+    protected ResourcetypeSwitch<Adapter> modelSwitch = new ResourcetypeSwitch<Adapter>() {
         @Override
-        public Adapter caseResourceSignature(final ResourceSignature object)
-        {
+        public Adapter caseResourceSignature(final ResourceSignature object) {
             return ResourcetypeAdapterFactory.this.createResourceSignatureAdapter();
         }
 
         @Override
-        public Adapter caseProcessingResourceType(final ProcessingResourceType object)
-        {
+        public Adapter caseProcessingResourceType(final ProcessingResourceType object) {
             return ResourcetypeAdapterFactory.this.createProcessingResourceTypeAdapter();
         }
 
         @Override
-        public Adapter caseResourceType(final ResourceType object)
-        {
+        public Adapter caseResourceType(final ResourceType object) {
             return ResourcetypeAdapterFactory.this.createResourceTypeAdapter();
         }
 
         @Override
-        public Adapter caseResourceRepository(final ResourceRepository object)
-        {
+        public Adapter caseResourceRepository(final ResourceRepository object) {
             return ResourcetypeAdapterFactory.this.createResourceRepositoryAdapter();
         }
 
         @Override
-        public Adapter caseSchedulingPolicy(final SchedulingPolicy object)
-        {
+        public Adapter caseSchedulingPolicy(final SchedulingPolicy object) {
             return ResourcetypeAdapterFactory.this.createSchedulingPolicyAdapter();
         }
 
         @Override
-        public Adapter caseCommunicationLinkResourceType(final CommunicationLinkResourceType object)
-        {
+        public Adapter caseCommunicationLinkResourceType(final CommunicationLinkResourceType object) {
             return ResourcetypeAdapterFactory.this.createCommunicationLinkResourceTypeAdapter();
         }
 
         @Override
-        public Adapter caseResourceInterface(final ResourceInterface object)
-        {
+        public Adapter caseResourceInterface(final ResourceInterface object) {
             return ResourcetypeAdapterFactory.this.createResourceInterfaceAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(final Identifier object)
-        {
+        public Adapter caseIdentifier(final Identifier object) {
             return ResourcetypeAdapterFactory.this.createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(final NamedElement object)
-        {
+        public Adapter caseNamedElement(final NamedElement object) {
             return ResourcetypeAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(final Entity object)
-        {
+        public Adapter caseEntity(final Entity object) {
             return ResourcetypeAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter caseUnitCarryingElement(final UnitCarryingElement object)
-        {
+        public Adapter caseUnitCarryingElement(final UnitCarryingElement object) {
             return ResourcetypeAdapterFactory.this.createUnitCarryingElementAdapter();
         }
 
         @Override
-        public Adapter caseResourceInterfaceProvidingEntity(final ResourceInterfaceProvidingEntity object)
-        {
+        public Adapter caseResourceInterfaceProvidingEntity(final ResourceInterfaceProvidingEntity object) {
             return ResourcetypeAdapterFactory.this.createResourceInterfaceProvidingEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object)
-        {
+        public Adapter defaultCase(final EObject object) {
             return ResourcetypeAdapterFactory.this.createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-             *
-             * @param target
-             *            the object to adapt.
-             * @return the adapter for the <code>target</code>.
+     *
+     * @param target
+     *            the object to adapt.
+     * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
@@ -179,13 +162,13 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.resourcetype.ResourceSignature <em>Resource Signature</em>}
-             * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-             * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
-             * <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.resourcetype.ResourceSignature <em>Resource
+     * Signature</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+     * cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.resourcetype.ResourceSignature
      * @generated
      */
@@ -194,13 +177,13 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.resourcetype.ProcessingResourceType
-             * <em>Processing Resource Type</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.resourcetype.ProcessingResourceType <em>Processing Resource
+     * Type</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases
+     * anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.resourcetype.ProcessingResourceType
      * @generated
      */
@@ -224,13 +207,13 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.resourcetype.ResourceRepository
-             * <em>Resource Repository</em>}'. <!-- begin-user-doc --> This default implementation returns
-             * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
-             * catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.resourcetype.ResourceRepository <em>Resource
+     * Repository</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
+     * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+     * cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.resourcetype.ResourceRepository
      * @generated
      */
@@ -239,13 +222,13 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.resourcetype.SchedulingPolicy <em>Scheduling Policy</em>}'.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.resourcetype.SchedulingPolicy <em>Scheduling Policy</em>}'.
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
      *
-             * @return the new adapter.
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.resourcetype.SchedulingPolicy
      * @generated
      */
@@ -254,13 +237,13 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType
-             * <em>Communication Link Resource Type</em>}'. <!-- begin-user-doc --> This default
-             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType
+     * <em>Communication Link Resource Type</em>}'. <!-- begin-user-doc --> This default
+     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.resourcetype.CommunicationLinkResourceType
      * @generated
      */
@@ -269,13 +252,13 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.resourcetype.ResourceInterface <em>Resource Interface</em>}
-             * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-             * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
-             * <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.resourcetype.ResourceInterface <em>Resource
+     * Interface</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+     * cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.resourcetype.ResourceInterface
      * @generated
      */
@@ -285,11 +268,11 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
-             * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
-             * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
-             * the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+     * the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see de.uka.ipd.sdq.identifier.Identifier
      * @generated
      */
@@ -313,12 +296,12 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'. <!-- begin-user-doc
-             * --> This default implementation returns null so that we can easily ignore cases; it's useful
-             * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'. <!-- begin-user-doc
+     * --> This default implementation returns null so that we can easily ignore cases; it's useful
+     * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.Entity
      * @generated
      */
@@ -328,12 +311,12 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '
-             * {@link de.uka.ipd.sdq.units.UnitCarryingElement <em>Unit Carrying Element</em>}'. <!--
-             * begin-user-doc --> This default implementation returns null so that we can easily ignore
-             * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-             * end-user-doc -->
-             *
-             * @return the new adapter.
+     * {@link de.uka.ipd.sdq.units.UnitCarryingElement <em>Unit Carrying Element</em>}'. <!--
+     * begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
+     * end-user-doc -->
+     *
+     * @return the new adapter.
      * @see de.uka.ipd.sdq.units.UnitCarryingElement
      * @generated
      */
@@ -342,13 +325,13 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingEntity
-             * <em>Resource Interface Providing Entity</em>}'. <!-- begin-user-doc --> This default
-             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingEntity <em>Resource
+     * Interface Providing Entity</em>}'. <!-- begin-user-doc --> This default implementation
+     * returns null so that we can easily ignore cases; it's useful to ignore a case when
+     * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingEntity
      * @generated
      */
@@ -358,9 +341,9 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
-             * implementation returns null. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * implementation returns null. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @generated
      */
     public Adapter createEObjectAdapter() {

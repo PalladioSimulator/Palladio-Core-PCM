@@ -16,17 +16,15 @@ import org.palladiosimulator.pcm.reliability.ResourceTimeoutFailureType;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.PassiveResource#getCapacity_PassiveResource <em>
- * Capacity Passive Resource</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.PassiveResource#getBasicComponent_PassiveResource
+ * <li>{@link org.palladiosimulator.pcm.repository.PassiveResource#getCapacity_PassiveResource
+ * <em>Capacity Passive Resource</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.PassiveResource#getBasicComponent_PassiveResource
  * <em>Basic Component Passive Resource</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.PassiveResource#getResourceTimeoutFailureType__PassiveResource
+ * <li>{@link org.palladiosimulator.pcm.repository.PassiveResource#getResourceTimeoutFailureType__PassiveResource
  * <em>Resource Timeout Failure Type Passive Resource</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getPassiveResource()
  * @model
@@ -39,7 +37,7 @@ public interface PassiveResource extends Entity {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Capacity Passive Resource</b></em>' containment reference.
@@ -60,8 +58,8 @@ public interface PassiveResource extends Entity {
     PCMRandomVariable getCapacity_PassiveResource();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.PassiveResource#getCapacity_PassiveResource
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.PassiveResource#getCapacity_PassiveResource
      * <em>Capacity Passive Resource</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -74,8 +72,8 @@ public interface PassiveResource extends Entity {
 
     /**
      * Returns the value of the '<em><b>Basic Component Passive Resource</b></em>' container
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.repository.BasicComponent#getPassiveResource_BasicComponent
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.repository.BasicComponent#getPassiveResource_BasicComponent
      * <em>Passive Resource Basic Component</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Basic Component Passive Resource</em>' container reference isn't
@@ -94,8 +92,8 @@ public interface PassiveResource extends Entity {
     BasicComponent getBasicComponent_PassiveResource();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.PassiveResource#getBasicComponent_PassiveResource
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.PassiveResource#getBasicComponent_PassiveResource
      * <em>Basic Component Passive Resource</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -127,8 +125,8 @@ public interface PassiveResource extends Entity {
     ResourceTimeoutFailureType getResourceTimeoutFailureType__PassiveResource();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.PassiveResource#getResourceTimeoutFailureType__PassiveResource
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.PassiveResource#getResourceTimeoutFailureType__PassiveResource
      * <em>Resource Timeout Failure Type Passive Resource</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *

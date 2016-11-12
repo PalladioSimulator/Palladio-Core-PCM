@@ -4,20 +4,19 @@
 package org.palladiosimulator.pcm.seff;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Internal Call Action</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Internal Call
+ * Action</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> A "SubSEFF"-Action: Realises an internal method call within a SEFF. <!--
  * end-model-doc -->
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.InternalCallAction#getCalledResourceDemandingInternalBehaviour
+ * <li>{@link org.palladiosimulator.pcm.seff.InternalCallAction#getCalledResourceDemandingInternalBehaviour
  * <em>Called Resource Demanding Internal Behaviour</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getInternalCallAction()
  * @model
@@ -30,7 +29,7 @@ public interface InternalCallAction extends CallAction, AbstractInternalControlF
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Called Resource Demanding Internal Behaviour</b></em>'
@@ -50,8 +49,8 @@ public interface InternalCallAction extends CallAction, AbstractInternalControlF
     ResourceDemandingInternalBehaviour getCalledResourceDemandingInternalBehaviour();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.seff.InternalCallAction#getCalledResourceDemandingInternalBehaviour
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.seff.InternalCallAction#getCalledResourceDemandingInternalBehaviour
      * <em>Called Resource Demanding Internal Behaviour</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *

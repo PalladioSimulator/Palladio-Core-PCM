@@ -26,11 +26,11 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.usagemodel.Workload#getUsageScenario_Workload <em>Usage
  * Scenario Workload</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getWorkload()
  * @model abstract="true"
@@ -44,12 +44,12 @@ public interface Workload extends CDOObject {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Usage Scenario Workload</b></em>' container reference. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario
      * <em>Workload Usage Scenario</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Usage Scenario Workload</em>' container reference isn't clear,
@@ -67,10 +67,9 @@ public interface Workload extends CDOObject {
     UsageScenario getUsageScenario_Workload();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.Workload#getUsageScenario_Workload
-     * <em>Usage Scenario Workload</em>}' container reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.Workload#getUsageScenario_Workload <em>Usage
+     * Scenario Workload</em>}' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Usage Scenario Workload</em>' container reference.

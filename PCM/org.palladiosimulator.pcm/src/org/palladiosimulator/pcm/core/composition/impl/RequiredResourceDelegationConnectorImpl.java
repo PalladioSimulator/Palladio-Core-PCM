@@ -10,22 +10,19 @@ import org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConn
 import org.palladiosimulator.pcm.core.entity.ResourceRequiredRole;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Required Resource Delegation Connector</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Required Resource
+ * Delegation Connector</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl#getAssemblyContext__RequiredResourceDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl#getAssemblyContext__RequiredResourceDelegationConnector
  * <em>Assembly Context Required Resource Delegation Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl#getInnerRequiredRole__RequiredResourceDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl#getInnerRequiredRole__RequiredResourceDelegationConnector
  * <em>Inner Required Role Required Resource Delegation Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl#getOuterRequiredRole__RequiredResourceDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl#getOuterRequiredRole__RequiredResourceDelegationConnector
  * <em>Outer Required Role Required Resource Delegation Connector</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -37,7 +34,7 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -65,11 +62,10 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
      */
     @Override
     public AssemblyContext getAssemblyContext__RequiredResourceDelegationConnector() {
-        return (AssemblyContext) this
-                .eDynamicGet(
-                        CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
-                        CompositionPackage.Literals.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
-                        true, true);
+        return (AssemblyContext) this.eDynamicGet(
+                CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
+                true, true);
     }
 
     /**
@@ -78,11 +74,10 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext__RequiredResourceDelegationConnector() {
-        return (AssemblyContext) this
-                .eDynamicGet(
-                        CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
-                        CompositionPackage.Literals.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
-                        false, true);
+        return (AssemblyContext) this.eDynamicGet(
+                CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
+                false, true);
     }
 
     /**
@@ -106,11 +101,10 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
      */
     @Override
     public ResourceRequiredRole getInnerRequiredRole__RequiredResourceDelegationConnector() {
-        return (ResourceRequiredRole) this
-                .eDynamicGet(
-                        CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
-                        CompositionPackage.Literals.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
-                        true, true);
+        return (ResourceRequiredRole) this.eDynamicGet(
+                CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
+                true, true);
     }
 
     /**
@@ -119,11 +113,10 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
      * @generated
      */
     public ResourceRequiredRole basicGetInnerRequiredRole__RequiredResourceDelegationConnector() {
-        return (ResourceRequiredRole) this
-                .eDynamicGet(
-                        CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
-                        CompositionPackage.Literals.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
-                        false, true);
+        return (ResourceRequiredRole) this.eDynamicGet(
+                CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
+                false, true);
     }
 
     /**
@@ -147,11 +140,10 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
      */
     @Override
     public ResourceRequiredRole getOuterRequiredRole__RequiredResourceDelegationConnector() {
-        return (ResourceRequiredRole) this
-                .eDynamicGet(
-                        CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
-                        CompositionPackage.Literals.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
-                        true, true);
+        return (ResourceRequiredRole) this.eDynamicGet(
+                CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
+                true, true);
     }
 
     /**
@@ -160,11 +152,10 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
      * @generated
      */
     public ResourceRequiredRole basicGetOuterRequiredRole__RequiredResourceDelegationConnector() {
-        return (ResourceRequiredRole) this
-                .eDynamicGet(
-                        CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
-                        CompositionPackage.Literals.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
-                        false, true);
+        return (ResourceRequiredRole) this.eDynamicGet(
+                CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
+                false, true);
     }
 
     /**
@@ -188,8 +179,7 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
             if (resolve) {
                 return this.getAssemblyContext__RequiredResourceDelegationConnector();
@@ -216,8 +206,7 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
             this.setAssemblyContext__RequiredResourceDelegationConnector((AssemblyContext) newValue);
             return;
@@ -238,8 +227,7 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
             this.setAssemblyContext__RequiredResourceDelegationConnector((AssemblyContext) null);
             return;
@@ -260,8 +248,7 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
             return this.basicGetAssemblyContext__RequiredResourceDelegationConnector() != null;
         case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:

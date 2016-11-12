@@ -15,23 +15,23 @@ import org.palladiosimulator.pcm.resourcetype.ResourceSignature;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getDataType__Parameter <em>Data Type
  * Parameter</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getInfrastructureSignature__Parameter
  * <em>Infrastructure Signature Parameter</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getOperationSignature__Parameter <em>
- * Operation Signature Parameter</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getOperationSignature__Parameter
+ * <em>Operation Signature Parameter</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getEventType__Parameter <em>Event Type
  * Parameter</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getParameterName <em>Parameter Name
- * </em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getParameterName <em>Parameter
+ * Name</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getModifier__Parameter <em>Modifier
  * Parameter</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getResourceSignature__Parameter <em>
- * Resource Signature Parameter</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Parameter#getResourceSignature__Parameter
+ * <em>Resource Signature Parameter</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getParameter()
  * @model
@@ -45,7 +45,7 @@ public interface Parameter extends CDOObject {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Data Type Parameter</b></em>' reference. <!-- begin-user-doc
@@ -61,9 +61,9 @@ public interface Parameter extends CDOObject {
     DataType getDataType__Parameter();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.Parameter#getDataType__Parameter
-     * <em>Data Type Parameter</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.Parameter#getDataType__Parameter <em>Data Type
+     * Parameter</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Data Type Parameter</em>' reference.
@@ -74,8 +74,8 @@ public interface Parameter extends CDOObject {
 
     /**
      * Returns the value of the '<em><b>Infrastructure Signature Parameter</b></em>' container
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.repository.InfrastructureSignature#getParameters__InfrastructureSignature
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.repository.InfrastructureSignature#getParameters__InfrastructureSignature
      * <em>Parameters Infrastructure Signature</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Infrastructure Signature Parameter</em>' container reference isn't
@@ -93,8 +93,8 @@ public interface Parameter extends CDOObject {
     InfrastructureSignature getInfrastructureSignature__Parameter();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.Parameter#getInfrastructureSignature__Parameter
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.Parameter#getInfrastructureSignature__Parameter
      * <em>Infrastructure Signature Parameter</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -124,8 +124,8 @@ public interface Parameter extends CDOObject {
     OperationSignature getOperationSignature__Parameter();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.Parameter#getOperationSignature__Parameter
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.Parameter#getOperationSignature__Parameter
      * <em>Operation Signature Parameter</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -138,9 +138,9 @@ public interface Parameter extends CDOObject {
 
     /**
      * Returns the value of the '<em><b>Event Type Parameter</b></em>' container reference. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.repository.EventType#getParameter__EventType
-     * <em>Parameter Event Type</em>}'. <!-- begin-user-doc -->
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.repository.EventType#getParameter__EventType <em>Parameter
+     * Event Type</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Event Type Parameter</em>' container reference isn't clear, there
      * really should be more of a description here...
@@ -157,10 +157,9 @@ public interface Parameter extends CDOObject {
     EventType getEventType__Parameter();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.Parameter#getEventType__Parameter
-     * <em>Event Type Parameter</em>}' container reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.Parameter#getEventType__Parameter <em>Event Type
+     * Parameter</em>}' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Event Type Parameter</em>' container reference.
@@ -183,8 +182,7 @@ public interface Parameter extends CDOObject {
     String getParameterName();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.Parameter#getParameterName
+     * Sets the value of the '{@link org.palladiosimulator.pcm.repository.Parameter#getParameterName
      * <em>Parameter Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
@@ -210,9 +208,9 @@ public interface Parameter extends CDOObject {
     ParameterModifier getModifier__Parameter();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.Parameter#getModifier__Parameter
-     * <em>Modifier Parameter</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.Parameter#getModifier__Parameter <em>Modifier
+     * Parameter</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Modifier Parameter</em>' attribute.
@@ -224,8 +222,8 @@ public interface Parameter extends CDOObject {
 
     /**
      * Returns the value of the '<em><b>Resource Signature Parameter</b></em>' container reference.
-     * It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getParameter__ResourceSignature
+     * It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getParameter__ResourceSignature
      * <em>Parameter Resource Signature</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Resource Signature Parameter</em>' container reference isn't
@@ -243,8 +241,8 @@ public interface Parameter extends CDOObject {
     ResourceSignature getResourceSignature__Parameter();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.Parameter#getResourceSignature__Parameter
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.Parameter#getResourceSignature__Parameter
      * <em>Resource Signature Parameter</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

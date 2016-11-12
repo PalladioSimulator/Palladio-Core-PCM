@@ -18,17 +18,15 @@ import org.palladiosimulator.pcm.usagemodel.Workload;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.usagemodel.impl.UsageScenarioImpl#getUsageModel_UsageScenario
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.UsageScenarioImpl#getUsageModel_UsageScenario
  * <em>Usage Model Usage Scenario</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.usagemodel.impl.UsageScenarioImpl#getScenarioBehaviour_UsageScenario
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.UsageScenarioImpl#getScenarioBehaviour_UsageScenario
  * <em>Scenario Behaviour Usage Scenario</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.UsageScenarioImpl#getWorkload_UsageScenario
  * <em>Workload Usage Scenario</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -39,7 +37,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -101,8 +99,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
      */
     @Override
     public ScenarioBehaviour getScenarioBehaviour_UsageScenario() {
-        return (ScenarioBehaviour) this.eDynamicGet(
-                UsagemodelPackage.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO,
+        return (ScenarioBehaviour) this.eDynamicGet(UsagemodelPackage.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO,
                 UsagemodelPackage.Literals.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO, true, true);
     }
 
@@ -171,8 +168,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.USAGE_SCENARIO__USAGE_MODEL_USAGE_SCENARIO:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -181,15 +177,16 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
         case UsagemodelPackage.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO:
             final ScenarioBehaviour scenarioBehaviour_UsageScenario = this.getScenarioBehaviour_UsageScenario();
             if (scenarioBehaviour_UsageScenario != null) {
-                msgs = ((InternalEObject) scenarioBehaviour_UsageScenario).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-                        - UsagemodelPackage.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO, null, msgs);
+                msgs = ((InternalEObject) scenarioBehaviour_UsageScenario).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - UsagemodelPackage.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO,
+                        null, msgs);
             }
             return this.basicSetScenarioBehaviour_UsageScenario((ScenarioBehaviour) otherEnd, msgs);
         case UsagemodelPackage.USAGE_SCENARIO__WORKLOAD_USAGE_SCENARIO:
             final Workload workload_UsageScenario = this.getWorkload_UsageScenario();
             if (workload_UsageScenario != null) {
-                msgs = ((InternalEObject) workload_UsageScenario).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-                        - UsagemodelPackage.USAGE_SCENARIO__WORKLOAD_USAGE_SCENARIO, null, msgs);
+                msgs = ((InternalEObject) workload_UsageScenario).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - UsagemodelPackage.USAGE_SCENARIO__WORKLOAD_USAGE_SCENARIO, null, msgs);
             }
             return this.basicSetWorkload_UsageScenario((Workload) otherEnd, msgs);
         }
@@ -204,8 +201,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.USAGE_SCENARIO__USAGE_MODEL_USAGE_SCENARIO:
             return this.basicSetUsageModel_UsageScenario(null, msgs);
         case UsagemodelPackage.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO:
@@ -223,8 +219,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case UsagemodelPackage.USAGE_SCENARIO__USAGE_MODEL_USAGE_SCENARIO:
             return this.eInternalContainer().eInverseRemove(this,
                     UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL,
@@ -240,8 +235,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.USAGE_SCENARIO__USAGE_MODEL_USAGE_SCENARIO:
             return this.getUsageModel_UsageScenario();
         case UsagemodelPackage.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO:
@@ -259,8 +253,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.USAGE_SCENARIO__USAGE_MODEL_USAGE_SCENARIO:
             this.setUsageModel_UsageScenario((UsageModel) newValue);
             return;
@@ -281,8 +274,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.USAGE_SCENARIO__USAGE_MODEL_USAGE_SCENARIO:
             this.setUsageModel_UsageScenario((UsageModel) null);
             return;
@@ -303,8 +295,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.USAGE_SCENARIO__USAGE_MODEL_USAGE_SCENARIO:
             return this.getUsageModel_UsageScenario() != null;
         case UsagemodelPackage.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO:

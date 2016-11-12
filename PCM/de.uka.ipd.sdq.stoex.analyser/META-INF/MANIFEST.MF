@@ -15,4 +15,4 @@ Export-Package: de.uka.ipd.sdq.stoex.analyser.exceptions,
  de.uka.ipd.sdq.stoex.analyser.operations,
  de.uka.ipd.sdq.stoex.analyser.probfunction,
  de.uka.ipd.sdq.stoex.analyser.visitors
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

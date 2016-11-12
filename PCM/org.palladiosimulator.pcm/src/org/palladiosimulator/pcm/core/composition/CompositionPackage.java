@@ -21,8 +21,10 @@ import org.palladiosimulator.pcm.core.entity.EntityPackage;
  * end-model-doc -->
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionFactory
- * @model kind="package" annotation=
- *        "http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
+ * @model kind="package" annotation= "http://www.eclipse.org/emf/2002/Ecore
+ *        invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface CompositionPackage extends EPackage {
@@ -32,7 +34,7 @@ public interface CompositionPackage extends EPackage {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -63,8 +65,8 @@ public interface CompositionPackage extends EPackage {
     CompositionPackage eINSTANCE = org.palladiosimulator.pcm.core.composition.impl.CompositionPackageImpl.init();
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.composition.impl.ConnectorImpl <em>Connector</em>}'
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.composition.impl.ConnectorImpl <em>Connector</em>}'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.core.composition.impl.ConnectorImpl
@@ -110,8 +112,8 @@ public interface CompositionPackage extends EPackage {
     int CONNECTOR_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.composition.impl.DelegationConnectorImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.composition.impl.DelegationConnectorImpl
      * <em>Delegation Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.core.composition.impl.DelegationConnectorImpl
@@ -157,9 +159,9 @@ public interface CompositionPackage extends EPackage {
     int DELEGATION_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.composition.impl.ComposedStructureImpl
-     * <em>Composed Structure</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.composition.impl.ComposedStructureImpl <em>Composed
+     * Structure</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.core.composition.impl.ComposedStructureImpl
      * @see org.palladiosimulator.pcm.core.composition.impl.CompositionPackageImpl#getComposedStructure()
@@ -195,14 +197,14 @@ public interface CompositionPackage extends EPackage {
     int COMPOSED_STRUCTURE__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Required Delegation Connectors Composed
+     * Structure</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+    int COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.ENTITY_FEATURE_COUNT
+            + 1;
 
     /**
      * The feature id for the '<em><b>Event Channel Composed Structure</b></em>' containment
@@ -232,8 +234,8 @@ public interface CompositionPackage extends EPackage {
     int COMPOSED_STRUCTURE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 4;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl
      * <em>Resource Required Delegation Connector</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -244,9 +246,8 @@ public interface CompositionPackage extends EPackage {
     int RESOURCE_REQUIRED_DELEGATION_CONNECTOR = 3;
 
     /**
-     * The feature id for the '
-     * <em><b>Inner Resource Required Role Resource Required Delegation Connector</b></em>'
-     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Inner Resource Required Role Resource Required Delegation
+     * Connector</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -254,9 +255,8 @@ public interface CompositionPackage extends EPackage {
     int RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR = 0;
 
     /**
-     * The feature id for the '
-     * <em><b>Outer Resource Required Role Resource Required Delegation Connector</b></em>'
-     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Outer Resource Required Role Resource Required Delegation
+     * Connector</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -264,9 +264,8 @@ public interface CompositionPackage extends EPackage {
     int RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR = 1;
 
     /**
-     * The feature id for the '
-     * <em><b>Parent Structure Resource Required Delegation Connector</b></em>' container reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Parent Structure Resource Required Delegation
+     * Connector</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -283,9 +282,9 @@ public interface CompositionPackage extends EPackage {
     int RESOURCE_REQUIRED_DELEGATION_CONNECTOR_FEATURE_COUNT = 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.composition.impl.EventChannelImpl
-     * <em>Event Channel</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.composition.impl.EventChannelImpl <em>Event
+     * Channel</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.core.composition.impl.EventChannelImpl
      * @see org.palladiosimulator.pcm.core.composition.impl.CompositionPackageImpl#getEventChannel()
@@ -432,8 +431,8 @@ public interface CompositionPackage extends EPackage {
     int EVENT_CHANNEL_SOURCE_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.composition.impl.EventChannelSinkConnectorImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.composition.impl.EventChannelSinkConnectorImpl
      * <em>Event Channel Sink Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.core.composition.impl.EventChannelSinkConnectorImpl
@@ -515,8 +514,8 @@ public interface CompositionPackage extends EPackage {
     int EVENT_CHANNEL_SINK_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 4;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.composition.impl.ProvidedDelegationConnectorImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.composition.impl.ProvidedDelegationConnectorImpl
      * <em>Provided Delegation Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.core.composition.impl.ProvidedDelegationConnectorImpl
@@ -559,7 +558,8 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 0;
+    int PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
+            + 0;
 
     /**
      * The feature id for the '<em><b>Outer Provided Role Provided Delegation Connector</b></em>'
@@ -568,7 +568,8 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 1;
+    int PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
+            + 1;
 
     /**
      * The feature id for the '<em><b>Assembly Context Provided Delegation Connector</b></em>'
@@ -577,7 +578,8 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 2;
+    int PROVIDED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
+            + 2;
 
     /**
      * The number of structural features of the '<em>Provided Delegation Connector</em>' class. <!--
@@ -589,8 +591,8 @@ public interface CompositionPackage extends EPackage {
     int PROVIDED_DELEGATION_CONNECTOR_FEATURE_COUNT = DELEGATION_CONNECTOR_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.composition.impl.RequiredDelegationConnectorImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.composition.impl.RequiredDelegationConnectorImpl
      * <em>Required Delegation Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.core.composition.impl.RequiredDelegationConnectorImpl
@@ -633,7 +635,8 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REQUIRED_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 0;
+    int REQUIRED_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
+            + 0;
 
     /**
      * The feature id for the '<em><b>Outer Required Role Required Delegation Connector</b></em>'
@@ -642,7 +645,8 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REQUIRED_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 1;
+    int REQUIRED_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
+            + 1;
 
     /**
      * The feature id for the '<em><b>Assembly Context Required Delegation Connector</b></em>'
@@ -651,7 +655,8 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 2;
+    int REQUIRED_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
+            + 2;
 
     /**
      * The number of structural features of the '<em>Required Delegation Connector</em>' class. <!--
@@ -663,9 +668,9 @@ public interface CompositionPackage extends EPackage {
     int REQUIRED_DELEGATION_CONNECTOR_FEATURE_COUNT = DELEGATION_CONNECTOR_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.composition.impl.AssemblyConnectorImpl
-     * <em>Assembly Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.composition.impl.AssemblyConnectorImpl <em>Assembly
+     * Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.core.composition.impl.AssemblyConnectorImpl
      * @see org.palladiosimulator.pcm.core.composition.impl.CompositionPackageImpl#getAssemblyConnector()
@@ -746,8 +751,8 @@ public interface CompositionPackage extends EPackage {
     int ASSEMBLY_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 4;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.composition.impl.AssemblyEventConnectorImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.composition.impl.AssemblyEventConnectorImpl
      * <em>Assembly Event Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.core.composition.impl.AssemblyEventConnectorImpl
@@ -838,8 +843,8 @@ public interface CompositionPackage extends EPackage {
     int ASSEMBLY_EVENT_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 5;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.composition.impl.SourceDelegationConnectorImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.composition.impl.SourceDelegationConnectorImpl
      * <em>Source Delegation Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.core.composition.impl.SourceDelegationConnectorImpl
@@ -900,7 +905,8 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SOURCE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 2;
+    int SOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_SOURCE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
+            + 2;
 
     /**
      * The number of structural features of the '<em>Source Delegation Connector</em>' class. <!--
@@ -912,9 +918,9 @@ public interface CompositionPackage extends EPackage {
     int SOURCE_DELEGATION_CONNECTOR_FEATURE_COUNT = DELEGATION_CONNECTOR_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.composition.impl.SinkDelegationConnectorImpl
-     * <em>Sink Delegation Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.composition.impl.SinkDelegationConnectorImpl <em>Sink
+     * Delegation Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.core.composition.impl.SinkDelegationConnectorImpl
      * @see org.palladiosimulator.pcm.core.composition.impl.CompositionPackageImpl#getSinkDelegationConnector()
@@ -1031,7 +1037,8 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR = CONNECTOR_FEATURE_COUNT + 0;
+    int ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR = CONNECTOR_FEATURE_COUNT
+            + 0;
 
     /**
      * The feature id for the '<em><b>Required Role Assembly Infrastructure Connector</b></em>'
@@ -1040,27 +1047,28 @@ public interface CompositionPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR = CONNECTOR_FEATURE_COUNT + 1;
+    int ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR = CONNECTOR_FEATURE_COUNT
+            + 1;
 
     /**
-     * The feature id for the '
-     * <em><b>Providing Assembly Context Assembly Infrastructure Connector</b></em>' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the ' <em><b>Providing Assembly Context Assembly Infrastructure
+     * Connector</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR = CONNECTOR_FEATURE_COUNT + 2;
+    int ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR = CONNECTOR_FEATURE_COUNT
+            + 2;
 
     /**
-     * The feature id for the '
-     * <em><b>Requiring Assembly Context Assembly Infrastructure Connector</b></em>' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the ' <em><b>Requiring Assembly Context Assembly Infrastructure
+     * Connector</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR = CONNECTOR_FEATURE_COUNT + 3;
+    int ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR = CONNECTOR_FEATURE_COUNT
+            + 3;
 
     /**
      * The number of structural features of the '<em>Assembly Infrastructure Connector</em>' class.
@@ -1072,8 +1080,8 @@ public interface CompositionPackage extends EPackage {
     int ASSEMBLY_INFRASTRUCTURE_CONNECTOR_FEATURE_COUNT = CONNECTOR_FEATURE_COUNT + 4;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl
      * <em>Provided Infrastructure Delegation Connector</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -1111,39 +1119,38 @@ public interface CompositionPackage extends EPackage {
     int PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__PARENT_STRUCTURE_CONNECTOR = DELEGATION_CONNECTOR__PARENT_STRUCTURE_CONNECTOR;
 
     /**
-     * The feature id for the '
-     * <em><b>Inner Provided Role Provided Infrastructure Delegation Connector</b></em>' reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Inner Provided Role Provided Infrastructure Delegation
+     * Connector</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 0;
+    int PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
+            + 0;
 
     /**
-     * The feature id for the '
-     * <em><b>Outer Provided Role Provided Infrastructure Delegation Connector</b></em>' reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Outer Provided Role Provided Infrastructure Delegation
+     * Connector</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 1;
+    int PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
+            + 1;
 
     /**
-     * The feature id for the '
-     * <em><b>Assembly Context Provided Infrastructure Delegation Connector</b></em>' reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Assembly Context Provided Infrastructure Delegation
+     * Connector</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 2;
+    int PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
+            + 2;
 
     /**
-     * The number of structural features of the '
-     * <em>Provided Infrastructure Delegation Connector</em>' class. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The number of structural features of the '<em>Provided Infrastructure Delegation
+     * Connector</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -1151,8 +1158,8 @@ public interface CompositionPackage extends EPackage {
     int PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR_FEATURE_COUNT = DELEGATION_CONNECTOR_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.composition.impl.RequiredInfrastructureDelegationConnectorImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.composition.impl.RequiredInfrastructureDelegationConnectorImpl
      * <em>Required Infrastructure Delegation Connector</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -1190,39 +1197,38 @@ public interface CompositionPackage extends EPackage {
     int REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__PARENT_STRUCTURE_CONNECTOR = DELEGATION_CONNECTOR__PARENT_STRUCTURE_CONNECTOR;
 
     /**
-     * The feature id for the '
-     * <em><b>Inner Required Role Required Infrastructure Delegation Connector</b></em>' reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Inner Required Role Required Infrastructure Delegation
+     * Connector</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 0;
+    int REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
+            + 0;
 
     /**
-     * The feature id for the '
-     * <em><b>Outer Required Role Required Infrastructure Delegation Connector</b></em>' reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Outer Required Role Required Infrastructure Delegation
+     * Connector</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 1;
+    int REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
+            + 1;
 
     /**
-     * The feature id for the '
-     * <em><b>Assembly Context Required Infrastructure Delegation Connector</b></em>' reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Assembly Context Required Infrastructure Delegation
+     * Connector</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 2;
+    int REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
+            + 2;
 
     /**
-     * The number of structural features of the '
-     * <em>Required Infrastructure Delegation Connector</em>' class. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * The number of structural features of the '<em>Required Infrastructure Delegation
+     * Connector</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -1230,8 +1236,8 @@ public interface CompositionPackage extends EPackage {
     int REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR_FEATURE_COUNT = DELEGATION_CONNECTOR_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl
      * <em>Required Resource Delegation Connector</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -1269,34 +1275,34 @@ public interface CompositionPackage extends EPackage {
     int REQUIRED_RESOURCE_DELEGATION_CONNECTOR__PARENT_STRUCTURE_CONNECTOR = DELEGATION_CONNECTOR__PARENT_STRUCTURE_CONNECTOR;
 
     /**
-     * The feature id for the '
-     * <em><b>Assembly Context Required Resource Delegation Connector</b></em>' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the ' <em><b>Assembly Context Required Resource Delegation
+     * Connector</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 0;
+    int REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
+            + 0;
 
     /**
-     * The feature id for the '
-     * <em><b>Inner Required Role Required Resource Delegation Connector</b></em>' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the ' <em><b>Inner Required Role Required Resource Delegation
+     * Connector</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 1;
+    int REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
+            + 1;
 
     /**
-     * The feature id for the '
-     * <em><b>Outer Required Role Required Resource Delegation Connector</b></em>' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the ' <em><b>Outer Required Role Required Resource Delegation
+     * Connector</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 2;
+    int REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT
+            + 2;
 
     /**
      * The number of structural features of the '<em>Required Resource Delegation Connector</em>'
@@ -1308,9 +1314,9 @@ public interface CompositionPackage extends EPackage {
     int REQUIRED_RESOURCE_DELEGATION_CONNECTOR_FEATURE_COUNT = DELEGATION_CONNECTOR_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.core.composition.impl.AssemblyContextImpl
-     * <em>Assembly Context</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.core.composition.impl.AssemblyContextImpl <em>Assembly
+     * Context</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.core.composition.impl.AssemblyContextImpl
      * @see org.palladiosimulator.pcm.core.composition.impl.CompositionPackageImpl#getAssemblyContext()
@@ -1373,9 +1379,9 @@ public interface CompositionPackage extends EPackage {
     int ASSEMBLY_CONTEXT_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.composition.DelegationConnector
-     * <em>Delegation Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.composition.DelegationConnector <em>Delegation
+     * Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Delegation Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.DelegationConnector
@@ -1395,8 +1401,8 @@ public interface CompositionPackage extends EPackage {
     EClass getConnector();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.core.composition.Connector#getParentStructure__Connector
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.core.composition.Connector#getParentStructure__Connector
      * <em>Parent Structure Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Parent Structure Connector</em>'.
@@ -1407,9 +1413,9 @@ public interface CompositionPackage extends EPackage {
     EReference getConnector_ParentStructure__Connector();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.composition.ComposedStructure
-     * <em>Composed Structure</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.composition.ComposedStructure <em>Composed
+     * Structure</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Composed Structure</em>'.
      * @see org.palladiosimulator.pcm.core.composition.ComposedStructure
@@ -1423,8 +1429,8 @@ public interface CompositionPackage extends EPackage {
      * <em>Assembly Contexts Composed Structure</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Assembly Contexts Composed Structure</em>'.
+     * @return the meta object for the containment reference list ' <em>Assembly Contexts Composed
+     *         Structure</em>'.
      * @see org.palladiosimulator.pcm.core.composition.ComposedStructure#getAssemblyContexts__ComposedStructure()
      * @see #getComposedStructure()
      * @generated
@@ -1432,13 +1438,13 @@ public interface CompositionPackage extends EPackage {
     EReference getComposedStructure_AssemblyContexts__ComposedStructure();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure
      * <em>Resource Required Delegation Connectors Composed Structure</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Resource Required Delegation Connectors Composed Structure</em>'.
+     * @return the meta object for the containment reference list '<em>Resource Required Delegation
+     *         Connectors Composed Structure</em>'.
      * @see org.palladiosimulator.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure()
      * @see #getComposedStructure()
      * @generated
@@ -1446,12 +1452,12 @@ public interface CompositionPackage extends EPackage {
     EReference getComposedStructure_ResourceRequiredDelegationConnectors_ComposedStructure();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getEventChannel__ComposedStructure
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getEventChannel__ComposedStructure
      * <em>Event Channel Composed Structure</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Event Channel Composed Structure</em>'.
+     * @return the meta object for the containment reference list '<em>Event Channel Composed
+     *         Structure</em>'.
      * @see org.palladiosimulator.pcm.core.composition.ComposedStructure#getEventChannel__ComposedStructure()
      * @see #getComposedStructure()
      * @generated
@@ -1459,12 +1465,12 @@ public interface CompositionPackage extends EPackage {
     EReference getComposedStructure_EventChannel__ComposedStructure();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getConnectors__ComposedStructure
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getConnectors__ComposedStructure
      * <em>Connectors Composed Structure</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Connectors Composed Structure</em>'.
+     * @return the meta object for the containment reference list '<em>Connectors Composed
+     *         Structure</em>'.
      * @see org.palladiosimulator.pcm.core.composition.ComposedStructure#getConnectors__ComposedStructure()
      * @see #getComposedStructure()
      * @generated
@@ -1489,8 +1495,8 @@ public interface CompositionPackage extends EPackage {
      * <em>Inner Resource Required Role Resource Required Delegation Connector</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Inner Resource Required Role Resource Required Delegation Connector</em>'.
+     * @return the meta object for the reference ' <em>Inner Resource Required Role Resource
+     *         Required Delegation Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getInnerResourceRequiredRole_ResourceRequiredDelegationConnector()
      * @see #getResourceRequiredDelegationConnector()
      * @generated
@@ -1503,8 +1509,8 @@ public interface CompositionPackage extends EPackage {
      * <em>Outer Resource Required Role Resource Required Delegation Connector</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Outer Resource Required Role Resource Required Delegation Connector</em>'.
+     * @return the meta object for the reference ' <em>Outer Resource Required Role Resource
+     *         Required Delegation Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getOuterResourceRequiredRole_ResourceRequiredDelegationConnector()
      * @see #getResourceRequiredDelegationConnector()
      * @generated
@@ -1512,13 +1518,13 @@ public interface CompositionPackage extends EPackage {
     EReference getResourceRequiredDelegationConnector_OuterResourceRequiredRole_ResourceRequiredDelegationConnector();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector
      * <em>Parent Structure Resource Required Delegation Connector</em>}'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Parent Structure Resource Required Delegation Connector</em>'.
+     * @return the meta object for the container reference '<em>Parent Structure Resource Required
+     *         Delegation Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector()
      * @see #getResourceRequiredDelegationConnector()
      * @generated
@@ -1537,8 +1543,8 @@ public interface CompositionPackage extends EPackage {
     EClass getEventChannel();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannel#getEventGroup__EventChannel
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannel#getEventGroup__EventChannel
      * <em>Event Group Event Channel</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Event Group Event Channel</em>'.
@@ -1549,13 +1555,13 @@ public interface CompositionPackage extends EPackage {
     EReference getEventChannel_EventGroup__EventChannel();
 
     /**
-     * Returns the meta object for the reference list '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannel#getEventChannelSourceConnector__EventChannel
+     * Returns the meta object for the reference list
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannel#getEventChannelSourceConnector__EventChannel
      * <em>Event Channel Source Connector Event Channel</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference list '
-     *         <em>Event Channel Source Connector Event Channel</em>'.
+     * @return the meta object for the reference list '<em>Event Channel Source Connector Event
+     *         Channel</em>'.
      * @see org.palladiosimulator.pcm.core.composition.EventChannel#getEventChannelSourceConnector__EventChannel()
      * @see #getEventChannel()
      * @generated
@@ -1563,13 +1569,13 @@ public interface CompositionPackage extends EPackage {
     EReference getEventChannel_EventChannelSourceConnector__EventChannel();
 
     /**
-     * Returns the meta object for the reference list '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannel#getEventChannelSinkConnector__EventChannel
+     * Returns the meta object for the reference list
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannel#getEventChannelSinkConnector__EventChannel
      * <em>Event Channel Sink Connector Event Channel</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference list '
-     *         <em>Event Channel Sink Connector Event Channel</em>'.
+     * @return the meta object for the reference list '<em>Event Channel Sink Connector Event
+     *         Channel</em>'.
      * @see org.palladiosimulator.pcm.core.composition.EventChannel#getEventChannelSinkConnector__EventChannel()
      * @see #getEventChannel()
      * @generated
@@ -1577,12 +1583,12 @@ public interface CompositionPackage extends EPackage {
     EReference getEventChannel_EventChannelSinkConnector__EventChannel();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannel#getParentStructure__EventChannel
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannel#getParentStructure__EventChannel
      * <em>Parent Structure Event Channel</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '<em>Parent Structure Event Channel</em>
-     *         '.
+     * @return the meta object for the container reference '<em>Parent Structure Event
+     *         Channel</em>'.
      * @see org.palladiosimulator.pcm.core.composition.EventChannel#getParentStructure__EventChannel()
      * @see #getEventChannel()
      * @generated
@@ -1590,9 +1596,9 @@ public interface CompositionPackage extends EPackage {
     EReference getEventChannel_ParentStructure__EventChannel();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector
-     * <em>Event Channel Source Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector <em>Event
+     * Channel Source Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Event Channel Source Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector
@@ -1614,13 +1620,13 @@ public interface CompositionPackage extends EPackage {
     EReference getEventChannelSourceConnector_SourceRole__EventChannelSourceRole();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getAssemblyContext__EventChannelSourceConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getAssemblyContext__EventChannelSourceConnector
      * <em>Assembly Context Event Channel Source Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Assembly Context Event Channel Source Connector</em>'.
+     * @return the meta object for the reference '<em>Assembly Context Event Channel Source
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getAssemblyContext__EventChannelSourceConnector()
      * @see #getEventChannelSourceConnector()
      * @generated
@@ -1628,13 +1634,13 @@ public interface CompositionPackage extends EPackage {
     EReference getEventChannelSourceConnector_AssemblyContext__EventChannelSourceConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getEventChannel__EventChannelSourceConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getEventChannel__EventChannelSourceConnector
      * <em>Event Channel Event Channel Source Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Event Channel Event Channel Source Connector</em>'.
+     * @return the meta object for the reference '<em>Event Channel Event Channel Source
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getEventChannel__EventChannelSourceConnector()
      * @see #getEventChannelSourceConnector()
      * @generated
@@ -1642,9 +1648,9 @@ public interface CompositionPackage extends EPackage {
     EReference getEventChannelSourceConnector_EventChannel__EventChannelSourceConnector();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector
-     * <em>Event Channel Sink Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector <em>Event
+     * Channel Sink Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Event Channel Sink Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector
@@ -1666,13 +1672,13 @@ public interface CompositionPackage extends EPackage {
     EReference getEventChannelSinkConnector_SinkRole__EventChannelSinkConnector();
 
     /**
-     * Returns the meta object for the containment reference '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getFilterCondition__EventChannelSinkConnector
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getFilterCondition__EventChannelSinkConnector
      * <em>Filter Condition Event Channel Sink Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the containment reference '
-     *         <em>Filter Condition Event Channel Sink Connector</em>'.
+     * @return the meta object for the containment reference '<em>Filter Condition Event Channel
+     *         Sink Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getFilterCondition__EventChannelSinkConnector()
      * @see #getEventChannelSinkConnector()
      * @generated
@@ -1680,13 +1686,13 @@ public interface CompositionPackage extends EPackage {
     EReference getEventChannelSinkConnector_FilterCondition__EventChannelSinkConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getAssemblyContext__EventChannelSinkConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getAssemblyContext__EventChannelSinkConnector
      * <em>Assembly Context Event Channel Sink Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Assembly Context Event Channel Sink Connector</em>'.
+     * @return the meta object for the reference '<em>Assembly Context Event Channel Sink
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getAssemblyContext__EventChannelSinkConnector()
      * @see #getEventChannelSinkConnector()
      * @generated
@@ -1694,13 +1700,13 @@ public interface CompositionPackage extends EPackage {
     EReference getEventChannelSinkConnector_AssemblyContext__EventChannelSinkConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getEventChannel__EventChannelSinkConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getEventChannel__EventChannelSinkConnector
      * <em>Event Channel Event Channel Sink Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Event Channel Event Channel Sink Connector</em>'.
+     * @return the meta object for the reference '<em>Event Channel Event Channel Sink
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getEventChannel__EventChannelSinkConnector()
      * @see #getEventChannelSinkConnector()
      * @generated
@@ -1708,9 +1714,9 @@ public interface CompositionPackage extends EPackage {
     EReference getEventChannelSinkConnector_EventChannel__EventChannelSinkConnector();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector
-     * <em>Provided Delegation Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector <em>Provided
+     * Delegation Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Provided Delegation Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector
@@ -1719,13 +1725,13 @@ public interface CompositionPackage extends EPackage {
     EClass getProvidedDelegationConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector
      * <em>Inner Provided Role Provided Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Inner Provided Role Provided Delegation Connector</em>'.
+     * @return the meta object for the reference '<em>Inner Provided Role Provided Delegation
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector()
      * @see #getProvidedDelegationConnector()
      * @generated
@@ -1733,13 +1739,13 @@ public interface CompositionPackage extends EPackage {
     EReference getProvidedDelegationConnector_InnerProvidedRole_ProvidedDelegationConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getOuterProvidedRole_ProvidedDelegationConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getOuterProvidedRole_ProvidedDelegationConnector
      * <em>Outer Provided Role Provided Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Outer Provided Role Provided Delegation Connector</em>'.
+     * @return the meta object for the reference '<em>Outer Provided Role Provided Delegation
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getOuterProvidedRole_ProvidedDelegationConnector()
      * @see #getProvidedDelegationConnector()
      * @generated
@@ -1747,13 +1753,13 @@ public interface CompositionPackage extends EPackage {
     EReference getProvidedDelegationConnector_OuterProvidedRole_ProvidedDelegationConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getAssemblyContext_ProvidedDelegationConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getAssemblyContext_ProvidedDelegationConnector
      * <em>Assembly Context Provided Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Assembly Context Provided Delegation Connector</em>'.
+     * @return the meta object for the reference '<em>Assembly Context Provided Delegation
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getAssemblyContext_ProvidedDelegationConnector()
      * @see #getProvidedDelegationConnector()
      * @generated
@@ -1761,9 +1767,9 @@ public interface CompositionPackage extends EPackage {
     EReference getProvidedDelegationConnector_AssemblyContext_ProvidedDelegationConnector();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector
-     * <em>Required Delegation Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector <em>Required
+     * Delegation Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Required Delegation Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector
@@ -1772,13 +1778,13 @@ public interface CompositionPackage extends EPackage {
     EClass getRequiredDelegationConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector#getInnerRequiredRole_RequiredDelegationConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector#getInnerRequiredRole_RequiredDelegationConnector
      * <em>Inner Required Role Required Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Inner Required Role Required Delegation Connector</em>'.
+     * @return the meta object for the reference '<em>Inner Required Role Required Delegation
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector#getInnerRequiredRole_RequiredDelegationConnector()
      * @see #getRequiredDelegationConnector()
      * @generated
@@ -1786,13 +1792,13 @@ public interface CompositionPackage extends EPackage {
     EReference getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector#getOuterRequiredRole_RequiredDelegationConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector#getOuterRequiredRole_RequiredDelegationConnector
      * <em>Outer Required Role Required Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Outer Required Role Required Delegation Connector</em>'.
+     * @return the meta object for the reference '<em>Outer Required Role Required Delegation
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector#getOuterRequiredRole_RequiredDelegationConnector()
      * @see #getRequiredDelegationConnector()
      * @generated
@@ -1800,13 +1806,13 @@ public interface CompositionPackage extends EPackage {
     EReference getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector#getAssemblyContext_RequiredDelegationConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector#getAssemblyContext_RequiredDelegationConnector
      * <em>Assembly Context Required Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Assembly Context Required Delegation Connector</em>'.
+     * @return the meta object for the reference '<em>Assembly Context Required Delegation
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector#getAssemblyContext_RequiredDelegationConnector()
      * @see #getRequiredDelegationConnector()
      * @generated
@@ -1814,9 +1820,9 @@ public interface CompositionPackage extends EPackage {
     EReference getRequiredDelegationConnector_AssemblyContext_RequiredDelegationConnector();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyConnector
-     * <em>Assembly Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyConnector <em>Assembly
+     * Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Assembly Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.AssemblyConnector
@@ -1825,13 +1831,13 @@ public interface CompositionPackage extends EPackage {
     EClass getAssemblyConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getRequiringAssemblyContext_AssemblyConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getRequiringAssemblyContext_AssemblyConnector
      * <em>Requiring Assembly Context Assembly Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Requiring Assembly Context Assembly Connector</em>'.
+     * @return the meta object for the reference '<em>Requiring Assembly Context Assembly
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.AssemblyConnector#getRequiringAssemblyContext_AssemblyConnector()
      * @see #getAssemblyConnector()
      * @generated
@@ -1839,13 +1845,13 @@ public interface CompositionPackage extends EPackage {
     EReference getAssemblyConnector_RequiringAssemblyContext_AssemblyConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getProvidingAssemblyContext_AssemblyConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getProvidingAssemblyContext_AssemblyConnector
      * <em>Providing Assembly Context Assembly Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Providing Assembly Context Assembly Connector</em>'.
+     * @return the meta object for the reference '<em>Providing Assembly Context Assembly
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.AssemblyConnector#getProvidingAssemblyContext_AssemblyConnector()
      * @see #getAssemblyConnector()
      * @generated
@@ -1853,8 +1859,8 @@ public interface CompositionPackage extends EPackage {
     EReference getAssemblyConnector_ProvidingAssemblyContext_AssemblyConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getProvidedRole_AssemblyConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getProvidedRole_AssemblyConnector
      * <em>Provided Role Assembly Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Provided Role Assembly Connector</em>'.
@@ -1865,8 +1871,8 @@ public interface CompositionPackage extends EPackage {
     EReference getAssemblyConnector_ProvidedRole_AssemblyConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getRequiredRole_AssemblyConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyConnector#getRequiredRole_AssemblyConnector
      * <em>Required Role Assembly Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Required Role Assembly Connector</em>'.
@@ -1877,9 +1883,9 @@ public interface CompositionPackage extends EPackage {
     EReference getAssemblyConnector_RequiredRole_AssemblyConnector();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector
-     * <em>Assembly Event Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector <em>Assembly Event
+     * Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Assembly Event Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.AssemblyEventConnector
@@ -1888,8 +1894,8 @@ public interface CompositionPackage extends EPackage {
     EClass getAssemblyEventConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSinkRole__AssemblyEventConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSinkRole__AssemblyEventConnector
      * <em>Sink Role Assembly Event Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Sink Role Assembly Event Connector</em>'.
@@ -1913,13 +1919,13 @@ public interface CompositionPackage extends EPackage {
     EReference getAssemblyEventConnector_SourceRole__AssemblyEventConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSinkAssemblyContext__AssemblyEventConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSinkAssemblyContext__AssemblyEventConnector
      * <em>Sink Assembly Context Assembly Event Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Sink Assembly Context Assembly Event Connector</em>'.
+     * @return the meta object for the reference '<em>Sink Assembly Context Assembly Event
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSinkAssemblyContext__AssemblyEventConnector()
      * @see #getAssemblyEventConnector()
      * @generated
@@ -1927,13 +1933,13 @@ public interface CompositionPackage extends EPackage {
     EReference getAssemblyEventConnector_SinkAssemblyContext__AssemblyEventConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSourceAssemblyContext__AssemblyEventConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSourceAssemblyContext__AssemblyEventConnector
      * <em>Source Assembly Context Assembly Event Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Source Assembly Context Assembly Event Connector</em>'.
+     * @return the meta object for the reference '<em>Source Assembly Context Assembly Event
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSourceAssemblyContext__AssemblyEventConnector()
      * @see #getAssemblyEventConnector()
      * @generated
@@ -1941,13 +1947,13 @@ public interface CompositionPackage extends EPackage {
     EReference getAssemblyEventConnector_SourceAssemblyContext__AssemblyEventConnector();
 
     /**
-     * Returns the meta object for the containment reference '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getFilterCondition__AssemblyEventConnector
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getFilterCondition__AssemblyEventConnector
      * <em>Filter Condition Assembly Event Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the containment reference '
-     *         <em>Filter Condition Assembly Event Connector</em>'.
+     * @return the meta object for the containment reference '<em>Filter Condition Assembly Event
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getFilterCondition__AssemblyEventConnector()
      * @see #getAssemblyEventConnector()
      * @generated
@@ -1955,9 +1961,9 @@ public interface CompositionPackage extends EPackage {
     EReference getAssemblyEventConnector_FilterCondition__AssemblyEventConnector();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector
-     * <em>Source Delegation Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector <em>Source
+     * Delegation Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Source Delegation Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.SourceDelegationConnector
@@ -1966,8 +1972,8 @@ public interface CompositionPackage extends EPackage {
     EClass getSourceDelegationConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector#getInnerSourceRole__SourceRole
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector#getInnerSourceRole__SourceRole
      * <em>Inner Source Role Source Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Inner Source Role Source Role</em>'.
@@ -1978,8 +1984,8 @@ public interface CompositionPackage extends EPackage {
     EReference getSourceDelegationConnector_InnerSourceRole__SourceRole();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector#getOuterSourceRole__SourceRole
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector#getOuterSourceRole__SourceRole
      * <em>Outer Source Role Source Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Outer Source Role Source Role</em>'.
@@ -1990,13 +1996,13 @@ public interface CompositionPackage extends EPackage {
     EReference getSourceDelegationConnector_OuterSourceRole__SourceRole();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector#getAssemblyContext__SourceDelegationConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector#getAssemblyContext__SourceDelegationConnector
      * <em>Assembly Context Source Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Assembly Context Source Delegation Connector</em>'.
+     * @return the meta object for the reference '<em>Assembly Context Source Delegation
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.SourceDelegationConnector#getAssemblyContext__SourceDelegationConnector()
      * @see #getSourceDelegationConnector()
      * @generated
@@ -2004,9 +2010,9 @@ public interface CompositionPackage extends EPackage {
     EReference getSourceDelegationConnector_AssemblyContext__SourceDelegationConnector();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector
-     * <em>Sink Delegation Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector <em>Sink
+     * Delegation Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Sink Delegation Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.SinkDelegationConnector
@@ -2015,13 +2021,13 @@ public interface CompositionPackage extends EPackage {
     EClass getSinkDelegationConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getAssemblyContext__SinkDelegationConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getAssemblyContext__SinkDelegationConnector
      * <em>Assembly Context Sink Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Assembly Context Sink Delegation Connector</em>'.
+     * @return the meta object for the reference '<em>Assembly Context Sink Delegation
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getAssemblyContext__SinkDelegationConnector()
      * @see #getSinkDelegationConnector()
      * @generated
@@ -2029,8 +2035,8 @@ public interface CompositionPackage extends EPackage {
     EReference getSinkDelegationConnector_AssemblyContext__SinkDelegationConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getInnerSinkRole__SinkRole
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getInnerSinkRole__SinkRole
      * <em>Inner Sink Role Sink Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Inner Sink Role Sink Role</em>'.
@@ -2041,8 +2047,8 @@ public interface CompositionPackage extends EPackage {
     EReference getSinkDelegationConnector_InnerSinkRole__SinkRole();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getOuterSinkRole__SinkRole
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getOuterSinkRole__SinkRole
      * <em>Outer Sink Role Sink Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Outer Sink Role Sink Role</em>'.
@@ -2053,8 +2059,8 @@ public interface CompositionPackage extends EPackage {
     EReference getSinkDelegationConnector_OuterSinkRole__SinkRole();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector
      * <em>Assembly Infrastructure Connector</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Assembly Infrastructure Connector</em>'.
@@ -2064,13 +2070,13 @@ public interface CompositionPackage extends EPackage {
     EClass getAssemblyInfrastructureConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getProvidedRole__AssemblyInfrastructureConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getProvidedRole__AssemblyInfrastructureConnector
      * <em>Provided Role Assembly Infrastructure Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Provided Role Assembly Infrastructure Connector</em>'.
+     * @return the meta object for the reference '<em>Provided Role Assembly Infrastructure
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getProvidedRole__AssemblyInfrastructureConnector()
      * @see #getAssemblyInfrastructureConnector()
      * @generated
@@ -2078,13 +2084,13 @@ public interface CompositionPackage extends EPackage {
     EReference getAssemblyInfrastructureConnector_ProvidedRole__AssemblyInfrastructureConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getRequiredRole__AssemblyInfrastructureConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getRequiredRole__AssemblyInfrastructureConnector
      * <em>Required Role Assembly Infrastructure Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Required Role Assembly Infrastructure Connector</em>'.
+     * @return the meta object for the reference '<em>Required Role Assembly Infrastructure
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getRequiredRole__AssemblyInfrastructureConnector()
      * @see #getAssemblyInfrastructureConnector()
      * @generated
@@ -2092,13 +2098,13 @@ public interface CompositionPackage extends EPackage {
     EReference getAssemblyInfrastructureConnector_RequiredRole__AssemblyInfrastructureConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getProvidingAssemblyContext__AssemblyInfrastructureConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getProvidingAssemblyContext__AssemblyInfrastructureConnector
      * <em>Providing Assembly Context Assembly Infrastructure Connector</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Providing Assembly Context Assembly Infrastructure Connector</em>'.
+     * @return the meta object for the reference '<em>Providing Assembly Context Assembly
+     *         Infrastructure Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getProvidingAssemblyContext__AssemblyInfrastructureConnector()
      * @see #getAssemblyInfrastructureConnector()
      * @generated
@@ -2106,13 +2112,13 @@ public interface CompositionPackage extends EPackage {
     EReference getAssemblyInfrastructureConnector_ProvidingAssemblyContext__AssemblyInfrastructureConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getRequiringAssemblyContext__AssemblyInfrastructureConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getRequiringAssemblyContext__AssemblyInfrastructureConnector
      * <em>Requiring Assembly Context Assembly Infrastructure Connector</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Requiring Assembly Context Assembly Infrastructure Connector</em>'.
+     * @return the meta object for the reference '<em>Requiring Assembly Context Assembly
+     *         Infrastructure Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getRequiringAssemblyContext__AssemblyInfrastructureConnector()
      * @see #getAssemblyInfrastructureConnector()
      * @generated
@@ -2120,8 +2126,8 @@ public interface CompositionPackage extends EPackage {
     EReference getAssemblyInfrastructureConnector_RequiringAssemblyContext__AssemblyInfrastructureConnector();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.composition.ProvidedInfrastructureDelegationConnector
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.composition.ProvidedInfrastructureDelegationConnector
      * <em>Provided Infrastructure Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -2137,8 +2143,8 @@ public interface CompositionPackage extends EPackage {
      * <em>Inner Provided Role Provided Infrastructure Delegation Connector</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Inner Provided Role Provided Infrastructure Delegation Connector</em>'.
+     * @return the meta object for the reference ' <em>Inner Provided Role Provided Infrastructure
+     *         Delegation Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getInnerProvidedRole__ProvidedInfrastructureDelegationConnector()
      * @see #getProvidedInfrastructureDelegationConnector()
      * @generated
@@ -2151,8 +2157,8 @@ public interface CompositionPackage extends EPackage {
      * <em>Outer Provided Role Provided Infrastructure Delegation Connector</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Outer Provided Role Provided Infrastructure Delegation Connector</em>'.
+     * @return the meta object for the reference ' <em>Outer Provided Role Provided Infrastructure
+     *         Delegation Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getOuterProvidedRole__ProvidedInfrastructureDelegationConnector()
      * @see #getProvidedInfrastructureDelegationConnector()
      * @generated
@@ -2160,13 +2166,13 @@ public interface CompositionPackage extends EPackage {
     EReference getProvidedInfrastructureDelegationConnector_OuterProvidedRole__ProvidedInfrastructureDelegationConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getAssemblyContext__ProvidedInfrastructureDelegationConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getAssemblyContext__ProvidedInfrastructureDelegationConnector
      * <em>Assembly Context Provided Infrastructure Delegation Connector</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Assembly Context Provided Infrastructure Delegation Connector</em>'.
+     * @return the meta object for the reference '<em>Assembly Context Provided Infrastructure
+     *         Delegation Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getAssemblyContext__ProvidedInfrastructureDelegationConnector()
      * @see #getProvidedInfrastructureDelegationConnector()
      * @generated
@@ -2174,8 +2180,8 @@ public interface CompositionPackage extends EPackage {
     EReference getProvidedInfrastructureDelegationConnector_AssemblyContext__ProvidedInfrastructureDelegationConnector();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.composition.RequiredInfrastructureDelegationConnector
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.composition.RequiredInfrastructureDelegationConnector
      * <em>Required Infrastructure Delegation Connector</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -2191,8 +2197,8 @@ public interface CompositionPackage extends EPackage {
      * <em>Inner Required Role Required Infrastructure Delegation Connector</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Inner Required Role Required Infrastructure Delegation Connector</em>'.
+     * @return the meta object for the reference ' <em>Inner Required Role Required Infrastructure
+     *         Delegation Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.RequiredInfrastructureDelegationConnector#getInnerRequiredRole__RequiredInfrastructureDelegationConnector()
      * @see #getRequiredInfrastructureDelegationConnector()
      * @generated
@@ -2205,8 +2211,8 @@ public interface CompositionPackage extends EPackage {
      * <em>Outer Required Role Required Infrastructure Delegation Connector</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Outer Required Role Required Infrastructure Delegation Connector</em>'.
+     * @return the meta object for the reference ' <em>Outer Required Role Required Infrastructure
+     *         Delegation Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.RequiredInfrastructureDelegationConnector#getOuterRequiredRole__RequiredInfrastructureDelegationConnector()
      * @see #getRequiredInfrastructureDelegationConnector()
      * @generated
@@ -2214,13 +2220,13 @@ public interface CompositionPackage extends EPackage {
     EReference getRequiredInfrastructureDelegationConnector_OuterRequiredRole__RequiredInfrastructureDelegationConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.RequiredInfrastructureDelegationConnector#getAssemblyContext__RequiredInfrastructureDelegationConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.RequiredInfrastructureDelegationConnector#getAssemblyContext__RequiredInfrastructureDelegationConnector
      * <em>Assembly Context Required Infrastructure Delegation Connector</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Assembly Context Required Infrastructure Delegation Connector</em>'.
+     * @return the meta object for the reference '<em>Assembly Context Required Infrastructure
+     *         Delegation Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.RequiredInfrastructureDelegationConnector#getAssemblyContext__RequiredInfrastructureDelegationConnector()
      * @see #getRequiredInfrastructureDelegationConnector()
      * @generated
@@ -2240,13 +2246,13 @@ public interface CompositionPackage extends EPackage {
     EClass getRequiredResourceDelegationConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector#getAssemblyContext__RequiredResourceDelegationConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector#getAssemblyContext__RequiredResourceDelegationConnector
      * <em>Assembly Context Required Resource Delegation Connector</em>}'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Assembly Context Required Resource Delegation Connector</em>'.
+     * @return the meta object for the reference '<em>Assembly Context Required Resource Delegation
+     *         Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector#getAssemblyContext__RequiredResourceDelegationConnector()
      * @see #getRequiredResourceDelegationConnector()
      * @generated
@@ -2254,13 +2260,13 @@ public interface CompositionPackage extends EPackage {
     EReference getRequiredResourceDelegationConnector_AssemblyContext__RequiredResourceDelegationConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector#getInnerRequiredRole__RequiredResourceDelegationConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector#getInnerRequiredRole__RequiredResourceDelegationConnector
      * <em>Inner Required Role Required Resource Delegation Connector</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Inner Required Role Required Resource Delegation Connector</em>'.
+     * @return the meta object for the reference '<em>Inner Required Role Required Resource
+     *         Delegation Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector#getInnerRequiredRole__RequiredResourceDelegationConnector()
      * @see #getRequiredResourceDelegationConnector()
      * @generated
@@ -2268,13 +2274,13 @@ public interface CompositionPackage extends EPackage {
     EReference getRequiredResourceDelegationConnector_InnerRequiredRole__RequiredResourceDelegationConnector();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector#getOuterRequiredRole__RequiredResourceDelegationConnector
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector#getOuterRequiredRole__RequiredResourceDelegationConnector
      * <em>Outer Required Role Required Resource Delegation Connector</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Outer Required Role Required Resource Delegation Connector</em>'.
+     * @return the meta object for the reference '<em>Outer Required Role Required Resource
+     *         Delegation Connector</em>'.
      * @see org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector#getOuterRequiredRole__RequiredResourceDelegationConnector()
      * @see #getRequiredResourceDelegationConnector()
      * @generated
@@ -2282,9 +2288,9 @@ public interface CompositionPackage extends EPackage {
     EReference getRequiredResourceDelegationConnector_OuterRequiredRole__RequiredResourceDelegationConnector();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyContext <em>Assembly Context</em>}
-     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyContext <em>Assembly
+     * Context</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Assembly Context</em>'.
      * @see org.palladiosimulator.pcm.core.composition.AssemblyContext
@@ -2293,12 +2299,12 @@ public interface CompositionPackage extends EPackage {
     EClass getAssemblyContext();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyContext#getParentStructure__AssemblyContext
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyContext#getParentStructure__AssemblyContext
      * <em>Parent Structure Assembly Context</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Parent Structure Assembly Context</em>'.
+     * @return the meta object for the container reference '<em>Parent Structure Assembly
+     *         Context</em>'.
      * @see org.palladiosimulator.pcm.core.composition.AssemblyContext#getParentStructure__AssemblyContext()
      * @see #getAssemblyContext()
      * @generated
@@ -2319,13 +2325,13 @@ public interface CompositionPackage extends EPackage {
     EReference getAssemblyContext_EncapsulatedComponent__AssemblyContext();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyContext#getConfigParameterUsages__AssemblyContext
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyContext#getConfigParameterUsages__AssemblyContext
      * <em>Config Parameter Usages Assembly Context</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Config Parameter Usages Assembly Context</em>'.
+     * @return the meta object for the containment reference list '<em>Config Parameter Usages
+     *         Assembly Context</em>'.
      * @see org.palladiosimulator.pcm.core.composition.AssemblyContext#getConfigParameterUsages__AssemblyContext()
      * @see #getAssemblyContext()
      * @generated
@@ -2356,8 +2362,8 @@ public interface CompositionPackage extends EPackage {
     interface Literals {
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.composition.impl.DelegationConnectorImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.composition.impl.DelegationConnectorImpl
          * <em>Delegation Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.core.composition.impl.DelegationConnectorImpl
@@ -2367,9 +2373,9 @@ public interface CompositionPackage extends EPackage {
         EClass DELEGATION_CONNECTOR = eINSTANCE.getDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.composition.impl.ConnectorImpl <em>Connector</em>}'
-         * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.composition.impl.ConnectorImpl
+         * <em>Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.core.composition.impl.ConnectorImpl
          * @see org.palladiosimulator.pcm.core.composition.impl.CompositionPackageImpl#getConnector()
@@ -2386,8 +2392,8 @@ public interface CompositionPackage extends EPackage {
         EReference CONNECTOR__PARENT_STRUCTURE_CONNECTOR = eINSTANCE.getConnector_ParentStructure__Connector();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.composition.impl.ComposedStructureImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.composition.impl.ComposedStructureImpl
          * <em>Composed Structure</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.core.composition.impl.ComposedStructureImpl
@@ -2406,9 +2412,9 @@ public interface CompositionPackage extends EPackage {
                 .getComposedStructure_AssemblyContexts__ComposedStructure();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment
-         * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Resource Required Delegation Connectors Composed
+         * Structure</b></em>' containment reference list feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -2434,8 +2440,8 @@ public interface CompositionPackage extends EPackage {
                 .getComposedStructure_Connectors__ComposedStructure();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl
          * <em>Resource Required Delegation Connector</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
@@ -2446,9 +2452,9 @@ public interface CompositionPackage extends EPackage {
         EClass RESOURCE_REQUIRED_DELEGATION_CONNECTOR = eINSTANCE.getResourceRequiredDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Inner Resource Required Role Resource Required Delegation Connector</b></em>'
-         * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Inner Resource Required Role Resource Required
+         * Delegation Connector</b></em>' reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -2456,9 +2462,9 @@ public interface CompositionPackage extends EPackage {
                 .getResourceRequiredDelegationConnector_InnerResourceRequiredRole_ResourceRequiredDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Outer Resource Required Role Resource Required Delegation Connector</b></em>'
-         * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Outer Resource Required Role Resource Required
+         * Delegation Connector</b></em>' reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -2466,9 +2472,9 @@ public interface CompositionPackage extends EPackage {
                 .getResourceRequiredDelegationConnector_OuterResourceRequiredRole_ResourceRequiredDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Parent Structure Resource Required Delegation Connector</b></em>' container
-         * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Parent Structure Resource Required Delegation
+         * Connector</b></em>' container reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -2476,9 +2482,9 @@ public interface CompositionPackage extends EPackage {
                 .getResourceRequiredDelegationConnector_ParentStructure_ResourceRequiredDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.composition.impl.EventChannelImpl
-         * <em>Event Channel</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.composition.impl.EventChannelImpl <em>Event
+         * Channel</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.core.composition.impl.EventChannelImpl
          * @see org.palladiosimulator.pcm.core.composition.impl.CompositionPackageImpl#getEventChannel()
@@ -2495,9 +2501,8 @@ public interface CompositionPackage extends EPackage {
         EReference EVENT_CHANNEL__EVENT_GROUP_EVENT_CHANNEL = eINSTANCE.getEventChannel_EventGroup__EventChannel();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Event Channel Source Connector Event Channel</b></em>' reference list feature.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Event Channel Source Connector Event
+         * Channel</b></em>' reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2505,9 +2510,8 @@ public interface CompositionPackage extends EPackage {
                 .getEventChannel_EventChannelSourceConnector__EventChannel();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Event Channel Sink Connector Event Channel</b></em>' reference list feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Event Channel Sink Connector Event
+         * Channel</b></em>' reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2524,8 +2528,8 @@ public interface CompositionPackage extends EPackage {
                 .getEventChannel_ParentStructure__EventChannel();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.composition.impl.EventChannelSourceConnectorImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.composition.impl.EventChannelSourceConnectorImpl
          * <em>Event Channel Source Connector</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
@@ -2545,9 +2549,8 @@ public interface CompositionPackage extends EPackage {
                 .getEventChannelSourceConnector_SourceRole__EventChannelSourceRole();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Assembly Context Event Channel Source Connector</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Assembly Context Event Channel Source
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2555,9 +2558,8 @@ public interface CompositionPackage extends EPackage {
                 .getEventChannelSourceConnector_AssemblyContext__EventChannelSourceConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Event Channel Event Channel Source Connector</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Event Channel Event Channel Source
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2586,9 +2588,9 @@ public interface CompositionPackage extends EPackage {
                 .getEventChannelSinkConnector_SinkRole__EventChannelSinkConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Filter Condition Event Channel Sink Connector</b></em>' containment reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Filter Condition Event Channel Sink
+         * Connector</b></em>' containment reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -2596,9 +2598,8 @@ public interface CompositionPackage extends EPackage {
                 .getEventChannelSinkConnector_FilterCondition__EventChannelSinkConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Assembly Context Event Channel Sink Connector</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Assembly Context Event Channel Sink
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2606,9 +2607,8 @@ public interface CompositionPackage extends EPackage {
                 .getEventChannelSinkConnector_AssemblyContext__EventChannelSinkConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Event Channel Event Channel Sink Connector</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Event Channel Event Channel Sink
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2628,9 +2628,8 @@ public interface CompositionPackage extends EPackage {
         EClass PROVIDED_DELEGATION_CONNECTOR = eINSTANCE.getProvidedDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Inner Provided Role Provided Delegation Connector</b></em>' reference feature.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Inner Provided Role Provided Delegation
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2638,9 +2637,8 @@ public interface CompositionPackage extends EPackage {
                 .getProvidedDelegationConnector_InnerProvidedRole_ProvidedDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Outer Provided Role Provided Delegation Connector</b></em>' reference feature.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Outer Provided Role Provided Delegation
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2648,9 +2646,8 @@ public interface CompositionPackage extends EPackage {
                 .getProvidedDelegationConnector_OuterProvidedRole_ProvidedDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Assembly Context Provided Delegation Connector</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Assembly Context Provided Delegation
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2670,9 +2667,8 @@ public interface CompositionPackage extends EPackage {
         EClass REQUIRED_DELEGATION_CONNECTOR = eINSTANCE.getRequiredDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Inner Required Role Required Delegation Connector</b></em>' reference feature.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Inner Required Role Required Delegation
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2680,9 +2676,8 @@ public interface CompositionPackage extends EPackage {
                 .getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Outer Required Role Required Delegation Connector</b></em>' reference feature.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Outer Required Role Required Delegation
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2690,9 +2685,8 @@ public interface CompositionPackage extends EPackage {
                 .getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Assembly Context Required Delegation Connector</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Assembly Context Required Delegation
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2700,8 +2694,8 @@ public interface CompositionPackage extends EPackage {
                 .getRequiredDelegationConnector_AssemblyContext_RequiredDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.composition.impl.AssemblyConnectorImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.composition.impl.AssemblyConnectorImpl
          * <em>Assembly Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.core.composition.impl.AssemblyConnectorImpl
@@ -2711,9 +2705,8 @@ public interface CompositionPackage extends EPackage {
         EClass ASSEMBLY_CONNECTOR = eINSTANCE.getAssemblyConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Requiring Assembly Context Assembly Connector</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Requiring Assembly Context Assembly
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2721,9 +2714,8 @@ public interface CompositionPackage extends EPackage {
                 .getAssemblyConnector_RequiringAssemblyContext_AssemblyConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Providing Assembly Context Assembly Connector</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Providing Assembly Context Assembly
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2749,8 +2741,8 @@ public interface CompositionPackage extends EPackage {
                 .getAssemblyConnector_RequiredRole_AssemblyConnector();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.composition.impl.AssemblyEventConnectorImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.composition.impl.AssemblyEventConnectorImpl
          * <em>Assembly Event Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.core.composition.impl.AssemblyEventConnectorImpl
@@ -2778,9 +2770,8 @@ public interface CompositionPackage extends EPackage {
                 .getAssemblyEventConnector_SourceRole__AssemblyEventConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Sink Assembly Context Assembly Event Connector</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Sink Assembly Context Assembly Event
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2788,9 +2779,8 @@ public interface CompositionPackage extends EPackage {
                 .getAssemblyEventConnector_SinkAssemblyContext__AssemblyEventConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Source Assembly Context Assembly Event Connector</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Source Assembly Context Assembly Event
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2798,9 +2788,9 @@ public interface CompositionPackage extends EPackage {
                 .getAssemblyEventConnector_SourceAssemblyContext__AssemblyEventConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Filter Condition Assembly Event Connector</b></em>' containment reference feature.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Filter Condition Assembly Event
+         * Connector</b></em>' containment reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -2838,9 +2828,8 @@ public interface CompositionPackage extends EPackage {
                 .getSourceDelegationConnector_OuterSourceRole__SourceRole();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Assembly Context Source Delegation Connector</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Assembly Context Source Delegation
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2848,8 +2837,8 @@ public interface CompositionPackage extends EPackage {
                 .getSourceDelegationConnector_AssemblyContext__SourceDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.composition.impl.SinkDelegationConnectorImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.composition.impl.SinkDelegationConnectorImpl
          * <em>Sink Delegation Connector</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.core.composition.impl.SinkDelegationConnectorImpl
@@ -2859,9 +2848,8 @@ public interface CompositionPackage extends EPackage {
         EClass SINK_DELEGATION_CONNECTOR = eINSTANCE.getSinkDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Assembly Context Sink Delegation Connector</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Assembly Context Sink Delegation
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2887,8 +2875,8 @@ public interface CompositionPackage extends EPackage {
                 .getSinkDelegationConnector_OuterSinkRole__SinkRole();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.composition.impl.AssemblyInfrastructureConnectorImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.composition.impl.AssemblyInfrastructureConnectorImpl
          * <em>Assembly Infrastructure Connector</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
@@ -2899,9 +2887,8 @@ public interface CompositionPackage extends EPackage {
         EClass ASSEMBLY_INFRASTRUCTURE_CONNECTOR = eINSTANCE.getAssemblyInfrastructureConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Provided Role Assembly Infrastructure Connector</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Provided Role Assembly Infrastructure
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2909,9 +2896,8 @@ public interface CompositionPackage extends EPackage {
                 .getAssemblyInfrastructureConnector_ProvidedRole__AssemblyInfrastructureConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Required Role Assembly Infrastructure Connector</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Required Role Assembly Infrastructure
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -2919,9 +2905,9 @@ public interface CompositionPackage extends EPackage {
                 .getAssemblyInfrastructureConnector_RequiredRole__AssemblyInfrastructureConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Providing Assembly Context Assembly Infrastructure Connector</b></em>' reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Providing Assembly Context Assembly
+         * Infrastructure Connector</b></em>' reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -2929,9 +2915,9 @@ public interface CompositionPackage extends EPackage {
                 .getAssemblyInfrastructureConnector_ProvidingAssemblyContext__AssemblyInfrastructureConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Requiring Assembly Context Assembly Infrastructure Connector</b></em>' reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Requiring Assembly Context Assembly
+         * Infrastructure Connector</b></em>' reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -2939,8 +2925,8 @@ public interface CompositionPackage extends EPackage {
                 .getAssemblyInfrastructureConnector_RequiringAssemblyContext__AssemblyInfrastructureConnector();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl
          * <em>Provided Infrastructure Delegation Connector</em>}' class. <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          *
@@ -2951,9 +2937,9 @@ public interface CompositionPackage extends EPackage {
         EClass PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR = eINSTANCE.getProvidedInfrastructureDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Inner Provided Role Provided Infrastructure Delegation Connector</b></em>'
-         * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Inner Provided Role Provided Infrastructure
+         * Delegation Connector</b></em>' reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -2961,9 +2947,9 @@ public interface CompositionPackage extends EPackage {
                 .getProvidedInfrastructureDelegationConnector_InnerProvidedRole__ProvidedInfrastructureDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Outer Provided Role Provided Infrastructure Delegation Connector</b></em>'
-         * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Outer Provided Role Provided Infrastructure
+         * Delegation Connector</b></em>' reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -2971,9 +2957,9 @@ public interface CompositionPackage extends EPackage {
                 .getProvidedInfrastructureDelegationConnector_OuterProvidedRole__ProvidedInfrastructureDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Assembly Context Provided Infrastructure Delegation Connector</b></em>' reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Assembly Context Provided Infrastructure
+         * Delegation Connector</b></em>' reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -2981,8 +2967,8 @@ public interface CompositionPackage extends EPackage {
                 .getProvidedInfrastructureDelegationConnector_AssemblyContext__ProvidedInfrastructureDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.composition.impl.RequiredInfrastructureDelegationConnectorImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.composition.impl.RequiredInfrastructureDelegationConnectorImpl
          * <em>Required Infrastructure Delegation Connector</em>}' class. <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          *
@@ -2993,9 +2979,9 @@ public interface CompositionPackage extends EPackage {
         EClass REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR = eINSTANCE.getRequiredInfrastructureDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Inner Required Role Required Infrastructure Delegation Connector</b></em>'
-         * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Inner Required Role Required Infrastructure
+         * Delegation Connector</b></em>' reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -3003,9 +2989,9 @@ public interface CompositionPackage extends EPackage {
                 .getRequiredInfrastructureDelegationConnector_InnerRequiredRole__RequiredInfrastructureDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Outer Required Role Required Infrastructure Delegation Connector</b></em>'
-         * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Outer Required Role Required Infrastructure
+         * Delegation Connector</b></em>' reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -3013,9 +2999,9 @@ public interface CompositionPackage extends EPackage {
                 .getRequiredInfrastructureDelegationConnector_OuterRequiredRole__RequiredInfrastructureDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Assembly Context Required Infrastructure Delegation Connector</b></em>' reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Assembly Context Required Infrastructure
+         * Delegation Connector</b></em>' reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -3023,8 +3009,8 @@ public interface CompositionPackage extends EPackage {
                 .getRequiredInfrastructureDelegationConnector_AssemblyContext__RequiredInfrastructureDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl
          * <em>Required Resource Delegation Connector</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
@@ -3035,9 +3021,8 @@ public interface CompositionPackage extends EPackage {
         EClass REQUIRED_RESOURCE_DELEGATION_CONNECTOR = eINSTANCE.getRequiredResourceDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Assembly Context Required Resource Delegation Connector</b></em>' reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Assembly Context Required Resource Delegation
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -3045,9 +3030,8 @@ public interface CompositionPackage extends EPackage {
                 .getRequiredResourceDelegationConnector_AssemblyContext__RequiredResourceDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Inner Required Role Required Resource Delegation Connector</b></em>' reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Inner Required Role Required Resource Delegation
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -3055,9 +3039,8 @@ public interface CompositionPackage extends EPackage {
                 .getRequiredResourceDelegationConnector_InnerRequiredRole__RequiredResourceDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Outer Required Role Required Resource Delegation Connector</b></em>' reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Outer Required Role Required Resource Delegation
+         * Connector</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -3065,9 +3048,9 @@ public interface CompositionPackage extends EPackage {
                 .getRequiredResourceDelegationConnector_OuterRequiredRole__RequiredResourceDelegationConnector();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.core.composition.impl.AssemblyContextImpl
-         * <em>Assembly Context</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.core.composition.impl.AssemblyContextImpl <em>Assembly
+         * Context</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.core.composition.impl.AssemblyContextImpl
          * @see org.palladiosimulator.pcm.core.composition.impl.CompositionPackageImpl#getAssemblyContext()
@@ -3094,8 +3077,9 @@ public interface CompositionPackage extends EPackage {
                 .getAssemblyContext_EncapsulatedComponent__AssemblyContext();
 
         /**
-         * The meta object literal for the '<em><b>Config Parameter Usages Assembly Context</b></em>
-         * ' containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Config Parameter Usages Assembly
+         * Context</b></em>' containment reference list feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */

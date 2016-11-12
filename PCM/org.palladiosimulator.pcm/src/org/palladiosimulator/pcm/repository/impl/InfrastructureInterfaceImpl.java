@@ -15,16 +15,15 @@ import org.palladiosimulator.pcm.repository.InfrastructureSignature;
 import org.palladiosimulator.pcm.repository.RepositoryPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Infrastructure Interface</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Infrastructure
+ * Interface</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.impl.InfrastructureInterfaceImpl#getInfrastructureSignatures__InfrastructureInterface
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.InfrastructureInterfaceImpl#getInfrastructureSignatures__InfrastructureInterface
  * <em>Infrastructure Signatures Infrastructure Interface</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -35,7 +34,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -64,11 +63,10 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
     @Override
     @SuppressWarnings("unchecked")
     public EList<InfrastructureSignature> getInfrastructureSignatures__InfrastructureInterface() {
-        return (EList<InfrastructureSignature>) this
-                .eDynamicGet(
-                        RepositoryPackage.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE,
-                        RepositoryPackage.Literals.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE,
-                        true, true);
+        return (EList<InfrastructureSignature>) this.eDynamicGet(
+                RepositoryPackage.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE,
+                RepositoryPackage.Literals.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE,
+                true, true);
     }
 
     /**
@@ -80,12 +78,11 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
                     .getInfrastructureSignatures__InfrastructureInterface())
-                    .basicAdd(otherEnd, msgs);
+                            .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -98,8 +95,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE:
             return ((InternalEList<?>) this.getInfrastructureSignatures__InfrastructureInterface()).basicRemove(
                     otherEnd,
@@ -115,8 +111,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE:
             return this.getInfrastructureSignatures__InfrastructureInterface();
         }
@@ -131,12 +126,11 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE:
             this.getInfrastructureSignatures__InfrastructureInterface().clear();
-            this.getInfrastructureSignatures__InfrastructureInterface().addAll(
-                    (Collection<? extends InfrastructureSignature>) newValue);
+            this.getInfrastructureSignatures__InfrastructureInterface()
+                    .addAll((Collection<? extends InfrastructureSignature>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -149,8 +143,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE:
             this.getInfrastructureSignatures__InfrastructureInterface().clear();
             return;
@@ -165,8 +158,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE:
             return !this.getInfrastructureSignatures__InfrastructureInterface().isEmpty();
         }

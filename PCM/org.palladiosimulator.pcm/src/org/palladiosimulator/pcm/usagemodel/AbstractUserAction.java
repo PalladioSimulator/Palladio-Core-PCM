@@ -6,8 +6,8 @@ package org.palladiosimulator.pcm.usagemodel;
 import org.palladiosimulator.pcm.core.entity.Entity;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Abstract User Action</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Abstract User
+ * Action</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> See the AbstractAction documentation for why it is advantageous to model
  * control flow in this way, as the same principle is used in the RDSEFF language.
@@ -17,16 +17,15 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getSuccessor <em>Successor
- * </em>}</li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getPredecessor <em>Predecessor
- * </em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getScenarioBehaviour_AbstractUserAction
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getSuccessor
+ * <em>Successor</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getPredecessor
+ * <em>Predecessor</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getScenarioBehaviour_AbstractUserAction
  * <em>Scenario Behaviour Abstract User Action</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getAbstractUserAction()
  * @model abstract="true"
@@ -39,7 +38,7 @@ public interface AbstractUserAction extends Entity {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Successor</b></em>' reference. It is bidirectional and its
@@ -61,8 +60,8 @@ public interface AbstractUserAction extends Entity {
     AbstractUserAction getSuccessor();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getSuccessor
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getSuccessor
      * <em>Successor</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
@@ -92,8 +91,8 @@ public interface AbstractUserAction extends Entity {
     AbstractUserAction getPredecessor();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getPredecessor
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getPredecessor
      * <em>Predecessor</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
@@ -105,8 +104,8 @@ public interface AbstractUserAction extends Entity {
 
     /**
      * Returns the value of the '<em><b>Scenario Behaviour Abstract User Action</b></em>' container
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getActions_ScenarioBehaviour
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getActions_ScenarioBehaviour
      * <em>Actions Scenario Behaviour</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Scenario Behaviour Abstract User Action</em>' container reference
@@ -125,8 +124,8 @@ public interface AbstractUserAction extends Entity {
     ScenarioBehaviour getScenarioBehaviour_AbstractUserAction();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getScenarioBehaviour_AbstractUserAction
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.AbstractUserAction#getScenarioBehaviour_AbstractUserAction
      * <em>Scenario Behaviour Abstract User Action</em>}' container reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *

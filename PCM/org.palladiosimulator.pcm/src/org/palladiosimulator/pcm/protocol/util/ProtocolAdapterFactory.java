@@ -24,7 +24,7 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -39,8 +39,7 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public ProtocolAdapterFactory() {
-        if (modelPackage == null)
-        {
+        if (modelPackage == null) {
             modelPackage = ProtocolPackage.eINSTANCE;
         }
     }
@@ -55,12 +54,10 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl {
      */
     @Override
     public boolean isFactoryForType(final Object object) {
-        if (object == modelPackage)
-        {
+        if (object == modelPackage) {
             return true;
         }
-        if (object instanceof EObject)
-        {
+        if (object instanceof EObject) {
             return ((EObject) object).eClass().getEPackage() == modelPackage;
         }
         return false;
@@ -72,27 +69,24 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    protected ProtocolSwitch<Adapter> modelSwitch = new ProtocolSwitch<Adapter>()
-    {
+    protected ProtocolSwitch<Adapter> modelSwitch = new ProtocolSwitch<Adapter>() {
         @Override
-        public Adapter caseProtocol(final Protocol object)
-        {
+        public Adapter caseProtocol(final Protocol object) {
             return ProtocolAdapterFactory.this.createProtocolAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object)
-        {
+        public Adapter defaultCase(final EObject object) {
             return ProtocolAdapterFactory.this.createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-             *
-             * @param target
-             *            the object to adapt.
-             * @return the adapter for the <code>target</code>.
+     *
+     * @param target
+     *            the object to adapt.
+     * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
@@ -101,12 +95,12 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.protocol.Protocol <em>Protocol</em>}'. <!-- begin-user-doc
-             * --> This default implementation returns null so that we can easily ignore cases; it's useful
-             * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.protocol.Protocol <em>Protocol</em>}'. <!-- begin-user-doc
+     * --> This default implementation returns null so that we can easily ignore cases; it's useful
+     * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.protocol.Protocol
      * @generated
      */
@@ -116,9 +110,9 @@ public class ProtocolAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
-             * implementation returns null. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * implementation returns null. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @generated
      */
     public Adapter createEObjectAdapter() {

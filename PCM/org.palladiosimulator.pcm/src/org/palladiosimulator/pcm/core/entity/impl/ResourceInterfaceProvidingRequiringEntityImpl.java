@@ -16,16 +16,15 @@ import org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingRequiring
 import org.palladiosimulator.pcm.core.entity.ResourceProvidedRole;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Resource Interface Providing Requiring Entity</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Resource Interface
+ * Providing Requiring Entity</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.entity.impl.ResourceInterfaceProvidingRequiringEntityImpl#getResourceProvidedRoles__ResourceInterfaceProvidingEntity
+ * <li>{@link org.palladiosimulator.pcm.core.entity.impl.ResourceInterfaceProvidingRequiringEntityImpl#getResourceProvidedRoles__ResourceInterfaceProvidingEntity
  * <em>Resource Provided Roles Resource Interface Providing Entity</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -37,7 +36,7 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -66,11 +65,10 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
     @Override
     @SuppressWarnings("unchecked")
     public EList<ResourceProvidedRole> getResourceProvidedRoles__ResourceInterfaceProvidingEntity() {
-        return (EList<ResourceProvidedRole>) this
-                .eDynamicGet(
-                        EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
-                        EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
-                        true, true);
+        return (EList<ResourceProvidedRole>) this.eDynamicGet(
+                EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
+                EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
+                true, true);
     }
 
     /**
@@ -82,12 +80,11 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
                     .getResourceProvidedRoles__ResourceInterfaceProvidingEntity())
-                    .basicAdd(otherEnd, msgs);
+                            .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -100,11 +97,10 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-            return ((InternalEList<?>) this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity()).basicRemove(
-                    otherEnd, msgs);
+            return ((InternalEList<?>) this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity())
+                    .basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
@@ -116,8 +112,7 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
             return this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity();
         }
@@ -132,12 +127,11 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
             this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity().clear();
-            this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity().addAll(
-                    (Collection<? extends ResourceProvidedRole>) newValue);
+            this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity()
+                    .addAll((Collection<? extends ResourceProvidedRole>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -150,8 +144,7 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
             this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity().clear();
             return;
@@ -166,8 +159,7 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
             return !this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity().isEmpty();
         }
@@ -181,10 +173,8 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == ResourceInterfaceProvidingEntity.class)
-        {
-            switch (derivedFeatureID)
-            {
+        if (baseClass == ResourceInterfaceProvidingEntity.class) {
+            switch (derivedFeatureID) {
             case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
                 return EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY;
             default:
@@ -201,10 +191,8 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == ResourceInterfaceProvidingEntity.class)
-        {
-            switch (baseFeatureID)
-            {
+        if (baseClass == ResourceInterfaceProvidingEntity.class) {
+            switch (baseFeatureID) {
             case EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
                 return EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY;
             default:

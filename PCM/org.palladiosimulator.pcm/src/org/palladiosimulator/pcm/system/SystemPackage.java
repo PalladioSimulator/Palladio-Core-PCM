@@ -25,8 +25,10 @@ import org.palladiosimulator.pcm.core.entity.EntityPackage;
  * end-model-doc -->
  *
  * @see org.palladiosimulator.pcm.system.SystemFactory
- * @model kind="package" annotation=
- *        "http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
+ * @model kind="package" annotation= "http://www.eclipse.org/emf/2002/Ecore
+ *        invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface SystemPackage extends EPackage {
@@ -36,7 +38,7 @@ public interface SystemPackage extends EPackage {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -104,9 +106,8 @@ public interface SystemPackage extends EPackage {
     int SYSTEM__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Required Delegation Connectors Composed
+     * Structure</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -141,9 +142,8 @@ public interface SystemPackage extends EPackage {
     int SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT + 4;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Required Roles Resource Interface Requiring
+     * Entity</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -188,9 +188,9 @@ public interface SystemPackage extends EPackage {
     EClass getSystem();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.system.System#getQosAnnotations_System
-     * <em>Qos Annotations System</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.system.System#getQosAnnotations_System <em>Qos Annotations
+     * System</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference list '<em>Qos Annotations System</em>'.
      * @see org.palladiosimulator.pcm.system.System#getQosAnnotations_System()

@@ -19,7 +19,7 @@ public class AllocationResourceImpl extends XMIResourceImpl {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Creates an instance of the resource. <!-- begin-user-doc --> <!-- end-user-doc -->

@@ -24,15 +24,15 @@ import org.palladiosimulator.pcm.parameter.VariableUsage;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.usagemodel.UserData#getAssemblyContext_userData <em>Assembly
  * Context user Data</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.usagemodel.UserData#getUsageModel_UserData <em>Usage Model
  * User Data</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.UserData#getUserDataParameterUsages_UserData <em>
- * User Data Parameter Usages User Data</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.UserData#getUserDataParameterUsages_UserData
+ * <em>User Data Parameter Usages User Data</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getUserData()
  * @model
@@ -46,7 +46,7 @@ public interface UserData extends CDOObject {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Assembly Context user Data</b></em>' reference. <!--
@@ -67,9 +67,8 @@ public interface UserData extends CDOObject {
 
     /**
      * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.UserData#getAssemblyContext_userData
-     * <em>Assembly Context user Data</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
+     * {@link org.palladiosimulator.pcm.usagemodel.UserData#getAssemblyContext_userData <em>Assembly
+     * Context user Data</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Assembly Context user Data</em>' reference.
@@ -80,9 +79,9 @@ public interface UserData extends CDOObject {
 
     /**
      * Returns the value of the '<em><b>Usage Model User Data</b></em>' container reference. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.usagemodel.UsageModel#getUserData_UsageModel
-     * <em>User Data Usage Model</em>}'. <!-- begin-user-doc -->
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.usagemodel.UsageModel#getUserData_UsageModel <em>User Data
+     * Usage Model</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Usage Model User Data</em>' container reference isn't clear, there
      * really should be more of a description here...
@@ -99,10 +98,9 @@ public interface UserData extends CDOObject {
     UsageModel getUsageModel_UserData();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.UserData#getUsageModel_UserData
-     * <em>Usage Model User Data</em>}' container reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.UserData#getUsageModel_UserData <em>Usage Model
+     * User Data</em>}' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Usage Model User Data</em>' container reference.
@@ -115,9 +113,9 @@ public interface UserData extends CDOObject {
      * Returns the value of the '<em><b>User Data Parameter Usages User Data</b></em>' containment
      * reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.parameter.VariableUsage}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getUserData_VariableUsage
-     * <em>User Data Variable Usage</em>}'. <!-- begin-user-doc -->
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getUserData_VariableUsage <em>User
+     * Data Variable Usage</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>User Data Parameter Usages User Data</em>' containment reference
      * list isn't clear, there really should be more of a description here...

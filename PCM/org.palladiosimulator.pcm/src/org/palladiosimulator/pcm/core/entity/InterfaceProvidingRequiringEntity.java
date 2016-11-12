@@ -4,8 +4,8 @@
 package org.palladiosimulator.pcm.core.entity;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Interface Providing Requiring Entity</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Interface Providing
+ * Requiring Entity</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> This meta-class is inherited by classes that both require and provide an
  * Interface. It thus combines the properties of InterfaceProvidingEntity and
@@ -26,6 +26,6 @@ public interface InterfaceProvidingRequiringEntity extends InterfaceProvidingEnt
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
 } // InterfaceProvidingRequiringEntity

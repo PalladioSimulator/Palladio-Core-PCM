@@ -21,8 +21,10 @@ import org.palladiosimulator.pcm.seff.SeffPackage;
  * <!-- end-model-doc -->
  *
  * @see org.palladiosimulator.pcm.seff.seff_performance.SeffPerformanceFactory
- * @model kind="package" annotation=
- *        "http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
+ * @model kind="package" annotation= "http://www.eclipse.org/emf/2002/Ecore
+ *        invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface SeffPerformancePackage extends EPackage {
@@ -32,7 +34,7 @@ public interface SeffPerformancePackage extends EPackage {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -64,8 +66,8 @@ public interface SeffPerformancePackage extends EPackage {
             .init();
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.impl.InfrastructureCallImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.impl.InfrastructureCallImpl
      * <em>Infrastructure Call</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.seff.seff_performance.impl.InfrastructureCallImpl
@@ -147,9 +149,9 @@ public interface SeffPerformancePackage extends EPackage {
     int INFRASTRUCTURE_CALL_FEATURE_COUNT = SeffPackage.CALL_ACTION_FEATURE_COUNT + 4;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.impl.ResourceCallImpl
-     * <em>Resource Call</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.impl.ResourceCallImpl <em>Resource
+     * Call</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.seff.seff_performance.impl.ResourceCallImpl
      * @see org.palladiosimulator.pcm.seff.seff_performance.impl.SeffPerformancePackageImpl#getResourceCall()
@@ -230,8 +232,8 @@ public interface SeffPerformancePackage extends EPackage {
     int RESOURCE_CALL_FEATURE_COUNT = SeffPackage.CALL_ACTION_FEATURE_COUNT + 4;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.impl.ParametricResourceDemandImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.impl.ParametricResourceDemandImpl
      * <em>Parametric Resource Demand</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.seff.seff_performance.impl.ParametricResourceDemandImpl
@@ -277,9 +279,9 @@ public interface SeffPerformancePackage extends EPackage {
     int PARAMETRIC_RESOURCE_DEMAND_FEATURE_COUNT = 3;
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall
-     * <em>Infrastructure Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall <em>Infrastructure
+     * Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Infrastructure Call</em>'.
      * @see org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall
@@ -288,8 +290,8 @@ public interface SeffPerformancePackage extends EPackage {
     EClass getInfrastructureCall();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall#getSignature__InfrastructureCall
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall#getSignature__InfrastructureCall
      * <em>Signature Infrastructure Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Signature Infrastructure Call</em>'.
@@ -300,12 +302,12 @@ public interface SeffPerformancePackage extends EPackage {
     EReference getInfrastructureCall_Signature__InfrastructureCall();
 
     /**
-     * Returns the meta object for the containment reference '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall#getNumberOfCalls__InfrastructureCall
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall#getNumberOfCalls__InfrastructureCall
      * <em>Number Of Calls Infrastructure Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference '
-     *         <em>Number Of Calls Infrastructure Call</em>'.
+     * @return the meta object for the containment reference '<em>Number Of Calls Infrastructure
+     *         Call</em>'.
      * @see org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall#getNumberOfCalls__InfrastructureCall()
      * @see #getInfrastructureCall()
      * @generated
@@ -313,8 +315,8 @@ public interface SeffPerformancePackage extends EPackage {
     EReference getInfrastructureCall_NumberOfCalls__InfrastructureCall();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall#getAction__InfrastructureCall
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall#getAction__InfrastructureCall
      * <em>Action Infrastructure Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Action Infrastructure Call</em>'.
@@ -325,8 +327,8 @@ public interface SeffPerformancePackage extends EPackage {
     EReference getInfrastructureCall_Action__InfrastructureCall();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall#getRequiredRole__InfrastructureCall
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.InfrastructureCall#getRequiredRole__InfrastructureCall
      * <em>Required Role Infrastructure Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Required Role Infrastructure Call</em>'.
@@ -337,9 +339,9 @@ public interface SeffPerformancePackage extends EPackage {
     EReference getInfrastructureCall_RequiredRole__InfrastructureCall();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall <em>Resource Call</em>}'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall <em>Resource
+     * Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Resource Call</em>'.
      * @see org.palladiosimulator.pcm.seff.seff_performance.ResourceCall
@@ -348,8 +350,8 @@ public interface SeffPerformancePackage extends EPackage {
     EClass getResourceCall();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getAction__ResourceCall
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getAction__ResourceCall
      * <em>Action Resource Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Action Resource Call</em>'.
@@ -373,8 +375,8 @@ public interface SeffPerformancePackage extends EPackage {
     EReference getResourceCall_ResourceRequiredRole__ResourceCall();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getSignature__ResourceCall
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getSignature__ResourceCall
      * <em>Signature Resource Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Signature Resource Call</em>'.
@@ -385,12 +387,12 @@ public interface SeffPerformancePackage extends EPackage {
     EReference getResourceCall_Signature__ResourceCall();
 
     /**
-     * Returns the meta object for the containment reference '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getNumberOfCalls__ResourceCall
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getNumberOfCalls__ResourceCall
      * <em>Number Of Calls Resource Call</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference '<em>Number Of Calls Resource Call</em>
-     *         '.
+     * @return the meta object for the containment reference '<em>Number Of Calls Resource
+     *         Call</em>'.
      * @see org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getNumberOfCalls__ResourceCall()
      * @see #getResourceCall()
      * @generated
@@ -398,8 +400,8 @@ public interface SeffPerformancePackage extends EPackage {
     EReference getResourceCall_NumberOfCalls__ResourceCall();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand
      * <em>Parametric Resource Demand</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Parametric Resource Demand</em>'.
@@ -409,13 +411,13 @@ public interface SeffPerformancePackage extends EPackage {
     EClass getParametricResourceDemand();
 
     /**
-     * Returns the meta object for the containment reference '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand#getSpecification_ParametericResourceDemand
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand#getSpecification_ParametericResourceDemand
      * <em>Specification Parameteric Resource Demand</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the containment reference '
-     *         <em>Specification Parameteric Resource Demand</em>'.
+     * @return the meta object for the containment reference '<em>Specification Parameteric Resource
+     *         Demand</em>'.
      * @see org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand#getSpecification_ParametericResourceDemand()
      * @see #getParametricResourceDemand()
      * @generated
@@ -423,13 +425,13 @@ public interface SeffPerformancePackage extends EPackage {
     EReference getParametricResourceDemand_Specification_ParametericResourceDemand();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand#getRequiredResource_ParametricResourceDemand
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand#getRequiredResource_ParametricResourceDemand
      * <em>Required Resource Parametric Resource Demand</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Required Resource Parametric Resource Demand</em>'.
+     * @return the meta object for the reference '<em>Required Resource Parametric Resource
+     *         Demand</em>'.
      * @see org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand#getRequiredResource_ParametricResourceDemand()
      * @see #getParametricResourceDemand()
      * @generated
@@ -437,12 +439,12 @@ public interface SeffPerformancePackage extends EPackage {
     EReference getParametricResourceDemand_RequiredResource_ParametricResourceDemand();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand#getAction_ParametricResourceDemand
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand#getAction_ParametricResourceDemand
      * <em>Action Parametric Resource Demand</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Action Parametric Resource Demand</em>'.
+     * @return the meta object for the container reference '<em>Action Parametric Resource
+     *         Demand</em>'.
      * @see org.palladiosimulator.pcm.seff.seff_performance.ParametricResourceDemand#getAction_ParametricResourceDemand()
      * @see #getParametricResourceDemand()
      * @generated
@@ -473,8 +475,8 @@ public interface SeffPerformancePackage extends EPackage {
     interface Literals {
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.seff_performance.impl.InfrastructureCallImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.seff_performance.impl.InfrastructureCallImpl
          * <em>Infrastructure Call</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.seff_performance.impl.InfrastructureCallImpl
@@ -520,8 +522,8 @@ public interface SeffPerformancePackage extends EPackage {
                 .getInfrastructureCall_RequiredRole__InfrastructureCall();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.seff_performance.impl.ResourceCallImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.seff_performance.impl.ResourceCallImpl
          * <em>Resource Call</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.seff_performance.impl.ResourceCallImpl
@@ -577,9 +579,9 @@ public interface SeffPerformancePackage extends EPackage {
         EClass PARAMETRIC_RESOURCE_DEMAND = eINSTANCE.getParametricResourceDemand();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Specification Parameteric Resource Demand</b></em>' containment reference feature.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Specification Parameteric Resource
+         * Demand</b></em>' containment reference feature. <!-- begin-user-doc --> <!-- end-user-doc
+         * -->
          *
          * @generated
          */
@@ -587,9 +589,8 @@ public interface SeffPerformancePackage extends EPackage {
                 .getParametricResourceDemand_Specification_ParametericResourceDemand();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Required Resource Parametric Resource Demand</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Required Resource Parametric Resource
+         * Demand</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */

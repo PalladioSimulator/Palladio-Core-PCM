@@ -11,25 +11,21 @@ import org.palladiosimulator.pcm.repository.InfrastructureProvidedRole;
 import org.palladiosimulator.pcm.repository.InfrastructureRequiredRole;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Assembly Infrastructure Connector</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Assembly Infrastructure
+ * Connector</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.AssemblyInfrastructureConnectorImpl#getProvidedRole__AssemblyInfrastructureConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.AssemblyInfrastructureConnectorImpl#getProvidedRole__AssemblyInfrastructureConnector
  * <em>Provided Role Assembly Infrastructure Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.AssemblyInfrastructureConnectorImpl#getRequiredRole__AssemblyInfrastructureConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.AssemblyInfrastructureConnectorImpl#getRequiredRole__AssemblyInfrastructureConnector
  * <em>Required Role Assembly Infrastructure Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.AssemblyInfrastructureConnectorImpl#getProvidingAssemblyContext__AssemblyInfrastructureConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.AssemblyInfrastructureConnectorImpl#getProvidingAssemblyContext__AssemblyInfrastructureConnector
  * <em>Providing Assembly Context Assembly Infrastructure Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.AssemblyInfrastructureConnectorImpl#getRequiringAssemblyContext__AssemblyInfrastructureConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.AssemblyInfrastructureConnectorImpl#getRequiringAssemblyContext__AssemblyInfrastructureConnector
  * <em>Requiring Assembly Context Assembly Infrastructure Connector</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -40,7 +36,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -68,11 +64,10 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      */
     @Override
     public InfrastructureProvidedRole getProvidedRole__AssemblyInfrastructureConnector() {
-        return (InfrastructureProvidedRole) this
-                .eDynamicGet(
-                        CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
-                        CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
-                        true, true);
+        return (InfrastructureProvidedRole) this.eDynamicGet(
+                CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
+                true, true);
     }
 
     /**
@@ -81,11 +76,10 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      * @generated
      */
     public InfrastructureProvidedRole basicGetProvidedRole__AssemblyInfrastructureConnector() {
-        return (InfrastructureProvidedRole) this
-                .eDynamicGet(
-                        CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
-                        CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
-                        false, true);
+        return (InfrastructureProvidedRole) this.eDynamicGet(
+                CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
+                false, true);
     }
 
     /**
@@ -109,11 +103,10 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      */
     @Override
     public InfrastructureRequiredRole getRequiredRole__AssemblyInfrastructureConnector() {
-        return (InfrastructureRequiredRole) this
-                .eDynamicGet(
-                        CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
-                        CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
-                        true, true);
+        return (InfrastructureRequiredRole) this.eDynamicGet(
+                CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
+                true, true);
     }
 
     /**
@@ -122,11 +115,10 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      * @generated
      */
     public InfrastructureRequiredRole basicGetRequiredRole__AssemblyInfrastructureConnector() {
-        return (InfrastructureRequiredRole) this
-                .eDynamicGet(
-                        CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
-                        CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
-                        false, true);
+        return (InfrastructureRequiredRole) this.eDynamicGet(
+                CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
+                false, true);
     }
 
     /**
@@ -150,11 +142,10 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      */
     @Override
     public AssemblyContext getProvidingAssemblyContext__AssemblyInfrastructureConnector() {
-        return (AssemblyContext) this
-                .eDynamicGet(
-                        CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
-                        CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
-                        true, true);
+        return (AssemblyContext) this.eDynamicGet(
+                CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
+                true, true);
     }
 
     /**
@@ -163,11 +154,10 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      * @generated
      */
     public AssemblyContext basicGetProvidingAssemblyContext__AssemblyInfrastructureConnector() {
-        return (AssemblyContext) this
-                .eDynamicGet(
-                        CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
-                        CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
-                        false, true);
+        return (AssemblyContext) this.eDynamicGet(
+                CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
+                false, true);
     }
 
     /**
@@ -191,11 +181,10 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      */
     @Override
     public AssemblyContext getRequiringAssemblyContext__AssemblyInfrastructureConnector() {
-        return (AssemblyContext) this
-                .eDynamicGet(
-                        CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
-                        CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
-                        true, true);
+        return (AssemblyContext) this.eDynamicGet(
+                CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
+                true, true);
     }
 
     /**
@@ -204,11 +193,10 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      * @generated
      */
     public AssemblyContext basicGetRequiringAssemblyContext__AssemblyInfrastructureConnector() {
-        return (AssemblyContext) this
-                .eDynamicGet(
-                        CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
-                        CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
-                        false, true);
+        return (AssemblyContext) this.eDynamicGet(
+                CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
+                CompositionPackage.Literals.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_INFRASTRUCTURE_CONNECTOR,
+                false, true);
     }
 
     /**
@@ -232,8 +220,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
             if (resolve) {
                 return this.getProvidedRole__AssemblyInfrastructureConnector();
@@ -265,8 +252,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
             this.setProvidedRole__AssemblyInfrastructureConnector((InfrastructureProvidedRole) newValue);
             return;
@@ -290,8 +276,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
             this.setProvidedRole__AssemblyInfrastructureConnector((InfrastructureProvidedRole) null);
             return;
@@ -315,8 +300,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__PROVIDED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
             return this.basicGetProvidedRole__AssemblyInfrastructureConnector() != null;
         case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR__REQUIRED_ROLE_ASSEMBLY_INFRASTRUCTURE_CONNECTOR:

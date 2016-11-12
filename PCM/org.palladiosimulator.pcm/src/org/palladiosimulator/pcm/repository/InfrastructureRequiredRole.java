@@ -4,17 +4,16 @@
 package org.palladiosimulator.pcm.repository;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Infrastructure Required Role</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Infrastructure Required
+ * Role</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.InfrastructureRequiredRole#getRequiredInterface__InfrastructureRequiredRole
+ * <li>{@link org.palladiosimulator.pcm.repository.InfrastructureRequiredRole#getRequiredInterface__InfrastructureRequiredRole
  * <em>Required Interface Infrastructure Required Role</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getInfrastructureRequiredRole()
  * @model
@@ -27,7 +26,7 @@ public interface InfrastructureRequiredRole extends RequiredRole {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Required Interface Infrastructure Required Role</b></em>'
@@ -48,8 +47,8 @@ public interface InfrastructureRequiredRole extends RequiredRole {
     InfrastructureInterface getRequiredInterface__InfrastructureRequiredRole();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.InfrastructureRequiredRole#getRequiredInterface__InfrastructureRequiredRole
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.InfrastructureRequiredRole#getRequiredInterface__InfrastructureRequiredRole
      * <em>Required Interface Infrastructure Required Role</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *

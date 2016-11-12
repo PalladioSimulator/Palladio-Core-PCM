@@ -30,15 +30,13 @@ import org.palladiosimulator.pcm.seff.seff_reliability.util.SeffReliabilityValid
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionImpl#getPrimaryBehaviour__RecoveryAction
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionImpl#getPrimaryBehaviour__RecoveryAction
  * <em>Primary Behaviour Recovery Action</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionImpl#getRecoveryActionBehaviours__RecoveryAction
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionImpl#getRecoveryActionBehaviours__RecoveryAction
  * <em>Recovery Action Behaviours Recovery Action</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -49,7 +47,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -113,16 +111,15 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
     @Override
     @SuppressWarnings("unchecked")
     public EList<RecoveryActionBehaviour> getRecoveryActionBehaviours__RecoveryAction() {
-        return (EList<RecoveryActionBehaviour>) this
-                .eDynamicGet(
-                        SeffReliabilityPackage.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION,
-                        SeffReliabilityPackage.Literals.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION,
-                        true, true);
+        return (EList<RecoveryActionBehaviour>) this.eDynamicGet(
+                SeffReliabilityPackage.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION,
+                SeffReliabilityPackage.Literals.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION, true,
+                true);
     }
 
     /**
-     * The cached OCL expression body for the '
-     * {@link #PrimaryBehaviourOfRecoveryActionMustBeSet(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL expression body for the
+     * '{@link #PrimaryBehaviourOfRecoveryActionMustBeSet(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Primary Behaviour Of Recovery Action Must Be Set</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -153,36 +150,27 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
     @Override
     public boolean PrimaryBehaviourOfRecoveryActionMustBeSet(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (PRIMARY_BEHAVIOUR_OF_RECOVERY_ACTION_MUST_BE_SET__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (PRIMARY_BEHAVIOUR_OF_RECOVERY_ACTION_MUST_BE_SET__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffReliabilityPackage.Literals.RECOVERY_ACTION);
-            try
-            {
+            try {
                 PRIMARY_BEHAVIOUR_OF_RECOVERY_ACTION_MUST_BE_SET__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(PRIMARY_BEHAVIOUR_OF_RECOVERY_ACTION_MUST_BE_SET__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                PRIMARY_BEHAVIOUR_OF_RECOVERY_ACTION_MUST_BE_SET__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV.createQuery(PRIMARY_BEHAVIOUR_OF_RECOVERY_ACTION_MUST_BE_SET__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                SeffReliabilityValidator.DIAGNOSTIC_SOURCE,
-                                SeffReliabilityValidator.RECOVERY_ACTION__PRIMARY_BEHAVIOUR_OF_RECOVERY_ACTION_MUST_BE_SET,
-                                EcorePlugin.INSTANCE.getString(
-                                        "_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "PrimaryBehaviourOfRecoveryActionMustBeSet",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        SeffReliabilityValidator.DIAGNOSTIC_SOURCE,
+                        SeffReliabilityValidator.RECOVERY_ACTION__PRIMARY_BEHAVIOUR_OF_RECOVERY_ACTION_MUST_BE_SET,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "PrimaryBehaviourOfRecoveryActionMustBeSet",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -198,12 +186,11 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffReliabilityPackage.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
                     .getRecoveryActionBehaviours__RecoveryAction())
-                    .basicAdd(otherEnd, msgs);
+                            .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -216,8 +203,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffReliabilityPackage.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION:
             return ((InternalEList<?>) this.getRecoveryActionBehaviours__RecoveryAction()).basicRemove(otherEnd, msgs);
         }
@@ -231,8 +217,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffReliabilityPackage.RECOVERY_ACTION__PRIMARY_BEHAVIOUR_RECOVERY_ACTION:
             if (resolve) {
                 return this.getPrimaryBehaviour__RecoveryAction();
@@ -252,15 +237,14 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffReliabilityPackage.RECOVERY_ACTION__PRIMARY_BEHAVIOUR_RECOVERY_ACTION:
             this.setPrimaryBehaviour__RecoveryAction((RecoveryActionBehaviour) newValue);
             return;
         case SeffReliabilityPackage.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION:
             this.getRecoveryActionBehaviours__RecoveryAction().clear();
-            this.getRecoveryActionBehaviours__RecoveryAction().addAll(
-                    (Collection<? extends RecoveryActionBehaviour>) newValue);
+            this.getRecoveryActionBehaviours__RecoveryAction()
+                    .addAll((Collection<? extends RecoveryActionBehaviour>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -273,8 +257,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffReliabilityPackage.RECOVERY_ACTION__PRIMARY_BEHAVIOUR_RECOVERY_ACTION:
             this.setPrimaryBehaviour__RecoveryAction((RecoveryActionBehaviour) null);
             return;
@@ -292,8 +275,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffReliabilityPackage.RECOVERY_ACTION__PRIMARY_BEHAVIOUR_RECOVERY_ACTION:
             return this.basicGetPrimaryBehaviour__RecoveryAction() != null;
         case SeffReliabilityPackage.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION:

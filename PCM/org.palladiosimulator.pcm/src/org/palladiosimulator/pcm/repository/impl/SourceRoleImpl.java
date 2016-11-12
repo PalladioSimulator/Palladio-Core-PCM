@@ -13,11 +13,11 @@ import org.palladiosimulator.pcm.repository.SourceRole;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.repository.impl.SourceRoleImpl#getEventGroup__SourceRole
  * <em>Event Group Source Role</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -28,7 +28,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -88,8 +88,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE:
             if (resolve) {
                 return this.getEventGroup__SourceRole();
@@ -106,8 +105,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE:
             this.setEventGroup__SourceRole((EventGroup) newValue);
             return;
@@ -122,8 +120,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE:
             this.setEventGroup__SourceRole((EventGroup) null);
             return;
@@ -138,8 +135,7 @@ public class SourceRoleImpl extends RequiredRoleImpl implements SourceRole {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE:
             return this.basicGetEventGroup__SourceRole() != null;
         }

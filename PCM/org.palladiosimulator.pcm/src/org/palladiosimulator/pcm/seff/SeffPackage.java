@@ -24,8 +24,10 @@ import de.uka.ipd.sdq.identifier.IdentifierPackage;
  * components <!-- end-model-doc -->
  *
  * @see org.palladiosimulator.pcm.seff.SeffFactory
- * @model kind="package" annotation=
- *        "http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
+ * @model kind="package" annotation= "http://www.eclipse.org/emf/2002/Ecore
+ *        invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface SeffPackage extends EPackage {
@@ -35,7 +37,7 @@ public interface SeffPackage extends EPackage {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -130,8 +132,8 @@ public interface SeffPackage extends EPackage {
     int ABSTRACT_ACTION_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.seff.impl.AbstractInternalControlFlowActionImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.seff.impl.AbstractInternalControlFlowActionImpl
      * <em>Abstract Internal Control Flow Action</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -314,9 +316,9 @@ public interface SeffPackage extends EPackage {
     int STOP_ACTION_FEATURE_COUNT = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.seff.impl.ResourceDemandingBehaviourImpl
-     * <em>Resource Demanding Behaviour</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.seff.impl.ResourceDemandingBehaviourImpl <em>Resource
+     * Demanding Behaviour</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.seff.impl.ResourceDemandingBehaviourImpl
      * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getResourceDemandingBehaviour()
@@ -340,17 +342,18 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
+    int RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
+            + 0;
 
     /**
-     * The feature id for the '
-     * <em><b>Abstract Branch Transition Resource Demanding Behaviour</b></em>' container reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Abstract Branch Transition Resource Demanding
+     * Behaviour</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
+    int RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
+            + 1;
 
     /**
      * The feature id for the '<em><b>Steps Behaviour</b></em>' containment reference list. <!--
@@ -371,8 +374,7 @@ public interface SeffPackage extends EPackage {
     int RESOURCE_DEMANDING_BEHAVIOUR_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.seff.impl.AbstractLoopActionImpl
+     * The meta object id for the '{@link org.palladiosimulator.pcm.seff.impl.AbstractLoopActionImpl
      * <em>Abstract Loop Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.seff.impl.AbstractLoopActionImpl
@@ -472,9 +474,9 @@ public interface SeffPackage extends EPackage {
     int ABSTRACT_LOOP_ACTION_FEATURE_COUNT = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.seff.impl.AbstractBranchTransitionImpl
-     * <em>Abstract Branch Transition</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.seff.impl.AbstractBranchTransitionImpl <em>Abstract Branch
+     * Transition</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.seff.impl.AbstractBranchTransitionImpl
      * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getAbstractBranchTransition()
@@ -765,9 +767,9 @@ public interface SeffPackage extends EPackage {
     int START_ACTION_FEATURE_COUNT = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.seff.impl.ServiceEffectSpecificationImpl
-     * <em>Service Effect Specification</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.seff.impl.ServiceEffectSpecificationImpl <em>Service Effect
+     * Specification</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.seff.impl.ServiceEffectSpecificationImpl
      * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getServiceEffectSpecification()
@@ -812,9 +814,9 @@ public interface SeffPackage extends EPackage {
     int SERVICE_EFFECT_SPECIFICATION_FEATURE_COUNT = 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.seff.impl.ResourceDemandingSEFFImpl
-     * <em>Resource Demanding SEFF</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.seff.impl.ResourceDemandingSEFFImpl <em>Resource Demanding
+     * SEFF</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.seff.impl.ResourceDemandingSEFFImpl
      * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getResourceDemandingSEFF()
@@ -856,7 +858,8 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_DEMANDING_SEFF__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
+    int RESOURCE_DEMANDING_SEFF__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
+            + 2;
 
     /**
      * The feature id for the '<em><b>Abstract Loop Action Resource Demanding Behaviour</b></em>'
@@ -865,17 +868,18 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_DEMANDING_SEFF__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
+    int RESOURCE_DEMANDING_SEFF__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
+            + 3;
 
     /**
-     * The feature id for the '
-     * <em><b>Abstract Branch Transition Resource Demanding Behaviour</b></em>' container reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Abstract Branch Transition Resource Demanding
+     * Behaviour</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int RESOURCE_DEMANDING_SEFF__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 4;
+    int RESOURCE_DEMANDING_SEFF__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
+            + 4;
 
     /**
      * The feature id for the '<em><b>Steps Behaviour</b></em>' containment reference list. <!--
@@ -893,7 +897,8 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 6;
+    int RESOURCE_DEMANDING_SEFF__RESOURCE_DEMANDING_INTERNAL_BEHAVIOURS = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
+            + 6;
 
     /**
      * The number of structural features of the '<em>Resource Demanding SEFF</em>' class. <!--
@@ -905,8 +910,8 @@ public interface SeffPackage extends EPackage {
     int RESOURCE_DEMANDING_SEFF_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 7;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.seff.impl.ResourceDemandingInternalBehaviourImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.seff.impl.ResourceDemandingInternalBehaviourImpl
      * <em>Resource Demanding Internal Behaviour</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -935,9 +940,8 @@ public interface SeffPackage extends EPackage {
     int RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR = RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR;
 
     /**
-     * The feature id for the '
-     * <em><b>Abstract Branch Transition Resource Demanding Behaviour</b></em>' container reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Abstract Branch Transition Resource Demanding
+     * Behaviour</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -954,14 +958,14 @@ public interface SeffPackage extends EPackage {
     int RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__STEPS_BEHAVIOUR = RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Demanding SEFF Resource Demanding Internal Behaviour</b></em>' container
-     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Demanding SEFF Resource Demanding Internal
+     * Behaviour</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR = RESOURCE_DEMANDING_BEHAVIOUR_FEATURE_COUNT + 0;
+    int RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR = RESOURCE_DEMANDING_BEHAVIOUR_FEATURE_COUNT
+            + 0;
 
     /**
      * The number of structural features of the '<em>Resource Demanding Internal Behaviour</em>'
@@ -1270,7 +1274,8 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 0;
+    int FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT
+            + 0;
 
     /**
      * The feature id for the '<em><b>Synchronising Behaviours Fork Action</b></em>' containment
@@ -1319,9 +1324,8 @@ public interface SeffPackage extends EPackage {
     int FORKED_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR = RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR;
 
     /**
-     * The feature id for the '
-     * <em><b>Abstract Branch Transition Resource Demanding Behaviour</b></em>' container reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Abstract Branch Transition Resource Demanding
+     * Behaviour</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -1365,9 +1369,9 @@ public interface SeffPackage extends EPackage {
     int FORKED_BEHAVIOUR_FEATURE_COUNT = RESOURCE_DEMANDING_BEHAVIOUR_FEATURE_COUNT + 2;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.seff.impl.SynchronisationPointImpl
-     * <em>Synchronisation Point</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.seff.impl.SynchronisationPointImpl <em>Synchronisation
+     * Point</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.seff.impl.SynchronisationPointImpl
      * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getSynchronisationPoint()
@@ -1391,7 +1395,8 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
+    int SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
+            + 0;
 
     /**
      * The feature id for the '<em><b>Fork Action Synchronisation Point</b></em>' container
@@ -1409,7 +1414,8 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
+    int SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT
+            + 2;
 
     /**
      * The number of structural features of the '<em>Synchronisation Point</em>' class. <!--
@@ -1421,8 +1427,7 @@ public interface SeffPackage extends EPackage {
     int SYNCHRONISATION_POINT_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.seff.impl.ExternalCallActionImpl
+     * The meta object id for the '{@link org.palladiosimulator.pcm.seff.impl.ExternalCallActionImpl
      * <em>External Call Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.seff.impl.ExternalCallActionImpl
@@ -1779,9 +1784,9 @@ public interface SeffPackage extends EPackage {
     int ACQUIRE_ACTION_FEATURE_COUNT = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.seff.impl.CollectionIteratorActionImpl
-     * <em>Collection Iterator Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.seff.impl.CollectionIteratorActionImpl <em>Collection
+     * Iterator Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.seff.impl.CollectionIteratorActionImpl
      * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getCollectionIteratorAction()
@@ -1889,9 +1894,9 @@ public interface SeffPackage extends EPackage {
     int COLLECTION_ITERATOR_ACTION_FEATURE_COUNT = ABSTRACT_LOOP_ACTION_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.seff.impl.GuardedBranchTransitionImpl
-     * <em>Guarded Branch Transition</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.seff.impl.GuardedBranchTransitionImpl <em>Guarded Branch
+     * Transition</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.seff.impl.GuardedBranchTransitionImpl
      * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getGuardedBranchTransition()
@@ -1942,7 +1947,8 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION = ABSTRACT_BRANCH_TRANSITION_FEATURE_COUNT + 0;
+    int GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_GUARDED_BRANCH_TRANSITION = ABSTRACT_BRANCH_TRANSITION_FEATURE_COUNT
+            + 0;
 
     /**
      * The number of structural features of the '<em>Guarded Branch Transition</em>' class. <!--
@@ -2042,7 +2048,8 @@ public interface SeffPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 0;
+    int SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT
+            + 0;
 
     /**
      * The number of structural features of the '<em>Set Variable Action</em>' class. <!--
@@ -2054,8 +2061,7 @@ public interface SeffPackage extends EPackage {
     int SET_VARIABLE_ACTION_FEATURE_COUNT = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.seff.impl.InternalCallActionImpl
+     * The meta object id for the '{@link org.palladiosimulator.pcm.seff.impl.InternalCallActionImpl
      * <em>Internal Call Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.seff.impl.InternalCallActionImpl
@@ -2337,14 +2343,14 @@ public interface SeffPackage extends EPackage {
     int INTERNAL_ACTION__RESOURCE_CALL_ACTION = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_CALL_ACTION;
 
     /**
-     * The feature id for the '
-     * <em><b>Internal Failure Occurrence Descriptions Internal Action</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Internal Failure Occurrence Descriptions Internal
+     * Action</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 0;
+    int INTERNAL_ACTION__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_INTERNAL_ACTION = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT
+            + 0;
 
     /**
      * The number of structural features of the '<em>Internal Action</em>' class. <!--
@@ -2356,8 +2362,8 @@ public interface SeffPackage extends EPackage {
     int INTERNAL_ACTION_FEATURE_COUNT = ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION_FEATURE_COUNT + 1;
 
     /**
-     * Returns the meta object for class '{@link org.palladiosimulator.pcm.seff.StopAction
-     * <em>Stop Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '{@link org.palladiosimulator.pcm.seff.StopAction <em>Stop
+     * Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Stop Action</em>'.
      * @see org.palladiosimulator.pcm.seff.StopAction
@@ -2367,9 +2373,8 @@ public interface SeffPackage extends EPackage {
 
     /**
      * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction
-     * <em>Abstract Internal Control Flow Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
+     * {@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction <em>Abstract Internal
+     * Control Flow Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Abstract Internal Control Flow Action</em>'.
      * @see org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction
@@ -2378,8 +2383,8 @@ public interface SeffPackage extends EPackage {
     EClass getAbstractInternalControlFlowAction();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction#getResourceDemand_Action
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction#getResourceDemand_Action
      * <em>Resource Demand Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference list '<em>Resource Demand Action</em>'.
@@ -2390,12 +2395,12 @@ public interface SeffPackage extends EPackage {
     EReference getAbstractInternalControlFlowAction_ResourceDemand_Action();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction#getInfrastructureCall__Action
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction#getInfrastructureCall__Action
      * <em>Infrastructure Call Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Infrastructure Call Action</em>'.
+     * @return the meta object for the containment reference list '<em>Infrastructure Call
+     *         Action</em>'.
      * @see org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction#getInfrastructureCall__Action()
      * @see #getAbstractInternalControlFlowAction()
      * @generated
@@ -2403,8 +2408,8 @@ public interface SeffPackage extends EPackage {
     EReference getAbstractInternalControlFlowAction_InfrastructureCall__Action();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction#getResourceCall__Action
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction#getResourceCall__Action
      * <em>Resource Call Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference list '<em>Resource Call Action</em>'.
@@ -2425,8 +2430,8 @@ public interface SeffPackage extends EPackage {
     EClass getAbstractAction();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.seff.AbstractAction#getPredecessor_AbstractAction
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.seff.AbstractAction#getPredecessor_AbstractAction
      * <em>Predecessor Abstract Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Predecessor Abstract Action</em>'.
@@ -2437,8 +2442,8 @@ public interface SeffPackage extends EPackage {
     EReference getAbstractAction_Predecessor_AbstractAction();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.seff.AbstractAction#getSuccessor_AbstractAction
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.seff.AbstractAction#getSuccessor_AbstractAction
      * <em>Successor Abstract Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Successor Abstract Action</em>'.
@@ -2449,13 +2454,13 @@ public interface SeffPackage extends EPackage {
     EReference getAbstractAction_Successor_AbstractAction();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.seff.AbstractAction#getResourceDemandingBehaviour_AbstractAction
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.seff.AbstractAction#getResourceDemandingBehaviour_AbstractAction
      * <em>Resource Demanding Behaviour Abstract Action</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Resource Demanding Behaviour Abstract Action</em>'.
+     * @return the meta object for the container reference '<em>Resource Demanding Behaviour
+     *         Abstract Action</em>'.
      * @see org.palladiosimulator.pcm.seff.AbstractAction#getResourceDemandingBehaviour_AbstractAction()
      * @see #getAbstractAction()
      * @generated
@@ -2463,9 +2468,9 @@ public interface SeffPackage extends EPackage {
     EReference getAbstractAction_ResourceDemandingBehaviour_AbstractAction();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour
-     * <em>Resource Demanding Behaviour</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour <em>Resource Demanding
+     * Behaviour</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Resource Demanding Behaviour</em>'.
      * @see org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour
@@ -2474,13 +2479,13 @@ public interface SeffPackage extends EPackage {
     EClass getResourceDemandingBehaviour();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getAbstractLoopAction_ResourceDemandingBehaviour
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getAbstractLoopAction_ResourceDemandingBehaviour
      * <em>Abstract Loop Action Resource Demanding Behaviour</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Abstract Loop Action Resource Demanding Behaviour</em>'.
+     * @return the meta object for the container reference '<em>Abstract Loop Action Resource
+     *         Demanding Behaviour</em>'.
      * @see org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getAbstractLoopAction_ResourceDemandingBehaviour()
      * @see #getResourceDemandingBehaviour()
      * @generated
@@ -2488,13 +2493,13 @@ public interface SeffPackage extends EPackage {
     EReference getResourceDemandingBehaviour_AbstractLoopAction_ResourceDemandingBehaviour();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getAbstractBranchTransition_ResourceDemandingBehaviour
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getAbstractBranchTransition_ResourceDemandingBehaviour
      * <em>Abstract Branch Transition Resource Demanding Behaviour</em>}'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Abstract Branch Transition Resource Demanding Behaviour</em>'.
+     * @return the meta object for the container reference '<em>Abstract Branch Transition Resource
+     *         Demanding Behaviour</em>'.
      * @see org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getAbstractBranchTransition_ResourceDemandingBehaviour()
      * @see #getResourceDemandingBehaviour()
      * @generated
@@ -2502,8 +2507,8 @@ public interface SeffPackage extends EPackage {
     EReference getResourceDemandingBehaviour_AbstractBranchTransition_ResourceDemandingBehaviour();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getSteps_Behaviour
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getSteps_Behaviour
      * <em>Steps Behaviour</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference list '<em>Steps Behaviour</em>'.
@@ -2524,9 +2529,9 @@ public interface SeffPackage extends EPackage {
     EClass getAbstractLoopAction();
 
     /**
-     * Returns the meta object for the containment reference '
-     * {@link org.palladiosimulator.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop
-     * <em>Body Behaviour Loop</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop <em>Body
+     * Behaviour Loop</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference '<em>Body Behaviour Loop</em>'.
      * @see org.palladiosimulator.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop()
@@ -2536,9 +2541,9 @@ public interface SeffPackage extends EPackage {
     EReference getAbstractLoopAction_BodyBehaviour_Loop();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.seff.AbstractBranchTransition
-     * <em>Abstract Branch Transition</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.seff.AbstractBranchTransition <em>Abstract Branch
+     * Transition</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Abstract Branch Transition</em>'.
      * @see org.palladiosimulator.pcm.seff.AbstractBranchTransition
@@ -2547,13 +2552,13 @@ public interface SeffPackage extends EPackage {
     EClass getAbstractBranchTransition();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.seff.AbstractBranchTransition#getBranchAction_AbstractBranchTransition
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.seff.AbstractBranchTransition#getBranchAction_AbstractBranchTransition
      * <em>Branch Action Abstract Branch Transition</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Branch Action Abstract Branch Transition</em>'.
+     * @return the meta object for the container reference '<em>Branch Action Abstract Branch
+     *         Transition</em>'.
      * @see org.palladiosimulator.pcm.seff.AbstractBranchTransition#getBranchAction_AbstractBranchTransition()
      * @see #getAbstractBranchTransition()
      * @generated
@@ -2561,12 +2566,12 @@ public interface SeffPackage extends EPackage {
     EReference getAbstractBranchTransition_BranchAction_AbstractBranchTransition();
 
     /**
-     * Returns the meta object for the containment reference '
-     * {@link org.palladiosimulator.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition
      * <em>Branch Behaviour Branch Transition</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference '
-     *         <em>Branch Behaviour Branch Transition</em>'.
+     * @return the meta object for the containment reference '<em>Branch Behaviour Branch
+     *         Transition</em>'.
      * @see org.palladiosimulator.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition()
      * @see #getAbstractBranchTransition()
      * @generated
@@ -2584,9 +2589,9 @@ public interface SeffPackage extends EPackage {
     EClass getBranchAction();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.seff.BranchAction#getBranches_Branch
-     * <em>Branches Branch</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.seff.BranchAction#getBranches_Branch <em>Branches
+     * Branch</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference list '<em>Branches Branch</em>'.
      * @see org.palladiosimulator.pcm.seff.BranchAction#getBranches_Branch()
@@ -2596,8 +2601,8 @@ public interface SeffPackage extends EPackage {
     EReference getBranchAction_Branches_Branch();
 
     /**
-     * Returns the meta object for class '{@link org.palladiosimulator.pcm.seff.CallAction
-     * <em>Call Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '{@link org.palladiosimulator.pcm.seff.CallAction <em>Call
+     * Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Call Action</em>'.
      * @see org.palladiosimulator.pcm.seff.CallAction
@@ -2606,12 +2611,12 @@ public interface SeffPackage extends EPackage {
     EClass getCallAction();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.seff.CallAction#getInputVariableUsages__CallAction
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.seff.CallAction#getInputVariableUsages__CallAction
      * <em>Input Variable Usages Call Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Input Variable Usages Call Action</em>'.
+     * @return the meta object for the containment reference list '<em>Input Variable Usages Call
+     *         Action</em>'.
      * @see org.palladiosimulator.pcm.seff.CallAction#getInputVariableUsages__CallAction()
      * @see #getCallAction()
      * @generated
@@ -2629,9 +2634,9 @@ public interface SeffPackage extends EPackage {
     EClass getStartAction();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification
-     * <em>Service Effect Specification</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification <em>Service Effect
+     * Specification</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Service Effect Specification</em>'.
      * @see org.palladiosimulator.pcm.seff.ServiceEffectSpecification
@@ -2640,9 +2645,9 @@ public interface SeffPackage extends EPackage {
     EClass getServiceEffectSpecification();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getSeffTypeID
-     * <em>Seff Type ID</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getSeffTypeID <em>Seff Type
+     * ID</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Seff Type ID</em>'.
      * @see org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getSeffTypeID()
@@ -2652,8 +2657,8 @@ public interface SeffPackage extends EPackage {
     EAttribute getServiceEffectSpecification_SeffTypeID();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF
      * <em>Described Service SEFF</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Described Service SEFF</em>'.
@@ -2664,13 +2669,13 @@ public interface SeffPackage extends EPackage {
     EReference getServiceEffectSpecification_DescribedService__SEFF();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getBasicComponent_ServiceEffectSpecification
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getBasicComponent_ServiceEffectSpecification
      * <em>Basic Component Service Effect Specification</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Basic Component Service Effect Specification</em>'.
+     * @return the meta object for the container reference '<em>Basic Component Service Effect
+     *         Specification</em>'.
      * @see org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getBasicComponent_ServiceEffectSpecification()
      * @see #getServiceEffectSpecification()
      * @generated
@@ -2678,9 +2683,9 @@ public interface SeffPackage extends EPackage {
     EReference getServiceEffectSpecification_BasicComponent_ServiceEffectSpecification();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.seff.ResourceDemandingSEFF <em>Resource Demanding SEFF</em>}
-     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.seff.ResourceDemandingSEFF <em>Resource Demanding
+     * SEFF</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Resource Demanding SEFF</em>'.
      * @see org.palladiosimulator.pcm.seff.ResourceDemandingSEFF
@@ -2694,8 +2699,8 @@ public interface SeffPackage extends EPackage {
      * <em>Resource Demanding Internal Behaviours</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Resource Demanding Internal Behaviours</em>'.
+     * @return the meta object for the containment reference list ' <em>Resource Demanding Internal
+     *         Behaviours</em>'.
      * @see org.palladiosimulator.pcm.seff.ResourceDemandingSEFF#getResourceDemandingInternalBehaviours()
      * @see #getResourceDemandingSEFF()
      * @generated
@@ -2704,9 +2709,8 @@ public interface SeffPackage extends EPackage {
 
     /**
      * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.seff.ResourceDemandingInternalBehaviour
-     * <em>Resource Demanding Internal Behaviour</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
+     * {@link org.palladiosimulator.pcm.seff.ResourceDemandingInternalBehaviour <em>Resource
+     * Demanding Internal Behaviour</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Resource Demanding Internal Behaviour</em>'.
      * @see org.palladiosimulator.pcm.seff.ResourceDemandingInternalBehaviour
@@ -2715,13 +2719,13 @@ public interface SeffPackage extends EPackage {
     EClass getResourceDemandingInternalBehaviour();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.seff.ResourceDemandingInternalBehaviour#getResourceDemandingSEFF_ResourceDemandingInternalBehaviour
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.seff.ResourceDemandingInternalBehaviour#getResourceDemandingSEFF_ResourceDemandingInternalBehaviour
      * <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em>'.
+     * @return the meta object for the container reference '<em>Resource Demanding SEFF Resource
+     *         Demanding Internal Behaviour</em>'.
      * @see org.palladiosimulator.pcm.seff.ResourceDemandingInternalBehaviour#getResourceDemandingSEFF_ResourceDemandingInternalBehaviour()
      * @see #getResourceDemandingInternalBehaviour()
      * @generated
@@ -2739,8 +2743,8 @@ public interface SeffPackage extends EPackage {
     EClass getReleaseAction();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.seff.ReleaseAction#getPassiveResource_ReleaseAction
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.seff.ReleaseAction#getPassiveResource_ReleaseAction
      * <em>Passive Resource Release Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Passive Resource Release Action</em>'.
@@ -2751,8 +2755,8 @@ public interface SeffPackage extends EPackage {
     EReference getReleaseAction_PassiveResource_ReleaseAction();
 
     /**
-     * Returns the meta object for class '{@link org.palladiosimulator.pcm.seff.LoopAction
-     * <em>Loop Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '{@link org.palladiosimulator.pcm.seff.LoopAction <em>Loop
+     * Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Loop Action</em>'.
      * @see org.palladiosimulator.pcm.seff.LoopAction
@@ -2761,9 +2765,9 @@ public interface SeffPackage extends EPackage {
     EClass getLoopAction();
 
     /**
-     * Returns the meta object for the containment reference '
-     * {@link org.palladiosimulator.pcm.seff.LoopAction#getIterationCount_LoopAction
-     * <em>Iteration Count Loop Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.pcm.seff.LoopAction#getIterationCount_LoopAction <em>Iteration
+     * Count Loop Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference '<em>Iteration Count Loop Action</em>'.
      * @see org.palladiosimulator.pcm.seff.LoopAction#getIterationCount_LoopAction()
@@ -2773,8 +2777,8 @@ public interface SeffPackage extends EPackage {
     EReference getLoopAction_IterationCount_LoopAction();
 
     /**
-     * Returns the meta object for class '{@link org.palladiosimulator.pcm.seff.ForkAction
-     * <em>Fork Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '{@link org.palladiosimulator.pcm.seff.ForkAction <em>Fork
+     * Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Fork Action</em>'.
      * @see org.palladiosimulator.pcm.seff.ForkAction
@@ -2783,13 +2787,13 @@ public interface SeffPackage extends EPackage {
     EClass getForkAction();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.seff.ForkAction#getAsynchronousForkedBehaviours_ForkAction
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.seff.ForkAction#getAsynchronousForkedBehaviours_ForkAction
      * <em>Asynchronous Forked Behaviours Fork Action</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Asynchronous Forked Behaviours Fork Action</em>'.
+     * @return the meta object for the containment reference list '<em>Asynchronous Forked
+     *         Behaviours Fork Action</em>'.
      * @see org.palladiosimulator.pcm.seff.ForkAction#getAsynchronousForkedBehaviours_ForkAction()
      * @see #getForkAction()
      * @generated
@@ -2802,8 +2806,8 @@ public interface SeffPackage extends EPackage {
      * <em>Synchronising Behaviours Fork Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @return the meta object for the containment reference '
-     *         <em>Synchronising Behaviours Fork Action</em>'.
+     * @return the meta object for the containment reference ' <em>Synchronising Behaviours Fork
+     *         Action</em>'.
      * @see org.palladiosimulator.pcm.seff.ForkAction#getSynchronisingBehaviours_ForkAction()
      * @see #getForkAction()
      * @generated
@@ -2826,8 +2830,8 @@ public interface SeffPackage extends EPackage {
      * <em>Synchronisation Point Forked Behaviour</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Synchronisation Point Forked Behaviour</em>'.
+     * @return the meta object for the container reference ' <em>Synchronisation Point Forked
+     *         Behaviour</em>'.
      * @see org.palladiosimulator.pcm.seff.ForkedBehaviour#getSynchronisationPoint_ForkedBehaviour()
      * @see #getForkedBehaviour()
      * @generated
@@ -2835,9 +2839,9 @@ public interface SeffPackage extends EPackage {
     EReference getForkedBehaviour_SynchronisationPoint_ForkedBehaviour();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.seff.ForkedBehaviour#getForkAction_ForkedBehaivour
-     * <em>Fork Action Forked Behaivour</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.seff.ForkedBehaviour#getForkAction_ForkedBehaivour <em>Fork
+     * Action Forked Behaivour</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Fork Action Forked Behaivour</em>'.
      * @see org.palladiosimulator.pcm.seff.ForkedBehaviour#getForkAction_ForkedBehaivour()
@@ -2847,9 +2851,8 @@ public interface SeffPackage extends EPackage {
     EReference getForkedBehaviour_ForkAction_ForkedBehaivour();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.seff.SynchronisationPoint <em>Synchronisation Point</em>}'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '{@link org.palladiosimulator.pcm.seff.SynchronisationPoint
+     * <em>Synchronisation Point</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Synchronisation Point</em>'.
      * @see org.palladiosimulator.pcm.seff.SynchronisationPoint
@@ -2858,13 +2861,13 @@ public interface SeffPackage extends EPackage {
     EClass getSynchronisationPoint();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.seff.SynchronisationPoint#getOutputParameterUsage_SynchronisationPoint
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.seff.SynchronisationPoint#getOutputParameterUsage_SynchronisationPoint
      * <em>Output Parameter Usage Synchronisation Point</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Output Parameter Usage Synchronisation Point</em>'.
+     * @return the meta object for the containment reference list '<em>Output Parameter Usage
+     *         Synchronisation Point</em>'.
      * @see org.palladiosimulator.pcm.seff.SynchronisationPoint#getOutputParameterUsage_SynchronisationPoint()
      * @see #getSynchronisationPoint()
      * @generated
@@ -2872,12 +2875,12 @@ public interface SeffPackage extends EPackage {
     EReference getSynchronisationPoint_OutputParameterUsage_SynchronisationPoint();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.seff.SynchronisationPoint#getForkAction_SynchronisationPoint
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.seff.SynchronisationPoint#getForkAction_SynchronisationPoint
      * <em>Fork Action Synchronisation Point</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Fork Action Synchronisation Point</em>'.
+     * @return the meta object for the container reference '<em>Fork Action Synchronisation
+     *         Point</em>'.
      * @see org.palladiosimulator.pcm.seff.SynchronisationPoint#getForkAction_SynchronisationPoint()
      * @see #getSynchronisationPoint()
      * @generated
@@ -2885,13 +2888,13 @@ public interface SeffPackage extends EPackage {
     EReference getSynchronisationPoint_ForkAction_SynchronisationPoint();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.seff.SynchronisationPoint#getSynchronousForkedBehaviours_SynchronisationPoint
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.seff.SynchronisationPoint#getSynchronousForkedBehaviours_SynchronisationPoint
      * <em>Synchronous Forked Behaviours Synchronisation Point</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Synchronous Forked Behaviours Synchronisation Point</em>'.
+     * @return the meta object for the containment reference list '<em>Synchronous Forked Behaviours
+     *         Synchronisation Point</em>'.
      * @see org.palladiosimulator.pcm.seff.SynchronisationPoint#getSynchronousForkedBehaviours_SynchronisationPoint()
      * @see #getSynchronisationPoint()
      * @generated
@@ -2909,8 +2912,8 @@ public interface SeffPackage extends EPackage {
     EClass getExternalCallAction();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.seff.ExternalCallAction#getCalledService_ExternalService
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.seff.ExternalCallAction#getCalledService_ExternalService
      * <em>Called Service External Service</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Called Service External Service</em>'.
@@ -2921,9 +2924,9 @@ public interface SeffPackage extends EPackage {
     EReference getExternalCallAction_CalledService_ExternalService();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.seff.ExternalCallAction#getRole_ExternalService
-     * <em>Role External Service</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.seff.ExternalCallAction#getRole_ExternalService <em>Role
+     * External Service</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Role External Service</em>'.
      * @see org.palladiosimulator.pcm.seff.ExternalCallAction#getRole_ExternalService()
@@ -2933,9 +2936,9 @@ public interface SeffPackage extends EPackage {
     EReference getExternalCallAction_Role_ExternalService();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.palladiosimulator.pcm.seff.ExternalCallAction#getRetryCount <em>Retry Count</em>}
-     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.pcm.seff.ExternalCallAction#getRetryCount <em>Retry
+     * Count</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Retry Count</em>'.
      * @see org.palladiosimulator.pcm.seff.ExternalCallAction#getRetryCount()
@@ -2955,13 +2958,13 @@ public interface SeffPackage extends EPackage {
     EClass getCallReturnAction();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.seff.CallReturnAction#getReturnVariableUsage__CallReturnAction
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.seff.CallReturnAction#getReturnVariableUsage__CallReturnAction
      * <em>Return Variable Usage Call Return Action</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Return Variable Usage Call Return Action</em>'.
+     * @return the meta object for the containment reference list '<em>Return Variable Usage Call
+     *         Return Action</em>'.
      * @see org.palladiosimulator.pcm.seff.CallReturnAction#getReturnVariableUsage__CallReturnAction()
      * @see #getCallReturnAction()
      * @generated
@@ -2969,9 +2972,9 @@ public interface SeffPackage extends EPackage {
     EReference getCallReturnAction_ReturnVariableUsage__CallReturnAction();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.seff.ProbabilisticBranchTransition
-     * <em>Probabilistic Branch Transition</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.seff.ProbabilisticBranchTransition <em>Probabilistic Branch
+     * Transition</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Probabilistic Branch Transition</em>'.
      * @see org.palladiosimulator.pcm.seff.ProbabilisticBranchTransition
@@ -2980,8 +2983,8 @@ public interface SeffPackage extends EPackage {
     EClass getProbabilisticBranchTransition();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.palladiosimulator.pcm.seff.ProbabilisticBranchTransition#getBranchProbability
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.pcm.seff.ProbabilisticBranchTransition#getBranchProbability
      * <em>Branch Probability</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Branch Probability</em>'.
@@ -3002,8 +3005,8 @@ public interface SeffPackage extends EPackage {
     EClass getAcquireAction();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.seff.AcquireAction#getPassiveresource_AcquireAction
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.seff.AcquireAction#getPassiveresource_AcquireAction
      * <em>Passiveresource Acquire Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Passiveresource Acquire Action</em>'.
@@ -3026,9 +3029,9 @@ public interface SeffPackage extends EPackage {
     EAttribute getAcquireAction_Timeout();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.palladiosimulator.pcm.seff.AcquireAction#getTimeoutValue <em>Timeout Value</em>}'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.pcm.seff.AcquireAction#getTimeoutValue <em>Timeout
+     * Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Timeout Value</em>'.
      * @see org.palladiosimulator.pcm.seff.AcquireAction#getTimeoutValue()
@@ -3038,9 +3041,9 @@ public interface SeffPackage extends EPackage {
     EAttribute getAcquireAction_TimeoutValue();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.seff.CollectionIteratorAction
-     * <em>Collection Iterator Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.seff.CollectionIteratorAction <em>Collection Iterator
+     * Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Collection Iterator Action</em>'.
      * @see org.palladiosimulator.pcm.seff.CollectionIteratorAction
@@ -3062,9 +3065,9 @@ public interface SeffPackage extends EPackage {
     EReference getCollectionIteratorAction_Parameter_CollectionIteratorAction();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.seff.GuardedBranchTransition
-     * <em>Guarded Branch Transition</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.seff.GuardedBranchTransition <em>Guarded Branch
+     * Transition</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Guarded Branch Transition</em>'.
      * @see org.palladiosimulator.pcm.seff.GuardedBranchTransition
@@ -3073,13 +3076,13 @@ public interface SeffPackage extends EPackage {
     EClass getGuardedBranchTransition();
 
     /**
-     * Returns the meta object for the containment reference '
-     * {@link org.palladiosimulator.pcm.seff.GuardedBranchTransition#getBranchCondition_GuardedBranchTransition
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.pcm.seff.GuardedBranchTransition#getBranchCondition_GuardedBranchTransition
      * <em>Branch Condition Guarded Branch Transition</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the containment reference '
-     *         <em>Branch Condition Guarded Branch Transition</em>'.
+     * @return the meta object for the containment reference '<em>Branch Condition Guarded Branch
+     *         Transition</em>'.
      * @see org.palladiosimulator.pcm.seff.GuardedBranchTransition#getBranchCondition_GuardedBranchTransition()
      * @see #getGuardedBranchTransition()
      * @generated
@@ -3097,13 +3100,13 @@ public interface SeffPackage extends EPackage {
     EClass getSetVariableAction();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.seff.SetVariableAction#getLocalVariableUsages_SetVariableAction
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.seff.SetVariableAction#getLocalVariableUsages_SetVariableAction
      * <em>Local Variable Usages Set Variable Action</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Local Variable Usages Set Variable Action</em>'.
+     * @return the meta object for the containment reference list '<em>Local Variable Usages Set
+     *         Variable Action</em>'.
      * @see org.palladiosimulator.pcm.seff.SetVariableAction#getLocalVariableUsages_SetVariableAction()
      * @see #getSetVariableAction()
      * @generated
@@ -3121,13 +3124,13 @@ public interface SeffPackage extends EPackage {
     EClass getInternalCallAction();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.seff.InternalCallAction#getCalledResourceDemandingInternalBehaviour
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.seff.InternalCallAction#getCalledResourceDemandingInternalBehaviour
      * <em>Called Resource Demanding Internal Behaviour</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Called Resource Demanding Internal Behaviour</em>'.
+     * @return the meta object for the reference '<em>Called Resource Demanding Internal
+     *         Behaviour</em>'.
      * @see org.palladiosimulator.pcm.seff.InternalCallAction#getCalledResourceDemandingInternalBehaviour()
      * @see #getInternalCallAction()
      * @generated
@@ -3145,8 +3148,8 @@ public interface SeffPackage extends EPackage {
     EClass getEmitEventAction();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.seff.EmitEventAction#getEventType__EmitEventAction
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.seff.EmitEventAction#getEventType__EmitEventAction
      * <em>Event Type Emit Event Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Event Type Emit Event Action</em>'.
@@ -3157,8 +3160,8 @@ public interface SeffPackage extends EPackage {
     EReference getEmitEventAction_EventType__EmitEventAction();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.seff.EmitEventAction#getSourceRole__EmitEventAction
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.seff.EmitEventAction#getSourceRole__EmitEventAction
      * <em>Source Role Emit Event Action</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Source Role Emit Event Action</em>'.
@@ -3179,13 +3182,13 @@ public interface SeffPackage extends EPackage {
     EClass getInternalAction();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.seff.InternalAction#getInternalFailureOccurrenceDescriptions__InternalAction
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.seff.InternalAction#getInternalFailureOccurrenceDescriptions__InternalAction
      * <em>Internal Failure Occurrence Descriptions Internal Action</em>}'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Internal Failure Occurrence Descriptions Internal Action</em>'.
+     * @return the meta object for the containment reference list '<em>Internal Failure Occurrence
+     *         Descriptions Internal Action</em>'.
      * @see org.palladiosimulator.pcm.seff.InternalAction#getInternalFailureOccurrenceDescriptions__InternalAction()
      * @see #getInternalAction()
      * @generated
@@ -3216,8 +3219,8 @@ public interface SeffPackage extends EPackage {
     interface Literals {
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.StopActionImpl <em>Stop Action</em>}' class.
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.StopActionImpl <em>Stop Action</em>}' class.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.StopActionImpl
@@ -3227,8 +3230,8 @@ public interface SeffPackage extends EPackage {
         EClass STOP_ACTION = eINSTANCE.getStopAction();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.AbstractInternalControlFlowActionImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.AbstractInternalControlFlowActionImpl
          * <em>Abstract Internal Control Flow Action</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
@@ -3266,8 +3269,8 @@ public interface SeffPackage extends EPackage {
                 .getAbstractInternalControlFlowAction_ResourceCall__Action();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.AbstractActionImpl <em>Abstract Action</em>}'
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.AbstractActionImpl <em>Abstract Action</em>}'
          * class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.AbstractActionImpl
@@ -3294,9 +3297,9 @@ public interface SeffPackage extends EPackage {
         EReference ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION = eINSTANCE.getAbstractAction_Successor_AbstractAction();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Resource Demanding Behaviour Abstract Action</b></em>' container reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Resource Demanding Behaviour Abstract
+         * Action</b></em>' container reference feature. <!-- begin-user-doc --> <!-- end-user-doc
+         * -->
          *
          * @generated
          */
@@ -3305,9 +3308,8 @@ public interface SeffPackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.ResourceDemandingBehaviourImpl
-         * <em>Resource Demanding Behaviour</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
-         * -->
+         * {@link org.palladiosimulator.pcm.seff.impl.ResourceDemandingBehaviourImpl <em>Resource
+         * Demanding Behaviour</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.ResourceDemandingBehaviourImpl
          * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getResourceDemandingBehaviour()
@@ -3316,9 +3318,9 @@ public interface SeffPackage extends EPackage {
         EClass RESOURCE_DEMANDING_BEHAVIOUR = eINSTANCE.getResourceDemandingBehaviour();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Abstract Loop Action Resource Demanding Behaviour</b></em>' container reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Abstract Loop Action Resource Demanding
+         * Behaviour</b></em>' container reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -3326,9 +3328,9 @@ public interface SeffPackage extends EPackage {
                 .getResourceDemandingBehaviour_AbstractLoopAction_ResourceDemandingBehaviour();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Abstract Branch Transition Resource Demanding Behaviour</b></em>' container
-         * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Abstract Branch Transition Resource Demanding
+         * Behaviour</b></em>' container reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -3345,9 +3347,9 @@ public interface SeffPackage extends EPackage {
                 .getResourceDemandingBehaviour_Steps_Behaviour();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.AbstractLoopActionImpl
-         * <em>Abstract Loop Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.AbstractLoopActionImpl <em>Abstract Loop
+         * Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.AbstractLoopActionImpl
          * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getAbstractLoopAction()
@@ -3365,9 +3367,8 @@ public interface SeffPackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.AbstractBranchTransitionImpl
-         * <em>Abstract Branch Transition</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
-         * -->
+         * {@link org.palladiosimulator.pcm.seff.impl.AbstractBranchTransitionImpl <em>Abstract
+         * Branch Transition</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.AbstractBranchTransitionImpl
          * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getAbstractBranchTransition()
@@ -3376,8 +3377,9 @@ public interface SeffPackage extends EPackage {
         EClass ABSTRACT_BRANCH_TRANSITION = eINSTANCE.getAbstractBranchTransition();
 
         /**
-         * The meta object literal for the '<em><b>Branch Action Abstract Branch Transition</b></em>
-         * ' container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Branch Action Abstract Branch
+         * Transition</b></em>' container reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -3394,8 +3396,8 @@ public interface SeffPackage extends EPackage {
                 .getAbstractBranchTransition_BranchBehaviour_BranchTransition();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.BranchActionImpl <em>Branch Action</em>}'
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.BranchActionImpl <em>Branch Action</em>}'
          * class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.BranchActionImpl
@@ -3413,8 +3415,8 @@ public interface SeffPackage extends EPackage {
         EReference BRANCH_ACTION__BRANCHES_BRANCH = eINSTANCE.getBranchAction_Branches_Branch();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.CallActionImpl <em>Call Action</em>}' class.
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.CallActionImpl <em>Call Action</em>}' class.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.CallActionImpl
@@ -3433,9 +3435,9 @@ public interface SeffPackage extends EPackage {
                 .getCallAction_InputVariableUsages__CallAction();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.StartActionImpl <em>Start Action</em>}' class.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.StartActionImpl <em>Start Action</em>}'
+         * class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.StartActionImpl
          * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getStartAction()
@@ -3445,9 +3447,8 @@ public interface SeffPackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.ServiceEffectSpecificationImpl
-         * <em>Service Effect Specification</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
-         * -->
+         * {@link org.palladiosimulator.pcm.seff.impl.ServiceEffectSpecificationImpl <em>Service
+         * Effect Specification</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.ServiceEffectSpecificationImpl
          * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getServiceEffectSpecification()
@@ -3473,9 +3474,9 @@ public interface SeffPackage extends EPackage {
                 .getServiceEffectSpecification_DescribedService__SEFF();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Basic Component Service Effect Specification</b></em>' container reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Basic Component Service Effect
+         * Specification</b></em>' container reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -3483,9 +3484,9 @@ public interface SeffPackage extends EPackage {
                 .getServiceEffectSpecification_BasicComponent_ServiceEffectSpecification();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.ResourceDemandingSEFFImpl
-         * <em>Resource Demanding SEFF</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.ResourceDemandingSEFFImpl <em>Resource
+         * Demanding SEFF</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.ResourceDemandingSEFFImpl
          * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getResourceDemandingSEFF()
@@ -3503,8 +3504,8 @@ public interface SeffPackage extends EPackage {
                 .getResourceDemandingSEFF_ResourceDemandingInternalBehaviours();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.ResourceDemandingInternalBehaviourImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.ResourceDemandingInternalBehaviourImpl
          * <em>Resource Demanding Internal Behaviour</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
@@ -3515,9 +3516,9 @@ public interface SeffPackage extends EPackage {
         EClass RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR = eINSTANCE.getResourceDemandingInternalBehaviour();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Resource Demanding SEFF Resource Demanding Internal Behaviour</b></em>' container
-         * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Resource Demanding SEFF Resource Demanding
+         * Internal Behaviour</b></em>' container reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -3525,8 +3526,8 @@ public interface SeffPackage extends EPackage {
                 .getResourceDemandingInternalBehaviour_ResourceDemandingSEFF_ResourceDemandingInternalBehaviour();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.ReleaseActionImpl <em>Release Action</em>}'
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.ReleaseActionImpl <em>Release Action</em>}'
          * class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.ReleaseActionImpl
@@ -3545,8 +3546,8 @@ public interface SeffPackage extends EPackage {
                 .getReleaseAction_PassiveResource_ReleaseAction();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.LoopActionImpl <em>Loop Action</em>}' class.
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.LoopActionImpl <em>Loop Action</em>}' class.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.LoopActionImpl
@@ -3564,8 +3565,8 @@ public interface SeffPackage extends EPackage {
         EReference LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION = eINSTANCE.getLoopAction_IterationCount_LoopAction();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.ForkActionImpl <em>Fork Action</em>}' class.
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.ForkActionImpl <em>Fork Action</em>}' class.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.ForkActionImpl
@@ -3575,9 +3576,9 @@ public interface SeffPackage extends EPackage {
         EClass FORK_ACTION = eINSTANCE.getForkAction();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Asynchronous Forked Behaviours Fork Action</b></em>' containment reference list
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Asynchronous Forked Behaviours Fork
+         * Action</b></em>' containment reference list feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -3594,9 +3595,9 @@ public interface SeffPackage extends EPackage {
                 .getForkAction_SynchronisingBehaviours_ForkAction();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.ForkedBehaviourImpl <em>Forked Behaviour</em>}
-         * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.ForkedBehaviourImpl <em>Forked
+         * Behaviour</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.ForkedBehaviourImpl
          * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getForkedBehaviour()
@@ -3623,9 +3624,9 @@ public interface SeffPackage extends EPackage {
                 .getForkedBehaviour_ForkAction_ForkedBehaivour();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.SynchronisationPointImpl
-         * <em>Synchronisation Point</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.SynchronisationPointImpl <em>Synchronisation
+         * Point</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.SynchronisationPointImpl
          * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getSynchronisationPoint()
@@ -3634,9 +3635,9 @@ public interface SeffPackage extends EPackage {
         EClass SYNCHRONISATION_POINT = eINSTANCE.getSynchronisationPoint();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Output Parameter Usage Synchronisation Point</b></em>' containment reference list
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Output Parameter Usage Synchronisation
+         * Point</b></em>' containment reference list feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -3653,9 +3654,9 @@ public interface SeffPackage extends EPackage {
                 .getSynchronisationPoint_ForkAction_SynchronisationPoint();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Synchronous Forked Behaviours Synchronisation Point</b></em>' containment
-         * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Synchronous Forked Behaviours Synchronisation
+         * Point</b></em>' containment reference list feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -3663,9 +3664,9 @@ public interface SeffPackage extends EPackage {
                 .getSynchronisationPoint_SynchronousForkedBehaviours_SynchronisationPoint();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.ExternalCallActionImpl
-         * <em>External Call Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.ExternalCallActionImpl <em>External Call
+         * Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.ExternalCallActionImpl
          * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getExternalCallAction()
@@ -3699,9 +3700,9 @@ public interface SeffPackage extends EPackage {
         EAttribute EXTERNAL_CALL_ACTION__RETRY_COUNT = eINSTANCE.getExternalCallAction_RetryCount();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.CallReturnActionImpl
-         * <em>Call Return Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.CallReturnActionImpl <em>Call Return
+         * Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.CallReturnActionImpl
          * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getCallReturnAction()
@@ -3710,8 +3711,9 @@ public interface SeffPackage extends EPackage {
         EClass CALL_RETURN_ACTION = eINSTANCE.getCallReturnAction();
 
         /**
-         * The meta object literal for the '<em><b>Return Variable Usage Call Return Action</b></em>
-         * ' containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Return Variable Usage Call Return
+         * Action</b></em>' containment reference list feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -3719,8 +3721,8 @@ public interface SeffPackage extends EPackage {
                 .getCallReturnAction_ReturnVariableUsage__CallReturnAction();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.ProbabilisticBranchTransitionImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.ProbabilisticBranchTransitionImpl
          * <em>Probabilistic Branch Transition</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
@@ -3740,8 +3742,8 @@ public interface SeffPackage extends EPackage {
                 .getProbabilisticBranchTransition_BranchProbability();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.AcquireActionImpl <em>Acquire Action</em>}'
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.AcquireActionImpl <em>Acquire Action</em>}'
          * class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.AcquireActionImpl
@@ -3777,9 +3779,8 @@ public interface SeffPackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.CollectionIteratorActionImpl
-         * <em>Collection Iterator Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc
-         * -->
+         * {@link org.palladiosimulator.pcm.seff.impl.CollectionIteratorActionImpl <em>Collection
+         * Iterator Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.CollectionIteratorActionImpl
          * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getCollectionIteratorAction()
@@ -3797,9 +3798,9 @@ public interface SeffPackage extends EPackage {
                 .getCollectionIteratorAction_Parameter_CollectionIteratorAction();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.GuardedBranchTransitionImpl
-         * <em>Guarded Branch Transition</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.GuardedBranchTransitionImpl <em>Guarded
+         * Branch Transition</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.GuardedBranchTransitionImpl
          * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getGuardedBranchTransition()
@@ -3808,9 +3809,9 @@ public interface SeffPackage extends EPackage {
         EClass GUARDED_BRANCH_TRANSITION = eINSTANCE.getGuardedBranchTransition();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Branch Condition Guarded Branch Transition</b></em>' containment reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Branch Condition Guarded Branch
+         * Transition</b></em>' containment reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -3818,9 +3819,9 @@ public interface SeffPackage extends EPackage {
                 .getGuardedBranchTransition_BranchCondition_GuardedBranchTransition();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.SetVariableActionImpl
-         * <em>Set Variable Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.SetVariableActionImpl <em>Set Variable
+         * Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.SetVariableActionImpl
          * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getSetVariableAction()
@@ -3829,9 +3830,9 @@ public interface SeffPackage extends EPackage {
         EClass SET_VARIABLE_ACTION = eINSTANCE.getSetVariableAction();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Local Variable Usages Set Variable Action</b></em>' containment reference list
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Local Variable Usages Set Variable
+         * Action</b></em>' containment reference list feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -3839,9 +3840,9 @@ public interface SeffPackage extends EPackage {
                 .getSetVariableAction_LocalVariableUsages_SetVariableAction();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.InternalCallActionImpl
-         * <em>Internal Call Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.InternalCallActionImpl <em>Internal Call
+         * Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.InternalCallActionImpl
          * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getInternalCallAction()
@@ -3850,9 +3851,8 @@ public interface SeffPackage extends EPackage {
         EClass INTERNAL_CALL_ACTION = eINSTANCE.getInternalCallAction();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Called Resource Demanding Internal Behaviour</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Called Resource Demanding Internal
+         * Behaviour</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -3860,9 +3860,9 @@ public interface SeffPackage extends EPackage {
                 .getInternalCallAction_CalledResourceDemandingInternalBehaviour();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.EmitEventActionImpl
-         * <em>Emit Event Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.EmitEventActionImpl <em>Emit Event
+         * Action</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.EmitEventActionImpl
          * @see org.palladiosimulator.pcm.seff.impl.SeffPackageImpl#getEmitEventAction()
@@ -3889,8 +3889,8 @@ public interface SeffPackage extends EPackage {
                 .getEmitEventAction_SourceRole__EmitEventAction();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.seff.impl.InternalActionImpl <em>Internal Action</em>}'
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.seff.impl.InternalActionImpl <em>Internal Action</em>}'
          * class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.seff.impl.InternalActionImpl
@@ -3900,9 +3900,9 @@ public interface SeffPackage extends EPackage {
         EClass INTERNAL_ACTION = eINSTANCE.getInternalAction();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Internal Failure Occurrence Descriptions Internal Action</b></em>' containment
-         * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Internal Failure Occurrence Descriptions Internal
+         * Action</b></em>' containment reference list feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */

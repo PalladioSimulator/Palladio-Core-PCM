@@ -17,18 +17,15 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.OperationSignature#getInterface__OperationSignature
+ * <li>{@link org.palladiosimulator.pcm.repository.OperationSignature#getInterface__OperationSignature
  * <em>Interface Operation Signature</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.OperationSignature#getParameters__OperationSignature
+ * <li>{@link org.palladiosimulator.pcm.repository.OperationSignature#getParameters__OperationSignature
  * <em>Parameters Operation Signature</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.OperationSignature#getReturnType__OperationSignature
+ * <li>{@link org.palladiosimulator.pcm.repository.OperationSignature#getReturnType__OperationSignature
  * <em>Return Type Operation Signature</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getOperationSignature()
  * @model
@@ -41,7 +38,7 @@ public interface OperationSignature extends Signature {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Interface Operation Signature</b></em>' container reference.
@@ -61,8 +58,8 @@ public interface OperationSignature extends Signature {
     OperationInterface getInterface__OperationSignature();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.OperationSignature#getInterface__OperationSignature
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.OperationSignature#getInterface__OperationSignature
      * <em>Interface Operation Signature</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -105,8 +102,8 @@ public interface OperationSignature extends Signature {
     DataType getReturnType__OperationSignature();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.OperationSignature#getReturnType__OperationSignature
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.OperationSignature#getReturnType__OperationSignature
      * <em>Return Type Operation Signature</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -124,8 +121,9 @@ public interface OperationSignature extends Signature {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.parameters__OperationSignature->isUnique(p : Parameter |\r\n\tp.parameterName\r\n)'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.parameters__OperationSignature->isUnique(p : Parameter
+     *        |\r\n\tp.parameterName\r\n)'"
      * @generated
      */
     boolean ParameterNamesHaveToBeUniqueForASignature(DiagnosticChain diagnostics, Map<Object, Object> context);

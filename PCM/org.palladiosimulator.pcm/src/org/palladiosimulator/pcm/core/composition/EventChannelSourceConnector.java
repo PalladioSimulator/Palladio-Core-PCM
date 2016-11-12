@@ -6,23 +6,20 @@ package org.palladiosimulator.pcm.core.composition;
 import org.palladiosimulator.pcm.repository.SourceRole;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Event Channel Source Connector</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Event Channel Source
+ * Connector</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getSourceRole__EventChannelSourceRole
+ * <li>{@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getSourceRole__EventChannelSourceRole
  * <em>Source Role Event Channel Source Role</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getAssemblyContext__EventChannelSourceConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getAssemblyContext__EventChannelSourceConnector
  * <em>Assembly Context Event Channel Source Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getEventChannel__EventChannelSourceConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getEventChannel__EventChannelSourceConnector
  * <em>Event Channel Event Channel Source Connector</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getEventChannelSourceConnector()
  * @model
@@ -35,7 +32,7 @@ public interface EventChannelSourceConnector extends Connector {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Source Role Event Channel Source Role</b></em>' reference.
@@ -55,8 +52,8 @@ public interface EventChannelSourceConnector extends Connector {
     SourceRole getSourceRole__EventChannelSourceRole();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getSourceRole__EventChannelSourceRole
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getSourceRole__EventChannelSourceRole
      * <em>Source Role Event Channel Source Role</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -86,8 +83,8 @@ public interface EventChannelSourceConnector extends Connector {
     AssemblyContext getAssemblyContext__EventChannelSourceConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getAssemblyContext__EventChannelSourceConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getAssemblyContext__EventChannelSourceConnector
      * <em>Assembly Context Event Channel Source Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -101,8 +98,8 @@ public interface EventChannelSourceConnector extends Connector {
 
     /**
      * Returns the value of the '<em><b>Event Channel Event Channel Source Connector</b></em>'
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannel#getEventChannelSourceConnector__EventChannel
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannel#getEventChannelSourceConnector__EventChannel
      * <em>Event Channel Source Connector Event Channel</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Event Channel Event Channel Source Connector</em>' reference isn't
@@ -120,8 +117,8 @@ public interface EventChannelSourceConnector extends Connector {
     EventChannel getEventChannel__EventChannelSourceConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getEventChannel__EventChannelSourceConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getEventChannel__EventChannelSourceConnector
      * <em>Event Channel Event Channel Source Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *

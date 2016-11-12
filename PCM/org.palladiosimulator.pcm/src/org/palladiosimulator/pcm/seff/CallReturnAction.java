@@ -16,12 +16,11 @@ import org.palladiosimulator.pcm.parameter.VariableUsage;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.CallReturnAction#getReturnVariableUsage__CallReturnAction
+ * <li>{@link org.palladiosimulator.pcm.seff.CallReturnAction#getReturnVariableUsage__CallReturnAction
  * <em>Return Variable Usage Call Return Action</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getCallReturnAction()
  * @model
@@ -34,14 +33,14 @@ public interface CallReturnAction extends CallAction {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Return Variable Usage Call Return Action</b></em>'
      * containment reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.parameter.VariableUsage}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getCallReturnAction__VariableUsage
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getCallReturnAction__VariableUsage
      * <em>Call Return Action Variable Usage</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Return Variable Usage Call Return Action</em>' containment

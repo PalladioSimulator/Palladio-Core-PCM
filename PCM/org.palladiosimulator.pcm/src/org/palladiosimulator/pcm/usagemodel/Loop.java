@@ -15,13 +15,13 @@ import org.palladiosimulator.pcm.core.PCMRandomVariable;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.usagemodel.Loop#getLoopIteration_Loop <em>Loop Iteration
  * Loop</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.usagemodel.Loop#getBodyBehaviour_Loop <em>Body Behaviour
  * Loop</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getLoop()
  * @model
@@ -34,13 +34,13 @@ public interface Loop extends AbstractUserAction {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Loop Iteration Loop</b></em>' containment reference. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getLoop_LoopIteration
-     * <em>Loop Loop Iteration</em>}'. <!-- begin-user-doc -->
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getLoop_LoopIteration <em>Loop Loop
+     * Iteration</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Loop Iteration Loop</em>' containment reference isn't clear, there
      * really should be more of a description here...
@@ -57,8 +57,7 @@ public interface Loop extends AbstractUserAction {
     PCMRandomVariable getLoopIteration_Loop();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.Loop#getLoopIteration_Loop
+     * Sets the value of the '{@link org.palladiosimulator.pcm.usagemodel.Loop#getLoopIteration_Loop
      * <em>Loop Iteration Loop</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -71,8 +70,8 @@ public interface Loop extends AbstractUserAction {
 
     /**
      * Returns the value of the '<em><b>Body Behaviour Loop</b></em>' containment reference. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getLoop_ScenarioBehaviour
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getLoop_ScenarioBehaviour
      * <em>Loop Scenario Behaviour</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Body Behaviour Loop</em>' containment reference isn't clear, there
@@ -90,8 +89,7 @@ public interface Loop extends AbstractUserAction {
     ScenarioBehaviour getBodyBehaviour_Loop();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.Loop#getBodyBehaviour_Loop
+     * Sets the value of the '{@link org.palladiosimulator.pcm.usagemodel.Loop#getBodyBehaviour_Loop
      * <em>Body Behaviour Loop</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

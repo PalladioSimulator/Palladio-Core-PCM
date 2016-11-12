@@ -27,16 +27,15 @@ import de.uka.ipd.sdq.units.UnitsPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.resourcetype.impl.ResourceTypeImpl#getUnit <em>Unit</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.resourcetype.impl.ResourceTypeImpl#getResourceProvidedRoles__ResourceInterfaceProvidingEntity
+ * <li>{@link org.palladiosimulator.pcm.resourcetype.impl.ResourceTypeImpl#getUnit
+ * <em>Unit</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.resourcetype.impl.ResourceTypeImpl#getResourceProvidedRoles__ResourceInterfaceProvidingEntity
  * <em>Resource Provided Roles Resource Interface Providing Entity</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.resourcetype.impl.ResourceTypeImpl#getResourceRepository_ResourceType
+ * <li>{@link org.palladiosimulator.pcm.resourcetype.impl.ResourceTypeImpl#getResourceRepository_ResourceType
  * <em>Resource Repository Resource Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -47,7 +46,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -75,8 +74,9 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
      */
     @Override
     public Unit getUnit() {
-        return (Unit) this.eDynamicGet(ResourcetypePackage.RESOURCE_TYPE__UNIT,
-                UnitsPackage.Literals.UNIT_CARRYING_ELEMENT__UNIT, true, true);
+        // TODO: implement this method to return the 'Unit' containment reference
+        // Ensure that you remove @generated or mark it @generated NOT
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -95,8 +95,9 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
      * @generated
      */
     public void setUnit(final Unit newUnit) {
-        this.eDynamicSet(ResourcetypePackage.RESOURCE_TYPE__UNIT, UnitsPackage.Literals.UNIT_CARRYING_ELEMENT__UNIT,
-                newUnit);
+        // TODO: implement this method to set the 'Unit' containment reference
+        // Ensure that you remove @generated or mark it @generated NOT
+        throw new UnsupportedOperationException();
     }
 
     /**
@@ -107,11 +108,10 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
     @Override
     @SuppressWarnings("unchecked")
     public EList<ResourceProvidedRole> getResourceProvidedRoles__ResourceInterfaceProvidingEntity() {
-        return (EList<ResourceProvidedRole>) this
-                .eDynamicGet(
-                        ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
-                        EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
-                        true, true);
+        return (EList<ResourceProvidedRole>) this.eDynamicGet(
+                ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
+                EntityPackage.Literals.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY,
+                true, true);
     }
 
     /**
@@ -158,12 +158,11 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
                     .getResourceProvidedRoles__ResourceInterfaceProvidingEntity())
-                    .basicAdd(otherEnd, msgs);
+                            .basicAdd(otherEnd, msgs);
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -181,13 +180,12 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ResourcetypePackage.RESOURCE_TYPE__UNIT:
             return this.basicSetUnit(null, msgs);
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
-            return ((InternalEList<?>) this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity()).basicRemove(
-                    otherEnd, msgs);
+            return ((InternalEList<?>) this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity())
+                    .basicRemove(otherEnd, msgs);
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE:
             return this.basicSetResourceRepository_ResourceType(null, msgs);
         }
@@ -201,8 +199,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE:
             return this.eInternalContainer().eInverseRemove(this,
                     ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY,
@@ -218,8 +215,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ResourcetypePackage.RESOURCE_TYPE__UNIT:
             return this.getUnit();
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
@@ -238,15 +234,14 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ResourcetypePackage.RESOURCE_TYPE__UNIT:
             this.setUnit((Unit) newValue);
             return;
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
             this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity().clear();
-            this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity().addAll(
-                    (Collection<? extends ResourceProvidedRole>) newValue);
+            this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity()
+                    .addAll((Collection<? extends ResourceProvidedRole>) newValue);
             return;
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE:
             this.setResourceRepository_ResourceType((ResourceRepository) newValue);
@@ -262,8 +257,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ResourcetypePackage.RESOURCE_TYPE__UNIT:
             this.setUnit((Unit) null);
             return;
@@ -284,8 +278,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ResourcetypePackage.RESOURCE_TYPE__UNIT:
             return this.getUnit() != null;
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
@@ -303,20 +296,16 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == UnitCarryingElement.class)
-        {
-            switch (derivedFeatureID)
-            {
+        if (baseClass == UnitCarryingElement.class) {
+            switch (derivedFeatureID) {
             case ResourcetypePackage.RESOURCE_TYPE__UNIT:
                 return UnitsPackage.UNIT_CARRYING_ELEMENT__UNIT;
             default:
                 return -1;
             }
         }
-        if (baseClass == ResourceInterfaceProvidingEntity.class)
-        {
-            switch (derivedFeatureID)
-            {
+        if (baseClass == ResourceInterfaceProvidingEntity.class) {
+            switch (derivedFeatureID) {
             case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
                 return EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY;
             default:
@@ -333,20 +322,16 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == UnitCarryingElement.class)
-        {
-            switch (baseFeatureID)
-            {
+        if (baseClass == UnitCarryingElement.class) {
+            switch (baseFeatureID) {
             case UnitsPackage.UNIT_CARRYING_ELEMENT__UNIT:
                 return ResourcetypePackage.RESOURCE_TYPE__UNIT;
             default:
                 return -1;
             }
         }
-        if (baseClass == ResourceInterfaceProvidingEntity.class)
-        {
-            switch (baseFeatureID)
-            {
+        if (baseClass == ResourceInterfaceProvidingEntity.class) {
+            switch (baseFeatureID) {
             case EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
                 return ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY;
             default:

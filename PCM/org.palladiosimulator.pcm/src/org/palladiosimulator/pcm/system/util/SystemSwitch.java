@@ -3,10 +3,9 @@
  */
 package org.palladiosimulator.pcm.system.util;
 
-import java.util.List;
-
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.Switch;
 import org.palladiosimulator.pcm.core.composition.ComposedStructure;
 import org.palladiosimulator.pcm.core.entity.ComposedProvidingRequiringEntity;
 import org.palladiosimulator.pcm.core.entity.Entity;
@@ -29,14 +28,14 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * @see org.palladiosimulator.pcm.system.SystemPackage
  * @generated
  */
-public class SystemSwitch<T> {
+public class SystemSwitch<T> extends Switch<T> {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -51,21 +50,23 @@ public class SystemSwitch<T> {
      * @generated
      */
     public SystemSwitch() {
-        if (modelPackage == null)
-        {
+        if (modelPackage == null) {
             modelPackage = SystemPackage.eINSTANCE;
         }
     }
 
     /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
-     * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Checks whether this is a switch for the given package. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
-     * @return the first non-null result returned by a <code>caseXXX</code> call.
+     * @param ePackage
+     *            the package in question.
+     * @return whether this is a switch for the given package.
      * @generated
      */
-    public T doSwitch(final EObject theEObject) {
-        return this.doSwitch(theEObject.eClass(), theEObject);
+    @Override
+    protected boolean isSwitchFor(final EPackage ePackage) {
+        return ePackage == modelPackage;
     }
 
     /**
@@ -75,30 +76,9 @@ public class SystemSwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(final EClass theEClass, final EObject theEObject) {
-        if (theEClass.eContainer() == modelPackage)
-        {
-            return this.doSwitch(theEClass.getClassifierID(), theEObject);
-        }
-        else
-        {
-            final List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ?
-                    this.defaultCase(theEObject) :
-                    this.doSwitch(eSuperTypes.get(0), theEObject);
-        }
-    }
-
-    /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
-     * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the first non-null result returned by a <code>caseXXX</code> call.
-     * @generated
-     */
+    @Override
     protected T doSwitch(final int classifierID, final EObject theEObject) {
-        switch (classifierID)
-        {
+        switch (classifierID) {
         case SystemPackage.SYSTEM: {
             final org.palladiosimulator.pcm.system.System system = (org.palladiosimulator.pcm.system.System) theEObject;
             T result = this.caseSystem(system);
@@ -200,14 +180,14 @@ public class SystemSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Composed Structure</em>
-     * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
-     * terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Composed
+     * Structure</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
+     * non-null result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Composed Structure</em>
-     *         '.
+     * @return the result of interpreting the object as an instance of '<em>Composed
+     *         Structure</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -216,14 +196,14 @@ public class SystemSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Interface Providing Entity</em>'. <!-- begin-user-doc --> This implementation returns
-     * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Interface Providing
+     * Entity</em>'. <!-- begin-user-doc --> This implementation returns null; returning a non-null
+     * result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Interface Providing Entity</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Interface Providing
+     *         Entity</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -232,14 +212,14 @@ public class SystemSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Resource Interface Requiring Entity</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Resource Interface
+     * Requiring Entity</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
+     * non-null result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Resource Interface Requiring Entity</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Resource Interface
+     *         Requiring Entity</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -248,14 +228,14 @@ public class SystemSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Interface Requiring Entity</em>'. <!-- begin-user-doc --> This implementation returns
-     * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Interface Requiring
+     * Entity</em>'. <!-- begin-user-doc --> This implementation returns null; returning a non-null
+     * result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Interface Requiring Entity</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Interface Requiring
+     *         Entity</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -264,14 +244,14 @@ public class SystemSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Interface Providing Requiring Entity</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Interface Providing
+     * Requiring Entity</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
+     * non-null result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Interface Providing Requiring Entity</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Interface Providing
+     *         Requiring Entity</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -280,14 +260,14 @@ public class SystemSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Composed Providing Requiring Entity</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Composed Providing
+     * Requiring Entity</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
+     * non-null result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Composed Providing Requiring Entity</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Composed Providing
+     *         Requiring Entity</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -306,6 +286,7 @@ public class SystemSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
+    @Override
     public T defaultCase(final EObject object) {
         return null;
     }

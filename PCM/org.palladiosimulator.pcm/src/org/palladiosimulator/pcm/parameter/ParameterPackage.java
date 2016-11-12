@@ -47,7 +47,7 @@ public interface ParameterPackage extends EPackage {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -78,9 +78,8 @@ public interface ParameterPackage extends EPackage {
     ParameterPackage eINSTANCE = org.palladiosimulator.pcm.parameter.impl.ParameterPackageImpl.init();
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.parameter.impl.VariableUsageImpl <em>Variable Usage</em>}'
-     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the '{@link org.palladiosimulator.pcm.parameter.impl.VariableUsageImpl
+     * <em>Variable Usage</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.parameter.impl.VariableUsageImpl
      * @see org.palladiosimulator.pcm.parameter.impl.ParameterPackageImpl#getVariableUsage()
@@ -143,9 +142,9 @@ public interface ParameterPackage extends EPackage {
     int VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE = 5;
 
     /**
-     * The feature id for the '
-     * <em><b>Specified Output Parameter Abstraction expected External Outputs Variable Usage</b></em>
-     * ' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Specified Output Parameter Abstraction expected External
+     * Outputs Variable Usage</b></em>' container reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
      * @generated
      * @ordered
@@ -198,9 +197,9 @@ public interface ParameterPackage extends EPackage {
     int VARIABLE_USAGE_FEATURE_COUNT = 11;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.parameter.impl.VariableCharacterisationImpl
-     * <em>Variable Characterisation</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.parameter.impl.VariableCharacterisationImpl <em>Variable
+     * Characterisation</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.parameter.impl.VariableCharacterisationImpl
      * @see org.palladiosimulator.pcm.parameter.impl.ParameterPackageImpl#getVariableCharacterisation()
@@ -245,9 +244,9 @@ public interface ParameterPackage extends EPackage {
     int VARIABLE_CHARACTERISATION_FEATURE_COUNT = 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.parameter.impl.CharacterisedVariableImpl
-     * <em>Characterised Variable</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.parameter.impl.CharacterisedVariableImpl <em>Characterised
+     * Variable</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.parameter.impl.CharacterisedVariableImpl
      * @see org.palladiosimulator.pcm.parameter.impl.ParameterPackageImpl#getCharacterisedVariable()
@@ -283,9 +282,9 @@ public interface ParameterPackage extends EPackage {
     int CHARACTERISED_VARIABLE_FEATURE_COUNT = StoexPackage.VARIABLE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.parameter.VariableCharacterisationType
-     * <em>Variable Characterisation Type</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.parameter.VariableCharacterisationType <em>Variable
+     * Characterisation Type</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.parameter.VariableCharacterisationType
      * @see org.palladiosimulator.pcm.parameter.impl.ParameterPackageImpl#getVariableCharacterisationType()
@@ -304,13 +303,13 @@ public interface ParameterPackage extends EPackage {
     EClass getVariableUsage();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getVariableCharacterisation_VariableUsage
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getVariableCharacterisation_VariableUsage
      * <em>Variable Characterisation Variable Usage</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Variable Characterisation Variable Usage</em>'.
+     * @return the meta object for the containment reference list '<em>Variable Characterisation
+     *         Variable Usage</em>'.
      * @see org.palladiosimulator.pcm.parameter.VariableUsage#getVariableCharacterisation_VariableUsage()
      * @see #getVariableUsage()
      * @generated
@@ -318,9 +317,9 @@ public interface ParameterPackage extends EPackage {
     EReference getVariableUsage_VariableCharacterisation_VariableUsage();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getUserData_VariableUsage
-     * <em>User Data Variable Usage</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getUserData_VariableUsage <em>User
+     * Data Variable Usage</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>User Data Variable Usage</em>'.
      * @see org.palladiosimulator.pcm.parameter.VariableUsage#getUserData_VariableUsage()
@@ -330,8 +329,8 @@ public interface ParameterPackage extends EPackage {
     EReference getVariableUsage_UserData_VariableUsage();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getCallAction__VariableUsage
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getCallAction__VariableUsage
      * <em>Call Action Variable Usage</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Call Action Variable Usage</em>'.
@@ -347,8 +346,8 @@ public interface ParameterPackage extends EPackage {
      * <em>Synchronisation Point Variable Usage</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Synchronisation Point Variable Usage</em>'.
+     * @return the meta object for the container reference ' <em>Synchronisation Point Variable
+     *         Usage</em>'.
      * @see org.palladiosimulator.pcm.parameter.VariableUsage#getSynchronisationPoint_VariableUsage()
      * @see #getVariableUsage()
      * @generated
@@ -356,12 +355,12 @@ public interface ParameterPackage extends EPackage {
     EReference getVariableUsage_SynchronisationPoint_VariableUsage();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getCallReturnAction__VariableUsage
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getCallReturnAction__VariableUsage
      * <em>Call Return Action Variable Usage</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Call Return Action Variable Usage</em>'.
+     * @return the meta object for the container reference '<em>Call Return Action Variable
+     *         Usage</em>'.
      * @see org.palladiosimulator.pcm.parameter.VariableUsage#getCallReturnAction__VariableUsage()
      * @see #getVariableUsage()
      * @generated
@@ -369,12 +368,12 @@ public interface ParameterPackage extends EPackage {
     EReference getVariableUsage_CallReturnAction__VariableUsage();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getSetVariableAction_VariableUsage
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getSetVariableAction_VariableUsage
      * <em>Set Variable Action Variable Usage</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Set Variable Action Variable Usage</em>'.
+     * @return the meta object for the container reference '<em>Set Variable Action Variable
+     *         Usage</em>'.
      * @see org.palladiosimulator.pcm.parameter.VariableUsage#getSetVariableAction_VariableUsage()
      * @see #getVariableUsage()
      * @generated
@@ -382,14 +381,13 @@ public interface ParameterPackage extends EPackage {
     EReference getVariableUsage_SetVariableAction_VariableUsage();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage
      * <em>Specified Output Parameter Abstraction expected External Outputs Variable Usage</em>}'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Specified Output Parameter Abstraction expected External Outputs Variable Usage</em>
-     *         '.
+     * @return the meta object for the container reference '<em>Specified Output Parameter
+     *         Abstraction expected External Outputs Variable Usage</em>'.
      * @see org.palladiosimulator.pcm.parameter.VariableUsage#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage()
      * @see #getVariableUsage()
      * @generated
@@ -397,12 +395,12 @@ public interface ParameterPackage extends EPackage {
     EReference getVariableUsage_SpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getAssemblyContext__VariableUsage
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getAssemblyContext__VariableUsage
      * <em>Assembly Context Variable Usage</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '<em>Assembly Context Variable Usage</em>
-     *         '.
+     * @return the meta object for the container reference '<em>Assembly Context Variable
+     *         Usage</em>'.
      * @see org.palladiosimulator.pcm.parameter.VariableUsage#getAssemblyContext__VariableUsage()
      * @see #getVariableUsage()
      * @generated
@@ -410,13 +408,13 @@ public interface ParameterPackage extends EPackage {
     EReference getVariableUsage_AssemblyContext__VariableUsage();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getEntryLevelSystemCall_InputParameterUsage
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getEntryLevelSystemCall_InputParameterUsage
      * <em>Entry Level System Call Input Parameter Usage</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Entry Level System Call Input Parameter Usage</em>'.
+     * @return the meta object for the container reference '<em>Entry Level System Call Input
+     *         Parameter Usage</em>'.
      * @see org.palladiosimulator.pcm.parameter.VariableUsage#getEntryLevelSystemCall_InputParameterUsage()
      * @see #getVariableUsage()
      * @generated
@@ -424,13 +422,13 @@ public interface ParameterPackage extends EPackage {
     EReference getVariableUsage_EntryLevelSystemCall_InputParameterUsage();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getEntryLevelSystemCall_OutputParameterUsage
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getEntryLevelSystemCall_OutputParameterUsage
      * <em>Entry Level System Call Output Parameter Usage</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Entry Level System Call Output Parameter Usage</em>'.
+     * @return the meta object for the container reference '<em>Entry Level System Call Output
+     *         Parameter Usage</em>'.
      * @see org.palladiosimulator.pcm.parameter.VariableUsage#getEntryLevelSystemCall_OutputParameterUsage()
      * @see #getVariableUsage()
      * @generated
@@ -438,12 +436,12 @@ public interface ParameterPackage extends EPackage {
     EReference getVariableUsage_EntryLevelSystemCall_OutputParameterUsage();
 
     /**
-     * Returns the meta object for the containment reference '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getNamedReference__VariableUsage
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getNamedReference__VariableUsage
      * <em>Named Reference Variable Usage</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference '
-     *         <em>Named Reference Variable Usage</em>'.
+     * @return the meta object for the containment reference '<em>Named Reference Variable
+     *         Usage</em>'.
      * @see org.palladiosimulator.pcm.parameter.VariableUsage#getNamedReference__VariableUsage()
      * @see #getVariableUsage()
      * @generated
@@ -451,9 +449,9 @@ public interface ParameterPackage extends EPackage {
     EReference getVariableUsage_NamedReference__VariableUsage();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.parameter.VariableCharacterisation
-     * <em>Variable Characterisation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.parameter.VariableCharacterisation <em>Variable
+     * Characterisation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Variable Characterisation</em>'.
      * @see org.palladiosimulator.pcm.parameter.VariableCharacterisation
@@ -462,8 +460,8 @@ public interface ParameterPackage extends EPackage {
     EClass getVariableCharacterisation();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getType <em>Type</em>}'.
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getType <em>Type</em>}'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Type</em>'.
@@ -479,8 +477,8 @@ public interface ParameterPackage extends EPackage {
      * <em>Specification Variable Characterisation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @return the meta object for the containment reference '
-     *         <em>Specification Variable Characterisation</em>'.
+     * @return the meta object for the containment reference ' <em>Specification Variable
+     *         Characterisation</em>'.
      * @see org.palladiosimulator.pcm.parameter.VariableCharacterisation#getSpecification_VariableCharacterisation()
      * @see #getVariableCharacterisation()
      * @generated
@@ -488,13 +486,13 @@ public interface ParameterPackage extends EPackage {
     EReference getVariableCharacterisation_Specification_VariableCharacterisation();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getVariableUsage_VariableCharacterisation
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getVariableUsage_VariableCharacterisation
      * <em>Variable Usage Variable Characterisation</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Variable Usage Variable Characterisation</em>'.
+     * @return the meta object for the container reference '<em>Variable Usage Variable
+     *         Characterisation</em>'.
      * @see org.palladiosimulator.pcm.parameter.VariableCharacterisation#getVariableUsage_VariableCharacterisation()
      * @see #getVariableCharacterisation()
      * @generated
@@ -502,9 +500,9 @@ public interface ParameterPackage extends EPackage {
     EReference getVariableCharacterisation_VariableUsage_VariableCharacterisation();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.parameter.CharacterisedVariable
-     * <em>Characterised Variable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.parameter.CharacterisedVariable <em>Characterised
+     * Variable</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Characterised Variable</em>'.
      * @see org.palladiosimulator.pcm.parameter.CharacterisedVariable
@@ -513,8 +511,8 @@ public interface ParameterPackage extends EPackage {
     EClass getCharacterisedVariable();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.palladiosimulator.pcm.parameter.CharacterisedVariable#getCharacterisationType
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.pcm.parameter.CharacterisedVariable#getCharacterisationType
      * <em>Characterisation Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Characterisation Type</em>'.
@@ -525,9 +523,9 @@ public interface ParameterPackage extends EPackage {
     EAttribute getCharacterisedVariable_CharacterisationType();
 
     /**
-     * Returns the meta object for enum '
-     * {@link org.palladiosimulator.pcm.parameter.VariableCharacterisationType
-     * <em>Variable Characterisation Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for enum
+     * '{@link org.palladiosimulator.pcm.parameter.VariableCharacterisationType <em>Variable
+     * Characterisation Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for enum '<em>Variable Characterisation Type</em>'.
      * @see org.palladiosimulator.pcm.parameter.VariableCharacterisationType
@@ -559,9 +557,9 @@ public interface ParameterPackage extends EPackage {
     interface Literals {
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.parameter.impl.VariableUsageImpl
-         * <em>Variable Usage</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.parameter.impl.VariableUsageImpl <em>Variable
+         * Usage</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.parameter.impl.VariableUsageImpl
          * @see org.palladiosimulator.pcm.parameter.impl.ParameterPackageImpl#getVariableUsage()
@@ -570,8 +568,9 @@ public interface ParameterPackage extends EPackage {
         EClass VARIABLE_USAGE = eINSTANCE.getVariableUsage();
 
         /**
-         * The meta object literal for the '<em><b>Variable Characterisation Variable Usage</b></em>
-         * ' containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Variable Characterisation Variable
+         * Usage</b></em>' containment reference list feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -622,9 +621,9 @@ public interface ParameterPackage extends EPackage {
                 .getVariableUsage_SetVariableAction_VariableUsage();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Specified Output Parameter Abstraction expected External Outputs Variable Usage</b></em>
-         * ' container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Specified Output Parameter Abstraction expected
+         * External Outputs Variable Usage</b></em>' container reference feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -641,9 +640,9 @@ public interface ParameterPackage extends EPackage {
                 .getVariableUsage_AssemblyContext__VariableUsage();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Entry Level System Call Input Parameter Usage</b></em>' container reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Entry Level System Call Input Parameter
+         * Usage</b></em>' container reference feature. <!-- begin-user-doc --> <!-- end-user-doc
+         * -->
          *
          * @generated
          */
@@ -651,9 +650,9 @@ public interface ParameterPackage extends EPackage {
                 .getVariableUsage_EntryLevelSystemCall_InputParameterUsage();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Entry Level System Call Output Parameter Usage</b></em>' container reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Entry Level System Call Output Parameter
+         * Usage</b></em>' container reference feature. <!-- begin-user-doc --> <!-- end-user-doc
+         * -->
          *
          * @generated
          */
@@ -670,8 +669,8 @@ public interface ParameterPackage extends EPackage {
                 .getVariableUsage_NamedReference__VariableUsage();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.parameter.impl.VariableCharacterisationImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.parameter.impl.VariableCharacterisationImpl
          * <em>Variable Characterisation</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.parameter.impl.VariableCharacterisationImpl
@@ -698,8 +697,9 @@ public interface ParameterPackage extends EPackage {
                 .getVariableCharacterisation_Specification_VariableCharacterisation();
 
         /**
-         * The meta object literal for the '<em><b>Variable Usage Variable Characterisation</b></em>
-         * ' container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Variable Usage Variable
+         * Characterisation</b></em>' container reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -707,8 +707,8 @@ public interface ParameterPackage extends EPackage {
                 .getVariableCharacterisation_VariableUsage_VariableCharacterisation();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.parameter.impl.CharacterisedVariableImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.parameter.impl.CharacterisedVariableImpl
          * <em>Characterised Variable</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.parameter.impl.CharacterisedVariableImpl
@@ -728,9 +728,8 @@ public interface ParameterPackage extends EPackage {
 
         /**
          * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.parameter.VariableCharacterisationType
-         * <em>Variable Characterisation Type</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc
-         * -->
+         * {@link org.palladiosimulator.pcm.parameter.VariableCharacterisationType <em>Variable
+         * Characterisation Type</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.parameter.VariableCharacterisationType
          * @see org.palladiosimulator.pcm.parameter.impl.ParameterPackageImpl#getVariableCharacterisationType()

@@ -31,28 +31,23 @@ import org.palladiosimulator.pcm.seff.seff_reliability.util.SeffReliabilityValid
 import org.palladiosimulator.pcm.seff.util.SeffValidator;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Recovery Action Behaviour</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Recovery Action
+ * Behaviour</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl#getAbstractLoopAction_ResourceDemandingBehaviour
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl#getAbstractLoopAction_ResourceDemandingBehaviour
  * <em>Abstract Loop Action Resource Demanding Behaviour</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl#getAbstractBranchTransition_ResourceDemandingBehaviour
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl#getAbstractBranchTransition_ResourceDemandingBehaviour
  * <em>Abstract Branch Transition Resource Demanding Behaviour</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl#getSteps_Behaviour
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl#getSteps_Behaviour
  * <em>Steps Behaviour</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl#getFailureHandlingAlternatives__RecoveryActionBehaviour
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl#getFailureHandlingAlternatives__RecoveryActionBehaviour
  * <em>Failure Handling Alternatives Recovery Action Behaviour</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl#getRecoveryAction__RecoveryActionBehaviour
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_reliability.impl.RecoveryActionBehaviourImpl#getRecoveryAction__RecoveryActionBehaviour
  * <em>Recovery Action Recovery Action Behaviour</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -63,7 +58,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -131,11 +126,10 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      */
     @Override
     public AbstractBranchTransition getAbstractBranchTransition_ResourceDemandingBehaviour() {
-        return (AbstractBranchTransition) this
-                .eDynamicGet(
-                        SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
-                        SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
-                        true, true);
+        return (AbstractBranchTransition) this.eDynamicGet(
+                SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
+                SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
+                true, true);
     }
 
     /**
@@ -146,11 +140,9 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     public NotificationChain basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
             final AbstractBranchTransition newAbstractBranchTransition_ResourceDemandingBehaviour,
             NotificationChain msgs) {
-        msgs = this
-                .eBasicSetContainer(
-                        (InternalEObject) newAbstractBranchTransition_ResourceDemandingBehaviour,
-                        SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
-                        msgs);
+        msgs = this.eBasicSetContainer((InternalEObject) newAbstractBranchTransition_ResourceDemandingBehaviour,
+                SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR,
+                msgs);
         return msgs;
     }
 
@@ -189,11 +181,10 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     @Override
     @SuppressWarnings("unchecked")
     public EList<RecoveryActionBehaviour> getFailureHandlingAlternatives__RecoveryActionBehaviour() {
-        return (EList<RecoveryActionBehaviour>) this
-                .eDynamicGet(
-                        SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR,
-                        SeffReliabilityPackage.Literals.RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR,
-                        true, true);
+        return (EList<RecoveryActionBehaviour>) this.eDynamicGet(
+                SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR,
+                SeffReliabilityPackage.Literals.RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR,
+                true, true);
     }
 
     /**
@@ -235,8 +226,8 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     }
 
     /**
-     * The cached OCL expression body for the '
-     * {@link #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL expression body for the
+     * '{@link #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Stop Action</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
@@ -245,8 +236,8 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      */
     protected static final String EXACTLY_ONE_STOP_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() = 1";
     /**
-     * The cached OCL invariant for the '
-     * {@link #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL invariant for the
+     * '{@link #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Stop Action</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -263,31 +254,24 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      */
     @Override
     public boolean ExactlyOneStopAction(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (EXACTLY_ONE_STOP_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (EXACTLY_ONE_STOP_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR);
-            try
-            {
+            try {
                 EXACTLY_ONE_STOP_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(EXACTLY_ONE_STOP_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(EXACTLY_ONE_STOP_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics.add
-                        (new BasicDiagnostic
-                        (Diagnostic.ERROR,
-                                SeffValidator.DIAGNOSTIC_SOURCE,
-                                SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EXACTLY_ONE_STOP_ACTION,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "ExactlyOneStopAction", EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+        if (!EOCL_ENV.createQuery(EXACTLY_ONE_STOP_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        SeffValidator.DIAGNOSTIC_SOURCE,
+                        SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EXACTLY_ONE_STOP_ACTION,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                "ExactlyOneStopAction", EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -295,8 +279,8 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     }
 
     /**
-     * The cached OCL expression body for the '
-     * {@link #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL expression body for the
+     * '{@link #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Start Action</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
@@ -305,8 +289,8 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      */
     protected static final String EXACTLY_ONE_START_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.steps_Behaviour->select(s|s.oclIsTypeOf(StartAction))->size() = 1";
     /**
-     * The cached OCL invariant for the '
-     * {@link #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL invariant for the
+     * '{@link #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Start Action</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -323,31 +307,24 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      */
     @Override
     public boolean ExactlyOneStartAction(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (EXACTLY_ONE_START_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (EXACTLY_ONE_START_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR);
-            try
-            {
+            try {
                 EXACTLY_ONE_START_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(EXACTLY_ONE_START_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(EXACTLY_ONE_START_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics.add
-                        (new BasicDiagnostic
-                        (Diagnostic.ERROR,
-                                SeffValidator.DIAGNOSTIC_SOURCE,
-                                SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EXACTLY_ONE_START_ACTION,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "ExactlyOneStartAction", EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+        if (!EOCL_ENV.createQuery(EXACTLY_ONE_START_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        SeffValidator.DIAGNOSTIC_SOURCE,
+                        SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EXACTLY_ONE_START_ACTION,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                "ExactlyOneStartAction", EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -355,10 +332,10 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     }
 
     /**
-     * The cached OCL expression body for the '
-     * {@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor</em>}
-     * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the
+     * '{@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And
+     * Successor</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
@@ -367,10 +344,10 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      */
     protected static final String EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined()) and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined())";
     /**
-     * The cached OCL invariant for the '
-     * {@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor</em>}
-     * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL invariant for the
+     * '{@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And
+     * Successor</em>}' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
@@ -387,37 +364,30 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     @Override
     public boolean EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR);
-            try
-            {
+            try {
                 EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV
                 .createQuery(
                         EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                SeffValidator.DIAGNOSTIC_SOURCE,
-                                SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        SeffValidator.DIAGNOSTIC_SOURCE,
+                        SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] {
                                         "EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor",
                                         EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                        new Object[] { this }));
             }
             return false;
         }
@@ -425,8 +395,8 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     }
 
     /**
-     * The cached OCL expression body for the '
-     * {@link #RecoveryActionBehaviourHasOnlyOnePredecessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL expression body for the
+     * '{@link #RecoveryActionBehaviourHasOnlyOnePredecessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Recovery Action Behaviour Has Only One Predecessor</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -460,36 +430,27 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     @Override
     public boolean RecoveryActionBehaviourHasOnlyOnePredecessor(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (RECOVERY_ACTION_BEHAVIOUR_HAS_ONLY_ONE_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (RECOVERY_ACTION_BEHAVIOUR_HAS_ONLY_ONE_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffReliabilityPackage.Literals.RECOVERY_ACTION_BEHAVIOUR);
-            try
-            {
+            try {
                 RECOVERY_ACTION_BEHAVIOUR_HAS_ONLY_ONE_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(RECOVERY_ACTION_BEHAVIOUR_HAS_ONLY_ONE_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                RECOVERY_ACTION_BEHAVIOUR_HAS_ONLY_ONE_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV.createQuery(RECOVERY_ACTION_BEHAVIOUR_HAS_ONLY_ONE_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                SeffReliabilityValidator.DIAGNOSTIC_SOURCE,
-                                SeffReliabilityValidator.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_BEHAVIOUR_HAS_ONLY_ONE_PREDECESSOR,
-                                EcorePlugin.INSTANCE.getString(
-                                        "_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "RecoveryActionBehaviourHasOnlyOnePredecessor",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        SeffReliabilityValidator.DIAGNOSTIC_SOURCE,
+                        SeffReliabilityValidator.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_BEHAVIOUR_HAS_ONLY_ONE_PREDECESSOR,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "RecoveryActionBehaviourHasOnlyOnePredecessor",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -529,35 +490,27 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     @Override
     public boolean RecoveryActionBehaviourIsNotSuccessorOfItself(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (RECOVERY_ACTION_BEHAVIOUR_IS_NOT_SUCCESSOR_OF_ITSELF__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (RECOVERY_ACTION_BEHAVIOUR_IS_NOT_SUCCESSOR_OF_ITSELF__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffReliabilityPackage.Literals.RECOVERY_ACTION_BEHAVIOUR);
-            try
-            {
+            try {
                 RECOVERY_ACTION_BEHAVIOUR_IS_NOT_SUCCESSOR_OF_ITSELF__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(RECOVERY_ACTION_BEHAVIOUR_IS_NOT_SUCCESSOR_OF_ITSELF__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                RECOVERY_ACTION_BEHAVIOUR_IS_NOT_SUCCESSOR_OF_ITSELF__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV.createQuery(RECOVERY_ACTION_BEHAVIOUR_IS_NOT_SUCCESSOR_OF_ITSELF__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                SeffReliabilityValidator.DIAGNOSTIC_SOURCE,
-                                SeffReliabilityValidator.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_BEHAVIOUR_IS_NOT_SUCCESSOR_OF_ITSELF,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "RecoveryActionBehaviourIsNotSuccessorOfItself",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        SeffReliabilityValidator.DIAGNOSTIC_SOURCE,
+                        SeffReliabilityValidator.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_BEHAVIOUR_IS_NOT_SUCCESSOR_OF_ITSELF,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "RecoveryActionBehaviourIsNotSuccessorOfItself",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -565,8 +518,8 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     }
 
     /**
-     * The cached OCL expression body for the '
-     * {@link #SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL expression body for the
+     * '{@link #SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Successors Of Recovery Action Behaviour Handle Disjoint Failure Types</em>}' operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -576,12 +529,12 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      * @ordered
      */
     protected static final String SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "not self.failureHandlingAlternatives__RecoveryActionBehaviour->\n"
-            + "	exists(x,y:RecoveryActionBehaviour | x<>y and\n"
-            + "	x.failureTypes_FailureHandlingEntity->\n"
-            + "		exists(f:pcm::reliability::FailureType |\n" + "		y.failureTypes_FailureHandlingEntity->includes(f)))";
+            + "	exists(x,y:RecoveryActionBehaviour | x<>y and\n" + "	x.failureTypes_FailureHandlingEntity->\n"
+            + "		exists(f:pcm::reliability::FailureType |\n"
+            + "		y.failureTypes_FailureHandlingEntity->includes(f)))";
     /**
-     * The cached OCL invariant for the '
-     * {@link #SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL invariant for the
+     * '{@link #SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Successors Of Recovery Action Behaviour Handle Disjoint Failure Types</em>}' invariant
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -600,36 +553,29 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     @Override
     public boolean SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffReliabilityPackage.Literals.RECOVERY_ACTION_BEHAVIOUR);
-            try
-            {
+            try {
                 SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(
-                SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                SeffReliabilityValidator.DIAGNOSTIC_SOURCE,
-                                SeffReliabilityValidator.RECOVERY_ACTION_BEHAVIOUR__SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes",
+        if (!EOCL_ENV
+                .createQuery(
+                        SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        SeffReliabilityValidator.DIAGNOSTIC_SOURCE,
+                        SeffReliabilityValidator.RECOVERY_ACTION_BEHAVIOUR__SUCCESSORS_OF_RECOVERY_ACTION_BEHAVIOUR_HANDLE_DISJOINT_FAILURE_TYPES,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes",
                                         EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                        new Object[] { this }));
             }
             return false;
         }
@@ -644,8 +590,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -655,8 +600,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
             }
-            return this.basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
-                    (AbstractBranchTransition) otherEnd,
+            return this.basicSetAbstractBranchTransition_ResourceDemandingBehaviour((AbstractBranchTransition) otherEnd,
                     msgs);
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__STEPS_BEHAVIOUR:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getSteps_Behaviour()).basicAdd(otherEnd,
@@ -678,8 +622,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
             return this.basicSetAbstractLoopAction_ResourceDemandingBehaviour(null, msgs);
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
@@ -699,11 +642,9 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
-            return this.eInternalContainer().eInverseRemove(this,
-                    SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP,
+            return this.eInternalContainer().eInverseRemove(this, SeffPackage.ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP,
                     AbstractLoopAction.class, msgs);
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
             return this.eInternalContainer().eInverseRemove(this,
@@ -724,8 +665,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
             return this.getAbstractLoopAction_ResourceDemandingBehaviour();
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
@@ -748,8 +688,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
             this.setAbstractLoopAction_ResourceDemandingBehaviour((AbstractLoopAction) newValue);
             return;
@@ -762,8 +701,8 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
             return;
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__FAILURE_HANDLING_ALTERNATIVES_RECOVERY_ACTION_BEHAVIOUR:
             this.getFailureHandlingAlternatives__RecoveryActionBehaviour().clear();
-            this.getFailureHandlingAlternatives__RecoveryActionBehaviour().addAll(
-                    (Collection<? extends RecoveryActionBehaviour>) newValue);
+            this.getFailureHandlingAlternatives__RecoveryActionBehaviour()
+                    .addAll((Collection<? extends RecoveryActionBehaviour>) newValue);
             return;
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR:
             this.setRecoveryAction__RecoveryActionBehaviour((RecoveryAction) newValue);
@@ -779,8 +718,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
             this.setAbstractLoopAction_ResourceDemandingBehaviour((AbstractLoopAction) null);
             return;
@@ -807,8 +745,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
             return this.getAbstractLoopAction_ResourceDemandingBehaviour() != null;
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
@@ -830,10 +767,8 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == ResourceDemandingBehaviour.class)
-        {
-            switch (derivedFeatureID)
-            {
+        if (baseClass == ResourceDemandingBehaviour.class) {
+            switch (derivedFeatureID) {
             case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
                 return SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR;
             case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:
@@ -854,10 +789,8 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == ResourceDemandingBehaviour.class)
-        {
-            switch (baseFeatureID)
-            {
+        if (baseClass == ResourceDemandingBehaviour.class) {
+            switch (baseFeatureID) {
             case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR:
                 return SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR;
             case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR:

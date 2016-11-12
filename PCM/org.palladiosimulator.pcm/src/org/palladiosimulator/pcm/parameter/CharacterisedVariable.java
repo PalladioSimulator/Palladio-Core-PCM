@@ -6,8 +6,8 @@ package org.palladiosimulator.pcm.parameter;
 import de.uka.ipd.sdq.stoex.Variable;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Characterised Variable</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Characterised
+ * Variable</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> A characterised variable is a special variable which contains a
  * performance abstraction of a data type. It can be transformed in a named reference and a variable
@@ -16,11 +16,11 @@ import de.uka.ipd.sdq.stoex.Variable;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.palladiosimulator.pcm.parameter.CharacterisedVariable#getCharacterisationType <em>
- * Characterisation Type</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcm.parameter.CharacterisedVariable#getCharacterisationType
+ * <em>Characterisation Type</em>}</li>
+ * </ul>
  *
  * @see org.palladiosimulator.pcm.parameter.ParameterPackage#getCharacterisedVariable()
  * @model
@@ -33,7 +33,7 @@ public interface CharacterisedVariable extends Variable {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Characterisation Type</b></em>' attribute. The literals are
@@ -53,8 +53,8 @@ public interface CharacterisedVariable extends Variable {
     VariableCharacterisationType getCharacterisationType();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.parameter.CharacterisedVariable#getCharacterisationType
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.parameter.CharacterisedVariable#getCharacterisationType
      * <em>Characterisation Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value

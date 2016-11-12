@@ -17,15 +17,13 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.impl.InnerDeclarationImpl#getDatatype_InnerDeclaration
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.InnerDeclarationImpl#getDatatype_InnerDeclaration
  * <em>Datatype Inner Declaration</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.impl.InnerDeclarationImpl#getCompositeDataType_InnerDeclaration
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.InnerDeclarationImpl#getCompositeDataType_InnerDeclaration
  * <em>Composite Data Type Inner Declaration</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -36,7 +34,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -132,8 +130,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INNER_DECLARATION__COMPOSITE_DATA_TYPE_INNER_DECLARATION:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -151,8 +148,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INNER_DECLARATION__COMPOSITE_DATA_TYPE_INNER_DECLARATION:
             return this.basicSetCompositeDataType_InnerDeclaration(null, msgs);
         }
@@ -166,8 +162,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case RepositoryPackage.INNER_DECLARATION__COMPOSITE_DATA_TYPE_INNER_DECLARATION:
             return this.eInternalContainer().eInverseRemove(this,
                     RepositoryPackage.COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE,
@@ -183,8 +178,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INNER_DECLARATION__DATATYPE_INNER_DECLARATION:
             if (resolve) {
                 return this.getDatatype_InnerDeclaration();
@@ -203,8 +197,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INNER_DECLARATION__DATATYPE_INNER_DECLARATION:
             this.setDatatype_InnerDeclaration((DataType) newValue);
             return;
@@ -222,8 +215,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INNER_DECLARATION__DATATYPE_INNER_DECLARATION:
             this.setDatatype_InnerDeclaration((DataType) null);
             return;
@@ -241,8 +233,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INNER_DECLARATION__DATATYPE_INNER_DECLARATION:
             return this.basicGetDatatype_InnerDeclaration() != null;
         case RepositoryPackage.INNER_DECLARATION__COMPOSITE_DATA_TYPE_INNER_DECLARATION:

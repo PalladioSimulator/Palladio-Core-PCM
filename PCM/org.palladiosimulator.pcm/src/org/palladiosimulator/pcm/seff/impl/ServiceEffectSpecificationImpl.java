@@ -25,21 +25,19 @@ import org.palladiosimulator.pcm.seff.ServiceEffectSpecification;
 import org.palladiosimulator.pcm.seff.util.SeffValidator;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Service Effect Specification</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Service Effect
+ * Specification</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.seff.impl.ServiceEffectSpecificationImpl#getSeffTypeID <em>
- * Seff Type ID</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.impl.ServiceEffectSpecificationImpl#getDescribedService__SEFF
+ * <li>{@link org.palladiosimulator.pcm.seff.impl.ServiceEffectSpecificationImpl#getSeffTypeID
+ * <em>Seff Type ID</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.impl.ServiceEffectSpecificationImpl#getDescribedService__SEFF
  * <em>Described Service SEFF</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.impl.ServiceEffectSpecificationImpl#getBasicComponent_ServiceEffectSpecification
+ * <li>{@link org.palladiosimulator.pcm.seff.impl.ServiceEffectSpecificationImpl#getBasicComponent_ServiceEffectSpecification
  * <em>Basic Component Service Effect Specification</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -50,7 +48,7 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The default value of the '{@link #getSeffTypeID() <em>Seff Type ID</em>}' attribute. <!--
@@ -184,8 +182,8 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
     }
 
     /**
-     * The cached OCL expression body for the '
-     * {@link #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL expression body for the
+     * '{@link #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Referenced Signature Must Belong To Interface Referenced By Provided Role</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -196,14 +194,13 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
      */
     protected static final String REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "if self.describedService__SEFF.oclIsKindOf(pcm::repository::OperationSignature) then\n"
             + "	self.basicComponent_ServiceEffectSpecification.providedRoles_InterfaceProvidingEntity->exists(p | p.oclIsKindOf(pcm::repository::OperationProvidedRole) and (p.oclAsType(pcm::repository::OperationProvidedRole).providedInterface__OperationProvidedRole = self.describedService__SEFF.oclAsType(pcm::repository::OperationSignature).interface__OperationSignature))\n"
-            + "else\n"
-            + "	if self.describedService__SEFF.oclIsKindOf(pcm::repository::EventType) then\n"
+            + "else\n" + "	if self.describedService__SEFF.oclIsKindOf(pcm::repository::EventType) then\n"
             + "		self.basicComponent_ServiceEffectSpecification.providedRoles_InterfaceProvidingEntity->exists(p | p.oclIsKindOf(pcm::repository::SinkRole) and (p.oclAsType(pcm::repository::SinkRole).eventGroup__SinkRole = self.describedService__SEFF.oclAsType(pcm::repository::EventType).eventGroup__EventType))\n"
             + "	else\n" + "		true\n" + "	endif\n" + "endif";
 
     /**
-     * The cached OCL invariant for the '
-     * {@link #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL invariant for the
+     * '{@link #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Referenced Signature Must Belong To Interface Referenced By Provided Role</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -222,37 +219,29 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
     @Override
     public boolean ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION);
-            try
-            {
+            try {
                 REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV
                 .createQuery(
                         REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                SeffValidator.DIAGNOSTIC_SOURCE,
-                                SeffValidator.SERVICE_EFFECT_SPECIFICATION__REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole",
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        SeffValidator.DIAGNOSTIC_SOURCE,
+                        SeffValidator.SERVICE_EFFECT_SPECIFICATION__REFERENCED_SIGNATURE_MUST_BELONG_TO_INTERFACE_REFERENCED_BY_PROVIDED_ROLE,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole",
                                         EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                        new Object[] { this }));
             }
             return false;
         }
@@ -266,8 +255,7 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -285,8 +273,7 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION:
             return this.basicSetBasicComponent_ServiceEffectSpecification(null, msgs);
         }
@@ -300,8 +287,7 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION:
             return this.eInternalContainer().eInverseRemove(this,
                     RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT,
@@ -317,8 +303,7 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID:
             return this.getSeffTypeID();
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF:
@@ -339,8 +324,7 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID:
             this.setSeffTypeID((String) newValue);
             return;
@@ -361,8 +345,7 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID:
             this.setSeffTypeID(SEFF_TYPE_ID_EDEFAULT);
             return;
@@ -383,11 +366,10 @@ public abstract class ServiceEffectSpecificationImpl extends CDOObjectImpl imple
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID:
-            return SEFF_TYPE_ID_EDEFAULT == null ? this.getSeffTypeID() != null : !SEFF_TYPE_ID_EDEFAULT
-                    .equals(this.getSeffTypeID());
+            return SEFF_TYPE_ID_EDEFAULT == null ? this.getSeffTypeID() != null
+                    : !SEFF_TYPE_ID_EDEFAULT.equals(this.getSeffTypeID());
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF:
             return this.basicGetDescribedService__SEFF() != null;
         case SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION:

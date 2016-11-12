@@ -95,7 +95,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -331,9 +331,9 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         }
 
         // Obtain or create and register package
-        final SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE
-                .get(eNS_URI)
-                : new SeffPackageImpl());
+        final SeffPackageImpl theSeffPackage = (SeffPackageImpl) (EPackage.Registry.INSTANCE
+                .get(eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
+                        : new SeffPackageImpl());
 
         isInited = true;
 
@@ -343,69 +343,76 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
         // Obtain or create and register interdependencies
         final PcmPackageImpl thePcmPackage = (PcmPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(PcmPackage.eNS_URI) : PcmPackage.eINSTANCE);
+                .getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(PcmPackage.eNS_URI) : PcmPackage.eINSTANCE);
         final CorePackageImpl theCorePackage = (CorePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl ? EPackage.Registry.INSTANCE
-                        .getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
+                .getEPackage(CorePackage.eNS_URI) instanceof CorePackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI) : CorePackage.eINSTANCE);
         final EntityPackageImpl theEntityPackage = (EntityPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
+                .getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
         final CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
+                .getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI)
+                        : CompositionPackage.eINSTANCE);
         final UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
+                .getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI)
+                        : UsagemodelPackage.eINSTANCE);
         final RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
+                .getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI)
+                        : RepositoryPackage.eINSTANCE);
         final ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(ResourcetypePackage.eNS_URI)
+                .getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI)
                         : ResourcetypePackage.eINSTANCE);
         final ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
+                .getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
         final ParameterPackageImpl theParameterPackage = (ParameterPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
+                .getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI)
+                        : ParameterPackage.eINSTANCE);
         final ReliabilityPackageImpl theReliabilityPackage = (ReliabilityPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(ReliabilityPackage.eNS_URI) : ReliabilityPackage.eINSTANCE);
+                .getEPackage(ReliabilityPackage.eNS_URI) instanceof ReliabilityPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(ReliabilityPackage.eNS_URI)
+                        : ReliabilityPackage.eINSTANCE);
         final SeffPerformancePackageImpl theSeffPerformancePackage = (SeffPerformancePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(SeffPerformancePackage.eNS_URI)
+                .getEPackage(SeffPerformancePackage.eNS_URI) instanceof SeffPerformancePackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(SeffPerformancePackage.eNS_URI)
                         : SeffPerformancePackage.eINSTANCE);
         final SeffReliabilityPackageImpl theSeffReliabilityPackage = (SeffReliabilityPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(SeffReliabilityPackage.eNS_URI)
+                .getEPackage(SeffReliabilityPackage.eNS_URI) instanceof SeffReliabilityPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(SeffReliabilityPackage.eNS_URI)
                         : SeffReliabilityPackage.eINSTANCE);
         final QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(QosannotationsPackage.eNS_URI)
+                .getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI)
                         : QosannotationsPackage.eINSTANCE);
         final QosPerformancePackageImpl theQosPerformancePackage = (QosPerformancePackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(QosPerformancePackage.eNS_URI)
+                .getEPackage(QosPerformancePackage.eNS_URI) instanceof QosPerformancePackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(QosPerformancePackage.eNS_URI)
                         : QosPerformancePackage.eINSTANCE);
         final QosReliabilityPackageImpl theQosReliabilityPackage = (QosReliabilityPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(QosReliabilityPackage.eNS_URI)
+                .getEPackage(QosReliabilityPackage.eNS_URI) instanceof QosReliabilityPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(QosReliabilityPackage.eNS_URI)
                         : QosReliabilityPackage.eINSTANCE);
         final SystemPackageImpl theSystemPackage = (SystemPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
+                .getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
         final ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(ResourceenvironmentPackage.eNS_URI)
+                .getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI)
                         : ResourceenvironmentPackage.eINSTANCE);
         final AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
+                .getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI)
+                        : AllocationPackage.eINSTANCE);
         final SubsystemPackageImpl theSubsystemPackage = (SubsystemPackageImpl) (EPackage.Registry.INSTANCE
-                .getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl ? EPackage.Registry.INSTANCE
-                .getEPackage(SubsystemPackage.eNS_URI) : SubsystemPackage.eINSTANCE);
+                .getEPackage(SubsystemPackage.eNS_URI) instanceof SubsystemPackageImpl
+                        ? EPackage.Registry.INSTANCE.getEPackage(SubsystemPackage.eNS_URI)
+                        : SubsystemPackage.eINSTANCE);
 
         // Create package meta-data objects
         theSeffPackage.createPackageContents();
@@ -452,16 +459,13 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         theSubsystemPackage.initializePackageContents();
 
         // Register package validator
-        EValidator.Registry.INSTANCE.put
-                (theSeffPackage,
-                        new EValidator.Descriptor()
-                        {
-                            @Override
-                            public EValidator getEValidator()
-                            {
-                                return SeffValidator.INSTANCE;
-                            }
-                        });
+        EValidator.Registry.INSTANCE.put(theSeffPackage,
+                new EValidator.Descriptor() {
+                    @Override
+                    public EValidator getEValidator() {
+                        return SeffValidator.INSTANCE;
+                    }
+                });
 
         // Mark meta-data to indicate it can't be changed
         theSeffPackage.freeze();
@@ -1272,7 +1276,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.synchronisationPointEClass = this.createEClass(SYNCHRONISATION_POINT);
         this.createEReference(this.synchronisationPointEClass,
                 SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT);
-        this.createEReference(this.synchronisationPointEClass, SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT);
+        this.createEReference(this.synchronisationPointEClass,
+                SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT);
         this.createEReference(this.synchronisationPointEClass,
                 SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT);
 
@@ -1282,7 +1287,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.createEAttribute(this.externalCallActionEClass, EXTERNAL_CALL_ACTION__RETRY_COUNT);
 
         this.callReturnActionEClass = this.createEClass(CALL_RETURN_ACTION);
-        this.createEReference(this.callReturnActionEClass, CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION);
+        this.createEReference(this.callReturnActionEClass,
+                CALL_RETURN_ACTION__RETURN_VARIABLE_USAGE_CALL_RETURN_ACTION);
 
         this.probabilisticBranchTransitionEClass = this.createEClass(PROBABILISTIC_BRANCH_TRANSITION);
         this.createEAttribute(this.probabilisticBranchTransitionEClass,
@@ -1448,8 +1454,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.initEReference(this.getAbstractAction_ResourceDemandingBehaviour_AbstractAction(),
                 this.getResourceDemandingBehaviour(), this.getResourceDemandingBehaviour_Steps_Behaviour(),
                 "resourceDemandingBehaviour_AbstractAction", null, 0, 1, AbstractAction.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE,
-                !IS_DERIVED, !IS_ORDERED);
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+                !IS_ORDERED);
 
         this.initEClass(this.resourceDemandingBehaviourEClass, ResourceDemandingBehaviour.class,
                 "ResourceDemandingBehaviour",
@@ -1460,8 +1466,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getResourceDemandingBehaviour_AbstractBranchTransition_ResourceDemandingBehaviour(),
-                this.getAbstractBranchTransition(),
-                this.getAbstractBranchTransition_BranchBehaviour_BranchTransition(),
+                this.getAbstractBranchTransition(), this.getAbstractBranchTransition_BranchBehaviour_BranchTransition(),
                 "abstractBranchTransition_ResourceDemandingBehaviour", null, 0, 1, ResourceDemandingBehaviour.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1504,14 +1509,14 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         this.initEClass(this.abstractLoopActionEClass, AbstractLoopAction.class, "AbstractLoopAction", IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE,
+                IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getAbstractLoopAction_BodyBehaviour_Loop(), this.getResourceDemandingBehaviour(),
                 this.getResourceDemandingBehaviour_AbstractLoopAction_ResourceDemandingBehaviour(),
                 "bodyBehaviour_Loop", null, 1, 1, AbstractLoopAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-        this.initEClass(this.abstractBranchTransitionEClass, AbstractBranchTransition.class,
-                "AbstractBranchTransition",
+        this.initEClass(this.abstractBranchTransitionEClass, AbstractBranchTransition.class, "AbstractBranchTransition",
                 IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getAbstractBranchTransition_BranchAction_AbstractBranchTransition(),
                 this.getBranchAction(),
@@ -1683,16 +1688,16 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getExternalCallAction_CalledService_ExternalService(),
                 theRepositoryPackage.getOperationSignature(), null, "calledService_ExternalService", null, 1, 1,
-                ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getExternalCallAction_Role_ExternalService(),
                 theRepositoryPackage.getOperationRequiredRole(),
                 null, "role_ExternalService", null, 1, 1, ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEAttribute(this.getExternalCallAction_RetryCount(), this.ecorePackage.getEInt(), "retryCount", null,
-                1, 1,
-                ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        this.initEAttribute(this.getExternalCallAction_RetryCount(), this.ecorePackage.getEInt(), "retryCount", null, 1,
+                1,
+                ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.externalCallActionEClass, this.ecorePackage.getEBoolean(),
                 "SignatureBelongsToRole", 0, 1,
@@ -1755,8 +1760,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         g1.getETypeArguments().add(g2);
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-        this.initEClass(this.collectionIteratorActionEClass, CollectionIteratorAction.class,
-                "CollectionIteratorAction",
+        this.initEClass(this.collectionIteratorActionEClass, CollectionIteratorAction.class, "CollectionIteratorAction",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getCollectionIteratorAction_Parameter_CollectionIteratorAction(),
                 theRepositoryPackage.getParameter(), null, "parameter_CollectionIteratorAction", null, 1, 1,
@@ -1785,8 +1789,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.initEClass(this.internalCallActionEClass, InternalCallAction.class, "InternalCallAction", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getInternalCallAction_CalledResourceDemandingInternalBehaviour(),
-                this.getResourceDemandingInternalBehaviour(), null, "calledResourceDemandingInternalBehaviour", null,
-                1, 1, InternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                this.getResourceDemandingInternalBehaviour(), null, "calledResourceDemandingInternalBehaviour", null, 1,
+                1, InternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.emitEventActionEClass, EmitEventAction.class, "EmitEventAction", !IS_ABSTRACT,
@@ -1796,15 +1800,14 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
                 null,
                 "eventType__EmitEventAction", null, 1, 1, EmitEventAction.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEReference(this.getEmitEventAction_SourceRole__EmitEventAction(),
-                theRepositoryPackage.getSourceRole(), null,
+        this.initEReference(this.getEmitEventAction_SourceRole__EmitEventAction(), theRepositoryPackage.getSourceRole(),
+                null,
                 "sourceRole__EmitEventAction", null, 1, 1, EmitEventAction.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.internalActionEClass, InternalAction.class, "InternalAction", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
-        this.initEReference(
-                this.getInternalAction_InternalFailureOccurrenceDescriptions__InternalAction(),
+        this.initEReference(this.getInternalAction_InternalFailureOccurrenceDescriptions__InternalAction(),
                 theReliabilityPackage.getInternalFailureOccurrenceDescription(),
                 theReliabilityPackage
                         .getInternalFailureOccurrenceDescription_InternalAction__InternalFailureOccurrenceDescription(),

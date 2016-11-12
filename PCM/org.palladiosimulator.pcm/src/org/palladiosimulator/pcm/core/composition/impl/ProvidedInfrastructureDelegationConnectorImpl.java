@@ -10,22 +10,19 @@ import org.palladiosimulator.pcm.core.composition.ProvidedInfrastructureDelegati
 import org.palladiosimulator.pcm.repository.InfrastructureProvidedRole;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Provided Infrastructure Delegation Connector</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Provided Infrastructure
+ * Delegation Connector</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl#getInnerProvidedRole__ProvidedInfrastructureDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl#getInnerProvidedRole__ProvidedInfrastructureDelegationConnector
  * <em>Inner Provided Role Provided Infrastructure Delegation Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl#getOuterProvidedRole__ProvidedInfrastructureDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl#getOuterProvidedRole__ProvidedInfrastructureDelegationConnector
  * <em>Outer Provided Role Provided Infrastructure Delegation Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl#getAssemblyContext__ProvidedInfrastructureDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.ProvidedInfrastructureDelegationConnectorImpl#getAssemblyContext__ProvidedInfrastructureDelegationConnector
  * <em>Assembly Context Provided Infrastructure Delegation Connector</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -37,7 +34,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -65,11 +62,10 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
      */
     @Override
     public InfrastructureProvidedRole getInnerProvidedRole__ProvidedInfrastructureDelegationConnector() {
-        return (InfrastructureProvidedRole) this
-                .eDynamicGet(
-                        CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
-                        CompositionPackage.Literals.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
-                        true, true);
+        return (InfrastructureProvidedRole) this.eDynamicGet(
+                CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                true, true);
     }
 
     /**
@@ -78,11 +74,10 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
      * @generated
      */
     public InfrastructureProvidedRole basicGetInnerProvidedRole__ProvidedInfrastructureDelegationConnector() {
-        return (InfrastructureProvidedRole) this
-                .eDynamicGet(
-                        CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
-                        CompositionPackage.Literals.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
-                        false, true);
+        return (InfrastructureProvidedRole) this.eDynamicGet(
+                CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                false, true);
     }
 
     /**
@@ -106,11 +101,10 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
      */
     @Override
     public InfrastructureProvidedRole getOuterProvidedRole__ProvidedInfrastructureDelegationConnector() {
-        return (InfrastructureProvidedRole) this
-                .eDynamicGet(
-                        CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
-                        CompositionPackage.Literals.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
-                        true, true);
+        return (InfrastructureProvidedRole) this.eDynamicGet(
+                CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                true, true);
     }
 
     /**
@@ -119,11 +113,10 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
      * @generated
      */
     public InfrastructureProvidedRole basicGetOuterProvidedRole__ProvidedInfrastructureDelegationConnector() {
-        return (InfrastructureProvidedRole) this
-                .eDynamicGet(
-                        CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
-                        CompositionPackage.Literals.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
-                        false, true);
+        return (InfrastructureProvidedRole) this.eDynamicGet(
+                CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                false, true);
     }
 
     /**
@@ -147,11 +140,10 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
      */
     @Override
     public AssemblyContext getAssemblyContext__ProvidedInfrastructureDelegationConnector() {
-        return (AssemblyContext) this
-                .eDynamicGet(
-                        CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
-                        CompositionPackage.Literals.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
-                        true, true);
+        return (AssemblyContext) this.eDynamicGet(
+                CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                true, true);
     }
 
     /**
@@ -160,11 +152,10 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext__ProvidedInfrastructureDelegationConnector() {
-        return (AssemblyContext) this
-                .eDynamicGet(
-                        CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
-                        CompositionPackage.Literals.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
-                        false, true);
+        return (AssemblyContext) this.eDynamicGet(
+                CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR,
+                false, true);
     }
 
     /**
@@ -188,8 +179,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR:
             if (resolve) {
                 return this.getInnerProvidedRole__ProvidedInfrastructureDelegationConnector();
@@ -216,8 +206,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR:
             this.setInnerProvidedRole__ProvidedInfrastructureDelegationConnector((InfrastructureProvidedRole) newValue);
             return;
@@ -238,8 +227,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR:
             this.setInnerProvidedRole__ProvidedInfrastructureDelegationConnector((InfrastructureProvidedRole) null);
             return;
@@ -260,8 +248,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR:
             return this.basicGetInnerProvidedRole__ProvidedInfrastructureDelegationConnector() != null;
         case CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR:

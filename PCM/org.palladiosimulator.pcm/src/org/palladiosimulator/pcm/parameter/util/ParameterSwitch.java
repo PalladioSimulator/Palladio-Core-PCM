@@ -3,10 +3,9 @@
  */
 package org.palladiosimulator.pcm.parameter.util;
 
-import java.util.List;
-
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.Switch;
 import org.palladiosimulator.pcm.parameter.CharacterisedVariable;
 import org.palladiosimulator.pcm.parameter.ParameterPackage;
 import org.palladiosimulator.pcm.parameter.VariableCharacterisation;
@@ -33,14 +32,14 @@ import de.uka.ipd.sdq.stoex.Variable;
  * @see org.palladiosimulator.pcm.parameter.ParameterPackage
  * @generated
  */
-public class ParameterSwitch<T> {
+public class ParameterSwitch<T> extends Switch<T> {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -55,21 +54,23 @@ public class ParameterSwitch<T> {
      * @generated
      */
     public ParameterSwitch() {
-        if (modelPackage == null)
-        {
+        if (modelPackage == null) {
             modelPackage = ParameterPackage.eINSTANCE;
         }
     }
 
     /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
-     * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Checks whether this is a switch for the given package. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
-     * @return the first non-null result returned by a <code>caseXXX</code> call.
+     * @param ePackage
+     *            the package in question.
+     * @return whether this is a switch for the given package.
      * @generated
      */
-    public T doSwitch(final EObject theEObject) {
-        return this.doSwitch(theEObject.eClass(), theEObject);
+    @Override
+    protected boolean isSwitchFor(final EPackage ePackage) {
+        return ePackage == modelPackage;
     }
 
     /**
@@ -79,30 +80,9 @@ public class ParameterSwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(final EClass theEClass, final EObject theEObject) {
-        if (theEClass.eContainer() == modelPackage)
-        {
-            return this.doSwitch(theEClass.getClassifierID(), theEObject);
-        }
-        else
-        {
-            final List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ?
-                    this.defaultCase(theEObject) :
-                    this.doSwitch(eSuperTypes.get(0), theEObject);
-        }
-    }
-
-    /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
-     * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the first non-null result returned by a <code>caseXXX</code> call.
-     * @generated
-     */
+    @Override
     protected T doSwitch(final int classifierID, final EObject theEObject) {
-        switch (classifierID)
-        {
+        switch (classifierID) {
         case ParameterPackage.VARIABLE_USAGE: {
             final VariableUsage variableUsage = (VariableUsage) theEObject;
             T result = this.caseVariableUsage(variableUsage);
@@ -178,14 +158,14 @@ public class ParameterSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Variable Characterisation</em>'. <!-- begin-user-doc --> This implementation returns
-     * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Variable
+     * Characterisation</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
+     * non-null result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Variable Characterisation</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Variable
+     *         Characterisation</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -194,14 +174,14 @@ public class ParameterSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Characterised Variable</em>'. <!-- begin-user-doc --> This implementation returns null;
-     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Characterised
+     * Variable</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
+     * non-null result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Characterised Variable</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Characterised
+     *         Variable</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -240,14 +220,14 @@ public class ParameterSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Boolean Expression</em>
-     * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
-     * terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Boolean
+     * Expression</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
+     * non-null result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Boolean Expression</em>
-     *         '.
+     * @return the result of interpreting the object as an instance of '<em>Boolean
+     *         Expression</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -371,6 +351,7 @@ public class ParameterSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
+    @Override
     public T defaultCase(final EObject object) {
         return null;
     }

@@ -29,7 +29,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -37,16 +37,13 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
      * @generated
      */
     public static ReliabilityFactory init() {
-        try
-        {
+        try {
             final ReliabilityFactory theReliabilityFactory = (ReliabilityFactory) EPackage.Registry.INSTANCE
                     .getEFactory(ReliabilityPackage.eNS_URI);
-            if (theReliabilityFactory != null)
-            {
+            if (theReliabilityFactory != null) {
                 return theReliabilityFactory;
             }
-        } catch (final Exception exception)
-        {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new ReliabilityFactoryImpl();
@@ -68,8 +65,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID())
-        {
+        switch (eClass.getClassifierID()) {
         case ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE:
             return this.createHardwareInducedFailureType();
         case ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE:

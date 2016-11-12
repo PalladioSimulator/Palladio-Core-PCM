@@ -7,8 +7,8 @@ import org.eclipse.emf.cdo.CDOObject;
 import org.palladiosimulator.pcm.core.PCMRandomVariable;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Variable Characterisation</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Variable
+ * Characterisation</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> Variable characterisations store performance critical meta-information
  * on a variable. For example, if a variable's value is used in a long running loop, the value of
@@ -24,16 +24,15 @@ import org.palladiosimulator.pcm.core.PCMRandomVariable;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getType <em>Type</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getSpecification_VariableCharacterisation
+ * <li>{@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getType
+ * <em>Type</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getSpecification_VariableCharacterisation
  * <em>Specification Variable Characterisation</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getVariableUsage_VariableCharacterisation
+ * <li>{@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getVariableUsage_VariableCharacterisation
  * <em>Variable Usage Variable Characterisation</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.parameter.ParameterPackage#getVariableCharacterisation()
  * @model
@@ -47,7 +46,7 @@ public interface VariableCharacterisation extends CDOObject {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Type</b></em>' attribute. The literals are from the
@@ -66,8 +65,8 @@ public interface VariableCharacterisation extends CDOObject {
     VariableCharacterisationType getType();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getType <em>Type</em>}'
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getType <em>Type</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
@@ -99,8 +98,8 @@ public interface VariableCharacterisation extends CDOObject {
     PCMRandomVariable getSpecification_VariableCharacterisation();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getSpecification_VariableCharacterisation
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getSpecification_VariableCharacterisation
      * <em>Specification Variable Characterisation</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -114,8 +113,8 @@ public interface VariableCharacterisation extends CDOObject {
 
     /**
      * Returns the value of the '<em><b>Variable Usage Variable Characterisation</b></em>' container
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getVariableCharacterisation_VariableUsage
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getVariableCharacterisation_VariableUsage
      * <em>Variable Characterisation Variable Usage</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Variable Usage Variable Characterisation</em>' container reference
@@ -134,8 +133,8 @@ public interface VariableCharacterisation extends CDOObject {
     VariableUsage getVariableUsage_VariableCharacterisation();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getVariableUsage_VariableCharacterisation
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.parameter.VariableCharacterisation#getVariableUsage_VariableCharacterisation
      * <em>Variable Usage Variable Characterisation</em>}' container reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *

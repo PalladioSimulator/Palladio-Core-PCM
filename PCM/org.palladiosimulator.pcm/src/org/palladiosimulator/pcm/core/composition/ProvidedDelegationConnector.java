@@ -9,26 +9,23 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 import org.palladiosimulator.pcm.repository.OperationProvidedRole;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Provided Delegation Connector</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Provided Delegation
+ * Connector</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> A ProvidedDelegationConnector delegates incoming calls of provided roles
  * to inner provided roles of encapsulated assembly contexts. <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector
  * <em>Inner Provided Role Provided Delegation Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getOuterProvidedRole_ProvidedDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getOuterProvidedRole_ProvidedDelegationConnector
  * <em>Outer Provided Role Provided Delegation Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getAssemblyContext_ProvidedDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getAssemblyContext_ProvidedDelegationConnector
  * <em>Assembly Context Provided Delegation Connector</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getProvidedDelegationConnector()
  * @model
@@ -41,7 +38,7 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Inner Provided Role Provided Delegation Connector</b></em>'
@@ -62,8 +59,8 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
     OperationProvidedRole getInnerProvidedRole_ProvidedDelegationConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector
      * <em>Inner Provided Role Provided Delegation Connector</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -94,8 +91,8 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
     OperationProvidedRole getOuterProvidedRole_ProvidedDelegationConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getOuterProvidedRole_ProvidedDelegationConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getOuterProvidedRole_ProvidedDelegationConnector
      * <em>Outer Provided Role Provided Delegation Connector</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -125,8 +122,8 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
     AssemblyContext getAssemblyContext_ProvidedDelegationConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getAssemblyContext_ProvidedDelegationConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector#getAssemblyContext_ProvidedDelegationConnector
      * <em>Assembly Context Provided Delegation Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -145,8 +142,9 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.parentStructure__Connector = self.assemblyContext_ProvidedDelegationConnector.parentStructure__AssemblyContext'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.parentStructure__Connector =
+     *        self.assemblyContext_ProvidedDelegationConnector.parentStructure__AssemblyContext'"
      * @generated
      */
     boolean ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(
@@ -159,8 +157,10 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent__AssemblyContext'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole
+     *        =
+     *        self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent__AssemblyContext'"
      * @generated
      */
     boolean ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(DiagnosticChain diagnostics,

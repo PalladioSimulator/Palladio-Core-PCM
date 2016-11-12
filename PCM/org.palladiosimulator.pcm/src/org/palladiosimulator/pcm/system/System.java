@@ -41,11 +41,11 @@ import org.palladiosimulator.pcm.qosannotations.QoSAnnotations;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.system.System#getQosAnnotations_System <em>Qos Annotations
  * System</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.system.SystemPackage#getSystem()
  * @model
@@ -58,7 +58,7 @@ public interface System extends Entity, ComposedProvidingRequiringEntity {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Qos Annotations System</b></em>' containment reference list.
@@ -86,8 +86,8 @@ public interface System extends Entity, ComposedProvidingRequiringEntity {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.providedRoles_InterfaceProvidingEntity->isEmpty()'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel body='not
+     *        self.providedRoles_InterfaceProvidingEntity->isEmpty()'"
      * @generated
      */
     boolean SystemMustHaveAtLeastOneProvidedRole(DiagnosticChain diagnostics, Map<Object, Object> context);

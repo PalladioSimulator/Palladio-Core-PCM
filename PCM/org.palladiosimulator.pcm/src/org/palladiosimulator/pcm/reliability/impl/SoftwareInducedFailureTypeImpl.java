@@ -15,16 +15,15 @@ import org.palladiosimulator.pcm.reliability.ReliabilityPackage;
 import org.palladiosimulator.pcm.reliability.SoftwareInducedFailureType;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Software Induced Failure Type</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Software Induced Failure
+ * Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.reliability.impl.SoftwareInducedFailureTypeImpl#getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType
+ * <li>{@link org.palladiosimulator.pcm.reliability.impl.SoftwareInducedFailureTypeImpl#getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType
  * <em>Internal Failure Occurrence Descriptions Software Induced Failure Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -35,7 +34,7 @@ public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements S
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -64,11 +63,10 @@ public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements S
     @Override
     @SuppressWarnings("unchecked")
     public EList<InternalFailureOccurrenceDescription> getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType() {
-        return (EList<InternalFailureOccurrenceDescription>) this
-                .eDynamicGet(
-                        ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE,
-                        ReliabilityPackage.Literals.SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE,
-                        true, true);
+        return (EList<InternalFailureOccurrenceDescription>) this.eDynamicGet(
+                ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE,
+                ReliabilityPackage.Literals.SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE,
+                true, true);
     }
 
     /**
@@ -80,12 +78,11 @@ public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements S
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
                     .getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType())
-                    .basicAdd(otherEnd, msgs);
+                            .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -98,8 +95,7 @@ public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements S
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE:
             return ((InternalEList<?>) this.getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType())
                     .basicRemove(otherEnd, msgs);
@@ -114,8 +110,7 @@ public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements S
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE:
             return this.getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType();
         }
@@ -130,12 +125,11 @@ public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements S
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE:
             this.getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType().clear();
-            this.getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType().addAll(
-                    (Collection<? extends InternalFailureOccurrenceDescription>) newValue);
+            this.getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType()
+                    .addAll((Collection<? extends InternalFailureOccurrenceDescription>) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -148,8 +142,7 @@ public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements S
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE:
             this.getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType().clear();
             return;
@@ -164,8 +157,7 @@ public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements S
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE:
             return !this.getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType().isEmpty();
         }

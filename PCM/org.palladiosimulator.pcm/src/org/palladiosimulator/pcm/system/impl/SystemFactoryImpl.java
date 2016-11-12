@@ -23,7 +23,7 @@ public class SystemFactoryImpl extends EFactoryImpl implements SystemFactory {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -31,16 +31,13 @@ public class SystemFactoryImpl extends EFactoryImpl implements SystemFactory {
      * @generated
      */
     public static SystemFactory init() {
-        try
-        {
+        try {
             final SystemFactory theSystemFactory = (SystemFactory) EPackage.Registry.INSTANCE
                     .getEFactory(SystemPackage.eNS_URI);
-            if (theSystemFactory != null)
-            {
+            if (theSystemFactory != null) {
                 return theSystemFactory;
             }
-        } catch (final Exception exception)
-        {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new SystemFactoryImpl();
@@ -62,8 +59,7 @@ public class SystemFactoryImpl extends EFactoryImpl implements SystemFactory {
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID())
-        {
+        switch (eClass.getClassifierID()) {
         case SystemPackage.SYSTEM:
             return this.createSystem();
         default:

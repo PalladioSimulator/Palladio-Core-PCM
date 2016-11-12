@@ -11,16 +11,15 @@ import org.palladiosimulator.pcm.parameter.VariableCharacterisationType;
 import de.uka.ipd.sdq.stoex.impl.VariableImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Characterised Variable</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Characterised
+ * Variable</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.parameter.impl.CharacterisedVariableImpl#getCharacterisationType
+ * <li>{@link org.palladiosimulator.pcm.parameter.impl.CharacterisedVariableImpl#getCharacterisationType
  * <em>Characterisation Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -31,7 +30,7 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The default value of the '{@link #getCharacterisationType() <em>Characterisation Type</em>}'
@@ -92,8 +91,7 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE:
             return this.getCharacterisationType();
         }
@@ -107,8 +105,7 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE:
             this.setCharacterisationType((VariableCharacterisationType) newValue);
             return;
@@ -123,8 +120,7 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE:
             this.setCharacterisationType(CHARACTERISATION_TYPE_EDEFAULT);
             return;
@@ -139,8 +135,7 @@ public class CharacterisedVariableImpl extends VariableImpl implements Character
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ParameterPackage.CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE:
             return this.getCharacterisationType() != CHARACTERISATION_TYPE_EDEFAULT;
         }

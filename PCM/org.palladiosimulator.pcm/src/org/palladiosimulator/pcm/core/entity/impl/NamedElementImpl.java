@@ -13,11 +13,11 @@ import org.palladiosimulator.pcm.core.entity.NamedElement;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.core.entity.impl.NamedElementImpl#getEntityName <em>Entity
  * Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -28,7 +28,7 @@ public abstract class NamedElementImpl extends CDOObjectImpl implements NamedEle
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The default value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute. <!--
@@ -98,8 +98,7 @@ public abstract class NamedElementImpl extends CDOObjectImpl implements NamedEle
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
             return this.getEntityName();
         }
@@ -113,8 +112,7 @@ public abstract class NamedElementImpl extends CDOObjectImpl implements NamedEle
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
             this.setEntityName((String) newValue);
             return;
@@ -129,8 +127,7 @@ public abstract class NamedElementImpl extends CDOObjectImpl implements NamedEle
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
             this.setEntityName(ENTITY_NAME_EDEFAULT);
             return;
@@ -145,11 +142,10 @@ public abstract class NamedElementImpl extends CDOObjectImpl implements NamedEle
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case EntityPackage.NAMED_ELEMENT__ENTITY_NAME:
-            return ENTITY_NAME_EDEFAULT == null ? this.getEntityName() != null : !ENTITY_NAME_EDEFAULT
-                    .equals(this.getEntityName());
+            return ENTITY_NAME_EDEFAULT == null ? this.getEntityName() != null
+                    : !ENTITY_NAME_EDEFAULT.equals(this.getEntityName());
         }
         return super.eIsSet(featureID);
     }

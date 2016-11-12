@@ -16,12 +16,11 @@ import org.palladiosimulator.pcm.repository.RequiredRole;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.impl.RequiredRoleImpl#getRequiringEntity_RequiredRole
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.RequiredRoleImpl#getRequiringEntity_RequiredRole
  * <em>Requiring Entity Required Role</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -32,7 +31,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -96,8 +95,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -115,8 +113,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE:
             return this.basicSetRequiringEntity_RequiredRole(null, msgs);
         }
@@ -130,8 +127,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE:
             return this.eInternalContainer().eInverseRemove(this,
                     EntityPackage.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
@@ -147,8 +143,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE:
             return this.getRequiringEntity_RequiredRole();
         }
@@ -162,8 +157,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE:
             this.setRequiringEntity_RequiredRole((InterfaceRequiringEntity) newValue);
             return;
@@ -178,8 +172,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE:
             this.setRequiringEntity_RequiredRole((InterfaceRequiringEntity) null);
             return;
@@ -194,8 +187,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE:
             return this.getRequiringEntity_RequiredRole() != null;
         }

@@ -35,7 +35,7 @@ public interface ProtocolPackage extends EPackage {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -104,9 +104,9 @@ public interface ProtocolPackage extends EPackage {
     EClass getProtocol();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.palladiosimulator.pcm.protocol.Protocol#getProtocolTypeID
-     * <em>Protocol Type ID</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.pcm.protocol.Protocol#getProtocolTypeID <em>Protocol Type
+     * ID</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Protocol Type ID</em>'.
      * @see org.palladiosimulator.pcm.protocol.Protocol#getProtocolTypeID()
@@ -139,8 +139,8 @@ public interface ProtocolPackage extends EPackage {
     interface Literals {
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.protocol.impl.ProtocolImpl <em>Protocol</em>}' class.
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.protocol.impl.ProtocolImpl <em>Protocol</em>}' class.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.protocol.impl.ProtocolImpl

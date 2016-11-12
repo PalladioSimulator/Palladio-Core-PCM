@@ -11,8 +11,6 @@ import org.palladiosimulator.pcm.repository.Role;
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Role</b></em>'. <!--
  * end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */
@@ -23,7 +21,7 @@ public abstract class RoleImpl extends EntityImpl implements Role {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

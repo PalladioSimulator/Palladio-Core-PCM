@@ -9,16 +9,15 @@ import org.palladiosimulator.pcm.repository.InfrastructureProvidedRole;
 import org.palladiosimulator.pcm.repository.RepositoryPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Infrastructure Provided Role</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Infrastructure Provided
+ * Role</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.impl.InfrastructureProvidedRoleImpl#getProvidedInterface__InfrastructureProvidedRole
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.InfrastructureProvidedRoleImpl#getProvidedInterface__InfrastructureProvidedRole
  * <em>Provided Interface Infrastructure Provided Role</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -29,7 +28,7 @@ public class InfrastructureProvidedRoleImpl extends ProvidedRoleImpl implements 
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -57,11 +56,10 @@ public class InfrastructureProvidedRoleImpl extends ProvidedRoleImpl implements 
      */
     @Override
     public InfrastructureInterface getProvidedInterface__InfrastructureProvidedRole() {
-        return (InfrastructureInterface) this
-                .eDynamicGet(
-                        RepositoryPackage.INFRASTRUCTURE_PROVIDED_ROLE__PROVIDED_INTERFACE_INFRASTRUCTURE_PROVIDED_ROLE,
-                        RepositoryPackage.Literals.INFRASTRUCTURE_PROVIDED_ROLE__PROVIDED_INTERFACE_INFRASTRUCTURE_PROVIDED_ROLE,
-                        true, true);
+        return (InfrastructureInterface) this.eDynamicGet(
+                RepositoryPackage.INFRASTRUCTURE_PROVIDED_ROLE__PROVIDED_INTERFACE_INFRASTRUCTURE_PROVIDED_ROLE,
+                RepositoryPackage.Literals.INFRASTRUCTURE_PROVIDED_ROLE__PROVIDED_INTERFACE_INFRASTRUCTURE_PROVIDED_ROLE,
+                true, true);
     }
 
     /**
@@ -70,11 +68,10 @@ public class InfrastructureProvidedRoleImpl extends ProvidedRoleImpl implements 
      * @generated
      */
     public InfrastructureInterface basicGetProvidedInterface__InfrastructureProvidedRole() {
-        return (InfrastructureInterface) this
-                .eDynamicGet(
-                        RepositoryPackage.INFRASTRUCTURE_PROVIDED_ROLE__PROVIDED_INTERFACE_INFRASTRUCTURE_PROVIDED_ROLE,
-                        RepositoryPackage.Literals.INFRASTRUCTURE_PROVIDED_ROLE__PROVIDED_INTERFACE_INFRASTRUCTURE_PROVIDED_ROLE,
-                        false, true);
+        return (InfrastructureInterface) this.eDynamicGet(
+                RepositoryPackage.INFRASTRUCTURE_PROVIDED_ROLE__PROVIDED_INTERFACE_INFRASTRUCTURE_PROVIDED_ROLE,
+                RepositoryPackage.Literals.INFRASTRUCTURE_PROVIDED_ROLE__PROVIDED_INTERFACE_INFRASTRUCTURE_PROVIDED_ROLE,
+                false, true);
     }
 
     /**
@@ -98,8 +95,7 @@ public class InfrastructureProvidedRoleImpl extends ProvidedRoleImpl implements 
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_PROVIDED_ROLE__PROVIDED_INTERFACE_INFRASTRUCTURE_PROVIDED_ROLE:
             if (resolve) {
                 return this.getProvidedInterface__InfrastructureProvidedRole();
@@ -116,8 +112,7 @@ public class InfrastructureProvidedRoleImpl extends ProvidedRoleImpl implements 
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_PROVIDED_ROLE__PROVIDED_INTERFACE_INFRASTRUCTURE_PROVIDED_ROLE:
             this.setProvidedInterface__InfrastructureProvidedRole((InfrastructureInterface) newValue);
             return;
@@ -132,8 +127,7 @@ public class InfrastructureProvidedRoleImpl extends ProvidedRoleImpl implements 
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_PROVIDED_ROLE__PROVIDED_INTERFACE_INFRASTRUCTURE_PROVIDED_ROLE:
             this.setProvidedInterface__InfrastructureProvidedRole((InfrastructureInterface) null);
             return;
@@ -148,8 +142,7 @@ public class InfrastructureProvidedRoleImpl extends ProvidedRoleImpl implements 
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_PROVIDED_ROLE__PROVIDED_INTERFACE_INFRASTRUCTURE_PROVIDED_ROLE:
             return this.basicGetProvidedInterface__InfrastructureProvidedRole() != null;
         }

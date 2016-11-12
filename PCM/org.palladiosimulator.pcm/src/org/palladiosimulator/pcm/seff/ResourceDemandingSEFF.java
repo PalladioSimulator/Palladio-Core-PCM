@@ -8,8 +8,8 @@ import org.eclipse.emf.common.util.EList;
 import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Resource Demanding SEFF</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Resource Demanding
+ * SEFF</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> A resource demanding service effect specification (RDSEFF) is a special
  * type of SEFF designed for performance and reliability predictions. Besides dependencies between
@@ -24,12 +24,11 @@ import de.uka.ipd.sdq.identifier.Identifier;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.ResourceDemandingSEFF#getResourceDemandingInternalBehaviours
+ * <li>{@link org.palladiosimulator.pcm.seff.ResourceDemandingSEFF#getResourceDemandingInternalBehaviours
  * <em>Resource Demanding Internal Behaviours</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getResourceDemandingSEFF()
  * @model
@@ -42,14 +41,14 @@ public interface ResourceDemandingSEFF extends Identifier, ServiceEffectSpecific
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Resource Demanding Internal Behaviours</b></em>' containment
      * reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.seff.ResourceDemandingInternalBehaviour}. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.seff.ResourceDemandingInternalBehaviour#getResourceDemandingSEFF_ResourceDemandingInternalBehaviour
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.seff.ResourceDemandingInternalBehaviour#getResourceDemandingSEFF_ResourceDemandingInternalBehaviour
      * <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em>}'. <!-- begin-user-doc
      * -->
      * <p>

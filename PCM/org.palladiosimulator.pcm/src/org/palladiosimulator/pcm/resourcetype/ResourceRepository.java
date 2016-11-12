@@ -16,18 +16,15 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.resourcetype.ResourceRepository#getResourceInterfaces__ResourceRepository
+ * <li>{@link org.palladiosimulator.pcm.resourcetype.ResourceRepository#getResourceInterfaces__ResourceRepository
  * <em>Resource Interfaces Resource Repository</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.resourcetype.ResourceRepository#getSchedulingPolicies__ResourceRepository
+ * <li>{@link org.palladiosimulator.pcm.resourcetype.ResourceRepository#getSchedulingPolicies__ResourceRepository
  * <em>Scheduling Policies Resource Repository</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.resourcetype.ResourceRepository#getAvailableResourceTypes_ResourceRepository
+ * <li>{@link org.palladiosimulator.pcm.resourcetype.ResourceRepository#getAvailableResourceTypes_ResourceRepository
  * <em>Available Resource Types Resource Repository</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#getResourceRepository()
  * @model
@@ -41,14 +38,14 @@ public interface ResourceRepository extends CDOObject {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Resource Interfaces Resource Repository</b></em>'
      * containment reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.resourcetype.ResourceInterface}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.resourcetype.ResourceInterface#getResourceRepository__ResourceInterface
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.resourcetype.ResourceInterface#getResourceRepository__ResourceInterface
      * <em>Resource Repository Resource Interface</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Resource Interfaces Resource Repository</em>' containment
@@ -69,8 +66,8 @@ public interface ResourceRepository extends CDOObject {
      * Returns the value of the '<em><b>Scheduling Policies Resource Repository</b></em>'
      * containment reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.resourcetype.SchedulingPolicy}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.resourcetype.SchedulingPolicy#getResourceRepository__SchedulingPolicy
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.resourcetype.SchedulingPolicy#getResourceRepository__SchedulingPolicy
      * <em>Resource Repository Scheduling Policy</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Scheduling Policies Resource Repository</em>' containment
@@ -91,8 +88,8 @@ public interface ResourceRepository extends CDOObject {
      * Returns the value of the '<em><b>Available Resource Types Resource Repository</b></em>'
      * containment reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.resourcetype.ResourceType}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.resourcetype.ResourceType#getResourceRepository_ResourceType
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.resourcetype.ResourceType#getResourceRepository_ResourceType
      * <em>Resource Repository Resource Type</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Available Resource Types Resource Repository</em>' containment

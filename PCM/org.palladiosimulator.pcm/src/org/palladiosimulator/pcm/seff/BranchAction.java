@@ -21,11 +21,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.palladiosimulator.pcm.seff.BranchAction#getBranches_Branch <em>Branches Branch
- * </em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcm.seff.BranchAction#getBranches_Branch <em>Branches
+ * Branch</em>}</li>
+ * </ul>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getBranchAction()
  * @model
@@ -38,13 +38,13 @@ public interface BranchAction extends AbstractInternalControlFlowAction {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Branches Branch</b></em>' containment reference list. The
      * list contents are of type {@link org.palladiosimulator.pcm.seff.AbstractBranchTransition}. It
-     * is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.seff.AbstractBranchTransition#getBranchAction_AbstractBranchTransition
+     * is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.seff.AbstractBranchTransition#getBranchAction_AbstractBranchTransition
      * <em>Branch Action Abstract Branch Transition</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Branches Branch</em>' containment reference list isn't clear,
@@ -67,8 +67,9 @@ public interface BranchAction extends AbstractInternalControlFlowAction {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition)) \r\nor self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition))'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition))
+     *        \r\nor self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition))'"
      * @generated
      */
     boolean EitherGuardedBranchesOrProbabilisiticBranchTransitions(DiagnosticChain diagnostics,
@@ -81,8 +82,12 @@ public interface BranchAction extends AbstractInternalControlFlowAction {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='if self.branches_Branch->forAll(oclIsTypeOf(ProbabilisticBranchTransition)) then \r\n\tself.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() > 0.9999 \r\n\tand self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() < 1.0001 \r\n\telse true \r\nendif'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel body='if
+     *        self.branches_Branch->forAll(oclIsTypeOf(ProbabilisticBranchTransition)) then
+     *        \r\n\tself.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum()
+     *        > 0.9999 \r\n\tand
+     *        self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum()
+     *        < 1.0001 \r\n\telse true \r\nendif'"
      * @generated
      */
     boolean AllProbabilisticBranchProbabilitiesMustSumUpTo1(DiagnosticChain diagnostics, Map<Object, Object> context);

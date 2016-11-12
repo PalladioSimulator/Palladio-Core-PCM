@@ -20,11 +20,11 @@ import org.palladiosimulator.pcm.seff.SeffPackage;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.seff.impl.CallActionImpl#getInputVariableUsages__CallAction
  * <em>Input Variable Usages Call Action</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -35,7 +35,7 @@ public abstract class CallActionImpl extends EntityImpl implements CallAction {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -77,12 +77,10 @@ public abstract class CallActionImpl extends EntityImpl implements CallAction {
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getInputVariableUsages__CallAction())
-                    .basicAdd(
-                            otherEnd, msgs);
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -95,8 +93,7 @@ public abstract class CallActionImpl extends EntityImpl implements CallAction {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
             return ((InternalEList<?>) this.getInputVariableUsages__CallAction()).basicRemove(otherEnd, msgs);
         }
@@ -110,8 +107,7 @@ public abstract class CallActionImpl extends EntityImpl implements CallAction {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
             return this.getInputVariableUsages__CallAction();
         }
@@ -126,8 +122,7 @@ public abstract class CallActionImpl extends EntityImpl implements CallAction {
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
             this.getInputVariableUsages__CallAction().clear();
             this.getInputVariableUsages__CallAction().addAll((Collection<? extends VariableUsage>) newValue);
@@ -143,8 +138,7 @@ public abstract class CallActionImpl extends EntityImpl implements CallAction {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
             this.getInputVariableUsages__CallAction().clear();
             return;
@@ -159,8 +153,7 @@ public abstract class CallActionImpl extends EntityImpl implements CallAction {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION:
             return !this.getInputVariableUsages__CallAction().isEmpty();
         }

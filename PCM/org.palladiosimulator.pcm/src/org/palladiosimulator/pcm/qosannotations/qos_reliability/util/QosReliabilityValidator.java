@@ -25,7 +25,7 @@ public class QosReliabilityValidator extends EObjectValidator {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -116,8 +116,7 @@ public class QosReliabilityValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID)
-        {
+        switch (classifierID) {
         case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION:
             return this.validateSpecifiedReliabilityAnnotation((SpecifiedReliabilityAnnotation) value, diagnostics,
                     context);
@@ -143,7 +142,12 @@ public class QosReliabilityValidator extends EObjectValidator {
             result &= this.validate_EveryDataValueConforms(specifiedReliabilityAnnotation, diagnostics, context);
         }
         if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(specifiedReliabilityAnnotation, diagnostics, context);
+            result &= this.validate_EveryReferenceIsContained(specifiedReliabilityAnnotation, diagnostics,
+                    context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(specifiedReliabilityAnnotation,
+                    diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(specifiedReliabilityAnnotation, diagnostics, context);
@@ -184,13 +188,13 @@ public class QosReliabilityValidator extends EObjectValidator {
     public boolean validateSpecifiedReliabilityAnnotation_SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(
             final SpecifiedReliabilityAnnotation specifiedReliabilityAnnotation, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        return specifiedReliabilityAnnotation.SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(
-                diagnostics, context);
+        return specifiedReliabilityAnnotation
+                .SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(diagnostics, context);
     }
 
     /**
-     * Validates the SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1 constraint of '
-     * <em>Specified Reliability Annotation</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1 constraint of
+     * '<em>Specified Reliability Annotation</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -202,16 +206,16 @@ public class QosReliabilityValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed constraint of '
-     * <em>Specified Reliability Annotation</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed constraint of
+     * '<em>Specified Reliability Annotation</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
     public boolean validateSpecifiedReliabilityAnnotation_MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(
             final SpecifiedReliabilityAnnotation specifiedReliabilityAnnotation, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        return specifiedReliabilityAnnotation.MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(
-                diagnostics, context);
+        return specifiedReliabilityAnnotation
+                .MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(diagnostics, context);
     }
 
     /**

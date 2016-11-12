@@ -24,314 +24,347 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.palladiosimulator.pcm.resourceenvironment.impl.ResourceContainerImpl#getActiveResourceSpecifications_ResourceContainer <em>Active Resource Specifications Resource Container</em>}</li>
- *   <li>{@link org.palladiosimulator.pcm.resourceenvironment.impl.ResourceContainerImpl#getResourceEnvironment_ResourceContainer <em>Resource Environment Resource Container</em>}</li>
- *   <li>{@link org.palladiosimulator.pcm.resourceenvironment.impl.ResourceContainerImpl#getNestedResourceContainers__ResourceContainer <em>Nested Resource Containers Resource Container</em>}</li>
- *   <li>{@link org.palladiosimulator.pcm.resourceenvironment.impl.ResourceContainerImpl#getParentResourceContainer__ResourceContainer <em>Parent Resource Container Resource Container</em>}</li>
- *   <li>{@link org.palladiosimulator.pcm.resourceenvironment.impl.ResourceContainerImpl#getHddResourceSpecifications <em>Hdd Resource Specifications</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.resourceenvironment.impl.ResourceContainerImpl#getActiveResourceSpecifications_ResourceContainer
+ * <em>Active Resource Specifications Resource Container</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.resourceenvironment.impl.ResourceContainerImpl#getResourceEnvironment_ResourceContainer
+ * <em>Resource Environment Resource Container</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.resourceenvironment.impl.ResourceContainerImpl#getNestedResourceContainers__ResourceContainer
+ * <em>Nested Resource Containers Resource Container</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.resourceenvironment.impl.ResourceContainerImpl#getParentResourceContainer__ResourceContainer
+ * <em>Parent Resource Container Resource Container</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.resourceenvironment.impl.ResourceContainerImpl#getHddResourceSpecifications
+ * <em>Hdd Resource Specifications</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ResourceContainerImpl extends EntityImpl implements ResourceContainer {
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ResourceContainerImpl() {
-		super();
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    protected ResourceContainerImpl() {
+        super();
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EClass eStaticClass() {
-		return ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    protected EClass eStaticClass() {
+        return ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public EList<ProcessingResourceSpecification> getActiveResourceSpecifications_ResourceContainer() {
-		return (EList<ProcessingResourceSpecification>) eDynamicGet(
-				ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER,
-				ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER,
-				true, true);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public EList<ProcessingResourceSpecification> getActiveResourceSpecifications_ResourceContainer() {
+        return (EList<ProcessingResourceSpecification>) this.eDynamicGet(
+                ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER,
+                ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER,
+                true, true);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceEnvironment getResourceEnvironment_ResourceContainer() {
-		return (ResourceEnvironment) eDynamicGet(
-				ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER,
-				ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER, true,
-				true);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public ResourceEnvironment getResourceEnvironment_ResourceContainer() {
+        return (ResourceEnvironment) this.eDynamicGet(
+                ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER,
+                ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER, true,
+                true);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetResourceEnvironment_ResourceContainer(
-			ResourceEnvironment newResourceEnvironment_ResourceContainer, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newResourceEnvironment_ResourceContainer,
-				ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER, msgs);
-		return msgs;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public NotificationChain basicSetResourceEnvironment_ResourceContainer(
+            final ResourceEnvironment newResourceEnvironment_ResourceContainer, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newResourceEnvironment_ResourceContainer,
+                ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER, msgs);
+        return msgs;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setResourceEnvironment_ResourceContainer(ResourceEnvironment newResourceEnvironment_ResourceContainer) {
-		eDynamicSet(ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER,
-				ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER,
-				newResourceEnvironment_ResourceContainer);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setResourceEnvironment_ResourceContainer(
+            final ResourceEnvironment newResourceEnvironment_ResourceContainer) {
+        this.eDynamicSet(ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER,
+                ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER,
+                newResourceEnvironment_ResourceContainer);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public EList<ResourceContainer> getNestedResourceContainers__ResourceContainer() {
-		return (EList<ResourceContainer>) eDynamicGet(
-				ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER,
-				ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER,
-				true, true);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public EList<ResourceContainer> getNestedResourceContainers__ResourceContainer() {
+        return (EList<ResourceContainer>) this.eDynamicGet(
+                ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER,
+                ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER,
+                true, true);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceContainer getParentResourceContainer__ResourceContainer() {
-		return (ResourceContainer) eDynamicGet(
-				ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER,
-				ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER,
-				true, true);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public ResourceContainer getParentResourceContainer__ResourceContainer() {
+        return (ResourceContainer) this.eDynamicGet(
+                ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER,
+                ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER,
+                true, true);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetParentResourceContainer__ResourceContainer(
-			ResourceContainer newParentResourceContainer__ResourceContainer, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject) newParentResourceContainer__ResourceContainer,
-				ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER, msgs);
-		return msgs;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    public NotificationChain basicSetParentResourceContainer__ResourceContainer(
+            final ResourceContainer newParentResourceContainer__ResourceContainer, NotificationChain msgs) {
+        msgs = this.eBasicSetContainer((InternalEObject) newParentResourceContainer__ResourceContainer,
+                ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER, msgs);
+        return msgs;
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setParentResourceContainer__ResourceContainer(
-			ResourceContainer newParentResourceContainer__ResourceContainer) {
-		eDynamicSet(ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER,
-				ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER,
-				newParentResourceContainer__ResourceContainer);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void setParentResourceContainer__ResourceContainer(
+            final ResourceContainer newParentResourceContainer__ResourceContainer) {
+        this.eDynamicSet(ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER,
+                ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER,
+                newParentResourceContainer__ResourceContainer);
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	@SuppressWarnings("unchecked")
-	public EList<HDDProcessingResourceSpecification> getHddResourceSpecifications() {
-		return (EList<HDDProcessingResourceSpecification>) eDynamicGet(
-				ResourceenvironmentPackage.RESOURCE_CONTAINER__HDD_RESOURCE_SPECIFICATIONS,
-				ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__HDD_RESOURCE_SPECIFICATIONS, true, true);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    @SuppressWarnings("unchecked")
+    public EList<HDDProcessingResourceSpecification> getHddResourceSpecifications() {
+        return (EList<HDDProcessingResourceSpecification>) this.eDynamicGet(
+                ResourceenvironmentPackage.RESOURCE_CONTAINER__HDD_RESOURCE_SPECIFICATIONS,
+                ResourceenvironmentPackage.Literals.RESOURCE_CONTAINER__HDD_RESOURCE_SPECIFICATIONS, true, true);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getActiveResourceSpecifications_ResourceContainer())
-					.basicAdd(otherEnd, msgs);
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetResourceEnvironment_ResourceContainer((ResourceEnvironment) otherEnd, msgs);
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getNestedResourceContainers__ResourceContainer())
-					.basicAdd(otherEnd, msgs);
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER:
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			return basicSetParentResourceContainer__ResourceContainer((ResourceContainer) otherEnd, msgs);
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__HDD_RESOURCE_SPECIFICATIONS:
-			return ((InternalEList<InternalEObject>) (InternalEList<?>) getHddResourceSpecifications())
-					.basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
+        switch (featureID) {
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
+                    .getActiveResourceSpecifications_ResourceContainer())
+                            .basicAdd(otherEnd, msgs);
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetResourceEnvironment_ResourceContainer((ResourceEnvironment) otherEnd, msgs);
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER:
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this
+                    .getNestedResourceContainers__ResourceContainer())
+                            .basicAdd(otherEnd, msgs);
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER:
+            if (this.eInternalContainer() != null) {
+                msgs = this.eBasicRemoveFromContainer(msgs);
+            }
+            return this.basicSetParentResourceContainer__ResourceContainer((ResourceContainer) otherEnd, msgs);
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__HDD_RESOURCE_SPECIFICATIONS:
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getHddResourceSpecifications())
+                    .basicAdd(otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
-			return ((InternalEList<?>) getActiveResourceSpecifications_ResourceContainer()).basicRemove(otherEnd, msgs);
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
-			return basicSetResourceEnvironment_ResourceContainer(null, msgs);
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER:
-			return ((InternalEList<?>) getNestedResourceContainers__ResourceContainer()).basicRemove(otherEnd, msgs);
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER:
-			return basicSetParentResourceContainer__ResourceContainer(null, msgs);
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__HDD_RESOURCE_SPECIFICATIONS:
-			return ((InternalEList<?>) getHddResourceSpecifications()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
+            final NotificationChain msgs) {
+        switch (featureID) {
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
+            return ((InternalEList<?>) this.getActiveResourceSpecifications_ResourceContainer()).basicRemove(otherEnd,
+                    msgs);
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
+            return this.basicSetResourceEnvironment_ResourceContainer(null, msgs);
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER:
+            return ((InternalEList<?>) this.getNestedResourceContainers__ResourceContainer()).basicRemove(otherEnd,
+                    msgs);
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER:
+            return this.basicSetParentResourceContainer__ResourceContainer(null, msgs);
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__HDD_RESOURCE_SPECIFICATIONS:
+            return ((InternalEList<?>) this.getHddResourceSpecifications()).basicRemove(otherEnd, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
-			return eInternalContainer().eInverseRemove(this,
-					ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT,
-					ResourceEnvironment.class, msgs);
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER:
-			return eInternalContainer().eInverseRemove(this,
-					ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER,
-					ResourceContainer.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
+        switch (this.eContainerFeatureID()) {
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
+            return this.eInternalContainer().eInverseRemove(this,
+                    ResourceenvironmentPackage.RESOURCE_ENVIRONMENT__RESOURCE_CONTAINER_RESOURCE_ENVIRONMENT,
+                    ResourceEnvironment.class, msgs);
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER:
+            return this.eInternalContainer().eInverseRemove(this,
+                    ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER,
+                    ResourceContainer.class, msgs);
+        }
+        return super.eBasicRemoveFromContainerFeature(msgs);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
-			return getActiveResourceSpecifications_ResourceContainer();
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
-			return getResourceEnvironment_ResourceContainer();
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER:
-			return getNestedResourceContainers__ResourceContainer();
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER:
-			return getParentResourceContainer__ResourceContainer();
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__HDD_RESOURCE_SPECIFICATIONS:
-			return getHddResourceSpecifications();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
+        switch (featureID) {
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
+            return this.getActiveResourceSpecifications_ResourceContainer();
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
+            return this.getResourceEnvironment_ResourceContainer();
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER:
+            return this.getNestedResourceContainers__ResourceContainer();
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER:
+            return this.getParentResourceContainer__ResourceContainer();
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__HDD_RESOURCE_SPECIFICATIONS:
+            return this.getHddResourceSpecifications();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
-			getActiveResourceSpecifications_ResourceContainer().clear();
-			getActiveResourceSpecifications_ResourceContainer()
-					.addAll((Collection<? extends ProcessingResourceSpecification>) newValue);
-			return;
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
-			setResourceEnvironment_ResourceContainer((ResourceEnvironment) newValue);
-			return;
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER:
-			getNestedResourceContainers__ResourceContainer().clear();
-			getNestedResourceContainers__ResourceContainer().addAll((Collection<? extends ResourceContainer>) newValue);
-			return;
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER:
-			setParentResourceContainer__ResourceContainer((ResourceContainer) newValue);
-			return;
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__HDD_RESOURCE_SPECIFICATIONS:
-			getHddResourceSpecifications().clear();
-			getHddResourceSpecifications().addAll((Collection<? extends HDDProcessingResourceSpecification>) newValue);
-			return;
-		}
-		super.eSet(featureID, newValue);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public void eSet(final int featureID, final Object newValue) {
+        switch (featureID) {
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
+            this.getActiveResourceSpecifications_ResourceContainer().clear();
+            this.getActiveResourceSpecifications_ResourceContainer()
+                    .addAll((Collection<? extends ProcessingResourceSpecification>) newValue);
+            return;
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
+            this.setResourceEnvironment_ResourceContainer((ResourceEnvironment) newValue);
+            return;
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER:
+            this.getNestedResourceContainers__ResourceContainer().clear();
+            this.getNestedResourceContainers__ResourceContainer()
+                    .addAll((Collection<? extends ResourceContainer>) newValue);
+            return;
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER:
+            this.setParentResourceContainer__ResourceContainer((ResourceContainer) newValue);
+            return;
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__HDD_RESOURCE_SPECIFICATIONS:
+            this.getHddResourceSpecifications().clear();
+            this.getHddResourceSpecifications()
+                    .addAll((Collection<? extends HDDProcessingResourceSpecification>) newValue);
+            return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
-			getActiveResourceSpecifications_ResourceContainer().clear();
-			return;
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
-			setResourceEnvironment_ResourceContainer((ResourceEnvironment) null);
-			return;
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER:
-			getNestedResourceContainers__ResourceContainer().clear();
-			return;
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER:
-			setParentResourceContainer__ResourceContainer((ResourceContainer) null);
-			return;
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__HDD_RESOURCE_SPECIFICATIONS:
-			getHddResourceSpecifications().clear();
-			return;
-		}
-		super.eUnset(featureID);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public void eUnset(final int featureID) {
+        switch (featureID) {
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
+            this.getActiveResourceSpecifications_ResourceContainer().clear();
+            return;
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
+            this.setResourceEnvironment_ResourceContainer((ResourceEnvironment) null);
+            return;
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER:
+            this.getNestedResourceContainers__ResourceContainer().clear();
+            return;
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER:
+            this.setParentResourceContainer__ResourceContainer((ResourceContainer) null);
+            return;
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__HDD_RESOURCE_SPECIFICATIONS:
+            this.getHddResourceSpecifications().clear();
+            return;
+        }
+        super.eUnset(featureID);
+    }
 
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
-			return !getActiveResourceSpecifications_ResourceContainer().isEmpty();
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
-			return getResourceEnvironment_ResourceContainer() != null;
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER:
-			return !getNestedResourceContainers__ResourceContainer().isEmpty();
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER:
-			return getParentResourceContainer__ResourceContainer() != null;
-		case ResourceenvironmentPackage.RESOURCE_CONTAINER__HDD_RESOURCE_SPECIFICATIONS:
-			return !getHddResourceSpecifications().isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     */
+    @Override
+    public boolean eIsSet(final int featureID) {
+        switch (featureID) {
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
+            return !this.getActiveResourceSpecifications_ResourceContainer().isEmpty();
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
+            return this.getResourceEnvironment_ResourceContainer() != null;
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER:
+            return !this.getNestedResourceContainers__ResourceContainer().isEmpty();
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER:
+            return this.getParentResourceContainer__ResourceContainer() != null;
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER__HDD_RESOURCE_SPECIFICATIONS:
+            return !this.getHddResourceSpecifications().isEmpty();
+        }
+        return super.eIsSet(featureID);
+    }
 
 } // ResourceContainerImpl

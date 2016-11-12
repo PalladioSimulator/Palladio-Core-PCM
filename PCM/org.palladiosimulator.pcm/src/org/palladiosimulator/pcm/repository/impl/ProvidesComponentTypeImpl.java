@@ -19,10 +19,8 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
 import org.palladiosimulator.pcm.repository.util.RepositoryValidator;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Provides Component Type</b></em>'. <!-- end-user-doc -->
- * <p>
- * </p>
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Provides Component
+ * Type</b></em>'. <!-- end-user-doc -->
  *
  * @generated
  */
@@ -33,7 +31,7 @@ public class ProvidesComponentTypeImpl extends RepositoryComponentImpl implement
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -55,8 +53,8 @@ public class ProvidesComponentTypeImpl extends RepositoryComponentImpl implement
     }
 
     /**
-     * The cached OCL expression body for the '
-     * {@link #AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL expression body for the
+     * '{@link #AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>At Least One Interface Has To Be Provided By AUsefull Provides Component Type</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -68,8 +66,8 @@ public class ProvidesComponentTypeImpl extends RepositoryComponentImpl implement
     protected static final String AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.oclIsTypeOf(ProvidesComponentType)\n"
             + "implies\n" + "self.providedRoles_InterfaceProvidingEntity->size() >= 1";
     /**
-     * The cached OCL invariant for the '
-     * {@link #AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL invariant for the
+     * '{@link #AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>At Least One Interface Has To Be Provided By AUsefull Provides Component Type</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -88,37 +86,29 @@ public class ProvidesComponentTypeImpl extends RepositoryComponentImpl implement
     @Override
     public boolean AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.PROVIDES_COMPONENT_TYPE);
-            try
-            {
+            try {
                 AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV
                 .createQuery(
                         AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                RepositoryValidator.DIAGNOSTIC_SOURCE,
-                                RepositoryValidator.PROVIDES_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType",
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        RepositoryValidator.DIAGNOSTIC_SOURCE,
+                        RepositoryValidator.PROVIDES_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType",
                                         EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                        new Object[] { this }));
             }
             return false;
         }

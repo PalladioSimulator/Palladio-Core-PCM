@@ -16,15 +16,15 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getUsageModel_UsageScenario <em>
- * Usage Model Usage Scenario</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getUsageModel_UsageScenario
+ * <em>Usage Model Usage Scenario</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getScenarioBehaviour_UsageScenario
  * <em>Scenario Behaviour Usage Scenario</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario <em>
- * Workload Usage Scenario</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario
+ * <em>Workload Usage Scenario</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getUsageScenario()
  * @model
@@ -37,13 +37,13 @@ public interface UsageScenario extends Entity {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Usage Model Usage Scenario</b></em>' container reference. It
-     * is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.usagemodel.UsageModel#getUsageScenario_UsageModel
-     * <em>Usage Scenario Usage Model</em>}'. <!-- begin-user-doc -->
+     * is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.usagemodel.UsageModel#getUsageScenario_UsageModel <em>Usage
+     * Scenario Usage Model</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Usage Model Usage Scenario</em>' container reference isn't clear,
      * there really should be more of a description here...
@@ -60,8 +60,8 @@ public interface UsageScenario extends Entity {
     UsageModel getUsageModel_UsageScenario();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getUsageModel_UsageScenario
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getUsageModel_UsageScenario
      * <em>Usage Model Usage Scenario</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -74,8 +74,8 @@ public interface UsageScenario extends Entity {
 
     /**
      * Returns the value of the '<em><b>Scenario Behaviour Usage Scenario</b></em>' containment
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getUsageScenario_SenarioBehaviour
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getUsageScenario_SenarioBehaviour
      * <em>Usage Scenario Senario Behaviour</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Scenario Behaviour Usage Scenario</em>' containment reference
@@ -94,8 +94,8 @@ public interface UsageScenario extends Entity {
     ScenarioBehaviour getScenarioBehaviour_UsageScenario();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getScenarioBehaviour_UsageScenario
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getScenarioBehaviour_UsageScenario
      * <em>Scenario Behaviour Usage Scenario</em>}' containment reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -109,9 +109,9 @@ public interface UsageScenario extends Entity {
 
     /**
      * Returns the value of the '<em><b>Workload Usage Scenario</b></em>' containment reference. It
-     * is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.usagemodel.Workload#getUsageScenario_Workload
-     * <em>Usage Scenario Workload</em>}'. <!-- begin-user-doc -->
+     * is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.usagemodel.Workload#getUsageScenario_Workload <em>Usage
+     * Scenario Workload</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Workload Usage Scenario</em>' containment reference isn't clear,
      * there really should be more of a description here...
@@ -128,8 +128,8 @@ public interface UsageScenario extends Entity {
     Workload getWorkload_UsageScenario();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario
      * <em>Workload Usage Scenario</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

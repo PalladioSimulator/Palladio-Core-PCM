@@ -44,7 +44,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -52,16 +52,13 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      * @generated
      */
     public static SeffFactory init() {
-        try
-        {
+        try {
             final SeffFactory theSeffFactory = (SeffFactory) EPackage.Registry.INSTANCE
                     .getEFactory(SeffPackage.eNS_URI);
-            if (theSeffFactory != null)
-            {
+            if (theSeffFactory != null) {
                 return theSeffFactory;
             }
-        } catch (final Exception exception)
-        {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new SeffFactoryImpl();
@@ -83,8 +80,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID())
-        {
+        switch (eClass.getClassifierID()) {
         case SeffPackage.STOP_ACTION:
             return this.createStopAction();
         case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR:

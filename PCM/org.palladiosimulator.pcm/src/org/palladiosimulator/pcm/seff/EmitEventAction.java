@@ -19,13 +19,13 @@ import org.palladiosimulator.pcm.repository.SourceRole;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.seff.EmitEventAction#getEventType__EmitEventAction <em>Event
  * Type Emit Event Action</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.seff.EmitEventAction#getSourceRole__EmitEventAction <em>
- * Source Role Emit Event Action</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.seff.EmitEventAction#getSourceRole__EmitEventAction
+ * <em>Source Role Emit Event Action</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getEmitEventAction()
  * @model
@@ -38,7 +38,7 @@ public interface EmitEventAction extends AbstractAction, CallAction {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Event Type Emit Event Action</b></em>' reference. <!--
@@ -59,9 +59,8 @@ public interface EmitEventAction extends AbstractAction, CallAction {
 
     /**
      * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.seff.EmitEventAction#getEventType__EmitEventAction
-     * <em>Event Type Emit Event Action</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
+     * {@link org.palladiosimulator.pcm.seff.EmitEventAction#getEventType__EmitEventAction <em>Event
+     * Type Emit Event Action</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Event Type Emit Event Action</em>' reference.

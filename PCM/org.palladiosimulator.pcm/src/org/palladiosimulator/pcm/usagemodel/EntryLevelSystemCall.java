@@ -12,8 +12,8 @@ import org.palladiosimulator.pcm.repository.OperationProvidedRole;
 import org.palladiosimulator.pcm.repository.OperationSignature;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Entry Level System Call</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Entry Level System
+ * Call</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> An EntryLevelSystemCall models the call to a service provided by a
  * system. Therefore, an EntryLevelSystemCall references a ProvidedRole of a PCM System, from which
@@ -35,23 +35,19 @@ import org.palladiosimulator.pcm.repository.OperationSignature;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getProvidedRole_EntryLevelSystemCall
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getProvidedRole_EntryLevelSystemCall
  * <em>Provided Role Entry Level System Call</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getOperationSignature__EntryLevelSystemCall
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getOperationSignature__EntryLevelSystemCall
  * <em>Operation Signature Entry Level System Call</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getOutputParameterUsages_EntryLevelSystemCall
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getOutputParameterUsages_EntryLevelSystemCall
  * <em>Output Parameter Usages Entry Level System Call</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getPriority <em>Priority
- * </em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getInputParameterUsages_EntryLevelSystemCall
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getPriority
+ * <em>Priority</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getInputParameterUsages_EntryLevelSystemCall
  * <em>Input Parameter Usages Entry Level System Call</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall()
  * @model
@@ -64,7 +60,7 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Provided Role Entry Level System Call</b></em>' reference.
@@ -84,8 +80,8 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
     OperationProvidedRole getProvidedRole_EntryLevelSystemCall();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getProvidedRole_EntryLevelSystemCall
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getProvidedRole_EntryLevelSystemCall
      * <em>Provided Role Entry Level System Call</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -114,8 +110,8 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
     OperationSignature getOperationSignature__EntryLevelSystemCall();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getOperationSignature__EntryLevelSystemCall
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getOperationSignature__EntryLevelSystemCall
      * <em>Operation Signature Entry Level System Call</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -131,8 +127,8 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
      * Returns the value of the '<em><b>Output Parameter Usages Entry Level System Call</b></em>'
      * containment reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.parameter.VariableUsage}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getEntryLevelSystemCall_OutputParameterUsage
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getEntryLevelSystemCall_OutputParameterUsage
      * <em>Entry Level System Call Output Parameter Usage</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Output Parameter Usages Entry Level System Call</em>' containment
@@ -167,8 +163,8 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
     int getPriority();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getPriority
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall#getPriority
      * <em>Priority</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
@@ -182,8 +178,8 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
      * Returns the value of the '<em><b>Input Parameter Usages Entry Level System Call</b></em>'
      * containment reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.parameter.VariableUsage}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getEntryLevelSystemCall_InputParameterUsage
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getEntryLevelSystemCall_InputParameterUsage
      * <em>Entry Level System Call Input Parameter Usage</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Input Parameter Usages Entry Level System Call</em>' containment
@@ -207,8 +203,8 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.oclIsTypeOf(pcm::system::System)'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.oclIsTypeOf(pcm::system::System)'"
      * @generated
      */
     boolean EntryLevelSystemCallMustReferenceProvidedRoleOfASystem(DiagnosticChain diagnostics,
@@ -221,8 +217,8 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.providedRole_EntryLevelSystemCall.providedInterface__OperationProvidedRole.signatures__OperationInterface->includes(self.operationSignature__EntryLevelSystemCall)'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.providedRole_EntryLevelSystemCall.providedInterface__OperationProvidedRole.signatures__OperationInterface->includes(self.operationSignature__EntryLevelSystemCall)'"
      * @generated
      */
     boolean EntryLevelSystemCallSignatureMustMatchItsProvidedRole(DiagnosticChain diagnostics,

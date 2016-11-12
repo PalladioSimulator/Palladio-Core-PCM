@@ -4,8 +4,8 @@
 package org.palladiosimulator.pcm.core.composition;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Delegation Connector</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Delegation
+ * Connector</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> This entity represents a delegation connector, i.e., connector used for
  * connecting a provided/required role of a component woth provided/reqiured port of its
@@ -23,6 +23,6 @@ public interface DelegationConnector extends Connector {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
 } // DelegationConnector

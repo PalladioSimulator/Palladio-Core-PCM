@@ -12,10 +12,10 @@ package org.palladiosimulator.pcm.repository;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.repository.PrimitiveDataType#getType <em>Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getPrimitiveDataType()
  * @model
@@ -28,7 +28,7 @@ public interface PrimitiveDataType extends DataType {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Type</b></em>' attribute. The literals are from the

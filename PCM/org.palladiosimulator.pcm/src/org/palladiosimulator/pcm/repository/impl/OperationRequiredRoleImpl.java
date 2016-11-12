@@ -9,16 +9,15 @@ import org.palladiosimulator.pcm.repository.OperationRequiredRole;
 import org.palladiosimulator.pcm.repository.RepositoryPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Operation Required Role</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Operation Required
+ * Role</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.impl.OperationRequiredRoleImpl#getRequiredInterface__OperationRequiredRole
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.OperationRequiredRoleImpl#getRequiredInterface__OperationRequiredRole
  * <em>Required Interface Operation Required Role</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -29,7 +28,7 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -95,8 +94,7 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.OPERATION_REQUIRED_ROLE__REQUIRED_INTERFACE_OPERATION_REQUIRED_ROLE:
             if (resolve) {
                 return this.getRequiredInterface__OperationRequiredRole();
@@ -113,8 +111,7 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.OPERATION_REQUIRED_ROLE__REQUIRED_INTERFACE_OPERATION_REQUIRED_ROLE:
             this.setRequiredInterface__OperationRequiredRole((OperationInterface) newValue);
             return;
@@ -129,8 +126,7 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.OPERATION_REQUIRED_ROLE__REQUIRED_INTERFACE_OPERATION_REQUIRED_ROLE:
             this.setRequiredInterface__OperationRequiredRole((OperationInterface) null);
             return;
@@ -145,8 +141,7 @@ public class OperationRequiredRoleImpl extends RequiredRoleImpl implements Opera
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.OPERATION_REQUIRED_ROLE__REQUIRED_INTERFACE_OPERATION_REQUIRED_ROLE:
             return this.basicGetRequiredInterface__OperationRequiredRole() != null;
         }

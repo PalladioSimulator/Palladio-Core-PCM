@@ -20,21 +20,17 @@ import org.palladiosimulator.pcm.resourceenvironment.ResourceContainer;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.allocation.AllocationContext#getResourceContainer_AllocationContext
+ * <li>{@link org.palladiosimulator.pcm.allocation.AllocationContext#getResourceContainer_AllocationContext
  * <em>Resource Container Allocation Context</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.allocation.AllocationContext#getAssemblyContext_AllocationContext
+ * <li>{@link org.palladiosimulator.pcm.allocation.AllocationContext#getAssemblyContext_AllocationContext
  * <em>Assembly Context Allocation Context</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.allocation.AllocationContext#getAllocation_AllocationContext
+ * <li>{@link org.palladiosimulator.pcm.allocation.AllocationContext#getAllocation_AllocationContext
  * <em>Allocation Allocation Context</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.allocation.AllocationContext#getEventChannel__AllocationContext
+ * <li>{@link org.palladiosimulator.pcm.allocation.AllocationContext#getEventChannel__AllocationContext
  * <em>Event Channel Allocation Context</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.allocation.AllocationPackage#getAllocationContext()
  * @model
@@ -47,7 +43,7 @@ public interface AllocationContext extends Entity {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Resource Container Allocation Context</b></em>' reference.
@@ -67,8 +63,8 @@ public interface AllocationContext extends Entity {
     ResourceContainer getResourceContainer_AllocationContext();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.allocation.AllocationContext#getResourceContainer_AllocationContext
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.allocation.AllocationContext#getResourceContainer_AllocationContext
      * <em>Resource Container Allocation Context</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -97,8 +93,8 @@ public interface AllocationContext extends Entity {
     AssemblyContext getAssemblyContext_AllocationContext();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.allocation.AllocationContext#getAssemblyContext_AllocationContext
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.allocation.AllocationContext#getAssemblyContext_AllocationContext
      * <em>Assembly Context Allocation Context</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -111,8 +107,8 @@ public interface AllocationContext extends Entity {
 
     /**
      * Returns the value of the '<em><b>Allocation Allocation Context</b></em>' container reference.
-     * It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.allocation.Allocation#getAllocationContexts_Allocation
+     * It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.allocation.Allocation#getAllocationContexts_Allocation
      * <em>Allocation Contexts Allocation</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Allocation Allocation Context</em>' container reference isn't
@@ -131,8 +127,8 @@ public interface AllocationContext extends Entity {
     Allocation getAllocation_AllocationContext();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.allocation.AllocationContext#getAllocation_AllocationContext
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.allocation.AllocationContext#getAllocation_AllocationContext
      * <em>Allocation Allocation Context</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -161,8 +157,8 @@ public interface AllocationContext extends Entity {
     EventChannel getEventChannel__AllocationContext();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.allocation.AllocationContext#getEventChannel__AllocationContext
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.allocation.AllocationContext#getEventChannel__AllocationContext
      * <em>Event Channel Allocation Context</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -180,8 +176,9 @@ public interface AllocationContext extends Entity {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='not(self.assemblyContext_AllocationContext.oclIsUndefined()) xor not(self.eventChannel__AllocationContext.oclIsUndefined())'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='not(self.assemblyContext_AllocationContext.oclIsUndefined()) xor
+     *        not(self.eventChannel__AllocationContext.oclIsUndefined())'"
      * @generated
      */
     boolean OneAssemblyContextOrOneEventChannelShouldBeReferred(DiagnosticChain diagnostics,

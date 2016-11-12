@@ -15,11 +15,11 @@ import org.palladiosimulator.pcm.seff.SeffPackage;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.palladiosimulator.pcm.seff.impl.LoopActionImpl#getIterationCount_LoopAction <em>
- * Iteration Count Loop Action</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcm.seff.impl.LoopActionImpl#getIterationCount_LoopAction
+ * <em>Iteration Count Loop Action</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -30,7 +30,7 @@ public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -92,13 +92,12 @@ public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION:
             final PCMRandomVariable iterationCount_LoopAction = this.getIterationCount_LoopAction();
             if (iterationCount_LoopAction != null) {
-                msgs = ((InternalEObject) iterationCount_LoopAction).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-                        - SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION, null, msgs);
+                msgs = ((InternalEObject) iterationCount_LoopAction).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION, null, msgs);
             }
             return this.basicSetIterationCount_LoopAction((PCMRandomVariable) otherEnd, msgs);
         }
@@ -113,8 +112,7 @@ public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION:
             return this.basicSetIterationCount_LoopAction(null, msgs);
         }
@@ -128,8 +126,7 @@ public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION:
             return this.getIterationCount_LoopAction();
         }
@@ -143,8 +140,7 @@ public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION:
             this.setIterationCount_LoopAction((PCMRandomVariable) newValue);
             return;
@@ -159,8 +155,7 @@ public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION:
             this.setIterationCount_LoopAction((PCMRandomVariable) null);
             return;
@@ -175,8 +170,7 @@ public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.LOOP_ACTION__ITERATION_COUNT_LOOP_ACTION:
             return this.getIterationCount_LoopAction() != null;
         }

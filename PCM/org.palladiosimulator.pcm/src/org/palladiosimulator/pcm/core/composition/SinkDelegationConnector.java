@@ -6,26 +6,23 @@ package org.palladiosimulator.pcm.core.composition;
 import org.palladiosimulator.pcm.repository.SinkRole;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Sink Delegation Connector</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Sink Delegation
+ * Connector</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> A SinkDelegationConnector delegates an incoming event to the
  * encapsulated assembly contexts to inner sink roles. <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getAssemblyContext__SinkDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getAssemblyContext__SinkDelegationConnector
  * <em>Assembly Context Sink Delegation Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getInnerSinkRole__SinkRole
+ * <li>{@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getInnerSinkRole__SinkRole
  * <em>Inner Sink Role Sink Role</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getOuterSinkRole__SinkRole
+ * <li>{@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getOuterSinkRole__SinkRole
  * <em>Outer Sink Role Sink Role</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getSinkDelegationConnector()
  * @model
@@ -38,7 +35,7 @@ public interface SinkDelegationConnector extends DelegationConnector {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Assembly Context Sink Delegation Connector</b></em>'
@@ -58,8 +55,8 @@ public interface SinkDelegationConnector extends DelegationConnector {
     AssemblyContext getAssemblyContext__SinkDelegationConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getAssemblyContext__SinkDelegationConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getAssemblyContext__SinkDelegationConnector
      * <em>Assembly Context Sink Delegation Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -89,8 +86,8 @@ public interface SinkDelegationConnector extends DelegationConnector {
     SinkRole getInnerSinkRole__SinkRole();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getInnerSinkRole__SinkRole
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getInnerSinkRole__SinkRole
      * <em>Inner Sink Role Sink Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
@@ -118,8 +115,8 @@ public interface SinkDelegationConnector extends DelegationConnector {
     SinkRole getOuterSinkRole__SinkRole();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getOuterSinkRole__SinkRole
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector#getOuterSinkRole__SinkRole
      * <em>Outer Sink Role Sink Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value

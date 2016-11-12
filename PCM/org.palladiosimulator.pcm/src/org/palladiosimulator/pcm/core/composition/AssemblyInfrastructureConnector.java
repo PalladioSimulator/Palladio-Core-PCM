@@ -7,26 +7,22 @@ import org.palladiosimulator.pcm.repository.InfrastructureProvidedRole;
 import org.palladiosimulator.pcm.repository.InfrastructureRequiredRole;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Assembly Infrastructure Connector</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Assembly Infrastructure
+ * Connector</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getProvidedRole__AssemblyInfrastructureConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getProvidedRole__AssemblyInfrastructureConnector
  * <em>Provided Role Assembly Infrastructure Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getRequiredRole__AssemblyInfrastructureConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getRequiredRole__AssemblyInfrastructureConnector
  * <em>Required Role Assembly Infrastructure Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getProvidingAssemblyContext__AssemblyInfrastructureConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getProvidingAssemblyContext__AssemblyInfrastructureConnector
  * <em>Providing Assembly Context Assembly Infrastructure Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getRequiringAssemblyContext__AssemblyInfrastructureConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getRequiringAssemblyContext__AssemblyInfrastructureConnector
  * <em>Requiring Assembly Context Assembly Infrastructure Connector</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getAssemblyInfrastructureConnector()
  * @model
@@ -39,7 +35,7 @@ public interface AssemblyInfrastructureConnector extends Connector {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Provided Role Assembly Infrastructure Connector</b></em>'
@@ -60,8 +56,8 @@ public interface AssemblyInfrastructureConnector extends Connector {
     InfrastructureProvidedRole getProvidedRole__AssemblyInfrastructureConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getProvidedRole__AssemblyInfrastructureConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getProvidedRole__AssemblyInfrastructureConnector
      * <em>Provided Role Assembly Infrastructure Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -92,8 +88,8 @@ public interface AssemblyInfrastructureConnector extends Connector {
     InfrastructureRequiredRole getRequiredRole__AssemblyInfrastructureConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getRequiredRole__AssemblyInfrastructureConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector#getRequiredRole__AssemblyInfrastructureConnector
      * <em>Required Role Assembly Infrastructure Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -106,17 +102,16 @@ public interface AssemblyInfrastructureConnector extends Connector {
     void setRequiredRole__AssemblyInfrastructureConnector(InfrastructureRequiredRole value);
 
     /**
-     * Returns the value of the '
-     * <em><b>Providing Assembly Context Assembly Infrastructure Connector</b></em>' reference. <!--
-     * begin-user-doc -->
+     * Returns the value of the ' <em><b>Providing Assembly Context Assembly Infrastructure
+     * Connector</b></em>' reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Providing Assembly Context Assembly Infrastructure Connector</em>'
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      *
-     * @return the value of the '
-     *         <em>Providing Assembly Context Assembly Infrastructure Connector</em>' reference.
+     * @return the value of the ' <em>Providing Assembly Context Assembly Infrastructure
+     *         Connector</em>' reference.
      * @see #setProvidingAssemblyContext__AssemblyInfrastructureConnector(AssemblyContext)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getAssemblyInfrastructureConnector_ProvidingAssemblyContext__AssemblyInfrastructureConnector()
      * @model required="true"
@@ -131,25 +126,24 @@ public interface AssemblyInfrastructureConnector extends Connector {
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
-     *            the new value of the '
-     *            <em>Providing Assembly Context Assembly Infrastructure Connector</em>' reference.
+     *            the new value of the ' <em>Providing Assembly Context Assembly Infrastructure
+     *            Connector</em>' reference.
      * @see #getProvidingAssemblyContext__AssemblyInfrastructureConnector()
      * @generated
      */
     void setProvidingAssemblyContext__AssemblyInfrastructureConnector(AssemblyContext value);
 
     /**
-     * Returns the value of the '
-     * <em><b>Requiring Assembly Context Assembly Infrastructure Connector</b></em>' reference. <!--
-     * begin-user-doc -->
+     * Returns the value of the ' <em><b>Requiring Assembly Context Assembly Infrastructure
+     * Connector</b></em>' reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Requiring Assembly Context Assembly Infrastructure Connector</em>'
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      *
-     * @return the value of the '
-     *         <em>Requiring Assembly Context Assembly Infrastructure Connector</em>' reference.
+     * @return the value of the ' <em>Requiring Assembly Context Assembly Infrastructure
+     *         Connector</em>' reference.
      * @see #setRequiringAssemblyContext__AssemblyInfrastructureConnector(AssemblyContext)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getAssemblyInfrastructureConnector_RequiringAssemblyContext__AssemblyInfrastructureConnector()
      * @model
@@ -164,8 +158,8 @@ public interface AssemblyInfrastructureConnector extends Connector {
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
-     *            the new value of the '
-     *            <em>Requiring Assembly Context Assembly Infrastructure Connector</em>' reference.
+     *            the new value of the ' <em>Requiring Assembly Context Assembly Infrastructure
+     *            Connector</em>' reference.
      * @see #getRequiringAssemblyContext__AssemblyInfrastructureConnector()
      * @generated
      */

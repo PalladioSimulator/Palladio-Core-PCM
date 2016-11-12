@@ -27,7 +27,7 @@ public class QosannotationsValidator extends EObjectValidator {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -100,15 +100,15 @@ public class QosannotationsValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID)
-        {
+        switch (classifierID) {
         case QosannotationsPackage.SPECIFIED_QO_SANNOTATION:
             return this.validateSpecifiedQoSAnnotation((SpecifiedQoSAnnotation) value, diagnostics, context);
         case QosannotationsPackage.QO_SANNOTATIONS:
             return this.validateQoSAnnotations((QoSAnnotations) value, diagnostics, context);
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
             return this.validateSpecifiedOutputParameterAbstraction((SpecifiedOutputParameterAbstraction) value,
-                    diagnostics, context);
+                    diagnostics,
+                    context);
         default:
             return true;
         }
@@ -142,6 +142,9 @@ public class QosannotationsValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(qoSAnnotations, diagnostics, context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(qoSAnnotations, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(qoSAnnotations, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -162,8 +165,8 @@ public class QosannotationsValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the MultipleReliabilityAnnotationsPerExternalCallNotAllowed constraint of '
-     * <em>Qo SAnnotations</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the MultipleReliabilityAnnotationsPerExternalCallNotAllowed constraint of '<em>Qo
+     * SAnnotations</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */

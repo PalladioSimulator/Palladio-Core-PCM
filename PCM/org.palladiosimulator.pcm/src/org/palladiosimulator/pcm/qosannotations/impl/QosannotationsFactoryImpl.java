@@ -24,7 +24,7 @@ public class QosannotationsFactoryImpl extends EFactoryImpl implements Qosannota
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -32,16 +32,13 @@ public class QosannotationsFactoryImpl extends EFactoryImpl implements Qosannota
      * @generated
      */
     public static QosannotationsFactory init() {
-        try
-        {
+        try {
             final QosannotationsFactory theQosannotationsFactory = (QosannotationsFactory) EPackage.Registry.INSTANCE
                     .getEFactory(QosannotationsPackage.eNS_URI);
-            if (theQosannotationsFactory != null)
-            {
+            if (theQosannotationsFactory != null) {
                 return theQosannotationsFactory;
             }
-        } catch (final Exception exception)
-        {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new QosannotationsFactoryImpl();
@@ -63,8 +60,7 @@ public class QosannotationsFactoryImpl extends EFactoryImpl implements Qosannota
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID())
-        {
+        switch (eClass.getClassifierID()) {
         case QosannotationsPackage.QO_SANNOTATIONS:
             return this.createQoSAnnotations();
         default:

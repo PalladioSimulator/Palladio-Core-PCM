@@ -26,22 +26,19 @@ import org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage;
 import org.palladiosimulator.pcm.seff.seff_performance.util.SeffPerformanceValidator;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Parametric Resource Demand</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Parametric Resource
+ * Demand</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_performance.impl.ParametricResourceDemandImpl#getSpecification_ParametericResourceDemand
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_performance.impl.ParametricResourceDemandImpl#getSpecification_ParametericResourceDemand
  * <em>Specification Parameteric Resource Demand</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_performance.impl.ParametricResourceDemandImpl#getRequiredResource_ParametricResourceDemand
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_performance.impl.ParametricResourceDemandImpl#getRequiredResource_ParametricResourceDemand
  * <em>Required Resource Parametric Resource Demand</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_performance.impl.ParametricResourceDemandImpl#getAction_ParametricResourceDemand
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_performance.impl.ParametricResourceDemandImpl#getAction_ParametricResourceDemand
  * <em>Action Parametric Resource Demand</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -52,7 +49,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -128,11 +125,10 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
      */
     @Override
     public ProcessingResourceType getRequiredResource_ParametricResourceDemand() {
-        return (ProcessingResourceType) this
-                .eDynamicGet(
-                        SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND,
-                        SeffPerformancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND,
-                        true, true);
+        return (ProcessingResourceType) this.eDynamicGet(
+                SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND,
+                SeffPerformancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND,
+                true, true);
     }
 
     /**
@@ -141,11 +137,10 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
      * @generated
      */
     public ProcessingResourceType basicGetRequiredResource_ParametricResourceDemand() {
-        return (ProcessingResourceType) this
-                .eDynamicGet(
-                        SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND,
-                        SeffPerformancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND,
-                        false, true);
+        return (ProcessingResourceType) this.eDynamicGet(
+                SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND,
+                SeffPerformancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND,
+                false, true);
     }
 
     /**
@@ -201,10 +196,10 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
     }
 
     /**
-     * The cached OCL expression body for the '
-     * {@link #DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Demanded Processing Resource Must Be Unique Within Abstract Internal Control Flow Action</em>}
-     * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the
+     * '{@link #DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Demanded Processing Resource Must Be Unique Within Abstract Internal Control Flow
+     * Action</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
@@ -213,10 +208,10 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
      */
     protected static final String DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.action_ParametricResourceDemand.resourceDemand_Action->select(prd | prd.requiredResource_ParametricResourceDemand=self.requiredResource_ParametricResourceDemand)->size() = 1";
     /**
-     * The cached OCL invariant for the '
-     * {@link #DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Demanded Processing Resource Must Be Unique Within Abstract Internal Control Flow Action</em>}
-     * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL invariant for the
+     * '{@link #DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Demanded Processing Resource Must Be Unique Within Abstract Internal Control Flow
+     * Action</em>}' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
@@ -233,40 +228,30 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
     @Override
     public boolean DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPerformancePackage.Literals.PARAMETRIC_RESOURCE_DEMAND);
-            try
-            {
+            try {
                 DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV
                 .createQuery(
                         DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
-                                SeffPerformanceValidator.PARAMETRIC_RESOURCE_DEMAND__DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION,
-                                EcorePlugin.INSTANCE
-                                        .getString(
-                                                "_UI_GenericInvariant_diagnostic",
-                                                new Object[] {
-                                                        "DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction",
-                                                        EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
+                        SeffPerformanceValidator.PARAMETRIC_RESOURCE_DEMAND__DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] {
+                                        "DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -280,18 +265,15 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
             final PCMRandomVariable specification_ParametericResourceDemand = this
-            .getSpecification_ParametericResourceDemand();
+                    .getSpecification_ParametericResourceDemand();
             if (specification_ParametericResourceDemand != null) {
-                msgs = ((InternalEObject) specification_ParametericResourceDemand)
-                        .eInverseRemove(
-                                this,
-                                EOPPOSITE_FEATURE_BASE
-                                        - SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND,
-                                null, msgs);
+                msgs = ((InternalEObject) specification_ParametericResourceDemand).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE
+                                - SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND,
+                        null, msgs);
             }
             return this.basicSetSpecification_ParametericResourceDemand((PCMRandomVariable) otherEnd, msgs);
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
@@ -311,8 +293,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
             return this.basicSetSpecification_ParametericResourceDemand(null, msgs);
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
@@ -328,8 +309,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
             return this.eInternalContainer().eInverseRemove(this,
                     SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION,
@@ -345,8 +325,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
             return this.getSpecification_ParametericResourceDemand();
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
@@ -367,8 +346,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
             this.setSpecification_ParametericResourceDemand((PCMRandomVariable) newValue);
             return;
@@ -389,8 +367,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
             this.setSpecification_ParametericResourceDemand((PCMRandomVariable) null);
             return;
@@ -411,8 +388,7 @@ public class ParametricResourceDemandImpl extends CDOObjectImpl implements Param
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_PARAMETERIC_RESOURCE_DEMAND:
             return this.getSpecification_ParametericResourceDemand() != null;
         case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:

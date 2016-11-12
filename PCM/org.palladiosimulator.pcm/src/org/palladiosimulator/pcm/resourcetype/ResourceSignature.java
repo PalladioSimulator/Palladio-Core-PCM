@@ -16,17 +16,15 @@ import org.palladiosimulator.pcm.repository.Parameter;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getParameter__ResourceSignature
+ * <li>{@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getParameter__ResourceSignature
  * <em>Parameter Resource Signature</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getResourceServiceId <em>
- * Resource Service Id</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getResourceInterface__ResourceSignature
+ * <li>{@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getResourceServiceId
+ * <em>Resource Service Id</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getResourceInterface__ResourceSignature
  * <em>Resource Interface Resource Signature</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#getResourceSignature()
  * @model
@@ -39,13 +37,13 @@ public interface ResourceSignature extends Entity {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Parameter Resource Signature</b></em>' containment reference
      * list. The list contents are of type {@link org.palladiosimulator.pcm.repository.Parameter}.
-     * It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.repository.Parameter#getResourceSignature__Parameter
+     * It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.repository.Parameter#getResourceSignature__Parameter
      * <em>Resource Signature Parameter</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Parameter Resource Signature</em>' containment reference list
@@ -79,8 +77,8 @@ public interface ResourceSignature extends Entity {
     int getResourceServiceId();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getResourceServiceId
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getResourceServiceId
      * <em>Resource Service Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
@@ -92,8 +90,8 @@ public interface ResourceSignature extends Entity {
 
     /**
      * Returns the value of the '<em><b>Resource Interface Resource Signature</b></em>' container
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.resourcetype.ResourceInterface#getResourceSignatures__ResourceInterface
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.resourcetype.ResourceInterface#getResourceSignatures__ResourceInterface
      * <em>Resource Signatures Resource Interface</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Resource Interface Resource Signature</em>' container reference
@@ -113,8 +111,8 @@ public interface ResourceSignature extends Entity {
     ResourceInterface getResourceInterface__ResourceSignature();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getResourceInterface__ResourceSignature
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getResourceInterface__ResourceSignature
      * <em>Resource Interface Resource Signature</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *

@@ -31,24 +31,21 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
 import org.palladiosimulator.pcm.repository.util.RepositoryValidator;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Composite Component</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Composite
+ * Component</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.impl.CompositeComponentImpl#getRepository__RepositoryComponent
- * <em>Repository Repository Component</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.impl.CompositeComponentImpl#getParentCompleteComponentTypes
- * <em>Parent Complete Component Types</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.impl.CompositeComponentImpl#getComponentParameterUsage_ImplementationComponentType
- * <em>Component Parameter Usage Implementation Component Type</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.impl.CompositeComponentImpl#getComponentType <em>
- * Component Type</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.CompositeComponentImpl#getRepository__RepositoryComponent
+ * <em>Repository Repository Component</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.CompositeComponentImpl#getParentCompleteComponentTypes
+ * <em>Parent Complete Component Types</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.CompositeComponentImpl#getComponentParameterUsage_ImplementationComponentType
+ * <em>Component Parameter Usage Implementation Component Type</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.CompositeComponentImpl#getComponentType
+ * <em>Component Type</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -59,7 +56,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The default value of the '{@link #getComponentType() <em>Component Type</em>}' attribute.
@@ -146,11 +143,10 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
     @Override
     @SuppressWarnings("unchecked")
     public EList<VariableUsage> getComponentParameterUsage_ImplementationComponentType() {
-        return (EList<VariableUsage>) this
-                .eDynamicGet(
-                        RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE,
-                        RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE,
-                        true, true);
+        return (EList<VariableUsage>) this.eDynamicGet(
+                RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE,
+                RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE,
+                true, true);
     }
 
     /**
@@ -187,30 +183,23 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
      * @ordered
      */
     protected static final String REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "-- ImplementationTypes required Interfaces have to be a subset\n"
-            + "-- of CompleteComponentType required Interfaces #\n"
-            + "--\n"
-            + "-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.\n"
-            + "--\n"
+            + "-- of CompleteComponentType required Interfaces #\n" + "--\n"
+            + "-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.\n" + "--\n"
             + "-- Recursive Query for parent Interface IDs\n"
             + "-- see 'lpar2005.pdf' (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #\n"
             + "--let parentInterfaces : Bag(Interface) =\n"
             + "--	self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc1 : Bag(Interface) = Bag{} |\n"
             + "--		acc1->union(pt.requiredRoles->iterate(r : RequiredRole; acc2 : Bag(Interface) = Bag{} |\n"
             + "--			acc2->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n"
-            + "--		))\n"
-            + "--	) in\n"
-            + "--let anchestorInterfaces : Bag(Interface) =\n"
+            + "--		))\n" + "--	) in\n" + "--let anchestorInterfaces : Bag(Interface) =\n"
             + "--	self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc3 : Bag(Interface) = Bag{} |\n"
             + "--		acc3->union(pt.requiredRoles->iterate(r : RequiredRole; acc4 : Bag(Interface) = Bag{} |\n"
             + "--			acc4->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n"
-            + "--		))\n"
-            + "--	)->union( -- union with anchestors found in former recursion #\n"
+            + "--		))\n" + "--	)->union( -- union with anchestors found in former recursion #\n"
             + "--		self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc5 : Bag(Interface) = Bag{} |\n"
             + "--			acc5->union(pt.requiredRoles->iterate(r : RequiredRole; acc6 : Bag(Interface) = Bag{} |\n"
             + "--				acc6->union(r.requiredInterface.parentInterface.anchestorInterfaces) --already Set/Bag\n"
-            + "--			))\n"
-            + "--		)\n"
-            + "--	) in\n"
+            + "--			))\n" + "--		)\n" + "--	) in\n"
             + "-- Directly required interfaces need to be a subset of required anchestorInterfaces of Supertype #\n"
             + "--anchestorInterfaces.identifier.id->includesAll(\n"
             + "--	self.requiredRoles->iterate(p : RequiredRole; acc7 : Bag(String) = Bag{} |\n"
@@ -237,35 +226,27 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
     @Override
     public boolean RequiredInterfacesHaveToConformToCompleteType(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
-            try
-            {
+            try {
                 REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV.createQuery(REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                RepositoryValidator.DIAGNOSTIC_SOURCE,
-                                RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "RequiredInterfacesHaveToConformToCompleteType",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        RepositoryValidator.DIAGNOSTIC_SOURCE,
+                        RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "RequiredInterfacesHaveToConformToCompleteType",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -285,24 +266,20 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
      */
     protected static final String PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "-- ### EXACT COPY FROM ABOVE ###\n"
             + "-- ImplementationComponentTypes provided Interfaces have to be a superset\n"
-            + "-- of CompleteComponentType provided Interfaces #\n"
-            + "--\n"
-            + "-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.\n"
-            + "--\n"
+            + "-- of CompleteComponentType provided Interfaces #\n" + "--\n"
+            + "-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.\n" + "--\n"
             + "-- Recursive Query for parent Interface IDs\n"
             + "-- see 'lpar2005.pdf' (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #\n"
             + "--let parentInterfaces : Bag(Interface) =\n"
             + "--	self.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |\n"
             + "--		acc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n"
-            + "--	) in\n"
-            + "--let anchestorInterfaces : Bag(Interface) =\n"
+            + "--	) in\n" + "--let anchestorInterfaces : Bag(Interface) =\n"
             + "--	self.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |\n"
             + "--		acc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n"
             + "--	)->union( -- union with anchestors found in former recursion #\n"
             + "--		self.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |\n"
             + "--			acc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag\n"
-            + "--		)\n"
-            + "--	) in\n"
+            + "--		)\n" + "--	) in\n"
             + "	-- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #\n"
             + "--	anchestorInterfaces.identifier.id->includesAll(\n"
             + "--		self.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |\n"
@@ -331,35 +308,27 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
     @Override
     public boolean providedInterfacesHaveToConformToCompleteType(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
-            try
-            {
+            try {
                 PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV.createQuery(PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                RepositoryValidator.DIAGNOSTIC_SOURCE,
-                                RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "providedInterfacesHaveToConformToCompleteType",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        RepositoryValidator.DIAGNOSTIC_SOURCE,
+                        RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "providedInterfacesHaveToConformToCompleteType",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -405,35 +374,27 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
     @Override
     public boolean ProvidedInterfaceHaveToConformToComponentType(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
-            try
-            {
+            try {
                 PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV.createQuery(PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                RepositoryValidator.DIAGNOSTIC_SOURCE,
-                                RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "ProvidedInterfaceHaveToConformToComponentType",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        RepositoryValidator.DIAGNOSTIC_SOURCE,
+                        RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "ProvidedInterfaceHaveToConformToComponentType",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -452,30 +413,20 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
      * @ordered
      */
     protected static final String PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "-- ImplementationComponent has to provide the same or more interfaces like the CompleteComponentType (if set) #\n"
-            + "	if\n"
-            + "		 -- apply constraint only for non-empty CompleteComponentTypes #\n"
-            + "		self.parentCompleteComponentTypes->notEmpty()\n"
-            + "	then\n"
-            + "		let\n"
-            + "			--own interfaces:\n"
-            + "			ownInterfaces : Set(OperationInterface)\n"
+            + "	if\n" + "		 -- apply constraint only for non-empty CompleteComponentTypes #\n"
+            + "		self.parentCompleteComponentTypes->notEmpty()\n" + "	then\n" + "		let\n"
+            + "			--own interfaces:\n" + "			ownInterfaces : Set(OperationInterface)\n"
             + "			  = self.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole)->asSet()\n"
-            + "    in    \n"
-            + "    	--complete type interfaces:\n"
-            + "    	self.parentCompleteComponentTypes->forAll\n"
-            + "      ( p : CompleteComponentType |\n"
+            + "    in    \n" + "    	--complete type interfaces:\n"
+            + "    	self.parentCompleteComponentTypes->forAll\n" + "      ( p : CompleteComponentType |\n"
             + "        (\n"
             + "        	p.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole)->asSet()\n"
-            + "        	-\n"
-            + "        	ownInterfaces\n"
-            + "      	)->isEmpty()\n"
-            + "    	)\n"
-            + "	else\n"
+            + "        	-\n" + "        	ownInterfaces\n" + "      	)->isEmpty()\n" + "    	)\n" + "	else\n"
             + "		true\n" + "	endif";
 
     /**
-     * The cached OCL invariant for the '
-     * {@link #ProvideSameOrMoreInterfacesAsCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL invariant for the
+     * '{@link #ProvideSameOrMoreInterfacesAsCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Provide Same Or More Interfaces As Complete Component Type</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -494,35 +445,28 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
     @Override
     public boolean ProvideSameOrMoreInterfacesAsCompleteComponentType(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
-            try
-            {
+            try {
                 PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(
-                PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                RepositoryValidator.DIAGNOSTIC_SOURCE,
-                                RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "ProvideSameOrMoreInterfacesAsCompleteComponentType",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+        if (!EOCL_ENV
+                .createQuery(PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        RepositoryValidator.DIAGNOSTIC_SOURCE,
+                        RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "ProvideSameOrMoreInterfacesAsCompleteComponentType",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -541,27 +485,19 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
      * @ordered
      */
     protected static final String REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "-- ImplementationComponent has to require the same or fewer interfaces like the CompleteComponentType (if set) #\n"
-            + "	if\n"
-            + "		-- apply constraint only for non-empty CompleteComponentTypes #\n"
-            + "		self.parentCompleteComponentTypes->notEmpty()\n"
-            + "	then\n"
-            + "	    let\n"
-            + "	      --own interfaces:\n"
-            + "	      ownInterfaces : Set(OperationInterface) \n"
+            + "	if\n" + "		-- apply constraint only for non-empty CompleteComponentTypes #\n"
+            + "		self.parentCompleteComponentTypes->notEmpty()\n" + "	then\n" + "	    let\n"
+            + "	      --own interfaces:\n" + "	      ownInterfaces : Set(OperationInterface) \n"
             + "	        = self.requiredRoles_InterfaceRequiringEntity->select(rr|rr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole)->asSet()\n"
-            + "	    in\n"
-            + "	      --complete type interfaces:\n"
-            + "	      self.parentCompleteComponentTypes->forAll\n"
-            + "	      ( p : CompleteComponentType |\n"
-            + "	      	(\n"
-            + "		      	ownInterfaces\n"
-            + "		        -\n"
+            + "	    in\n" + "	      --complete type interfaces:\n"
+            + "	      self.parentCompleteComponentTypes->forAll\n" + "	      ( p : CompleteComponentType |\n"
+            + "	      	(\n" + "		      	ownInterfaces\n" + "		        -\n"
             + "		        p.requiredRoles_InterfaceRequiringEntity->select(rr|rr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole)->asSet()\n"
             + "	      	)->isEmpty()\n" + "	    	)\n" + "	else\n" + "		true\n" + "	endif";
 
     /**
-     * The cached OCL invariant for the '
-     * {@link #RequireSameOrFewerInterfacesAsCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL invariant for the
+     * '{@link #RequireSameOrFewerInterfacesAsCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Require Same Or Fewer Interfaces As Complete Component Type</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -580,36 +516,29 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
     @Override
     public boolean RequireSameOrFewerInterfacesAsCompleteComponentType(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE);
-            try
-            {
+            try {
                 REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(
-                REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                RepositoryValidator.DIAGNOSTIC_SOURCE,
-                                RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "RequireSameOrFewerInterfacesAsCompleteComponentType",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+        if (!EOCL_ENV
+                .createQuery(
+                        REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        RepositoryValidator.DIAGNOSTIC_SOURCE,
+                        RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "RequireSameOrFewerInterfacesAsCompleteComponentType",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -623,8 +552,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.COMPOSITE_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -642,8 +570,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.COMPOSITE_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
             return this.basicSetRepository__RepositoryComponent(null, msgs);
         case RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
@@ -661,8 +588,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case RepositoryPackage.COMPOSITE_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
             return this.eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY,
                     Repository.class, msgs);
@@ -677,8 +603,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.COMPOSITE_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
             return this.getRepository__RepositoryComponent();
         case RepositoryPackage.COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES:
@@ -699,8 +624,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.COMPOSITE_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
             this.setRepository__RepositoryComponent((Repository) newValue);
             return;
@@ -710,8 +634,8 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
             return;
         case RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
             this.getComponentParameterUsage_ImplementationComponentType().clear();
-            this.getComponentParameterUsage_ImplementationComponentType().addAll(
-                    (Collection<? extends VariableUsage>) newValue);
+            this.getComponentParameterUsage_ImplementationComponentType()
+                    .addAll((Collection<? extends VariableUsage>) newValue);
             return;
         case RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_TYPE:
             this.setComponentType((ComponentType) newValue);
@@ -727,8 +651,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.COMPOSITE_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
             this.setRepository__RepositoryComponent((Repository) null);
             return;
@@ -752,8 +675,7 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.COMPOSITE_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
             return this.getRepository__RepositoryComponent() != null;
         case RepositoryPackage.COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES:
@@ -773,20 +695,16 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == RepositoryComponent.class)
-        {
-            switch (derivedFeatureID)
-            {
+        if (baseClass == RepositoryComponent.class) {
+            switch (derivedFeatureID) {
             case RepositoryPackage.COMPOSITE_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
                 return RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT;
             default:
                 return -1;
             }
         }
-        if (baseClass == ImplementationComponentType.class)
-        {
-            switch (derivedFeatureID)
-            {
+        if (baseClass == ImplementationComponentType.class) {
+            switch (derivedFeatureID) {
             case RepositoryPackage.COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES:
                 return RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES;
             case RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
@@ -807,20 +725,16 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == RepositoryComponent.class)
-        {
-            switch (baseFeatureID)
-            {
+        if (baseClass == RepositoryComponent.class) {
+            switch (baseFeatureID) {
             case RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
                 return RepositoryPackage.COMPOSITE_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT;
             default:
                 return -1;
             }
         }
-        if (baseClass == ImplementationComponentType.class)
-        {
-            switch (baseFeatureID)
-            {
+        if (baseClass == ImplementationComponentType.class) {
+            switch (baseFeatureID) {
             case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES:
                 return RepositoryPackage.COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES;
             case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:

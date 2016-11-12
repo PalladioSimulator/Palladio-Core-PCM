@@ -4,8 +4,8 @@
 package org.palladiosimulator.pcm.repository;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Operation Required Role</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Operation Required
+ * Role</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> This entity represents the required operation interfaces. The PCM uses
  * the association of an operation interface to a component to determine its role. <!--
@@ -13,12 +13,11 @@ package org.palladiosimulator.pcm.repository;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.OperationRequiredRole#getRequiredInterface__OperationRequiredRole
+ * <li>{@link org.palladiosimulator.pcm.repository.OperationRequiredRole#getRequiredInterface__OperationRequiredRole
  * <em>Required Interface Operation Required Role</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getOperationRequiredRole()
  * @model
@@ -31,7 +30,7 @@ public interface OperationRequiredRole extends RequiredRole {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Required Interface Operation Required Role</b></em>'
@@ -47,8 +46,8 @@ public interface OperationRequiredRole extends RequiredRole {
     OperationInterface getRequiredInterface__OperationRequiredRole();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.OperationRequiredRole#getRequiredInterface__OperationRequiredRole
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.OperationRequiredRole#getRequiredInterface__OperationRequiredRole
      * <em>Required Interface Operation Required Role</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

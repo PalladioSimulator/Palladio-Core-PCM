@@ -8,8 +8,8 @@ import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Provides Component Type</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Provides Component
+ * Type</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> Provided (Component) Types abstract a component to its provided
  * interfaces, leaving its requirements and implementation details open. So, provided types subsume
@@ -38,7 +38,7 @@ public interface ProvidesComponentType extends RepositoryComponent {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc -->
@@ -47,8 +47,9 @@ public interface ProvidesComponentType extends RepositoryComponent {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.oclIsTypeOf(ProvidesComponentType)\r\nimplies\r\nself.providedRoles_InterfaceProvidingEntity->size() >= 1'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.oclIsTypeOf(ProvidesComponentType)\r\nimplies\r\nself.providedRoles_InterfaceProvidingEntity->size()
+     *        >= 1'"
      * @generated
      */
     boolean AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(DiagnosticChain diagnostics,

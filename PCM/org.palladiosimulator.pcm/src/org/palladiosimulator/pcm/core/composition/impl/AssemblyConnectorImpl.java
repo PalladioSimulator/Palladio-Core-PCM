@@ -26,21 +26,17 @@ import org.palladiosimulator.pcm.repository.OperationRequiredRole;
  * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.AssemblyConnectorImpl#getRequiringAssemblyContext_AssemblyConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.AssemblyConnectorImpl#getRequiringAssemblyContext_AssemblyConnector
  * <em>Requiring Assembly Context Assembly Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.AssemblyConnectorImpl#getProvidingAssemblyContext_AssemblyConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.AssemblyConnectorImpl#getProvidingAssemblyContext_AssemblyConnector
  * <em>Providing Assembly Context Assembly Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.AssemblyConnectorImpl#getProvidedRole_AssemblyConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.AssemblyConnectorImpl#getProvidedRole_AssemblyConnector
  * <em>Provided Role Assembly Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.AssemblyConnectorImpl#getRequiredRole_AssemblyConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.AssemblyConnectorImpl#getRequiredRole_AssemblyConnector
  * <em>Required Role Assembly Connector</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -51,7 +47,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -219,8 +215,8 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
     }
 
     /**
-     * The cached OCL expression body for the '
-     * {@link #AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL expression body for the
+     * '{@link #AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Assembly Connectors Referenced Provided Roles And Child Context Must Match</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -232,8 +228,8 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
     protected static final String ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)\n"
             + "\n" + "";
     /**
-     * The cached OCL invariant for the '
-     * {@link #AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL invariant for the
+     * '{@link #AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Assembly Connectors Referenced Provided Roles And Child Context Must Match</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -252,37 +248,29 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
     @Override
     public boolean AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(CompositionPackage.Literals.ASSEMBLY_CONNECTOR);
-            try
-            {
+            try {
                 ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV
                 .createQuery(
                         ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                CompositionValidator.DIAGNOSTIC_SOURCE,
-                                CompositionValidator.ASSEMBLY_CONNECTOR__ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch",
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        CompositionValidator.DIAGNOSTIC_SOURCE,
+                        CompositionValidator.ASSEMBLY_CONNECTOR__ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch",
                                         EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                        new Object[] { this }));
             }
             return false;
         }
@@ -290,8 +278,8 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
     }
 
     /**
-     * The cached OCL expression body for the '
-     * {@link #AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL expression body for the
+     * '{@link #AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Assembly Connectors Referenced Required Role And Child Context Must Match</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -303,8 +291,8 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
     protected static final String ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.requiringAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole_AssemblyConnector)\n"
             + "\n" + "";
     /**
-     * The cached OCL invariant for the '
-     * {@link #AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL invariant for the
+     * '{@link #AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Assembly Connectors Referenced Required Role And Child Context Must Match</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -323,37 +311,29 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
     @Override
     public boolean AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(CompositionPackage.Literals.ASSEMBLY_CONNECTOR);
-            try
-            {
+            try {
                 ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV
                 .createQuery(
                         ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                CompositionValidator.DIAGNOSTIC_SOURCE,
-                                CompositionValidator.ASSEMBLY_CONNECTOR__ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch",
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        CompositionValidator.DIAGNOSTIC_SOURCE,
+                        CompositionValidator.ASSEMBLY_CONNECTOR__ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch",
                                         EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                        new Object[] { this }));
             }
             return false;
         }
@@ -393,35 +373,27 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
     @Override
     public boolean AssemblyConnectorsReferencedInterfacesMustMatch(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(CompositionPackage.Literals.ASSEMBLY_CONNECTOR);
-            try
-            {
+            try {
                 ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV.createQuery(ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                CompositionValidator.DIAGNOSTIC_SOURCE,
-                                CompositionValidator.ASSEMBLY_CONNECTOR__ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "AssemblyConnectorsReferencedInterfacesMustMatch",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        CompositionValidator.DIAGNOSTIC_SOURCE,
+                        CompositionValidator.ASSEMBLY_CONNECTOR__ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "AssemblyConnectorsReferencedInterfacesMustMatch",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -435,8 +407,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
             if (resolve) {
                 return this.getRequiringAssemblyContext_AssemblyConnector();
@@ -468,8 +439,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
             this.setRequiringAssemblyContext_AssemblyConnector((AssemblyContext) newValue);
             return;
@@ -493,8 +463,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
             this.setRequiringAssemblyContext_AssemblyConnector((AssemblyContext) null);
             return;
@@ -518,8 +487,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:
             return this.basicGetRequiringAssemblyContext_AssemblyConnector() != null;
         case CompositionPackage.ASSEMBLY_CONNECTOR__PROVIDING_ASSEMBLY_CONTEXT_ASSEMBLY_CONNECTOR:

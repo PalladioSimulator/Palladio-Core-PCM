@@ -16,12 +16,11 @@ import org.palladiosimulator.pcm.resourcetype.SchedulingPolicy;
  * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.resourcetype.impl.SchedulingPolicyImpl#getResourceRepository__SchedulingPolicy
+ * <li>{@link org.palladiosimulator.pcm.resourcetype.impl.SchedulingPolicyImpl#getResourceRepository__SchedulingPolicy
  * <em>Resource Repository Scheduling Policy</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -32,7 +31,7 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -97,8 +96,7 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -116,8 +114,7 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY:
             return this.basicSetResourceRepository__SchedulingPolicy(null, msgs);
         }
@@ -131,8 +128,7 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY:
             return this.eInternalContainer().eInverseRemove(this,
                     ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY,
@@ -148,8 +144,7 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY:
             return this.getResourceRepository__SchedulingPolicy();
         }
@@ -163,8 +158,7 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY:
             this.setResourceRepository__SchedulingPolicy((ResourceRepository) newValue);
             return;
@@ -179,8 +173,7 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY:
             this.setResourceRepository__SchedulingPolicy((ResourceRepository) null);
             return;
@@ -195,8 +188,7 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY:
             return this.getResourceRepository__SchedulingPolicy() != null;
         }

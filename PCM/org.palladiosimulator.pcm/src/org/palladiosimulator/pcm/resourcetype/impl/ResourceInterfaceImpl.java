@@ -21,15 +21,13 @@ import org.palladiosimulator.pcm.resourcetype.ResourcetypePackage;
  * '. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.resourcetype.impl.ResourceInterfaceImpl#getResourceRepository__ResourceInterface
+ * <li>{@link org.palladiosimulator.pcm.resourcetype.impl.ResourceInterfaceImpl#getResourceRepository__ResourceInterface
  * <em>Resource Repository Resource Interface</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.resourcetype.impl.ResourceInterfaceImpl#getResourceSignatures__ResourceInterface
+ * <li>{@link org.palladiosimulator.pcm.resourcetype.impl.ResourceInterfaceImpl#getResourceSignatures__ResourceInterface
  * <em>Resource Signatures Resource Interface</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -40,7 +38,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -119,8 +117,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -141,8 +138,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE:
             return this.basicSetResourceRepository__ResourceInterface(null, msgs);
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE:
@@ -158,8 +154,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE:
             return this.eInternalContainer().eInverseRemove(this,
                     ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY,
@@ -175,8 +170,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE:
             return this.getResourceRepository__ResourceInterface();
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE:
@@ -193,8 +187,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE:
             this.setResourceRepository__ResourceInterface((ResourceRepository) newValue);
             return;
@@ -213,8 +206,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE:
             this.setResourceRepository__ResourceInterface((ResourceRepository) null);
             return;
@@ -232,8 +224,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE:
             return this.getResourceRepository__ResourceInterface() != null;
         case ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_SIGNATURES_RESOURCE_INTERFACE:

@@ -7,26 +7,22 @@ import org.palladiosimulator.pcm.core.PCMRandomVariable;
 import org.palladiosimulator.pcm.repository.SinkRole;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Event Channel Sink Connector</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Event Channel Sink
+ * Connector</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getSinkRole__EventChannelSinkConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getSinkRole__EventChannelSinkConnector
  * <em>Sink Role Event Channel Sink Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getFilterCondition__EventChannelSinkConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getFilterCondition__EventChannelSinkConnector
  * <em>Filter Condition Event Channel Sink Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getAssemblyContext__EventChannelSinkConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getAssemblyContext__EventChannelSinkConnector
  * <em>Assembly Context Event Channel Sink Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getEventChannel__EventChannelSinkConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getEventChannel__EventChannelSinkConnector
  * <em>Event Channel Event Channel Sink Connector</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getEventChannelSinkConnector()
  * @model
@@ -39,7 +35,7 @@ public interface EventChannelSinkConnector extends Connector {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Sink Role Event Channel Sink Connector</b></em>' reference.
@@ -59,8 +55,8 @@ public interface EventChannelSinkConnector extends Connector {
     SinkRole getSinkRole__EventChannelSinkConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getSinkRole__EventChannelSinkConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getSinkRole__EventChannelSinkConnector
      * <em>Sink Role Event Channel Sink Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -73,8 +69,8 @@ public interface EventChannelSinkConnector extends Connector {
 
     /**
      * Returns the value of the '<em><b>Filter Condition Event Channel Sink Connector</b></em>'
-     * containment reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getEventChannelSinkConnector__FilterCondition
+     * containment reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getEventChannelSinkConnector__FilterCondition
      * <em>Event Channel Sink Connector Filter Condition</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Filter Condition Event Channel Sink Connector</em>' containment
@@ -125,8 +121,8 @@ public interface EventChannelSinkConnector extends Connector {
     AssemblyContext getAssemblyContext__EventChannelSinkConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getAssemblyContext__EventChannelSinkConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getAssemblyContext__EventChannelSinkConnector
      * <em>Assembly Context Event Channel Sink Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -140,8 +136,8 @@ public interface EventChannelSinkConnector extends Connector {
 
     /**
      * Returns the value of the '<em><b>Event Channel Event Channel Sink Connector</b></em>'
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannel#getEventChannelSinkConnector__EventChannel
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannel#getEventChannelSinkConnector__EventChannel
      * <em>Event Channel Sink Connector Event Channel</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Event Channel Event Channel Sink Connector</em>' reference isn't
@@ -159,8 +155,8 @@ public interface EventChannelSinkConnector extends Connector {
     EventChannel getEventChannel__EventChannelSinkConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getEventChannel__EventChannelSinkConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector#getEventChannel__EventChannelSinkConnector
      * <em>Event Channel Event Channel Sink Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *

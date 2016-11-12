@@ -66,7 +66,7 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -81,8 +81,7 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public RepositoryAdapterFactory() {
-        if (modelPackage == null)
-        {
+        if (modelPackage == null) {
             modelPackage = RepositoryPackage.eINSTANCE;
         }
     }
@@ -97,12 +96,10 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
      */
     @Override
     public boolean isFactoryForType(final Object object) {
-        if (object == modelPackage)
-        {
+        if (object == modelPackage) {
             return true;
         }
-        if (object instanceof EObject)
-        {
+        if (object instanceof EObject) {
             return ((EObject) object).eClass().getEPackage() == modelPackage;
         }
         return false;
@@ -114,273 +111,229 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    protected RepositorySwitch<Adapter> modelSwitch = new RepositorySwitch<Adapter>()
-    {
+    protected RepositorySwitch<Adapter> modelSwitch = new RepositorySwitch<Adapter>() {
         @Override
-        public Adapter casePassiveResource(final PassiveResource object)
-        {
+        public Adapter casePassiveResource(final PassiveResource object) {
             return RepositoryAdapterFactory.this.createPassiveResourceAdapter();
         }
 
         @Override
-        public Adapter caseBasicComponent(final BasicComponent object)
-        {
+        public Adapter caseBasicComponent(final BasicComponent object) {
             return RepositoryAdapterFactory.this.createBasicComponentAdapter();
         }
 
         @Override
-        public Adapter caseImplementationComponentType(final ImplementationComponentType object)
-        {
+        public Adapter caseImplementationComponentType(final ImplementationComponentType object) {
             return RepositoryAdapterFactory.this.createImplementationComponentTypeAdapter();
         }
 
         @Override
-        public Adapter caseRepositoryComponent(final RepositoryComponent object)
-        {
+        public Adapter caseRepositoryComponent(final RepositoryComponent object) {
             return RepositoryAdapterFactory.this.createRepositoryComponentAdapter();
         }
 
         @Override
-        public Adapter caseProvidedRole(final ProvidedRole object)
-        {
+        public Adapter caseProvidedRole(final ProvidedRole object) {
             return RepositoryAdapterFactory.this.createProvidedRoleAdapter();
         }
 
         @Override
-        public Adapter caseParameter(final Parameter object)
-        {
+        public Adapter caseParameter(final Parameter object) {
             return RepositoryAdapterFactory.this.createParameterAdapter();
         }
 
         @Override
-        public Adapter caseDataType(final DataType object)
-        {
+        public Adapter caseDataType(final DataType object) {
             return RepositoryAdapterFactory.this.createDataTypeAdapter();
         }
 
         @Override
-        public Adapter caseRepository(final Repository object)
-        {
+        public Adapter caseRepository(final Repository object) {
             return RepositoryAdapterFactory.this.createRepositoryAdapter();
         }
 
         @Override
-        public Adapter caseInterface(final Interface object)
-        {
+        public Adapter caseInterface(final Interface object) {
             return RepositoryAdapterFactory.this.createInterfaceAdapter();
         }
 
         @Override
-        public Adapter caseRequiredCharacterisation(final RequiredCharacterisation object)
-        {
+        public Adapter caseRequiredCharacterisation(final RequiredCharacterisation object) {
             return RepositoryAdapterFactory.this.createRequiredCharacterisationAdapter();
         }
 
         @Override
-        public Adapter caseEventGroup(final EventGroup object)
-        {
+        public Adapter caseEventGroup(final EventGroup object) {
             return RepositoryAdapterFactory.this.createEventGroupAdapter();
         }
 
         @Override
-        public Adapter caseEventType(final EventType object)
-        {
+        public Adapter caseEventType(final EventType object) {
             return RepositoryAdapterFactory.this.createEventTypeAdapter();
         }
 
         @Override
-        public Adapter caseSignature(final Signature object)
-        {
+        public Adapter caseSignature(final Signature object) {
             return RepositoryAdapterFactory.this.createSignatureAdapter();
         }
 
         @Override
-        public Adapter caseExceptionType(final ExceptionType object)
-        {
+        public Adapter caseExceptionType(final ExceptionType object) {
             return RepositoryAdapterFactory.this.createExceptionTypeAdapter();
         }
 
         @Override
-        public Adapter caseInfrastructureSignature(final InfrastructureSignature object)
-        {
+        public Adapter caseInfrastructureSignature(final InfrastructureSignature object) {
             return RepositoryAdapterFactory.this.createInfrastructureSignatureAdapter();
         }
 
         @Override
-        public Adapter caseInfrastructureInterface(final InfrastructureInterface object)
-        {
+        public Adapter caseInfrastructureInterface(final InfrastructureInterface object) {
             return RepositoryAdapterFactory.this.createInfrastructureInterfaceAdapter();
         }
 
         @Override
-        public Adapter caseInfrastructureRequiredRole(final InfrastructureRequiredRole object)
-        {
+        public Adapter caseInfrastructureRequiredRole(final InfrastructureRequiredRole object) {
             return RepositoryAdapterFactory.this.createInfrastructureRequiredRoleAdapter();
         }
 
         @Override
-        public Adapter caseRequiredRole(final RequiredRole object)
-        {
+        public Adapter caseRequiredRole(final RequiredRole object) {
             return RepositoryAdapterFactory.this.createRequiredRoleAdapter();
         }
 
         @Override
-        public Adapter caseOperationSignature(final OperationSignature object)
-        {
+        public Adapter caseOperationSignature(final OperationSignature object) {
             return RepositoryAdapterFactory.this.createOperationSignatureAdapter();
         }
 
         @Override
-        public Adapter caseOperationInterface(final OperationInterface object)
-        {
+        public Adapter caseOperationInterface(final OperationInterface object) {
             return RepositoryAdapterFactory.this.createOperationInterfaceAdapter();
         }
 
         @Override
-        public Adapter caseOperationRequiredRole(final OperationRequiredRole object)
-        {
+        public Adapter caseOperationRequiredRole(final OperationRequiredRole object) {
             return RepositoryAdapterFactory.this.createOperationRequiredRoleAdapter();
         }
 
         @Override
-        public Adapter caseSourceRole(final SourceRole object)
-        {
+        public Adapter caseSourceRole(final SourceRole object) {
             return RepositoryAdapterFactory.this.createSourceRoleAdapter();
         }
 
         @Override
-        public Adapter caseSinkRole(final SinkRole object)
-        {
+        public Adapter caseSinkRole(final SinkRole object) {
             return RepositoryAdapterFactory.this.createSinkRoleAdapter();
         }
 
         @Override
-        public Adapter caseOperationProvidedRole(final OperationProvidedRole object)
-        {
+        public Adapter caseOperationProvidedRole(final OperationProvidedRole object) {
             return RepositoryAdapterFactory.this.createOperationProvidedRoleAdapter();
         }
 
         @Override
-        public Adapter caseInfrastructureProvidedRole(final InfrastructureProvidedRole object)
-        {
+        public Adapter caseInfrastructureProvidedRole(final InfrastructureProvidedRole object) {
             return RepositoryAdapterFactory.this.createInfrastructureProvidedRoleAdapter();
         }
 
         @Override
-        public Adapter caseCompleteComponentType(final CompleteComponentType object)
-        {
+        public Adapter caseCompleteComponentType(final CompleteComponentType object) {
             return RepositoryAdapterFactory.this.createCompleteComponentTypeAdapter();
         }
 
         @Override
-        public Adapter caseProvidesComponentType(final ProvidesComponentType object)
-        {
+        public Adapter caseProvidesComponentType(final ProvidesComponentType object) {
             return RepositoryAdapterFactory.this.createProvidesComponentTypeAdapter();
         }
 
         @Override
-        public Adapter caseCompositeComponent(final CompositeComponent object)
-        {
+        public Adapter caseCompositeComponent(final CompositeComponent object) {
             return RepositoryAdapterFactory.this.createCompositeComponentAdapter();
         }
 
         @Override
-        public Adapter casePrimitiveDataType(final PrimitiveDataType object)
-        {
+        public Adapter casePrimitiveDataType(final PrimitiveDataType object) {
             return RepositoryAdapterFactory.this.createPrimitiveDataTypeAdapter();
         }
 
         @Override
-        public Adapter caseCollectionDataType(final CollectionDataType object)
-        {
+        public Adapter caseCollectionDataType(final CollectionDataType object) {
             return RepositoryAdapterFactory.this.createCollectionDataTypeAdapter();
         }
 
         @Override
-        public Adapter caseCompositeDataType(final CompositeDataType object)
-        {
+        public Adapter caseCompositeDataType(final CompositeDataType object) {
             return RepositoryAdapterFactory.this.createCompositeDataTypeAdapter();
         }
 
         @Override
-        public Adapter caseInnerDeclaration(final InnerDeclaration object)
-        {
+        public Adapter caseInnerDeclaration(final InnerDeclaration object) {
             return RepositoryAdapterFactory.this.createInnerDeclarationAdapter();
         }
 
         @Override
-        public Adapter caseRole(final Role object)
-        {
+        public Adapter caseRole(final Role object) {
             return RepositoryAdapterFactory.this.createRoleAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(final Identifier object)
-        {
+        public Adapter caseIdentifier(final Identifier object) {
             return RepositoryAdapterFactory.this.createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(final NamedElement object)
-        {
+        public Adapter caseNamedElement(final NamedElement object) {
             return RepositoryAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(final Entity object)
-        {
+        public Adapter caseEntity(final Entity object) {
             return RepositoryAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter caseInterfaceProvidingEntity(final InterfaceProvidingEntity object)
-        {
+        public Adapter caseInterfaceProvidingEntity(final InterfaceProvidingEntity object) {
             return RepositoryAdapterFactory.this.createInterfaceProvidingEntityAdapter();
         }
 
         @Override
-        public Adapter caseResourceInterfaceRequiringEntity(final ResourceInterfaceRequiringEntity object)
-        {
+        public Adapter caseResourceInterfaceRequiringEntity(final ResourceInterfaceRequiringEntity object) {
             return RepositoryAdapterFactory.this.createResourceInterfaceRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseInterfaceRequiringEntity(final InterfaceRequiringEntity object)
-        {
+        public Adapter caseInterfaceRequiringEntity(final InterfaceRequiringEntity object) {
             return RepositoryAdapterFactory.this.createInterfaceRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseInterfaceProvidingRequiringEntity(final InterfaceProvidingRequiringEntity object)
-        {
+        public Adapter caseInterfaceProvidingRequiringEntity(final InterfaceProvidingRequiringEntity object) {
             return RepositoryAdapterFactory.this.createInterfaceProvidingRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter caseComposedStructure(final ComposedStructure object)
-        {
+        public Adapter caseComposedStructure(final ComposedStructure object) {
             return RepositoryAdapterFactory.this.createComposedStructureAdapter();
         }
 
         @Override
-        public Adapter caseComposedProvidingRequiringEntity(final ComposedProvidingRequiringEntity object)
-        {
+        public Adapter caseComposedProvidingRequiringEntity(final ComposedProvidingRequiringEntity object) {
             return RepositoryAdapterFactory.this.createComposedProvidingRequiringEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object)
-        {
+        public Adapter defaultCase(final EObject object) {
             return RepositoryAdapterFactory.this.createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-             *
-             * @param target
-             *            the object to adapt.
-             * @return the adapter for the <code>target</code>.
+     *
+     * @param target
+     *            the object to adapt.
+     * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
@@ -419,13 +372,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.repository.ImplementationComponentType
-             * <em>Implementation Component Type</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.repository.ImplementationComponentType <em>Implementation
+     * Component Type</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+     * the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.repository.ImplementationComponentType
      * @generated
      */
@@ -524,13 +477,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.repository.RequiredCharacterisation
-             * <em>Required Characterisation</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.repository.RequiredCharacterisation <em>Required
+     * Characterisation</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+     * the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.repository.RequiredCharacterisation
      * @generated
      */
@@ -599,13 +552,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.repository.InfrastructureSignature
-             * <em>Infrastructure Signature</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.repository.InfrastructureSignature <em>Infrastructure
+     * Signature</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+     * cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.repository.InfrastructureSignature
      * @generated
      */
@@ -614,13 +567,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.repository.InfrastructureInterface
-             * <em>Infrastructure Interface</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.repository.InfrastructureInterface <em>Infrastructure
+     * Interface</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+     * cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.repository.InfrastructureInterface
      * @generated
      */
@@ -629,13 +582,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.repository.InfrastructureRequiredRole
-             * <em>Infrastructure Required Role</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.repository.InfrastructureRequiredRole <em>Infrastructure
+     * Required Role</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+     * the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.repository.InfrastructureRequiredRole
      * @generated
      */
@@ -659,13 +612,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.repository.OperationSignature <em>Operation Signature</em>}
-             * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-             * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
-             * <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.repository.OperationSignature <em>Operation
+     * Signature</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+     * cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.repository.OperationSignature
      * @generated
      */
@@ -674,13 +627,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.repository.OperationInterface <em>Operation Interface</em>}
-             * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-             * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
-             * <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.repository.OperationInterface <em>Operation
+     * Interface</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+     * cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.repository.OperationInterface
      * @generated
      */
@@ -689,13 +642,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.repository.OperationRequiredRole
-             * <em>Operation Required Role</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.repository.OperationRequiredRole <em>Operation Required
+     * Role</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases
+     * anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.repository.OperationRequiredRole
      * @generated
      */
@@ -734,13 +687,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.repository.OperationProvidedRole
-             * <em>Operation Provided Role</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.repository.OperationProvidedRole <em>Operation Provided
+     * Role</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases
+     * anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.repository.OperationProvidedRole
      * @generated
      */
@@ -749,13 +702,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.repository.InfrastructureProvidedRole
-             * <em>Infrastructure Provided Role</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.repository.InfrastructureProvidedRole <em>Infrastructure
+     * Provided Role</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+     * the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.repository.InfrastructureProvidedRole
      * @generated
      */
@@ -764,13 +717,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.repository.CompleteComponentType
-             * <em>Complete Component Type</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.repository.CompleteComponentType <em>Complete Component
+     * Type</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases
+     * anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.repository.CompleteComponentType
      * @generated
      */
@@ -779,13 +732,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.repository.ProvidesComponentType
-             * <em>Provides Component Type</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.repository.ProvidesComponentType <em>Provides Component
+     * Type</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases
+     * anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.repository.ProvidesComponentType
      * @generated
      */
@@ -794,13 +747,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.repository.CompositeComponent <em>Composite Component</em>}
-             * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-             * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
-             * <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.repository.CompositeComponent <em>Composite
+     * Component</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+     * cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.repository.CompositeComponent
      * @generated
      */
@@ -809,13 +762,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.repository.PrimitiveDataType <em>Primitive Data Type</em>}'.
-     * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
-     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.repository.PrimitiveDataType <em>Primitive Data
+     * Type</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases
+     * anyway. <!-- end-user-doc -->
      *
-             * @return the new adapter.
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.repository.PrimitiveDataType
      * @generated
      */
@@ -824,13 +777,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.repository.CollectionDataType <em>Collection Data Type</em>}
-             * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-             * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
-             * <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.repository.CollectionDataType <em>Collection Data
+     * Type</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases
+     * anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.repository.CollectionDataType
      * @generated
      */
@@ -839,13 +792,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.repository.CompositeDataType <em>Composite Data Type</em>}'.
-     * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
-     * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-     * end-user-doc -->
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.repository.CompositeDataType <em>Composite Data
+     * Type</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+     * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases
+     * anyway. <!-- end-user-doc -->
      *
-             * @return the new adapter.
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.repository.CompositeDataType
      * @generated
      */
@@ -854,13 +807,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.repository.InnerDeclaration <em>Inner Declaration</em>}'.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.repository.InnerDeclaration <em>Inner Declaration</em>}'.
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
      *
-             * @return the new adapter.
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.repository.InnerDeclaration
      * @generated
      */
@@ -869,12 +822,12 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.repository.Role <em>Role</em>}'. <!-- begin-user-doc -->
-             * This default implementation returns null so that we can easily ignore cases; it's useful to
-             * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.repository.Role <em>Role</em>}'. <!-- begin-user-doc -->
+     * This default implementation returns null so that we can easily ignore cases; it's useful to
+     * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.repository.Role
      * @generated
      */
@@ -884,11 +837,11 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
-             * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
-             * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
-             * the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+     * the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see de.uka.ipd.sdq.identifier.Identifier
      * @generated
      */
@@ -912,12 +865,12 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'. <!-- begin-user-doc
-             * --> This default implementation returns null so that we can easily ignore cases; it's useful
-             * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'. <!-- begin-user-doc
+     * --> This default implementation returns null so that we can easily ignore cases; it's useful
+     * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.Entity
      * @generated
      */
@@ -926,13 +879,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity
-             * <em>Interface Providing Entity</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity <em>Interface
+     * Providing Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+     * the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity
      * @generated
      */
@@ -941,13 +894,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity
-             * <em>Resource Interface Requiring Entity</em>}'. <!-- begin-user-doc --> This default
-             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity <em>Resource
+     * Interface Requiring Entity</em>}'. <!-- begin-user-doc --> This default implementation
+     * returns null so that we can easily ignore cases; it's useful to ignore a case when
+     * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.ResourceInterfaceRequiringEntity
      * @generated
      */
@@ -956,13 +909,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity
-             * <em>Interface Requiring Entity</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity <em>Interface
+     * Requiring Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+     * the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity
      * @generated
      */
@@ -971,13 +924,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.entity.InterfaceProvidingRequiringEntity
-             * <em>Interface Providing Requiring Entity</em>}'. <!-- begin-user-doc --> This default
-             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.entity.InterfaceProvidingRequiringEntity <em>Interface
+     * Providing Requiring Entity</em>}'. <!-- begin-user-doc --> This default implementation
+     * returns null so that we can easily ignore cases; it's useful to ignore a case when
+     * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.InterfaceProvidingRequiringEntity
      * @generated
      */
@@ -986,13 +939,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.composition.ComposedStructure
-             * <em>Composed Structure</em>}'. <!-- begin-user-doc --> This default implementation returns
-             * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
-             * catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.composition.ComposedStructure <em>Composed
+     * Structure</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+     * cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.composition.ComposedStructure
      * @generated
      */
@@ -1001,13 +954,13 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.entity.ComposedProvidingRequiringEntity
-             * <em>Composed Providing Requiring Entity</em>}'. <!-- begin-user-doc --> This default
-             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.entity.ComposedProvidingRequiringEntity <em>Composed
+     * Providing Requiring Entity</em>}'. <!-- begin-user-doc --> This default implementation
+     * returns null so that we can easily ignore cases; it's useful to ignore a case when
+     * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.ComposedProvidingRequiringEntity
      * @generated
      */
@@ -1017,9 +970,9 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
-             * implementation returns null. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * implementation returns null. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @generated
      */
     public Adapter createEObjectAdapter() {

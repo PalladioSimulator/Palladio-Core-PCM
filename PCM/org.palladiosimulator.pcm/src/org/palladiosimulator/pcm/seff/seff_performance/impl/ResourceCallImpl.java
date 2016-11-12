@@ -31,21 +31,17 @@ import org.palladiosimulator.pcm.seff.seff_performance.util.SeffPerformanceValid
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_performance.impl.ResourceCallImpl#getAction__ResourceCall
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_performance.impl.ResourceCallImpl#getAction__ResourceCall
  * <em>Action Resource Call</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_performance.impl.ResourceCallImpl#getResourceRequiredRole__ResourceCall
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_performance.impl.ResourceCallImpl#getResourceRequiredRole__ResourceCall
  * <em>Resource Required Role Resource Call</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_performance.impl.ResourceCallImpl#getSignature__ResourceCall
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_performance.impl.ResourceCallImpl#getSignature__ResourceCall
  * <em>Signature Resource Call</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_performance.impl.ResourceCallImpl#getNumberOfCalls__ResourceCall
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_performance.impl.ResourceCallImpl#getNumberOfCalls__ResourceCall
  * <em>Number Of Calls Resource Call</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -56,7 +52,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -187,8 +183,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      */
     @Override
     public PCMRandomVariable getNumberOfCalls__ResourceCall() {
-        return (PCMRandomVariable) this.eDynamicGet(
-                SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL,
+        return (PCMRandomVariable) this.eDynamicGet(SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL,
                 SeffPerformancePackage.Literals.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL, true, true);
     }
 
@@ -198,8 +193,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      * @generated
      */
     public NotificationChain basicSetNumberOfCalls__ResourceCall(
-            final PCMRandomVariable newNumberOfCalls__ResourceCall,
-            NotificationChain msgs) {
+            final PCMRandomVariable newNumberOfCalls__ResourceCall, NotificationChain msgs) {
         msgs = this.eDynamicInverseAdd((InternalEObject) newNumberOfCalls__ResourceCall,
                 SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL, msgs);
         return msgs;
@@ -250,35 +244,27 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
     @Override
     public boolean ResourceSignatureBelongsToResourceRequiredRole(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPerformancePackage.Literals.RESOURCE_CALL);
-            try
-            {
+            try {
                 RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV.createQuery(RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
-                                SeffPerformanceValidator.RESOURCE_CALL__RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "ResourceSignatureBelongsToResourceRequiredRole",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
+                        SeffPerformanceValidator.RESOURCE_CALL__RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "ResourceSignatureBelongsToResourceRequiredRole",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -318,35 +304,28 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
     @Override
     public boolean ResourceRequiredRoleMustBeReferencedByComponent(final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        if (RESOURCE_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (RESOURCE_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPerformancePackage.Literals.RESOURCE_CALL);
-            try
-            {
+            try {
                 RESOURCE_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(RESOURCE_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                RESOURCE_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(
-                RESOURCE_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
-                                SeffPerformanceValidator.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_COMPONENT,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                        new Object[] { "ResourceRequiredRoleMustBeReferencedByComponent",
-                                                EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+        if (!EOCL_ENV
+                .createQuery(RESOURCE_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
+                        SeffPerformanceValidator.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_COMPONENT,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] { "ResourceRequiredRoleMustBeReferencedByComponent",
+                                        EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -354,10 +333,10 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
     }
 
     /**
-     * The cached OCL expression body for the '
-     * {@link #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Signature Role Combination Must Be Unique Within Abstract Internal Control Flow Action</em>}
-     * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the
+     * '{@link #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Signature Role Combination Must Be Unique Within Abstract Internal Control Flow
+     * Action</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
@@ -366,10 +345,10 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      */
     protected static final String SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.action__ResourceCall.resourceCall__Action->select(call | call.resourceRequiredRole__ResourceCall=self.resourceRequiredRole__ResourceCall and call.signature__ResourceCall=self.signature__ResourceCall)->size() = 1";
     /**
-     * The cached OCL invariant for the '
-     * {@link #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-     * <em>Signature Role Combination Must Be Unique Within Abstract Internal Control Flow Action</em>}
-     * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL invariant for the
+     * '{@link #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Signature Role Combination Must Be Unique Within Abstract Internal Control Flow
+     * Action</em>}' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
@@ -386,37 +365,30 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
     @Override
     public boolean SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPerformancePackage.Literals.RESOURCE_CALL);
-            try
-            {
+            try {
                 SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
-                        .createInvariant(SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+                        .createInvariant(
+                                SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV
                 .createQuery(
                         SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
-                .check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
-                                SeffPerformanceValidator.RESOURCE_CALL__SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                .check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
+                        SeffPerformanceValidator.RESOURCE_CALL__SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                new Object[] {
                                         "SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction",
                                         EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+                        new Object[] { this }));
             }
             return false;
         }
@@ -430,8 +402,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -440,8 +411,9 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
         case SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL:
             final PCMRandomVariable numberOfCalls__ResourceCall = this.getNumberOfCalls__ResourceCall();
             if (numberOfCalls__ResourceCall != null) {
-                msgs = ((InternalEObject) numberOfCalls__ResourceCall).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-                        - SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL, null, msgs);
+                msgs = ((InternalEObject) numberOfCalls__ResourceCall).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL,
+                        null, msgs);
             }
             return this.basicSetNumberOfCalls__ResourceCall((PCMRandomVariable) otherEnd, msgs);
         }
@@ -456,8 +428,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
             return this.basicSetAction__ResourceCall(null, msgs);
         case SeffPerformancePackage.RESOURCE_CALL__NUMBER_OF_CALLS_RESOURCE_CALL:
@@ -473,8 +444,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
             return this.eInternalContainer().eInverseRemove(this,
                     SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_CALL_ACTION,
@@ -490,8 +460,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
             return this.getAction__ResourceCall();
         case SeffPerformancePackage.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_RESOURCE_CALL:
@@ -517,8 +486,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
             this.setAction__ResourceCall((AbstractInternalControlFlowAction) newValue);
             return;
@@ -542,8 +510,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
             this.setAction__ResourceCall((AbstractInternalControlFlowAction) null);
             return;
@@ -567,8 +534,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL:
             return this.getAction__ResourceCall() != null;
         case SeffPerformancePackage.RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_RESOURCE_CALL:

@@ -27,7 +27,7 @@ public class SeffPerformanceValidator extends EObjectValidator {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -154,8 +154,7 @@ public class SeffPerformanceValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID)
-        {
+        switch (classifierID) {
         case SeffPerformancePackage.INFRASTRUCTURE_CALL:
             return this.validateInfrastructureCall((InfrastructureCall) value, diagnostics, context);
         case SeffPerformancePackage.RESOURCE_CALL:
@@ -184,6 +183,9 @@ public class SeffPerformanceValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryReferenceIsContained(infrastructureCall, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(infrastructureCall, diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(infrastructureCall, diagnostics, context);
@@ -216,8 +218,8 @@ public class SeffPerformanceValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the SignatureMustBelongToUsedRequiredRole constraint of '
-     * <em>Infrastructure Call</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the SignatureMustBelongToUsedRequiredRole constraint of '<em>Infrastructure
+     * Call</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -228,8 +230,8 @@ public class SeffPerformanceValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the ReferencedRequiredRoleMustBeRequiredByComponent constraint of '
-     * <em>Infrastructure Call</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the ReferencedRequiredRoleMustBeRequiredByComponent constraint of
+     * '<em>Infrastructure Call</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -248,8 +250,8 @@ public class SeffPerformanceValidator extends EObjectValidator {
     public boolean validateInfrastructureCall_SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(
             final InfrastructureCall infrastructureCall, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        return infrastructureCall.SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(
-                diagnostics, context);
+        return infrastructureCall
+                .SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(diagnostics, context);
     }
 
     /**
@@ -268,6 +270,9 @@ public class SeffPerformanceValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryReferenceIsContained(resourceCall, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(resourceCall, diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(resourceCall, diagnostics, context);
@@ -300,8 +305,8 @@ public class SeffPerformanceValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the ResourceSignatureBelongsToResourceRequiredRole constraint of '
-     * <em>Resource Call</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the ResourceSignatureBelongsToResourceRequiredRole constraint of '<em>Resource
+     * Call</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -311,14 +316,13 @@ public class SeffPerformanceValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the ResourceRequiredRoleMustBeReferencedByComponent constraint of '
-     * <em>Resource Call</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the ResourceRequiredRoleMustBeReferencedByComponent constraint of '<em>Resource
+     * Call</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
     public boolean validateResourceCall_ResourceRequiredRoleMustBeReferencedByComponent(
-            final ResourceCall resourceCall,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final ResourceCall resourceCall, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return resourceCall.ResourceRequiredRoleMustBeReferencedByComponent(diagnostics, context);
     }
 
@@ -352,6 +356,10 @@ public class SeffPerformanceValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(parametricResourceDemand, diagnostics, context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(parametricResourceDemand, diagnostics,
+                    context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(parametricResourceDemand, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -381,8 +389,8 @@ public class SeffPerformanceValidator extends EObjectValidator {
     public boolean validateParametricResourceDemand_DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(
             final ParametricResourceDemand parametricResourceDemand, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        return parametricResourceDemand.DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(
-                diagnostics, context);
+        return parametricResourceDemand
+                .DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(diagnostics, context);
     }
 
     /**

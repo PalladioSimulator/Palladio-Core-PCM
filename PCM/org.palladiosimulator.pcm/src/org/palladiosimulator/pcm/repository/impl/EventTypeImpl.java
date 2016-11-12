@@ -16,13 +16,13 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.impl.EventTypeImpl#getParameter__EventType <em>
- * Parameter Event Type</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.impl.EventTypeImpl#getEventGroup__EventType <em>
- * Event Group Event Type</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.EventTypeImpl#getParameter__EventType
+ * <em>Parameter Event Type</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.EventTypeImpl#getEventGroup__EventType
+ * <em>Event Group Event Type</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -33,7 +33,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -129,13 +129,12 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.EVENT_TYPE__PARAMETER_EVENT_TYPE:
             final Parameter parameter__EventType = this.getParameter__EventType();
             if (parameter__EventType != null) {
-                msgs = ((InternalEObject) parameter__EventType).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-                        - RepositoryPackage.EVENT_TYPE__PARAMETER_EVENT_TYPE, null, msgs);
+                msgs = ((InternalEObject) parameter__EventType).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - RepositoryPackage.EVENT_TYPE__PARAMETER_EVENT_TYPE, null, msgs);
             }
             return this.basicSetParameter__EventType((Parameter) otherEnd, msgs);
         case RepositoryPackage.EVENT_TYPE__EVENT_GROUP_EVENT_TYPE:
@@ -155,8 +154,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.EVENT_TYPE__PARAMETER_EVENT_TYPE:
             return this.basicSetParameter__EventType(null, msgs);
         case RepositoryPackage.EVENT_TYPE__EVENT_GROUP_EVENT_TYPE:
@@ -172,8 +170,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case RepositoryPackage.EVENT_TYPE__EVENT_GROUP_EVENT_TYPE:
             return this.eInternalContainer().eInverseRemove(this,
                     RepositoryPackage.EVENT_GROUP__EVENT_TYPES_EVENT_GROUP,
@@ -189,8 +186,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.EVENT_TYPE__PARAMETER_EVENT_TYPE:
             return this.getParameter__EventType();
         case RepositoryPackage.EVENT_TYPE__EVENT_GROUP_EVENT_TYPE:
@@ -206,8 +202,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.EVENT_TYPE__PARAMETER_EVENT_TYPE:
             this.setParameter__EventType((Parameter) newValue);
             return;
@@ -225,8 +220,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.EVENT_TYPE__PARAMETER_EVENT_TYPE:
             this.setParameter__EventType((Parameter) null);
             return;
@@ -244,8 +238,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.EVENT_TYPE__PARAMETER_EVENT_TYPE:
             return this.getParameter__EventType() != null;
         case RepositoryPackage.EVENT_TYPE__EVENT_GROUP_EVENT_TYPE:

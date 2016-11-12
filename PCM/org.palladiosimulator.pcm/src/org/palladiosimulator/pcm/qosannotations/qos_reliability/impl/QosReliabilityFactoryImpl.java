@@ -24,7 +24,7 @@ public class QosReliabilityFactoryImpl extends EFactoryImpl implements QosReliab
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -32,16 +32,13 @@ public class QosReliabilityFactoryImpl extends EFactoryImpl implements QosReliab
      * @generated
      */
     public static QosReliabilityFactory init() {
-        try
-        {
+        try {
             final QosReliabilityFactory theQosReliabilityFactory = (QosReliabilityFactory) EPackage.Registry.INSTANCE
                     .getEFactory(QosReliabilityPackage.eNS_URI);
-            if (theQosReliabilityFactory != null)
-            {
+            if (theQosReliabilityFactory != null) {
                 return theQosReliabilityFactory;
             }
-        } catch (final Exception exception)
-        {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new QosReliabilityFactoryImpl();
@@ -63,8 +60,7 @@ public class QosReliabilityFactoryImpl extends EFactoryImpl implements QosReliab
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID())
-        {
+        switch (eClass.getClassifierID()) {
         case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION:
             return this.createSpecifiedReliabilityAnnotation();
         default:

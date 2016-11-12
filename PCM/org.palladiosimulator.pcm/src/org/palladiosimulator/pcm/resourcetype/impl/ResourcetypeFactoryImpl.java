@@ -29,7 +29,7 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -37,16 +37,13 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
      * @generated
      */
     public static ResourcetypeFactory init() {
-        try
-        {
+        try {
             final ResourcetypeFactory theResourcetypeFactory = (ResourcetypeFactory) EPackage.Registry.INSTANCE
                     .getEFactory(ResourcetypePackage.eNS_URI);
-            if (theResourcetypeFactory != null)
-            {
+            if (theResourcetypeFactory != null) {
                 return theResourcetypeFactory;
             }
-        } catch (final Exception exception)
-        {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new ResourcetypeFactoryImpl();
@@ -68,8 +65,7 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID())
-        {
+        switch (eClass.getClassifierID()) {
         case ResourcetypePackage.RESOURCE_SIGNATURE:
             return this.createResourceSignature();
         case ResourcetypePackage.PROCESSING_RESOURCE_TYPE:

@@ -21,15 +21,13 @@ import org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction
  * <em>Primary Behaviour Recovery Action</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction#getRecoveryActionBehaviours__RecoveryAction
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction#getRecoveryActionBehaviours__RecoveryAction
  * <em>Recovery Action Behaviours Recovery Action</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage#getRecoveryAction()
  * @model
@@ -42,7 +40,7 @@ public interface RecoveryAction extends AbstractInternalControlFlowAction {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Primary Behaviour Recovery Action</b></em>' reference. <!--
@@ -62,8 +60,8 @@ public interface RecoveryAction extends AbstractInternalControlFlowAction {
     RecoveryActionBehaviour getPrimaryBehaviour__RecoveryAction();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction
      * <em>Primary Behaviour Recovery Action</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -78,8 +76,8 @@ public interface RecoveryAction extends AbstractInternalControlFlowAction {
      * Returns the value of the '<em><b>Recovery Action Behaviours Recovery Action</b></em>'
      * containment reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour}. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour
      * <em>Recovery Action Recovery Action Behaviour</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Recovery Action Behaviours Recovery Action</em>' containment
@@ -104,8 +102,8 @@ public interface RecoveryAction extends AbstractInternalControlFlowAction {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.primaryBehaviour__RecoveryAction <> null'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.primaryBehaviour__RecoveryAction <> null'"
      * @generated
      */
     boolean PrimaryBehaviourOfRecoveryActionMustBeSet(DiagnosticChain diagnostics, Map<Object, Object> context);

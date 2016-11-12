@@ -13,22 +13,19 @@ import org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConn
 import org.palladiosimulator.pcm.core.entity.ResourceRequiredRole;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Resource Required Delegation Connector</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Resource Required
+ * Delegation Connector</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl#getInnerResourceRequiredRole_ResourceRequiredDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl#getInnerResourceRequiredRole_ResourceRequiredDelegationConnector
  * <em>Inner Resource Required Role Resource Required Delegation Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl#getOuterResourceRequiredRole_ResourceRequiredDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl#getOuterResourceRequiredRole_ResourceRequiredDelegationConnector
  * <em>Outer Resource Required Role Resource Required Delegation Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl#getParentStructure_ResourceRequiredDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.impl.ResourceRequiredDelegationConnectorImpl#getParentStructure_ResourceRequiredDelegationConnector
  * <em>Parent Structure Resource Required Delegation Connector</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -40,7 +37,7 @@ public class ResourceRequiredDelegationConnectorImpl extends CDOObjectImpl
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -78,11 +75,10 @@ public class ResourceRequiredDelegationConnectorImpl extends CDOObjectImpl
      */
     @Override
     public ResourceRequiredRole getInnerResourceRequiredRole_ResourceRequiredDelegationConnector() {
-        return (ResourceRequiredRole) this
-                .eDynamicGet(
-                        CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
-                        CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
-                        true, true);
+        return (ResourceRequiredRole) this.eDynamicGet(
+                CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                true, true);
     }
 
     /**
@@ -91,11 +87,10 @@ public class ResourceRequiredDelegationConnectorImpl extends CDOObjectImpl
      * @generated
      */
     public ResourceRequiredRole basicGetInnerResourceRequiredRole_ResourceRequiredDelegationConnector() {
-        return (ResourceRequiredRole) this
-                .eDynamicGet(
-                        CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
-                        CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
-                        false, true);
+        return (ResourceRequiredRole) this.eDynamicGet(
+                CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                false, true);
     }
 
     /**
@@ -119,11 +114,10 @@ public class ResourceRequiredDelegationConnectorImpl extends CDOObjectImpl
      */
     @Override
     public ResourceRequiredRole getOuterResourceRequiredRole_ResourceRequiredDelegationConnector() {
-        return (ResourceRequiredRole) this
-                .eDynamicGet(
-                        CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
-                        CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
-                        true, true);
+        return (ResourceRequiredRole) this.eDynamicGet(
+                CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                true, true);
     }
 
     /**
@@ -132,11 +126,10 @@ public class ResourceRequiredDelegationConnectorImpl extends CDOObjectImpl
      * @generated
      */
     public ResourceRequiredRole basicGetOuterResourceRequiredRole_ResourceRequiredDelegationConnector() {
-        return (ResourceRequiredRole) this
-                .eDynamicGet(
-                        CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
-                        CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
-                        false, true);
+        return (ResourceRequiredRole) this.eDynamicGet(
+                CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                false, true);
     }
 
     /**
@@ -160,11 +153,10 @@ public class ResourceRequiredDelegationConnectorImpl extends CDOObjectImpl
      */
     @Override
     public ComposedStructure getParentStructure_ResourceRequiredDelegationConnector() {
-        return (ComposedStructure) this
-                .eDynamicGet(
-                        CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
-                        CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
-                        true, true);
+        return (ComposedStructure) this.eDynamicGet(
+                CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                CompositionPackage.Literals.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                true, true);
     }
 
     /**
@@ -174,11 +166,9 @@ public class ResourceRequiredDelegationConnectorImpl extends CDOObjectImpl
      */
     public NotificationChain basicSetParentStructure_ResourceRequiredDelegationConnector(
             final ComposedStructure newParentStructure_ResourceRequiredDelegationConnector, NotificationChain msgs) {
-        msgs = this
-                .eBasicSetContainer(
-                        (InternalEObject) newParentStructure_ResourceRequiredDelegationConnector,
-                        CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
-                        msgs);
+        msgs = this.eBasicSetContainer((InternalEObject) newParentStructure_ResourceRequiredDelegationConnector,
+                CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR,
+                msgs);
         return msgs;
     }
 
@@ -203,8 +193,7 @@ public class ResourceRequiredDelegationConnectorImpl extends CDOObjectImpl
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -222,8 +211,7 @@ public class ResourceRequiredDelegationConnectorImpl extends CDOObjectImpl
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
             return this.basicSetParentStructure_ResourceRequiredDelegationConnector(null, msgs);
         }
@@ -237,8 +225,7 @@ public class ResourceRequiredDelegationConnectorImpl extends CDOObjectImpl
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
             return this.eInternalContainer().eInverseRemove(this,
                     CompositionPackage.COMPOSED_STRUCTURE__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE,
@@ -254,8 +241,7 @@ public class ResourceRequiredDelegationConnectorImpl extends CDOObjectImpl
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
             if (resolve) {
                 return this.getInnerResourceRequiredRole_ResourceRequiredDelegationConnector();
@@ -279,8 +265,7 @@ public class ResourceRequiredDelegationConnectorImpl extends CDOObjectImpl
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
             this.setInnerResourceRequiredRole_ResourceRequiredDelegationConnector((ResourceRequiredRole) newValue);
             return;
@@ -301,8 +286,7 @@ public class ResourceRequiredDelegationConnectorImpl extends CDOObjectImpl
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
             this.setInnerResourceRequiredRole_ResourceRequiredDelegationConnector((ResourceRequiredRole) null);
             return;
@@ -323,8 +307,7 @@ public class ResourceRequiredDelegationConnectorImpl extends CDOObjectImpl
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__INNER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
             return this.basicGetInnerResourceRequiredRole_ResourceRequiredDelegationConnector() != null;
         case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__OUTER_RESOURCE_REQUIRED_ROLE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR:

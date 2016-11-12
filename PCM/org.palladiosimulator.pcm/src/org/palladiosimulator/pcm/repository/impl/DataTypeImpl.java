@@ -16,11 +16,11 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.impl.DataTypeImpl#getRepository__DataType <em>
- * Repository Data Type</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.DataTypeImpl#getRepository__DataType
+ * <em>Repository Data Type</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -31,7 +31,7 @@ public abstract class DataTypeImpl extends CDOObjectImpl implements DataType {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -103,8 +103,7 @@ public abstract class DataTypeImpl extends CDOObjectImpl implements DataType {
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -122,8 +121,7 @@ public abstract class DataTypeImpl extends CDOObjectImpl implements DataType {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE:
             return this.basicSetRepository__DataType(null, msgs);
         }
@@ -137,8 +135,7 @@ public abstract class DataTypeImpl extends CDOObjectImpl implements DataType {
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE:
             return this.eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY,
                     Repository.class, msgs);
@@ -153,8 +150,7 @@ public abstract class DataTypeImpl extends CDOObjectImpl implements DataType {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE:
             return this.getRepository__DataType();
         }
@@ -168,8 +164,7 @@ public abstract class DataTypeImpl extends CDOObjectImpl implements DataType {
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE:
             this.setRepository__DataType((Repository) newValue);
             return;
@@ -184,8 +179,7 @@ public abstract class DataTypeImpl extends CDOObjectImpl implements DataType {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE:
             this.setRepository__DataType((Repository) null);
             return;
@@ -200,8 +194,7 @@ public abstract class DataTypeImpl extends CDOObjectImpl implements DataType {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE:
             return this.getRepository__DataType() != null;
         }

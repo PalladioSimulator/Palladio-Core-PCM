@@ -5,4 +5,4 @@ Bundle-SymbolicName: org.palladiosimulator.pcm.resources;singleton:=true
 Bundle-Version: 4.0.0.qualifier
 Require-Bundle: org.eclipse.core.runtime;bundle-version="3.10.0"
 Bundle-Vendor: palladiosimulator.org
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

@@ -33,17 +33,17 @@ import org.palladiosimulator.pcm.protocol.Protocol;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.Interface#getParentInterfaces__Interface <em>
- * Parent Interfaces Interface</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Interface#getParentInterfaces__Interface
+ * <em>Parent Interfaces Interface</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.repository.Interface#getProtocols__Interface <em>Protocols
  * Interface</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.Interface#getRequiredCharacterisations <em>
- * Required Characterisations</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Interface#getRequiredCharacterisations
+ * <em>Required Characterisations</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.repository.Interface#getRepository__Interface <em>Repository
  * Interface</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getInterface()
  * @model abstract="true"
@@ -56,7 +56,7 @@ public interface Interface extends Entity {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Parent Interfaces Interface</b></em>' reference list. The
@@ -89,8 +89,8 @@ public interface Interface extends Entity {
      * Returns the value of the '<em><b>Required Characterisations</b></em>' containment reference
      * list. The list contents are of type
      * {@link org.palladiosimulator.pcm.repository.RequiredCharacterisation}. It is bidirectional
-     * and its opposite is '
-     * {@link org.palladiosimulator.pcm.repository.RequiredCharacterisation#getInterface_RequiredCharacterisation
+     * and its opposite is
+     * '{@link org.palladiosimulator.pcm.repository.RequiredCharacterisation#getInterface_RequiredCharacterisation
      * <em>Interface Required Characterisation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * <!-- begin-model-doc --> documentation of required variable characterisations <!--
      * end-model-doc -->
@@ -121,8 +121,8 @@ public interface Interface extends Entity {
     Repository getRepository__Interface();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.Interface#getRepository__Interface
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.Interface#getRepository__Interface
      * <em>Repository Interface</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -140,8 +140,9 @@ public interface Interface extends Entity {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.protocols__Interface->forAll(p1, p2 |\r\np1.protocolTypeID <> p2.protocolTypeID)\r\n'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.protocols__Interface->forAll(p1, p2 |\r\np1.protocolTypeID <>
+     *        p2.protocolTypeID)\r\n'"
      * @generated
      */
     boolean NoProtocolTypeIDUsedTwice(DiagnosticChain diagnostics, Map<Object, Object> context);

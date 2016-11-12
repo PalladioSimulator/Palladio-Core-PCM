@@ -11,8 +11,8 @@ import org.palladiosimulator.pcm.repository.BasicComponent;
 import org.palladiosimulator.pcm.repository.Signature;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Service Effect Specification</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Service Effect
+ * Specification</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> Service Effect Specification Models the effect of invoking a specific
  * service of a basic component. Therefore, it references a Signature from an Interface, for which
@@ -35,16 +35,15 @@ import org.palladiosimulator.pcm.repository.Signature;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getSeffTypeID <em>Seff Type
  * ID</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF
  * <em>Described Service SEFF</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getBasicComponent_ServiceEffectSpecification
+ * <li>{@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getBasicComponent_ServiceEffectSpecification
  * <em>Basic Component Service Effect Specification</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getServiceEffectSpecification()
  * @model abstract="true"
@@ -58,7 +57,7 @@ public interface ServiceEffectSpecification extends CDOObject {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Seff Type ID</b></em>' attribute. The default value is
@@ -78,9 +77,9 @@ public interface ServiceEffectSpecification extends CDOObject {
     String getSeffTypeID();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getSeffTypeID
-     * <em>Seff Type ID</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getSeffTypeID <em>Seff Type
+     * ID</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Seff Type ID</em>' attribute.
@@ -107,8 +106,8 @@ public interface ServiceEffectSpecification extends CDOObject {
     Signature getDescribedService__SEFF();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF
      * <em>Described Service SEFF</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
@@ -120,8 +119,8 @@ public interface ServiceEffectSpecification extends CDOObject {
 
     /**
      * Returns the value of the '<em><b>Basic Component Service Effect Specification</b></em>'
-     * container reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent
+     * container reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent
      * <em>Service Effect Specifications Basic Component</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Basic Component Service Effect Specification</em>' container
@@ -161,8 +160,18 @@ public interface ServiceEffectSpecification extends CDOObject {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='if self.describedService__SEFF.oclIsKindOf(pcm::repository::OperationSignature) then\r\n\tself.basicComponent_ServiceEffectSpecification.providedRoles_InterfaceProvidingEntity->exists(p | p.oclIsKindOf(pcm::repository::OperationProvidedRole) and (p.oclAsType(pcm::repository::OperationProvidedRole).providedInterface__OperationProvidedRole = self.describedService__SEFF.oclAsType(pcm::repository::OperationSignature).interface__OperationSignature))\r\nelse\r\n\tif self.describedService__SEFF.oclIsKindOf(pcm::repository::EventType) then\r\n\t\tself.basicComponent_ServiceEffectSpecification.providedRoles_InterfaceProvidingEntity->exists(p | p.oclIsKindOf(pcm::repository::SinkRole) and (p.oclAsType(pcm::repository::SinkRole).eventGroup__SinkRole = self.describedService__SEFF.oclAsType(pcm::repository::EventType).eventGroup__EventType))\r\n\telse\r\n\t\ttrue\r\n\tendif\r\nendif'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel body='if
+     *        self.describedService__SEFF.oclIsKindOf(pcm::repository::OperationSignature)
+     *        then\r\n\tself.basicComponent_ServiceEffectSpecification.providedRoles_InterfaceProvidingEntity->exists(p
+     *        | p.oclIsKindOf(pcm::repository::OperationProvidedRole) and
+     *        (p.oclAsType(pcm::repository::OperationProvidedRole).providedInterface__OperationProvidedRole
+     *        =
+     *        self.describedService__SEFF.oclAsType(pcm::repository::OperationSignature).interface__OperationSignature))\r\nelse\r\n\tif
+     *        self.describedService__SEFF.oclIsKindOf(pcm::repository::EventType)
+     *        then\r\n\t\tself.basicComponent_ServiceEffectSpecification.providedRoles_InterfaceProvidingEntity->exists(p
+     *        | p.oclIsKindOf(pcm::repository::SinkRole) and
+     *        (p.oclAsType(pcm::repository::SinkRole).eventGroup__SinkRole =
+     *        self.describedService__SEFF.oclAsType(pcm::repository::EventType).eventGroup__EventType))\r\n\telse\r\n\t\ttrue\r\n\tendif\r\nendif'"
      * @generated
      */
     boolean ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(DiagnosticChain diagnostics,

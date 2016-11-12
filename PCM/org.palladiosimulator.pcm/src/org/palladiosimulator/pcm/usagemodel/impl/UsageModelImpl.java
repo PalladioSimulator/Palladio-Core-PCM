@@ -21,13 +21,13 @@ import org.palladiosimulator.pcm.usagemodel.UserData;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.UsageModelImpl#getUsageScenario_UsageModel
  * <em>Usage Scenario Usage Model</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.UsageModelImpl#getUserData_UsageModel <em>
- * User Data Usage Model</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.impl.UsageModelImpl#getUserData_UsageModel
+ * <em>User Data Usage Model</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -38,7 +38,7 @@ public class UsageModelImpl extends CDOObjectImpl implements UsageModel {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -102,11 +102,10 @@ public class UsageModelImpl extends CDOObjectImpl implements UsageModel {
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getUsageScenario_UsageModel()).basicAdd(
-                    otherEnd, msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getUsageScenario_UsageModel())
+                    .basicAdd(otherEnd, msgs);
         case UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getUserData_UsageModel()).basicAdd(
                     otherEnd,
@@ -123,8 +122,7 @@ public class UsageModelImpl extends CDOObjectImpl implements UsageModel {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL:
             return ((InternalEList<?>) this.getUsageScenario_UsageModel()).basicRemove(otherEnd, msgs);
         case UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL:
@@ -140,8 +138,7 @@ public class UsageModelImpl extends CDOObjectImpl implements UsageModel {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL:
             return this.getUsageScenario_UsageModel();
         case UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL:
@@ -158,8 +155,7 @@ public class UsageModelImpl extends CDOObjectImpl implements UsageModel {
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL:
             this.getUsageScenario_UsageModel().clear();
             this.getUsageScenario_UsageModel().addAll((Collection<? extends UsageScenario>) newValue);
@@ -179,8 +175,7 @@ public class UsageModelImpl extends CDOObjectImpl implements UsageModel {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL:
             this.getUsageScenario_UsageModel().clear();
             return;
@@ -198,8 +193,7 @@ public class UsageModelImpl extends CDOObjectImpl implements UsageModel {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL:
             return !this.getUsageScenario_UsageModel().isEmpty();
         case UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL:

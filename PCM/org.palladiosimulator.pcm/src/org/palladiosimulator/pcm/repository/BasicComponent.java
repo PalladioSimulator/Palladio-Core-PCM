@@ -21,14 +21,13 @@ import org.palladiosimulator.pcm.seff.ServiceEffectSpecification;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent
+ * <li>{@link org.palladiosimulator.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent
  * <em>Service Effect Specifications Basic Component</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.repository.BasicComponent#getPassiveResource_BasicComponent
  * <em>Passive Resource Basic Component</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getBasicComponent()
  * @model
@@ -41,7 +40,7 @@ public interface BasicComponent extends ImplementationComponentType {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Service Effect Specifications Basic Component</b></em>'
@@ -67,8 +66,8 @@ public interface BasicComponent extends ImplementationComponentType {
      * Returns the value of the '<em><b>Passive Resource Basic Component</b></em>' containment
      * reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.repository.PassiveResource}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.repository.PassiveResource#getBasicComponent_PassiveResource
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.repository.PassiveResource#getBasicComponent_PassiveResource
      * <em>Basic Component Passive Resource</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * <!-- begin-model-doc --> This property represents the passive resources, e.g., semaphores,
      * that are owned by this basic component. <!-- end-model-doc -->
@@ -89,8 +88,10 @@ public interface BasicComponent extends ImplementationComponentType {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |\r\n  p1 <> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID <> p2.seffTypeID))'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |\r\n p1 <> p2
+     *        implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID
+     *        <> p2.seffTypeID))'"
      * @generated
      */
     boolean NoSeffTypeUsedTwice(DiagnosticChain diagnostics, Map<Object, Object> context);

@@ -13,13 +13,13 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.impl.ExceptionTypeImpl#getExceptionName <em>
- * Exception Name</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.impl.ExceptionTypeImpl#getExceptionMessage <em>
- * Exception Message</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.ExceptionTypeImpl#getExceptionName
+ * <em>Exception Name</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.ExceptionTypeImpl#getExceptionMessage
+ * <em>Exception Message</em>}</li>
+ * </ul>
  *
  * @generated
  */
@@ -30,7 +30,7 @@ public class ExceptionTypeImpl extends CDOObjectImpl implements ExceptionType {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The default value of the '{@link #getExceptionName() <em>Exception Name</em>}' attribute.
@@ -132,8 +132,7 @@ public class ExceptionTypeImpl extends CDOObjectImpl implements ExceptionType {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_NAME:
             return this.getExceptionName();
         case RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_MESSAGE:
@@ -149,8 +148,7 @@ public class ExceptionTypeImpl extends CDOObjectImpl implements ExceptionType {
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_NAME:
             this.setExceptionName((String) newValue);
             return;
@@ -168,8 +166,7 @@ public class ExceptionTypeImpl extends CDOObjectImpl implements ExceptionType {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_NAME:
             this.setExceptionName(EXCEPTION_NAME_EDEFAULT);
             return;
@@ -187,15 +184,13 @@ public class ExceptionTypeImpl extends CDOObjectImpl implements ExceptionType {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_NAME:
-            return EXCEPTION_NAME_EDEFAULT == null ? this.getExceptionName() != null : !EXCEPTION_NAME_EDEFAULT
-                    .equals(this.getExceptionName());
+            return EXCEPTION_NAME_EDEFAULT == null ? this.getExceptionName() != null
+                    : !EXCEPTION_NAME_EDEFAULT.equals(this.getExceptionName());
         case RepositoryPackage.EXCEPTION_TYPE__EXCEPTION_MESSAGE:
             return EXCEPTION_MESSAGE_EDEFAULT == null ? this.getExceptionMessage() != null
-            : !EXCEPTION_MESSAGE_EDEFAULT
-            .equals(this.getExceptionMessage());
+                    : !EXCEPTION_MESSAGE_EDEFAULT.equals(this.getExceptionMessage());
         }
         return super.eIsSet(featureID);
     }

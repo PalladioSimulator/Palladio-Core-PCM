@@ -20,4 +20,4 @@ Require-Bundle: org.eclipse.ui;bundle-version="3.106.1",
 Export-Package: org.palladiosimulator.pcm.ui,
  org.palladiosimulator.pcm.ui.provider,
  org.palladiosimulator.pcm.ui.provider.categoryaware
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7

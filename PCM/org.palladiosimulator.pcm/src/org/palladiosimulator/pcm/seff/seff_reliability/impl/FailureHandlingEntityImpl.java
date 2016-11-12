@@ -13,16 +13,15 @@ import org.palladiosimulator.pcm.seff.seff_reliability.FailureHandlingEntity;
 import org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Failure Handling Entity</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Failure Handling
+ * Entity</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_reliability.impl.FailureHandlingEntityImpl#getFailureTypes_FailureHandlingEntity
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_reliability.impl.FailureHandlingEntityImpl#getFailureTypes_FailureHandlingEntity
  * <em>Failure Types Failure Handling Entity</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -33,7 +32,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -75,8 +74,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
             return this.getFailureTypes_FailureHandlingEntity();
         }
@@ -91,8 +89,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
             this.getFailureTypes_FailureHandlingEntity().clear();
             this.getFailureTypes_FailureHandlingEntity().addAll((Collection<? extends FailureType>) newValue);
@@ -108,8 +105,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
             this.getFailureTypes_FailureHandlingEntity().clear();
             return;
@@ -124,8 +120,7 @@ public abstract class FailureHandlingEntityImpl extends EntityImpl implements Fa
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffReliabilityPackage.FAILURE_HANDLING_ENTITY__FAILURE_TYPES_FAILURE_HANDLING_ENTITY:
             return !this.getFailureTypes_FailureHandlingEntity().isEmpty();
         }

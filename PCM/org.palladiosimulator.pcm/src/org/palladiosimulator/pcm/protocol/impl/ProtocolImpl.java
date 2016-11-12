@@ -13,11 +13,11 @@ import org.palladiosimulator.pcm.protocol.ProtocolPackage;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.protocol.impl.ProtocolImpl#getProtocolTypeID <em>Protocol
  * Type ID</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -28,7 +28,7 @@ public abstract class ProtocolImpl extends CDOObjectImpl implements Protocol {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The default value of the '{@link #getProtocolTypeID() <em>Protocol Type ID</em>}' attribute.
@@ -99,8 +99,7 @@ public abstract class ProtocolImpl extends CDOObjectImpl implements Protocol {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID:
             return this.getProtocolTypeID();
         }
@@ -114,8 +113,7 @@ public abstract class ProtocolImpl extends CDOObjectImpl implements Protocol {
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID:
             this.setProtocolTypeID((String) newValue);
             return;
@@ -130,8 +128,7 @@ public abstract class ProtocolImpl extends CDOObjectImpl implements Protocol {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID:
             this.setProtocolTypeID(PROTOCOL_TYPE_ID_EDEFAULT);
             return;
@@ -146,11 +143,10 @@ public abstract class ProtocolImpl extends CDOObjectImpl implements Protocol {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID:
-            return PROTOCOL_TYPE_ID_EDEFAULT == null ? this.getProtocolTypeID() != null : !PROTOCOL_TYPE_ID_EDEFAULT
-                    .equals(this.getProtocolTypeID());
+            return PROTOCOL_TYPE_ID_EDEFAULT == null ? this.getProtocolTypeID() != null
+                    : !PROTOCOL_TYPE_ID_EDEFAULT.equals(this.getProtocolTypeID());
         }
         return super.eIsSet(featureID);
     }

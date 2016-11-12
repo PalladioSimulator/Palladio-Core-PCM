@@ -7,20 +7,18 @@ import org.palladiosimulator.pcm.repository.Role;
 import org.palladiosimulator.pcm.resourcetype.ResourceInterface;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Resource Provided Role</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Resource Provided
+ * Role</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole#getResourceInterfaceProvidingEntity__ResourceProvidedRole
+ * <li>{@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole#getResourceInterfaceProvidingEntity__ResourceProvidedRole
  * <em>Resource Interface Providing Entity Resource Provided Role</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole#getProvidedResourceInterface__ResourceProvidedRole
+ * <li>{@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole#getProvidedResourceInterface__ResourceProvidedRole
  * <em>Provided Resource Interface Resource Provided Role</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.core.entity.EntityPackage#getResourceProvidedRole()
  * @model
@@ -33,13 +31,12 @@ public interface ResourceProvidedRole extends Role {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
-     * Returns the value of the '
-     * <em><b>Resource Interface Providing Entity Resource Provided Role</b></em>' container
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingEntity#getResourceProvidedRoles__ResourceInterfaceProvidingEntity
+     * Returns the value of the '<em><b>Resource Interface Providing Entity Resource Provided
+     * Role</b></em>' container reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingEntity#getResourceProvidedRoles__ResourceInterfaceProvidingEntity
      * <em>Resource Provided Roles Resource Interface Providing Entity</em>}'. <!-- begin-user-doc
      * -->
      * <p>
@@ -48,8 +45,8 @@ public interface ResourceProvidedRole extends Role {
      * </p>
      * <!-- end-user-doc -->
      *
-     * @return the value of the '<em>Resource Interface Providing Entity Resource Provided Role</em>
-     *         ' container reference.
+     * @return the value of the '<em>Resource Interface Providing Entity Resource Provided
+     *         Role</em>' container reference.
      * @see #setResourceInterfaceProvidingEntity__ResourceProvidedRole(ResourceInterfaceProvidingEntity)
      * @see org.palladiosimulator.pcm.core.entity.EntityPackage#getResourceProvidedRole_ResourceInterfaceProvidingEntity__ResourceProvidedRole()
      * @see org.palladiosimulator.pcm.core.entity.ResourceInterfaceProvidingEntity#getResourceProvidedRoles__ResourceInterfaceProvidingEntity
@@ -60,15 +57,14 @@ public interface ResourceProvidedRole extends Role {
     ResourceInterfaceProvidingEntity getResourceInterfaceProvidingEntity__ResourceProvidedRole();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole#getResourceInterfaceProvidingEntity__ResourceProvidedRole
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole#getResourceInterfaceProvidingEntity__ResourceProvidedRole
      * <em>Resource Interface Providing Entity Resource Provided Role</em>}' container reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
-     *            the new value of the '
-     *            <em>Resource Interface Providing Entity Resource Provided Role</em>' container
-     *            reference.
+     *            the new value of the '<em>Resource Interface Providing Entity Resource Provided
+     *            Role</em>' container reference.
      * @see #getResourceInterfaceProvidingEntity__ResourceProvidedRole()
      * @generated
      */
@@ -93,8 +89,8 @@ public interface ResourceProvidedRole extends Role {
     ResourceInterface getProvidedResourceInterface__ResourceProvidedRole();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole#getProvidedResourceInterface__ResourceProvidedRole
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole#getProvidedResourceInterface__ResourceProvidedRole
      * <em>Provided Resource Interface Resource Provided Role</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *

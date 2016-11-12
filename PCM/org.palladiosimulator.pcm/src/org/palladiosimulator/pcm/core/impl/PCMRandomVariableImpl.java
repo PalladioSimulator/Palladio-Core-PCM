@@ -53,62 +53,47 @@ import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>PCM Random Variable</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>PCM Random
+ * Variable</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getClosedWorkload_PCMRandomVariable
+ * <li>{@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getClosedWorkload_PCMRandomVariable
  * <em>Closed Workload PCM Random Variable</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getPassiveResource_capacity_PCMRandomVariable
+ * <li>{@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getPassiveResource_capacity_PCMRandomVariable
  * <em>Passive Resource capacity PCM Random Variable</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getVariableCharacterisation_Specification
+ * <li>{@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getVariableCharacterisation_Specification
  * <em>Variable Characterisation Specification</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getInfrastructureCall__PCMRandomVariable
+ * <li>{@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getInfrastructureCall__PCMRandomVariable
  * <em>Infrastructure Call PCM Random Variable</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getResourceCall__PCMRandomVariable
+ * <li>{@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getResourceCall__PCMRandomVariable
  * <em>Resource Call PCM Random Variable</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getParametricResourceDemand_PCMRandomVariable
+ * <li>{@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getParametricResourceDemand_PCMRandomVariable
  * <em>Parametric Resource Demand PCM Random Variable</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getLoopAction_PCMRandomVariable
+ * <li>{@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getLoopAction_PCMRandomVariable
  * <em>Loop Action PCM Random Variable</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getGuardedBranchTransition_PCMRandomVariable
+ * <li>{@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getGuardedBranchTransition_PCMRandomVariable
  * <em>Guarded Branch Transition PCM Random Variable</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getSpecifiedExecutionTime_PCMRandomVariable
+ * <li>{@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getSpecifiedExecutionTime_PCMRandomVariable
  * <em>Specified Execution Time PCM Random Variable</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getEventChannelSinkConnector__FilterCondition
+ * <li>{@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getEventChannelSinkConnector__FilterCondition
  * <em>Event Channel Sink Connector Filter Condition</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getAssemblyEventConnector__FilterCondition
+ * <li>{@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getAssemblyEventConnector__FilterCondition
  * <em>Assembly Event Connector Filter Condition</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getLoop_LoopIteration <em>
- * Loop Loop Iteration</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getOpenWorkload_PCMRandomVariable
+ * <li>{@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getLoop_LoopIteration
+ * <em>Loop Loop Iteration</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getOpenWorkload_PCMRandomVariable
  * <em>Open Workload PCM Random Variable</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getDelay_TimeSpecification
  * <em>Delay Time Specification</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable
+ * <li>{@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable
  * <em>Communication Link Resource Specifcation throughput PCM Random Variable</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getProcessingResourceSpecification_processingRate_PCMRandomVariable
+ * <li>{@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getProcessingResourceSpecification_processingRate_PCMRandomVariable
  * <em>Processing Resource Specification processing Rate PCM Random Variable</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getCommunicationLinkResourceSpecification_latency_PCMRandomVariable
+ * <li>{@link org.palladiosimulator.pcm.core.impl.PCMRandomVariableImpl#getCommunicationLinkResourceSpecification_latency_PCMRandomVariable
  * <em>Communication Link Resource Specification latency PCM Random Variable</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -119,7 +104,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -650,11 +635,10 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      */
     @Override
     public CommunicationLinkResourceSpecification getCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable() {
-        return (CommunicationLinkResourceSpecification) this
-                .eDynamicGet(
-                        CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE,
-                        CorePackage.Literals.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE,
-                        true, true);
+        return (CommunicationLinkResourceSpecification) this.eDynamicGet(
+                CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE,
+                true, true);
     }
 
     /**
@@ -665,11 +649,10 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
     public NotificationChain basicSetCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable(
             final CommunicationLinkResourceSpecification newCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable,
             NotificationChain msgs) {
-        msgs = this
-                .eBasicSetContainer(
-                        (InternalEObject) newCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable,
-                        CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE,
-                        msgs);
+        msgs = this.eBasicSetContainer(
+                (InternalEObject) newCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable,
+                CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE,
+                msgs);
         return msgs;
     }
 
@@ -694,11 +677,10 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      */
     @Override
     public ProcessingResourceSpecification getProcessingResourceSpecification_processingRate_PCMRandomVariable() {
-        return (ProcessingResourceSpecification) this
-                .eDynamicGet(
-                        CorePackage.PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE,
-                        CorePackage.Literals.PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE,
-                        true, true);
+        return (ProcessingResourceSpecification) this.eDynamicGet(
+                CorePackage.PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE,
+                true, true);
     }
 
     /**
@@ -737,11 +719,10 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      */
     @Override
     public CommunicationLinkResourceSpecification getCommunicationLinkResourceSpecification_latency_PCMRandomVariable() {
-        return (CommunicationLinkResourceSpecification) this
-                .eDynamicGet(
-                        CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE,
-                        CorePackage.Literals.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE,
-                        true, true);
+        return (CommunicationLinkResourceSpecification) this.eDynamicGet(
+                CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE,
+                CorePackage.Literals.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE,
+                true, true);
     }
 
     /**
@@ -774,8 +755,8 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
     }
 
     /**
-     * The cached OCL expression body for the '
-     * {@link #SpecificationMustNotBeNULL(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL expression body for the
+     * '{@link #SpecificationMustNotBeNULL(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Specification Must Not Be NULL</em>}' operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -785,8 +766,8 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      */
     protected static final String SPECIFICATION_MUST_NOT_BE_NULL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "not self.specification.oclIsUndefined() and self.specification <> ''";
     /**
-     * The cached OCL invariant for the '
-     * {@link #SpecificationMustNotBeNULL(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL invariant for the
+     * '{@link #SpecificationMustNotBeNULL(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Specification Must Not Be NULL</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -803,33 +784,24 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      */
     @Override
     public boolean SpecificationMustNotBeNULL(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        if (SPECIFICATION_MUST_NOT_BE_NULL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null)
-        {
+        if (SPECIFICATION_MUST_NOT_BE_NULL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
             final OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(CorePackage.Literals.PCM_RANDOM_VARIABLE);
-            try
-            {
+            try {
                 SPECIFICATION_MUST_NOT_BE_NULL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
                         .createInvariant(SPECIFICATION_MUST_NOT_BE_NULL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            } catch (final ParserException pe)
-            {
+            } catch (final ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(SPECIFICATION_MUST_NOT_BE_NULL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this))
-        {
-            if (diagnostics != null)
-            {
-                diagnostics
-                        .add
-                        (new BasicDiagnostic
-                        (
-                                Diagnostic.ERROR,
-                                CoreValidator.DIAGNOSTIC_SOURCE,
-                                CoreValidator.PCM_RANDOM_VARIABLE__SPECIFICATION_MUST_NOT_BE_NULL,
-                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                        "SpecificationMustNotBeNULL", EObjectValidator.getObjectLabel(this, context) }),
-                                new Object[] { this }));
+        if (!EOCL_ENV.createQuery(SPECIFICATION_MUST_NOT_BE_NULL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
+                        CoreValidator.DIAGNOSTIC_SOURCE,
+                        CoreValidator.PCM_RANDOM_VARIABLE__SPECIFICATION_MUST_NOT_BE_NULL,
+                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                "SpecificationMustNotBeNULL", EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -843,8 +815,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CorePackage.PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -945,8 +916,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CorePackage.PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE:
             return this.basicSetClosedWorkload_PCMRandomVariable(null, msgs);
         case CorePackage.PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE:
@@ -992,8 +962,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case CorePackage.PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE:
             return this.eInternalContainer().eInverseRemove(this,
                     UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD, ClosedWorkload.class, msgs);
@@ -1045,26 +1014,17 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
             return this.eInternalContainer().eInverseRemove(this, UsagemodelPackage.DELAY__TIME_SPECIFICATION_DELAY,
                     Delay.class, msgs);
         case CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE:
-            return this
-                    .eInternalContainer()
-                    .eInverseRemove(
-                            this,
-                            ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION,
-                            CommunicationLinkResourceSpecification.class, msgs);
+            return this.eInternalContainer().eInverseRemove(this,
+                    ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT_COMMUNICATION_LINK_RESOURCE_SPECIFICATION,
+                    CommunicationLinkResourceSpecification.class, msgs);
         case CorePackage.PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE:
-            return this
-                    .eInternalContainer()
-                    .eInverseRemove(
-                            this,
-                            ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION,
-                            ProcessingResourceSpecification.class, msgs);
+            return this.eInternalContainer().eInverseRemove(this,
+                    ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE_PROCESSING_RESOURCE_SPECIFICATION,
+                    ProcessingResourceSpecification.class, msgs);
         case CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE:
-            return this
-                    .eInternalContainer()
-                    .eInverseRemove(
-                            this,
-                            ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION,
-                            CommunicationLinkResourceSpecification.class, msgs);
+            return this.eInternalContainer().eInverseRemove(this,
+                    ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LATENCY_COMMUNICATION_LINK_RESOURCE_SPECIFICATION,
+                    CommunicationLinkResourceSpecification.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -1076,8 +1036,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CorePackage.PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE:
             return this.getClosedWorkload_PCMRandomVariable();
         case CorePackage.PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE:
@@ -1123,8 +1082,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CorePackage.PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE:
             this.setClosedWorkload_PCMRandomVariable((ClosedWorkload) newValue);
             return;
@@ -1168,13 +1126,16 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
             this.setDelay_TimeSpecification((Delay) newValue);
             return;
         case CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE:
-            this.setCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable((CommunicationLinkResourceSpecification) newValue);
+            this.setCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable(
+                    (CommunicationLinkResourceSpecification) newValue);
             return;
         case CorePackage.PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE:
-            this.setProcessingResourceSpecification_processingRate_PCMRandomVariable((ProcessingResourceSpecification) newValue);
+            this.setProcessingResourceSpecification_processingRate_PCMRandomVariable(
+                    (ProcessingResourceSpecification) newValue);
             return;
         case CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE:
-            this.setCommunicationLinkResourceSpecification_latency_PCMRandomVariable((CommunicationLinkResourceSpecification) newValue);
+            this.setCommunicationLinkResourceSpecification_latency_PCMRandomVariable(
+                    (CommunicationLinkResourceSpecification) newValue);
             return;
         }
         super.eSet(featureID, newValue);
@@ -1187,8 +1148,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CorePackage.PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE:
             this.setClosedWorkload_PCMRandomVariable((ClosedWorkload) null);
             return;
@@ -1232,13 +1192,16 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
             this.setDelay_TimeSpecification((Delay) null);
             return;
         case CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE:
-            this.setCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable((CommunicationLinkResourceSpecification) null);
+            this.setCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable(
+                    (CommunicationLinkResourceSpecification) null);
             return;
         case CorePackage.PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE:
-            this.setProcessingResourceSpecification_processingRate_PCMRandomVariable((ProcessingResourceSpecification) null);
+            this.setProcessingResourceSpecification_processingRate_PCMRandomVariable(
+                    (ProcessingResourceSpecification) null);
             return;
         case CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE:
-            this.setCommunicationLinkResourceSpecification_latency_PCMRandomVariable((CommunicationLinkResourceSpecification) null);
+            this.setCommunicationLinkResourceSpecification_latency_PCMRandomVariable(
+                    (CommunicationLinkResourceSpecification) null);
             return;
         }
         super.eUnset(featureID);
@@ -1251,8 +1214,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case CorePackage.PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE:
             return this.getClosedWorkload_PCMRandomVariable() != null;
         case CorePackage.PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE:

@@ -17,19 +17,19 @@ import org.palladiosimulator.pcm.reliability.FailureType;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.Repository#getRepositoryDescription <em>
- * Repository Description</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.Repository#getComponents__Repository <em>
- * Components Repository</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.Repository#getInterfaces__Repository <em>
- * Interfaces Repository</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.Repository#getFailureTypes__Repository <em>
- * Failure Types Repository</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Repository#getRepositoryDescription
+ * <em>Repository Description</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Repository#getComponents__Repository
+ * <em>Components Repository</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Repository#getInterfaces__Repository
+ * <em>Interfaces Repository</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.Repository#getFailureTypes__Repository
+ * <em>Failure Types Repository</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.repository.Repository#getDataTypes__Repository <em>Data
  * Types Repository</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getRepository()
  * @model
@@ -42,7 +42,7 @@ public interface Repository extends Entity {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Repository Description</b></em>' attribute. <!--
@@ -58,8 +58,8 @@ public interface Repository extends Entity {
     String getRepositoryDescription();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.Repository#getRepositoryDescription
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.Repository#getRepositoryDescription
      * <em>Repository Description</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
@@ -73,8 +73,8 @@ public interface Repository extends Entity {
      * Returns the value of the '<em><b>Components Repository</b></em>' containment reference list.
      * The list contents are of type
      * {@link org.palladiosimulator.pcm.repository.RepositoryComponent}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent
      * <em>Repository Repository Component</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      * <!-- begin-model-doc --> This property represents the provides component types stored in the
      * repository. <!-- end-model-doc -->
@@ -91,10 +91,9 @@ public interface Repository extends Entity {
      * Returns the value of the '<em><b>Interfaces Repository</b></em>' containment reference list.
      * The list contents are of type {@link org.palladiosimulator.pcm.repository.Interface}. It is
      * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.repository.Interface#getRepository__Interface
-     * <em>Repository Interface</em>}'. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
-     * begin-model-doc --> This property represents the interfaces stored in the repository. <!--
-     * end-model-doc -->
+     * {@link org.palladiosimulator.pcm.repository.Interface#getRepository__Interface <em>Repository
+     * Interface</em>}'. <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> This
+     * property represents the interfaces stored in the repository. <!-- end-model-doc -->
      *
      * @return the value of the '<em>Interfaces Repository</em>' containment reference list.
      * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getRepository_Interfaces__Repository()
@@ -106,9 +105,10 @@ public interface Repository extends Entity {
 
     /**
      * Returns the value of the '<em><b>Failure Types Repository</b></em>' containment reference
-     * list. The list contents are of type {@link org.palladiosimulator.pcm.reliability.FailureType}
-     * . It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.reliability.FailureType#getRepository__FailureType
+     * list. The list contents are of type
+     * {@link org.palladiosimulator.pcm.reliability.FailureType}. It is bidirectional and its
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.reliability.FailureType#getRepository__FailureType
      * <em>Repository Failure Type</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Failure Types Repository</em>' containment reference list isn't
@@ -128,10 +128,9 @@ public interface Repository extends Entity {
      * Returns the value of the '<em><b>Data Types Repository</b></em>' containment reference list.
      * The list contents are of type {@link org.palladiosimulator.pcm.repository.DataType}. It is
      * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.repository.DataType#getRepository__DataType
-     * <em>Repository Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
-     * begin-model-doc --> This property represents the data types stored in the repository. <!--
-     * end-model-doc -->
+     * {@link org.palladiosimulator.pcm.repository.DataType#getRepository__DataType <em>Repository
+     * Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc --> <!-- begin-model-doc --> This
+     * property represents the data types stored in the repository. <!-- end-model-doc -->
      *
      * @return the value of the '<em>Data Types Repository</em>' containment reference list.
      * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getRepository_DataTypes__Repository()

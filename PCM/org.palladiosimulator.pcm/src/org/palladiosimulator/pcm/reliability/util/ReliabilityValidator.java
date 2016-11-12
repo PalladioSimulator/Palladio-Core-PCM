@@ -32,7 +32,7 @@ public class ReliabilityValidator extends EObjectValidator {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -141,11 +141,10 @@ public class ReliabilityValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID)
-        {
+        switch (classifierID) {
         case ReliabilityPackage.FAILURE_OCCURRENCE_DESCRIPTION:
-            return this
-                    .validateFailureOccurrenceDescription((FailureOccurrenceDescription) value, diagnostics, context);
+            return this.validateFailureOccurrenceDescription((FailureOccurrenceDescription) value, diagnostics,
+                    context);
         case ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE:
             return this.validateHardwareInducedFailureType((HardwareInducedFailureType) value, diagnostics, context);
         case ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE:
@@ -173,8 +172,8 @@ public class ReliabilityValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateFailureOccurrenceDescription(
-            final FailureOccurrenceDescription failureOccurrenceDescription,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final FailureOccurrenceDescription failureOccurrenceDescription, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(failureOccurrenceDescription, diagnostics, context)) {
             return false;
         }
@@ -185,6 +184,10 @@ public class ReliabilityValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryReferenceIsContained(failureOccurrenceDescription, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(failureOccurrenceDescription, diagnostics,
+                    context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(failureOccurrenceDescription, diagnostics, context);
@@ -206,8 +209,8 @@ public class ReliabilityValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the EnsureValidFailureProbabilityRange constraint of '
-     * <em>Failure Occurrence Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the EnsureValidFailureProbabilityRange constraint of '<em>Failure Occurrence
+     * Description</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -235,6 +238,10 @@ public class ReliabilityValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(hardwareInducedFailureType, diagnostics, context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(hardwareInducedFailureType, diagnostics,
+                    context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(hardwareInducedFailureType, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -254,8 +261,8 @@ public class ReliabilityValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the HardwareInducedFailureTypeHasProcessingResourceType constraint of '
-     * <em>Hardware Induced Failure Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the HardwareInducedFailureTypeHasProcessingResourceType constraint of '<em>Hardware
+     * Induced Failure Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -287,8 +294,8 @@ public class ReliabilityValidator extends EObjectValidator {
         if (!this.validate_NoCircularContainment(internalFailureOccurrenceDescription, diagnostics, context)) {
             return false;
         }
-        boolean result = this.validate_EveryMultiplicityConforms(internalFailureOccurrenceDescription,
-                diagnostics, context);
+        boolean result = this.validate_EveryMultiplicityConforms(internalFailureOccurrenceDescription, diagnostics,
+                context);
         if (result || diagnostics != null) {
             result &= this.validate_EveryDataValueConforms(internalFailureOccurrenceDescription, diagnostics,
                     context);
@@ -296,6 +303,10 @@ public class ReliabilityValidator extends EObjectValidator {
         if (result || diagnostics != null) {
             result &= this.validate_EveryReferenceIsContained(internalFailureOccurrenceDescription, diagnostics,
                     context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(internalFailureOccurrenceDescription,
+                    diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(internalFailureOccurrenceDescription, diagnostics, context);
@@ -307,7 +318,8 @@ public class ReliabilityValidator extends EObjectValidator {
             result &= this.validate_EveryKeyUnique(internalFailureOccurrenceDescription, diagnostics, context);
         }
         if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(internalFailureOccurrenceDescription, diagnostics, context);
+            result &= this.validate_EveryMapEntryUnique(internalFailureOccurrenceDescription, diagnostics,
+                    context);
         }
         if (result || diagnostics != null) {
             result &= this.validateFailureOccurrenceDescription_EnsureValidFailureProbabilityRange(
@@ -354,6 +366,10 @@ public class ReliabilityValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(networkInducedFailureType, diagnostics, context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(networkInducedFailureType, diagnostics,
+                    context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(networkInducedFailureType, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -373,16 +389,16 @@ public class ReliabilityValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the NetworkInducedFailureTypeHasCommunicationLinkResourceType constraint of '
-     * <em>Network Induced Failure Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the NetworkInducedFailureTypeHasCommunicationLinkResourceType constraint of
+     * '<em>Network Induced Failure Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
     public boolean validateNetworkInducedFailureType_NetworkInducedFailureTypeHasCommunicationLinkResourceType(
             final NetworkInducedFailureType networkInducedFailureType, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        return networkInducedFailureType
-                .NetworkInducedFailureTypeHasCommunicationLinkResourceType(diagnostics, context);
+        return networkInducedFailureType.NetworkInducedFailureTypeHasCommunicationLinkResourceType(diagnostics,
+                context);
     }
 
     /**
@@ -397,8 +413,8 @@ public class ReliabilityValidator extends EObjectValidator {
         if (!this.validate_NoCircularContainment(externalFailureOccurrenceDescription, diagnostics, context)) {
             return false;
         }
-        boolean result = this.validate_EveryMultiplicityConforms(externalFailureOccurrenceDescription,
-                diagnostics, context);
+        boolean result = this.validate_EveryMultiplicityConforms(externalFailureOccurrenceDescription, diagnostics,
+                context);
         if (result || diagnostics != null) {
             result &= this.validate_EveryDataValueConforms(externalFailureOccurrenceDescription, diagnostics,
                     context);
@@ -406,6 +422,10 @@ public class ReliabilityValidator extends EObjectValidator {
         if (result || diagnostics != null) {
             result &= this.validate_EveryReferenceIsContained(externalFailureOccurrenceDescription, diagnostics,
                     context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(externalFailureOccurrenceDescription,
+                    diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(externalFailureOccurrenceDescription, diagnostics, context);
@@ -417,7 +437,8 @@ public class ReliabilityValidator extends EObjectValidator {
             result &= this.validate_EveryKeyUnique(externalFailureOccurrenceDescription, diagnostics, context);
         }
         if (result || diagnostics != null) {
-            result &= this.validate_EveryMapEntryUnique(externalFailureOccurrenceDescription, diagnostics, context);
+            result &= this.validate_EveryMapEntryUnique(externalFailureOccurrenceDescription, diagnostics,
+                    context);
         }
         if (result || diagnostics != null) {
             result &= this.validateFailureOccurrenceDescription_EnsureValidFailureProbabilityRange(

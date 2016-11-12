@@ -6,23 +6,20 @@ package org.palladiosimulator.pcm.core.composition;
 import org.palladiosimulator.pcm.repository.InfrastructureProvidedRole;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Provided Infrastructure Delegation Connector</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Provided Infrastructure
+ * Delegation Connector</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getInnerProvidedRole__ProvidedInfrastructureDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getInnerProvidedRole__ProvidedInfrastructureDelegationConnector
  * <em>Inner Provided Role Provided Infrastructure Delegation Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getOuterProvidedRole__ProvidedInfrastructureDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getOuterProvidedRole__ProvidedInfrastructureDelegationConnector
  * <em>Outer Provided Role Provided Infrastructure Delegation Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getAssemblyContext__ProvidedInfrastructureDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getAssemblyContext__ProvidedInfrastructureDelegationConnector
  * <em>Assembly Context Provided Infrastructure Delegation Connector</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getProvidedInfrastructureDelegationConnector()
  * @model
@@ -35,21 +32,19 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
-     * Returns the value of the '
-     * <em><b>Inner Provided Role Provided Infrastructure Delegation Connector</b></em>' reference.
-     * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Inner Provided Role Provided Infrastructure Delegation
+     * Connector</b></em>' reference. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '
-     * <em>Inner Provided Role Provided Infrastructure Delegation Connector</em>' reference isn't
-     * clear, there really should be more of a description here...
+     * If the meaning of the ' <em>Inner Provided Role Provided Infrastructure Delegation
+     * Connector</em>' reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      *
-     * @return the value of the '
-     *         <em>Inner Provided Role Provided Infrastructure Delegation Connector</em>' reference.
+     * @return the value of the '<em>Inner Provided Role Provided Infrastructure Delegation
+     *         Connector</em>' reference.
      * @see #setInnerProvidedRole__ProvidedInfrastructureDelegationConnector(InfrastructureProvidedRole)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getProvidedInfrastructureDelegationConnector_InnerProvidedRole__ProvidedInfrastructureDelegationConnector()
      * @model required="true" ordered="false"
@@ -64,27 +59,24 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
-     *            the new value of the '
-     *            <em>Inner Provided Role Provided Infrastructure Delegation Connector</em>'
-     *            reference.
+     *            the new value of the ' <em>Inner Provided Role Provided Infrastructure Delegation
+     *            Connector</em>' reference.
      * @see #getInnerProvidedRole__ProvidedInfrastructureDelegationConnector()
      * @generated
      */
     void setInnerProvidedRole__ProvidedInfrastructureDelegationConnector(InfrastructureProvidedRole value);
 
     /**
-     * Returns the value of the '
-     * <em><b>Outer Provided Role Provided Infrastructure Delegation Connector</b></em>' reference.
-     * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Outer Provided Role Provided Infrastructure Delegation
+     * Connector</b></em>' reference. <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '
-     * <em>Outer Provided Role Provided Infrastructure Delegation Connector</em>' reference isn't
-     * clear, there really should be more of a description here...
+     * If the meaning of the ' <em>Outer Provided Role Provided Infrastructure Delegation
+     * Connector</em>' reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      *
-     * @return the value of the '
-     *         <em>Outer Provided Role Provided Infrastructure Delegation Connector</em>' reference.
+     * @return the value of the '<em>Outer Provided Role Provided Infrastructure Delegation
+     *         Connector</em>' reference.
      * @see #setOuterProvidedRole__ProvidedInfrastructureDelegationConnector(InfrastructureProvidedRole)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getProvidedInfrastructureDelegationConnector_OuterProvidedRole__ProvidedInfrastructureDelegationConnector()
      * @model required="true" ordered="false"
@@ -99,26 +91,24 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
-     *            the new value of the '
-     *            <em>Outer Provided Role Provided Infrastructure Delegation Connector</em>'
-     *            reference.
+     *            the new value of the ' <em>Outer Provided Role Provided Infrastructure Delegation
+     *            Connector</em>' reference.
      * @see #getOuterProvidedRole__ProvidedInfrastructureDelegationConnector()
      * @generated
      */
     void setOuterProvidedRole__ProvidedInfrastructureDelegationConnector(InfrastructureProvidedRole value);
 
     /**
-     * Returns the value of the '
-     * <em><b>Assembly Context Provided Infrastructure Delegation Connector</b></em>' reference.
-     * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Assembly Context Provided Infrastructure Delegation
+     * Connector</b></em>' reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Assembly Context Provided Infrastructure Delegation Connector</em>
      * ' reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
      *
-     * @return the value of the '
-     *         <em>Assembly Context Provided Infrastructure Delegation Connector</em>' reference.
+     * @return the value of the '<em>Assembly Context Provided Infrastructure Delegation
+     *         Connector</em>' reference.
      * @see #setAssemblyContext__ProvidedInfrastructureDelegationConnector(AssemblyContext)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getProvidedInfrastructureDelegationConnector_AssemblyContext__ProvidedInfrastructureDelegationConnector()
      * @model required="true" ordered="false"
@@ -133,8 +123,8 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
-     *            the new value of the '
-     *            <em>Assembly Context Provided Infrastructure Delegation Connector</em>' reference.
+     *            the new value of the ' <em>Assembly Context Provided Infrastructure Delegation
+     *            Connector</em>' reference.
      * @see #getAssemblyContext__ProvidedInfrastructureDelegationConnector()
      * @generated
      */

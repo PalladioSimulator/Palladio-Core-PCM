@@ -10,8 +10,8 @@ import org.palladiosimulator.pcm.repository.Role;
 import org.palladiosimulator.pcm.repository.Signature;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Specified Output Parameter Abstraction</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Specified Output Parameter
+ * Abstraction</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> To specify the output parameters of a service (without associated
  * RD-SEFF), software architects can associate a SpecifiedOutputParameterAbstraction to services
@@ -26,21 +26,17 @@ import org.palladiosimulator.pcm.repository.Signature;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getSignature_SpecifiedOutputParameterAbstraction
+ * <li>{@link org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getSignature_SpecifiedOutputParameterAbstraction
  * <em>Signature Specified Output Parameter Abstraction</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getRole_SpecifiedOutputParameterAbstraction
+ * <li>{@link org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getRole_SpecifiedOutputParameterAbstraction
  * <em>Role Specified Output Parameter Abstraction</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction
+ * <li>{@link org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction
  * <em>Expected External Outputs Specified Output Parameter Abstraction</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getQosAnnotations_SpecifiedOutputParameterAbstraction
+ * <li>{@link org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getQosAnnotations_SpecifiedOutputParameterAbstraction
  * <em>Qos Annotations Specified Output Parameter Abstraction</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.qosannotations.QosannotationsPackage#getSpecifiedOutputParameterAbstraction()
  * @model abstract="true"
@@ -54,7 +50,7 @@ public interface SpecifiedOutputParameterAbstraction extends CDOObject {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Signature Specified Output Parameter Abstraction</b></em>'
@@ -75,8 +71,8 @@ public interface SpecifiedOutputParameterAbstraction extends CDOObject {
     Signature getSignature_SpecifiedOutputParameterAbstraction();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getSignature_SpecifiedOutputParameterAbstraction
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getSignature_SpecifiedOutputParameterAbstraction
      * <em>Signature Specified Output Parameter Abstraction</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -106,8 +102,8 @@ public interface SpecifiedOutputParameterAbstraction extends CDOObject {
     Role getRole_SpecifiedOutputParameterAbstraction();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getRole_SpecifiedOutputParameterAbstraction
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getRole_SpecifiedOutputParameterAbstraction
      * <em>Role Specified Output Parameter Abstraction</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -120,24 +116,22 @@ public interface SpecifiedOutputParameterAbstraction extends CDOObject {
     void setRole_SpecifiedOutputParameterAbstraction(Role value);
 
     /**
-     * Returns the value of the '
-     * <em><b>Expected External Outputs Specified Output Parameter Abstraction</b></em>' containment
-     * reference list. The list contents are of type
+     * Returns the value of the '<em><b>Expected External Outputs Specified Output Parameter
+     * Abstraction</b></em>' containment reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.parameter.VariableUsage}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage
      * <em>Specified Output Parameter Abstraction expected External Outputs Variable Usage</em>}'.
      * <!-- begin-user-doc -->
      * <p>
-     * If the meaning of the '
-     * <em>Expected External Outputs Specified Output Parameter Abstraction</em>' containment
-     * reference list isn't clear, there really should be more of a description here...
+     * If the meaning of the ' <em>Expected External Outputs Specified Output Parameter
+     * Abstraction</em>' containment reference list isn't clear, there really should be more of a
+     * description here...
      * </p>
      * <!-- end-user-doc -->
      *
-     * @return the value of the '
-     *         <em>Expected External Outputs Specified Output Parameter Abstraction</em>'
-     *         containment reference list.
+     * @return the value of the '<em>Expected External Outputs Specified Output Parameter
+     *         Abstraction</em>' containment reference list.
      * @see org.palladiosimulator.pcm.qosannotations.QosannotationsPackage#getSpecifiedOutputParameterAbstraction_ExpectedExternalOutputs_SpecifiedOutputParameterAbstraction()
      * @see org.palladiosimulator.pcm.parameter.VariableUsage#getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage
      * @model opposite="specifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage"
@@ -147,10 +141,9 @@ public interface SpecifiedOutputParameterAbstraction extends CDOObject {
     EList<VariableUsage> getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction();
 
     /**
-     * Returns the value of the '
-     * <em><b>Qos Annotations Specified Output Parameter Abstraction</b></em>' container reference.
-     * It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations#getSpecifiedOutputParameterAbstractions_QoSAnnotations
+     * Returns the value of the '<em><b>Qos Annotations Specified Output Parameter
+     * Abstraction</b></em>' container reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations#getSpecifiedOutputParameterAbstractions_QoSAnnotations
      * <em>Specified Output Parameter Abstractions Qo SAnnotations</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Qos Annotations Specified Output Parameter Abstraction</em>'
@@ -176,9 +169,8 @@ public interface SpecifiedOutputParameterAbstraction extends CDOObject {
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
-     *            the new value of the '
-     *            <em>Qos Annotations Specified Output Parameter Abstraction</em>' container
-     *            reference.
+     *            the new value of the ' <em>Qos Annotations Specified Output Parameter
+     *            Abstraction</em>' container reference.
      * @see #getQosAnnotations_SpecifiedOutputParameterAbstraction()
      * @generated
      */

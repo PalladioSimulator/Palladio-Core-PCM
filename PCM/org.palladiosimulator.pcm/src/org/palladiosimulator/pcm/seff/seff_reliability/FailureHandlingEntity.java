@@ -8,8 +8,8 @@ import org.palladiosimulator.pcm.core.entity.Entity;
 import org.palladiosimulator.pcm.reliability.FailureType;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Failure Handling Entity</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Failure Handling
+ * Entity</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
  * <p>
@@ -20,12 +20,11 @@ import org.palladiosimulator.pcm.reliability.FailureType;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_reliability.FailureHandlingEntity#getFailureTypes_FailureHandlingEntity
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_reliability.FailureHandlingEntity#getFailureTypes_FailureHandlingEntity
  * <em>Failure Types Failure Handling Entity</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage#getFailureHandlingEntity()
  * @model abstract="true"
@@ -38,12 +37,12 @@ public interface FailureHandlingEntity extends Entity {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Failure Types Failure Handling Entity</b></em>' reference
-     * list. The list contents are of type {@link org.palladiosimulator.pcm.reliability.FailureType}
-     * . <!-- begin-user-doc -->
+     * list. The list contents are of type
+     * {@link org.palladiosimulator.pcm.reliability.FailureType}. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Failure Types Failure Handling Entity</em>' reference list isn't
      * clear, there really should be more of a description here...

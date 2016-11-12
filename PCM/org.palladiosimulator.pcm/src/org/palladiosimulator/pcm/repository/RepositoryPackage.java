@@ -23,8 +23,10 @@ import org.palladiosimulator.pcm.core.entity.EntityPackage;
  * interfaces. <!-- end-model-doc -->
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryFactory
- * @model kind="package" annotation=
- *        "http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
+ * @model kind="package" annotation= "http://www.eclipse.org/emf/2002/Ecore
+ *        invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface RepositoryPackage extends EPackage {
@@ -34,7 +36,7 @@ public interface RepositoryPackage extends EPackage {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -65,9 +67,9 @@ public interface RepositoryPackage extends EPackage {
     RepositoryPackage eINSTANCE = org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl.init();
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.PassiveResourceImpl
-     * <em>Passive Resource</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.PassiveResourceImpl <em>Passive
+     * Resource</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.PassiveResourceImpl
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getPassiveResource()
@@ -130,9 +132,9 @@ public interface RepositoryPackage extends EPackage {
     int PASSIVE_RESOURCE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.RepositoryComponentImpl <em>Component</em>}'
-     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.RepositoryComponentImpl
+     * <em>Component</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryComponentImpl
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getRepositoryComponent()
@@ -168,9 +170,8 @@ public interface RepositoryPackage extends EPackage {
     int REPOSITORY_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Required Roles Resource Interface Requiring
+     * Entity</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -193,7 +194,8 @@ public interface RepositoryPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 0;
+    int REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
+            + 0;
 
     /**
      * The number of structural features of the '<em>Component</em>' class. <!-- begin-user-doc -->
@@ -205,8 +207,8 @@ public interface RepositoryPackage extends EPackage {
     int REPOSITORY_COMPONENT_FEATURE_COUNT = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.ImplementationComponentTypeImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.ImplementationComponentTypeImpl
      * <em>Implementation Component Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.ImplementationComponentTypeImpl
@@ -243,9 +245,8 @@ public interface RepositoryPackage extends EPackage {
     int IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = REPOSITORY_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Required Roles Resource Interface Requiring
+     * Entity</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -280,14 +281,14 @@ public interface RepositoryPackage extends EPackage {
     int IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES = REPOSITORY_COMPONENT_FEATURE_COUNT + 0;
 
     /**
-     * The feature id for the '
-     * <em><b>Component Parameter Usage Implementation Component Type</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Component Parameter Usage Implementation Component
+     * Type</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE = REPOSITORY_COMPONENT_FEATURE_COUNT + 1;
+    int IMPLEMENTATION_COMPONENT_TYPE__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE = REPOSITORY_COMPONENT_FEATURE_COUNT
+            + 1;
 
     /**
      * The feature id for the '<em><b>Component Type</b></em>' attribute. <!-- begin-user-doc -->
@@ -308,9 +309,9 @@ public interface RepositoryPackage extends EPackage {
     int IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT = REPOSITORY_COMPONENT_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.BasicComponentImpl <em>Basic Component</em>}
-     * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.BasicComponentImpl <em>Basic
+     * Component</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.BasicComponentImpl
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getBasicComponent()
@@ -346,9 +347,8 @@ public interface RepositoryPackage extends EPackage {
     int BASIC_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Required Roles Resource Interface Requiring
+     * Entity</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -383,9 +383,8 @@ public interface RepositoryPackage extends EPackage {
     int BASIC_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES = IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES;
 
     /**
-     * The feature id for the '
-     * <em><b>Component Parameter Usage Implementation Component Type</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Component Parameter Usage Implementation Component
+     * Type</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -408,7 +407,8 @@ public interface RepositoryPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 0;
+    int BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT
+            + 0;
 
     /**
      * The feature id for the '<em><b>Passive Resource Basic Component</b></em>' containment
@@ -466,9 +466,8 @@ public interface RepositoryPackage extends EPackage {
     int ROLE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.ProvidedRoleImpl <em>Provided Role</em>}'
-     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the '{@link org.palladiosimulator.pcm.repository.impl.ProvidedRoleImpl
+     * <em>Provided Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.ProvidedRoleImpl
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getProvidedRole()
@@ -778,9 +777,9 @@ public interface RepositoryPackage extends EPackage {
     int INTERFACE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 4;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.RequiredCharacterisationImpl
-     * <em>Required Characterisation</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.RequiredCharacterisationImpl <em>Required
+     * Characterisation</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.RequiredCharacterisationImpl
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getRequiredCharacterisation()
@@ -1035,8 +1034,8 @@ public interface RepositoryPackage extends EPackage {
     int EVENT_TYPE_FEATURE_COUNT = SIGNATURE_FEATURE_COUNT + 2;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.ExceptionTypeImpl <em>Exception Type</em>}'
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.ExceptionTypeImpl <em>Exception Type</em>}'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.ExceptionTypeImpl
@@ -1073,8 +1072,8 @@ public interface RepositoryPackage extends EPackage {
     int EXCEPTION_TYPE_FEATURE_COUNT = 2;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.InfrastructureSignatureImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.InfrastructureSignatureImpl
      * <em>Infrastructure Signature</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.InfrastructureSignatureImpl
@@ -1147,8 +1146,8 @@ public interface RepositoryPackage extends EPackage {
     int INFRASTRUCTURE_SIGNATURE_FEATURE_COUNT = SIGNATURE_FEATURE_COUNT + 2;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.InfrastructureInterfaceImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.InfrastructureInterfaceImpl
      * <em>Infrastructure Interface</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.InfrastructureInterfaceImpl
@@ -1230,9 +1229,8 @@ public interface RepositoryPackage extends EPackage {
     int INFRASTRUCTURE_INTERFACE_FEATURE_COUNT = INTERFACE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.RequiredRoleImpl <em>Required Role</em>}'
-     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the '{@link org.palladiosimulator.pcm.repository.impl.RequiredRoleImpl
+     * <em>Required Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.RequiredRoleImpl
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getRequiredRole()
@@ -1277,8 +1275,8 @@ public interface RepositoryPackage extends EPackage {
     int REQUIRED_ROLE_FEATURE_COUNT = ROLE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.InfrastructureRequiredRoleImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.InfrastructureRequiredRoleImpl
      * <em>Infrastructure Required Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.InfrastructureRequiredRoleImpl
@@ -1333,9 +1331,9 @@ public interface RepositoryPackage extends EPackage {
     int INFRASTRUCTURE_REQUIRED_ROLE_FEATURE_COUNT = REQUIRED_ROLE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.OperationSignatureImpl
-     * <em>Operation Signature</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.OperationSignatureImpl <em>Operation
+     * Signature</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.OperationSignatureImpl
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getOperationSignature()
@@ -1416,9 +1414,9 @@ public interface RepositoryPackage extends EPackage {
     int OPERATION_SIGNATURE_FEATURE_COUNT = SIGNATURE_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.OperationInterfaceImpl
-     * <em>Operation Interface</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.OperationInterfaceImpl <em>Operation
+     * Interface</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.OperationInterfaceImpl
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getOperationInterface()
@@ -1499,9 +1497,9 @@ public interface RepositoryPackage extends EPackage {
     int OPERATION_INTERFACE_FEATURE_COUNT = INTERFACE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.OperationRequiredRoleImpl
-     * <em>Operation Required Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.OperationRequiredRoleImpl <em>Operation
+     * Required Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.OperationRequiredRoleImpl
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getOperationRequiredRole()
@@ -1665,9 +1663,9 @@ public interface RepositoryPackage extends EPackage {
     int SINK_ROLE_FEATURE_COUNT = PROVIDED_ROLE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.OperationProvidedRoleImpl
-     * <em>Operation Provided Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.OperationProvidedRoleImpl <em>Operation
+     * Provided Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.OperationProvidedRoleImpl
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getOperationProvidedRole()
@@ -1721,8 +1719,8 @@ public interface RepositoryPackage extends EPackage {
     int OPERATION_PROVIDED_ROLE_FEATURE_COUNT = PROVIDED_ROLE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.InfrastructureProvidedRoleImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.InfrastructureProvidedRoleImpl
      * <em>Infrastructure Provided Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.InfrastructureProvidedRoleImpl
@@ -1777,9 +1775,9 @@ public interface RepositoryPackage extends EPackage {
     int INFRASTRUCTURE_PROVIDED_ROLE_FEATURE_COUNT = PROVIDED_ROLE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.CompleteComponentTypeImpl
-     * <em>Complete Component Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.CompleteComponentTypeImpl <em>Complete
+     * Component Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.CompleteComponentTypeImpl
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getCompleteComponentType()
@@ -1815,9 +1813,8 @@ public interface RepositoryPackage extends EPackage {
     int COMPLETE_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = REPOSITORY_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Required Roles Resource Interface Requiring
+     * Entity</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -1861,9 +1858,9 @@ public interface RepositoryPackage extends EPackage {
     int COMPLETE_COMPONENT_TYPE_FEATURE_COUNT = REPOSITORY_COMPONENT_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.ProvidesComponentTypeImpl
-     * <em>Provides Component Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.ProvidesComponentTypeImpl <em>Provides
+     * Component Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.ProvidesComponentTypeImpl
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getProvidesComponentType()
@@ -1899,9 +1896,8 @@ public interface RepositoryPackage extends EPackage {
     int PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = REPOSITORY_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Required Roles Resource Interface Requiring
+     * Entity</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -1936,9 +1932,9 @@ public interface RepositoryPackage extends EPackage {
     int PROVIDES_COMPONENT_TYPE_FEATURE_COUNT = REPOSITORY_COMPONENT_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.CompositeComponentImpl
-     * <em>Composite Component</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.CompositeComponentImpl <em>Composite
+     * Component</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.CompositeComponentImpl
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getCompositeComponent()
@@ -1974,9 +1970,8 @@ public interface RepositoryPackage extends EPackage {
     int COMPOSITE_COMPONENT__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__ASSEMBLY_CONTEXTS_COMPOSED_STRUCTURE;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Required Delegation Connectors Composed
+     * Structure</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -2011,9 +2006,8 @@ public interface RepositoryPackage extends EPackage {
     int COMPOSITE_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
     /**
-     * The feature id for the '
-     * <em><b>Resource Required Roles Resource Interface Requiring Entity</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Resource Required Roles Resource Interface Requiring
+     * Entity</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -2036,7 +2030,8 @@ public interface RepositoryPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPOSITE_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 0;
+    int COMPOSITE_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
+            + 0;
 
     /**
      * The feature id for the '<em><b>Parent Complete Component Types</b></em>' reference list. <!--
@@ -2045,17 +2040,18 @@ public interface RepositoryPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 1;
+    int COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
+            + 1;
 
     /**
-     * The feature id for the '
-     * <em><b>Component Parameter Usage Implementation Component Type</b></em>' containment
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Component Parameter Usage Implementation Component
+     * Type</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int COMPOSITE_COMPONENT__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 2;
+    int COMPOSITE_COMPONENT__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT
+            + 2;
 
     /**
      * The feature id for the '<em><b>Component Type</b></em>' attribute. <!-- begin-user-doc -->
@@ -2076,9 +2072,9 @@ public interface RepositoryPackage extends EPackage {
     int COMPOSITE_COMPONENT_FEATURE_COUNT = EntityPackage.COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 4;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.PrimitiveDataTypeImpl
-     * <em>Primitive Data Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.PrimitiveDataTypeImpl <em>Primitive Data
+     * Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.PrimitiveDataTypeImpl
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getPrimitiveDataType()
@@ -2114,9 +2110,9 @@ public interface RepositoryPackage extends EPackage {
     int PRIMITIVE_DATA_TYPE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.CollectionDataTypeImpl
-     * <em>Collection Data Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.CollectionDataTypeImpl <em>Collection Data
+     * Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.CollectionDataTypeImpl
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getCollectionDataType()
@@ -2170,9 +2166,9 @@ public interface RepositoryPackage extends EPackage {
     int COLLECTION_DATA_TYPE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.CompositeDataTypeImpl
-     * <em>Composite Data Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.CompositeDataTypeImpl <em>Composite Data
+     * Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.CompositeDataTypeImpl
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getCompositeDataType()
@@ -2235,9 +2231,9 @@ public interface RepositoryPackage extends EPackage {
     int COMPOSITE_DATA_TYPE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.repository.impl.InnerDeclarationImpl
-     * <em>Inner Declaration</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.repository.impl.InnerDeclarationImpl <em>Inner
+     * Declaration</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.repository.impl.InnerDeclarationImpl
      * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getInnerDeclaration()
@@ -2323,8 +2319,8 @@ public interface RepositoryPackage extends EPackage {
     EClass getPassiveResource();
 
     /**
-     * Returns the meta object for the containment reference '
-     * {@link org.palladiosimulator.pcm.repository.PassiveResource#getCapacity_PassiveResource
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.pcm.repository.PassiveResource#getCapacity_PassiveResource
      * <em>Capacity Passive Resource</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference '<em>Capacity Passive Resource</em>'.
@@ -2335,12 +2331,12 @@ public interface RepositoryPackage extends EPackage {
     EReference getPassiveResource_Capacity_PassiveResource();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.repository.PassiveResource#getBasicComponent_PassiveResource
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.repository.PassiveResource#getBasicComponent_PassiveResource
      * <em>Basic Component Passive Resource</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Basic Component Passive Resource</em>'.
+     * @return the meta object for the container reference '<em>Basic Component Passive
+     *         Resource</em>'.
      * @see org.palladiosimulator.pcm.repository.PassiveResource#getBasicComponent_PassiveResource()
      * @see #getPassiveResource()
      * @generated
@@ -2348,13 +2344,13 @@ public interface RepositoryPackage extends EPackage {
     EReference getPassiveResource_BasicComponent_PassiveResource();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.repository.PassiveResource#getResourceTimeoutFailureType__PassiveResource
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.repository.PassiveResource#getResourceTimeoutFailureType__PassiveResource
      * <em>Resource Timeout Failure Type Passive Resource</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Resource Timeout Failure Type Passive Resource</em>'.
+     * @return the meta object for the reference '<em>Resource Timeout Failure Type Passive
+     *         Resource</em>'.
      * @see org.palladiosimulator.pcm.repository.PassiveResource#getResourceTimeoutFailureType__PassiveResource()
      * @see #getPassiveResource()
      * @generated
@@ -2373,13 +2369,13 @@ public interface RepositoryPackage extends EPackage {
     EClass getBasicComponent();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent
      * <em>Service Effect Specifications Basic Component</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Service Effect Specifications Basic Component</em>'.
+     * @return the meta object for the containment reference list '<em>Service Effect Specifications
+     *         Basic Component</em>'.
      * @see org.palladiosimulator.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent()
      * @see #getBasicComponent()
      * @generated
@@ -2387,12 +2383,12 @@ public interface RepositoryPackage extends EPackage {
     EReference getBasicComponent_ServiceEffectSpecifications__BasicComponent();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.repository.BasicComponent#getPassiveResource_BasicComponent
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.repository.BasicComponent#getPassiveResource_BasicComponent
      * <em>Passive Resource Basic Component</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Passive Resource Basic Component</em>'.
+     * @return the meta object for the containment reference list '<em>Passive Resource Basic
+     *         Component</em>'.
      * @see org.palladiosimulator.pcm.repository.BasicComponent#getPassiveResource_BasicComponent()
      * @see #getBasicComponent()
      * @generated
@@ -2400,9 +2396,9 @@ public interface RepositoryPackage extends EPackage {
     EReference getBasicComponent_PassiveResource_BasicComponent();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.repository.ImplementationComponentType
-     * <em>Implementation Component Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.repository.ImplementationComponentType <em>Implementation
+     * Component Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Implementation Component Type</em>'.
      * @see org.palladiosimulator.pcm.repository.ImplementationComponentType
@@ -2411,8 +2407,8 @@ public interface RepositoryPackage extends EPackage {
     EClass getImplementationComponentType();
 
     /**
-     * Returns the meta object for the reference list '
-     * {@link org.palladiosimulator.pcm.repository.ImplementationComponentType#getParentCompleteComponentTypes
+     * Returns the meta object for the reference list
+     * '{@link org.palladiosimulator.pcm.repository.ImplementationComponentType#getParentCompleteComponentTypes
      * <em>Parent Complete Component Types</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference list '<em>Parent Complete Component Types</em>'.
@@ -2423,13 +2419,13 @@ public interface RepositoryPackage extends EPackage {
     EReference getImplementationComponentType_ParentCompleteComponentTypes();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.repository.ImplementationComponentType#getComponentParameterUsage_ImplementationComponentType
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.repository.ImplementationComponentType#getComponentParameterUsage_ImplementationComponentType
      * <em>Component Parameter Usage Implementation Component Type</em>}'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Component Parameter Usage Implementation Component Type</em>'.
+     * @return the meta object for the containment reference list '<em>Component Parameter Usage
+     *         Implementation Component Type</em>'.
      * @see org.palladiosimulator.pcm.repository.ImplementationComponentType#getComponentParameterUsage_ImplementationComponentType()
      * @see #getImplementationComponentType()
      * @generated
@@ -2437,8 +2433,8 @@ public interface RepositoryPackage extends EPackage {
     EReference getImplementationComponentType_ComponentParameterUsage_ImplementationComponentType();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.palladiosimulator.pcm.repository.ImplementationComponentType#getComponentType
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.pcm.repository.ImplementationComponentType#getComponentType
      * <em>Component Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Component Type</em>'.
@@ -2460,12 +2456,12 @@ public interface RepositoryPackage extends EPackage {
     EClass getRepositoryComponent();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent
      * <em>Repository Repository Component</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '<em>Repository Repository Component</em>
-     *         '.
+     * @return the meta object for the container reference '<em>Repository Repository
+     *         Component</em>'.
      * @see org.palladiosimulator.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent()
      * @see #getRepositoryComponent()
      * @generated
@@ -2483,12 +2479,12 @@ public interface RepositoryPackage extends EPackage {
     EClass getProvidedRole();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole
      * <em>Providing Entity Provided Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '<em>Providing Entity Provided Role</em>
-     *         '.
+     * @return the meta object for the container reference '<em>Providing Entity Provided
+     *         Role</em>'.
      * @see org.palladiosimulator.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole()
      * @see #getProvidedRole()
      * @generated
@@ -2506,9 +2502,9 @@ public interface RepositoryPackage extends EPackage {
     EClass getParameter();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.repository.Parameter#getDataType__Parameter
-     * <em>Data Type Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.repository.Parameter#getDataType__Parameter <em>Data Type
+     * Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Data Type Parameter</em>'.
      * @see org.palladiosimulator.pcm.repository.Parameter#getDataType__Parameter()
@@ -2518,12 +2514,12 @@ public interface RepositoryPackage extends EPackage {
     EReference getParameter_DataType__Parameter();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.repository.Parameter#getInfrastructureSignature__Parameter
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.repository.Parameter#getInfrastructureSignature__Parameter
      * <em>Infrastructure Signature Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Infrastructure Signature Parameter</em>'.
+     * @return the meta object for the container reference '<em>Infrastructure Signature
+     *         Parameter</em>'.
      * @see org.palladiosimulator.pcm.repository.Parameter#getInfrastructureSignature__Parameter()
      * @see #getParameter()
      * @generated
@@ -2531,8 +2527,8 @@ public interface RepositoryPackage extends EPackage {
     EReference getParameter_InfrastructureSignature__Parameter();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.repository.Parameter#getOperationSignature__Parameter
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.repository.Parameter#getOperationSignature__Parameter
      * <em>Operation Signature Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Operation Signature Parameter</em>'.
@@ -2543,9 +2539,9 @@ public interface RepositoryPackage extends EPackage {
     EReference getParameter_OperationSignature__Parameter();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.repository.Parameter#getEventType__Parameter
-     * <em>Event Type Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.repository.Parameter#getEventType__Parameter <em>Event Type
+     * Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Event Type Parameter</em>'.
      * @see org.palladiosimulator.pcm.repository.Parameter#getEventType__Parameter()
@@ -2555,9 +2551,9 @@ public interface RepositoryPackage extends EPackage {
     EReference getParameter_EventType__Parameter();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.palladiosimulator.pcm.repository.Parameter#getParameterName
-     * <em>Parameter Name</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.pcm.repository.Parameter#getParameterName <em>Parameter
+     * Name</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Parameter Name</em>'.
      * @see org.palladiosimulator.pcm.repository.Parameter#getParameterName()
@@ -2567,9 +2563,9 @@ public interface RepositoryPackage extends EPackage {
     EAttribute getParameter_ParameterName();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.palladiosimulator.pcm.repository.Parameter#getModifier__Parameter
-     * <em>Modifier Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.pcm.repository.Parameter#getModifier__Parameter <em>Modifier
+     * Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Modifier Parameter</em>'.
      * @see org.palladiosimulator.pcm.repository.Parameter#getModifier__Parameter()
@@ -2579,8 +2575,8 @@ public interface RepositoryPackage extends EPackage {
     EAttribute getParameter_Modifier__Parameter();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.repository.Parameter#getResourceSignature__Parameter
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.repository.Parameter#getResourceSignature__Parameter
      * <em>Resource Signature Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Resource Signature Parameter</em>'.
@@ -2601,9 +2597,9 @@ public interface RepositoryPackage extends EPackage {
     EClass getDataType();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.repository.DataType#getRepository__DataType
-     * <em>Repository Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.repository.DataType#getRepository__DataType <em>Repository
+     * Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Repository Data Type</em>'.
      * @see org.palladiosimulator.pcm.repository.DataType#getRepository__DataType()
@@ -2623,8 +2619,8 @@ public interface RepositoryPackage extends EPackage {
     EClass getRepository();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.palladiosimulator.pcm.repository.Repository#getRepositoryDescription
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.pcm.repository.Repository#getRepositoryDescription
      * <em>Repository Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Repository Description</em>'.
@@ -2635,8 +2631,8 @@ public interface RepositoryPackage extends EPackage {
     EAttribute getRepository_RepositoryDescription();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.repository.Repository#getComponents__Repository
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.repository.Repository#getComponents__Repository
      * <em>Components Repository</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference list '<em>Components Repository</em>'.
@@ -2647,8 +2643,8 @@ public interface RepositoryPackage extends EPackage {
     EReference getRepository_Components__Repository();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.repository.Repository#getInterfaces__Repository
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.repository.Repository#getInterfaces__Repository
      * <em>Interfaces Repository</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference list '<em>Interfaces Repository</em>'.
@@ -2659,12 +2655,12 @@ public interface RepositoryPackage extends EPackage {
     EReference getRepository_Interfaces__Repository();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.repository.Repository#getFailureTypes__Repository
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.repository.Repository#getFailureTypes__Repository
      * <em>Failure Types Repository</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '<em>Failure Types Repository</em>
-     *         '.
+     * @return the meta object for the containment reference list '<em>Failure Types
+     *         Repository</em>'.
      * @see org.palladiosimulator.pcm.repository.Repository#getFailureTypes__Repository()
      * @see #getRepository()
      * @generated
@@ -2672,9 +2668,9 @@ public interface RepositoryPackage extends EPackage {
     EReference getRepository_FailureTypes__Repository();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.repository.Repository#getDataTypes__Repository
-     * <em>Data Types Repository</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.repository.Repository#getDataTypes__Repository <em>Data
+     * Types Repository</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference list '<em>Data Types Repository</em>'.
      * @see org.palladiosimulator.pcm.repository.Repository#getDataTypes__Repository()
@@ -2694,8 +2690,8 @@ public interface RepositoryPackage extends EPackage {
     EClass getInterface();
 
     /**
-     * Returns the meta object for the reference list '
-     * {@link org.palladiosimulator.pcm.repository.Interface#getParentInterfaces__Interface
+     * Returns the meta object for the reference list
+     * '{@link org.palladiosimulator.pcm.repository.Interface#getParentInterfaces__Interface
      * <em>Parent Interfaces Interface</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference list '<em>Parent Interfaces Interface</em>'.
@@ -2706,9 +2702,9 @@ public interface RepositoryPackage extends EPackage {
     EReference getInterface_ParentInterfaces__Interface();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.repository.Interface#getProtocols__Interface
-     * <em>Protocols Interface</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.repository.Interface#getProtocols__Interface <em>Protocols
+     * Interface</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference list '<em>Protocols Interface</em>'.
      * @see org.palladiosimulator.pcm.repository.Interface#getProtocols__Interface()
@@ -2718,12 +2714,12 @@ public interface RepositoryPackage extends EPackage {
     EReference getInterface_Protocols__Interface();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.repository.Interface#getRequiredCharacterisations
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.repository.Interface#getRequiredCharacterisations
      * <em>Required Characterisations</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Required Characterisations</em>'.
+     * @return the meta object for the containment reference list '<em>Required
+     *         Characterisations</em>'.
      * @see org.palladiosimulator.pcm.repository.Interface#getRequiredCharacterisations()
      * @see #getInterface()
      * @generated
@@ -2731,8 +2727,8 @@ public interface RepositoryPackage extends EPackage {
     EReference getInterface_RequiredCharacterisations();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.repository.Interface#getRepository__Interface
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.repository.Interface#getRepository__Interface
      * <em>Repository Interface</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Repository Interface</em>'.
@@ -2743,9 +2739,9 @@ public interface RepositoryPackage extends EPackage {
     EReference getInterface_Repository__Interface();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.repository.RequiredCharacterisation
-     * <em>Required Characterisation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.repository.RequiredCharacterisation <em>Required
+     * Characterisation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Required Characterisation</em>'.
      * @see org.palladiosimulator.pcm.repository.RequiredCharacterisation
@@ -2754,9 +2750,9 @@ public interface RepositoryPackage extends EPackage {
     EClass getRequiredCharacterisation();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.palladiosimulator.pcm.repository.RequiredCharacterisation#getType <em>Type</em>}'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.pcm.repository.RequiredCharacterisation#getType
+     * <em>Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Type</em>'.
      * @see org.palladiosimulator.pcm.repository.RequiredCharacterisation#getType()
@@ -2766,8 +2762,8 @@ public interface RepositoryPackage extends EPackage {
     EAttribute getRequiredCharacterisation_Type();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.repository.RequiredCharacterisation#getParameter
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.repository.RequiredCharacterisation#getParameter
      * <em>Parameter</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Parameter</em>'.
@@ -2778,12 +2774,12 @@ public interface RepositoryPackage extends EPackage {
     EReference getRequiredCharacterisation_Parameter();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.repository.RequiredCharacterisation#getInterface_RequiredCharacterisation
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.repository.RequiredCharacterisation#getInterface_RequiredCharacterisation
      * <em>Interface Required Characterisation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Interface Required Characterisation</em>'.
+     * @return the meta object for the container reference '<em>Interface Required
+     *         Characterisation</em>'.
      * @see org.palladiosimulator.pcm.repository.RequiredCharacterisation#getInterface_RequiredCharacterisation()
      * @see #getRequiredCharacterisation()
      * @generated
@@ -2801,12 +2797,12 @@ public interface RepositoryPackage extends EPackage {
     EClass getEventGroup();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.repository.EventGroup#getEventTypes__EventGroup
-     * <em>Event Types Event Group</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.repository.EventGroup#getEventTypes__EventGroup <em>Event
+     * Types Event Group</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '<em>Event Types Event Group</em>
-     *         '.
+     * @return the meta object for the containment reference list '<em>Event Types Event
+     *         Group</em>'.
      * @see org.palladiosimulator.pcm.repository.EventGroup#getEventTypes__EventGroup()
      * @see #getEventGroup()
      * @generated
@@ -2824,9 +2820,9 @@ public interface RepositoryPackage extends EPackage {
     EClass getEventType();
 
     /**
-     * Returns the meta object for the containment reference '
-     * {@link org.palladiosimulator.pcm.repository.EventType#getParameter__EventType
-     * <em>Parameter Event Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the containment reference
+     * '{@link org.palladiosimulator.pcm.repository.EventType#getParameter__EventType <em>Parameter
+     * Event Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference '<em>Parameter Event Type</em>'.
      * @see org.palladiosimulator.pcm.repository.EventType#getParameter__EventType()
@@ -2836,9 +2832,9 @@ public interface RepositoryPackage extends EPackage {
     EReference getEventType_Parameter__EventType();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.repository.EventType#getEventGroup__EventType
-     * <em>Event Group Event Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.repository.EventType#getEventGroup__EventType <em>Event
+     * Group Event Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Event Group Event Type</em>'.
      * @see org.palladiosimulator.pcm.repository.EventType#getEventGroup__EventType()
@@ -2858,8 +2854,8 @@ public interface RepositoryPackage extends EPackage {
     EClass getSignature();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.repository.Signature#getExceptions__Signature
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.repository.Signature#getExceptions__Signature
      * <em>Exceptions Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the containment reference list '<em>Exceptions Signature</em>'.
@@ -2870,9 +2866,9 @@ public interface RepositoryPackage extends EPackage {
     EReference getSignature_Exceptions__Signature();
 
     /**
-     * Returns the meta object for the reference list '
-     * {@link org.palladiosimulator.pcm.repository.Signature#getFailureType <em>Failure Type</em>}'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the reference list
+     * '{@link org.palladiosimulator.pcm.repository.Signature#getFailureType <em>Failure
+     * Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference list '<em>Failure Type</em>'.
      * @see org.palladiosimulator.pcm.repository.Signature#getFailureType()
@@ -2892,9 +2888,9 @@ public interface RepositoryPackage extends EPackage {
     EClass getExceptionType();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.palladiosimulator.pcm.repository.ExceptionType#getExceptionName
-     * <em>Exception Name</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.pcm.repository.ExceptionType#getExceptionName <em>Exception
+     * Name</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Exception Name</em>'.
      * @see org.palladiosimulator.pcm.repository.ExceptionType#getExceptionName()
@@ -2904,9 +2900,9 @@ public interface RepositoryPackage extends EPackage {
     EAttribute getExceptionType_ExceptionName();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.palladiosimulator.pcm.repository.ExceptionType#getExceptionMessage
-     * <em>Exception Message</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.pcm.repository.ExceptionType#getExceptionMessage <em>Exception
+     * Message</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Exception Message</em>'.
      * @see org.palladiosimulator.pcm.repository.ExceptionType#getExceptionMessage()
@@ -2916,9 +2912,9 @@ public interface RepositoryPackage extends EPackage {
     EAttribute getExceptionType_ExceptionMessage();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.repository.InfrastructureSignature
-     * <em>Infrastructure Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.repository.InfrastructureSignature <em>Infrastructure
+     * Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Infrastructure Signature</em>'.
      * @see org.palladiosimulator.pcm.repository.InfrastructureSignature
@@ -2927,12 +2923,12 @@ public interface RepositoryPackage extends EPackage {
     EClass getInfrastructureSignature();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.repository.InfrastructureSignature#getParameters__InfrastructureSignature
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.repository.InfrastructureSignature#getParameters__InfrastructureSignature
      * <em>Parameters Infrastructure Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Parameters Infrastructure Signature</em>'.
+     * @return the meta object for the containment reference list '<em>Parameters Infrastructure
+     *         Signature</em>'.
      * @see org.palladiosimulator.pcm.repository.InfrastructureSignature#getParameters__InfrastructureSignature()
      * @see #getInfrastructureSignature()
      * @generated
@@ -2940,13 +2936,13 @@ public interface RepositoryPackage extends EPackage {
     EReference getInfrastructureSignature_Parameters__InfrastructureSignature();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.repository.InfrastructureSignature#getInfrastructureInterface__InfrastructureSignature
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.repository.InfrastructureSignature#getInfrastructureInterface__InfrastructureSignature
      * <em>Infrastructure Interface Infrastructure Signature</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Infrastructure Interface Infrastructure Signature</em>'.
+     * @return the meta object for the container reference '<em>Infrastructure Interface
+     *         Infrastructure Signature</em>'.
      * @see org.palladiosimulator.pcm.repository.InfrastructureSignature#getInfrastructureInterface__InfrastructureSignature()
      * @see #getInfrastructureSignature()
      * @generated
@@ -2954,9 +2950,9 @@ public interface RepositoryPackage extends EPackage {
     EReference getInfrastructureSignature_InfrastructureInterface__InfrastructureSignature();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.repository.InfrastructureInterface
-     * <em>Infrastructure Interface</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.repository.InfrastructureInterface <em>Infrastructure
+     * Interface</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Infrastructure Interface</em>'.
      * @see org.palladiosimulator.pcm.repository.InfrastructureInterface
@@ -2965,13 +2961,13 @@ public interface RepositoryPackage extends EPackage {
     EClass getInfrastructureInterface();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.repository.InfrastructureInterface#getInfrastructureSignatures__InfrastructureInterface
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.repository.InfrastructureInterface#getInfrastructureSignatures__InfrastructureInterface
      * <em>Infrastructure Signatures Infrastructure Interface</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Infrastructure Signatures Infrastructure Interface</em>'.
+     * @return the meta object for the containment reference list '<em>Infrastructure Signatures
+     *         Infrastructure Interface</em>'.
      * @see org.palladiosimulator.pcm.repository.InfrastructureInterface#getInfrastructureSignatures__InfrastructureInterface()
      * @see #getInfrastructureInterface()
      * @generated
@@ -2979,9 +2975,9 @@ public interface RepositoryPackage extends EPackage {
     EReference getInfrastructureInterface_InfrastructureSignatures__InfrastructureInterface();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.repository.InfrastructureRequiredRole
-     * <em>Infrastructure Required Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.repository.InfrastructureRequiredRole <em>Infrastructure
+     * Required Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Infrastructure Required Role</em>'.
      * @see org.palladiosimulator.pcm.repository.InfrastructureRequiredRole
@@ -2990,13 +2986,13 @@ public interface RepositoryPackage extends EPackage {
     EClass getInfrastructureRequiredRole();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.repository.InfrastructureRequiredRole#getRequiredInterface__InfrastructureRequiredRole
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.repository.InfrastructureRequiredRole#getRequiredInterface__InfrastructureRequiredRole
      * <em>Required Interface Infrastructure Required Role</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Required Interface Infrastructure Required Role</em>'.
+     * @return the meta object for the reference '<em>Required Interface Infrastructure Required
+     *         Role</em>'.
      * @see org.palladiosimulator.pcm.repository.InfrastructureRequiredRole#getRequiredInterface__InfrastructureRequiredRole()
      * @see #getInfrastructureRequiredRole()
      * @generated
@@ -3014,12 +3010,12 @@ public interface RepositoryPackage extends EPackage {
     EClass getRequiredRole();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole
      * <em>Requiring Entity Required Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '<em>Requiring Entity Required Role</em>
-     *         '.
+     * @return the meta object for the container reference '<em>Requiring Entity Required
+     *         Role</em>'.
      * @see org.palladiosimulator.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole()
      * @see #getRequiredRole()
      * @generated
@@ -3027,9 +3023,9 @@ public interface RepositoryPackage extends EPackage {
     EReference getRequiredRole_RequiringEntity_RequiredRole();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.repository.OperationSignature <em>Operation Signature</em>}
-     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.repository.OperationSignature <em>Operation
+     * Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Operation Signature</em>'.
      * @see org.palladiosimulator.pcm.repository.OperationSignature
@@ -3038,8 +3034,8 @@ public interface RepositoryPackage extends EPackage {
     EClass getOperationSignature();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.repository.OperationSignature#getInterface__OperationSignature
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.repository.OperationSignature#getInterface__OperationSignature
      * <em>Interface Operation Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Interface Operation Signature</em>'.
@@ -3050,12 +3046,12 @@ public interface RepositoryPackage extends EPackage {
     EReference getOperationSignature_Interface__OperationSignature();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.repository.OperationSignature#getParameters__OperationSignature
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.repository.OperationSignature#getParameters__OperationSignature
      * <em>Parameters Operation Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Parameters Operation Signature</em>'.
+     * @return the meta object for the containment reference list '<em>Parameters Operation
+     *         Signature</em>'.
      * @see org.palladiosimulator.pcm.repository.OperationSignature#getParameters__OperationSignature()
      * @see #getOperationSignature()
      * @generated
@@ -3063,8 +3059,8 @@ public interface RepositoryPackage extends EPackage {
     EReference getOperationSignature_Parameters__OperationSignature();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.repository.OperationSignature#getReturnType__OperationSignature
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.repository.OperationSignature#getReturnType__OperationSignature
      * <em>Return Type Operation Signature</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Return Type Operation Signature</em>'.
@@ -3075,9 +3071,9 @@ public interface RepositoryPackage extends EPackage {
     EReference getOperationSignature_ReturnType__OperationSignature();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.repository.OperationInterface <em>Operation Interface</em>}
-     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.repository.OperationInterface <em>Operation
+     * Interface</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Operation Interface</em>'.
      * @see org.palladiosimulator.pcm.repository.OperationInterface
@@ -3086,12 +3082,12 @@ public interface RepositoryPackage extends EPackage {
     EClass getOperationInterface();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.repository.OperationInterface#getSignatures__OperationInterface
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.repository.OperationInterface#getSignatures__OperationInterface
      * <em>Signatures Operation Interface</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Signatures Operation Interface</em>'.
+     * @return the meta object for the containment reference list '<em>Signatures Operation
+     *         Interface</em>'.
      * @see org.palladiosimulator.pcm.repository.OperationInterface#getSignatures__OperationInterface()
      * @see #getOperationInterface()
      * @generated
@@ -3099,9 +3095,9 @@ public interface RepositoryPackage extends EPackage {
     EReference getOperationInterface_Signatures__OperationInterface();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.repository.OperationRequiredRole
-     * <em>Operation Required Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.repository.OperationRequiredRole <em>Operation Required
+     * Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Operation Required Role</em>'.
      * @see org.palladiosimulator.pcm.repository.OperationRequiredRole
@@ -3110,13 +3106,13 @@ public interface RepositoryPackage extends EPackage {
     EClass getOperationRequiredRole();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.repository.OperationRequiredRole#getRequiredInterface__OperationRequiredRole
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.repository.OperationRequiredRole#getRequiredInterface__OperationRequiredRole
      * <em>Required Interface Operation Required Role</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Required Interface Operation Required Role</em>'.
+     * @return the meta object for the reference '<em>Required Interface Operation Required
+     *         Role</em>'.
      * @see org.palladiosimulator.pcm.repository.OperationRequiredRole#getRequiredInterface__OperationRequiredRole()
      * @see #getOperationRequiredRole()
      * @generated
@@ -3134,9 +3130,9 @@ public interface RepositoryPackage extends EPackage {
     EClass getSourceRole();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.repository.SourceRole#getEventGroup__SourceRole
-     * <em>Event Group Source Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.repository.SourceRole#getEventGroup__SourceRole <em>Event
+     * Group Source Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Event Group Source Role</em>'.
      * @see org.palladiosimulator.pcm.repository.SourceRole#getEventGroup__SourceRole()
@@ -3156,9 +3152,9 @@ public interface RepositoryPackage extends EPackage {
     EClass getSinkRole();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.repository.SinkRole#getEventGroup__SinkRole
-     * <em>Event Group Sink Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.repository.SinkRole#getEventGroup__SinkRole <em>Event Group
+     * Sink Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Event Group Sink Role</em>'.
      * @see org.palladiosimulator.pcm.repository.SinkRole#getEventGroup__SinkRole()
@@ -3168,9 +3164,9 @@ public interface RepositoryPackage extends EPackage {
     EReference getSinkRole_EventGroup__SinkRole();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.repository.OperationProvidedRole
-     * <em>Operation Provided Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.repository.OperationProvidedRole <em>Operation Provided
+     * Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Operation Provided Role</em>'.
      * @see org.palladiosimulator.pcm.repository.OperationProvidedRole
@@ -3179,13 +3175,13 @@ public interface RepositoryPackage extends EPackage {
     EClass getOperationProvidedRole();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.repository.OperationProvidedRole#getProvidedInterface__OperationProvidedRole
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.repository.OperationProvidedRole#getProvidedInterface__OperationProvidedRole
      * <em>Provided Interface Operation Provided Role</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Provided Interface Operation Provided Role</em>'.
+     * @return the meta object for the reference '<em>Provided Interface Operation Provided
+     *         Role</em>'.
      * @see org.palladiosimulator.pcm.repository.OperationProvidedRole#getProvidedInterface__OperationProvidedRole()
      * @see #getOperationProvidedRole()
      * @generated
@@ -3193,9 +3189,9 @@ public interface RepositoryPackage extends EPackage {
     EReference getOperationProvidedRole_ProvidedInterface__OperationProvidedRole();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.repository.InfrastructureProvidedRole
-     * <em>Infrastructure Provided Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.repository.InfrastructureProvidedRole <em>Infrastructure
+     * Provided Role</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Infrastructure Provided Role</em>'.
      * @see org.palladiosimulator.pcm.repository.InfrastructureProvidedRole
@@ -3204,13 +3200,13 @@ public interface RepositoryPackage extends EPackage {
     EClass getInfrastructureProvidedRole();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.repository.InfrastructureProvidedRole#getProvidedInterface__InfrastructureProvidedRole
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.repository.InfrastructureProvidedRole#getProvidedInterface__InfrastructureProvidedRole
      * <em>Provided Interface Infrastructure Provided Role</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Provided Interface Infrastructure Provided Role</em>'.
+     * @return the meta object for the reference '<em>Provided Interface Infrastructure Provided
+     *         Role</em>'.
      * @see org.palladiosimulator.pcm.repository.InfrastructureProvidedRole#getProvidedInterface__InfrastructureProvidedRole()
      * @see #getInfrastructureProvidedRole()
      * @generated
@@ -3218,9 +3214,9 @@ public interface RepositoryPackage extends EPackage {
     EReference getInfrastructureProvidedRole_ProvidedInterface__InfrastructureProvidedRole();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.repository.CompleteComponentType
-     * <em>Complete Component Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.repository.CompleteComponentType <em>Complete Component
+     * Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Complete Component Type</em>'.
      * @see org.palladiosimulator.pcm.repository.CompleteComponentType
@@ -3229,8 +3225,8 @@ public interface RepositoryPackage extends EPackage {
     EClass getCompleteComponentType();
 
     /**
-     * Returns the meta object for the reference list '
-     * {@link org.palladiosimulator.pcm.repository.CompleteComponentType#getParentProvidesComponentTypes
+     * Returns the meta object for the reference list
+     * '{@link org.palladiosimulator.pcm.repository.CompleteComponentType#getParentProvidesComponentTypes
      * <em>Parent Provides Component Types</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference list '<em>Parent Provides Component Types</em>'.
@@ -3241,9 +3237,9 @@ public interface RepositoryPackage extends EPackage {
     EReference getCompleteComponentType_ParentProvidesComponentTypes();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.repository.ProvidesComponentType
-     * <em>Provides Component Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.repository.ProvidesComponentType <em>Provides Component
+     * Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Provides Component Type</em>'.
      * @see org.palladiosimulator.pcm.repository.ProvidesComponentType
@@ -3252,9 +3248,9 @@ public interface RepositoryPackage extends EPackage {
     EClass getProvidesComponentType();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.repository.CompositeComponent <em>Composite Component</em>}
-     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.repository.CompositeComponent <em>Composite
+     * Component</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Composite Component</em>'.
      * @see org.palladiosimulator.pcm.repository.CompositeComponent
@@ -3263,9 +3259,9 @@ public interface RepositoryPackage extends EPackage {
     EClass getCompositeComponent();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.repository.PrimitiveDataType <em>Primitive Data Type</em>}'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.repository.PrimitiveDataType <em>Primitive Data
+     * Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Primitive Data Type</em>'.
      * @see org.palladiosimulator.pcm.repository.PrimitiveDataType
@@ -3286,9 +3282,9 @@ public interface RepositoryPackage extends EPackage {
     EAttribute getPrimitiveDataType_Type();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.repository.CollectionDataType <em>Collection Data Type</em>}
-     * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.repository.CollectionDataType <em>Collection Data
+     * Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Collection Data Type</em>'.
      * @see org.palladiosimulator.pcm.repository.CollectionDataType
@@ -3297,8 +3293,8 @@ public interface RepositoryPackage extends EPackage {
     EClass getCollectionDataType();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.repository.CollectionDataType#getInnerType_CollectionDataType
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.repository.CollectionDataType#getInnerType_CollectionDataType
      * <em>Inner Type Collection Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Inner Type Collection Data Type</em>'.
@@ -3309,9 +3305,9 @@ public interface RepositoryPackage extends EPackage {
     EReference getCollectionDataType_InnerType_CollectionDataType();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.repository.CompositeDataType <em>Composite Data Type</em>}'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.repository.CompositeDataType <em>Composite Data
+     * Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Composite Data Type</em>'.
      * @see org.palladiosimulator.pcm.repository.CompositeDataType
@@ -3320,8 +3316,8 @@ public interface RepositoryPackage extends EPackage {
     EClass getCompositeDataType();
 
     /**
-     * Returns the meta object for the reference list '
-     * {@link org.palladiosimulator.pcm.repository.CompositeDataType#getParentType_CompositeDataType
+     * Returns the meta object for the reference list
+     * '{@link org.palladiosimulator.pcm.repository.CompositeDataType#getParentType_CompositeDataType
      * <em>Parent Type Composite Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference list '<em>Parent Type Composite Data Type</em>'.
@@ -3337,8 +3333,8 @@ public interface RepositoryPackage extends EPackage {
      * <em>Inner Declaration Composite Data Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Inner Declaration Composite Data Type</em>'.
+     * @return the meta object for the containment reference list ' <em>Inner Declaration Composite
+     *         Data Type</em>'.
      * @see org.palladiosimulator.pcm.repository.CompositeDataType#getInnerDeclaration_CompositeDataType()
      * @see #getCompositeDataType()
      * @generated
@@ -3346,8 +3342,8 @@ public interface RepositoryPackage extends EPackage {
     EReference getCompositeDataType_InnerDeclaration_CompositeDataType();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.repository.InnerDeclaration <em>Inner Declaration</em>}'.
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.repository.InnerDeclaration <em>Inner Declaration</em>}'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Inner Declaration</em>'.
@@ -3357,8 +3353,8 @@ public interface RepositoryPackage extends EPackage {
     EClass getInnerDeclaration();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.repository.InnerDeclaration#getDatatype_InnerDeclaration
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.repository.InnerDeclaration#getDatatype_InnerDeclaration
      * <em>Datatype Inner Declaration</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Datatype Inner Declaration</em>'.
@@ -3374,8 +3370,8 @@ public interface RepositoryPackage extends EPackage {
      * <em>Composite Data Type Inner Declaration</em>}'. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Composite Data Type Inner Declaration</em>'.
+     * @return the meta object for the container reference ' <em>Composite Data Type Inner
+     *         Declaration</em>'.
      * @see org.palladiosimulator.pcm.repository.InnerDeclaration#getCompositeDataType_InnerDeclaration()
      * @see #getInnerDeclaration()
      * @generated
@@ -3393,8 +3389,8 @@ public interface RepositoryPackage extends EPackage {
     EClass getRole();
 
     /**
-     * Returns the meta object for enum '
-     * {@link org.palladiosimulator.pcm.repository.ParameterModifier <em>Parameter Modifier</em>}'.
+     * Returns the meta object for enum
+     * '{@link org.palladiosimulator.pcm.repository.ParameterModifier <em>Parameter Modifier</em>}'.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for enum '<em>Parameter Modifier</em>'.
@@ -3414,9 +3410,9 @@ public interface RepositoryPackage extends EPackage {
     EEnum getComponentType();
 
     /**
-     * Returns the meta object for enum '
-     * {@link org.palladiosimulator.pcm.repository.PrimitiveTypeEnum <em>Primitive Type Enum</em>}'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for enum
+     * '{@link org.palladiosimulator.pcm.repository.PrimitiveTypeEnum <em>Primitive Type
+     * Enum</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for enum '<em>Primitive Type Enum</em>'.
      * @see org.palladiosimulator.pcm.repository.PrimitiveTypeEnum
@@ -3448,9 +3444,9 @@ public interface RepositoryPackage extends EPackage {
     interface Literals {
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.PassiveResourceImpl
-         * <em>Passive Resource</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.PassiveResourceImpl <em>Passive
+         * Resource</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.PassiveResourceImpl
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getPassiveResource()
@@ -3477,9 +3473,8 @@ public interface RepositoryPackage extends EPackage {
                 .getPassiveResource_BasicComponent_PassiveResource();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Resource Timeout Failure Type Passive Resource</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Resource Timeout Failure Type Passive
+         * Resource</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -3487,9 +3482,9 @@ public interface RepositoryPackage extends EPackage {
                 .getPassiveResource_ResourceTimeoutFailureType__PassiveResource();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.BasicComponentImpl
-         * <em>Basic Component</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.BasicComponentImpl <em>Basic
+         * Component</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.BasicComponentImpl
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getBasicComponent()
@@ -3498,9 +3493,9 @@ public interface RepositoryPackage extends EPackage {
         EClass BASIC_COMPONENT = eINSTANCE.getBasicComponent();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Service Effect Specifications Basic Component</b></em>' containment reference list
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Service Effect Specifications Basic
+         * Component</b></em>' containment reference list feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -3538,9 +3533,9 @@ public interface RepositoryPackage extends EPackage {
                 .getImplementationComponentType_ParentCompleteComponentTypes();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Component Parameter Usage Implementation Component Type</b></em>' containment
-         * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Component Parameter Usage Implementation
+         * Component Type</b></em>' containment reference list feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -3557,8 +3552,8 @@ public interface RepositoryPackage extends EPackage {
                 .getImplementationComponentType_ComponentType();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.RepositoryComponentImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.RepositoryComponentImpl
          * <em>Component</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryComponentImpl
@@ -3577,9 +3572,9 @@ public interface RepositoryPackage extends EPackage {
                 .getRepositoryComponent_Repository__RepositoryComponent();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.ProvidedRoleImpl <em>Provided Role</em>}
-         * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.ProvidedRoleImpl <em>Provided
+         * Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.ProvidedRoleImpl
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getProvidedRole()
@@ -3597,8 +3592,8 @@ public interface RepositoryPackage extends EPackage {
                 .getProvidedRole_ProvidingEntity_ProvidedRole();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.ParameterImpl <em>Parameter</em>}'
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.ParameterImpl <em>Parameter</em>}'
          * class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.ParameterImpl
@@ -3665,9 +3660,9 @@ public interface RepositoryPackage extends EPackage {
         EReference PARAMETER__RESOURCE_SIGNATURE_PARAMETER = eINSTANCE.getParameter_ResourceSignature__Parameter();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.DataTypeImpl <em>Data Type</em>}' class.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.DataTypeImpl <em>Data Type</em>}'
+         * class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.DataTypeImpl
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getDataType()
@@ -3684,8 +3679,8 @@ public interface RepositoryPackage extends EPackage {
         EReference DATA_TYPE__REPOSITORY_DATA_TYPE = eINSTANCE.getDataType_Repository__DataType();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.RepositoryImpl <em>Repository</em>}'
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.RepositoryImpl <em>Repository</em>}'
          * class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryImpl
@@ -3735,8 +3730,8 @@ public interface RepositoryPackage extends EPackage {
         EReference REPOSITORY__DATA_TYPES_REPOSITORY = eINSTANCE.getRepository_DataTypes__Repository();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.InterfaceImpl <em>Interface</em>}'
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.InterfaceImpl <em>Interface</em>}'
          * class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.InterfaceImpl
@@ -3778,8 +3773,8 @@ public interface RepositoryPackage extends EPackage {
         EReference INTERFACE__REPOSITORY_INTERFACE = eINSTANCE.getInterface_Repository__Interface();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.RequiredCharacterisationImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.RequiredCharacterisationImpl
          * <em>Required Characterisation</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.RequiredCharacterisationImpl
@@ -3814,8 +3809,8 @@ public interface RepositoryPackage extends EPackage {
                 .getRequiredCharacterisation_Interface_RequiredCharacterisation();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.EventGroupImpl <em>Event Group</em>}'
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.EventGroupImpl <em>Event Group</em>}'
          * class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.EventGroupImpl
@@ -3833,8 +3828,8 @@ public interface RepositoryPackage extends EPackage {
         EReference EVENT_GROUP__EVENT_TYPES_EVENT_GROUP = eINSTANCE.getEventGroup_EventTypes__EventGroup();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.EventTypeImpl <em>Event Type</em>}'
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.EventTypeImpl <em>Event Type</em>}'
          * class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.EventTypeImpl
@@ -3860,8 +3855,8 @@ public interface RepositoryPackage extends EPackage {
         EReference EVENT_TYPE__EVENT_GROUP_EVENT_TYPE = eINSTANCE.getEventType_EventGroup__EventType();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.SignatureImpl <em>Signature</em>}'
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.SignatureImpl <em>Signature</em>}'
          * class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.SignatureImpl
@@ -3887,9 +3882,9 @@ public interface RepositoryPackage extends EPackage {
         EReference SIGNATURE__FAILURE_TYPE = eINSTANCE.getSignature_FailureType();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.ExceptionTypeImpl
-         * <em>Exception Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.ExceptionTypeImpl <em>Exception
+         * Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.ExceptionTypeImpl
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getExceptionType()
@@ -3914,8 +3909,8 @@ public interface RepositoryPackage extends EPackage {
         EAttribute EXCEPTION_TYPE__EXCEPTION_MESSAGE = eINSTANCE.getExceptionType_ExceptionMessage();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.InfrastructureSignatureImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.InfrastructureSignatureImpl
          * <em>Infrastructure Signature</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.InfrastructureSignatureImpl
@@ -3934,9 +3929,9 @@ public interface RepositoryPackage extends EPackage {
                 .getInfrastructureSignature_Parameters__InfrastructureSignature();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Infrastructure Interface Infrastructure Signature</b></em>' container reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Infrastructure Interface Infrastructure
+         * Signature</b></em>' container reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -3944,8 +3939,8 @@ public interface RepositoryPackage extends EPackage {
                 .getInfrastructureSignature_InfrastructureInterface__InfrastructureSignature();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.InfrastructureInterfaceImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.InfrastructureInterfaceImpl
          * <em>Infrastructure Interface</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.InfrastructureInterfaceImpl
@@ -3955,9 +3950,9 @@ public interface RepositoryPackage extends EPackage {
         EClass INFRASTRUCTURE_INTERFACE = eINSTANCE.getInfrastructureInterface();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Infrastructure Signatures Infrastructure Interface</b></em>' containment reference
-         * list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Infrastructure Signatures Infrastructure
+         * Interface</b></em>' containment reference list feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -3977,9 +3972,8 @@ public interface RepositoryPackage extends EPackage {
         EClass INFRASTRUCTURE_REQUIRED_ROLE = eINSTANCE.getInfrastructureRequiredRole();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Required Interface Infrastructure Required Role</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Required Interface Infrastructure Required
+         * Role</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -3987,9 +3981,9 @@ public interface RepositoryPackage extends EPackage {
                 .getInfrastructureRequiredRole_RequiredInterface__InfrastructureRequiredRole();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.RequiredRoleImpl <em>Required Role</em>}
-         * ' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.RequiredRoleImpl <em>Required
+         * Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.RequiredRoleImpl
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getRequiredRole()
@@ -4007,9 +4001,9 @@ public interface RepositoryPackage extends EPackage {
                 .getRequiredRole_RequiringEntity_RequiredRole();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.OperationSignatureImpl
-         * <em>Operation Signature</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.OperationSignatureImpl <em>Operation
+         * Signature</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.OperationSignatureImpl
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getOperationSignature()
@@ -4045,9 +4039,9 @@ public interface RepositoryPackage extends EPackage {
                 .getOperationSignature_ReturnType__OperationSignature();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.OperationInterfaceImpl
-         * <em>Operation Interface</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.OperationInterfaceImpl <em>Operation
+         * Interface</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.OperationInterfaceImpl
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getOperationInterface()
@@ -4065,9 +4059,9 @@ public interface RepositoryPackage extends EPackage {
                 .getOperationInterface_Signatures__OperationInterface();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.OperationRequiredRoleImpl
-         * <em>Operation Required Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.OperationRequiredRoleImpl <em>Operation
+         * Required Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.OperationRequiredRoleImpl
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getOperationRequiredRole()
@@ -4076,9 +4070,8 @@ public interface RepositoryPackage extends EPackage {
         EClass OPERATION_REQUIRED_ROLE = eINSTANCE.getOperationRequiredRole();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Required Interface Operation Required Role</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Required Interface Operation Required
+         * Role</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -4086,8 +4079,8 @@ public interface RepositoryPackage extends EPackage {
                 .getOperationRequiredRole_RequiredInterface__OperationRequiredRole();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.SourceRoleImpl <em>Source Role</em>}'
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.SourceRoleImpl <em>Source Role</em>}'
          * class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.SourceRoleImpl
@@ -4105,9 +4098,9 @@ public interface RepositoryPackage extends EPackage {
         EReference SOURCE_ROLE__EVENT_GROUP_SOURCE_ROLE = eINSTANCE.getSourceRole_EventGroup__SourceRole();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.SinkRoleImpl <em>Sink Role</em>}' class.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.SinkRoleImpl <em>Sink Role</em>}'
+         * class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.SinkRoleImpl
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getSinkRole()
@@ -4124,9 +4117,9 @@ public interface RepositoryPackage extends EPackage {
         EReference SINK_ROLE__EVENT_GROUP_SINK_ROLE = eINSTANCE.getSinkRole_EventGroup__SinkRole();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.OperationProvidedRoleImpl
-         * <em>Operation Provided Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.OperationProvidedRoleImpl <em>Operation
+         * Provided Role</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.OperationProvidedRoleImpl
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getOperationProvidedRole()
@@ -4135,9 +4128,8 @@ public interface RepositoryPackage extends EPackage {
         EClass OPERATION_PROVIDED_ROLE = eINSTANCE.getOperationProvidedRole();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Provided Interface Operation Provided Role</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Provided Interface Operation Provided
+         * Role</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -4157,9 +4149,8 @@ public interface RepositoryPackage extends EPackage {
         EClass INFRASTRUCTURE_PROVIDED_ROLE = eINSTANCE.getInfrastructureProvidedRole();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Provided Interface Infrastructure Provided Role</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Provided Interface Infrastructure Provided
+         * Role</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -4167,9 +4158,9 @@ public interface RepositoryPackage extends EPackage {
                 .getInfrastructureProvidedRole_ProvidedInterface__InfrastructureProvidedRole();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.CompleteComponentTypeImpl
-         * <em>Complete Component Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.CompleteComponentTypeImpl <em>Complete
+         * Component Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.CompleteComponentTypeImpl
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getCompleteComponentType()
@@ -4187,9 +4178,9 @@ public interface RepositoryPackage extends EPackage {
                 .getCompleteComponentType_ParentProvidesComponentTypes();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.ProvidesComponentTypeImpl
-         * <em>Provides Component Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.ProvidesComponentTypeImpl <em>Provides
+         * Component Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.ProvidesComponentTypeImpl
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getProvidesComponentType()
@@ -4198,9 +4189,9 @@ public interface RepositoryPackage extends EPackage {
         EClass PROVIDES_COMPONENT_TYPE = eINSTANCE.getProvidesComponentType();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.CompositeComponentImpl
-         * <em>Composite Component</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.CompositeComponentImpl <em>Composite
+         * Component</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.CompositeComponentImpl
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getCompositeComponent()
@@ -4209,9 +4200,9 @@ public interface RepositoryPackage extends EPackage {
         EClass COMPOSITE_COMPONENT = eINSTANCE.getCompositeComponent();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.PrimitiveDataTypeImpl
-         * <em>Primitive Data Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.PrimitiveDataTypeImpl <em>Primitive
+         * Data Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.PrimitiveDataTypeImpl
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getPrimitiveDataType()
@@ -4228,9 +4219,9 @@ public interface RepositoryPackage extends EPackage {
         EAttribute PRIMITIVE_DATA_TYPE__TYPE = eINSTANCE.getPrimitiveDataType_Type();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.CollectionDataTypeImpl
-         * <em>Collection Data Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.CollectionDataTypeImpl <em>Collection
+         * Data Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.CollectionDataTypeImpl
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getCollectionDataType()
@@ -4248,9 +4239,9 @@ public interface RepositoryPackage extends EPackage {
                 .getCollectionDataType_InnerType_CollectionDataType();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.CompositeDataTypeImpl
-         * <em>Composite Data Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.CompositeDataTypeImpl <em>Composite
+         * Data Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.CompositeDataTypeImpl
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getCompositeDataType()
@@ -4277,9 +4268,9 @@ public interface RepositoryPackage extends EPackage {
                 .getCompositeDataType_InnerDeclaration_CompositeDataType();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.impl.InnerDeclarationImpl
-         * <em>Inner Declaration</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.impl.InnerDeclarationImpl <em>Inner
+         * Declaration</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.impl.InnerDeclarationImpl
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getInnerDeclaration()
@@ -4317,9 +4308,9 @@ public interface RepositoryPackage extends EPackage {
         EClass ROLE = eINSTANCE.getRole();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.ParameterModifier
-         * <em>Parameter Modifier</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.ParameterModifier <em>Parameter
+         * Modifier</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.ParameterModifier
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getParameterModifier()
@@ -4328,9 +4319,9 @@ public interface RepositoryPackage extends EPackage {
         EEnum PARAMETER_MODIFIER = eINSTANCE.getParameterModifier();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.ComponentType <em>Component Type</em>}' enum.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.ComponentType <em>Component Type</em>}'
+         * enum. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.ComponentType
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getComponentType()
@@ -4339,9 +4330,9 @@ public interface RepositoryPackage extends EPackage {
         EEnum COMPONENT_TYPE = eINSTANCE.getComponentType();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.repository.PrimitiveTypeEnum
-         * <em>Primitive Type Enum</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.repository.PrimitiveTypeEnum <em>Primitive Type
+         * Enum</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.repository.PrimitiveTypeEnum
          * @see org.palladiosimulator.pcm.repository.impl.RepositoryPackageImpl#getPrimitiveTypeEnum()

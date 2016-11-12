@@ -11,8 +11,8 @@ import org.eclipse.emf.common.util.EList;
 import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Resource Demanding Behaviour</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Resource Demanding
+ * Behaviour</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> Models the behaviour of a component service as a sequence of internal
  * actions with resource demands, control flow constructs, and external calls. Therefore, the class
@@ -29,17 +29,15 @@ import de.uka.ipd.sdq.identifier.Identifier;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getAbstractLoopAction_ResourceDemandingBehaviour
+ * <li>{@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getAbstractLoopAction_ResourceDemandingBehaviour
  * <em>Abstract Loop Action Resource Demanding Behaviour</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getAbstractBranchTransition_ResourceDemandingBehaviour
+ * <li>{@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getAbstractBranchTransition_ResourceDemandingBehaviour
  * <em>Abstract Branch Transition Resource Demanding Behaviour</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getSteps_Behaviour <em>Steps
  * Behaviour</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getResourceDemandingBehaviour()
  * @model
@@ -52,13 +50,13 @@ public interface ResourceDemandingBehaviour extends Identifier {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Abstract Loop Action Resource Demanding Behaviour</b></em>'
-     * container reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop
-     * <em>Body Behaviour Loop</em>}'. <!-- begin-user-doc -->
+     * container reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop <em>Body
+     * Behaviour Loop</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Abstract Loop Action Resource Demanding Behaviour</em>' container
      * reference isn't clear, there really should be more of a description here...
@@ -90,10 +88,9 @@ public interface ResourceDemandingBehaviour extends Identifier {
     void setAbstractLoopAction_ResourceDemandingBehaviour(AbstractLoopAction value);
 
     /**
-     * Returns the value of the '
-     * <em><b>Abstract Branch Transition Resource Demanding Behaviour</b></em>' container reference.
-     * It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition
+     * Returns the value of the '<em><b>Abstract Branch Transition Resource Demanding
+     * Behaviour</b></em>' container reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition
      * <em>Branch Behaviour Branch Transition</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Abstract Branch Transition Resource Demanding Behaviour</em>'
@@ -118,9 +115,8 @@ public interface ResourceDemandingBehaviour extends Identifier {
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
-     *            the new value of the '
-     *            <em>Abstract Branch Transition Resource Demanding Behaviour</em>' container
-     *            reference.
+     *            the new value of the ' <em>Abstract Branch Transition Resource Demanding
+     *            Behaviour</em>' container reference.
      * @see #getAbstractBranchTransition_ResourceDemandingBehaviour()
      * @generated
      */
@@ -129,8 +125,8 @@ public interface ResourceDemandingBehaviour extends Identifier {
     /**
      * Returns the value of the '<em><b>Steps Behaviour</b></em>' containment reference list. The
      * list contents are of type {@link org.palladiosimulator.pcm.seff.AbstractAction}. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.seff.AbstractAction#getResourceDemandingBehaviour_AbstractAction
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.seff.AbstractAction#getResourceDemandingBehaviour_AbstractAction
      * <em>Resource Demanding Behaviour Abstract Action</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Steps Behaviour</em>' containment reference list isn't clear,
@@ -154,8 +150,8 @@ public interface ResourceDemandingBehaviour extends Identifier {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() = 1'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() = 1'"
      * @generated
      */
     boolean ExactlyOneStopAction(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -167,8 +163,8 @@ public interface ResourceDemandingBehaviour extends Identifier {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.steps_Behaviour->select(s|s.oclIsTypeOf(StartAction))->size() = 1'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.steps_Behaviour->select(s|s.oclIsTypeOf(StartAction))->size() = 1'"
      * @generated
      */
     boolean ExactlyOneStartAction(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -180,8 +176,11 @@ public interface ResourceDemandingBehaviour extends Identifier {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined()) and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined())'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel body='not
+     *        self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not
+     *        s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined())
+     *        and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not
+     *        s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined())'"
      * @generated
      */
     boolean EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(DiagnosticChain diagnostics,

@@ -20,13 +20,13 @@ import org.palladiosimulator.pcm.core.PCMRandomVariable;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload#getPopulation <em>Population</em>}
- * </li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload <em>
- * Think Time Closed Workload</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload#getPopulation
+ * <em>Population</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload
+ * <em>Think Time Closed Workload</em>}</li>
+ * </ul>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getClosedWorkload()
  * @model
@@ -39,7 +39,7 @@ public interface ClosedWorkload extends Workload {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Population</b></em>' attribute. <!-- begin-user-doc -->
@@ -58,9 +58,9 @@ public interface ClosedWorkload extends Workload {
     int getPopulation();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload#getPopulation <em>Population</em>}
-     * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload#getPopulation
+     * <em>Population</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Population</em>' attribute.
@@ -71,8 +71,8 @@ public interface ClosedWorkload extends Workload {
 
     /**
      * Returns the value of the '<em><b>Think Time Closed Workload</b></em>' containment reference.
-     * It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getClosedWorkload_PCMRandomVariable
+     * It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getClosedWorkload_PCMRandomVariable
      * <em>Closed Workload PCM Random Variable</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Think Time Closed Workload</em>' containment reference isn't
@@ -91,8 +91,8 @@ public interface ClosedWorkload extends Workload {
     PCMRandomVariable getThinkTime_ClosedWorkload();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload
      * <em>Think Time Closed Workload</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -110,8 +110,8 @@ public interface ClosedWorkload extends Workload {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.population.oclIsUndefined() and self.population <> \'\''"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel body='not
+     *        self.population.oclIsUndefined() and self.population <> \'\''"
      * @generated
      */
     boolean PopulationInClosedWorkloadNeedsToBeSpecified(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -123,8 +123,9 @@ public interface ClosedWorkload extends Workload {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='not self.thinkTime_ClosedWorkload.oclIsUndefined() and self.thinkTime_ClosedWorkload.specification <> \'\''"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel body='not
+     *        self.thinkTime_ClosedWorkload.oclIsUndefined() and
+     *        self.thinkTime_ClosedWorkload.specification <> \'\''"
      * @generated
      */
     boolean ThinkTimeInClosedWorkloadNeedsToBeSpecified(DiagnosticChain diagnostics, Map<Object, Object> context);

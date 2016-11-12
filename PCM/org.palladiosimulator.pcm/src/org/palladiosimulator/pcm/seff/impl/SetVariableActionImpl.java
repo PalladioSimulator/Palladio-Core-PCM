@@ -15,16 +15,15 @@ import org.palladiosimulator.pcm.seff.SeffPackage;
 import org.palladiosimulator.pcm.seff.SetVariableAction;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Set Variable Action</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Set Variable
+ * Action</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.impl.SetVariableActionImpl#getLocalVariableUsages_SetVariableAction
+ * <li>{@link org.palladiosimulator.pcm.seff.impl.SetVariableActionImpl#getLocalVariableUsages_SetVariableAction
  * <em>Local Variable Usages Set Variable Action</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -35,7 +34,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -78,8 +77,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getLocalVariableUsages_SetVariableAction())
                     .basicAdd(otherEnd, msgs);
@@ -95,8 +93,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
             return ((InternalEList<?>) this.getLocalVariableUsages_SetVariableAction()).basicRemove(otherEnd, msgs);
         }
@@ -110,8 +107,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
             return this.getLocalVariableUsages_SetVariableAction();
         }
@@ -126,8 +122,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
             this.getLocalVariableUsages_SetVariableAction().clear();
             this.getLocalVariableUsages_SetVariableAction().addAll((Collection<? extends VariableUsage>) newValue);
@@ -143,8 +138,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
             this.getLocalVariableUsages_SetVariableAction().clear();
             return;
@@ -159,8 +153,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
             return !this.getLocalVariableUsages_SetVariableAction().isEmpty();
         }

@@ -22,26 +22,23 @@ import org.palladiosimulator.pcm.resourcetype.ResourcetypePackage;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.impl.ParameterImpl#getDataType__Parameter <em>
- * Data Type Parameter</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.impl.ParameterImpl#getInfrastructureSignature__Parameter
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.ParameterImpl#getDataType__Parameter
+ * <em>Data Type Parameter</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.ParameterImpl#getInfrastructureSignature__Parameter
  * <em>Infrastructure Signature Parameter</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.impl.ParameterImpl#getOperationSignature__Parameter
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.ParameterImpl#getOperationSignature__Parameter
  * <em>Operation Signature Parameter</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.impl.ParameterImpl#getEventType__Parameter <em>
- * Event Type Parameter</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.ParameterImpl#getEventType__Parameter
+ * <em>Event Type Parameter</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.repository.impl.ParameterImpl#getParameterName <em>Parameter
  * Name</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.repository.impl.ParameterImpl#getModifier__Parameter <em>
- * Modifier Parameter</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.impl.ParameterImpl#getResourceSignature__Parameter
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.ParameterImpl#getModifier__Parameter
+ * <em>Modifier Parameter</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.ParameterImpl#getResourceSignature__Parameter
  * <em>Resource Signature Parameter</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -52,7 +49,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The default value of the '{@link #getParameterName() <em>Parameter Name</em>}' attribute.
@@ -326,8 +323,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.PARAMETER__INFRASTRUCTURE_SIGNATURE_PARAMETER:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -360,8 +356,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.PARAMETER__INFRASTRUCTURE_SIGNATURE_PARAMETER:
             return this.basicSetInfrastructureSignature__Parameter(null, msgs);
         case RepositoryPackage.PARAMETER__OPERATION_SIGNATURE_PARAMETER:
@@ -381,8 +376,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case RepositoryPackage.PARAMETER__INFRASTRUCTURE_SIGNATURE_PARAMETER:
             return this.eInternalContainer().eInverseRemove(this,
                     RepositoryPackage.INFRASTRUCTURE_SIGNATURE__PARAMETERS_INFRASTRUCTURE_SIGNATURE,
@@ -395,9 +389,9 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
             return this.eInternalContainer().eInverseRemove(this, RepositoryPackage.EVENT_TYPE__PARAMETER_EVENT_TYPE,
                     EventType.class, msgs);
         case RepositoryPackage.PARAMETER__RESOURCE_SIGNATURE_PARAMETER:
-            return this.eInternalContainer()
-                    .eInverseRemove(this, ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE,
-                            ResourceSignature.class, msgs);
+            return this.eInternalContainer().eInverseRemove(this,
+                    ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE, ResourceSignature.class,
+                    msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
@@ -409,8 +403,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.PARAMETER__DATA_TYPE_PARAMETER:
             if (resolve) {
                 return this.getDataType__Parameter();
@@ -439,8 +432,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.PARAMETER__DATA_TYPE_PARAMETER:
             this.setDataType__Parameter((DataType) newValue);
             return;
@@ -473,8 +465,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.PARAMETER__DATA_TYPE_PARAMETER:
             this.setDataType__Parameter((DataType) null);
             return;
@@ -507,8 +498,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.PARAMETER__DATA_TYPE_PARAMETER:
             return this.basicGetDataType__Parameter() != null;
         case RepositoryPackage.PARAMETER__INFRASTRUCTURE_SIGNATURE_PARAMETER:
@@ -518,8 +508,8 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
         case RepositoryPackage.PARAMETER__EVENT_TYPE_PARAMETER:
             return this.getEventType__Parameter() != null;
         case RepositoryPackage.PARAMETER__PARAMETER_NAME:
-            return PARAMETER_NAME_EDEFAULT == null ? this.getParameterName() != null : !PARAMETER_NAME_EDEFAULT
-                    .equals(this.getParameterName());
+            return PARAMETER_NAME_EDEFAULT == null ? this.getParameterName() != null
+                    : !PARAMETER_NAME_EDEFAULT.equals(this.getParameterName());
         case RepositoryPackage.PARAMETER__MODIFIER_PARAMETER:
             return this.getModifier__Parameter() != MODIFIER_PARAMETER_EDEFAULT;
         case RepositoryPackage.PARAMETER__RESOURCE_SIGNATURE_PARAMETER:

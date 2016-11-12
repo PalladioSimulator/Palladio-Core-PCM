@@ -7,8 +7,8 @@ import org.eclipse.emf.common.util.EList;
 import org.palladiosimulator.pcm.repository.RequiredRole;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Interface Requiring Entity</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Interface Requiring
+ * Entity</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> All Entities that require an Interface are represented by this class.
  * Prominent inheriting classes are all component types, for example.
@@ -26,12 +26,11 @@ import org.palladiosimulator.pcm.repository.RequiredRole;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity#getRequiredRoles_InterfaceRequiringEntity
+ * <li>{@link org.palladiosimulator.pcm.core.entity.InterfaceRequiringEntity#getRequiredRoles_InterfaceRequiringEntity
  * <em>Required Roles Interface Requiring Entity</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.core.entity.EntityPackage#getInterfaceRequiringEntity()
  * @model abstract="true"
@@ -44,14 +43,14 @@ public interface InterfaceRequiringEntity extends Entity, ResourceInterfaceRequi
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Required Roles Interface Requiring Entity</b></em>'
      * containment reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.repository.RequiredRole}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole
      * <em>Requiring Entity Required Role</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Required Roles Interface Requiring Entity</em>' containment

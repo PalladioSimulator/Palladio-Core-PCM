@@ -21,8 +21,10 @@ import org.palladiosimulator.pcm.qosannotations.QosannotationsPackage;
  * Reliability&nbsp;aspects&nbsp;of&nbsp;QoS&nbsp;annotations. <!-- end-model-doc -->
  *
  * @see org.palladiosimulator.pcm.qosannotations.qos_reliability.QosReliabilityFactory
- * @model kind="package" annotation=
- *        "http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
+ * @model kind="package" annotation= "http://www.eclipse.org/emf/2002/Ecore
+ *        invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface QosReliabilityPackage extends EPackage {
@@ -32,7 +34,7 @@ public interface QosReliabilityPackage extends EPackage {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -104,14 +106,15 @@ public interface QosReliabilityPackage extends EPackage {
     int SPECIFIED_RELIABILITY_ANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION;
 
     /**
-     * The feature id for the '
-     * <em><b>External Failure Occurrence Descriptions Specified Reliability Annotation</b></em>'
-     * containment reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>External Failure Occurrence Descriptions Specified Reliability
+     * Annotation</b></em>' containment reference list. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @generated
      * @ordered
      */
-    int SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION_FEATURE_COUNT + 0;
+    int SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION_FEATURE_COUNT
+            + 0;
 
     /**
      * The number of structural features of the '<em>Specified Reliability Annotation</em>' class.
@@ -120,11 +123,12 @@ public interface QosReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int SPECIFIED_RELIABILITY_ANNOTATION_FEATURE_COUNT = QosannotationsPackage.SPECIFIED_QO_SANNOTATION_FEATURE_COUNT + 1;
+    int SPECIFIED_RELIABILITY_ANNOTATION_FEATURE_COUNT = QosannotationsPackage.SPECIFIED_QO_SANNOTATION_FEATURE_COUNT
+            + 1;
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation
      * <em>Specified Reliability Annotation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Specified Reliability Annotation</em>'.
@@ -139,8 +143,8 @@ public interface QosReliabilityPackage extends EPackage {
      * <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em>'.
+     * @return the meta object for the containment reference list ' <em>External Failure Occurrence
+     *         Descriptions Specified Reliability Annotation</em>'.
      * @see org.palladiosimulator.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation#getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation()
      * @see #getSpecifiedReliabilityAnnotation()
      * @generated
@@ -171,8 +175,8 @@ public interface QosReliabilityPackage extends EPackage {
     interface Literals {
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.qosannotations.qos_reliability.impl.SpecifiedReliabilityAnnotationImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.qosannotations.qos_reliability.impl.SpecifiedReliabilityAnnotationImpl
          * <em>Specified Reliability Annotation</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
@@ -183,9 +187,9 @@ public interface QosReliabilityPackage extends EPackage {
         EClass SPECIFIED_RELIABILITY_ANNOTATION = eINSTANCE.getSpecifiedReliabilityAnnotation();
 
         /**
-         * The meta object literal for the '
-         * <em><b>External Failure Occurrence Descriptions Specified Reliability Annotation</b></em>
-         * ' containment reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>External Failure Occurrence Descriptions
+         * Specified Reliability Annotation</b></em>' containment reference list feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */

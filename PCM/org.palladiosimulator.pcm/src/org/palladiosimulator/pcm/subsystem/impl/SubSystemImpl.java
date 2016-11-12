@@ -18,12 +18,11 @@ import org.palladiosimulator.pcm.subsystem.SubsystemPackage;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.subsystem.impl.SubSystemImpl#getRepository__RepositoryComponent
+ * <li>{@link org.palladiosimulator.pcm.subsystem.impl.SubSystemImpl#getRepository__RepositoryComponent
  * <em>Repository Repository Component</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -34,7 +33,7 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -97,8 +96,7 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SubsystemPackage.SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -116,8 +114,7 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SubsystemPackage.SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT:
             return this.basicSetRepository__RepositoryComponent(null, msgs);
         }
@@ -131,8 +128,7 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case SubsystemPackage.SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT:
             return this.eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY,
                     Repository.class, msgs);
@@ -147,8 +143,7 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SubsystemPackage.SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT:
             return this.getRepository__RepositoryComponent();
         }
@@ -162,8 +157,7 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SubsystemPackage.SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT:
             this.setRepository__RepositoryComponent((Repository) newValue);
             return;
@@ -178,8 +172,7 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SubsystemPackage.SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT:
             this.setRepository__RepositoryComponent((Repository) null);
             return;
@@ -194,8 +187,7 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case SubsystemPackage.SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT:
             return this.getRepository__RepositoryComponent() != null;
         }
@@ -209,10 +201,8 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == RepositoryComponent.class)
-        {
-            switch (derivedFeatureID)
-            {
+        if (baseClass == RepositoryComponent.class) {
+            switch (derivedFeatureID) {
             case SubsystemPackage.SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT:
                 return RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT;
             default:
@@ -229,10 +219,8 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == RepositoryComponent.class)
-        {
-            switch (baseFeatureID)
-            {
+        if (baseClass == RepositoryComponent.class) {
+            switch (baseFeatureID) {
             case RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
                 return SubsystemPackage.SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT;
             default:

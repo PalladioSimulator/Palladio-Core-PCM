@@ -6,23 +6,20 @@ package org.palladiosimulator.pcm.core.composition;
 import org.palladiosimulator.pcm.core.entity.ResourceRequiredRole;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Required Resource Delegation Connector</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Required Resource
+ * Delegation Connector</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector#getAssemblyContext__RequiredResourceDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector#getAssemblyContext__RequiredResourceDelegationConnector
  * <em>Assembly Context Required Resource Delegation Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector#getInnerRequiredRole__RequiredResourceDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector#getInnerRequiredRole__RequiredResourceDelegationConnector
  * <em>Inner Required Role Required Resource Delegation Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector#getOuterRequiredRole__RequiredResourceDelegationConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector#getOuterRequiredRole__RequiredResourceDelegationConnector
  * <em>Outer Required Role Required Resource Delegation Connector</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getRequiredResourceDelegationConnector()
  * @model
@@ -35,12 +32,11 @@ public interface RequiredResourceDelegationConnector extends DelegationConnector
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
-     * Returns the value of the '
-     * <em><b>Assembly Context Required Resource Delegation Connector</b></em>' reference. <!--
-     * begin-user-doc -->
+     * Returns the value of the ' <em><b>Assembly Context Required Resource Delegation
+     * Connector</b></em>' reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Assembly Context Required Resource Delegation Connector</em>'
      * reference isn't clear, there really should be more of a description here...
@@ -63,17 +59,16 @@ public interface RequiredResourceDelegationConnector extends DelegationConnector
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
-     *            the new value of the '
-     *            <em>Assembly Context Required Resource Delegation Connector</em>' reference.
+     *            the new value of the ' <em>Assembly Context Required Resource Delegation
+     *            Connector</em>' reference.
      * @see #getAssemblyContext__RequiredResourceDelegationConnector()
      * @generated
      */
     void setAssemblyContext__RequiredResourceDelegationConnector(AssemblyContext value);
 
     /**
-     * Returns the value of the '
-     * <em><b>Inner Required Role Required Resource Delegation Connector</b></em>' reference. <!--
-     * begin-user-doc -->
+     * Returns the value of the ' <em><b>Inner Required Role Required Resource Delegation
+     * Connector</b></em>' reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Inner Required Role Required Resource Delegation Connector</em>'
      * reference isn't clear, there really should be more of a description here...
@@ -96,17 +91,16 @@ public interface RequiredResourceDelegationConnector extends DelegationConnector
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
-     *            the new value of the '
-     *            <em>Inner Required Role Required Resource Delegation Connector</em>' reference.
+     *            the new value of the ' <em>Inner Required Role Required Resource Delegation
+     *            Connector</em>' reference.
      * @see #getInnerRequiredRole__RequiredResourceDelegationConnector()
      * @generated
      */
     void setInnerRequiredRole__RequiredResourceDelegationConnector(ResourceRequiredRole value);
 
     /**
-     * Returns the value of the '
-     * <em><b>Outer Required Role Required Resource Delegation Connector</b></em>' reference. <!--
-     * begin-user-doc -->
+     * Returns the value of the ' <em><b>Outer Required Role Required Resource Delegation
+     * Connector</b></em>' reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Outer Required Role Required Resource Delegation Connector</em>'
      * reference isn't clear, there really should be more of a description here...
@@ -129,8 +123,8 @@ public interface RequiredResourceDelegationConnector extends DelegationConnector
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
-     *            the new value of the '
-     *            <em>Outer Required Role Required Resource Delegation Connector</em>' reference.
+     *            the new value of the ' <em>Outer Required Role Required Resource Delegation
+     *            Connector</em>' reference.
      * @see #getOuterRequiredRole__RequiredResourceDelegationConnector()
      * @generated
      */

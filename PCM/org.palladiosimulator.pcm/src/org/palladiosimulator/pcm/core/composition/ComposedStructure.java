@@ -24,21 +24,17 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getAssemblyContexts__ComposedStructure
+ * <li>{@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getAssemblyContexts__ComposedStructure
  * <em>Assembly Contexts Composed Structure</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure
+ * <li>{@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getResourceRequiredDelegationConnectors_ComposedStructure
  * <em>Resource Required Delegation Connectors Composed Structure</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getEventChannel__ComposedStructure
+ * <li>{@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getEventChannel__ComposedStructure
  * <em>Event Channel Composed Structure</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getConnectors__ComposedStructure
+ * <li>{@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getConnectors__ComposedStructure
  * <em>Connectors Composed Structure</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getComposedStructure()
  * @model abstract="true"
@@ -51,14 +47,14 @@ public interface ComposedStructure extends Entity {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Assembly Contexts Composed Structure</b></em>' containment
      * reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.core.composition.AssemblyContext}. It is bidirectional and
-     * its opposite is '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyContext#getParentStructure__AssemblyContext
+     * its opposite is
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyContext#getParentStructure__AssemblyContext
      * <em>Parent Structure Assembly Context</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Assembly Contexts Composed Structure</em>' containment reference
@@ -76,12 +72,11 @@ public interface ComposedStructure extends Entity {
     EList<AssemblyContext> getAssemblyContexts__ComposedStructure();
 
     /**
-     * Returns the value of the '
-     * <em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment
-     * reference list. The list contents are of type
+     * Returns the value of the '<em><b>Resource Required Delegation Connectors Composed
+     * Structure</b></em>' containment reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector}. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector
      * <em>Parent Structure Resource Required Delegation Connector</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Resource Required Delegation Connectors Composed Structure</em>'
@@ -89,8 +84,8 @@ public interface ComposedStructure extends Entity {
      * </p>
      * <!-- end-user-doc -->
      *
-     * @return the value of the '<em>Resource Required Delegation Connectors Composed Structure</em>
-     *         ' containment reference list.
+     * @return the value of the '<em>Resource Required Delegation Connectors Composed
+     *         Structure</em>' containment reference list.
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getComposedStructure_ResourceRequiredDelegationConnectors_ComposedStructure()
      * @see org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector
      * @model opposite="parentStructure_ResourceRequiredDelegationConnector" containment="true"
@@ -103,8 +98,8 @@ public interface ComposedStructure extends Entity {
      * Returns the value of the '<em><b>Event Channel Composed Structure</b></em>' containment
      * reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.core.composition.EventChannel}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.core.composition.EventChannel#getParentStructure__EventChannel
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannel#getParentStructure__EventChannel
      * <em>Parent Structure Event Channel</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Event Channel Composed Structure</em>' containment reference list
@@ -125,8 +120,8 @@ public interface ComposedStructure extends Entity {
      * Returns the value of the '<em><b>Connectors Composed Structure</b></em>' containment
      * reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.core.composition.Connector}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.core.composition.Connector#getParentStructure__Connector
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.core.composition.Connector#getParentStructure__Connector
      * <em>Parent Structure Connector</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Connectors Composed Structure</em>' containment reference list
@@ -149,8 +144,11 @@ public interface ComposedStructure extends Entity {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->forAll( c1, c2 | c1 <> c2 implies c1.outerProvidedRole_ProvidedDelegationConnector <> c2.outerProvidedRole_ProvidedDelegationConnector)\r\n'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.connectors__ComposedStructure->select(conn |
+     *        conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->forAll(
+     *        c1, c2 | c1 <> c2 implies c1.outerProvidedRole_ProvidedDelegationConnector <>
+     *        c2.outerProvidedRole_ProvidedDelegationConnector)\r\n'"
      * @generated
      */
     boolean MultipleConnectorsConstraint(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -162,8 +160,12 @@ public interface ComposedStructure extends Entity {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::AssemblyConnector)).oclAsType(AssemblyConnector)->forAll( c1, c2 | ( (c1 <> c2) and ( c1.requiringAssemblyContext_AssemblyConnector = c2.requiringAssemblyContext_AssemblyConnector ) ) implies c1.requiredRole_AssemblyConnector <> c2.requiredRole_AssemblyConnector )\r\n'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.connectors__ComposedStructure->select(conn |
+     *        conn.oclIsTypeOf(pcm::core::composition::AssemblyConnector)).oclAsType(AssemblyConnector)->forAll(
+     *        c1, c2 | ( (c1 <> c2) and ( c1.requiringAssemblyContext_AssemblyConnector =
+     *        c2.requiringAssemblyContext_AssemblyConnector ) ) implies
+     *        c1.requiredRole_AssemblyConnector <> c2.requiredRole_AssemblyConnector )\r\n'"
      * @generated
      */
     boolean MultipleConnectorsConstraintForAssemblyConnectors(DiagnosticChain diagnostics, Map<Object, Object> context);

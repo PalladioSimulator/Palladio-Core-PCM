@@ -62,7 +62,7 @@ public class RepositoryValidator extends EObjectValidator {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -248,8 +248,7 @@ public class RepositoryValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID)
-        {
+        switch (classifierID) {
         case RepositoryPackage.PASSIVE_RESOURCE:
             return this.validatePassiveResource((PassiveResource) value, diagnostics, context);
         case RepositoryPackage.BASIC_COMPONENT:
@@ -355,6 +354,9 @@ public class RepositoryValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(basicComponent, diagnostics, context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(basicComponent, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(basicComponent, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -416,12 +418,17 @@ public class RepositoryValidator extends EObjectValidator {
         if (!this.validate_NoCircularContainment(implementationComponentType, diagnostics, context)) {
             return false;
         }
-        boolean result = this.validate_EveryMultiplicityConforms(implementationComponentType, diagnostics, context);
+        boolean result = this.validate_EveryMultiplicityConforms(implementationComponentType, diagnostics,
+                context);
         if (result || diagnostics != null) {
             result &= this.validate_EveryDataValueConforms(implementationComponentType, diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryReferenceIsContained(implementationComponentType, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(implementationComponentType, diagnostics,
+                    context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(implementationComponentType, diagnostics, context);
@@ -459,8 +466,8 @@ public class RepositoryValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the RequiredInterfacesHaveToConformToCompleteType constraint of '
-     * <em>Implementation Component Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the RequiredInterfacesHaveToConformToCompleteType constraint of '<em>Implementation
+     * Component Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -471,8 +478,8 @@ public class RepositoryValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the providedInterfacesHaveToConformToCompleteType constraint of '
-     * <em>Implementation Component Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the providedInterfacesHaveToConformToCompleteType constraint of '<em>Implementation
+     * Component Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -483,8 +490,8 @@ public class RepositoryValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the ProvidedInterfaceHaveToConformToComponentType constraint of '
-     * <em>Implementation Component Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the ProvidedInterfaceHaveToConformToComponentType constraint of '<em>Implementation
+     * Component Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -495,8 +502,8 @@ public class RepositoryValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the ProvideSameOrMoreInterfacesAsCompleteComponentType constraint of '
-     * <em>Implementation Component Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the ProvideSameOrMoreInterfacesAsCompleteComponentType constraint of
+     * '<em>Implementation Component Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -507,8 +514,8 @@ public class RepositoryValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the RequireSameOrFewerInterfacesAsCompleteComponentType constraint of '
-     * <em>Implementation Component Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the RequireSameOrFewerInterfacesAsCompleteComponentType constraint of
+     * '<em>Implementation Component Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -587,6 +594,9 @@ public class RepositoryValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(interface_, diagnostics, context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(interface_, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(interface_, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -642,6 +652,9 @@ public class RepositoryValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryReferenceIsContained(eventGroup, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(eventGroup, diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(eventGroup, diagnostics, context);
@@ -719,6 +732,10 @@ public class RepositoryValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(infrastructureInterface, diagnostics, context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(infrastructureInterface, diagnostics,
+                    context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(infrastructureInterface, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -775,6 +792,9 @@ public class RepositoryValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(operationSignature, diagnostics, context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(operationSignature, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(operationSignature, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -794,8 +814,8 @@ public class RepositoryValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the ParameterNamesHaveToBeUniqueForASignature constraint of '
-     * <em>Operation Signature</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the ParameterNamesHaveToBeUniqueForASignature constraint of '<em>Operation
+     * Signature</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -824,6 +844,9 @@ public class RepositoryValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(operationInterface, diagnostics, context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(operationInterface, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(operationInterface, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -840,14 +863,15 @@ public class RepositoryValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validateOperationInterface_SignaturesHaveToBeUniqueForAnInterface(operationInterface,
-                    diagnostics, context);
+                    diagnostics,
+                    context);
         }
         return result;
     }
 
     /**
-     * Validates the SignaturesHaveToBeUniqueForAnInterface constraint of '
-     * <em>Operation Interface</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the SignaturesHaveToBeUniqueForAnInterface constraint of '<em>Operation
+     * Interface</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -925,6 +949,10 @@ public class RepositoryValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(completeComponentType, diagnostics, context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(completeComponentType, diagnostics,
+                    context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(completeComponentType, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -958,13 +986,13 @@ public class RepositoryValidator extends EObjectValidator {
     public boolean validateCompleteComponentType_AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(
             final CompleteComponentType completeComponentType, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        return completeComponentType.AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(
-                diagnostics, context);
+        return completeComponentType
+                .AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(diagnostics, context);
     }
 
     /**
-     * Validates the providedInterfacesHaveToConformToProvidedType2 constraint of '
-     * <em>Complete Component Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the providedInterfacesHaveToConformToProvidedType2 constraint of '<em>Complete
+     * Component Type</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -990,6 +1018,10 @@ public class RepositoryValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryReferenceIsContained(providesComponentType, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(providesComponentType, diagnostics,
+                    context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(providesComponentType, diagnostics, context);
@@ -1041,6 +1073,9 @@ public class RepositoryValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryReferenceIsContained(compositeComponent, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(compositeComponent, diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(compositeComponent, diagnostics, context);

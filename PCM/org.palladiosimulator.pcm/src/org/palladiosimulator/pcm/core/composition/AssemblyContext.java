@@ -17,18 +17,15 @@ import org.palladiosimulator.pcm.repository.RepositoryComponent;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.AssemblyContext#getParentStructure__AssemblyContext
+ * <li>{@link org.palladiosimulator.pcm.core.composition.AssemblyContext#getParentStructure__AssemblyContext
  * <em>Parent Structure Assembly Context</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.AssemblyContext#getEncapsulatedComponent__AssemblyContext
+ * <li>{@link org.palladiosimulator.pcm.core.composition.AssemblyContext#getEncapsulatedComponent__AssemblyContext
  * <em>Encapsulated Component Assembly Context</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.AssemblyContext#getConfigParameterUsages__AssemblyContext
+ * <li>{@link org.palladiosimulator.pcm.core.composition.AssemblyContext#getConfigParameterUsages__AssemblyContext
  * <em>Config Parameter Usages Assembly Context</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getAssemblyContext()
  * @model
@@ -41,12 +38,12 @@ public interface AssemblyContext extends Entity {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Parent Structure Assembly Context</b></em>' container
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getAssemblyContexts__ComposedStructure
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.core.composition.ComposedStructure#getAssemblyContexts__ComposedStructure
      * <em>Assembly Contexts Composed Structure</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Parent Structure Assembly Context</em>' container reference isn't
@@ -65,8 +62,8 @@ public interface AssemblyContext extends Entity {
     ComposedStructure getParentStructure__AssemblyContext();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyContext#getParentStructure__AssemblyContext
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyContext#getParentStructure__AssemblyContext
      * <em>Parent Structure Assembly Context</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -96,8 +93,8 @@ public interface AssemblyContext extends Entity {
     RepositoryComponent getEncapsulatedComponent__AssemblyContext();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyContext#getEncapsulatedComponent__AssemblyContext
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyContext#getEncapsulatedComponent__AssemblyContext
      * <em>Encapsulated Component Assembly Context</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -112,8 +109,8 @@ public interface AssemblyContext extends Entity {
      * Returns the value of the '<em><b>Config Parameter Usages Assembly Context</b></em>'
      * containment reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.parameter.VariableUsage}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.parameter.VariableUsage#getAssemblyContext__VariableUsage
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.parameter.VariableUsage#getAssemblyContext__VariableUsage
      * <em>Assembly Context Variable Usage</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Config Parameter Usages Assembly Context</em>' containment

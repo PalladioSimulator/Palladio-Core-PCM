@@ -3,10 +3,9 @@
  */
 package org.palladiosimulator.pcm.protocol.util;
 
-import java.util.List;
-
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.Switch;
 import org.palladiosimulator.pcm.protocol.Protocol;
 import org.palladiosimulator.pcm.protocol.ProtocolPackage;
 
@@ -20,14 +19,14 @@ import org.palladiosimulator.pcm.protocol.ProtocolPackage;
  * @see org.palladiosimulator.pcm.protocol.ProtocolPackage
  * @generated
  */
-public class ProtocolSwitch<T> {
+public class ProtocolSwitch<T> extends Switch<T> {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -42,21 +41,23 @@ public class ProtocolSwitch<T> {
      * @generated
      */
     public ProtocolSwitch() {
-        if (modelPackage == null)
-        {
+        if (modelPackage == null) {
             modelPackage = ProtocolPackage.eINSTANCE;
         }
     }
 
     /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
-     * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Checks whether this is a switch for the given package. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
-     * @return the first non-null result returned by a <code>caseXXX</code> call.
+     * @param ePackage
+     *            the package in question.
+     * @return whether this is a switch for the given package.
      * @generated
      */
-    public T doSwitch(final EObject theEObject) {
-        return this.doSwitch(theEObject.eClass(), theEObject);
+    @Override
+    protected boolean isSwitchFor(final EPackage ePackage) {
+        return ePackage == modelPackage;
     }
 
     /**
@@ -66,30 +67,9 @@ public class ProtocolSwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(final EClass theEClass, final EObject theEObject) {
-        if (theEClass.eContainer() == modelPackage)
-        {
-            return this.doSwitch(theEClass.getClassifierID(), theEObject);
-        }
-        else
-        {
-            final List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ?
-                    this.defaultCase(theEObject) :
-                    this.doSwitch(eSuperTypes.get(0), theEObject);
-        }
-    }
-
-    /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
-     * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the first non-null result returned by a <code>caseXXX</code> call.
-     * @generated
-     */
+    @Override
     protected T doSwitch(final int classifierID, final EObject theEObject) {
-        switch (classifierID)
-        {
+        switch (classifierID) {
         case ProtocolPackage.PROTOCOL: {
             final Protocol protocol = (Protocol) theEObject;
             T result = this.caseProtocol(protocol);
@@ -129,6 +109,7 @@ public class ProtocolSwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
+    @Override
     public T defaultCase(final EObject object) {
         return null;
     }

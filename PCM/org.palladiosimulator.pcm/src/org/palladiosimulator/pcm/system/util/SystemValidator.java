@@ -26,7 +26,7 @@ public class SystemValidator extends EObjectValidator {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -114,8 +114,7 @@ public class SystemValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID)
-        {
+        switch (classifierID) {
         case SystemPackage.SYSTEM:
             return this.validateSystem((org.palladiosimulator.pcm.system.System) value, diagnostics, context);
         default:
@@ -140,6 +139,9 @@ public class SystemValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryReferenceIsContained(system, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(system, diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(system, diagnostics, context);

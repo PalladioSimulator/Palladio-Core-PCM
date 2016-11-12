@@ -19,18 +19,15 @@ import org.palladiosimulator.pcm.repository.RepositoryPackage;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.impl.PassiveResourceImpl#getCapacity_PassiveResource
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.PassiveResourceImpl#getCapacity_PassiveResource
  * <em>Capacity Passive Resource</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.impl.PassiveResourceImpl#getBasicComponent_PassiveResource
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.PassiveResourceImpl#getBasicComponent_PassiveResource
  * <em>Basic Component Passive Resource</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.impl.PassiveResourceImpl#getResourceTimeoutFailureType__PassiveResource
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.PassiveResourceImpl#getResourceTimeoutFailureType__PassiveResource
  * <em>Resource Timeout Failure Type Passive Resource</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -41,7 +38,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -138,11 +135,10 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      */
     @Override
     public ResourceTimeoutFailureType getResourceTimeoutFailureType__PassiveResource() {
-        return (ResourceTimeoutFailureType) this
-                .eDynamicGet(
-                        RepositoryPackage.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE,
-                        RepositoryPackage.Literals.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE,
-                        true, true);
+        return (ResourceTimeoutFailureType) this.eDynamicGet(
+                RepositoryPackage.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE,
+                RepositoryPackage.Literals.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE, true,
+                true);
     }
 
     /**
@@ -189,13 +185,13 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      */
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE:
             final PCMRandomVariable capacity_PassiveResource = this.getCapacity_PassiveResource();
             if (capacity_PassiveResource != null) {
-                msgs = ((InternalEObject) capacity_PassiveResource).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-                        - RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE, null, msgs);
+                msgs = ((InternalEObject) capacity_PassiveResource).eInverseRemove(this,
+                        EOPPOSITE_FEATURE_BASE - RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE, null,
+                        msgs);
             }
             return this.basicSetCapacity_PassiveResource((PCMRandomVariable) otherEnd, msgs);
         case RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE:
@@ -205,16 +201,14 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
             return this.basicSetBasicComponent_PassiveResource((BasicComponent) otherEnd, msgs);
         case RepositoryPackage.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE:
             final ResourceTimeoutFailureType resourceTimeoutFailureType__PassiveResource = this
-            .basicGetResourceTimeoutFailureType__PassiveResource();
+                    .basicGetResourceTimeoutFailureType__PassiveResource();
             if (resourceTimeoutFailureType__PassiveResource != null) {
-                msgs = ((InternalEObject) resourceTimeoutFailureType__PassiveResource)
-                        .eInverseRemove(
-                                this,
-                                ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE,
-                                ResourceTimeoutFailureType.class, msgs);
+                msgs = ((InternalEObject) resourceTimeoutFailureType__PassiveResource).eInverseRemove(this,
+                        ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE,
+                        ResourceTimeoutFailureType.class, msgs);
             }
-            return this
-                    .basicSetResourceTimeoutFailureType__PassiveResource((ResourceTimeoutFailureType) otherEnd, msgs);
+            return this.basicSetResourceTimeoutFailureType__PassiveResource((ResourceTimeoutFailureType) otherEnd,
+                    msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -227,8 +221,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE:
             return this.basicSetCapacity_PassiveResource(null, msgs);
         case RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE:
@@ -246,8 +239,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE:
             return this.eInternalContainer().eInverseRemove(this,
                     RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT, BasicComponent.class, msgs);
@@ -262,8 +254,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE:
             return this.getCapacity_PassiveResource();
         case RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE:
@@ -284,8 +275,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      */
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE:
             this.setCapacity_PassiveResource((PCMRandomVariable) newValue);
             return;
@@ -306,8 +296,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE:
             this.setCapacity_PassiveResource((PCMRandomVariable) null);
             return;
@@ -328,8 +317,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.PASSIVE_RESOURCE__CAPACITY_PASSIVE_RESOURCE:
             return this.getCapacity_PassiveResource() != null;
         case RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE:

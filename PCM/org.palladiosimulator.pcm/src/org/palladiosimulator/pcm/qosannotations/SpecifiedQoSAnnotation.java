@@ -8,33 +8,26 @@ import org.palladiosimulator.pcm.repository.Role;
 import org.palladiosimulator.pcm.repository.Signature;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Specified Qo SAnnotation</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Specified Qo
+ * SAnnotation</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
  * <p>
- * SpecifiedQoSAnnotations&nbsp;(as&nbsp;an&nbsp;abstract&nbsp;class)&nbsp;associate&nbsp;specified&
- * nbsp ;(see&nbsp;QoSAnnotation)&nbsp;QoS&nbsp;properties&nbsp;to&nbsp;services&nbsp;of&nbsp;
- * components .&
- * nbsp;A&nbsp;service&nbsp;is&nbsp;thereby&nbsp;determined&nbsp;by&nbsp;a&nbsp;Signature&nbsp;and&
- * nbsp;a&nbsp;Role&nbsp;(i.e.,&nbsp;an&nbsp;interface&nbsp;bound&nbsp;to&nbsp;a&nbsp;component).
+ * SpecifiedQoSAnnotations&nbsp;(as&nbsp;an&nbsp;abstract&nbsp;class)&nbsp;associate&nbsp;specified&nbsp;(see&nbsp;QoSAnnotation)&nbsp;QoS&nbsp;properties&nbsp;to&nbsp;services&nbsp;of&nbsp;components.&nbsp;A&nbsp;service&nbsp;is&nbsp;thereby&nbsp;determined&nbsp;by&nbsp;a&nbsp;Signature&nbsp;and&nbsp;a&nbsp;Role&nbsp;(i.e.,&nbsp;an&nbsp;interface&nbsp;bound&nbsp;to&nbsp;a&nbsp;component).
  * </p>
  * <!-- end-model-doc -->
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation#getSignature_SpecifiedQoSAnnation
+ * <li>{@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation#getSignature_SpecifiedQoSAnnation
  * <em>Signature Specified Qo SAnnation</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation#getRole_SpecifiedQoSAnnotation
+ * <li>{@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation#getRole_SpecifiedQoSAnnotation
  * <em>Role Specified Qo SAnnotation</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation#getQosAnnotations_SpecifiedQoSAnnotation
+ * <li>{@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation#getQosAnnotations_SpecifiedQoSAnnotation
  * <em>Qos Annotations Specified Qo SAnnotation</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.qosannotations.QosannotationsPackage#getSpecifiedQoSAnnotation()
  * @model abstract="true"
@@ -48,7 +41,7 @@ public interface SpecifiedQoSAnnotation extends CDOObject {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Signature Specified Qo SAnnation</b></em>' reference. <!--
@@ -68,8 +61,8 @@ public interface SpecifiedQoSAnnotation extends CDOObject {
     Signature getSignature_SpecifiedQoSAnnation();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation#getSignature_SpecifiedQoSAnnation
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation#getSignature_SpecifiedQoSAnnation
      * <em>Signature Specified Qo SAnnation</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -112,8 +105,8 @@ public interface SpecifiedQoSAnnotation extends CDOObject {
 
     /**
      * Returns the value of the '<em><b>Qos Annotations Specified Qo SAnnotation</b></em>' container
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations#getSpecifiedQoSAnnotations_QoSAnnotations
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations#getSpecifiedQoSAnnotations_QoSAnnotations
      * <em>Specified Qo SAnnotations Qo SAnnotations</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Qos Annotations Specified Qo SAnnotation</em>' container reference
@@ -133,8 +126,8 @@ public interface SpecifiedQoSAnnotation extends CDOObject {
     QoSAnnotations getQosAnnotations_SpecifiedQoSAnnotation();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation#getQosAnnotations_SpecifiedQoSAnnotation
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation#getQosAnnotations_SpecifiedQoSAnnotation
      * <em>Qos Annotations Specified Qo SAnnotation</em>}' container reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *

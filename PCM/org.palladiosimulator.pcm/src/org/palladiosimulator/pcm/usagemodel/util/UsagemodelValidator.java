@@ -39,7 +39,7 @@ public class UsagemodelValidator extends EObjectValidator {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -197,8 +197,7 @@ public class UsagemodelValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID)
-        {
+        switch (classifierID) {
         case UsagemodelPackage.WORKLOAD:
             return this.validateWorkload((Workload) value, diagnostics, context);
         case UsagemodelPackage.USAGE_SCENARIO:
@@ -293,6 +292,10 @@ public class UsagemodelValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(entryLevelSystemCall, diagnostics, context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(entryLevelSystemCall, diagnostics,
+                    context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(entryLevelSystemCall, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -316,8 +319,8 @@ public class UsagemodelValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the EntryLevelSystemCallMustReferenceProvidedRoleOfASystem constraint of '
-     * <em>Entry Level System Call</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the EntryLevelSystemCallMustReferenceProvidedRoleOfASystem constraint of '<em>Entry
+     * Level System Call</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -328,8 +331,8 @@ public class UsagemodelValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the EntryLevelSystemCallSignatureMustMatchItsProvidedRole constraint of '
-     * <em>Entry Level System Call</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the EntryLevelSystemCallSignatureMustMatchItsProvidedRole constraint of '<em>Entry
+     * Level System Call</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -367,6 +370,9 @@ public class UsagemodelValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryReferenceIsContained(scenarioBehaviour, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(scenarioBehaviour, diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(scenarioBehaviour, diagnostics, context);
@@ -455,6 +461,9 @@ public class UsagemodelValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(branch, diagnostics, context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(branch, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(branch, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -510,6 +519,9 @@ public class UsagemodelValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(stop, diagnostics, context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(stop, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(stop, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -543,7 +555,8 @@ public class UsagemodelValidator extends EObjectValidator {
      *
      * @generated
      */
-    public boolean validateStart(final Start start, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+    public boolean validateStart(final Start start, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(start, diagnostics, context)) {
             return false;
         }
@@ -553,6 +566,9 @@ public class UsagemodelValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryReferenceIsContained(start, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(start, diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(start, diagnostics, context);
@@ -601,6 +617,9 @@ public class UsagemodelValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(openWorkload, diagnostics, context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(openWorkload, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(openWorkload, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -621,8 +640,8 @@ public class UsagemodelValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the InterArrivalTimeInOpenWorkloadNeedsToBeSpecified constraint of '
-     * <em>Open Workload</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the InterArrivalTimeInOpenWorkloadNeedsToBeSpecified constraint of '<em>Open
+     * Workload</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -636,7 +655,8 @@ public class UsagemodelValidator extends EObjectValidator {
      *
      * @generated
      */
-    public boolean validateDelay(final Delay delay, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+    public boolean validateDelay(final Delay delay, final DiagnosticChain diagnostics,
+            final Map<Object, Object> context) {
         return this.validate_EveryDefaultConstraint(delay, diagnostics, context);
     }
 
@@ -656,6 +676,9 @@ public class UsagemodelValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryReferenceIsContained(closedWorkload, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(closedWorkload, diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(closedWorkload, diagnostics, context);
@@ -683,8 +706,8 @@ public class UsagemodelValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the PopulationInClosedWorkloadNeedsToBeSpecified constraint of '
-     * <em>Closed Workload</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the PopulationInClosedWorkloadNeedsToBeSpecified constraint of '<em>Closed
+     * Workload</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -694,8 +717,8 @@ public class UsagemodelValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the ThinkTimeInClosedWorkloadNeedsToBeSpecified constraint of '
-     * <em>Closed Workload</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the ThinkTimeInClosedWorkloadNeedsToBeSpecified constraint of '<em>Closed
+     * Workload</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */

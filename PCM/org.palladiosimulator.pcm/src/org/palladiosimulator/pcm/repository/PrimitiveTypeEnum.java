@@ -10,10 +10,10 @@ import java.util.List;
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
- * <!-- begin-user-doc --> A representation of the literals of the enumeration '
- * <em><b>Primitive Type Enum</b></em>', and utility methods for working with them. <!--
- * end-user-doc --> <!-- begin-model-doc --> Primitive types for usage in datatype and interface
- * definitions <!-- end-model-doc -->
+ * <!-- begin-user-doc --> A representation of the literals of the enumeration ' <em><b>Primitive
+ * Type Enum</b></em>', and utility methods for working with them. <!-- end-user-doc --> <!--
+ * begin-model-doc --> Primitive types for usage in datatype and interface definitions <!--
+ * end-model-doc -->
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getPrimitiveTypeEnum()
  * @model
@@ -88,7 +88,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The '<em><b>INT</b></em>' literal value. <!-- begin-user-doc -->
@@ -201,8 +201,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
      *
      * @generated
      */
-    private static final PrimitiveTypeEnum[] VALUES_ARRAY = new PrimitiveTypeEnum[]
-    {
+    private static final PrimitiveTypeEnum[] VALUES_ARRAY = new PrimitiveTypeEnum[] {
             INT,
             STRING,
             BOOL,
@@ -224,12 +223,14 @@ public enum PrimitiveTypeEnum implements Enumerator {
      * Returns the '<em><b>Primitive Type Enum</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
+     * @param literal
+     *            the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static PrimitiveTypeEnum get(final String literal) {
         for (final PrimitiveTypeEnum result : VALUES_ARRAY) {
-            if (result.toString().equals(literal))
-            {
+            if (result.toString().equals(literal)) {
                 return result;
             }
         }
@@ -247,8 +248,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
      */
     public static PrimitiveTypeEnum getByName(final String name) {
         for (final PrimitiveTypeEnum result : VALUES_ARRAY) {
-            if (result.getName().equals(name))
-            {
+            if (result.getName().equals(name)) {
                 return result;
             }
         }
@@ -259,11 +259,13 @@ public enum PrimitiveTypeEnum implements Enumerator {
      * Returns the '<em><b>Primitive Type Enum</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
+     * @param value
+     *            the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static PrimitiveTypeEnum get(final int value) {
-        switch (value)
-        {
+        switch (value) {
         case INT_VALUE:
             return INT;
         case STRING_VALUE:

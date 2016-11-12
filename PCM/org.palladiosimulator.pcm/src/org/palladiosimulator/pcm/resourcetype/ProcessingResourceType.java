@@ -6,8 +6,8 @@ package org.palladiosimulator.pcm.resourcetype;
 import org.palladiosimulator.pcm.reliability.HardwareInducedFailureType;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Processing Resource Type</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Processing Resource
+ * Type</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
  * <p>
@@ -17,12 +17,11 @@ import org.palladiosimulator.pcm.reliability.HardwareInducedFailureType;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.resourcetype.ProcessingResourceType#getHardwareInducedFailureType__ProcessingResourceType
+ * <li>{@link org.palladiosimulator.pcm.resourcetype.ProcessingResourceType#getHardwareInducedFailureType__ProcessingResourceType
  * <em>Hardware Induced Failure Type Processing Resource Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#getProcessingResourceType()
  * @model
@@ -35,13 +34,12 @@ public interface ProcessingResourceType extends ResourceType {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
-     * Returns the value of the '
-     * <em><b>Hardware Induced Failure Type Processing Resource Type</b></em>' reference. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.reliability.HardwareInducedFailureType#getProcessingResourceType__HardwareInducedFailureType
+     * Returns the value of the '<em><b>Hardware Induced Failure Type Processing Resource
+     * Type</b></em>' reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.reliability.HardwareInducedFailureType#getProcessingResourceType__HardwareInducedFailureType
      * <em>Processing Resource Type Hardware Induced Failure Type</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Hardware Induced Failure Type Processing Resource Type</em>'
@@ -66,8 +64,8 @@ public interface ProcessingResourceType extends ResourceType {
      * begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
-     *            the new value of the '
-     *            <em>Hardware Induced Failure Type Processing Resource Type</em>' reference.
+     *            the new value of the ' <em>Hardware Induced Failure Type Processing Resource
+     *            Type</em>' reference.
      * @see #getHardwareInducedFailureType__ProcessingResourceType()
      * @generated
      */

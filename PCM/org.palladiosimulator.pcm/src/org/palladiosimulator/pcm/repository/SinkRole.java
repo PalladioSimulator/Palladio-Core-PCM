@@ -13,11 +13,11 @@ package org.palladiosimulator.pcm.repository;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.repository.SinkRole#getEventGroup__SinkRole <em>Event Group
  * Sink Role</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getSinkRole()
  * @model
@@ -30,7 +30,7 @@ public interface SinkRole extends ProvidedRole {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Event Group Sink Role</b></em>' reference. <!--
@@ -50,9 +50,9 @@ public interface SinkRole extends ProvidedRole {
     EventGroup getEventGroup__SinkRole();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.SinkRole#getEventGroup__SinkRole
-     * <em>Event Group Sink Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.SinkRole#getEventGroup__SinkRole <em>Event Group
+     * Sink Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Event Group Sink Role</em>' reference.

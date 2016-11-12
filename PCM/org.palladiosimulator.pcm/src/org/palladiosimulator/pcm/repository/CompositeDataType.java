@@ -16,15 +16,13 @@ import org.palladiosimulator.pcm.core.entity.Entity;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.CompositeDataType#getParentType_CompositeDataType
+ * <li>{@link org.palladiosimulator.pcm.repository.CompositeDataType#getParentType_CompositeDataType
  * <em>Parent Type Composite Data Type</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.CompositeDataType#getInnerDeclaration_CompositeDataType
+ * <li>{@link org.palladiosimulator.pcm.repository.CompositeDataType#getInnerDeclaration_CompositeDataType
  * <em>Inner Declaration Composite Data Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getCompositeDataType()
  * @model
@@ -37,7 +35,7 @@ public interface CompositeDataType extends Entity, DataType {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Parent Type Composite Data Type</b></em>' reference list.

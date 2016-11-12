@@ -6,20 +6,18 @@ package org.palladiosimulator.pcm.repository;
 import org.eclipse.emf.common.util.EList;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Infrastructure Signature</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Infrastructure
+ * Signature</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.InfrastructureSignature#getParameters__InfrastructureSignature
+ * <li>{@link org.palladiosimulator.pcm.repository.InfrastructureSignature#getParameters__InfrastructureSignature
  * <em>Parameters Infrastructure Signature</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.InfrastructureSignature#getInfrastructureInterface__InfrastructureSignature
+ * <li>{@link org.palladiosimulator.pcm.repository.InfrastructureSignature#getInfrastructureInterface__InfrastructureSignature
  * <em>Infrastructure Interface Infrastructure Signature</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getInfrastructureSignature()
  * @model
@@ -32,14 +30,14 @@ public interface InfrastructureSignature extends Signature {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Parameters Infrastructure Signature</b></em>' containment
      * reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.repository.Parameter}. It is bidirectional and its opposite
-     * is '
-     * {@link org.palladiosimulator.pcm.repository.Parameter#getInfrastructureSignature__Parameter
+     * is
+     * '{@link org.palladiosimulator.pcm.repository.Parameter#getInfrastructureSignature__Parameter
      * <em>Infrastructure Signature Parameter</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Parameters Infrastructure Signature</em>' containment reference
@@ -58,8 +56,8 @@ public interface InfrastructureSignature extends Signature {
 
     /**
      * Returns the value of the '<em><b>Infrastructure Interface Infrastructure Signature</b></em>'
-     * container reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.repository.InfrastructureInterface#getInfrastructureSignatures__InfrastructureInterface
+     * container reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.repository.InfrastructureInterface#getInfrastructureSignatures__InfrastructureInterface
      * <em>Infrastructure Signatures Infrastructure Interface</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Infrastructure Interface Infrastructure Signature</em>' container

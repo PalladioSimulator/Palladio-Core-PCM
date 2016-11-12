@@ -22,8 +22,10 @@ import org.palladiosimulator.pcm.core.entity.EntityPackage;
  * such as the definition of failure types. <!-- end-model-doc -->
  *
  * @see org.palladiosimulator.pcm.reliability.ReliabilityFactory
- * @model kind="package" annotation=
- *        "http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
+ * @model kind="package" annotation= "http://www.eclipse.org/emf/2002/Ecore
+ *        invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface ReliabilityPackage extends EPackage {
@@ -33,7 +35,7 @@ public interface ReliabilityPackage extends EPackage {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -94,9 +96,8 @@ public interface ReliabilityPackage extends EPackage {
     int FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT = 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.reliability.impl.FailureTypeImpl <em>Failure Type</em>}'
-     * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the '{@link org.palladiosimulator.pcm.reliability.impl.FailureTypeImpl
+     * <em>Failure Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.reliability.impl.FailureTypeImpl
      * @see org.palladiosimulator.pcm.reliability.impl.ReliabilityPackageImpl#getFailureType()
@@ -141,8 +142,8 @@ public interface ReliabilityPackage extends EPackage {
     int FAILURE_TYPE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.reliability.impl.HardwareInducedFailureTypeImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.reliability.impl.HardwareInducedFailureTypeImpl
      * <em>Hardware Induced Failure Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.reliability.impl.HardwareInducedFailureTypeImpl
@@ -179,14 +180,14 @@ public interface ReliabilityPackage extends EPackage {
     int HARDWARE_INDUCED_FAILURE_TYPE__REPOSITORY_FAILURE_TYPE = FAILURE_TYPE__REPOSITORY_FAILURE_TYPE;
 
     /**
-     * The feature id for the '
-     * <em><b>Processing Resource Type Hardware Induced Failure Type</b></em>' reference. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the ' <em><b>Processing Resource Type Hardware Induced Failure
+     * Type</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE = FAILURE_TYPE_FEATURE_COUNT + 0;
+    int HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE = FAILURE_TYPE_FEATURE_COUNT
+            + 0;
 
     /**
      * The number of structural features of the '<em>Hardware Induced Failure Type</em>' class. <!--
@@ -198,8 +199,8 @@ public interface ReliabilityPackage extends EPackage {
     int HARDWARE_INDUCED_FAILURE_TYPE_FEATURE_COUNT = FAILURE_TYPE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.reliability.impl.SoftwareInducedFailureTypeImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.reliability.impl.SoftwareInducedFailureTypeImpl
      * <em>Software Induced Failure Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.reliability.impl.SoftwareInducedFailureTypeImpl
@@ -236,14 +237,14 @@ public interface ReliabilityPackage extends EPackage {
     int SOFTWARE_INDUCED_FAILURE_TYPE__REPOSITORY_FAILURE_TYPE = FAILURE_TYPE__REPOSITORY_FAILURE_TYPE;
 
     /**
-     * The feature id for the '
-     * <em><b>Internal Failure Occurrence Descriptions Software Induced Failure Type</b></em>'
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Internal Failure Occurrence Descriptions Software Induced
+     * Failure Type</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE = FAILURE_TYPE_FEATURE_COUNT + 0;
+    int SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE = FAILURE_TYPE_FEATURE_COUNT
+            + 0;
 
     /**
      * The number of structural features of the '<em>Software Induced Failure Type</em>' class. <!--
@@ -255,8 +256,8 @@ public interface ReliabilityPackage extends EPackage {
     int SOFTWARE_INDUCED_FAILURE_TYPE_FEATURE_COUNT = FAILURE_TYPE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.reliability.impl.InternalFailureOccurrenceDescriptionImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.reliability.impl.InternalFailureOccurrenceDescriptionImpl
      * <em>Internal Failure Occurrence Description</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -276,24 +277,24 @@ public interface ReliabilityPackage extends EPackage {
     int INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY = FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY;
 
     /**
-     * The feature id for the '
-     * <em><b>Internal Action Internal Failure Occurrence Description</b></em>' container reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Internal Action Internal Failure Occurrence
+     * Description</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT + 0;
+    int INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT
+            + 0;
 
     /**
-     * The feature id for the '
-     * <em><b>Software Induced Failure Type Internal Failure Occurrence Description</b></em>'
-     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Software Induced Failure Type Internal Failure Occurrence
+     * Description</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT + 1;
+    int INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT
+            + 1;
 
     /**
      * The number of structural features of the '<em>Internal Failure Occurrence Description</em>'
@@ -305,9 +306,9 @@ public interface ReliabilityPackage extends EPackage {
     int INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT + 2;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.reliability.impl.NetworkInducedFailureTypeImpl
-     * <em>Network Induced Failure Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.reliability.impl.NetworkInducedFailureTypeImpl <em>Network
+     * Induced Failure Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.reliability.impl.NetworkInducedFailureTypeImpl
      * @see org.palladiosimulator.pcm.reliability.impl.ReliabilityPackageImpl#getNetworkInducedFailureType()
@@ -343,14 +344,14 @@ public interface ReliabilityPackage extends EPackage {
     int NETWORK_INDUCED_FAILURE_TYPE__REPOSITORY_FAILURE_TYPE = FAILURE_TYPE__REPOSITORY_FAILURE_TYPE;
 
     /**
-     * The feature id for the '
-     * <em><b>Communication Link Resource Type Network Induced Failure Type</b></em>' reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Communication Link Resource Type Network Induced Failure
+     * Type</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE = FAILURE_TYPE_FEATURE_COUNT + 0;
+    int NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE = FAILURE_TYPE_FEATURE_COUNT
+            + 0;
 
     /**
      * The number of structural features of the '<em>Network Induced Failure Type</em>' class. <!--
@@ -362,8 +363,8 @@ public interface ReliabilityPackage extends EPackage {
     int NETWORK_INDUCED_FAILURE_TYPE_FEATURE_COUNT = FAILURE_TYPE_FEATURE_COUNT + 1;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.reliability.impl.ExternalFailureOccurrenceDescriptionImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.reliability.impl.ExternalFailureOccurrenceDescriptionImpl
      * <em>External Failure Occurrence Description</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -383,14 +384,14 @@ public interface ReliabilityPackage extends EPackage {
     int EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY = FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY;
 
     /**
-     * The feature id for the '
-     * <em><b>Specified Reliability Annotation External Failure Occurrence Description</b></em>'
-     * container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Specified Reliability Annotation External Failure Occurrence
+     * Description</b></em>' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT + 0;
+    int EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT
+            + 0;
 
     /**
      * The feature id for the '<em><b>Failure Type External Failure Occurrence Description</b></em>'
@@ -399,7 +400,8 @@ public interface ReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT + 1;
+    int EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT
+            + 1;
 
     /**
      * The number of structural features of the '<em>External Failure Occurrence Description</em>'
@@ -411,8 +413,8 @@ public interface ReliabilityPackage extends EPackage {
     int EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT + 2;
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.reliability.impl.ResourceTimeoutFailureTypeImpl
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.reliability.impl.ResourceTimeoutFailureTypeImpl
      * <em>Resource Timeout Failure Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.reliability.impl.ResourceTimeoutFailureTypeImpl
@@ -449,9 +451,8 @@ public interface ReliabilityPackage extends EPackage {
     int RESOURCE_TIMEOUT_FAILURE_TYPE__REPOSITORY_FAILURE_TYPE = SOFTWARE_INDUCED_FAILURE_TYPE__REPOSITORY_FAILURE_TYPE;
 
     /**
-     * The feature id for the '
-     * <em><b>Internal Failure Occurrence Descriptions Software Induced Failure Type</b></em>'
-     * reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Internal Failure Occurrence Descriptions Software Induced
+     * Failure Type</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
@@ -465,7 +466,8 @@ public interface ReliabilityPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE = SOFTWARE_INDUCED_FAILURE_TYPE_FEATURE_COUNT + 0;
+    int RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE = SOFTWARE_INDUCED_FAILURE_TYPE_FEATURE_COUNT
+            + 0;
 
     /**
      * The number of structural features of the '<em>Resource Timeout Failure Type</em>' class. <!--
@@ -477,9 +479,9 @@ public interface ReliabilityPackage extends EPackage {
     int RESOURCE_TIMEOUT_FAILURE_TYPE_FEATURE_COUNT = SOFTWARE_INDUCED_FAILURE_TYPE_FEATURE_COUNT + 1;
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.reliability.FailureOccurrenceDescription
-     * <em>Failure Occurrence Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.reliability.FailureOccurrenceDescription <em>Failure
+     * Occurrence Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Failure Occurrence Description</em>'.
      * @see org.palladiosimulator.pcm.reliability.FailureOccurrenceDescription
@@ -488,8 +490,8 @@ public interface ReliabilityPackage extends EPackage {
     EClass getFailureOccurrenceDescription();
 
     /**
-     * Returns the meta object for the attribute '
-     * {@link org.palladiosimulator.pcm.reliability.FailureOccurrenceDescription#getFailureProbability
+     * Returns the meta object for the attribute
+     * '{@link org.palladiosimulator.pcm.reliability.FailureOccurrenceDescription#getFailureProbability
      * <em>Failure Probability</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the attribute '<em>Failure Probability</em>'.
@@ -500,9 +502,9 @@ public interface ReliabilityPackage extends EPackage {
     EAttribute getFailureOccurrenceDescription_FailureProbability();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.reliability.HardwareInducedFailureType
-     * <em>Hardware Induced Failure Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.reliability.HardwareInducedFailureType <em>Hardware Induced
+     * Failure Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Hardware Induced Failure Type</em>'.
      * @see org.palladiosimulator.pcm.reliability.HardwareInducedFailureType
@@ -511,13 +513,13 @@ public interface ReliabilityPackage extends EPackage {
     EClass getHardwareInducedFailureType();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.reliability.HardwareInducedFailureType#getProcessingResourceType__HardwareInducedFailureType
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.reliability.HardwareInducedFailureType#getProcessingResourceType__HardwareInducedFailureType
      * <em>Processing Resource Type Hardware Induced Failure Type</em>}'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Processing Resource Type Hardware Induced Failure Type</em>'.
+     * @return the meta object for the reference '<em>Processing Resource Type Hardware Induced
+     *         Failure Type</em>'.
      * @see org.palladiosimulator.pcm.reliability.HardwareInducedFailureType#getProcessingResourceType__HardwareInducedFailureType()
      * @see #getHardwareInducedFailureType()
      * @generated
@@ -525,9 +527,9 @@ public interface ReliabilityPackage extends EPackage {
     EReference getHardwareInducedFailureType_ProcessingResourceType__HardwareInducedFailureType();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.reliability.SoftwareInducedFailureType
-     * <em>Software Induced Failure Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.reliability.SoftwareInducedFailureType <em>Software Induced
+     * Failure Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Software Induced Failure Type</em>'.
      * @see org.palladiosimulator.pcm.reliability.SoftwareInducedFailureType
@@ -541,8 +543,8 @@ public interface ReliabilityPackage extends EPackage {
      * <em>Internal Failure Occurrence Descriptions Software Induced Failure Type</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the reference list '
-     *         <em>Internal Failure Occurrence Descriptions Software Induced Failure Type</em>'.
+     * @return the meta object for the reference list ' <em>Internal Failure Occurrence Descriptions
+     *         Software Induced Failure Type</em>'.
      * @see org.palladiosimulator.pcm.reliability.SoftwareInducedFailureType#getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType()
      * @see #getSoftwareInducedFailureType()
      * @generated
@@ -562,13 +564,13 @@ public interface ReliabilityPackage extends EPackage {
     EClass getInternalFailureOccurrenceDescription();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.reliability.InternalFailureOccurrenceDescription#getInternalAction__InternalFailureOccurrenceDescription
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.reliability.InternalFailureOccurrenceDescription#getInternalAction__InternalFailureOccurrenceDescription
      * <em>Internal Action Internal Failure Occurrence Description</em>}'. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Internal Action Internal Failure Occurrence Description</em>'.
+     * @return the meta object for the container reference '<em>Internal Action Internal Failure
+     *         Occurrence Description</em>'.
      * @see org.palladiosimulator.pcm.reliability.InternalFailureOccurrenceDescription#getInternalAction__InternalFailureOccurrenceDescription()
      * @see #getInternalFailureOccurrenceDescription()
      * @generated
@@ -581,8 +583,8 @@ public interface ReliabilityPackage extends EPackage {
      * <em>Software Induced Failure Type Internal Failure Occurrence Description</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Software Induced Failure Type Internal Failure Occurrence Description</em>'.
+     * @return the meta object for the reference ' <em>Software Induced Failure Type Internal
+     *         Failure Occurrence Description</em>'.
      * @see org.palladiosimulator.pcm.reliability.InternalFailureOccurrenceDescription#getSoftwareInducedFailureType__InternalFailureOccurrenceDescription()
      * @see #getInternalFailureOccurrenceDescription()
      * @generated
@@ -590,9 +592,9 @@ public interface ReliabilityPackage extends EPackage {
     EReference getInternalFailureOccurrenceDescription_SoftwareInducedFailureType__InternalFailureOccurrenceDescription();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.reliability.NetworkInducedFailureType
-     * <em>Network Induced Failure Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.reliability.NetworkInducedFailureType <em>Network Induced
+     * Failure Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Network Induced Failure Type</em>'.
      * @see org.palladiosimulator.pcm.reliability.NetworkInducedFailureType
@@ -601,13 +603,13 @@ public interface ReliabilityPackage extends EPackage {
     EClass getNetworkInducedFailureType();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.reliability.NetworkInducedFailureType#getCommunicationLinkResourceType__NetworkInducedFailureType
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.reliability.NetworkInducedFailureType#getCommunicationLinkResourceType__NetworkInducedFailureType
      * <em>Communication Link Resource Type Network Induced Failure Type</em>}'. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Communication Link Resource Type Network Induced Failure Type</em>'.
+     * @return the meta object for the reference '<em>Communication Link Resource Type Network
+     *         Induced Failure Type</em>'.
      * @see org.palladiosimulator.pcm.reliability.NetworkInducedFailureType#getCommunicationLinkResourceType__NetworkInducedFailureType()
      * @see #getNetworkInducedFailureType()
      * @generated
@@ -632,8 +634,8 @@ public interface ReliabilityPackage extends EPackage {
      * <em>Specified Reliability Annotation External Failure Occurrence Description</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the container reference '
-     *         <em>Specified Reliability Annotation External Failure Occurrence Description</em>'.
+     * @return the meta object for the container reference ' <em>Specified Reliability Annotation
+     *         External Failure Occurrence Description</em>'.
      * @see org.palladiosimulator.pcm.reliability.ExternalFailureOccurrenceDescription#getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription()
      * @see #getExternalFailureOccurrenceDescription()
      * @generated
@@ -641,13 +643,13 @@ public interface ReliabilityPackage extends EPackage {
     EReference getExternalFailureOccurrenceDescription_SpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.reliability.ExternalFailureOccurrenceDescription#getFailureType__ExternalFailureOccurrenceDescription
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.reliability.ExternalFailureOccurrenceDescription#getFailureType__ExternalFailureOccurrenceDescription
      * <em>Failure Type External Failure Occurrence Description</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Failure Type External Failure Occurrence Description</em>'.
+     * @return the meta object for the reference '<em>Failure Type External Failure Occurrence
+     *         Description</em>'.
      * @see org.palladiosimulator.pcm.reliability.ExternalFailureOccurrenceDescription#getFailureType__ExternalFailureOccurrenceDescription()
      * @see #getExternalFailureOccurrenceDescription()
      * @generated
@@ -655,9 +657,9 @@ public interface ReliabilityPackage extends EPackage {
     EReference getExternalFailureOccurrenceDescription_FailureType__ExternalFailureOccurrenceDescription();
 
     /**
-     * Returns the meta object for class '
-     * {@link org.palladiosimulator.pcm.reliability.ResourceTimeoutFailureType
-     * <em>Resource Timeout Failure Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class
+     * '{@link org.palladiosimulator.pcm.reliability.ResourceTimeoutFailureType <em>Resource Timeout
+     * Failure Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for class '<em>Resource Timeout Failure Type</em>'.
      * @see org.palladiosimulator.pcm.reliability.ResourceTimeoutFailureType
@@ -666,13 +668,13 @@ public interface ReliabilityPackage extends EPackage {
     EClass getResourceTimeoutFailureType();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.reliability.ResourceTimeoutFailureType#getPassiveResource__ResourceTimeoutFailureType
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.reliability.ResourceTimeoutFailureType#getPassiveResource__ResourceTimeoutFailureType
      * <em>Passive Resource Resource Timeout Failure Type</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
-     * @return the meta object for the reference '
-     *         <em>Passive Resource Resource Timeout Failure Type</em>'.
+     * @return the meta object for the reference '<em>Passive Resource Resource Timeout Failure
+     *         Type</em>'.
      * @see org.palladiosimulator.pcm.reliability.ResourceTimeoutFailureType#getPassiveResource__ResourceTimeoutFailureType()
      * @see #getResourceTimeoutFailureType()
      * @generated
@@ -690,8 +692,8 @@ public interface ReliabilityPackage extends EPackage {
     EClass getFailureType();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.reliability.FailureType#getRepository__FailureType
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.reliability.FailureType#getRepository__FailureType
      * <em>Repository Failure Type</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Repository Failure Type</em>'.
@@ -725,8 +727,8 @@ public interface ReliabilityPackage extends EPackage {
     interface Literals {
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.reliability.impl.FailureOccurrenceDescriptionImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.reliability.impl.FailureOccurrenceDescriptionImpl
          * <em>Failure Occurrence Description</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
@@ -758,9 +760,8 @@ public interface ReliabilityPackage extends EPackage {
         EClass HARDWARE_INDUCED_FAILURE_TYPE = eINSTANCE.getHardwareInducedFailureType();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Processing Resource Type Hardware Induced Failure Type</b></em>' reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Processing Resource Type Hardware Induced Failure
+         * Type</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -780,9 +781,9 @@ public interface ReliabilityPackage extends EPackage {
         EClass SOFTWARE_INDUCED_FAILURE_TYPE = eINSTANCE.getSoftwareInducedFailureType();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Internal Failure Occurrence Descriptions Software Induced Failure Type</b></em>'
-         * reference list feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Internal Failure Occurrence Descriptions Software
+         * Induced Failure Type</b></em>' reference list feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -790,8 +791,8 @@ public interface ReliabilityPackage extends EPackage {
                 .getSoftwareInducedFailureType_InternalFailureOccurrenceDescriptions__SoftwareInducedFailureType();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.reliability.impl.InternalFailureOccurrenceDescriptionImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.reliability.impl.InternalFailureOccurrenceDescriptionImpl
          * <em>Internal Failure Occurrence Description</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
@@ -802,9 +803,9 @@ public interface ReliabilityPackage extends EPackage {
         EClass INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = eINSTANCE.getInternalFailureOccurrenceDescription();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Internal Action Internal Failure Occurrence Description</b></em>' container
-         * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Internal Action Internal Failure Occurrence
+         * Description</b></em>' container reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -812,9 +813,9 @@ public interface ReliabilityPackage extends EPackage {
                 .getInternalFailureOccurrenceDescription_InternalAction__InternalFailureOccurrenceDescription();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Software Induced Failure Type Internal Failure Occurrence Description</b></em>'
-         * reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Software Induced Failure Type Internal Failure
+         * Occurrence Description</b></em>' reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
          *
          * @generated
          */
@@ -834,9 +835,8 @@ public interface ReliabilityPackage extends EPackage {
         EClass NETWORK_INDUCED_FAILURE_TYPE = eINSTANCE.getNetworkInducedFailureType();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Communication Link Resource Type Network Induced Failure Type</b></em>' reference
-         * feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Communication Link Resource Type Network Induced
+         * Failure Type</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -844,8 +844,8 @@ public interface ReliabilityPackage extends EPackage {
                 .getNetworkInducedFailureType_CommunicationLinkResourceType__NetworkInducedFailureType();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.reliability.impl.ExternalFailureOccurrenceDescriptionImpl
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.reliability.impl.ExternalFailureOccurrenceDescriptionImpl
          * <em>External Failure Occurrence Description</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
          *
@@ -856,9 +856,9 @@ public interface ReliabilityPackage extends EPackage {
         EClass EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = eINSTANCE.getExternalFailureOccurrenceDescription();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Specified Reliability Annotation External Failure Occurrence Description</b></em>'
-         * container reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Specified Reliability Annotation External Failure
+         * Occurrence Description</b></em>' container reference feature. <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
          *
          * @generated
          */
@@ -866,9 +866,8 @@ public interface ReliabilityPackage extends EPackage {
                 .getExternalFailureOccurrenceDescription_SpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Failure Type External Failure Occurrence Description</b></em>' reference feature.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Failure Type External Failure Occurrence
+         * Description</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -888,9 +887,8 @@ public interface ReliabilityPackage extends EPackage {
         EClass RESOURCE_TIMEOUT_FAILURE_TYPE = eINSTANCE.getResourceTimeoutFailureType();
 
         /**
-         * The meta object literal for the '
-         * <em><b>Passive Resource Resource Timeout Failure Type</b></em>' reference feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the ' <em><b>Passive Resource Resource Timeout Failure
+         * Type</b></em>' reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @generated
          */
@@ -898,9 +896,9 @@ public interface ReliabilityPackage extends EPackage {
                 .getResourceTimeoutFailureType_PassiveResource__ResourceTimeoutFailureType();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.reliability.impl.FailureTypeImpl <em>Failure Type</em>}'
-         * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.reliability.impl.FailureTypeImpl <em>Failure
+         * Type</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.reliability.impl.FailureTypeImpl
          * @see org.palladiosimulator.pcm.reliability.impl.ReliabilityPackageImpl#getFailureType()

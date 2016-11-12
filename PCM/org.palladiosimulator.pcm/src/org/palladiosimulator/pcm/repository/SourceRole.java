@@ -9,11 +9,11 @@ package org.palladiosimulator.pcm.repository;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.repository.SourceRole#getEventGroup__SourceRole <em>Event
  * Group Source Role</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getSourceRole()
  * @model
@@ -26,7 +26,7 @@ public interface SourceRole extends RequiredRole {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Event Group Source Role</b></em>' reference. <!--
@@ -46,9 +46,9 @@ public interface SourceRole extends RequiredRole {
     EventGroup getEventGroup__SourceRole();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.SourceRole#getEventGroup__SourceRole
-     * <em>Event Group Source Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.SourceRole#getEventGroup__SourceRole <em>Event
+     * Group Source Role</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Event Group Source Role</em>' reference.

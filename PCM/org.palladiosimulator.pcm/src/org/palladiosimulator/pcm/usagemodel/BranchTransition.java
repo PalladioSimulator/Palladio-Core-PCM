@@ -18,16 +18,15 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranchProbability <em>Branch
  * Probability</em>}</li>
- * <li>{@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranch_BranchTransition <em>
- * Branch Branch Transition</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranch_BranchTransition
+ * <em>Branch Branch Transition</em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition
  * <em>Branched Behaviour Branch Transition</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.usagemodel.UsagemodelPackage#getBranchTransition()
  * @model
@@ -41,7 +40,7 @@ public interface BranchTransition extends CDOObject {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Branch Probability</b></em>' attribute. <!-- begin-user-doc
@@ -61,9 +60,9 @@ public interface BranchTransition extends CDOObject {
     double getBranchProbability();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranchProbability
-     * <em>Branch Probability</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranchProbability <em>Branch
+     * Probability</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Branch Probability</em>' attribute.
@@ -74,9 +73,9 @@ public interface BranchTransition extends CDOObject {
 
     /**
      * Returns the value of the '<em><b>Branch Branch Transition</b></em>' container reference. It
-     * is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.usagemodel.Branch#getBranchTransitions_Branch
-     * <em>Branch Transitions Branch</em>}'. <!-- begin-user-doc -->
+     * is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.usagemodel.Branch#getBranchTransitions_Branch <em>Branch
+     * Transitions Branch</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Branch Branch Transition</em>' container reference isn't clear,
      * there really should be more of a description here...
@@ -93,8 +92,8 @@ public interface BranchTransition extends CDOObject {
     Branch getBranch_BranchTransition();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranch_BranchTransition
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranch_BranchTransition
      * <em>Branch Branch Transition</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -107,8 +106,8 @@ public interface BranchTransition extends CDOObject {
 
     /**
      * Returns the value of the '<em><b>Branched Behaviour Branch Transition</b></em>' containment
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getBranchTransition_ScenarioBehaviour
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour#getBranchTransition_ScenarioBehaviour
      * <em>Branch Transition Scenario Behaviour</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Branched Behaviour Branch Transition</em>' containment reference
@@ -128,8 +127,8 @@ public interface BranchTransition extends CDOObject {
     ScenarioBehaviour getBranchedBehaviour_BranchTransition();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition
      * <em>Branched Behaviour Branch Transition</em>}' containment reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *

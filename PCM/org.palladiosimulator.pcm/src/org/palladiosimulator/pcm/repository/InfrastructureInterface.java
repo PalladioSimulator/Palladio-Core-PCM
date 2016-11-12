@@ -6,17 +6,16 @@ package org.palladiosimulator.pcm.repository;
 import org.eclipse.emf.common.util.EList;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Infrastructure Interface</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Infrastructure
+ * Interface</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.InfrastructureInterface#getInfrastructureSignatures__InfrastructureInterface
+ * <li>{@link org.palladiosimulator.pcm.repository.InfrastructureInterface#getInfrastructureSignatures__InfrastructureInterface
  * <em>Infrastructure Signatures Infrastructure Interface</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getInfrastructureInterface()
  * @model
@@ -29,14 +28,14 @@ public interface InfrastructureInterface extends Interface {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Infrastructure Signatures Infrastructure Interface</b></em>'
      * containment reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.repository.InfrastructureSignature}. It is bidirectional and
-     * its opposite is '
-     * {@link org.palladiosimulator.pcm.repository.InfrastructureSignature#getInfrastructureInterface__InfrastructureSignature
+     * its opposite is
+     * '{@link org.palladiosimulator.pcm.repository.InfrastructureSignature#getInfrastructureInterface__InfrastructureSignature
      * <em>Infrastructure Interface Infrastructure Signature</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Infrastructure Signatures Infrastructure Interface</em>'

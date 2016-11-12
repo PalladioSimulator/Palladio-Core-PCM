@@ -13,13 +13,13 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>{@link org.palladiosimulator.pcm.repository.ExceptionType#getExceptionName <em>Exception Name
- * </em>}</li>
+ * <li>{@link org.palladiosimulator.pcm.repository.ExceptionType#getExceptionName <em>Exception
+ * Name</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.repository.ExceptionType#getExceptionMessage <em>Exception
  * Message</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getExceptionType()
  * @model
@@ -33,7 +33,7 @@ public interface ExceptionType extends CDOObject {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Exception Name</b></em>' attribute. <!-- begin-user-doc -->
@@ -50,9 +50,9 @@ public interface ExceptionType extends CDOObject {
     String getExceptionName();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.ExceptionType#getExceptionName
-     * <em>Exception Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.ExceptionType#getExceptionName <em>Exception
+     * Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Exception Name</em>' attribute.
@@ -75,9 +75,9 @@ public interface ExceptionType extends CDOObject {
     String getExceptionMessage();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.ExceptionType#getExceptionMessage
-     * <em>Exception Message</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.ExceptionType#getExceptionMessage <em>Exception
+     * Message</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Exception Message</em>' attribute.

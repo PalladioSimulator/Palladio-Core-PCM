@@ -52,7 +52,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -60,16 +60,13 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      * @generated
      */
     public static RepositoryFactory init() {
-        try
-        {
+        try {
             final RepositoryFactory theRepositoryFactory = (RepositoryFactory) EPackage.Registry.INSTANCE
                     .getEFactory(RepositoryPackage.eNS_URI);
-            if (theRepositoryFactory != null)
-            {
+            if (theRepositoryFactory != null) {
                 return theRepositoryFactory;
             }
-        } catch (final Exception exception)
-        {
+        } catch (final Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new RepositoryFactoryImpl();
@@ -91,8 +88,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public EObject create(final EClass eClass) {
-        switch (eClass.getClassifierID())
-        {
+        switch (eClass.getClassifierID()) {
         case RepositoryPackage.PASSIVE_RESOURCE:
             return this.createPassiveResource();
         case RepositoryPackage.BASIC_COMPONENT:
@@ -155,8 +151,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public Object createFromString(final EDataType eDataType, final String initialValue) {
-        switch (eDataType.getClassifierID())
-        {
+        switch (eDataType.getClassifierID()) {
         case RepositoryPackage.PARAMETER_MODIFIER:
             return this.createParameterModifierFromString(eDataType, initialValue);
         case RepositoryPackage.COMPONENT_TYPE:
@@ -175,8 +170,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
      */
     @Override
     public String convertToString(final EDataType eDataType, final Object instanceValue) {
-        switch (eDataType.getClassifierID())
-        {
+        switch (eDataType.getClassifierID()) {
         case RepositoryPackage.PARAMETER_MODIFIER:
             return this.convertParameterModifierToString(eDataType, instanceValue);
         case RepositoryPackage.COMPONENT_TYPE:
@@ -471,8 +465,8 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
     public ParameterModifier createParameterModifierFromString(final EDataType eDataType, final String initialValue) {
         final ParameterModifier result = ParameterModifier.get(initialValue);
         if (result == null) {
-            throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
-                    + eDataType.getName() + "'");
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
         }
         return result;
     }
@@ -494,8 +488,8 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
     public ComponentType createComponentTypeFromString(final EDataType eDataType, final String initialValue) {
         final ComponentType result = ComponentType.get(initialValue);
         if (result == null) {
-            throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
-                    + eDataType.getName() + "'");
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
         }
         return result;
     }
@@ -517,8 +511,8 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
     public PrimitiveTypeEnum createPrimitiveTypeEnumFromString(final EDataType eDataType, final String initialValue) {
         final PrimitiveTypeEnum result = PrimitiveTypeEnum.get(initialValue);
         if (result == null) {
-            throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
-                    + eDataType.getName() + "'");
+            throw new IllegalArgumentException(
+                    "The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
         }
         return result;
     }

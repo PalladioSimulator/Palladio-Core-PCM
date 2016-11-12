@@ -19,7 +19,7 @@ public interface SeffPerformanceFactory extends EFactory {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The singleton instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->

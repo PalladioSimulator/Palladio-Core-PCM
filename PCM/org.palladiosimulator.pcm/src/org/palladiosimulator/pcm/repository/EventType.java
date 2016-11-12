@@ -15,13 +15,13 @@ package org.palladiosimulator.pcm.repository;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.repository.EventType#getParameter__EventType <em>Parameter
  * Event Type</em>}</li>
  * <li>{@link org.palladiosimulator.pcm.repository.EventType#getEventGroup__EventType <em>Event
  * Group Event Type</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getEventType()
  * @model
@@ -34,13 +34,13 @@ public interface EventType extends Signature {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Parameter Event Type</b></em>' containment reference. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.repository.Parameter#getEventType__Parameter
-     * <em>Event Type Parameter</em>}'. <!-- begin-user-doc -->
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.repository.Parameter#getEventType__Parameter <em>Event Type
+     * Parameter</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Parameter Event Type</em>' containment reference isn't clear,
      * there really should be more of a description here...
@@ -57,10 +57,9 @@ public interface EventType extends Signature {
     Parameter getParameter__EventType();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.EventType#getParameter__EventType
-     * <em>Parameter Event Type</em>}' containment reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.EventType#getParameter__EventType <em>Parameter
+     * Event Type</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Parameter Event Type</em>' containment reference.
@@ -71,9 +70,9 @@ public interface EventType extends Signature {
 
     /**
      * Returns the value of the '<em><b>Event Group Event Type</b></em>' container reference. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.repository.EventGroup#getEventTypes__EventGroup
-     * <em>Event Types Event Group</em>}'. <!-- begin-user-doc -->
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.repository.EventGroup#getEventTypes__EventGroup <em>Event
+     * Types Event Group</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Event Group Event Type</em>' container reference isn't clear,
      * there really should be more of a description here...
@@ -90,10 +89,9 @@ public interface EventType extends Signature {
     EventGroup getEventGroup__EventType();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.EventType#getEventGroup__EventType
-     * <em>Event Group Event Type</em>}' container reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.EventType#getEventGroup__EventType <em>Event
+     * Group Event Type</em>}' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Event Group Event Type</em>' container reference.

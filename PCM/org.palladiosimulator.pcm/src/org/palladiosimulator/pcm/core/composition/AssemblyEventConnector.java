@@ -8,8 +8,8 @@ import org.palladiosimulator.pcm.repository.SinkRole;
 import org.palladiosimulator.pcm.repository.SourceRole;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Assembly Event Connector</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Assembly Event
+ * Connector</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> An AssemblyConnector is a bidirectional link of two assembly contexts.
  * Intuitively, an AssemblyEventConnector connects a sink and a source. AssemblyContext must refer
@@ -18,24 +18,19 @@ import org.palladiosimulator.pcm.repository.SourceRole;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSinkRole__AssemblyEventConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSinkRole__AssemblyEventConnector
  * <em>Sink Role Assembly Event Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSourceRole__AssemblyEventConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSourceRole__AssemblyEventConnector
  * <em>Source Role Assembly Event Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSinkAssemblyContext__AssemblyEventConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSinkAssemblyContext__AssemblyEventConnector
  * <em>Sink Assembly Context Assembly Event Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSourceAssemblyContext__AssemblyEventConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSourceAssemblyContext__AssemblyEventConnector
  * <em>Source Assembly Context Assembly Event Connector</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getFilterCondition__AssemblyEventConnector
+ * <li>{@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getFilterCondition__AssemblyEventConnector
  * <em>Filter Condition Assembly Event Connector</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getAssemblyEventConnector()
  * @model
@@ -48,7 +43,7 @@ public interface AssemblyEventConnector extends Connector {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Sink Role Assembly Event Connector</b></em>' reference. <!--
@@ -68,8 +63,8 @@ public interface AssemblyEventConnector extends Connector {
     SinkRole getSinkRole__AssemblyEventConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSinkRole__AssemblyEventConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSinkRole__AssemblyEventConnector
      * <em>Sink Role Assembly Event Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -98,8 +93,8 @@ public interface AssemblyEventConnector extends Connector {
     SourceRole getSourceRole__AssemblyEventConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSourceRole__AssemblyEventConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSourceRole__AssemblyEventConnector
      * <em>Source Role Assembly Event Connector</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -128,8 +123,8 @@ public interface AssemblyEventConnector extends Connector {
     AssemblyContext getSinkAssemblyContext__AssemblyEventConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSinkAssemblyContext__AssemblyEventConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSinkAssemblyContext__AssemblyEventConnector
      * <em>Sink Assembly Context Assembly Event Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *
@@ -160,8 +155,8 @@ public interface AssemblyEventConnector extends Connector {
     AssemblyContext getSourceAssemblyContext__AssemblyEventConnector();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSourceAssemblyContext__AssemblyEventConnector
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector#getSourceAssemblyContext__AssemblyEventConnector
      * <em>Source Assembly Context Assembly Event Connector</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
      *
@@ -175,8 +170,8 @@ public interface AssemblyEventConnector extends Connector {
 
     /**
      * Returns the value of the '<em><b>Filter Condition Assembly Event Connector</b></em>'
-     * containment reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getAssemblyEventConnector__FilterCondition
+     * containment reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getAssemblyEventConnector__FilterCondition
      * <em>Assembly Event Connector Filter Condition</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Filter Condition Assembly Event Connector</em>' containment

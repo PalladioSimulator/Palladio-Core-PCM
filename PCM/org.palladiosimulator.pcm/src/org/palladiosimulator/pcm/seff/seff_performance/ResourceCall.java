@@ -18,20 +18,17 @@ import org.palladiosimulator.pcm.seff.CallAction;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getAction__ResourceCall
  * <em>Action Resource Call</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getResourceRequiredRole__ResourceCall
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getResourceRequiredRole__ResourceCall
  * <em>Resource Required Role Resource Call</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getSignature__ResourceCall
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getSignature__ResourceCall
  * <em>Signature Resource Call</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getNumberOfCalls__ResourceCall
+ * <li>{@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getNumberOfCalls__ResourceCall
  * <em>Number Of Calls Resource Call</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.seff.seff_performance.SeffPerformancePackage#getResourceCall()
  * @model
@@ -44,12 +41,12 @@ public interface ResourceCall extends CallAction {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Action Resource Call</b></em>' container reference. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction#getResourceCall__Action
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction#getResourceCall__Action
      * <em>Resource Call Action</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Action Resource Call</em>' container reference isn't clear, there
@@ -67,8 +64,8 @@ public interface ResourceCall extends CallAction {
     AbstractInternalControlFlowAction getAction__ResourceCall();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getAction__ResourceCall
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getAction__ResourceCall
      * <em>Action Resource Call</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -97,8 +94,8 @@ public interface ResourceCall extends CallAction {
     ResourceRequiredRole getResourceRequiredRole__ResourceCall();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getResourceRequiredRole__ResourceCall
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getResourceRequiredRole__ResourceCall
      * <em>Resource Required Role Resource Call</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -127,8 +124,8 @@ public interface ResourceCall extends CallAction {
     ResourceSignature getSignature__ResourceCall();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getSignature__ResourceCall
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getSignature__ResourceCall
      * <em>Signature Resource Call</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
@@ -140,8 +137,8 @@ public interface ResourceCall extends CallAction {
 
     /**
      * Returns the value of the '<em><b>Number Of Calls Resource Call</b></em>' containment
-     * reference. It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getResourceCall__PCMRandomVariable
+     * reference. It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getResourceCall__PCMRandomVariable
      * <em>Resource Call PCM Random Variable</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Number Of Calls Resource Call</em>' containment reference isn't
@@ -160,8 +157,8 @@ public interface ResourceCall extends CallAction {
     PCMRandomVariable getNumberOfCalls__ResourceCall();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getNumberOfCalls__ResourceCall
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.seff.seff_performance.ResourceCall#getNumberOfCalls__ResourceCall
      * <em>Number Of Calls Resource Call</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -180,8 +177,8 @@ public interface ResourceCall extends CallAction {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.resourceSignatures__ResourceInterface->includes(self.signature__ResourceCall)'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.resourceSignatures__ResourceInterface->includes(self.signature__ResourceCall)'"
      * @generated
      */
     boolean ResourceSignatureBelongsToResourceRequiredRole(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -193,8 +190,9 @@ public interface ResourceCall extends CallAction {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::ResourceInterfaceRequiringEntity)).oclAsType(pcm::core::entity::ResourceInterfaceRequiringEntity).resourceRequiredRoles__ResourceInterfaceRequiringEntity->includes(self.resourceRequiredRole__ResourceCall)'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity |
+     *        entity.oclIsKindOf(pcm::core::entity::ResourceInterfaceRequiringEntity)).oclAsType(pcm::core::entity::ResourceInterfaceRequiringEntity).resourceRequiredRoles__ResourceInterfaceRequiringEntity->includes(self.resourceRequiredRole__ResourceCall)'"
      * @generated
      */
     boolean ResourceRequiredRoleMustBeReferencedByComponent(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -206,8 +204,10 @@ public interface ResourceCall extends CallAction {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.action__ResourceCall.resourceCall__Action->select(call | call.resourceRequiredRole__ResourceCall=self.resourceRequiredRole__ResourceCall and call.signature__ResourceCall=self.signature__ResourceCall)->size() = 1'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.action__ResourceCall.resourceCall__Action->select(call |
+     *        call.resourceRequiredRole__ResourceCall=self.resourceRequiredRole__ResourceCall and
+     *        call.signature__ResourceCall=self.signature__ResourceCall)->size() = 1'"
      * @generated
      */
     boolean SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(DiagnosticChain diagnostics,

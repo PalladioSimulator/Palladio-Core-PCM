@@ -33,7 +33,7 @@ public class SeffReliabilityAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -48,8 +48,7 @@ public class SeffReliabilityAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public SeffReliabilityAdapterFactory() {
-        if (modelPackage == null)
-        {
+        if (modelPackage == null) {
             modelPackage = SeffReliabilityPackage.eINSTANCE;
         }
     }
@@ -64,12 +63,10 @@ public class SeffReliabilityAdapterFactory extends AdapterFactoryImpl {
      */
     @Override
     public boolean isFactoryForType(final Object object) {
-        if (object == modelPackage)
-        {
+        if (object == modelPackage) {
             return true;
         }
-        if (object instanceof EObject)
-        {
+        if (object instanceof EObject) {
             return ((EObject) object).eClass().getEPackage() == modelPackage;
         }
         return false;
@@ -81,75 +78,64 @@ public class SeffReliabilityAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    protected SeffReliabilitySwitch<Adapter> modelSwitch = new SeffReliabilitySwitch<Adapter>()
-    {
+    protected SeffReliabilitySwitch<Adapter> modelSwitch = new SeffReliabilitySwitch<Adapter>() {
         @Override
-        public Adapter caseRecoveryActionBehaviour(final RecoveryActionBehaviour object)
-        {
+        public Adapter caseRecoveryActionBehaviour(final RecoveryActionBehaviour object) {
             return SeffReliabilityAdapterFactory.this.createRecoveryActionBehaviourAdapter();
         }
 
         @Override
-        public Adapter caseRecoveryAction(final RecoveryAction object)
-        {
+        public Adapter caseRecoveryAction(final RecoveryAction object) {
             return SeffReliabilityAdapterFactory.this.createRecoveryActionAdapter();
         }
 
         @Override
-        public Adapter caseFailureHandlingEntity(final FailureHandlingEntity object)
-        {
+        public Adapter caseFailureHandlingEntity(final FailureHandlingEntity object) {
             return SeffReliabilityAdapterFactory.this.createFailureHandlingEntityAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(final Identifier object)
-        {
+        public Adapter caseIdentifier(final Identifier object) {
             return SeffReliabilityAdapterFactory.this.createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(final NamedElement object)
-        {
+        public Adapter caseNamedElement(final NamedElement object) {
             return SeffReliabilityAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(final Entity object)
-        {
+        public Adapter caseEntity(final Entity object) {
             return SeffReliabilityAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter caseResourceDemandingBehaviour(final ResourceDemandingBehaviour object)
-        {
+        public Adapter caseResourceDemandingBehaviour(final ResourceDemandingBehaviour object) {
             return SeffReliabilityAdapterFactory.this.createResourceDemandingBehaviourAdapter();
         }
 
         @Override
-        public Adapter caseAbstractAction(final AbstractAction object)
-        {
+        public Adapter caseAbstractAction(final AbstractAction object) {
             return SeffReliabilityAdapterFactory.this.createAbstractActionAdapter();
         }
 
         @Override
-        public Adapter caseAbstractInternalControlFlowAction(final AbstractInternalControlFlowAction object)
-        {
+        public Adapter caseAbstractInternalControlFlowAction(final AbstractInternalControlFlowAction object) {
             return SeffReliabilityAdapterFactory.this.createAbstractInternalControlFlowActionAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object)
-        {
+        public Adapter defaultCase(final EObject object) {
             return SeffReliabilityAdapterFactory.this.createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-             *
-             * @param target
-             *            the object to adapt.
-             * @return the adapter for the <code>target</code>.
+     *
+     * @param target
+     *            the object to adapt.
+     * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
@@ -158,13 +144,13 @@ public class SeffReliabilityAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour
-             * <em>Recovery Action Behaviour</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour <em>Recovery
+     * Action Behaviour</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+     * the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.seff_reliability.RecoveryActionBehaviour
      * @generated
      */
@@ -173,13 +159,13 @@ public class SeffReliabilityAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction
-             * <em>Recovery Action</em>}'. <!-- begin-user-doc --> This default implementation returns null
-             * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch
-             * all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction <em>Recovery
+     * Action</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+     * cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.seff_reliability.RecoveryAction
      * @generated
      */
@@ -188,13 +174,13 @@ public class SeffReliabilityAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.seff.seff_reliability.FailureHandlingEntity
-             * <em>Failure Handling Entity</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.seff.seff_reliability.FailureHandlingEntity <em>Failure
+     * Handling Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+     * the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.seff_reliability.FailureHandlingEntity
      * @generated
      */
@@ -204,11 +190,11 @@ public class SeffReliabilityAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
-             * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
-             * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
-             * the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+     * the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see de.uka.ipd.sdq.identifier.Identifier
      * @generated
      */
@@ -232,12 +218,12 @@ public class SeffReliabilityAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'. <!-- begin-user-doc
-             * --> This default implementation returns null so that we can easily ignore cases; it's useful
-             * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'. <!-- begin-user-doc
+     * --> This default implementation returns null so that we can easily ignore cases; it's useful
+     * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.Entity
      * @generated
      */
@@ -246,13 +232,13 @@ public class SeffReliabilityAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour
-             * <em>Resource Demanding Behaviour</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour <em>Resource Demanding
+     * Behaviour</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+     * cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour
      * @generated
      */
@@ -276,13 +262,13 @@ public class SeffReliabilityAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction
-             * <em>Abstract Internal Control Flow Action</em>}'. <!-- begin-user-doc --> This default
-             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction <em>Abstract
+     * Internal Control Flow Action</em>}'. <!-- begin-user-doc --> This default implementation
+     * returns null so that we can easily ignore cases; it's useful to ignore a case when
+     * inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction
      * @generated
      */
@@ -292,9 +278,9 @@ public class SeffReliabilityAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
-             * implementation returns null. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * implementation returns null. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @generated
      */
     public Adapter createEObjectAdapter() {

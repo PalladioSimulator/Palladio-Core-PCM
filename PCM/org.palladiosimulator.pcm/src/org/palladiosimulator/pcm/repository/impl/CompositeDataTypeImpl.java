@@ -18,22 +18,19 @@ import org.palladiosimulator.pcm.repository.Repository;
 import org.palladiosimulator.pcm.repository.RepositoryPackage;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Composite Data Type</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Composite Data
+ * Type</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.impl.CompositeDataTypeImpl#getRepository__DataType
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.CompositeDataTypeImpl#getRepository__DataType
  * <em>Repository Data Type</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.impl.CompositeDataTypeImpl#getParentType_CompositeDataType
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.CompositeDataTypeImpl#getParentType_CompositeDataType
  * <em>Parent Type Composite Data Type</em>}</li>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.impl.CompositeDataTypeImpl#getInnerDeclaration_CompositeDataType
+ * <li>{@link org.palladiosimulator.pcm.repository.impl.CompositeDataTypeImpl#getInnerDeclaration_CompositeDataType
  * <em>Inner Declaration Composite Data Type</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -44,7 +41,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -133,8 +130,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(final InternalEObject otherEnd, final int featureID, NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -155,8 +151,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
     @Override
     public NotificationChain eInverseRemove(final InternalEObject otherEnd, final int featureID,
             final NotificationChain msgs) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE:
             return this.basicSetRepository__DataType(null, msgs);
         case RepositoryPackage.COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE:
@@ -172,8 +167,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(final NotificationChain msgs) {
-        switch (this.eContainerFeatureID())
-        {
+        switch (this.eContainerFeatureID()) {
         case RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE:
             return this.eInternalContainer().eInverseRemove(this, RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY,
                     Repository.class, msgs);
@@ -188,8 +182,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      */
     @Override
     public Object eGet(final int featureID, final boolean resolve, final boolean coreType) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE:
             return this.getRepository__DataType();
         case RepositoryPackage.COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE:
@@ -208,8 +201,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(final int featureID, final Object newValue) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE:
             this.setRepository__DataType((Repository) newValue);
             return;
@@ -232,8 +224,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      */
     @Override
     public void eUnset(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE:
             this.setRepository__DataType((Repository) null);
             return;
@@ -254,8 +245,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      */
     @Override
     public boolean eIsSet(final int featureID) {
-        switch (featureID)
-        {
+        switch (featureID) {
         case RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE:
             return this.getRepository__DataType() != null;
         case RepositoryPackage.COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE:
@@ -273,10 +263,8 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      */
     @Override
     public int eBaseStructuralFeatureID(final int derivedFeatureID, final Class<?> baseClass) {
-        if (baseClass == DataType.class)
-        {
-            switch (derivedFeatureID)
-            {
+        if (baseClass == DataType.class) {
+            switch (derivedFeatureID) {
             case RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE:
                 return RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE;
             default:
@@ -293,10 +281,8 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
      */
     @Override
     public int eDerivedStructuralFeatureID(final int baseFeatureID, final Class<?> baseClass) {
-        if (baseClass == DataType.class)
-        {
-            switch (baseFeatureID)
-            {
+        if (baseClass == DataType.class) {
+            switch (baseFeatureID) {
             case RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE:
                 return RepositoryPackage.COMPOSITE_DATA_TYPE__REPOSITORY_DATA_TYPE;
             default:

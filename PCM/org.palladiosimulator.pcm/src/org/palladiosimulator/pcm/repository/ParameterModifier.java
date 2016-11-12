@@ -10,9 +10,9 @@ import java.util.List;
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
- * <!-- begin-user-doc --> A representation of the literals of the enumeration '
- * <em><b>Parameter Modifier</b></em>', and utility methods for working with them. <!-- end-user-doc
- * --> <!-- begin-model-doc --> Parameter modifiers like known from C#. <!-- end-model-doc -->
+ * <!-- begin-user-doc --> A representation of the literals of the enumeration ' <em><b>Parameter
+ * Modifier</b></em>', and utility methods for working with them. <!-- end-user-doc --> <!--
+ * begin-model-doc --> Parameter modifiers like known from C#. <!-- end-model-doc -->
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getParameterModifier()
  * @model
@@ -60,7 +60,7 @@ public enum ParameterModifier implements Enumerator {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The '<em><b>None</b></em>' literal value. <!-- begin-user-doc --> <!-- end-user-doc --> <!--
@@ -113,8 +113,7 @@ public enum ParameterModifier implements Enumerator {
      *
      * @generated
      */
-    private static final ParameterModifier[] VALUES_ARRAY = new ParameterModifier[]
-    {
+    private static final ParameterModifier[] VALUES_ARRAY = new ParameterModifier[] {
             NONE,
             IN,
             OUT,
@@ -133,12 +132,14 @@ public enum ParameterModifier implements Enumerator {
      * Returns the '<em><b>Parameter Modifier</b></em>' literal with the specified literal value.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
+     * @param literal
+     *            the literal.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ParameterModifier get(final String literal) {
         for (final ParameterModifier result : VALUES_ARRAY) {
-            if (result.toString().equals(literal))
-            {
+            if (result.toString().equals(literal)) {
                 return result;
             }
         }
@@ -156,8 +157,7 @@ public enum ParameterModifier implements Enumerator {
      */
     public static ParameterModifier getByName(final String name) {
         for (final ParameterModifier result : VALUES_ARRAY) {
-            if (result.getName().equals(name))
-            {
+            if (result.getName().equals(name)) {
                 return result;
             }
         }
@@ -168,11 +168,13 @@ public enum ParameterModifier implements Enumerator {
      * Returns the '<em><b>Parameter Modifier</b></em>' literal with the specified integer value.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
+     * @param value
+     *            the integer value.
+     * @return the matching enumerator or <code>null</code>.
      * @generated
      */
     public static ParameterModifier get(final int value) {
-        switch (value)
-        {
+        switch (value) {
         case NONE_VALUE:
             return NONE;
         case IN_VALUE:

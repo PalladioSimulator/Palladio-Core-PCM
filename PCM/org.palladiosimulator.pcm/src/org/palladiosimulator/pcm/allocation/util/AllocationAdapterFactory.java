@@ -29,7 +29,7 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -44,8 +44,7 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public AllocationAdapterFactory() {
-        if (modelPackage == null)
-        {
+        if (modelPackage == null) {
             modelPackage = AllocationPackage.eINSTANCE;
         }
     }
@@ -60,12 +59,10 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
      */
     @Override
     public boolean isFactoryForType(final Object object) {
-        if (object == modelPackage)
-        {
+        if (object == modelPackage) {
             return true;
         }
-        if (object instanceof EObject)
-        {
+        if (object instanceof EObject) {
             return ((EObject) object).eClass().getEPackage() == modelPackage;
         }
         return false;
@@ -77,51 +74,44 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    protected AllocationSwitch<Adapter> modelSwitch = new AllocationSwitch<Adapter>()
-    {
+    protected AllocationSwitch<Adapter> modelSwitch = new AllocationSwitch<Adapter>() {
         @Override
-        public Adapter caseAllocationContext(final AllocationContext object)
-        {
+        public Adapter caseAllocationContext(final AllocationContext object) {
             return AllocationAdapterFactory.this.createAllocationContextAdapter();
         }
 
         @Override
-        public Adapter caseAllocation(final Allocation object)
-        {
+        public Adapter caseAllocation(final Allocation object) {
             return AllocationAdapterFactory.this.createAllocationAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(final Identifier object)
-        {
+        public Adapter caseIdentifier(final Identifier object) {
             return AllocationAdapterFactory.this.createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(final NamedElement object)
-        {
+        public Adapter caseNamedElement(final NamedElement object) {
             return AllocationAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(final Entity object)
-        {
+        public Adapter caseEntity(final Entity object) {
             return AllocationAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object)
-        {
+        public Adapter defaultCase(final EObject object) {
             return AllocationAdapterFactory.this.createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-             *
-             * @param target
-             *            the object to adapt.
-             * @return the adapter for the <code>target</code>.
+     *
+     * @param target
+     *            the object to adapt.
+     * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
@@ -161,11 +151,11 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
-             * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
-             * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
-             * the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+     * the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see de.uka.ipd.sdq.identifier.Identifier
      * @generated
      */
@@ -189,12 +179,12 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'. <!-- begin-user-doc
-             * --> This default implementation returns null so that we can easily ignore cases; it's useful
-             * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'. <!-- begin-user-doc
+     * --> This default implementation returns null so that we can easily ignore cases; it's useful
+     * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.Entity
      * @generated
      */
@@ -204,9 +194,9 @@ public class AllocationAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
-             * implementation returns null. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * implementation returns null. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @generated
      */
     public Adapter createEObjectAdapter() {

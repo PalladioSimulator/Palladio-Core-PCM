@@ -4,8 +4,8 @@
 package org.palladiosimulator.pcm.seff;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Probabilistic Branch Transition</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Probabilistic Branch
+ * Transition</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> a GuardedBranchTransition, this transition provides a link between a
  * BranchAction and a nested ResourceDemandingBehaviour, which includes the actions executed inside
@@ -25,11 +25,11 @@ package org.palladiosimulator.pcm.seff;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.palladiosimulator.pcm.seff.ProbabilisticBranchTransition#getBranchProbability <em>
- * Branch Probability</em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcm.seff.ProbabilisticBranchTransition#getBranchProbability
+ * <em>Branch Probability</em>}</li>
+ * </ul>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getProbabilisticBranchTransition()
  * @model
@@ -42,7 +42,7 @@ public interface ProbabilisticBranchTransition extends AbstractBranchTransition 
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Branch Probability</b></em>' attribute. <!-- begin-user-doc
@@ -62,8 +62,8 @@ public interface ProbabilisticBranchTransition extends AbstractBranchTransition 
     double getBranchProbability();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.seff.ProbabilisticBranchTransition#getBranchProbability
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.seff.ProbabilisticBranchTransition#getBranchProbability
      * <em>Branch Probability</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value

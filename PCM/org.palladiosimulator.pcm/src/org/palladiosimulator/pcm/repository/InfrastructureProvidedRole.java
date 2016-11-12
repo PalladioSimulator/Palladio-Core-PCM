@@ -4,17 +4,16 @@
 package org.palladiosimulator.pcm.repository;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Infrastructure Provided Role</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Infrastructure Provided
+ * Role</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.repository.InfrastructureProvidedRole#getProvidedInterface__InfrastructureProvidedRole
+ * <li>{@link org.palladiosimulator.pcm.repository.InfrastructureProvidedRole#getProvidedInterface__InfrastructureProvidedRole
  * <em>Provided Interface Infrastructure Provided Role</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getInfrastructureProvidedRole()
  * @model
@@ -27,7 +26,7 @@ public interface InfrastructureProvidedRole extends ProvidedRole {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Provided Interface Infrastructure Provided Role</b></em>'
@@ -48,8 +47,8 @@ public interface InfrastructureProvidedRole extends ProvidedRole {
     InfrastructureInterface getProvidedInterface__InfrastructureProvidedRole();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.repository.InfrastructureProvidedRole#getProvidedInterface__InfrastructureProvidedRole
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.repository.InfrastructureProvidedRole#getProvidedInterface__InfrastructureProvidedRole
      * <em>Provided Interface Infrastructure Provided Role</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      *

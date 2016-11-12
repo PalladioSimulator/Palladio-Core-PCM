@@ -45,7 +45,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -60,8 +60,7 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public CompositionAdapterFactory() {
-        if (modelPackage == null)
-        {
+        if (modelPackage == null) {
             modelPackage = CompositionPackage.eINSTANCE;
         }
     }
@@ -76,12 +75,10 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      */
     @Override
     public boolean isFactoryForType(final Object object) {
-        if (object == modelPackage)
-        {
+        if (object == modelPackage) {
             return true;
         }
-        if (object instanceof EObject)
-        {
+        if (object instanceof EObject) {
             return ((EObject) object).eClass().getEPackage() == modelPackage;
         }
         return false;
@@ -93,149 +90,126 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    protected CompositionSwitch<Adapter> modelSwitch = new CompositionSwitch<Adapter>()
-    {
+    protected CompositionSwitch<Adapter> modelSwitch = new CompositionSwitch<Adapter>() {
         @Override
-        public Adapter caseDelegationConnector(final DelegationConnector object)
-        {
+        public Adapter caseDelegationConnector(final DelegationConnector object) {
             return CompositionAdapterFactory.this.createDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseConnector(final Connector object)
-        {
+        public Adapter caseConnector(final Connector object) {
             return CompositionAdapterFactory.this.createConnectorAdapter();
         }
 
         @Override
-        public Adapter caseComposedStructure(final ComposedStructure object)
-        {
+        public Adapter caseComposedStructure(final ComposedStructure object) {
             return CompositionAdapterFactory.this.createComposedStructureAdapter();
         }
 
         @Override
-        public Adapter caseResourceRequiredDelegationConnector(final ResourceRequiredDelegationConnector object)
-        {
+        public Adapter caseResourceRequiredDelegationConnector(final ResourceRequiredDelegationConnector object) {
             return CompositionAdapterFactory.this.createResourceRequiredDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseEventChannel(final EventChannel object)
-        {
+        public Adapter caseEventChannel(final EventChannel object) {
             return CompositionAdapterFactory.this.createEventChannelAdapter();
         }
 
         @Override
-        public Adapter caseEventChannelSourceConnector(final EventChannelSourceConnector object)
-        {
+        public Adapter caseEventChannelSourceConnector(final EventChannelSourceConnector object) {
             return CompositionAdapterFactory.this.createEventChannelSourceConnectorAdapter();
         }
 
         @Override
-        public Adapter caseEventChannelSinkConnector(final EventChannelSinkConnector object)
-        {
+        public Adapter caseEventChannelSinkConnector(final EventChannelSinkConnector object) {
             return CompositionAdapterFactory.this.createEventChannelSinkConnectorAdapter();
         }
 
         @Override
-        public Adapter caseProvidedDelegationConnector(final ProvidedDelegationConnector object)
-        {
+        public Adapter caseProvidedDelegationConnector(final ProvidedDelegationConnector object) {
             return CompositionAdapterFactory.this.createProvidedDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseRequiredDelegationConnector(final RequiredDelegationConnector object)
-        {
+        public Adapter caseRequiredDelegationConnector(final RequiredDelegationConnector object) {
             return CompositionAdapterFactory.this.createRequiredDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseAssemblyConnector(final AssemblyConnector object)
-        {
+        public Adapter caseAssemblyConnector(final AssemblyConnector object) {
             return CompositionAdapterFactory.this.createAssemblyConnectorAdapter();
         }
 
         @Override
-        public Adapter caseAssemblyEventConnector(final AssemblyEventConnector object)
-        {
+        public Adapter caseAssemblyEventConnector(final AssemblyEventConnector object) {
             return CompositionAdapterFactory.this.createAssemblyEventConnectorAdapter();
         }
 
         @Override
-        public Adapter caseSourceDelegationConnector(final SourceDelegationConnector object)
-        {
+        public Adapter caseSourceDelegationConnector(final SourceDelegationConnector object) {
             return CompositionAdapterFactory.this.createSourceDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseSinkDelegationConnector(final SinkDelegationConnector object)
-        {
+        public Adapter caseSinkDelegationConnector(final SinkDelegationConnector object) {
             return CompositionAdapterFactory.this.createSinkDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseAssemblyInfrastructureConnector(final AssemblyInfrastructureConnector object)
-        {
+        public Adapter caseAssemblyInfrastructureConnector(final AssemblyInfrastructureConnector object) {
             return CompositionAdapterFactory.this.createAssemblyInfrastructureConnectorAdapter();
         }
 
         @Override
         public Adapter caseProvidedInfrastructureDelegationConnector(
-                final ProvidedInfrastructureDelegationConnector object)
-        {
+                final ProvidedInfrastructureDelegationConnector object) {
             return CompositionAdapterFactory.this.createProvidedInfrastructureDelegationConnectorAdapter();
         }
 
         @Override
         public Adapter caseRequiredInfrastructureDelegationConnector(
-                final RequiredInfrastructureDelegationConnector object)
-        {
+                final RequiredInfrastructureDelegationConnector object) {
             return CompositionAdapterFactory.this.createRequiredInfrastructureDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseRequiredResourceDelegationConnector(final RequiredResourceDelegationConnector object)
-        {
+        public Adapter caseRequiredResourceDelegationConnector(final RequiredResourceDelegationConnector object) {
             return CompositionAdapterFactory.this.createRequiredResourceDelegationConnectorAdapter();
         }
 
         @Override
-        public Adapter caseAssemblyContext(final AssemblyContext object)
-        {
+        public Adapter caseAssemblyContext(final AssemblyContext object) {
             return CompositionAdapterFactory.this.createAssemblyContextAdapter();
         }
 
         @Override
-        public Adapter caseIdentifier(final Identifier object)
-        {
+        public Adapter caseIdentifier(final Identifier object) {
             return CompositionAdapterFactory.this.createIdentifierAdapter();
         }
 
         @Override
-        public Adapter caseNamedElement(final NamedElement object)
-        {
+        public Adapter caseNamedElement(final NamedElement object) {
             return CompositionAdapterFactory.this.createNamedElementAdapter();
         }
 
         @Override
-        public Adapter caseEntity(final Entity object)
-        {
+        public Adapter caseEntity(final Entity object) {
             return CompositionAdapterFactory.this.createEntityAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object)
-        {
+        public Adapter defaultCase(final EObject object) {
             return CompositionAdapterFactory.this.createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-             *
-             * @param target
-             *            the object to adapt.
-             * @return the adapter for the <code>target</code>.
+     *
+     * @param target
+     *            the object to adapt.
+     * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
@@ -244,13 +218,13 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.composition.DelegationConnector
-             * <em>Delegation Connector</em>}'. <!-- begin-user-doc --> This default implementation returns
-             * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
-             * catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.composition.DelegationConnector <em>Delegation
+     * Connector</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+     * cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.composition.DelegationConnector
      * @generated
      */
@@ -274,13 +248,13 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.composition.ComposedStructure
-             * <em>Composed Structure</em>}'. <!-- begin-user-doc --> This default implementation returns
-             * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
-             * catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.composition.ComposedStructure <em>Composed
+     * Structure</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+     * cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.composition.ComposedStructure
      * @generated
      */
@@ -289,13 +263,13 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector
-             * <em>Resource Required Delegation Connector</em>}'. <!-- begin-user-doc --> This default
-             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector
+     * <em>Resource Required Delegation Connector</em>}'. <!-- begin-user-doc --> This default
+     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.composition.ResourceRequiredDelegationConnector
      * @generated
      */
@@ -319,13 +293,13 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector
-             * <em>Event Channel Source Connector</em>}'. <!-- begin-user-doc --> This default
-             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector <em>Event
+     * Channel Source Connector</em>}'. <!-- begin-user-doc --> This default implementation returns
+     * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
+     * catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector
      * @generated
      */
@@ -334,13 +308,13 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector
-             * <em>Event Channel Sink Connector</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector <em>Event
+     * Channel Sink Connector</em>}'. <!-- begin-user-doc --> This default implementation returns
+     * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
+     * catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.composition.EventChannelSinkConnector
      * @generated
      */
@@ -349,13 +323,13 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector
-             * <em>Provided Delegation Connector</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector <em>Provided
+     * Delegation Connector</em>}'. <!-- begin-user-doc --> This default implementation returns null
+     * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch
+     * all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector
      * @generated
      */
@@ -364,13 +338,13 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector
-             * <em>Required Delegation Connector</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector <em>Required
+     * Delegation Connector</em>}'. <!-- begin-user-doc --> This default implementation returns null
+     * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch
+     * all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.composition.RequiredDelegationConnector
      * @generated
      */
@@ -379,13 +353,13 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.composition.AssemblyConnector
-             * <em>Assembly Connector</em>}'. <!-- begin-user-doc --> This default implementation returns
-             * null so that we can easily ignore cases; it's useful to ignore a case when inheritance will
-             * catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyConnector <em>Assembly
+     * Connector</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+     * cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.composition.AssemblyConnector
      * @generated
      */
@@ -394,13 +368,13 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector
-             * <em>Assembly Event Connector</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyEventConnector <em>Assembly Event
+     * Connector</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+     * cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.composition.AssemblyEventConnector
      * @generated
      */
@@ -409,13 +383,13 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector
-             * <em>Source Delegation Connector</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.composition.SourceDelegationConnector <em>Source
+     * Delegation Connector</em>}'. <!-- begin-user-doc --> This default implementation returns null
+     * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch
+     * all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.composition.SourceDelegationConnector
      * @generated
      */
@@ -424,13 +398,13 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector
-             * <em>Sink Delegation Connector</em>}'. <!-- begin-user-doc --> This default implementation
-             * returns null so that we can easily ignore cases; it's useful to ignore a case when
-             * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.composition.SinkDelegationConnector <em>Sink
+     * Delegation Connector</em>}'. <!-- begin-user-doc --> This default implementation returns null
+     * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch
+     * all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.composition.SinkDelegationConnector
      * @generated
      */
@@ -439,13 +413,13 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector
-             * <em>Assembly Infrastructure Connector</em>}'. <!-- begin-user-doc --> This default
-             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector
+     * <em>Assembly Infrastructure Connector</em>}'. <!-- begin-user-doc --> This default
+     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.composition.AssemblyInfrastructureConnector
      * @generated
      */
@@ -454,13 +428,13 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.composition.ProvidedInfrastructureDelegationConnector
-             * <em>Provided Infrastructure Delegation Connector</em>}'. <!-- begin-user-doc --> This default
-             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.composition.ProvidedInfrastructureDelegationConnector
+     * <em>Provided Infrastructure Delegation Connector</em>}'. <!-- begin-user-doc --> This default
+     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.composition.ProvidedInfrastructureDelegationConnector
      * @generated
      */
@@ -469,13 +443,13 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.composition.RequiredInfrastructureDelegationConnector
-             * <em>Required Infrastructure Delegation Connector</em>}'. <!-- begin-user-doc --> This default
-             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.composition.RequiredInfrastructureDelegationConnector
+     * <em>Required Infrastructure Delegation Connector</em>}'. <!-- begin-user-doc --> This default
+     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.composition.RequiredInfrastructureDelegationConnector
      * @generated
      */
@@ -484,13 +458,13 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector
-             * <em>Required Resource Delegation Connector</em>}'. <!-- begin-user-doc --> This default
-             * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
-             * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector
+     * <em>Required Resource Delegation Connector</em>}'. <!-- begin-user-doc --> This default
+     * implementation returns null so that we can easily ignore cases; it's useful to ignore a case
+     * when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.composition.RequiredResourceDelegationConnector
      * @generated
      */
@@ -499,13 +473,13 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.composition.AssemblyContext <em>Assembly Context</em>}
-             * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-             * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway.
-             * <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.composition.AssemblyContext <em>Assembly
+     * Context</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
+     * cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.composition.AssemblyContext
      * @generated
      */
@@ -515,11 +489,11 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier
-             * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
-             * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
-             * the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
+     * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
+     * the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see de.uka.ipd.sdq.identifier.Identifier
      * @generated
      */
@@ -543,12 +517,12 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
     }
 
     /**
-     * Creates a new adapter for an object of class '
-             * {@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'. <!-- begin-user-doc
-             * --> This default implementation returns null so that we can easily ignore cases; it's useful
-             * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * Creates a new adapter for an object of class
+     * '{@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'. <!-- begin-user-doc
+     * --> This default implementation returns null so that we can easily ignore cases; it's useful
+     * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.Entity
      * @generated
      */
@@ -558,9 +532,9 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
-             * implementation returns null. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * implementation returns null. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @generated
      */
     public Adapter createEObjectAdapter() {

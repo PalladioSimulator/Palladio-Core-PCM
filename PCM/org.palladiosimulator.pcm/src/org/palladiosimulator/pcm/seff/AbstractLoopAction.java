@@ -4,8 +4,8 @@
 package org.palladiosimulator.pcm.seff;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Abstract Loop Action</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Abstract Loop
+ * Action</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
  * <p>
@@ -15,11 +15,11 @@ package org.palladiosimulator.pcm.seff;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop <em>Body
  * Behaviour Loop</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getAbstractLoopAction()
  * @model abstract="true"
@@ -32,12 +32,12 @@ public interface AbstractLoopAction extends AbstractInternalControlFlowAction {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Body Behaviour Loop</b></em>' containment reference. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getAbstractLoopAction_ResourceDemandingBehaviour
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour#getAbstractLoopAction_ResourceDemandingBehaviour
      * <em>Abstract Loop Action Resource Demanding Behaviour</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Body Behaviour Loop</em>' containment reference isn't clear, there
@@ -56,10 +56,9 @@ public interface AbstractLoopAction extends AbstractInternalControlFlowAction {
     ResourceDemandingBehaviour getBodyBehaviour_Loop();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop
-     * <em>Body Behaviour Loop</em>}' containment reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop <em>Body
+     * Behaviour Loop</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Body Behaviour Loop</em>' containment reference.

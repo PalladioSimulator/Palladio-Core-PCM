@@ -7,8 +7,8 @@ import org.eclipse.emf.common.util.EList;
 import org.palladiosimulator.pcm.repository.ProvidedRole;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '
- * <em><b>Interface Providing Entity</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object ' <em><b>Interface Providing
+ * Entity</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc --> All Entities that provide an Interface are represented by this class.
  * Prominent inheriting classes are all component types, for example.
@@ -26,12 +26,11 @@ import org.palladiosimulator.pcm.repository.ProvidedRole;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity#getProvidedRoles_InterfaceProvidingEntity
+ * <li>{@link org.palladiosimulator.pcm.core.entity.InterfaceProvidingEntity#getProvidedRoles_InterfaceProvidingEntity
  * <em>Provided Roles Interface Providing Entity</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.core.entity.EntityPackage#getInterfaceProvidingEntity()
  * @model abstract="true"
@@ -44,14 +43,14 @@ public interface InterfaceProvidingEntity extends Entity {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Provided Roles Interface Providing Entity</b></em>'
      * containment reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.repository.ProvidedRole}. It is bidirectional and its
-     * opposite is '
-     * {@link org.palladiosimulator.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole
+     * opposite is
+     * '{@link org.palladiosimulator.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole
      * <em>Providing Entity Provided Role</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Provided Roles Interface Providing Entity</em>' containment

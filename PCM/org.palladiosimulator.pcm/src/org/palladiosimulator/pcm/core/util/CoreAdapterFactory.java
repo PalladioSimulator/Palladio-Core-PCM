@@ -26,7 +26,7 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -41,8 +41,7 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
      * @generated
      */
     public CoreAdapterFactory() {
-        if (modelPackage == null)
-        {
+        if (modelPackage == null) {
             modelPackage = CorePackage.eINSTANCE;
         }
     }
@@ -57,12 +56,10 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
      */
     @Override
     public boolean isFactoryForType(final Object object) {
-        if (object == modelPackage)
-        {
+        if (object == modelPackage) {
             return true;
         }
-        if (object instanceof EObject)
-        {
+        if (object instanceof EObject) {
             return ((EObject) object).eClass().getEPackage() == modelPackage;
         }
         return false;
@@ -74,33 +71,29 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
      *
      * @generated
      */
-    protected CoreSwitch<Adapter> modelSwitch = new CoreSwitch<Adapter>()
-    {
+    protected CoreSwitch<Adapter> modelSwitch = new CoreSwitch<Adapter>() {
         @Override
-        public Adapter casePCMRandomVariable(final PCMRandomVariable object)
-        {
+        public Adapter casePCMRandomVariable(final PCMRandomVariable object) {
             return CoreAdapterFactory.this.createPCMRandomVariableAdapter();
         }
 
         @Override
-        public Adapter caseRandomVariable(final RandomVariable object)
-        {
+        public Adapter caseRandomVariable(final RandomVariable object) {
             return CoreAdapterFactory.this.createRandomVariableAdapter();
         }
 
         @Override
-        public Adapter defaultCase(final EObject object)
-        {
+        public Adapter defaultCase(final EObject object) {
             return CoreAdapterFactory.this.createEObjectAdapter();
         }
     };
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-             *
-             * @param target
-             *            the object to adapt.
-             * @return the adapter for the <code>target</code>.
+     *
+     * @param target
+     *            the object to adapt.
+     * @return the adapter for the <code>target</code>.
      * @generated
      */
     @Override
@@ -125,11 +118,11 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.RandomVariable
-             * <em>Random Variable</em>}'. <!-- begin-user-doc --> This default implementation returns null
-             * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch
-             * all the cases anyway. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * <em>Random Variable</em>}'. <!-- begin-user-doc --> This default implementation returns null
+     * so that we can easily ignore cases; it's useful to ignore a case when inheritance will catch
+     * all the cases anyway. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @see de.uka.ipd.sdq.stoex.RandomVariable
      * @generated
      */
@@ -139,9 +132,9 @@ public class CoreAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
-             * implementation returns null. <!-- end-user-doc -->
-             *
-             * @return the new adapter.
+     * implementation returns null. <!-- end-user-doc -->
+     *
+     * @return the new adapter.
      * @generated
      */
     public Adapter createEObjectAdapter() {

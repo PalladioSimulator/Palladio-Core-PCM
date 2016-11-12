@@ -37,11 +37,11 @@ import org.palladiosimulator.pcm.core.PCMRandomVariable;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  * <li>{@link org.palladiosimulator.pcm.seff.LoopAction#getIterationCount_LoopAction <em>Iteration
  * Count Loop Action</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getLoopAction()
  * @model
@@ -54,12 +54,12 @@ public interface LoopAction extends AbstractLoopAction {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Iteration Count Loop Action</b></em>' containment reference.
-     * It is bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.core.PCMRandomVariable#getLoopAction_PCMRandomVariable
+     * It is bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.core.PCMRandomVariable#getLoopAction_PCMRandomVariable
      * <em>Loop Action PCM Random Variable</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Iteration Count Loop Action</em>' containment reference isn't
@@ -78,10 +78,9 @@ public interface LoopAction extends AbstractLoopAction {
     PCMRandomVariable getIterationCount_LoopAction();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.seff.LoopAction#getIterationCount_LoopAction
-     * <em>Iteration Count Loop Action</em>}' containment reference. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.seff.LoopAction#getIterationCount_LoopAction <em>Iteration
+     * Count Loop Action</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Iteration Count Loop Action</em>' containment reference.

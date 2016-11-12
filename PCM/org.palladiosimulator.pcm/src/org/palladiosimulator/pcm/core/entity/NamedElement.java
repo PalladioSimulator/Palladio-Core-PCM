@@ -15,11 +15,11 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.palladiosimulator.pcm.core.entity.NamedElement#getEntityName <em>Entity Name</em>}
- * </li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcm.core.entity.NamedElement#getEntityName <em>Entity
+ * Name</em>}</li>
+ * </ul>
  *
  * @see org.palladiosimulator.pcm.core.entity.EntityPackage#getNamedElement()
  * @model abstract="true"
@@ -33,7 +33,7 @@ public interface NamedElement extends CDOObject {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Entity Name</b></em>' attribute. The default value is
@@ -53,9 +53,9 @@ public interface NamedElement extends CDOObject {
     String getEntityName();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.core.entity.NamedElement#getEntityName <em>Entity Name</em>}
-     * ' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.core.entity.NamedElement#getEntityName <em>Entity
+     * Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @param value
      *            the new value of the '<em>Entity Name</em>' attribute.

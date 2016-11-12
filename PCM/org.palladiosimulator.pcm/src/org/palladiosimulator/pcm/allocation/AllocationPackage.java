@@ -21,8 +21,10 @@ import org.palladiosimulator.pcm.core.entity.EntityPackage;
  * end-model-doc -->
  *
  * @see org.palladiosimulator.pcm.allocation.AllocationFactory
- * @model kind="package" annotation=
- *        "http://www.eclipse.org/emf/2002/Ecore invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot' validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
+ * @model kind="package" annotation= "http://www.eclipse.org/emf/2002/Ecore
+ *        invocationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        settingDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'
+ *        validationDelegates='http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot'"
  * @generated
  */
 public interface AllocationPackage extends EPackage {
@@ -32,7 +34,7 @@ public interface AllocationPackage extends EPackage {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -63,8 +65,8 @@ public interface AllocationPackage extends EPackage {
     AllocationPackage eINSTANCE = org.palladiosimulator.pcm.allocation.impl.AllocationPackageImpl.init();
 
     /**
-     * The meta object id for the '
-     * {@link org.palladiosimulator.pcm.allocation.impl.AllocationContextImpl <em>Context</em>}'
+     * The meta object id for the
+     * '{@link org.palladiosimulator.pcm.allocation.impl.AllocationContextImpl <em>Context</em>}'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.palladiosimulator.pcm.allocation.impl.AllocationContextImpl
@@ -225,8 +227,8 @@ public interface AllocationPackage extends EPackage {
     EReference getAllocationContext_ResourceContainer_AllocationContext();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.allocation.AllocationContext#getAssemblyContext_AllocationContext
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.allocation.AllocationContext#getAssemblyContext_AllocationContext
      * <em>Assembly Context Allocation Context</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Assembly Context Allocation Context</em>'.
@@ -237,8 +239,8 @@ public interface AllocationPackage extends EPackage {
     EReference getAllocationContext_AssemblyContext_AllocationContext();
 
     /**
-     * Returns the meta object for the container reference '
-     * {@link org.palladiosimulator.pcm.allocation.AllocationContext#getAllocation_AllocationContext
+     * Returns the meta object for the container reference
+     * '{@link org.palladiosimulator.pcm.allocation.AllocationContext#getAllocation_AllocationContext
      * <em>Allocation Allocation Context</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the container reference '<em>Allocation Allocation Context</em>'.
@@ -249,8 +251,8 @@ public interface AllocationPackage extends EPackage {
     EReference getAllocationContext_Allocation_AllocationContext();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.allocation.AllocationContext#getEventChannel__AllocationContext
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.allocation.AllocationContext#getEventChannel__AllocationContext
      * <em>Event Channel Allocation Context</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>Event Channel Allocation Context</em>'.
@@ -284,9 +286,9 @@ public interface AllocationPackage extends EPackage {
     EReference getAllocation_TargetResourceEnvironment_Allocation();
 
     /**
-     * Returns the meta object for the reference '
-     * {@link org.palladiosimulator.pcm.allocation.Allocation#getSystem_Allocation
-     * <em>System Allocation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for the reference
+     * '{@link org.palladiosimulator.pcm.allocation.Allocation#getSystem_Allocation <em>System
+     * Allocation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the meta object for the reference '<em>System Allocation</em>'.
      * @see org.palladiosimulator.pcm.allocation.Allocation#getSystem_Allocation()
@@ -296,12 +298,12 @@ public interface AllocationPackage extends EPackage {
     EReference getAllocation_System_Allocation();
 
     /**
-     * Returns the meta object for the containment reference list '
-     * {@link org.palladiosimulator.pcm.allocation.Allocation#getAllocationContexts_Allocation
+     * Returns the meta object for the containment reference list
+     * '{@link org.palladiosimulator.pcm.allocation.Allocation#getAllocationContexts_Allocation
      * <em>Allocation Contexts Allocation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for the containment reference list '
-     *         <em>Allocation Contexts Allocation</em>'.
+     * @return the meta object for the containment reference list '<em>Allocation Contexts
+     *         Allocation</em>'.
      * @see org.palladiosimulator.pcm.allocation.Allocation#getAllocationContexts_Allocation()
      * @see #getAllocation()
      * @generated
@@ -332,9 +334,9 @@ public interface AllocationPackage extends EPackage {
     interface Literals {
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.allocation.impl.AllocationContextImpl <em>Context</em>}'
-         * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.allocation.impl.AllocationContextImpl
+         * <em>Context</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.allocation.impl.AllocationContextImpl
          * @see org.palladiosimulator.pcm.allocation.impl.AllocationPackageImpl#getAllocationContext()
@@ -379,8 +381,8 @@ public interface AllocationPackage extends EPackage {
                 .getAllocationContext_EventChannel__AllocationContext();
 
         /**
-         * The meta object literal for the '
-         * {@link org.palladiosimulator.pcm.allocation.impl.AllocationImpl <em>Allocation</em>}'
+         * The meta object literal for the
+         * '{@link org.palladiosimulator.pcm.allocation.impl.AllocationImpl <em>Allocation</em>}'
          * class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.palladiosimulator.pcm.allocation.impl.AllocationImpl

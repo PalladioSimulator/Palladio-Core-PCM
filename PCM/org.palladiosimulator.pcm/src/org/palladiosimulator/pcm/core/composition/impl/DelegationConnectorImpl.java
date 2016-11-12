@@ -8,10 +8,8 @@ import org.palladiosimulator.pcm.core.composition.CompositionPackage;
 import org.palladiosimulator.pcm.core.composition.DelegationConnector;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '
- * <em><b>Delegation Connector</b></em>'. <!-- end-user-doc -->
- * <p>
- * </p>
+ * <!-- begin-user-doc --> An implementation of the model object ' <em><b>Delegation
+ * Connector</b></em>'. <!-- end-user-doc -->
  *
  * @generated
  */
@@ -22,7 +20,7 @@ public abstract class DelegationConnectorImpl extends ConnectorImpl implements D
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->

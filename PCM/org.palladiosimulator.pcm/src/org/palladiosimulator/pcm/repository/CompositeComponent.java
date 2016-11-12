@@ -33,6 +33,6 @@ public interface CompositeComponent extends ComposedProvidingRequiringEntity, Im
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
 } // CompositeComponent

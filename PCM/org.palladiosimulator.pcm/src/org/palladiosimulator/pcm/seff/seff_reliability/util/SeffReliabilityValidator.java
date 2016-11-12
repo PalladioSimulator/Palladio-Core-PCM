@@ -28,7 +28,7 @@ public class SeffReliabilityValidator extends EObjectValidator {
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -136,8 +136,7 @@ public class SeffReliabilityValidator extends EObjectValidator {
     @Override
     protected boolean validate(final int classifierID, final Object value, final DiagnosticChain diagnostics,
             final Map<Object, Object> context) {
-        switch (classifierID)
-        {
+        switch (classifierID) {
         case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR:
             return this.validateRecoveryActionBehaviour((RecoveryActionBehaviour) value, diagnostics, context);
         case SeffReliabilityPackage.RECOVERY_ACTION:
@@ -165,6 +164,10 @@ public class SeffReliabilityValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryReferenceIsContained(recoveryActionBehaviour, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(recoveryActionBehaviour, diagnostics,
+                    context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(recoveryActionBehaviour, diagnostics, context);
@@ -210,8 +213,8 @@ public class SeffReliabilityValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the RecoveryActionBehaviourHasOnlyOnePredecessor constraint of '
-     * <em>Recovery Action Behaviour</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the RecoveryActionBehaviourHasOnlyOnePredecessor constraint of '<em>Recovery Action
+     * Behaviour</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -222,8 +225,8 @@ public class SeffReliabilityValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the RecoveryActionBehaviourIsNotSuccessorOfItself constraint of '
-     * <em>Recovery Action Behaviour</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the RecoveryActionBehaviourIsNotSuccessorOfItself constraint of '<em>Recovery
+     * Action Behaviour</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -234,8 +237,8 @@ public class SeffReliabilityValidator extends EObjectValidator {
     }
 
     /**
-     * Validates the SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes constraint of '
-     * <em>Recovery Action Behaviour</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the SuccessorsOfRecoveryActionBehaviourHandleDisjointFailureTypes constraint of
+     * '<em>Recovery Action Behaviour</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
@@ -264,6 +267,9 @@ public class SeffReliabilityValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(recoveryAction, diagnostics, context);
         }
         if (result || diagnostics != null) {
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(recoveryAction, diagnostics, context);
+        }
+        if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(recoveryAction, diagnostics, context);
         }
         if (result || diagnostics != null) {
@@ -276,22 +282,20 @@ public class SeffReliabilityValidator extends EObjectValidator {
             result &= this.validate_EveryMapEntryUnique(recoveryAction, diagnostics, context);
         }
         if (result || diagnostics != null) {
-            result &= this.validateRecoveryAction_PrimaryBehaviourOfRecoveryActionMustBeSet(recoveryAction,
-                    diagnostics,
+            result &= this.validateRecoveryAction_PrimaryBehaviourOfRecoveryActionMustBeSet(recoveryAction, diagnostics,
                     context);
         }
         return result;
     }
 
     /**
-     * Validates the PrimaryBehaviourOfRecoveryActionMustBeSet constraint of '
-     * <em>Recovery Action</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the PrimaryBehaviourOfRecoveryActionMustBeSet constraint of '<em>Recovery
+     * Action</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
     public boolean validateRecoveryAction_PrimaryBehaviourOfRecoveryActionMustBeSet(
-            final RecoveryAction recoveryAction,
-            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+            final RecoveryAction recoveryAction, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return recoveryAction.PrimaryBehaviourOfRecoveryActionMustBeSet(diagnostics, context);
     }
 

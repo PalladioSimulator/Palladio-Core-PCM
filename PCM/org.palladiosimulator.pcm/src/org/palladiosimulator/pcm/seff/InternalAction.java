@@ -29,12 +29,11 @@ import org.palladiosimulator.pcm.reliability.InternalFailureOccurrenceDescriptio
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
- * <li>
- * {@link org.palladiosimulator.pcm.seff.InternalAction#getInternalFailureOccurrenceDescriptions__InternalAction
+ * <li>{@link org.palladiosimulator.pcm.seff.InternalAction#getInternalFailureOccurrenceDescriptions__InternalAction
  * <em>Internal Failure Occurrence Descriptions Internal Action</em>}</li>
  * </ul>
- * </p>
  *
  * @see org.palladiosimulator.pcm.seff.SeffPackage#getInternalAction()
  * @model
@@ -47,15 +46,14 @@ public interface InternalAction extends AbstractInternalControlFlowAction {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
-     * Returns the value of the '
-     * <em><b>Internal Failure Occurrence Descriptions Internal Action</b></em>' containment
-     * reference list. The list contents are of type
+     * Returns the value of the '<em><b>Internal Failure Occurrence Descriptions Internal
+     * Action</b></em>' containment reference list. The list contents are of type
      * {@link org.palladiosimulator.pcm.reliability.InternalFailureOccurrenceDescription}. It is
-     * bidirectional and its opposite is '
-     * {@link org.palladiosimulator.pcm.reliability.InternalFailureOccurrenceDescription#getInternalAction__InternalFailureOccurrenceDescription
+     * bidirectional and its opposite is
+     * '{@link org.palladiosimulator.pcm.reliability.InternalFailureOccurrenceDescription#getInternalAction__InternalFailureOccurrenceDescription
      * <em>Internal Action Internal Failure Occurrence Description</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Internal Failure Occurrence Descriptions Internal Action</em>'
@@ -80,8 +78,10 @@ public interface InternalAction extends AbstractInternalControlFlowAction {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.internalFailureOccurrenceDescriptions__InternalAction->forAll(x:pcm::reliability::InternalFailureOccurrenceDescription,y:pcm::reliability::InternalFailureOccurrenceDescription  | x<>y implies x.softwareInducedFailureType__InternalFailureOccurrenceDescription <> y.softwareInducedFailureType__InternalFailureOccurrenceDescription )\r\n'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.internalFailureOccurrenceDescriptions__InternalAction->forAll(x:pcm::reliability::InternalFailureOccurrenceDescription,y:pcm::reliability::InternalFailureOccurrenceDescription
+     *        | x<>y implies x.softwareInducedFailureType__InternalFailureOccurrenceDescription <>
+     *        y.softwareInducedFailureType__InternalFailureOccurrenceDescription )\r\n'"
      * @generated
      */
     boolean MultipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed(DiagnosticChain diagnostics,
@@ -94,8 +94,8 @@ public interface InternalAction extends AbstractInternalControlFlowAction {
      *            The chain of diagnostics to which problems are to be appended.
      * @param context
      *            The cache of context-specific information. <!-- end-model-doc -->
-     * @model annotation=
-     *        "http://www.eclipse.org/uml2/1.1.0/GenModel body='self.internalFailureOccurrenceDescriptions__InternalAction.failureProbability.oclAsType(Real)->sum()<=1.0\r\n'"
+     * @model annotation= "http://www.eclipse.org/uml2/1.1.0/GenModel
+     *        body='self.internalFailureOccurrenceDescriptions__InternalAction.failureProbability.oclAsType(Real)->sum()<=1.0\r\n'"
      * @generated
      */
     boolean SumOfInternalActionFailureProbabilitiesMustNotExceed1(DiagnosticChain diagnostics,

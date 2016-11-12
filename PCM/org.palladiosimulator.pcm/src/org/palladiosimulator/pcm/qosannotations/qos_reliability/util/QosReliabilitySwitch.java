@@ -3,10 +3,9 @@
  */
 package org.palladiosimulator.pcm.qosannotations.qos_reliability.util;
 
-import java.util.List;
-
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.Switch;
 import org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation;
 import org.palladiosimulator.pcm.qosannotations.qos_reliability.QosReliabilityPackage;
 import org.palladiosimulator.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation;
@@ -21,14 +20,14 @@ import org.palladiosimulator.pcm.qosannotations.qos_reliability.SpecifiedReliabi
  * @see org.palladiosimulator.pcm.qosannotations.qos_reliability.QosReliabilityPackage
  * @generated
  */
-public class QosReliabilitySwitch<T> {
+public class QosReliabilitySwitch<T> extends Switch<T> {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      */
-    public static final String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -43,21 +42,23 @@ public class QosReliabilitySwitch<T> {
      * @generated
      */
     public QosReliabilitySwitch() {
-        if (modelPackage == null)
-        {
+        if (modelPackage == null) {
             modelPackage = QosReliabilityPackage.eINSTANCE;
         }
     }
 
     /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
-     * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Checks whether this is a switch for the given package. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
      *
-     * @return the first non-null result returned by a <code>caseXXX</code> call.
+     * @param ePackage
+     *            the package in question.
+     * @return whether this is a switch for the given package.
      * @generated
      */
-    public T doSwitch(final EObject theEObject) {
-        return this.doSwitch(theEObject.eClass(), theEObject);
+    @Override
+    protected boolean isSwitchFor(final EPackage ePackage) {
+        return ePackage == modelPackage;
     }
 
     /**
@@ -67,30 +68,9 @@ public class QosReliabilitySwitch<T> {
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
-    protected T doSwitch(final EClass theEClass, final EObject theEObject) {
-        if (theEClass.eContainer() == modelPackage)
-        {
-            return this.doSwitch(theEClass.getClassifierID(), theEObject);
-        }
-        else
-        {
-            final List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return eSuperTypes.isEmpty() ?
-                    this.defaultCase(theEObject) :
-                    this.doSwitch(eSuperTypes.get(0), theEObject);
-        }
-    }
-
-    /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
-     * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the first non-null result returned by a <code>caseXXX</code> call.
-     * @generated
-     */
+    @Override
     protected T doSwitch(final int classifierID, final EObject theEObject) {
-        switch (classifierID)
-        {
+        switch (classifierID) {
         case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION: {
             final SpecifiedReliabilityAnnotation specifiedReliabilityAnnotation = (SpecifiedReliabilityAnnotation) theEObject;
             T result = this.caseSpecifiedReliabilityAnnotation(specifiedReliabilityAnnotation);
@@ -108,14 +88,14 @@ public class QosReliabilitySwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Specified Reliability Annotation</em>'. <!-- begin-user-doc --> This implementation
-     * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Specified Reliability
+     * Annotation</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
+     * non-null result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Specified Reliability Annotation</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Specified Reliability
+     *         Annotation</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -124,14 +104,14 @@ public class QosReliabilitySwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '
-     * <em>Specified Qo SAnnotation</em>'. <!-- begin-user-doc --> This implementation returns null;
-     * returning a non-null result will terminate the switch. <!-- end-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Specified Qo
+     * SAnnotation</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
+     * non-null result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '
-     *         <em>Specified Qo SAnnotation</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Specified Qo
+     *         SAnnotation</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -150,6 +130,7 @@ public class QosReliabilitySwitch<T> {
      * @see #doSwitch(org.eclipse.emf.ecore.EObject)
      * @generated
      */
+    @Override
     public T defaultCase(final EObject object) {
         return null;
     }

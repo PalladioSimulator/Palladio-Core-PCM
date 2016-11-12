@@ -31,11 +31,11 @@ import org.eclipse.emf.cdo.CDOObject;
  *
  * <p>
  * The following features are supported:
- * <ul>
- * <li>{@link org.palladiosimulator.pcm.protocol.Protocol#getProtocolTypeID <em>Protocol Type ID
- * </em>}</li>
- * </ul>
  * </p>
+ * <ul>
+ * <li>{@link org.palladiosimulator.pcm.protocol.Protocol#getProtocolTypeID <em>Protocol Type
+ * ID</em>}</li>
+ * </ul>
  *
  * @see org.palladiosimulator.pcm.protocol.ProtocolPackage#getProtocol()
  * @model abstract="true"
@@ -49,7 +49,7 @@ public interface Protocol extends CDOObject {
      *
      * @generated
      */
-    String copyright = "Copyright 2005-2015 by palladiosimulator.org";
+    String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * Returns the value of the '<em><b>Protocol Type ID</b></em>' attribute. <!-- begin-user-doc
