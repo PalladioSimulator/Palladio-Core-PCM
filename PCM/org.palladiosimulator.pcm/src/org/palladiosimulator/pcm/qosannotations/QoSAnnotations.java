@@ -47,7 +47,7 @@ public interface QoSAnnotations extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -64,7 +64,7 @@ public interface QoSAnnotations extends Entity {
      * containment reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Specified Output Parameter Abstractions Qo SAnnotations</em>'
      *         containment reference list.
      * @see org.palladiosimulator.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations()
@@ -85,7 +85,7 @@ public interface QoSAnnotations extends Entity {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>System Qo SAnnotations</em>' container reference.
      * @see #setSystem_QoSAnnotations(org.palladiosimulator.pcm.system.System)
      * @see org.palladiosimulator.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations_System_QoSAnnotations()
@@ -100,7 +100,7 @@ public interface QoSAnnotations extends Entity {
      * '{@link org.palladiosimulator.pcm.qosannotations.QoSAnnotations#getSystem_QoSAnnotations
      * <em>System Qo SAnnotations</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>System Qo SAnnotations</em>' container reference.
      * @see #getSystem_QoSAnnotations()
@@ -120,7 +120,7 @@ public interface QoSAnnotations extends Entity {
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Specified Qo SAnnotations Qo SAnnotations</em>' containment
      *         reference list.
      * @see org.palladiosimulator.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations()

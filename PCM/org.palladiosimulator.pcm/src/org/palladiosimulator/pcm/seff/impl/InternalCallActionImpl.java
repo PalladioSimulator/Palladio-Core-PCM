@@ -49,14 +49,14 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected InternalCallActionImpl() {
@@ -65,7 +65,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -75,7 +75,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -86,7 +86,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AbstractAction basicGetPredecessor_AbstractAction() {
@@ -96,7 +96,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetPredecessor_AbstractAction(final AbstractAction newPredecessor_AbstractAction,
@@ -108,7 +108,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -119,7 +119,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -130,7 +130,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AbstractAction basicGetSuccessor_AbstractAction() {
@@ -140,7 +140,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetSuccessor_AbstractAction(final AbstractAction newSuccessor_AbstractAction,
@@ -152,7 +152,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -163,7 +163,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -175,7 +175,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceDemandingBehaviour_AbstractAction(
@@ -187,7 +187,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -200,7 +200,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -213,7 +213,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -226,7 +226,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -238,7 +238,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -250,7 +250,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceDemandingInternalBehaviour basicGetCalledResourceDemandingInternalBehaviour() {
@@ -261,7 +261,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -274,7 +274,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -317,7 +317,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -342,7 +342,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -358,7 +358,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -393,7 +393,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -430,7 +430,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -463,7 +463,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -489,7 +489,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -523,7 +523,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

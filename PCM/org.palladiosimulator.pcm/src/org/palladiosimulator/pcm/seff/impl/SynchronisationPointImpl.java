@@ -39,14 +39,14 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SynchronisationPointImpl() {
@@ -55,7 +55,7 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -65,7 +65,7 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -78,7 +78,7 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -89,7 +89,7 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetForkAction_SynchronisationPoint(
@@ -101,7 +101,7 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -113,7 +113,7 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,7 +127,7 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -153,7 +153,7 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -173,7 +173,7 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -188,7 +188,7 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -206,7 +206,7 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -231,7 +231,7 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -252,7 +252,7 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

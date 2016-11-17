@@ -31,14 +31,14 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EventGroupImpl() {
@@ -47,7 +47,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -57,7 +57,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -69,7 +69,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -87,7 +87,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -102,7 +102,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -116,7 +116,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -133,7 +133,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -148,7 +148,7 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

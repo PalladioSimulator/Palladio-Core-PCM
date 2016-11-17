@@ -25,7 +25,7 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -33,7 +33,7 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
     /**
      * The default value of the '{@link #getBranchProbability() <em>Branch Probability</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getBranchProbability()
      * @generated
      * @ordered
@@ -42,7 +42,7 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ProbabilisticBranchTransitionImpl() {
@@ -51,7 +51,7 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -61,7 +61,7 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -72,7 +72,7 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -83,7 +83,7 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -97,7 +97,7 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -112,7 +112,7 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,7 +127,7 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

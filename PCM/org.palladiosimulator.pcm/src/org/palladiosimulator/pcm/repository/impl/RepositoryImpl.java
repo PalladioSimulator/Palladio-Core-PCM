@@ -43,7 +43,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -51,7 +51,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
     /**
      * The default value of the '{@link #getRepositoryDescription() <em>Repository
      * Description</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getRepositoryDescription()
      * @generated
      * @ordered
@@ -60,7 +60,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected RepositoryImpl() {
@@ -69,7 +69,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -79,7 +79,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -90,7 +90,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -101,7 +101,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -113,7 +113,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -125,7 +125,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -137,7 +137,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -149,7 +149,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -178,7 +178,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -199,7 +199,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -221,7 +221,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -253,7 +253,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -280,7 +280,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

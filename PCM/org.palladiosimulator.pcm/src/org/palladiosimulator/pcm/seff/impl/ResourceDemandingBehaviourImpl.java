@@ -49,14 +49,14 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceDemandingBehaviourImpl() {
@@ -65,7 +65,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -75,7 +75,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -88,7 +88,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAbstractLoopAction_ResourceDemandingBehaviour(
@@ -100,7 +100,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -113,7 +113,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -126,7 +126,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
@@ -140,7 +140,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -154,7 +154,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -168,7 +168,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
      * The cached OCL expression body for the
      * '{@link #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Stop Action</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -179,7 +179,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
      * '{@link #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Stop Action</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -188,7 +188,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -221,7 +221,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
      * The cached OCL expression body for the
      * '{@link #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Start Action</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -232,7 +232,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
      * '{@link #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Start Action</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -241,7 +241,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -275,7 +275,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
      * '{@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And
      * Successor</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -287,7 +287,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
      * '{@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And
      * Successor</em>}' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -297,7 +297,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -335,7 +335,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -362,7 +362,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -381,7 +381,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -400,7 +400,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -418,7 +418,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -441,7 +441,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -462,7 +462,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -481,7 +481,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

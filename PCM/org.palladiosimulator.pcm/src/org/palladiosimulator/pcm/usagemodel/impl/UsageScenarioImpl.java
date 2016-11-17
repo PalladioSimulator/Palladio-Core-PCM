@@ -34,14 +34,14 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected UsageScenarioImpl() {
@@ -50,7 +50,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -60,7 +60,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -71,7 +71,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetUsageModel_UsageScenario(final UsageModel newUsageModel_UsageScenario,
@@ -83,7 +83,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -94,7 +94,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -105,7 +105,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetScenarioBehaviour_UsageScenario(
@@ -117,7 +117,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -129,7 +129,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -140,7 +140,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetWorkload_UsageScenario(final Workload newWorkload_UsageScenario,
@@ -152,7 +152,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -163,7 +163,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -195,7 +195,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -214,7 +214,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -230,7 +230,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -248,7 +248,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -269,7 +269,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -290,7 +290,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

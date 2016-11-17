@@ -43,14 +43,14 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceTypeImpl() {
@@ -59,7 +59,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -69,19 +69,18 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public Unit getUnit() {
-        // TODO: implement this method to return the 'Unit' containment reference
-        // Ensure that you remove @generated or mark it @generated NOT
-        throw new UnsupportedOperationException();
+        return (Unit) this.eDynamicGet(ResourcetypePackage.RESOURCE_TYPE__UNIT,
+                UnitsPackage.Literals.UNIT_CARRYING_ELEMENT__UNIT, true, true);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetUnit(final Unit newUnit, NotificationChain msgs) {
@@ -91,18 +90,48 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void setUnit(final Unit newUnit) {
-        // TODO: implement this method to set the 'Unit' containment reference
-        // Ensure that you remove @generated or mark it @generated NOT
-        throw new UnsupportedOperationException();
+        this.eDynamicSet(ResourcetypePackage.RESOURCE_TYPE__UNIT, UnitsPackage.Literals.UNIT_CARRYING_ELEMENT__UNIT,
+                newUnit);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
+     * @generated
+     */
+    public NotificationChain basicUnsetUnit(final NotificationChain msgs) {
+        return this.eDynamicInverseRemove((InternalEObject) this.getUnit(), ResourcetypePackage.RESOURCE_TYPE__UNIT,
+                msgs);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public void unsetUnit() {
+        this.eDynamicUnset(ResourcetypePackage.RESOURCE_TYPE__UNIT, UnitsPackage.Literals.UNIT_CARRYING_ELEMENT__UNIT);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public boolean isSetUnit() {
+        return this.eDynamicIsSet(ResourcetypePackage.RESOURCE_TYPE__UNIT,
+                UnitsPackage.Literals.UNIT_CARRYING_ELEMENT__UNIT);
+    }
+
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -116,7 +145,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -128,7 +157,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceRepository_ResourceType(
@@ -140,7 +169,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -152,7 +181,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -174,7 +203,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -182,7 +211,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
             final NotificationChain msgs) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_TYPE__UNIT:
-            return this.basicSetUnit(null, msgs);
+            return this.basicUnsetUnit(msgs);
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
             return ((InternalEList<?>) this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity())
                     .basicRemove(otherEnd, msgs);
@@ -194,7 +223,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -210,7 +239,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -228,7 +257,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -252,14 +281,14 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public void eUnset(final int featureID) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_TYPE__UNIT:
-            this.setUnit((Unit) null);
+            this.unsetUnit();
             return;
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
             this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity().clear();
@@ -273,14 +302,14 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(final int featureID) {
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_TYPE__UNIT:
-            return this.getUnit() != null;
+            return this.isSetUnit();
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
             return !this.getResourceProvidedRoles__ResourceInterfaceProvidingEntity().isEmpty();
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE:
@@ -291,7 +320,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -317,7 +346,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

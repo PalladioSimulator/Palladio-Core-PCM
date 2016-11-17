@@ -28,14 +28,14 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceDemandingInternalBehaviourImpl() {
@@ -44,7 +44,7 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -54,7 +54,7 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -67,7 +67,7 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceDemandingSEFF_ResourceDemandingInternalBehaviour(
@@ -81,7 +81,7 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -95,7 +95,7 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -114,7 +114,7 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -129,7 +129,7 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -145,7 +145,7 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -159,7 +159,7 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -174,7 +174,7 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -189,7 +189,7 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

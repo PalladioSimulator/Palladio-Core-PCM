@@ -44,14 +44,14 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected RecoveryActionImpl() {
@@ -60,7 +60,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -70,7 +70,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -82,7 +82,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public RecoveryActionBehaviour basicGetPrimaryBehaviour__RecoveryAction() {
@@ -93,7 +93,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -105,7 +105,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -122,7 +122,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
      * '{@link #PrimaryBehaviourOfRecoveryActionMustBeSet(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Primary Behaviour Of Recovery Action Must Be Set</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #PrimaryBehaviourOfRecoveryActionMustBeSet(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -144,7 +144,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -179,7 +179,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -197,7 +197,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -212,7 +212,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -231,7 +231,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -252,7 +252,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -270,7 +270,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -287,7 +287,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

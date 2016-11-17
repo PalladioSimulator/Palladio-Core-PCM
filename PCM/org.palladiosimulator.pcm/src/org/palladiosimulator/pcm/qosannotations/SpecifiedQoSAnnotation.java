@@ -38,7 +38,7 @@ public interface SpecifiedQoSAnnotation extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -65,7 +65,7 @@ public interface SpecifiedQoSAnnotation extends CDOObject {
      * '{@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation#getSignature_SpecifiedQoSAnnation
      * <em>Signature Specified Qo SAnnation</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Signature Specified Qo SAnnation</em>' reference.
      * @see #getSignature_SpecifiedQoSAnnation()
@@ -113,7 +113,7 @@ public interface SpecifiedQoSAnnotation extends CDOObject {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Qos Annotations Specified Qo SAnnotation</em>' container
      *         reference.
      * @see #setQosAnnotations_SpecifiedQoSAnnotation(QoSAnnotations)
@@ -130,7 +130,7 @@ public interface SpecifiedQoSAnnotation extends CDOObject {
      * '{@link org.palladiosimulator.pcm.qosannotations.SpecifiedQoSAnnotation#getQosAnnotations_SpecifiedQoSAnnotation
      * <em>Qos Annotations Specified Qo SAnnotation</em>}' container reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Qos Annotations Specified Qo SAnnotation</em>' container
      *            reference.

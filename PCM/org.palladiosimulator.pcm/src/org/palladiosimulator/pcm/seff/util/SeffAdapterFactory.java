@@ -44,7 +44,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter
  * <code>createXXX</code> method for each class of the model. <!-- end-user-doc -->
- *
+ * 
  * @see org.palladiosimulator.pcm.seff.SeffPackage
  * @generated
  */
@@ -52,21 +52,21 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected static SeffPackage modelPackage;
 
     /**
      * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SeffAdapterFactory() {
@@ -79,7 +79,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * Returns whether this factory is applicable for the type of the object. <!-- begin-user-doc
      * --> This implementation returns <code>true</code> if the object is either the model's package
      * or is an instance object of the model. <!-- end-user-doc -->
-     *
+     * 
      * @return whether this factory is applicable for the type of the object.
      * @generated
      */
@@ -97,7 +97,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
     /**
      * The switch that delegates to the <code>createXXX</code> methods. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SeffSwitch<Adapter> modelSwitch = new SeffSwitch<Adapter>() {
@@ -264,7 +264,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param target
      *            the object to adapt.
      * @return the adapter for the <code>target</code>.
@@ -280,7 +280,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * '{@link org.palladiosimulator.pcm.seff.StopAction <em>Stop Action</em>}'. <!-- begin-user-doc
      * --> This default implementation returns null so that we can easily ignore cases; it's useful
      * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.StopAction
      * @generated
@@ -295,7 +295,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * Internal Control Flow Action</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.AbstractInternalControlFlowAction
      * @generated
@@ -325,7 +325,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * Behaviour</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour
      * @generated
@@ -340,7 +340,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.AbstractLoopAction
      * @generated
@@ -355,7 +355,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * Transition</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.AbstractBranchTransition
      * @generated
@@ -384,7 +384,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * '{@link org.palladiosimulator.pcm.seff.CallAction <em>Call Action</em>}'. <!-- begin-user-doc
      * --> This default implementation returns null so that we can easily ignore cases; it's useful
      * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.CallAction
      * @generated
@@ -414,7 +414,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * Specification</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.ServiceEffectSpecification
      * @generated
@@ -429,7 +429,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * SEFF</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
      * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases
      * anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.ResourceDemandingSEFF
      * @generated
@@ -444,7 +444,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * Demanding Internal Behaviour</em>}'. <!-- begin-user-doc --> This default implementation
      * returns null so that we can easily ignore cases; it's useful to ignore a case when
      * inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.ResourceDemandingInternalBehaviour
      * @generated
@@ -473,7 +473,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * '{@link org.palladiosimulator.pcm.seff.LoopAction <em>Loop Action</em>}'. <!-- begin-user-doc
      * --> This default implementation returns null so that we can easily ignore cases; it's useful
      * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.LoopAction
      * @generated
@@ -487,7 +487,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * '{@link org.palladiosimulator.pcm.seff.ForkAction <em>Fork Action</em>}'. <!-- begin-user-doc
      * --> This default implementation returns null so that we can easily ignore cases; it's useful
      * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.ForkAction
      * @generated
@@ -517,7 +517,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.SynchronisationPoint
      * @generated
@@ -532,7 +532,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.ExternalCallAction
      * @generated
@@ -562,7 +562,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * Transition</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.ProbabilisticBranchTransition
      * @generated
@@ -592,7 +592,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * Action</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.CollectionIteratorAction
      * @generated
@@ -607,7 +607,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * Transition</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
      * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the
      * cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.GuardedBranchTransition
      * @generated
@@ -637,7 +637,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.InternalCallAction
      * @generated
@@ -681,7 +681,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * <em>Identifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see de.uka.ipd.sdq.identifier.Identifier
      * @generated
@@ -710,7 +710,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * '{@link org.palladiosimulator.pcm.core.entity.Entity <em>Entity</em>}'. <!-- begin-user-doc
      * --> This default implementation returns null so that we can easily ignore cases; it's useful
      * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.core.entity.Entity
      * @generated
@@ -725,7 +725,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
      * Handling Entity</em>}'. <!-- begin-user-doc --> This default implementation returns null so
      * that we can easily ignore cases; it's useful to ignore a case when inheritance will catch all
      * the cases anyway. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @see org.palladiosimulator.pcm.seff.seff_reliability.FailureHandlingEntity
      * @generated
@@ -737,7 +737,7 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
     /**
      * Creates a new adapter for the default case. <!-- begin-user-doc --> This default
      * implementation returns null. <!-- end-user-doc -->
-     *
+     * 
      * @return the new adapter.
      * @generated
      */

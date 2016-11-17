@@ -38,14 +38,14 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected OpenWorkloadImpl() {
@@ -54,7 +54,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -64,7 +64,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -75,7 +75,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetInterArrivalTime_OpenWorkload(
@@ -87,7 +87,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -114,7 +114,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
      * '{@link #InterArrivalTimeInOpenWorkloadNeedsToBeSpecified(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Inter Arrival Time In Open Workload Needs To Be Specified</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #InterArrivalTimeInOpenWorkloadNeedsToBeSpecified(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -124,7 +124,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -160,7 +160,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -180,7 +180,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -195,7 +195,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -209,7 +209,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -224,7 +224,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -239,7 +239,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -254,7 +254,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

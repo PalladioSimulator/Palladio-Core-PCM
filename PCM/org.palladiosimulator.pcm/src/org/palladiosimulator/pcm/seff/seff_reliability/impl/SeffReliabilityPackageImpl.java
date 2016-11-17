@@ -60,35 +60,35 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- *
+ * 
  * @generated
  */
 public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReliabilityPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass recoveryActionBehaviourEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass recoveryActionEClass = null;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private EClass failureHandlingEntityEClass = null;
@@ -101,7 +101,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
      * Note: the correct way to create the package is via the static factory method {@link #init
      * init()}, which also performs initialization of the package, or returns the registered
      * package, if one already exists. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see org.eclipse.emf.ecore.EPackage.Registry
      * @see org.palladiosimulator.pcm.seff.seff_reliability.SeffReliabilityPackage#eNS_URI
      * @see #init()
@@ -113,7 +113,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private static boolean isInited = false;
@@ -126,7 +126,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
      * This method is used to initialize {@link SeffReliabilityPackage#eINSTANCE} when that field is
      * accessed. Clients should not invoke it directly. Instead, they should simply access that
      * field to obtain the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #eNS_URI
      * @see #createPackageContents()
      * @see #initializePackageContents()
@@ -283,7 +283,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -293,7 +293,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -303,7 +303,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -313,7 +313,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -323,7 +323,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -333,7 +333,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -343,7 +343,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -353,7 +353,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -363,7 +363,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -373,7 +373,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isCreated = false;
@@ -381,7 +381,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
     /**
      * Creates the meta-model objects for the package. This method is guarded to have no affect on
      * any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void createPackageContents() {
@@ -408,7 +408,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     private boolean isInitialized = false;
@@ -416,7 +416,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
     /**
      * Complete the initialization of the package and its meta-model. This method is guarded to have
      * no affect on any invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public void initializePackageContents() {

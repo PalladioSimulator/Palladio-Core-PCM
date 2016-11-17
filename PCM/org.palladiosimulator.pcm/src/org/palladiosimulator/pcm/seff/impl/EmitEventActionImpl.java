@@ -38,14 +38,14 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EmitEventActionImpl() {
@@ -54,7 +54,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -64,7 +64,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -76,7 +76,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -87,7 +87,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public EventType basicGetEventType__EmitEventAction() {
@@ -97,7 +97,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -108,7 +108,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -119,7 +119,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SourceRole basicGetSourceRole__EmitEventAction() {
@@ -129,7 +129,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -140,7 +140,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -157,7 +157,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -172,7 +172,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -196,7 +196,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -219,7 +219,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -240,7 +240,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -258,7 +258,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -276,7 +276,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

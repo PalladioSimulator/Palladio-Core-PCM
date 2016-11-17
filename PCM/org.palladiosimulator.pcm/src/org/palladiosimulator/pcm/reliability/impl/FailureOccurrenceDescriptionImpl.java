@@ -36,7 +36,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -44,7 +44,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
     /**
      * The default value of the '{@link #getFailureProbability() <em>Failure Probability</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #getFailureProbability()
      * @generated
      * @ordered
@@ -53,7 +53,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected FailureOccurrenceDescriptionImpl() {
@@ -62,7 +62,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -72,7 +72,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -82,7 +82,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -93,7 +93,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -107,7 +107,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
      * '{@link #EnsureValidFailureProbabilityRange(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Ensure Valid Failure Probability Range</em>}' operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #EnsureValidFailureProbabilityRange(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -120,7 +120,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
      * '{@link #EnsureValidFailureProbabilityRange(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Ensure Valid Failure Probability Range</em>}' invariant operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EnsureValidFailureProbabilityRange(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -130,7 +130,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -162,7 +162,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -176,7 +176,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -191,7 +191,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -206,7 +206,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -221,7 +221,7 @@ public abstract class FailureOccurrenceDescriptionImpl extends CDOObjectImpl imp
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

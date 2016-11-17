@@ -35,7 +35,7 @@ public interface EmitEventAction extends AbstractAction, CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -58,9 +58,10 @@ public interface EmitEventAction extends AbstractAction, CallAction {
     EventType getEventType__EmitEventAction();
 
     /**
-     * Sets the value of the '
-     * {@link org.palladiosimulator.pcm.seff.EmitEventAction#getEventType__EmitEventAction <em>Event
-     * Type Emit Event Action</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Sets the value of the
+     * '{@link org.palladiosimulator.pcm.seff.EmitEventAction#getEventType__EmitEventAction
+     * <em>Event Type Emit Event Action</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
      *
      * @param value
      *            the new value of the '<em>Event Type Emit Event Action</em>' reference.

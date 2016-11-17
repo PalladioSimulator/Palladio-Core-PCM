@@ -28,7 +28,7 @@ import org.palladiosimulator.pcm.core.PCMRandomVariable;
 public interface HDDProcessingResourceSpecification extends ProcessingResourceSpecification {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -55,7 +55,7 @@ public interface HDDProcessingResourceSpecification extends ProcessingResourceSp
      * '{@link org.palladiosimulator.pcm.resourceenvironment.HDDProcessingResourceSpecification#getWriteProcessingRate
      * <em>Write Processing Rate</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Write Processing Rate</em>' containment reference.
      * @see #getWriteProcessingRate()
@@ -85,7 +85,7 @@ public interface HDDProcessingResourceSpecification extends ProcessingResourceSp
      * '{@link org.palladiosimulator.pcm.resourceenvironment.HDDProcessingResourceSpecification#getReadProcessingRate
      * <em>Read Processing Rate</em>}' containment reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Read Processing Rate</em>' containment reference.
      * @see #getReadProcessingRate()
@@ -103,7 +103,7 @@ public interface HDDProcessingResourceSpecification extends ProcessingResourceSp
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Resource Container</em>' reference.
      * @see #setResourceContainer(ResourceContainer)
      * @see org.palladiosimulator.pcm.resourceenvironment.ResourceenvironmentPackage#getHDDProcessingResourceSpecification_ResourceContainer()
@@ -117,7 +117,7 @@ public interface HDDProcessingResourceSpecification extends ProcessingResourceSp
      * Sets the value of the
      * '{@link org.palladiosimulator.pcm.resourceenvironment.HDDProcessingResourceSpecification#getResourceContainer
      * <em>Resource Container</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Resource Container</em>' reference.
      * @see #getResourceContainer()

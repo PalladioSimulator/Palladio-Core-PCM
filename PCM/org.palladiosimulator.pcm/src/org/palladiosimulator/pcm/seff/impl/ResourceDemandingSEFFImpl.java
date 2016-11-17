@@ -63,7 +63,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -80,7 +80,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceDemandingSEFFImpl() {
@@ -89,7 +89,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -99,7 +99,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -110,7 +110,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -121,7 +121,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -132,7 +132,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public Signature basicGetDescribedService__SEFF() {
@@ -142,7 +142,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -153,7 +153,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -166,7 +166,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetBasicComponent_ServiceEffectSpecification(
@@ -178,7 +178,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -191,7 +191,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -204,7 +204,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAbstractLoopAction_ResourceDemandingBehaviour(
@@ -216,7 +216,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -229,7 +229,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -242,7 +242,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetAbstractBranchTransition_ResourceDemandingBehaviour(
@@ -255,7 +255,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -268,7 +268,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -280,7 +280,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -296,7 +296,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * '{@link #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Referenced Signature Must Belong To Interface Referenced By Provided Role</em>}'
      * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -313,7 +313,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * '{@link #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Referenced Signature Must Belong To Interface Referenced By Provided Role</em>}'
      * invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ReferencedSignatureMustBelongToInterfaceReferencedByProvidedRole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -323,7 +323,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -362,7 +362,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * The cached OCL expression body for the
      * '{@link #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Stop Action</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -374,7 +374,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * '{@link #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Stop Action</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStopAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -383,7 +383,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -416,7 +416,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * The cached OCL expression body for the
      * '{@link #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Start Action</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -428,7 +428,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * '{@link #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Exactly One Start Action</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #ExactlyOneStartAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -437,7 +437,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -471,7 +471,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * '{@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And
      * Successor</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -484,7 +484,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * '{@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And
      * Successor</em>}' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -494,7 +494,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -532,7 +532,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -567,7 +567,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -590,7 +590,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -613,7 +613,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -642,7 +642,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -679,7 +679,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -712,7 +712,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -739,7 +739,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -773,7 +773,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -808,7 +808,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

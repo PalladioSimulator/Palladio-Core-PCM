@@ -28,7 +28,7 @@ public interface CollectionDataType extends Entity, DataType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -51,7 +51,7 @@ public interface CollectionDataType extends Entity, DataType {
      * '{@link org.palladiosimulator.pcm.repository.CollectionDataType#getInnerType_CollectionDataType
      * <em>Inner Type Collection Data Type</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Inner Type Collection Data Type</em>' reference.
      * @see #getInnerType_CollectionDataType()

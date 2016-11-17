@@ -38,14 +38,14 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected CompleteComponentTypeImpl() {
@@ -54,7 +54,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -64,7 +64,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -80,7 +80,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
      * '{@link #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>At Least One Interface Has To Be Provided Or Required By AUsefull Complete Component
      * Type</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -97,7 +97,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
      * '{@link #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>At Least One Interface Has To Be Provided Or Required By AUsefull Complete Component
      * Type</em>}' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @see #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -107,7 +107,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -190,7 +190,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -225,7 +225,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -239,7 +239,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -256,7 +256,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -271,7 +271,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -286,7 +286,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

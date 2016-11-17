@@ -31,35 +31,35 @@ public interface QosReliabilityPackage extends EPackage {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String eNAME = "qos_reliability";
 
     /**
      * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String eNS_URI = "http://palladiosimulator.org/PalladioComponentModel/QoSAnnotations/QoS_Reliability/5.1";
 
     /**
      * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String eNS_PREFIX = "qos_reliability";
 
     /**
      * The singleton instance of the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     QosReliabilityPackage eINSTANCE = org.palladiosimulator.pcm.qosannotations.qos_reliability.impl.QosReliabilityPackageImpl
@@ -99,7 +99,7 @@ public interface QosReliabilityPackage extends EPackage {
     /**
      * The feature id for the '<em><b>Qos Annotations Specified Qo SAnnotation</b></em>' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -119,7 +119,7 @@ public interface QosReliabilityPackage extends EPackage {
     /**
      * The number of structural features of the '<em>Specified Reliability Annotation</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
@@ -130,7 +130,7 @@ public interface QosReliabilityPackage extends EPackage {
      * Returns the meta object for class
      * '{@link org.palladiosimulator.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation
      * <em>Specified Reliability Annotation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the meta object for class '<em>Specified Reliability Annotation</em>'.
      * @see org.palladiosimulator.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation
      * @generated
@@ -154,7 +154,7 @@ public interface QosReliabilityPackage extends EPackage {
     /**
      * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @return the factory that creates the instances of the model.
      * @generated
      */
@@ -169,7 +169,7 @@ public interface QosReliabilityPackage extends EPackage {
      * <li>and each data type</li>
      * </ul>
      * <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     interface Literals {
@@ -179,7 +179,7 @@ public interface QosReliabilityPackage extends EPackage {
          * '{@link org.palladiosimulator.pcm.qosannotations.qos_reliability.impl.SpecifiedReliabilityAnnotationImpl
          * <em>Specified Reliability Annotation</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         *
+         * 
          * @see org.palladiosimulator.pcm.qosannotations.qos_reliability.impl.SpecifiedReliabilityAnnotationImpl
          * @see org.palladiosimulator.pcm.qosannotations.qos_reliability.impl.QosReliabilityPackageImpl#getSpecifiedReliabilityAnnotation()
          * @generated

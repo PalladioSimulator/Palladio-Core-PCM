@@ -27,14 +27,14 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected GuardedBranchTransitionImpl() {
@@ -43,7 +43,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -53,7 +53,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -65,7 +65,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetBranchCondition_GuardedBranchTransition(
@@ -77,7 +77,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -90,7 +90,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -112,7 +112,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,7 +127,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -141,7 +141,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -156,7 +156,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -171,7 +171,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

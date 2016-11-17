@@ -29,14 +29,14 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceTimeoutFailureTypeImpl() {
@@ -45,7 +45,7 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -55,7 +55,7 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -68,7 +68,7 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public PassiveResource basicGetPassiveResource__ResourceTimeoutFailureType() {
@@ -80,7 +80,7 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetPassiveResource__ResourceTimeoutFailureType(
@@ -92,7 +92,7 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -106,7 +106,7 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -127,7 +127,7 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -142,7 +142,7 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -159,7 +159,7 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -174,7 +174,7 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -189,7 +189,7 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

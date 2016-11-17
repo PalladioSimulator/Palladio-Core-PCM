@@ -31,14 +31,14 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ProvidedInfrastructureDelegationConnectorImpl() {
@@ -47,7 +47,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -57,7 +57,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -70,7 +70,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InfrastructureProvidedRole basicGetInnerProvidedRole__ProvidedInfrastructureDelegationConnector() {
@@ -82,7 +82,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -96,7 +96,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -109,7 +109,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public InfrastructureProvidedRole basicGetOuterProvidedRole__ProvidedInfrastructureDelegationConnector() {
@@ -121,7 +121,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -135,7 +135,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -148,7 +148,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext__ProvidedInfrastructureDelegationConnector() {
@@ -160,7 +160,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -174,7 +174,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -201,7 +201,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -222,7 +222,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -243,7 +243,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

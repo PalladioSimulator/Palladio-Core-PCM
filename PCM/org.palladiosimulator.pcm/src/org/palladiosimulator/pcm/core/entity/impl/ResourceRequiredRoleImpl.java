@@ -31,14 +31,14 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceRequiredRoleImpl() {
@@ -47,7 +47,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -57,7 +57,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -70,7 +70,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceInterface basicGetRequiredResourceInterface__ResourceRequiredRole() {
@@ -82,7 +82,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -95,7 +95,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -108,7 +108,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceInterfaceRequiringEntity__ResourceRequiredRole(
@@ -121,7 +121,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -135,7 +135,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -153,7 +153,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -168,7 +168,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -184,7 +184,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -203,7 +203,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -221,7 +221,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -239,7 +239,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

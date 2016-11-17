@@ -72,14 +72,14 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected SystemImpl() {
@@ -88,7 +88,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -98,7 +98,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -110,7 +110,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -124,7 +124,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -136,7 +136,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -148,7 +148,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -161,7 +161,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -175,7 +175,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -188,7 +188,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -203,7 +203,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
      * '{@link #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Multiple Connectors Constraint</em>}' operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -216,7 +216,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
      * '{@link #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Multiple Connectors Constraint</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #MultipleConnectorsConstraint(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -226,7 +226,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -283,7 +283,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -334,7 +334,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
      * '{@link #ProvidedRolesMustBeBound(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Provided Roles Must Be Bound</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @see #ProvidedRolesMustBeBound(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -343,7 +343,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -377,7 +377,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
      * '{@link #SystemMustHaveAtLeastOneProvidedRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>System Must Have At Least One Provided Role</em>}' operation. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @see #SystemMustHaveAtLeastOneProvidedRole(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -399,7 +399,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -433,7 +433,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -476,7 +476,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -507,7 +507,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -535,7 +535,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -582,7 +582,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -618,7 +618,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -646,7 +646,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -706,7 +706,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -767,7 +767,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */

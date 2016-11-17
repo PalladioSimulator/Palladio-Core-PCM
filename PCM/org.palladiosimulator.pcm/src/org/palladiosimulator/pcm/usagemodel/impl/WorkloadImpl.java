@@ -28,14 +28,14 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected WorkloadImpl() {
@@ -44,7 +44,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -54,7 +54,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -64,7 +64,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -75,7 +75,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetUsageScenario_Workload(final UsageScenario newUsageScenario_Workload,
@@ -87,7 +87,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -98,7 +98,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -115,7 +115,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -130,7 +130,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -146,7 +146,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -160,7 +160,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -175,7 +175,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -190,7 +190,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

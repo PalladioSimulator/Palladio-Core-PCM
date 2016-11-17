@@ -34,7 +34,7 @@ public interface ResourceSignature extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -50,7 +50,7 @@ public interface ResourceSignature extends Entity {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Parameter Resource Signature</em>' containment reference list.
      * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#getResourceSignature_Parameter__ResourceSignature()
      * @see org.palladiosimulator.pcm.repository.Parameter#getResourceSignature__Parameter
@@ -67,7 +67,7 @@ public interface ResourceSignature extends Entity {
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Resource Service Id</em>' attribute.
      * @see #setResourceServiceId(int)
      * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#getResourceSignature_ResourceServiceId()
@@ -80,7 +80,7 @@ public interface ResourceSignature extends Entity {
      * Sets the value of the
      * '{@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getResourceServiceId
      * <em>Resource Service Id</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Resource Service Id</em>' attribute.
      * @see #getResourceServiceId()
@@ -98,7 +98,7 @@ public interface ResourceSignature extends Entity {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Resource Interface Resource Signature</em>' container
      *         reference.
      * @see #setResourceInterface__ResourceSignature(ResourceInterface)
@@ -115,7 +115,7 @@ public interface ResourceSignature extends Entity {
      * '{@link org.palladiosimulator.pcm.resourcetype.ResourceSignature#getResourceInterface__ResourceSignature
      * <em>Resource Interface Resource Signature</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     *
+     * 
      * @param value
      *            the new value of the '<em>Resource Interface Resource Signature</em>' container
      *            reference.

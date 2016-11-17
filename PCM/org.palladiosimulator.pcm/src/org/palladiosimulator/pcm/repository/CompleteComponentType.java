@@ -34,7 +34,7 @@ public interface CompleteComponentType extends RepositoryComponent {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -48,7 +48,7 @@ public interface CompleteComponentType extends RepositoryComponent {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Parent Provides Component Types</em>' reference list.
      * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getCompleteComponentType_ParentProvidesComponentTypes()
      * @model ordered="false"
