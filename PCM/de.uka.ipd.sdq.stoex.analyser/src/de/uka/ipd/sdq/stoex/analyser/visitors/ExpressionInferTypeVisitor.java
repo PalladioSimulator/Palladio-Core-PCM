@@ -161,7 +161,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
     public Object caseProbabilityFunctionLiteral(final ProbabilityFunctionLiteral pfl) {
         final ProbabilityFunction pf = pfl.getFunction_ProbabilityFunctionLiteral();
         if (pf instanceof ProbabilityMassFunction) {
-            final ProbabilityMassFunction pmf = (ProbabilityMassFunction) pf;
+            final ProbabilityMassFunction<?> pmf = (ProbabilityMassFunction<?>) pf;
             final Sample<?> firstSample = pmf.getSamples().get(0);
             final Object value = firstSample.getValue();
             if (value instanceof Integer) {
