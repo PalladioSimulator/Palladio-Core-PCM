@@ -12,6 +12,7 @@ import org.eclipse.ui.console.IConsoleConstants;
  * 
  * @author Priti Chaudhari
  * @author Philipp Merkle
+ * @author Amine Kechaou
  * 
  */
 public class PalladioPerspective implements IPerspectiveFactory {
