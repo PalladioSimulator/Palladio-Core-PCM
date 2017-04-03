@@ -21,7 +21,6 @@
    <requires>
       <import feature="org.palladiosimulator.editors.commons.feature" version="1.0.0" match="equivalent"/>
       <import feature="org.palladiosimulator.editors.sirius.feature" version="1.1.0" match="equivalent"/>
-      <import feature="org.palladiosimulator.editors.tree.feature" version="4.0.2" match="equivalent"/>
       <import feature="org.palladiosimulator.edp2.feature" version="1.0.0" match="equivalent"/>
       <import feature="org.palladiosimulator.edp2.ui.feature" version="1.0.0" match="equivalent"/>
       <import feature="org.palladiosimulator.pcm.feature" version="4.0.0" match="equivalent"/>
