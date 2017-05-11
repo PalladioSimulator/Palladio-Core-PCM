@@ -240,13 +240,13 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
         if (!EOCL_ENV.createQuery(REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
                 .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        RepositoryValidator.DIAGNOSTIC_SOURCE,
-                        RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] { "RequiredInterfacesHaveToConformToCompleteType",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, RepositoryValidator.DIAGNOSTIC_SOURCE,
+                                RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "RequiredInterfacesHaveToConformToCompleteType",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -322,13 +322,13 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
         if (!EOCL_ENV.createQuery(PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
                 .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        RepositoryValidator.DIAGNOSTIC_SOURCE,
-                        RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] { "providedInterfacesHaveToConformToCompleteType",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, RepositoryValidator.DIAGNOSTIC_SOURCE,
+                                RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "providedInterfacesHaveToConformToCompleteType",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -388,13 +388,13 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
         if (!EOCL_ENV.createQuery(PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
                 .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        RepositoryValidator.DIAGNOSTIC_SOURCE,
-                        RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] { "ProvidedInterfaceHaveToConformToComponentType",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, RepositoryValidator.DIAGNOSTIC_SOURCE,
+                                RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "ProvidedInterfaceHaveToConformToComponentType",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -460,13 +460,13 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
                 .createQuery(PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
                 .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        RepositoryValidator.DIAGNOSTIC_SOURCE,
-                        RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] { "ProvideSameOrMoreInterfacesAsCompleteComponentType",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, RepositoryValidator.DIAGNOSTIC_SOURCE,
+                                RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "ProvideSameOrMoreInterfacesAsCompleteComponentType",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -532,13 +532,13 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
                         REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
                 .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        RepositoryValidator.DIAGNOSTIC_SOURCE,
-                        RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] { "RequireSameOrFewerInterfacesAsCompleteComponentType",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, RepositoryValidator.DIAGNOSTIC_SOURCE,
+                                RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "RequireSameOrFewerInterfacesAsCompleteComponentType",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -574,9 +574,8 @@ public class CompositeComponentImpl extends ComposedProvidingRequiringEntityImpl
         case RepositoryPackage.COMPOSITE_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT:
             return this.basicSetRepository__RepositoryComponent(null, msgs);
         case RepositoryPackage.COMPOSITE_COMPONENT__COMPONENT_PARAMETER_USAGE_IMPLEMENTATION_COMPONENT_TYPE:
-            return ((InternalEList<?>) this.getComponentParameterUsage_ImplementationComponentType()).basicRemove(
-                    otherEnd,
-                    msgs);
+            return ((InternalEList<?>) this.getComponentParameterUsage_ImplementationComponentType())
+                    .basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }

@@ -385,13 +385,12 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
         theSubsystemPackage.initializePackageContents();
 
         // Register package validator
-        EValidator.Registry.INSTANCE.put(theCompositionPackage,
-                new EValidator.Descriptor() {
-                    @Override
-                    public EValidator getEValidator() {
-                        return CompositionValidator.INSTANCE;
-                    }
-                });
+        EValidator.Registry.INSTANCE.put(theCompositionPackage, new EValidator.Descriptor() {
+            @Override
+            public EValidator getEValidator() {
+                return CompositionValidator.INSTANCE;
+            }
+        });
 
         // Mark meta-data to indicate it can't be changed
         theCompositionPackage.freeze();
@@ -1375,8 +1374,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.composedStructureEClass, ComposedStructure.class, "ComposedStructure", IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getComposedStructure_AssemblyContexts__ComposedStructure(), this.getAssemblyContext(),
                 this.getAssemblyContext_ParentStructure__AssemblyContext(), "assemblyContexts__ComposedStructure", null,
                 0, -1, ComposedStructure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
@@ -1460,8 +1458,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.eventChannelSourceConnectorEClass, EventChannelSourceConnector.class,
-                "EventChannelSourceConnector",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                "EventChannelSourceConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getEventChannelSourceConnector_SourceRole__EventChannelSourceRole(),
                 theRepositoryPackage.getSourceRole(), null, "sourceRole__EventChannelSourceRole", null, 1, 1,
                 EventChannelSourceConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
@@ -1477,8 +1474,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.eventChannelSinkConnectorEClass, EventChannelSinkConnector.class,
-                "EventChannelSinkConnector",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                "EventChannelSinkConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getEventChannelSinkConnector_SinkRole__EventChannelSinkConnector(),
                 theRepositoryPackage.getSinkRole(), null, "sinkRole__EventChannelSinkConnector", null, 1, 1,
                 EventChannelSinkConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
@@ -1494,15 +1490,13 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
                 EventChannelSinkConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getEventChannelSinkConnector_EventChannel__EventChannelSinkConnector(),
-                this.getEventChannel(),
-                this.getEventChannel_EventChannelSinkConnector__EventChannel(),
+                this.getEventChannel(), this.getEventChannel_EventChannelSinkConnector__EventChannel(),
                 "eventChannel__EventChannelSinkConnector", null, 1, 1, EventChannelSinkConnector.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
 
         this.initEClass(this.providedDelegationConnectorEClass, ProvidedDelegationConnector.class,
-                "ProvidedDelegationConnector",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                "ProvidedDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getProvidedDelegationConnector_InnerProvidedRole_ProvidedDelegationConnector(),
                 theRepositoryPackage.getOperationProvidedRole(), null, "innerProvidedRole_ProvidedDelegationConnector",
                 null, 1, 1, ProvidedDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
@@ -1538,8 +1532,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         this.initEClass(this.requiredDelegationConnectorEClass, RequiredDelegationConnector.class,
-                "RequiredDelegationConnector",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                "RequiredDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector(),
                 theRepositoryPackage.getOperationRequiredRole(), null, "innerRequiredRole_RequiredDelegationConnector",
                 null, 1, 1, RequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
@@ -1586,18 +1579,15 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         this.initEClass(this.assemblyConnectorEClass, AssemblyConnector.class, "AssemblyConnector", !IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getAssemblyConnector_RequiringAssemblyContext_AssemblyConnector(),
-                this.getAssemblyContext(),
-                null, "requiringAssemblyContext_AssemblyConnector", null, 1, 1, AssemblyConnector.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED);
+                this.getAssemblyContext(), null, "requiringAssemblyContext_AssemblyConnector", null, 1, 1,
+                AssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAssemblyConnector_ProvidingAssemblyContext_AssemblyConnector(),
-                this.getAssemblyContext(),
-                null, "providingAssemblyContext_AssemblyConnector", null, 1, 1, AssemblyConnector.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED);
+                this.getAssemblyContext(), null, "providingAssemblyContext_AssemblyConnector", null, 1, 1,
+                AssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAssemblyConnector_ProvidedRole_AssemblyConnector(),
                 theRepositoryPackage.getOperationProvidedRole(), null, "providedRole_AssemblyConnector", null, 1, 1,
                 AssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
@@ -1638,13 +1628,11 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         this.initEClass(this.assemblyEventConnectorEClass, AssemblyEventConnector.class, "AssemblyEventConnector",
-                !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getAssemblyEventConnector_SinkRole__AssemblyEventConnector(),
-                theRepositoryPackage.getSinkRole(),
-                null, "sinkRole__AssemblyEventConnector", null, 1, 1, AssemblyEventConnector.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED);
+                theRepositoryPackage.getSinkRole(), null, "sinkRole__AssemblyEventConnector", null, 1, 1,
+                AssemblyEventConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAssemblyEventConnector_SourceRole__AssemblyEventConnector(),
                 theRepositoryPackage.getSourceRole(), null, "sourceRole__AssemblyEventConnector", null, 1, 1,
                 AssemblyEventConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
@@ -1665,18 +1653,15 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
                 !IS_ORDERED);
 
         this.initEClass(this.sourceDelegationConnectorEClass, SourceDelegationConnector.class,
-                "SourceDelegationConnector",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                "SourceDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getSourceDelegationConnector_InnerSourceRole__SourceRole(),
-                theRepositoryPackage.getSourceRole(),
-                null, "innerSourceRole__SourceRole", null, 1, 1, SourceDelegationConnector.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED);
+                theRepositoryPackage.getSourceRole(), null, "innerSourceRole__SourceRole", null, 1, 1,
+                SourceDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getSourceDelegationConnector_OuterSourceRole__SourceRole(),
-                theRepositoryPackage.getSourceRole(),
-                null, "outerSourceRole__SourceRole", null, 1, 1, SourceDelegationConnector.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED);
+                theRepositoryPackage.getSourceRole(), null, "outerSourceRole__SourceRole", null, 1, 1,
+                SourceDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getSourceDelegationConnector_AssemblyContext__SourceDelegationConnector(),
                 this.getAssemblyContext(), null, "assemblyContext__SourceDelegationConnector", null, 1, 1,
                 SourceDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
@@ -1685,18 +1670,17 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
         this.initEClass(this.sinkDelegationConnectorEClass, SinkDelegationConnector.class, "SinkDelegationConnector",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getSinkDelegationConnector_AssemblyContext__SinkDelegationConnector(),
-                this.getAssemblyContext(),
-                null, "assemblyContext__SinkDelegationConnector", null, 1, 1, SinkDelegationConnector.class,
-                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                this.getAssemblyContext(), null, "assemblyContext__SinkDelegationConnector", null, 1, 1,
+                SinkDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getSinkDelegationConnector_InnerSinkRole__SinkRole(),
-                theRepositoryPackage.getSinkRole(), null,
-                "innerSinkRole__SinkRole", null, 1, 1, SinkDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                theRepositoryPackage.getSinkRole(), null, "innerSinkRole__SinkRole", null, 1, 1,
+                SinkDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getSinkDelegationConnector_OuterSinkRole__SinkRole(),
-                theRepositoryPackage.getSinkRole(), null,
-                "outerSinkRole__SinkRole", null, 1, 1, SinkDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                theRepositoryPackage.getSinkRole(), null, "outerSinkRole__SinkRole", null, 1, 1,
+                SinkDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.assemblyInfrastructureConnectorEClass, AssemblyInfrastructureConnector.class,
                 "AssemblyInfrastructureConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1722,8 +1706,8 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.providedInfrastructureDelegationConnectorEClass,
-                ProvidedInfrastructureDelegationConnector.class,
-                "ProvidedInfrastructureDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                ProvidedInfrastructureDelegationConnector.class, "ProvidedInfrastructureDelegationConnector",
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(
                 this.getProvidedInfrastructureDelegationConnector_InnerProvidedRole__ProvidedInfrastructureDelegationConnector(),
                 theRepositoryPackage.getInfrastructureProvidedRole(), null,
@@ -1743,8 +1727,8 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
                 !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.requiredInfrastructureDelegationConnectorEClass,
-                RequiredInfrastructureDelegationConnector.class,
-                "RequiredInfrastructureDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                RequiredInfrastructureDelegationConnector.class, "RequiredInfrastructureDelegationConnector",
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(
                 this.getRequiredInfrastructureDelegationConnector_InnerRequiredRole__RequiredInfrastructureDelegationConnector(),
                 theRepositoryPackage.getInfrastructureRequiredRole(), null,
@@ -1784,8 +1768,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.assemblyContextEClass, AssemblyContext.class, "AssemblyContext", !IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getAssemblyContext_ParentStructure__AssemblyContext(), this.getComposedStructure(),
                 this.getComposedStructure_AssemblyContexts__ComposedStructure(), "parentStructure__AssemblyContext",
                 null, 1, 1, AssemblyContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,

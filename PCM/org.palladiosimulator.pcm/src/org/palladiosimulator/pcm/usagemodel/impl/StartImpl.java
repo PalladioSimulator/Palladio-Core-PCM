@@ -93,12 +93,13 @@ public class StartImpl extends AbstractUserActionImpl implements Start {
         }
         if (!EOCL_ENV.createQuery(START_HAS_NO_PREDECESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        UsagemodelValidator.DIAGNOSTIC_SOURCE,
-                        UsagemodelValidator.START__START_HAS_NO_PREDECESSOR,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                "StartHasNoPredecessor", EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
+                                UsagemodelValidator.START__START_HAS_NO_PREDECESSOR,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "StartHasNoPredecessor",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }

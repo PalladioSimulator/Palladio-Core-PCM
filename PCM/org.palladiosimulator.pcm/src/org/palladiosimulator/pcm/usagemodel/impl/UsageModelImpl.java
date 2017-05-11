@@ -107,9 +107,8 @@ public class UsageModelImpl extends CDOObjectImpl implements UsageModel {
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getUsageScenario_UsageModel())
                     .basicAdd(otherEnd, msgs);
         case UsagemodelPackage.USAGE_MODEL__USER_DATA_USAGE_MODEL:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getUserData_UsageModel()).basicAdd(
-                    otherEnd,
-                    msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getUserData_UsageModel())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }

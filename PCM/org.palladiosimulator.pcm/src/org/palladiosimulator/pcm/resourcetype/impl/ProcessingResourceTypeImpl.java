@@ -122,8 +122,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
                         HardwareInducedFailureType.class, msgs);
             }
             return this.basicSetHardwareInducedFailureType__ProcessingResourceType(
-                    (HardwareInducedFailureType) otherEnd,
-                    msgs);
+                    (HardwareInducedFailureType) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }

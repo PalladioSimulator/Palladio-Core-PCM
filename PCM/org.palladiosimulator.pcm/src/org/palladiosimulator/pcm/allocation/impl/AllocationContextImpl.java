@@ -259,13 +259,13 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
                         ONE_ASSEMBLY_CONTEXT_OR_ONE_EVENT_CHANNEL_SHOULD_BE_REFERRED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
                 .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        AllocationValidator.DIAGNOSTIC_SOURCE,
-                        AllocationValidator.ALLOCATION_CONTEXT__ONE_ASSEMBLY_CONTEXT_OR_ONE_EVENT_CHANNEL_SHOULD_BE_REFERRED,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] { "OneAssemblyContextOrOneEventChannelShouldBeReferred",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, AllocationValidator.DIAGNOSTIC_SOURCE,
+                                AllocationValidator.ALLOCATION_CONTEXT__ONE_ASSEMBLY_CONTEXT_OR_ONE_EVENT_CHANNEL_SHOULD_BE_REFERRED,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "OneAssemblyContextOrOneEventChannelShouldBeReferred",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }

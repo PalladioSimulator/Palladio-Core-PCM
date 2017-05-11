@@ -301,16 +301,14 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
             }
             return this.basicSetResourceDemandingBehaviour_AbstractAction((ResourceDemandingBehaviour) otherEnd, msgs);
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMAND_ACTION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getResourceDemand_Action()).basicAdd(
-                    otherEnd,
-                    msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getResourceDemand_Action())
+                    .basicAdd(otherEnd, msgs);
         case SeffPackage.INTERNAL_CALL_ACTION__INFRASTRUCTURE_CALL_ACTION:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getInfrastructureCall__Action())
                     .basicAdd(otherEnd, msgs);
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_CALL_ACTION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getResourceCall__Action()).basicAdd(
-                    otherEnd,
-                    msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getResourceCall__Action())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -350,8 +348,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
         switch (this.eContainerFeatureID()) {
         case SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION:
             return this.eInternalContainer().eInverseRemove(this,
-                    SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                    ResourceDemandingBehaviour.class, msgs);
+                    SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR, ResourceDemandingBehaviour.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }

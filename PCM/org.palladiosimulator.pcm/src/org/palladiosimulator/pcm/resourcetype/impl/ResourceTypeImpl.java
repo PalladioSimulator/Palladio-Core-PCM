@@ -190,8 +190,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getResourceProvidedRoles__ResourceInterfaceProvidingEntity())
-                            .basicAdd(otherEnd, msgs);
+                    .getResourceProvidedRoles__ResourceInterfaceProvidingEntity()).basicAdd(otherEnd, msgs);
         case ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);

@@ -265,13 +265,12 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
         theSubsystemPackage.initializePackageContents();
 
         // Register package validator
-        EValidator.Registry.INSTANCE.put(theSeffPerformancePackage,
-                new EValidator.Descriptor() {
-                    @Override
-                    public EValidator getEValidator() {
-                        return SeffPerformanceValidator.INSTANCE;
-                    }
-                });
+        EValidator.Registry.INSTANCE.put(theSeffPerformancePackage, new EValidator.Descriptor() {
+            @Override
+            public EValidator getEValidator() {
+                return SeffPerformanceValidator.INSTANCE;
+            }
+        });
 
         // Mark meta-data to indicate it can't be changed
         theSeffPerformancePackage.freeze();
@@ -575,13 +574,13 @@ public class SeffPerformancePackageImpl extends EPackageImpl implements SeffPerf
                 null, 1, 1, ResourceCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getResourceCall_ResourceRequiredRole__ResourceCall(),
-                theEntityPackage.getResourceRequiredRole(),
-                null, "resourceRequiredRole__ResourceCall", null, 1, 1, ResourceCall.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                theEntityPackage.getResourceRequiredRole(), null, "resourceRequiredRole__ResourceCall", null, 1, 1,
+                ResourceCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getResourceCall_Signature__ResourceCall(),
-                theResourcetypePackage.getResourceSignature(), null,
-                "signature__ResourceCall", null, 1, 1, ResourceCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                theResourcetypePackage.getResourceSignature(), null, "signature__ResourceCall", null, 1, 1,
+                ResourceCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getResourceCall_NumberOfCalls__ResourceCall(), theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_ResourceCall__PCMRandomVariable(), "numberOfCalls__ResourceCall",
                 null, 1, 1, ResourceCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,

@@ -163,8 +163,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
             return this.basicSetParentStructure__AssemblyContext((ComposedStructure) otherEnd, msgs);
         case CompositionPackage.ASSEMBLY_CONTEXT__CONFIG_PARAMETER_USAGES_ASSEMBLY_CONTEXT:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getConfigParameterUsages__AssemblyContext())
-                            .basicAdd(otherEnd, msgs);
+                    .getConfigParameterUsages__AssemblyContext()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }

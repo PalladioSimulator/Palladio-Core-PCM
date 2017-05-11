@@ -264,8 +264,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
                         ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
                 .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        CompositionValidator.DIAGNOSTIC_SOURCE,
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, CompositionValidator.DIAGNOSTIC_SOURCE,
                         CompositionValidator.ASSEMBLY_CONNECTOR__ASSEMBLY_CONNECTORS_REFERENCED_PROVIDED_ROLES_AND_CHILD_CONTEXT_MUST_MATCH,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                 new Object[] { "AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch",
@@ -327,8 +326,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
                         ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
                 .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        CompositionValidator.DIAGNOSTIC_SOURCE,
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, CompositionValidator.DIAGNOSTIC_SOURCE,
                         CompositionValidator.ASSEMBLY_CONNECTOR__ASSEMBLY_CONNECTORS_REFERENCED_REQUIRED_ROLE_AND_CHILD_CONTEXT_MUST_MATCH,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                 new Object[] { "AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch",
@@ -387,13 +385,13 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
         if (!EOCL_ENV.createQuery(ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
                 .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        CompositionValidator.DIAGNOSTIC_SOURCE,
-                        CompositionValidator.ASSEMBLY_CONNECTOR__ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] { "AssemblyConnectorsReferencedInterfacesMustMatch",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, CompositionValidator.DIAGNOSTIC_SOURCE,
+                                CompositionValidator.ASSEMBLY_CONNECTOR__ASSEMBLY_CONNECTORS_REFERENCED_INTERFACES_MUST_MATCH,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "AssemblyConnectorsReferencedInterfacesMustMatch",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }

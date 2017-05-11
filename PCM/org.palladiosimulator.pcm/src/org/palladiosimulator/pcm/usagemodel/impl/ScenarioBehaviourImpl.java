@@ -233,8 +233,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
         }
         if (!EOCL_ENV.createQuery(EXACTLYONESTART__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        UsagemodelValidator.DIAGNOSTIC_SOURCE,
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
                         UsagemodelValidator.SCENARIO_BEHAVIOUR__EXACTLYONESTART,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                 new Object[] { "Exactlyonestart", EObjectValidator.getObjectLabel(this, context) }),
@@ -285,8 +284,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
         }
         if (!EOCL_ENV.createQuery(EXACTLYONESTOP__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        UsagemodelValidator.DIAGNOSTIC_SOURCE,
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
                         UsagemodelValidator.SCENARIO_BEHAVIOUR__EXACTLYONESTOP,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                 new Object[] { "Exactlyonestop", EObjectValidator.getObjectLabel(this, context) }),
@@ -346,8 +344,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
                         EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
                 .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        UsagemodelValidator.DIAGNOSTIC_SOURCE,
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
                         UsagemodelValidator.SCENARIO_BEHAVIOUR__EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                 new Object[] { "EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor",
@@ -428,8 +425,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
                     msgs);
         case UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR:
             return this.eInternalContainer().eInverseRemove(this, UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP,
-                    Loop.class,
-                    msgs);
+                    Loop.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }

@@ -486,8 +486,7 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
         switch (featureID) {
         case ParameterPackage.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getVariableCharacterisation_VariableUsage())
-                            .basicAdd(otherEnd, msgs);
+                    .getVariableCharacterisation_VariableUsage()).basicAdd(otherEnd, msgs);
         case ParameterPackage.VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -586,8 +585,7 @@ public class VariableUsageImpl extends CDOObjectImpl implements VariableUsage {
                     UsagemodelPackage.USER_DATA__USER_DATA_PARAMETER_USAGES_USER_DATA, UserData.class, msgs);
         case ParameterPackage.VARIABLE_USAGE__CALL_ACTION_VARIABLE_USAGE:
             return this.eInternalContainer().eInverseRemove(this,
-                    SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION,
-                    CallAction.class, msgs);
+                    SeffPackage.CALL_ACTION__INPUT_VARIABLE_USAGES_CALL_ACTION, CallAction.class, msgs);
         case ParameterPackage.VARIABLE_USAGE__SYNCHRONISATION_POINT_VARIABLE_USAGE:
             return this.eInternalContainer().eInverseRemove(this,
                     SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT,

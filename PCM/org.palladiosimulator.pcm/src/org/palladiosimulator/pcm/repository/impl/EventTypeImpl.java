@@ -173,8 +173,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
         switch (this.eContainerFeatureID()) {
         case RepositoryPackage.EVENT_TYPE__EVENT_GROUP_EVENT_TYPE:
             return this.eInternalContainer().eInverseRemove(this,
-                    RepositoryPackage.EVENT_GROUP__EVENT_TYPES_EVENT_GROUP,
-                    EventGroup.class, msgs);
+                    RepositoryPackage.EVENT_GROUP__EVENT_TYPES_EVENT_GROUP, EventGroup.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }

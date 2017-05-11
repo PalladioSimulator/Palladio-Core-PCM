@@ -796,12 +796,13 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
         }
         if (!EOCL_ENV.createQuery(SPECIFICATION_MUST_NOT_BE_NULL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        CoreValidator.DIAGNOSTIC_SOURCE,
-                        CoreValidator.PCM_RANDOM_VARIABLE__SPECIFICATION_MUST_NOT_BE_NULL,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                "SpecificationMustNotBeNULL", EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, CoreValidator.DIAGNOSTIC_SOURCE,
+                                CoreValidator.PCM_RANDOM_VARIABLE__SPECIFICATION_MUST_NOT_BE_NULL,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "SpecificationMustNotBeNULL",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -1005,8 +1006,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
                     AssemblyEventConnector.class, msgs);
         case CorePackage.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION:
             return this.eInternalContainer().eInverseRemove(this, UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP,
-                    Loop.class,
-                    msgs);
+                    Loop.class, msgs);
         case CorePackage.PCM_RANDOM_VARIABLE__OPEN_WORKLOAD_PCM_RANDOM_VARIABLE:
             return this.eInternalContainer().eInverseRemove(this,
                     UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD, OpenWorkload.class, msgs);

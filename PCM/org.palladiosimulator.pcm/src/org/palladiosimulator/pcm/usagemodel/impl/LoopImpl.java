@@ -73,8 +73,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
     public NotificationChain basicSetLoopIteration_Loop(final PCMRandomVariable newLoopIteration_Loop,
             NotificationChain msgs) {
         msgs = this.eDynamicInverseAdd((InternalEObject) newLoopIteration_Loop,
-                UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP,
-                msgs);
+                UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP, msgs);
         return msgs;
     }
 
@@ -86,8 +85,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
     @Override
     public void setLoopIteration_Loop(final PCMRandomVariable newLoopIteration_Loop) {
         this.eDynamicSet(UsagemodelPackage.LOOP__LOOP_ITERATION_LOOP,
-                UsagemodelPackage.Literals.LOOP__LOOP_ITERATION_LOOP,
-                newLoopIteration_Loop);
+                UsagemodelPackage.Literals.LOOP__LOOP_ITERATION_LOOP, newLoopIteration_Loop);
     }
 
     /**
@@ -109,8 +107,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
     public NotificationChain basicSetBodyBehaviour_Loop(final ScenarioBehaviour newBodyBehaviour_Loop,
             NotificationChain msgs) {
         msgs = this.eDynamicInverseAdd((InternalEObject) newBodyBehaviour_Loop,
-                UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP,
-                msgs);
+                UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP, msgs);
         return msgs;
     }
 
@@ -122,8 +119,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
     @Override
     public void setBodyBehaviour_Loop(final ScenarioBehaviour newBodyBehaviour_Loop) {
         this.eDynamicSet(UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP,
-                UsagemodelPackage.Literals.LOOP__BODY_BEHAVIOUR_LOOP,
-                newBodyBehaviour_Loop);
+                UsagemodelPackage.Literals.LOOP__BODY_BEHAVIOUR_LOOP, newBodyBehaviour_Loop);
     }
 
     /**

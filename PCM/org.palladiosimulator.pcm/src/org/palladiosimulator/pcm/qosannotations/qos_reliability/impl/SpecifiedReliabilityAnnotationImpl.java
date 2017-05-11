@@ -131,8 +131,7 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
                         SPECIFIED_RELIABILITY_ANNOTATION_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
                 .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        QosReliabilityValidator.DIAGNOSTIC_SOURCE,
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, QosReliabilityValidator.DIAGNOSTIC_SOURCE,
                         QosReliabilityValidator.SPECIFIED_RELIABILITY_ANNOTATION__SPECIFIED_RELIABILITY_ANNOTATION_MUST_REFERENCE_REQUIRED_ROLE_OF_ASYSTEM,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                 new Object[] { "SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem",
@@ -193,13 +192,13 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
                         SUM_OF_RELIABILITY_ANNOTATION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
                 .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        QosReliabilityValidator.DIAGNOSTIC_SOURCE,
-                        QosReliabilityValidator.SPECIFIED_RELIABILITY_ANNOTATION__SUM_OF_RELIABILITY_ANNOTATION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] { "SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, QosReliabilityValidator.DIAGNOSTIC_SOURCE,
+                                QosReliabilityValidator.SPECIFIED_RELIABILITY_ANNOTATION__SUM_OF_RELIABILITY_ANNOTATION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -255,13 +254,13 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
                         MULTIPLE_EXTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
                 .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        QosReliabilityValidator.DIAGNOSTIC_SOURCE,
-                        QosReliabilityValidator.SPECIFIED_RELIABILITY_ANNOTATION__MULTIPLE_EXTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] { "MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, QosReliabilityValidator.DIAGNOSTIC_SOURCE,
+                                QosReliabilityValidator.SPECIFIED_RELIABILITY_ANNOTATION__MULTIPLE_EXTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -280,8 +279,8 @@ public class SpecifiedReliabilityAnnotationImpl extends SpecifiedQoSAnnotationIm
         switch (featureID) {
         case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION__EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SPECIFIED_RELIABILITY_ANNOTATION:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation())
-                            .basicAdd(otherEnd, msgs);
+                    .getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation()).basicAdd(otherEnd,
+                            msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }

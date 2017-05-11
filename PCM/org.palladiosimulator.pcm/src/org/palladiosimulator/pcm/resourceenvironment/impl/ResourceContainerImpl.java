@@ -194,8 +194,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
         switch (featureID) {
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getActiveResourceSpecifications_ResourceContainer())
-                            .basicAdd(otherEnd, msgs);
+                    .getActiveResourceSpecifications_ResourceContainer()).basicAdd(otherEnd, msgs);
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -203,8 +202,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
             return this.basicSetResourceEnvironment_ResourceContainer((ResourceEnvironment) otherEnd, msgs);
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__NESTED_RESOURCE_CONTAINERS_RESOURCE_CONTAINER:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getNestedResourceContainers__ResourceContainer())
-                            .basicAdd(otherEnd, msgs);
+                    .getNestedResourceContainers__ResourceContainer()).basicAdd(otherEnd, msgs);
         case ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);

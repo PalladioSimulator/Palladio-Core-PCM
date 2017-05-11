@@ -243,12 +243,13 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
         }
         if (!EOCL_ENV.createQuery(MULTIPLE_CONNECTORS_CONSTRAINT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        CompositionValidator.DIAGNOSTIC_SOURCE,
-                        CompositionValidator.COMPOSED_STRUCTURE__MULTIPLE_CONNECTORS_CONSTRAINT,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                "MultipleConnectorsConstraint", EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, CompositionValidator.DIAGNOSTIC_SOURCE,
+                                CompositionValidator.COMPOSED_STRUCTURE__MULTIPLE_CONNECTORS_CONSTRAINT,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "MultipleConnectorsConstraint",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -304,13 +305,13 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
                 .createQuery(MULTIPLE_CONNECTORS_CONSTRAINT_FOR_ASSEMBLY_CONNECTORS__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
                 .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        CompositionValidator.DIAGNOSTIC_SOURCE,
-                        CompositionValidator.COMPOSED_STRUCTURE__MULTIPLE_CONNECTORS_CONSTRAINT_FOR_ASSEMBLY_CONNECTORS,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] { "MultipleConnectorsConstraintForAssemblyConnectors",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, CompositionValidator.DIAGNOSTIC_SOURCE,
+                                CompositionValidator.COMPOSED_STRUCTURE__MULTIPLE_CONNECTORS_CONSTRAINT_FOR_ASSEMBLY_CONNECTORS,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "MultipleConnectorsConstraintForAssemblyConnectors",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -360,12 +361,13 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
         }
         if (!EOCL_ENV.createQuery(PROVIDED_ROLES_MUST_BE_BOUND__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        EntityValidator.DIAGNOSTIC_SOURCE,
-                        EntityValidator.COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_MUST_BE_BOUND,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                "ProvidedRolesMustBeBound", EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, EntityValidator.DIAGNOSTIC_SOURCE,
+                                EntityValidator.COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_MUST_BE_BOUND,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "ProvidedRolesMustBeBound",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -418,13 +420,13 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
         if (!EOCL_ENV.createQuery(SYSTEM_MUST_HAVE_AT_LEAST_ONE_PROVIDED_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
                 .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        SystemValidator.DIAGNOSTIC_SOURCE,
-                        SystemValidator.SYSTEM__SYSTEM_MUST_HAVE_AT_LEAST_ONE_PROVIDED_ROLE,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] { "SystemMustHaveAtLeastOneProvidedRole",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, SystemValidator.DIAGNOSTIC_SOURCE,
+                                SystemValidator.SYSTEM__SYSTEM_MUST_HAVE_AT_LEAST_ONE_PROVIDED_ROLE,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "SystemMustHaveAtLeastOneProvidedRole",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -446,8 +448,7 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
                     .basicAdd(otherEnd, msgs);
         case SystemPackage.SYSTEM__RESOURCE_REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getResourceRequiredDelegationConnectors_ComposedStructure())
-                            .basicAdd(otherEnd, msgs);
+                    .getResourceRequiredDelegationConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
         case SystemPackage.SYSTEM__EVENT_CHANNEL_COMPOSED_STRUCTURE:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getEventChannel__ComposedStructure())
                     .basicAdd(otherEnd, msgs);
@@ -456,20 +457,16 @@ public class SystemImpl extends EntityImpl implements org.palladiosimulator.pcm.
                     .basicAdd(otherEnd, msgs);
         case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getProvidedRoles_InterfaceProvidingEntity())
-                            .basicAdd(otherEnd, msgs);
+                    .getProvidedRoles_InterfaceProvidingEntity()).basicAdd(otherEnd, msgs);
         case SystemPackage.SYSTEM__RESOURCE_REQUIRED_ROLES_RESOURCE_INTERFACE_REQUIRING_ENTITY:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getResourceRequiredRoles__ResourceInterfaceRequiringEntity())
-                            .basicAdd(otherEnd, msgs);
+                    .getResourceRequiredRoles__ResourceInterfaceRequiringEntity()).basicAdd(otherEnd, msgs);
         case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getRequiredRoles_InterfaceRequiringEntity())
-                            .basicAdd(otherEnd, msgs);
+                    .getRequiredRoles_InterfaceRequiringEntity()).basicAdd(otherEnd, msgs);
         case SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getQosAnnotations_System()).basicAdd(
-                    otherEnd,
-                    msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getQosAnnotations_System())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }

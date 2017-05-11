@@ -118,8 +118,7 @@ public class ForkActionImpl extends AbstractInternalControlFlowActionImpl implem
         switch (featureID) {
         case SeffPackage.FORK_ACTION__ASYNCHRONOUS_FORKED_BEHAVIOURS_FORK_ACTION:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getAsynchronousForkedBehaviours_ForkAction())
-                            .basicAdd(otherEnd, msgs);
+                    .getAsynchronousForkedBehaviours_ForkAction()).basicAdd(otherEnd, msgs);
         case SeffPackage.FORK_ACTION__SYNCHRONISING_BEHAVIOURS_FORK_ACTION:
             final SynchronisationPoint synchronisingBehaviours_ForkAction = this
                     .getSynchronisingBehaviours_ForkAction();

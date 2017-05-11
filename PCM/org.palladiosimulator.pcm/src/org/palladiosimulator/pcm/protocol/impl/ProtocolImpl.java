@@ -88,8 +88,7 @@ public abstract class ProtocolImpl extends CDOObjectImpl implements Protocol {
     @Override
     public void setProtocolTypeID(final String newProtocolTypeID) {
         this.eDynamicSet(ProtocolPackage.PROTOCOL__PROTOCOL_TYPE_ID,
-                ProtocolPackage.Literals.PROTOCOL__PROTOCOL_TYPE_ID,
-                newProtocolTypeID);
+                ProtocolPackage.Literals.PROTOCOL__PROTOCOL_TYPE_ID, newProtocolTypeID);
     }
 
     /**

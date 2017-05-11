@@ -197,8 +197,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
                         NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
                 .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        ReliabilityValidator.DIAGNOSTIC_SOURCE,
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, ReliabilityValidator.DIAGNOSTIC_SOURCE,
                         ReliabilityValidator.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__NO_RESOURCE_TIMEOUT_FAILURE_ALLOWED_FOR_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                 new Object[] { "NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription",

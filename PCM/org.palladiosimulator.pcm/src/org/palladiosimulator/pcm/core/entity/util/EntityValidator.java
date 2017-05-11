@@ -122,8 +122,7 @@ public class EntityValidator extends EObjectValidator {
             return this.validateResourceProvidedRole((ResourceProvidedRole) value, diagnostics, context);
         case EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY:
             return this.validateInterfaceProvidingRequiringEntity((InterfaceProvidingRequiringEntity) value,
-                    diagnostics,
-                    context);
+                    diagnostics, context);
         case EntityPackage.INTERFACE_PROVIDING_ENTITY:
             return this.validateInterfaceProvidingEntity((InterfaceProvidingEntity) value, diagnostics, context);
         case EntityPackage.INTERFACE_REQUIRING_ENTITY:
@@ -143,8 +142,7 @@ public class EntityValidator extends EObjectValidator {
             return this.validateNamedElement((NamedElement) value, diagnostics, context);
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY:
             return this.validateResourceInterfaceProvidingRequiringEntity(
-                    (ResourceInterfaceProvidingRequiringEntity) value,
-                    diagnostics, context);
+                    (ResourceInterfaceProvidingRequiringEntity) value, diagnostics, context);
         case EntityPackage.ENTITY:
             return this.validateEntity((Entity) value, diagnostics, context);
         default:
@@ -158,8 +156,7 @@ public class EntityValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateResourceProvidedRole(final ResourceProvidedRole resourceProvidedRole,
-            final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return this.validate_EveryDefaultConstraint(resourceProvidedRole, diagnostics, context);
     }
 
@@ -170,8 +167,7 @@ public class EntityValidator extends EObjectValidator {
      */
     public boolean validateInterfaceProvidingRequiringEntity(
             final InterfaceProvidingRequiringEntity interfaceProvidingRequiringEntity,
-            final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return this.validate_EveryDefaultConstraint(interfaceProvidingRequiringEntity, diagnostics, context);
     }
 
@@ -212,8 +208,7 @@ public class EntityValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateResourceRequiredRole(final ResourceRequiredRole resourceRequiredRole,
-            final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return this.validate_EveryDefaultConstraint(resourceRequiredRole, diagnostics, context);
     }
 
@@ -245,12 +240,11 @@ public class EntityValidator extends EObjectValidator {
             result &= this.validate_EveryDataValueConforms(composedProvidingRequiringEntity, diagnostics, context);
         }
         if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(composedProvidingRequiringEntity, diagnostics,
-                    context);
+            result &= this.validate_EveryReferenceIsContained(composedProvidingRequiringEntity, diagnostics, context);
         }
         if (result || diagnostics != null) {
-            result &= this.validate_EveryBidirectionalReferenceIsPaired(composedProvidingRequiringEntity,
-                    diagnostics, context);
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(composedProvidingRequiringEntity, diagnostics,
+                    context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(composedProvidingRequiringEntity, diagnostics, context);
@@ -310,8 +304,7 @@ public class EntityValidator extends EObjectValidator {
     public boolean validateResourceInterfaceProvidingRequiringEntity(
             final ResourceInterfaceProvidingRequiringEntity resourceInterfaceProvidingRequiringEntity,
             final DiagnosticChain diagnostics, final Map<Object, Object> context) {
-        return this.validate_EveryDefaultConstraint(resourceInterfaceProvidingRequiringEntity, diagnostics,
-                context);
+        return this.validate_EveryDefaultConstraint(resourceInterfaceProvidingRequiringEntity, diagnostics, context);
     }
 
     /**

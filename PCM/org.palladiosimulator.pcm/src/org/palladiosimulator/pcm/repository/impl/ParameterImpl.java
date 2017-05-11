@@ -256,8 +256,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
     @Override
     public void setParameterName(final String newParameterName) {
         this.eDynamicSet(RepositoryPackage.PARAMETER__PARAMETER_NAME,
-                RepositoryPackage.Literals.PARAMETER__PARAMETER_NAME,
-                newParameterName);
+                RepositoryPackage.Literals.PARAMETER__PARAMETER_NAME, newParameterName);
     }
 
     /**

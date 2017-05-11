@@ -78,8 +78,7 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
     @Override
     public void setType(final PrimitiveTypeEnum newType) {
         this.eDynamicSet(RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE,
-                RepositoryPackage.Literals.PRIMITIVE_DATA_TYPE__TYPE,
-                newType);
+                RepositoryPackage.Literals.PRIMITIVE_DATA_TYPE__TYPE, newType);
     }
 
     /**

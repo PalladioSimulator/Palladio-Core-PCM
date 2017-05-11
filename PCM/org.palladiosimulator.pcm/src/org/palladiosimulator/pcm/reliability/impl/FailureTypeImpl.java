@@ -129,8 +129,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
         switch (this.eContainerFeatureID()) {
         case ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE:
             return this.eInternalContainer().eInverseRemove(this,
-                    RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY,
-                    Repository.class, msgs);
+                    RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY, Repository.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }

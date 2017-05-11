@@ -362,13 +362,12 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
         theSubsystemPackage.initializePackageContents();
 
         // Register package validator
-        EValidator.Registry.INSTANCE.put(theUsagemodelPackage,
-                new EValidator.Descriptor() {
-                    @Override
-                    public EValidator getEValidator() {
-                        return UsagemodelValidator.INSTANCE;
-                    }
-                });
+        EValidator.Registry.INSTANCE.put(theUsagemodelPackage, new EValidator.Descriptor() {
+            @Override
+            public EValidator getEValidator() {
+                return UsagemodelValidator.INSTANCE;
+            }
+        });
 
         // Mark meta-data to indicate it can't be changed
         theUsagemodelPackage.freeze();
@@ -1013,9 +1012,8 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
         this.initEClass(this.userDataEClass, UserData.class, "UserData", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getUserData_AssemblyContext_userData(), theCompositionPackage.getAssemblyContext(),
-                null,
-                "assemblyContext_userData", null, 1, 1, UserData.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                null, "assemblyContext_userData", null, 1, 1, UserData.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getUserData_UsageModel_UserData(), this.getUsageModel(),
                 this.getUsageModel_UserData_UsageModel(), "usageModel_UserData", null, 1, 1, UserData.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
@@ -1032,13 +1030,12 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
                 UsageModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getUsageModel_UserData_UsageModel(), this.getUserData(),
-                this.getUserData_UsageModel_UserData(),
-                "userData_UsageModel", null, 0, -1, UsageModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
-                IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                this.getUserData_UsageModel_UserData(), "userData_UsageModel", null, 0, -1, UsageModel.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.entryLevelSystemCallEClass, EntryLevelSystemCall.class, "EntryLevelSystemCall",
-                !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getEntryLevelSystemCall_ProvidedRole_EntryLevelSystemCall(),
                 theRepositoryPackage.getOperationProvidedRole(), null, "providedRole_EntryLevelSystemCall", null, 1, 1,
                 EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
@@ -1054,8 +1051,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
         this.initEAttribute(this.getEntryLevelSystemCall_Priority(), this.ecorePackage.getEInt(), "priority", null, 1,
-                1,
-                EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall(),
                 theParameterPackage.getVariableUsage(),
@@ -1085,8 +1081,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         this.initEClass(this.abstractUserActionEClass, AbstractUserAction.class, "AbstractUserAction", IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getAbstractUserAction_Successor(), this.getAbstractUserAction(),
                 this.getAbstractUserAction_Predecessor(), "successor", null, 0, 1, AbstractUserAction.class,
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
@@ -1096,14 +1091,13 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAbstractUserAction_ScenarioBehaviour_AbstractUserAction(),
-                this.getScenarioBehaviour(),
-                this.getScenarioBehaviour_Actions_ScenarioBehaviour(), "scenarioBehaviour_AbstractUserAction", null, 1,
-                1, AbstractUserAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                this.getScenarioBehaviour(), this.getScenarioBehaviour_Actions_ScenarioBehaviour(),
+                "scenarioBehaviour_AbstractUserAction", null, 1, 1, AbstractUserAction.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+                !IS_ORDERED);
 
         this.initEClass(this.scenarioBehaviourEClass, ScenarioBehaviour.class, "ScenarioBehaviour", !IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getScenarioBehaviour_UsageScenario_SenarioBehaviour(), this.getUsageScenario(),
                 this.getUsageScenario_ScenarioBehaviour_UsageScenario(), "usageScenario_SenarioBehaviour", null, 0, 1,
                 ScenarioBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
@@ -1113,17 +1107,16 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
                 null, 0, 1, ScenarioBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getScenarioBehaviour_Loop_ScenarioBehaviour(), this.getLoop(),
-                this.getLoop_BodyBehaviour_Loop(),
-                "loop_ScenarioBehaviour", null, 0, 1, ScenarioBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                this.getLoop_BodyBehaviour_Loop(), "loop_ScenarioBehaviour", null, 0, 1, ScenarioBehaviour.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getScenarioBehaviour_Actions_ScenarioBehaviour(), this.getAbstractUserAction(),
                 this.getAbstractUserAction_ScenarioBehaviour_AbstractUserAction(), "actions_ScenarioBehaviour", null, 0,
                 -1, ScenarioBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.scenarioBehaviourEClass, this.ecorePackage.getEBoolean(), "Exactlyonestart", 0, 1,
-                IS_UNIQUE,
-                IS_ORDERED);
+                IS_UNIQUE, IS_ORDERED);
         this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
         g1 = this.createEGenericType(this.ecorePackage.getEMap());
         g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
@@ -1133,8 +1126,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         op = this.addEOperation(this.scenarioBehaviourEClass, this.ecorePackage.getEBoolean(), "Exactlyonestop", 0, 1,
-                IS_UNIQUE,
-                IS_ORDERED);
+                IS_UNIQUE, IS_ORDERED);
         this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
         g1 = this.createEGenericType(this.ecorePackage.getEMap());
         g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
@@ -1154,12 +1146,10 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         this.initEClass(this.branchTransitionEClass, BranchTransition.class, "BranchTransition", !IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getBranchTransition_BranchProbability(), this.ecorePackage.getEDouble(),
-                "branchProbability", null, 1,
-                1, BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                "branchProbability", null, 1, 1, BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getBranchTransition_Branch_BranchTransition(), this.getBranch(),
                 this.getBranch_BranchTransitions_Branch(), "branch_BranchTransition", null, 1, 1,
                 BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
@@ -1177,8 +1167,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.branchEClass, this.ecorePackage.getEBoolean(),
-                "AllBranchProbabilitiesMustSumUpTo1", 0, 1,
-                IS_UNIQUE, IS_ORDERED);
+                "AllBranchProbabilitiesMustSumUpTo1", 0, 1, IS_UNIQUE, IS_ORDERED);
         this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
         g1 = this.createEGenericType(this.ecorePackage.getEMap());
         g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
@@ -1213,8 +1202,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
                 IS_GENERATED_INSTANCE_CLASS);
 
         op = this.addEOperation(this.startEClass, this.ecorePackage.getEBoolean(), "StartHasNoPredecessor", 0, 1,
-                IS_UNIQUE,
-                IS_ORDERED);
+                IS_UNIQUE, IS_ORDERED);
         this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
         g1 = this.createEGenericType(this.ecorePackage.getEMap());
         g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());

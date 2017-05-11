@@ -249,13 +249,12 @@ public class QosReliabilityPackageImpl extends EPackageImpl implements QosReliab
         theSubsystemPackage.initializePackageContents();
 
         // Register package validator
-        EValidator.Registry.INSTANCE.put(theQosReliabilityPackage,
-                new EValidator.Descriptor() {
-                    @Override
-                    public EValidator getEValidator() {
-                        return QosReliabilityValidator.INSTANCE;
-                    }
-                });
+        EValidator.Registry.INSTANCE.put(theQosReliabilityPackage, new EValidator.Descriptor() {
+            @Override
+            public EValidator getEValidator() {
+                return QosReliabilityValidator.INSTANCE;
+            }
+        });
 
         // Mark meta-data to indicate it can't be changed
         theQosReliabilityPackage.freeze();

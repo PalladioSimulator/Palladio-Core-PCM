@@ -166,8 +166,7 @@ public class SeffReliabilityValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(recoveryActionBehaviour, diagnostics, context);
         }
         if (result || diagnostics != null) {
-            result &= this.validate_EveryBidirectionalReferenceIsPaired(recoveryActionBehaviour, diagnostics,
-                    context);
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(recoveryActionBehaviour, diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(recoveryActionBehaviour, diagnostics, context);
@@ -183,13 +182,11 @@ public class SeffReliabilityValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.seffValidator.validateResourceDemandingBehaviour_ExactlyOneStopAction(
-                    recoveryActionBehaviour,
-                    diagnostics, context);
+                    recoveryActionBehaviour, diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.seffValidator.validateResourceDemandingBehaviour_ExactlyOneStartAction(
-                    recoveryActionBehaviour,
-                    diagnostics, context);
+                    recoveryActionBehaviour, diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.seffValidator
@@ -294,8 +291,8 @@ public class SeffReliabilityValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateRecoveryAction_PrimaryBehaviourOfRecoveryActionMustBeSet(
-            final RecoveryAction recoveryAction, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+    public boolean validateRecoveryAction_PrimaryBehaviourOfRecoveryActionMustBeSet(final RecoveryAction recoveryAction,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return recoveryAction.PrimaryBehaviourOfRecoveryActionMustBeSet(diagnostics, context);
     }
 

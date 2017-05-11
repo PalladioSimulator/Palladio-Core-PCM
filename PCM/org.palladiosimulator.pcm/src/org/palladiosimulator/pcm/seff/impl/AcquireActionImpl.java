@@ -123,8 +123,7 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
     @Override
     public boolean isTimeout() {
         return (Boolean) this.eDynamicGet(SeffPackage.ACQUIRE_ACTION__TIMEOUT,
-                SeffPackage.Literals.ACQUIRE_ACTION__TIMEOUT,
-                true, true);
+                SeffPackage.Literals.ACQUIRE_ACTION__TIMEOUT, true, true);
     }
 
     /**
@@ -207,13 +206,13 @@ public class AcquireActionImpl extends AbstractInternalControlFlowActionImpl imp
         if (!EOCL_ENV.createQuery(TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
                 .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        SeffValidator.DIAGNOSTIC_SOURCE,
-                        SeffValidator.ACQUIRE_ACTION__TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] { "TimeoutValueOfAcquireActionMustNotBeNegative",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
+                                SeffValidator.ACQUIRE_ACTION__TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "TimeoutValueOfAcquireActionMustNotBeNegative",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }

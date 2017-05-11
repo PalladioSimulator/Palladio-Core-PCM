@@ -265,13 +265,12 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
         theSubsystemPackage.initializePackageContents();
 
         // Register package validator
-        EValidator.Registry.INSTANCE.put(theQosannotationsPackage,
-                new EValidator.Descriptor() {
-                    @Override
-                    public EValidator getEValidator() {
-                        return QosannotationsValidator.INSTANCE;
-                    }
-                });
+        EValidator.Registry.INSTANCE.put(theQosannotationsPackage, new EValidator.Descriptor() {
+            @Override
+            public EValidator getEValidator() {
+                return QosannotationsValidator.INSTANCE;
+            }
+        });
 
         // Mark meta-data to indicate it can't be changed
         theQosannotationsPackage.freeze();
@@ -517,20 +516,17 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 
         // Initialize classes and features; add operations and parameters
         this.initEClass(this.specifiedQoSAnnotationEClass, SpecifiedQoSAnnotation.class, "SpecifiedQoSAnnotation",
-                IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getSpecifiedQoSAnnotation_Signature_SpecifiedQoSAnnation(),
-                theRepositoryPackage.getSignature(),
-                null, "signature_SpecifiedQoSAnnation", null, 1, 1, SpecifiedQoSAnnotation.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED);
+                theRepositoryPackage.getSignature(), null, "signature_SpecifiedQoSAnnation", null, 1, 1,
+                SpecifiedQoSAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getSpecifiedQoSAnnotation_Role_SpecifiedQoSAnnotation(),
-                theRepositoryPackage.getRole(), null,
-                "role_SpecifiedQoSAnnotation", null, 1, 1, SpecifiedQoSAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                theRepositoryPackage.getRole(), null, "role_SpecifiedQoSAnnotation", null, 1, 1,
+                SpecifiedQoSAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getSpecifiedQoSAnnotation_QosAnnotations_SpecifiedQoSAnnotation(),
-                this.getQoSAnnotations(),
-                this.getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations(),
+                this.getQoSAnnotations(), this.getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations(),
                 "qosAnnotations_SpecifiedQoSAnnotation", null, 1, 1, SpecifiedQoSAnnotation.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);

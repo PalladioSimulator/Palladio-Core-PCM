@@ -136,8 +136,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
         }
         if (!EOCL_ENV.createQuery(NO_SEFF_TYPE_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        RepositoryValidator.DIAGNOSTIC_SOURCE,
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, RepositoryValidator.DIAGNOSTIC_SOURCE,
                         RepositoryValidator.BASIC_COMPONENT__NO_SEFF_TYPE_USED_TWICE,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                 new Object[] { "NoSeffTypeUsedTwice", EObjectValidator.getObjectLabel(this, context) }),
@@ -160,8 +159,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
         switch (featureID) {
         case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getServiceEffectSpecifications__BasicComponent())
-                            .basicAdd(otherEnd, msgs);
+                    .getServiceEffectSpecifications__BasicComponent()).basicAdd(otherEnd, msgs);
         case RepositoryPackage.BASIC_COMPONENT__PASSIVE_RESOURCE_BASIC_COMPONENT:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getPassiveResource_BasicComponent())
                     .basicAdd(otherEnd, msgs);

@@ -124,16 +124,13 @@ public class ResourceRepositoryImpl extends CDOObjectImpl implements ResourceRep
         switch (featureID) {
         case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getResourceInterfaces__ResourceRepository())
-                            .basicAdd(otherEnd, msgs);
+                    .getResourceInterfaces__ResourceRepository()).basicAdd(otherEnd, msgs);
         case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getSchedulingPolicies__ResourceRepository())
-                            .basicAdd(otherEnd, msgs);
+                    .getSchedulingPolicies__ResourceRepository()).basicAdd(otherEnd, msgs);
         case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getAvailableResourceTypes_ResourceRepository())
-                            .basicAdd(otherEnd, msgs);
+                    .getAvailableResourceTypes_ResourceRepository()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }

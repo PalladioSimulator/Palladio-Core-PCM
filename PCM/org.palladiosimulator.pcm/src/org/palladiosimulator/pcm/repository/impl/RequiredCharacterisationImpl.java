@@ -210,8 +210,7 @@ public class RequiredCharacterisationImpl extends CDOObjectImpl implements Requi
         switch (this.eContainerFeatureID()) {
         case RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION:
             return this.eInternalContainer().eInverseRemove(this,
-                    RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS,
-                    Interface.class, msgs);
+                    RepositoryPackage.INTERFACE__REQUIRED_CHARACTERISATIONS, Interface.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }

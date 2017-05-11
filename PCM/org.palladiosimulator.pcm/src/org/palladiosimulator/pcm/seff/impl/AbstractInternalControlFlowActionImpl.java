@@ -112,16 +112,14 @@ public abstract class AbstractInternalControlFlowActionImpl extends AbstractActi
             final NotificationChain msgs) {
         switch (featureID) {
         case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_DEMAND_ACTION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getResourceDemand_Action()).basicAdd(
-                    otherEnd,
-                    msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getResourceDemand_Action())
+                    .basicAdd(otherEnd, msgs);
         case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__INFRASTRUCTURE_CALL_ACTION:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getInfrastructureCall__Action())
                     .basicAdd(otherEnd, msgs);
         case SeffPackage.ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION__RESOURCE_CALL_ACTION:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getResourceCall__Action()).basicAdd(
-                    otherEnd,
-                    msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getResourceCall__Action())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }

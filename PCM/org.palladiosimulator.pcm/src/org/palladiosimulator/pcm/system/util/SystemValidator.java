@@ -128,8 +128,7 @@ public class SystemValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateSystem(final org.palladiosimulator.pcm.system.System system,
-            final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(system, diagnostics, context)) {
             return false;
         }
@@ -157,13 +156,12 @@ public class SystemValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.compositionValidator.validateComposedStructure_MultipleConnectorsConstraint(system,
-                    diagnostics,
-                    context);
+                    diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.compositionValidator
-                    .validateComposedStructure_MultipleConnectorsConstraintForAssemblyConnectors(
-                            system, diagnostics, context);
+                    .validateComposedStructure_MultipleConnectorsConstraintForAssemblyConnectors(system, diagnostics,
+                            context);
         }
         if (result || diagnostics != null) {
             result &= this.entityValidator.validateComposedProvidingRequiringEntity_ProvidedRolesMustBeBound(system,

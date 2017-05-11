@@ -250,13 +250,12 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
         theSubsystemPackage.initializePackageContents();
 
         // Register package validator
-        EValidator.Registry.INSTANCE.put(theCorePackage,
-                new EValidator.Descriptor() {
-                    @Override
-                    public EValidator getEValidator() {
-                        return CoreValidator.INSTANCE;
-                    }
-                });
+        EValidator.Registry.INSTANCE.put(theCorePackage, new EValidator.Descriptor() {
+            @Override
+            public EValidator getEValidator() {
+                return CoreValidator.INSTANCE;
+            }
+        });
 
         // Mark meta-data to indicate it can't be changed
         theCorePackage.freeze();
@@ -565,8 +564,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
 
         // Initialize classes and features; add operations and parameters
         this.initEClass(this.pcmRandomVariableEClass, PCMRandomVariable.class, "PCMRandomVariable", !IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getPCMRandomVariable_ClosedWorkload_PCMRandomVariable(),
                 theUsagemodelPackage.getClosedWorkload(),
                 theUsagemodelPackage.getClosedWorkload_ThinkTime_ClosedWorkload(), "closedWorkload_PCMRandomVariable",
@@ -668,8 +666,7 @@ public class CorePackageImpl extends EPackageImpl implements CorePackage {
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         final EOperation op = this.addEOperation(this.pcmRandomVariableEClass, this.ecorePackage.getEBoolean(),
-                "SpecificationMustNotBeNULL",
-                0, 1, IS_UNIQUE, IS_ORDERED);
+                "SpecificationMustNotBeNULL", 0, 1, IS_UNIQUE, IS_ORDERED);
         this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
         final EGenericType g1 = this.createEGenericType(this.ecorePackage.getEMap());
         EGenericType g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());

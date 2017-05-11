@@ -755,25 +755,22 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
         this.initEClass(this.resourceEnvironmentEClass, ResourceEnvironment.class, "ResourceEnvironment", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getResourceEnvironment_LinkingResources__ResourceEnvironment(),
-                this.getLinkingResource(),
-                this.getLinkingResource_ResourceEnvironment_LinkingResource(), "linkingResources__ResourceEnvironment",
-                null, 0, -1, ResourceEnvironment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                this.getLinkingResource(), this.getLinkingResource_ResourceEnvironment_LinkingResource(),
+                "linkingResources__ResourceEnvironment", null, 0, -1, ResourceEnvironment.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+                !IS_ORDERED);
         this.initEReference(this.getResourceEnvironment_ResourceContainer_ResourceEnvironment(),
-                this.getResourceContainer(),
-                this.getResourceContainer_ResourceEnvironment_ResourceContainer(),
+                this.getResourceContainer(), this.getResourceContainer_ResourceEnvironment_ResourceContainer(),
                 "resourceContainer_ResourceEnvironment", null, 0, -1, ResourceEnvironment.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
 
         this.initEClass(this.linkingResourceEClass, LinkingResource.class, "LinkingResource", !IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getLinkingResource_ConnectedResourceContainers_LinkingResource(),
-                this.getResourceContainer(),
-                null, "connectedResourceContainers_LinkingResource", null, 0, -1, LinkingResource.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED);
+                this.getResourceContainer(), null, "connectedResourceContainers_LinkingResource", null, 0, -1,
+                LinkingResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getLinkingResource_CommunicationLinkResourceSpecifications_LinkingResource(),
                 this.getCommunicationLinkResourceSpecification(),
                 this.getCommunicationLinkResourceSpecification_LinkingResource_CommunicationLinkResourceSpecification(),
@@ -781,14 +778,12 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
                 !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
                 IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getLinkingResource_ResourceEnvironment_LinkingResource(),
-                this.getResourceEnvironment(),
-                this.getResourceEnvironment_LinkingResources__ResourceEnvironment(),
+                this.getResourceEnvironment(), this.getResourceEnvironment_LinkingResources__ResourceEnvironment(),
                 "resourceEnvironment_LinkingResource", null, 1, 1, LinkingResource.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.resourceContainerEClass, ResourceContainer.class, "ResourceContainer", !IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getResourceContainer_ActiveResourceSpecifications_ResourceContainer(),
                 this.getProcessingResourceSpecification(),
                 this.getProcessingResourceSpecification_ResourceContainer_ProcessingResourceSpecification(),
@@ -796,20 +791,17 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
         this.initEReference(this.getResourceContainer_ResourceEnvironment_ResourceContainer(),
-                this.getResourceEnvironment(),
-                this.getResourceEnvironment_ResourceContainer_ResourceEnvironment(),
+                this.getResourceEnvironment(), this.getResourceEnvironment_ResourceContainer_ResourceEnvironment(),
                 "resourceEnvironment_ResourceContainer", null, 0, 1, ResourceContainer.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
         this.initEReference(this.getResourceContainer_NestedResourceContainers__ResourceContainer(),
-                this.getResourceContainer(),
-                this.getResourceContainer_ParentResourceContainer__ResourceContainer(),
+                this.getResourceContainer(), this.getResourceContainer_ParentResourceContainer__ResourceContainer(),
                 "nestedResourceContainers__ResourceContainer", null, 0, -1, ResourceContainer.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
         this.initEReference(this.getResourceContainer_ParentResourceContainer__ResourceContainer(),
-                this.getResourceContainer(),
-                this.getResourceContainer_NestedResourceContainers__ResourceContainer(),
+                this.getResourceContainer(), this.getResourceContainer_NestedResourceContainers__ResourceContainer(),
                 "parentResourceContainer__ResourceContainer", null, 0, 1, ResourceContainer.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
@@ -822,17 +814,15 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
         this.initEClass(this.processingResourceSpecificationEClass, ProcessingResourceSpecification.class,
                 "ProcessingResourceSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getProcessingResourceSpecification_MTTR(), this.ecorePackage.getEDouble(), "MTTR",
-                "0.0", 1, 1,
-                ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
-                !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                "0.0", 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEAttribute(this.getProcessingResourceSpecification_MTTF(), this.ecorePackage.getEDouble(), "MTTF",
-                "0.0", 1, 1,
+                "0.0", 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+        this.initEAttribute(this.getProcessingResourceSpecification_RequiredByContainer(),
+                this.ecorePackage.getEBoolean(), "requiredByContainer", null, 1, 1,
                 ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
                 !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-        this.initEAttribute(this.getProcessingResourceSpecification_RequiredByContainer(),
-                this.ecorePackage.getEBoolean(),
-                "requiredByContainer", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getProcessingResourceSpecification_SchedulingPolicy(),
                 theResourcetypePackage.getSchedulingPolicy(), null, "schedulingPolicy", null, 1, 1,
                 ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
@@ -867,9 +857,9 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
                 CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEAttribute(this.getCommunicationLinkResourceSpecification_FailureProbability(),
-                this.ecorePackage.getEDouble(),
-                "failureProbability", "0.0", 1, 1, CommunicationLinkResourceSpecification.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                this.ecorePackage.getEDouble(), "failureProbability", "0.0", 1, 1,
+                CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(
                 this.getCommunicationLinkResourceSpecification_CommunicationLinkResourceType_CommunicationLinkResourceSpecification(),
                 theResourcetypePackage.getCommunicationLinkResourceType(), null,

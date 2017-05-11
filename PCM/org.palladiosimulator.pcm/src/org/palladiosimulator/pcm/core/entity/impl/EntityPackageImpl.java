@@ -331,13 +331,12 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
         theSubsystemPackage.initializePackageContents();
 
         // Register package validator
-        EValidator.Registry.INSTANCE.put(theEntityPackage,
-                new EValidator.Descriptor() {
-                    @Override
-                    public EValidator getEValidator() {
-                        return EntityValidator.INSTANCE;
-                    }
-                });
+        EValidator.Registry.INSTANCE.put(theEntityPackage, new EValidator.Descriptor() {
+            @Override
+            public EValidator getEValidator() {
+                return EntityValidator.INSTANCE;
+            }
+        });
 
         // Mark meta-data to indicate it can't be changed
         theEntityPackage.freeze();
@@ -677,8 +676,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
         // Initialize classes and features; add operations and parameters
         this.initEClass(this.resourceProvidedRoleEClass, ResourceProvidedRole.class, "ResourceProvidedRole",
-                !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getResourceProvidedRole_ResourceInterfaceProvidingEntity__ResourceProvidedRole(),
                 this.getResourceInterfaceProvidingEntity(),
                 this.getResourceInterfaceProvidingEntity_ResourceProvidedRoles__ResourceInterfaceProvidingEntity(),
@@ -722,8 +720,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.resourceRequiredRoleEClass, ResourceRequiredRole.class, "ResourceRequiredRole",
-                !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getResourceRequiredRole_RequiredResourceInterface__ResourceRequiredRole(),
                 theResourcetypePackage.getResourceInterface(), null, "requiredResourceInterface__ResourceRequiredRole",
                 null, 1, 1, ResourceRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
@@ -749,8 +746,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
                 "ComposedProvidingRequiringEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         final EOperation op = this.addEOperation(this.composedProvidingRequiringEntityEClass,
-                this.ecorePackage.getEBoolean(),
-                "ProvidedRolesMustBeBound", 0, 1, IS_UNIQUE, IS_ORDERED);
+                this.ecorePackage.getEBoolean(), "ProvidedRolesMustBeBound", 0, 1, IS_UNIQUE, IS_ORDERED);
         this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
         final EGenericType g1 = this.createEGenericType(this.ecorePackage.getEMap());
         EGenericType g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
@@ -762,13 +758,12 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
         this.initEClass(this.namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getNamedElement_EntityName(), this.ecorePackage.getEString(), "entityName", "aName", 1,
-                1,
-                NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.resourceInterfaceProvidingRequiringEntityEClass,
-                ResourceInterfaceProvidingRequiringEntity.class,
-                "ResourceInterfaceProvidingRequiringEntity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                ResourceInterfaceProvidingRequiringEntity.class, "ResourceInterfaceProvidingRequiringEntity",
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         this.initEClass(this.entityEClass, Entity.class, "Entity", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);

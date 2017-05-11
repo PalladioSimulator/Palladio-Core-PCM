@@ -136,18 +136,16 @@ public class QosReliabilityValidator extends EObjectValidator {
         if (!this.validate_NoCircularContainment(specifiedReliabilityAnnotation, diagnostics, context)) {
             return false;
         }
-        boolean result = this.validate_EveryMultiplicityConforms(specifiedReliabilityAnnotation, diagnostics,
-                context);
+        boolean result = this.validate_EveryMultiplicityConforms(specifiedReliabilityAnnotation, diagnostics, context);
         if (result || diagnostics != null) {
             result &= this.validate_EveryDataValueConforms(specifiedReliabilityAnnotation, diagnostics, context);
         }
         if (result || diagnostics != null) {
-            result &= this.validate_EveryReferenceIsContained(specifiedReliabilityAnnotation, diagnostics,
-                    context);
+            result &= this.validate_EveryReferenceIsContained(specifiedReliabilityAnnotation, diagnostics, context);
         }
         if (result || diagnostics != null) {
-            result &= this.validate_EveryBidirectionalReferenceIsPaired(specifiedReliabilityAnnotation,
-                    diagnostics, context);
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(specifiedReliabilityAnnotation, diagnostics,
+                    context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(specifiedReliabilityAnnotation, diagnostics, context);

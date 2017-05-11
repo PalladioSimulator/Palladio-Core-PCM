@@ -78,9 +78,8 @@ public class EventGroupImpl extends InterfaceImpl implements EventGroup {
             final NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.EVENT_GROUP__EVENT_TYPES_EVENT_GROUP:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getEventTypes__EventGroup()).basicAdd(
-                    otherEnd,
-                    msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getEventTypes__EventGroup())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }

@@ -164,13 +164,13 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
         if (!EOCL_ENV.createQuery(PRIMARY_BEHAVIOUR_OF_RECOVERY_ACTION_MUST_BE_SET__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
                 .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        SeffReliabilityValidator.DIAGNOSTIC_SOURCE,
-                        SeffReliabilityValidator.RECOVERY_ACTION__PRIMARY_BEHAVIOUR_OF_RECOVERY_ACTION_MUST_BE_SET,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] { "PrimaryBehaviourOfRecoveryActionMustBeSet",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, SeffReliabilityValidator.DIAGNOSTIC_SOURCE,
+                                SeffReliabilityValidator.RECOVERY_ACTION__PRIMARY_BEHAVIOUR_OF_RECOVERY_ACTION_MUST_BE_SET,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "PrimaryBehaviourOfRecoveryActionMustBeSet",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -189,8 +189,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
         switch (featureID) {
         case SeffReliabilityPackage.RECOVERY_ACTION__RECOVERY_ACTION_BEHAVIOURS_RECOVERY_ACTION:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getRecoveryActionBehaviours__RecoveryAction())
-                            .basicAdd(otherEnd, msgs);
+                    .getRecoveryActionBehaviours__RecoveryAction()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }

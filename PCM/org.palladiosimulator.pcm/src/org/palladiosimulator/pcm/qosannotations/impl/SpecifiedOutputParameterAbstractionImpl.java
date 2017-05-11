@@ -218,8 +218,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
         switch (featureID) {
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__EXPECTED_EXTERNAL_OUTPUTS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction())
-                            .basicAdd(otherEnd, msgs);
+                    .getExpectedExternalOutputs_SpecifiedOutputParameterAbstraction()).basicAdd(otherEnd, msgs);
         case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);

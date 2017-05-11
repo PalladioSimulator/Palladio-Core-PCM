@@ -81,8 +81,7 @@ public abstract class InterfaceProvidingEntityImpl extends EntityImpl implements
         switch (featureID) {
         case EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getProvidedRoles_InterfaceProvidingEntity())
-                            .basicAdd(otherEnd, msgs);
+                    .getProvidedRoles_InterfaceProvidingEntity()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }

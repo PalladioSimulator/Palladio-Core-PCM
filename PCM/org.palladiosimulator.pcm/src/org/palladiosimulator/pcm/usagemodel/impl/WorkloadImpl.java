@@ -138,8 +138,7 @@ public abstract class WorkloadImpl extends CDOObjectImpl implements Workload {
         switch (this.eContainerFeatureID()) {
         case UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD:
             return this.eInternalContainer().eInverseRemove(this,
-                    UsagemodelPackage.USAGE_SCENARIO__WORKLOAD_USAGE_SCENARIO,
-                    UsageScenario.class, msgs);
+                    UsagemodelPackage.USAGE_SCENARIO__WORKLOAD_USAGE_SCENARIO, UsageScenario.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }

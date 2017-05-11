@@ -265,13 +265,12 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
         theSubsystemPackage.initializePackageContents();
 
         // Register package validator
-        EValidator.Registry.INSTANCE.put(theSeffReliabilityPackage,
-                new EValidator.Descriptor() {
-                    @Override
-                    public EValidator getEValidator() {
-                        return SeffReliabilityValidator.INSTANCE;
-                    }
-                });
+        EValidator.Registry.INSTANCE.put(theSeffReliabilityPackage, new EValidator.Descriptor() {
+            @Override
+            public EValidator getEValidator() {
+                return SeffReliabilityValidator.INSTANCE;
+            }
+        });
 
         // Mark meta-data to indicate it can't be changed
         theSeffReliabilityPackage.freeze();
@@ -455,8 +454,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
                 0, -1, RecoveryActionBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getRecoveryActionBehaviour_RecoveryAction__RecoveryActionBehaviour(),
-                this.getRecoveryAction(),
-                this.getRecoveryAction_RecoveryActionBehaviours__RecoveryAction(),
+                this.getRecoveryAction(), this.getRecoveryAction_RecoveryActionBehaviours__RecoveryAction(),
                 "recoveryAction__RecoveryActionBehaviour", null, 1, 1, RecoveryActionBehaviour.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
@@ -494,9 +492,9 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
         this.initEClass(this.recoveryActionEClass, RecoveryAction.class, "RecoveryAction", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getRecoveryAction_PrimaryBehaviour__RecoveryAction(),
-                this.getRecoveryActionBehaviour(), null,
-                "primaryBehaviour__RecoveryAction", null, 1, 1, RecoveryAction.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                this.getRecoveryActionBehaviour(), null, "primaryBehaviour__RecoveryAction", null, 1, 1,
+                RecoveryAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getRecoveryAction_RecoveryActionBehaviours__RecoveryAction(),
                 this.getRecoveryActionBehaviour(),
                 this.getRecoveryActionBehaviour_RecoveryAction__RecoveryActionBehaviour(),
@@ -515,8 +513,7 @@ public class SeffReliabilityPackageImpl extends EPackageImpl implements SeffReli
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         this.initEClass(this.failureHandlingEntityEClass, FailureHandlingEntity.class, "FailureHandlingEntity",
-                IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getFailureHandlingEntity_FailureTypes_FailureHandlingEntity(),
                 theReliabilityPackage.getFailureType(), null, "failureTypes_FailureHandlingEntity", null, 0, -1,
                 FailureHandlingEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,

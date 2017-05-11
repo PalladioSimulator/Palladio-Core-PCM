@@ -201,15 +201,8 @@ public enum PrimitiveTypeEnum implements Enumerator {
      * 
      * @generated
      */
-    private static final PrimitiveTypeEnum[] VALUES_ARRAY = new PrimitiveTypeEnum[] {
-            INT,
-            STRING,
-            BOOL,
-            DOUBLE,
-            CHAR,
-            BYTE,
-            LONG,
-    };
+    private static final PrimitiveTypeEnum[] VALUES_ARRAY = new PrimitiveTypeEnum[] { INT, STRING, BOOL, DOUBLE, CHAR,
+            BYTE, LONG, };
 
     /**
      * A public read-only list of all the '<em><b>Primitive Type Enum</b></em>' enumerators. <!--

@@ -84,8 +84,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      */
     public NotificationChain basicSetSuccessor(final AbstractUserAction newSuccessor, NotificationChain msgs) {
         msgs = this.eDynamicInverseAdd((InternalEObject) newSuccessor,
-                UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR,
-                msgs);
+                UsagemodelPackage.ABSTRACT_USER_ACTION__SUCCESSOR, msgs);
         return msgs;
     }
 
@@ -128,8 +127,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      */
     public NotificationChain basicSetPredecessor(final AbstractUserAction newPredecessor, NotificationChain msgs) {
         msgs = this.eDynamicInverseAdd((InternalEObject) newPredecessor,
-                UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR,
-                msgs);
+                UsagemodelPackage.ABSTRACT_USER_ACTION__PREDECESSOR, msgs);
         return msgs;
     }
 

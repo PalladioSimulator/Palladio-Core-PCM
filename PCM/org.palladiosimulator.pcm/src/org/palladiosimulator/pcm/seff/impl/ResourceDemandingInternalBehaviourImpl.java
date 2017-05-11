@@ -106,8 +106,7 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
                 msgs = this.eBasicRemoveFromContainer(msgs);
             }
             return this.basicSetResourceDemandingSEFF_ResourceDemandingInternalBehaviour(
-                    (ResourceDemandingSEFF) otherEnd,
-                    msgs);
+                    (ResourceDemandingSEFF) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }

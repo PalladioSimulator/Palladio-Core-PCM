@@ -119,14 +119,12 @@ public class QosPerformanceValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateSystemSpecifiedExecutionTime(
-            final SystemSpecifiedExecutionTime systemSpecifiedExecutionTime, final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+    public boolean validateSystemSpecifiedExecutionTime(final SystemSpecifiedExecutionTime systemSpecifiedExecutionTime,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(systemSpecifiedExecutionTime, diagnostics, context)) {
             return false;
         }
-        boolean result = this.validate_EveryMultiplicityConforms(systemSpecifiedExecutionTime, diagnostics,
-                context);
+        boolean result = this.validate_EveryMultiplicityConforms(systemSpecifiedExecutionTime, diagnostics, context);
         if (result || diagnostics != null) {
             result &= this.validate_EveryDataValueConforms(systemSpecifiedExecutionTime, diagnostics, context);
         }

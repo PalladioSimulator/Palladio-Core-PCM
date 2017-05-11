@@ -241,8 +241,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
         switch (this.eContainerFeatureID()) {
         case SeffPackage.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION:
             return this.eInternalContainer().eInverseRemove(this,
-                    SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-                    ResourceDemandingBehaviour.class, msgs);
+                    SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR, ResourceDemandingBehaviour.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }

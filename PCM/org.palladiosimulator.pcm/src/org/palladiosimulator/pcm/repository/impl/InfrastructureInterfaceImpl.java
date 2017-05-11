@@ -81,8 +81,7 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
         switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getInfrastructureSignatures__InfrastructureInterface())
-                            .basicAdd(otherEnd, msgs);
+                    .getInfrastructureSignatures__InfrastructureInterface()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -97,9 +96,8 @@ public class InfrastructureInterfaceImpl extends InterfaceImpl implements Infras
             final NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.INFRASTRUCTURE_INTERFACE__INFRASTRUCTURE_SIGNATURES_INFRASTRUCTURE_INTERFACE:
-            return ((InternalEList<?>) this.getInfrastructureSignatures__InfrastructureInterface()).basicRemove(
-                    otherEnd,
-                    msgs);
+            return ((InternalEList<?>) this.getInfrastructureSignatures__InfrastructureInterface())
+                    .basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }

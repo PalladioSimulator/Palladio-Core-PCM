@@ -112,8 +112,7 @@ public class CoreValidator extends EObjectValidator {
      * @generated
      */
     public boolean validatePCMRandomVariable(final PCMRandomVariable pcmRandomVariable,
-            final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(pcmRandomVariable, diagnostics, context)) {
             return false;
         }

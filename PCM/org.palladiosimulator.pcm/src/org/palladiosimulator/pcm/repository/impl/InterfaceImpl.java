@@ -188,12 +188,13 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
         }
         if (!EOCL_ENV.createQuery(NO_PROTOCOL_TYPE_ID_USED_TWICE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        RepositoryValidator.DIAGNOSTIC_SOURCE,
-                        RepositoryValidator.INTERFACE__NO_PROTOCOL_TYPE_ID_USED_TWICE,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
-                                "NoProtocolTypeIDUsedTwice", EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, RepositoryValidator.DIAGNOSTIC_SOURCE,
+                                RepositoryValidator.INTERFACE__NO_PROTOCOL_TYPE_ID_USED_TWICE,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "NoProtocolTypeIDUsedTwice",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }

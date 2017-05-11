@@ -183,13 +183,13 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
                         MULTIPLE_RELIABILITY_ANNOTATIONS_PER_EXTERNAL_CALL_NOT_ALLOWED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
                 .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        QosannotationsValidator.DIAGNOSTIC_SOURCE,
-                        QosannotationsValidator.QO_SANNOTATIONS__MULTIPLE_RELIABILITY_ANNOTATIONS_PER_EXTERNAL_CALL_NOT_ALLOWED,
-                        EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
-                                new Object[] { "MultipleReliabilityAnnotationsPerExternalCallNotAllowed",
-                                        EObjectValidator.getObjectLabel(this, context) }),
-                        new Object[] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(Diagnostic.ERROR, QosannotationsValidator.DIAGNOSTIC_SOURCE,
+                                QosannotationsValidator.QO_SANNOTATIONS__MULTIPLE_RELIABILITY_ANNOTATIONS_PER_EXTERNAL_CALL_NOT_ALLOWED,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "MultipleReliabilityAnnotationsPerExternalCallNotAllowed",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -207,8 +207,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
         switch (featureID) {
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getSpecifiedOutputParameterAbstractions_QoSAnnotations())
-                            .basicAdd(otherEnd, msgs);
+                    .getSpecifiedOutputParameterAbstractions_QoSAnnotations()).basicAdd(otherEnd, msgs);
         case QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -216,8 +215,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
             return this.basicSetSystem_QoSAnnotations((org.palladiosimulator.pcm.system.System) otherEnd, msgs);
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getSpecifiedQoSAnnotations_QoSAnnotations())
-                            .basicAdd(otherEnd, msgs);
+                    .getSpecifiedQoSAnnotations_QoSAnnotations()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
@@ -232,9 +230,8 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
             final NotificationChain msgs) {
         switch (featureID) {
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
-            return ((InternalEList<?>) this.getSpecifiedOutputParameterAbstractions_QoSAnnotations()).basicRemove(
-                    otherEnd,
-                    msgs);
+            return ((InternalEList<?>) this.getSpecifiedOutputParameterAbstractions_QoSAnnotations())
+                    .basicRemove(otherEnd, msgs);
         case QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS:
             return this.basicSetSystem_QoSAnnotations(null, msgs);
         case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_QO_SANNOTATIONS_QO_SANNOTATIONS:

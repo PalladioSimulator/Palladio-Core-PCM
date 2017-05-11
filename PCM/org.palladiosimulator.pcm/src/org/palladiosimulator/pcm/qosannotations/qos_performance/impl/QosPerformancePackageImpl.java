@@ -265,13 +265,12 @@ public class QosPerformancePackageImpl extends EPackageImpl implements QosPerfor
         theSubsystemPackage.initializePackageContents();
 
         // Register package validator
-        EValidator.Registry.INSTANCE.put(theQosPerformancePackage,
-                new EValidator.Descriptor() {
-                    @Override
-                    public EValidator getEValidator() {
-                        return QosPerformanceValidator.INSTANCE;
-                    }
-                });
+        EValidator.Registry.INSTANCE.put(theQosPerformancePackage, new EValidator.Descriptor() {
+            @Override
+            public EValidator getEValidator() {
+                return QosPerformanceValidator.INSTANCE;
+            }
+        });
 
         // Mark meta-data to indicate it can't be changed
         theQosPerformancePackage.freeze();
@@ -417,8 +416,8 @@ public class QosPerformancePackageImpl extends EPackageImpl implements QosPerfor
                 "SystemSpecifiedExecutionTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
         final EOperation op = this.addEOperation(this.systemSpecifiedExecutionTimeEClass,
-                this.ecorePackage.getEBoolean(),
-                "SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem", 0, 1, IS_UNIQUE, IS_ORDERED);
+                this.ecorePackage.getEBoolean(), "SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem", 0, 1,
+                IS_UNIQUE, IS_ORDERED);
         this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
         final EGenericType g1 = this.createEGenericType(this.ecorePackage.getEMap());
         EGenericType g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
@@ -428,8 +427,7 @@ public class QosPerformancePackageImpl extends EPackageImpl implements QosPerfor
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         this.initEClass(this.specifiedExecutionTimeEClass, SpecifiedExecutionTime.class, "SpecifiedExecutionTime",
-                IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getSpecifiedExecutionTime_Specification_SpecifiedExecutionTime(),
                 theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_SpecifiedExecutionTime_PCMRandomVariable(),

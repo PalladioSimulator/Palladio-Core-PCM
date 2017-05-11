@@ -149,13 +149,8 @@ public enum VariableCharacterisationType implements Enumerator {
      *
      * @generated
      */
-    private static final VariableCharacterisationType[] VALUES_ARRAY = new VariableCharacterisationType[] {
-            STRUCTURE,
-            NUMBER_OF_ELEMENTS,
-            VALUE,
-            BYTESIZE,
-            TYPE,
-    };
+    private static final VariableCharacterisationType[] VALUES_ARRAY = new VariableCharacterisationType[] { STRUCTURE,
+            NUMBER_OF_ELEMENTS, VALUE, BYTESIZE, TYPE, };
 
     /**
      * A public read-only list of all the '<em><b>Variable Characterisation Type</b></em>'

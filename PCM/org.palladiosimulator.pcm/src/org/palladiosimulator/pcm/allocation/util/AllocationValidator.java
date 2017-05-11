@@ -133,8 +133,7 @@ public class AllocationValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateAllocationContext(final AllocationContext allocationContext,
-            final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(allocationContext, diagnostics, context)) {
             return false;
         }
@@ -162,8 +161,7 @@ public class AllocationValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validateAllocationContext_OneAssemblyContextOrOneEventChannelShouldBeReferred(
-                    allocationContext,
-                    diagnostics, context);
+                    allocationContext, diagnostics, context);
         }
         return result;
     }
@@ -218,8 +216,7 @@ public class AllocationValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validateAllocation_CommunicatingServersHaveToBeConnectedByLinkingResource(allocation,
-                    diagnostics,
-                    context);
+                    diagnostics, context);
         }
         return result;
     }

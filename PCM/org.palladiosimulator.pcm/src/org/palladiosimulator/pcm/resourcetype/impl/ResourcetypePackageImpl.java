@@ -604,27 +604,22 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
 
         // Initialize classes and features; add operations and parameters
         this.initEClass(this.resourceSignatureEClass, ResourceSignature.class, "ResourceSignature", !IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getResourceSignature_Parameter__ResourceSignature(),
-                theRepositoryPackage.getParameter(),
-                theRepositoryPackage.getParameter_ResourceSignature__Parameter(), "parameter__ResourceSignature", null,
-                0, -1, ResourceSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                theRepositoryPackage.getParameter(), theRepositoryPackage.getParameter_ResourceSignature__Parameter(),
+                "parameter__ResourceSignature", null, 0, -1, ResourceSignature.class, !IS_TRANSIENT, !IS_VOLATILE,
+                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEAttribute(this.getResourceSignature_ResourceServiceId(), this.ecorePackage.getEInt(),
-                "resourceServiceId", null, 1,
-                1, ResourceSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                "resourceServiceId", null, 1, 1, ResourceSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getResourceSignature_ResourceInterface__ResourceSignature(),
-                this.getResourceInterface(),
-                this.getResourceInterface_ResourceSignatures__ResourceInterface(),
+                this.getResourceInterface(), this.getResourceInterface_ResourceSignatures__ResourceInterface(),
                 "resourceInterface__ResourceSignature", null, 1, 1, ResourceSignature.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
 
         this.initEClass(this.processingResourceTypeEClass, ProcessingResourceType.class, "ProcessingResourceType",
-                !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getProcessingResourceType_HardwareInducedFailureType__ProcessingResourceType(),
                 theReliabilityPackage.getHardwareInducedFailureType(),
                 theReliabilityPackage
@@ -643,29 +638,25 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
         this.initEClass(this.resourceRepositoryEClass, ResourceRepository.class, "ResourceRepository", !IS_ABSTRACT,
                 !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getResourceRepository_ResourceInterfaces__ResourceRepository(),
-                this.getResourceInterface(),
-                this.getResourceInterface_ResourceRepository__ResourceInterface(),
+                this.getResourceInterface(), this.getResourceInterface_ResourceRepository__ResourceInterface(),
                 "resourceInterfaces__ResourceRepository", null, 0, -1, ResourceRepository.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
         this.initEReference(this.getResourceRepository_SchedulingPolicies__ResourceRepository(),
-                this.getSchedulingPolicy(),
-                this.getSchedulingPolicy_ResourceRepository__SchedulingPolicy(),
+                this.getSchedulingPolicy(), this.getSchedulingPolicy_ResourceRepository__SchedulingPolicy(),
                 "schedulingPolicies__ResourceRepository", null, 0, -1, ResourceRepository.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
         this.initEReference(this.getResourceRepository_AvailableResourceTypes_ResourceRepository(),
-                this.getResourceType(),
-                this.getResourceType_ResourceRepository_ResourceType(), "availableResourceTypes_ResourceRepository",
-                null, 0, -1, ResourceRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-                !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                this.getResourceType(), this.getResourceType_ResourceRepository_ResourceType(),
+                "availableResourceTypes_ResourceRepository", null, 0, -1, ResourceRepository.class, !IS_TRANSIENT,
+                !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+                !IS_ORDERED);
 
         this.initEClass(this.schedulingPolicyEClass, SchedulingPolicy.class, "SchedulingPolicy", !IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getSchedulingPolicy_ResourceRepository__SchedulingPolicy(),
-                this.getResourceRepository(),
-                this.getResourceRepository_SchedulingPolicies__ResourceRepository(),
+                this.getResourceRepository(), this.getResourceRepository_SchedulingPolicies__ResourceRepository(),
                 "resourceRepository__SchedulingPolicy", null, 1, 1, SchedulingPolicy.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
@@ -681,17 +672,14 @@ public class ResourcetypePackageImpl extends EPackageImpl implements Resourcetyp
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.resourceInterfaceEClass, ResourceInterface.class, "ResourceInterface", !IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getResourceInterface_ResourceRepository__ResourceInterface(),
-                this.getResourceRepository(),
-                this.getResourceRepository_ResourceInterfaces__ResourceRepository(),
+                this.getResourceRepository(), this.getResourceRepository_ResourceInterfaces__ResourceRepository(),
                 "resourceRepository__ResourceInterface", null, 1, 1, ResourceInterface.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
         this.initEReference(this.getResourceInterface_ResourceSignatures__ResourceInterface(),
-                this.getResourceSignature(),
-                this.getResourceSignature_ResourceInterface__ResourceSignature(),
+                this.getResourceSignature(), this.getResourceSignature_ResourceInterface__ResourceSignature(),
                 "resourceSignatures__ResourceInterface", null, 0, -1, ResourceInterface.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);

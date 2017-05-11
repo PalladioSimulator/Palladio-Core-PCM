@@ -172,8 +172,7 @@ public class SeffPerformanceValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateInfrastructureCall(final InfrastructureCall infrastructureCall,
-            final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(infrastructureCall, diagnostics, context)) {
             return false;
         }
@@ -201,13 +200,11 @@ public class SeffPerformanceValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validateInfrastructureCall_SignatureMustBelongToUsedRequiredRole(infrastructureCall,
-                    diagnostics,
-                    context);
+                    diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validateInfrastructureCall_ReferencedRequiredRoleMustBeRequiredByComponent(
-                    infrastructureCall,
-                    diagnostics, context);
+                    infrastructureCall, diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this
@@ -288,13 +285,11 @@ public class SeffPerformanceValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validateResourceCall_ResourceSignatureBelongsToResourceRequiredRole(resourceCall,
-                    diagnostics,
-                    context);
+                    diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validateResourceCall_ResourceRequiredRoleMustBeReferencedByComponent(resourceCall,
-                    diagnostics,
-                    context);
+                    diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this
@@ -321,8 +316,8 @@ public class SeffPerformanceValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public boolean validateResourceCall_ResourceRequiredRoleMustBeReferencedByComponent(
-            final ResourceCall resourceCall, final DiagnosticChain diagnostics, final Map<Object, Object> context) {
+    public boolean validateResourceCall_ResourceRequiredRoleMustBeReferencedByComponent(final ResourceCall resourceCall,
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return resourceCall.ResourceRequiredRoleMustBeReferencedByComponent(diagnostics, context);
     }
 
@@ -356,8 +351,7 @@ public class SeffPerformanceValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(parametricResourceDemand, diagnostics, context);
         }
         if (result || diagnostics != null) {
-            result &= this.validate_EveryBidirectionalReferenceIsPaired(parametricResourceDemand, diagnostics,
-                    context);
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(parametricResourceDemand, diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(parametricResourceDemand, diagnostics, context);

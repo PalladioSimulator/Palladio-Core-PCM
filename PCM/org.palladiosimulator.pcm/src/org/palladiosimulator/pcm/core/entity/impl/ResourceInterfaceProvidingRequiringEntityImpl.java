@@ -83,8 +83,7 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
         switch (featureID) {
         case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY__RESOURCE_PROVIDED_ROLES_RESOURCE_INTERFACE_PROVIDING_ENTITY:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getResourceProvidedRoles__ResourceInterfaceProvidingEntity())
-                            .basicAdd(otherEnd, msgs);
+                    .getResourceProvidedRoles__ResourceInterfaceProvidingEntity()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }

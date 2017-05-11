@@ -169,12 +169,10 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
         switch (featureID) {
         case CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SOURCE_CONNECTOR_EVENT_CHANNEL:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getEventChannelSourceConnector__EventChannel())
-                            .basicAdd(otherEnd, msgs);
+                    .getEventChannelSourceConnector__EventChannel()).basicAdd(otherEnd, msgs);
         case CompositionPackage.EVENT_CHANNEL__EVENT_CHANNEL_SINK_CONNECTOR_EVENT_CHANNEL:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getEventChannelSinkConnector__EventChannel())
-                            .basicAdd(otherEnd, msgs);
+                    .getEventChannelSinkConnector__EventChannel()).basicAdd(otherEnd, msgs);
         case CompositionPackage.EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);

@@ -222,8 +222,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
         switch (this.eContainerFeatureID()) {
         case UsagemodelPackage.USAGE_SCENARIO__USAGE_MODEL_USAGE_SCENARIO:
             return this.eInternalContainer().eInverseRemove(this,
-                    UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL,
-                    UsageModel.class, msgs);
+                    UsagemodelPackage.USAGE_MODEL__USAGE_SCENARIO_USAGE_MODEL, UsageModel.class, msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }

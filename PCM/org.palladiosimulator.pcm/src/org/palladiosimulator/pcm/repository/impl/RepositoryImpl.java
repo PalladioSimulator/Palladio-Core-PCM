@@ -158,20 +158,17 @@ public class RepositoryImpl extends EntityImpl implements Repository {
             final NotificationChain msgs) {
         switch (featureID) {
         case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getComponents__Repository()).basicAdd(
-                    otherEnd,
-                    msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getComponents__Repository())
+                    .basicAdd(otherEnd, msgs);
         case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getInterfaces__Repository()).basicAdd(
-                    otherEnd,
-                    msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getInterfaces__Repository())
+                    .basicAdd(otherEnd, msgs);
         case RepositoryPackage.REPOSITORY__FAILURE_TYPES_REPOSITORY:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getFailureTypes__Repository())
                     .basicAdd(otherEnd, msgs);
         case RepositoryPackage.REPOSITORY__DATA_TYPES_REPOSITORY:
-            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getDataTypes__Repository()).basicAdd(
-                    otherEnd,
-                    msgs);
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) this.getDataTypes__Repository())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }

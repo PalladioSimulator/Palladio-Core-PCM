@@ -81,8 +81,7 @@ public class SoftwareInducedFailureTypeImpl extends FailureTypeImpl implements S
         switch (featureID) {
         case ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType())
-                            .basicAdd(otherEnd, msgs);
+                    .getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }

@@ -279,8 +279,7 @@ public class UsagemodelValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateEntryLevelSystemCall(final EntryLevelSystemCall entryLevelSystemCall,
-            final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(entryLevelSystemCall, diagnostics, context)) {
             return false;
         }
@@ -292,8 +291,7 @@ public class UsagemodelValidator extends EObjectValidator {
             result &= this.validate_EveryReferenceIsContained(entryLevelSystemCall, diagnostics, context);
         }
         if (result || diagnostics != null) {
-            result &= this.validate_EveryBidirectionalReferenceIsPaired(entryLevelSystemCall, diagnostics,
-                    context);
+            result &= this.validate_EveryBidirectionalReferenceIsPaired(entryLevelSystemCall, diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validate_EveryProxyResolves(entryLevelSystemCall, diagnostics, context);
@@ -348,8 +346,7 @@ public class UsagemodelValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateAbstractUserAction(final AbstractUserAction abstractUserAction,
-            final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return this.validate_EveryDefaultConstraint(abstractUserAction, diagnostics, context);
     }
 
@@ -359,8 +356,7 @@ public class UsagemodelValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateScenarioBehaviour(final ScenarioBehaviour scenarioBehaviour,
-            final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         if (!this.validate_NoCircularContainment(scenarioBehaviour, diagnostics, context)) {
             return false;
         }
@@ -488,8 +484,7 @@ public class UsagemodelValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateBranch_AllBranchProbabilitiesMustSumUpTo1(final Branch branch,
-            final DiagnosticChain diagnostics,
-            final Map<Object, Object> context) {
+            final DiagnosticChain diagnostics, final Map<Object, Object> context) {
         return branch.AllBranchProbabilitiesMustSumUpTo1(diagnostics, context);
     }
 
@@ -633,8 +628,7 @@ public class UsagemodelValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validateOpenWorkload_InterArrivalTimeInOpenWorkloadNeedsToBeSpecified(openWorkload,
-                    diagnostics,
-                    context);
+                    diagnostics, context);
         }
         return result;
     }
@@ -694,13 +688,11 @@ public class UsagemodelValidator extends EObjectValidator {
         }
         if (result || diagnostics != null) {
             result &= this.validateClosedWorkload_PopulationInClosedWorkloadNeedsToBeSpecified(closedWorkload,
-                    diagnostics,
-                    context);
+                    diagnostics, context);
         }
         if (result || diagnostics != null) {
             result &= this.validateClosedWorkload_ThinkTimeInClosedWorkloadNeedsToBeSpecified(closedWorkload,
-                    diagnostics,
-                    context);
+                    diagnostics, context);
         }
         return result;
     }

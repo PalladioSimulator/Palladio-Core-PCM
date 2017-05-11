@@ -249,13 +249,12 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
         theSubsystemPackage.initializePackageContents();
 
         // Register package validator
-        EValidator.Registry.INSTANCE.put(theSystemPackage,
-                new EValidator.Descriptor() {
-                    @Override
-                    public EValidator getEValidator() {
-                        return SystemValidator.INSTANCE;
-                    }
-                });
+        EValidator.Registry.INSTANCE.put(theSystemPackage, new EValidator.Descriptor() {
+            @Override
+            public EValidator getEValidator() {
+                return SystemValidator.INSTANCE;
+            }
+        });
 
         // Mark meta-data to indicate it can't be changed
         theSystemPackage.freeze();
@@ -359,16 +358,14 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 
         // Initialize classes and features; add operations and parameters
         this.initEClass(this.systemEClass, org.palladiosimulator.pcm.system.System.class, "System", !IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getSystem_QosAnnotations_System(), theQosannotationsPackage.getQoSAnnotations(),
                 theQosannotationsPackage.getQoSAnnotations_System_QoSAnnotations(), "qosAnnotations_System", null, 0,
                 -1, org.palladiosimulator.pcm.system.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
                 IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         final EOperation op = this.addEOperation(this.systemEClass, this.ecorePackage.getEBoolean(),
-                "SystemMustHaveAtLeastOneProvidedRole",
-                0, 1, IS_UNIQUE, IS_ORDERED);
+                "SystemMustHaveAtLeastOneProvidedRole", 0, 1, IS_UNIQUE, IS_ORDERED);
         this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
         final EGenericType g1 = this.createEGenericType(this.ecorePackage.getEMap());
         EGenericType g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());

@@ -93,8 +93,7 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
         }
         if (!EOCL_ENV.createQuery(STOP_HAS_NO_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
-                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR,
-                        UsagemodelValidator.DIAGNOSTIC_SOURCE,
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
                         UsagemodelValidator.STOP__STOP_HAS_NO_SUCCESSOR,
                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
                                 new Object[] { "StopHasNoSuccessor", EObjectValidator.getObjectLabel(this, context) }),

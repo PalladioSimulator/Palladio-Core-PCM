@@ -257,13 +257,12 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
         theSubsystemPackage.initializePackageContents();
 
         // Register package validator
-        EValidator.Registry.INSTANCE.put(theAllocationPackage,
-                new EValidator.Descriptor() {
-                    @Override
-                    public EValidator getEValidator() {
-                        return AllocationValidator.INSTANCE;
-                    }
-                });
+        EValidator.Registry.INSTANCE.put(theAllocationPackage, new EValidator.Descriptor() {
+            @Override
+            public EValidator getEValidator() {
+                return AllocationValidator.INSTANCE;
+            }
+        });
 
         // Mark meta-data to indicate it can't be changed
         theAllocationPackage.freeze();
@@ -449,8 +448,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
         // Initialize classes and features; add operations and parameters
         this.initEClass(this.allocationContextEClass, AllocationContext.class, "AllocationContext", !IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getAllocationContext_ResourceContainer_AllocationContext(),
                 theResourceenvironmentPackage.getResourceContainer(), null, "resourceContainer_AllocationContext", null,
                 1, 1, AllocationContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
@@ -464,10 +462,9 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
                 AllocationContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAllocationContext_EventChannel__AllocationContext(),
-                theCompositionPackage.getEventChannel(),
-                null, "eventChannel__AllocationContext", null, 0, 1, AllocationContext.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED);
+                theCompositionPackage.getEventChannel(), null, "eventChannel__AllocationContext", null, 0, 1,
+                AllocationContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         EOperation op = this.addEOperation(this.allocationContextEClass, this.ecorePackage.getEBoolean(),
                 "OneAssemblyContextOrOneEventChannelShouldBeReferred", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -486,9 +483,8 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
                 null, 0, 1, Allocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAllocation_System_Allocation(), theSystemPackage.getSystem(), null,
-                "system_Allocation", null,
-                1, 1, Allocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                "system_Allocation", null, 1, 1, Allocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAllocation_AllocationContexts_Allocation(), this.getAllocationContext(),
                 this.getAllocationContext_Allocation_AllocationContext(), "allocationContexts_Allocation", null, 0, -1,
                 Allocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,

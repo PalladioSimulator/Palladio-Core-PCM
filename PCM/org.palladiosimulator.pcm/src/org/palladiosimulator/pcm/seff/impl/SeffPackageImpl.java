@@ -459,13 +459,12 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         theSubsystemPackage.initializePackageContents();
 
         // Register package validator
-        EValidator.Registry.INSTANCE.put(theSeffPackage,
-                new EValidator.Descriptor() {
-                    @Override
-                    public EValidator getEValidator() {
-                        return SeffValidator.INSTANCE;
-                    }
-                });
+        EValidator.Registry.INSTANCE.put(theSeffPackage, new EValidator.Descriptor() {
+            @Override
+            public EValidator getEValidator() {
+                return SeffValidator.INSTANCE;
+            }
+        });
 
         // Mark meta-data to indicate it can't be changed
         theSeffPackage.freeze();
@@ -1458,8 +1457,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
                 !IS_ORDERED);
 
         this.initEClass(this.resourceDemandingBehaviourEClass, ResourceDemandingBehaviour.class,
-                "ResourceDemandingBehaviour",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                "ResourceDemandingBehaviour", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getResourceDemandingBehaviour_AbstractLoopAction_ResourceDemandingBehaviour(),
                 this.getAbstractLoopAction(), this.getAbstractLoopAction_BodyBehaviour_Loop(),
                 "abstractLoopAction_ResourceDemandingBehaviour", null, 0, 1, ResourceDemandingBehaviour.class,
@@ -1476,8 +1474,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.resourceDemandingBehaviourEClass, this.ecorePackage.getEBoolean(),
-                "ExactlyOneStopAction", 0, 1,
-                IS_UNIQUE, IS_ORDERED);
+                "ExactlyOneStopAction", 0, 1, IS_UNIQUE, IS_ORDERED);
         this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
         g1 = this.createEGenericType(this.ecorePackage.getEMap());
         g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
@@ -1487,8 +1484,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         op = this.addEOperation(this.resourceDemandingBehaviourEClass, this.ecorePackage.getEBoolean(),
-                "ExactlyOneStartAction", 0, 1,
-                IS_UNIQUE, IS_ORDERED);
+                "ExactlyOneStartAction", 0, 1, IS_UNIQUE, IS_ORDERED);
         this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
         g1 = this.createEGenericType(this.ecorePackage.getEMap());
         g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
@@ -1509,8 +1505,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         this.initEClass(this.abstractLoopActionEClass, AbstractLoopAction.class, "AbstractLoopAction", IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getAbstractLoopAction_BodyBehaviour_Loop(), this.getResourceDemandingBehaviour(),
                 this.getResourceDemandingBehaviour_AbstractLoopAction_ResourceDemandingBehaviour(),
                 "bodyBehaviour_Loop", null, 1, 1, AbstractLoopAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
@@ -1519,9 +1514,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.initEClass(this.abstractBranchTransitionEClass, AbstractBranchTransition.class, "AbstractBranchTransition",
                 IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getAbstractBranchTransition_BranchAction_AbstractBranchTransition(),
-                this.getBranchAction(),
-                this.getBranchAction_Branches_Branch(), "branchAction_AbstractBranchTransition", null, 1, 1,
-                AbstractBranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                this.getBranchAction(), this.getBranchAction_Branches_Branch(), "branchAction_AbstractBranchTransition",
+                null, 1, 1, AbstractBranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getAbstractBranchTransition_BranchBehaviour_BranchTransition(),
                 this.getResourceDemandingBehaviour(),
@@ -1569,8 +1563,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
                 IS_GENERATED_INSTANCE_CLASS);
 
         op = this.addEOperation(this.startActionEClass, this.ecorePackage.getEBoolean(),
-                "StartActionPredecessorMustNotBeDefined", 0,
-                1, IS_UNIQUE, IS_ORDERED);
+                "StartActionPredecessorMustNotBeDefined", 0, 1, IS_UNIQUE, IS_ORDERED);
         this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
         g1 = this.createEGenericType(this.ecorePackage.getEMap());
         g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
@@ -1580,17 +1573,14 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         this.initEClass(this.serviceEffectSpecificationEClass, ServiceEffectSpecification.class,
-                "ServiceEffectSpecification",
-                IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                "ServiceEffectSpecification", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getServiceEffectSpecification_SeffTypeID(), this.ecorePackage.getEString(),
-                "seffTypeID", "1", 1, 1,
-                ServiceEffectSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                "seffTypeID", "1", 1, 1, ServiceEffectSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+                !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getServiceEffectSpecification_DescribedService__SEFF(),
-                theRepositoryPackage.getSignature(),
-                null, "describedService__SEFF", null, 1, 1, ServiceEffectSpecification.class, !IS_TRANSIENT,
-                !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
-                !IS_ORDERED);
+                theRepositoryPackage.getSignature(), null, "describedService__SEFF", null, 1, 1,
+                ServiceEffectSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+                IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getServiceEffectSpecification_BasicComponent_ServiceEffectSpecification(),
                 theRepositoryPackage.getBasicComponent(),
                 theRepositoryPackage.getBasicComponent_ServiceEffectSpecifications__BasicComponent(),
@@ -1609,8 +1599,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         this.initEClass(this.resourceDemandingSEFFEClass, ResourceDemandingSEFF.class, "ResourceDemandingSEFF",
-                !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getResourceDemandingSEFF_ResourceDemandingInternalBehaviours(),
                 this.getResourceDemandingInternalBehaviour(),
                 this.getResourceDemandingInternalBehaviour_ResourceDemandingSEFF_ResourceDemandingInternalBehaviour(),
@@ -1630,9 +1619,9 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.initEClass(this.releaseActionEClass, ReleaseAction.class, "ReleaseAction", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getReleaseAction_PassiveResource_ReleaseAction(),
-                theRepositoryPackage.getPassiveResource(),
-                null, "passiveResource_ReleaseAction", null, 1, 1, ReleaseAction.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                theRepositoryPackage.getPassiveResource(), null, "passiveResource_ReleaseAction", null, 1, 1,
+                ReleaseAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.loopActionEClass, LoopAction.class, "LoopAction", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
@@ -1653,8 +1642,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
                 !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.forkedBehaviourEClass, ForkedBehaviour.class, "ForkedBehaviour", !IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getForkedBehaviour_SynchronisationPoint_ForkedBehaviour(),
                 this.getSynchronisationPoint(),
                 this.getSynchronisationPoint_SynchronousForkedBehaviours_SynchronisationPoint(),
@@ -1666,8 +1654,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.synchronisationPointEClass, SynchronisationPoint.class, "SynchronisationPoint",
-                !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getSynchronisationPoint_OutputParameterUsage_SynchronisationPoint(),
                 theParameterPackage.getVariableUsage(),
                 theParameterPackage.getVariableUsage_SynchronisationPoint_VariableUsage(),
@@ -1691,17 +1678,15 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
                 ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
                 !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getExternalCallAction_Role_ExternalService(),
-                theRepositoryPackage.getOperationRequiredRole(),
-                null, "role_ExternalService", null, 1, 1, ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                theRepositoryPackage.getOperationRequiredRole(), null, "role_ExternalService", null, 1, 1,
+                ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEAttribute(this.getExternalCallAction_RetryCount(), this.ecorePackage.getEInt(), "retryCount", null, 1,
-                1,
-                ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, !IS_ORDERED);
+                1, ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.externalCallActionEClass, this.ecorePackage.getEBoolean(),
-                "SignatureBelongsToRole", 0, 1,
-                IS_UNIQUE, IS_ORDERED);
+                "SignatureBelongsToRole", 0, 1, IS_UNIQUE, IS_ORDERED);
         this.addEParameter(op, this.ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
         g1 = this.createEGenericType(this.ecorePackage.getEMap());
         g2 = this.createEGenericType(this.ecorePackage.getEJavaObject());
@@ -1721,8 +1706,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         this.initEClass(this.callReturnActionEClass, CallReturnAction.class, "CallReturnAction", !IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getCallReturnAction_ReturnVariableUsage__CallReturnAction(),
                 theParameterPackage.getVariableUsage(),
                 theParameterPackage.getVariableUsage_CallReturnAction__VariableUsage(),
@@ -1739,16 +1723,15 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
         this.initEClass(this.acquireActionEClass, AcquireAction.class, "AcquireAction", !IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getAcquireAction_Passiveresource_AcquireAction(),
-                theRepositoryPackage.getPassiveResource(),
-                null, "passiveresource_AcquireAction", null, 1, 1, AcquireAction.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                theRepositoryPackage.getPassiveResource(), null, "passiveresource_AcquireAction", null, 1, 1,
+                AcquireAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEAttribute(this.getAcquireAction_Timeout(), this.ecorePackage.getEBoolean(), "timeout", null, 1, 1,
                 AcquireAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED);
         this.initEAttribute(this.getAcquireAction_TimeoutValue(), this.ecorePackage.getEDouble(), "timeoutValue", null,
-                1, 1,
-                AcquireAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
-                !IS_DERIVED, !IS_ORDERED);
+                1, 1, AcquireAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         op = this.addEOperation(this.acquireActionEClass, this.ecorePackage.getEBoolean(),
                 "TimeoutValueOfAcquireActionMustNotBeNegative", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1777,8 +1760,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
                 !IS_ORDERED);
 
         this.initEClass(this.setVariableActionEClass, SetVariableAction.class, "SetVariableAction", !IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getSetVariableAction_LocalVariableUsages_SetVariableAction(),
                 theParameterPackage.getVariableUsage(),
                 theParameterPackage.getVariableUsage_SetVariableAction_VariableUsage(),
@@ -1794,15 +1776,12 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
                 IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.emitEventActionEClass, EmitEventAction.class, "EmitEventAction", !IS_ABSTRACT,
-                !IS_INTERFACE,
-                IS_GENERATED_INSTANCE_CLASS);
+                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getEmitEventAction_EventType__EmitEventAction(), theRepositoryPackage.getEventType(),
-                null,
-                "eventType__EmitEventAction", null, 1, 1, EmitEventAction.class, !IS_TRANSIENT, !IS_VOLATILE,
+                null, "eventType__EmitEventAction", null, 1, 1, EmitEventAction.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getEmitEventAction_SourceRole__EmitEventAction(), theRepositoryPackage.getSourceRole(),
-                null,
-                "sourceRole__EmitEventAction", null, 1, 1, EmitEventAction.class, !IS_TRANSIENT, !IS_VOLATILE,
+                null, "sourceRole__EmitEventAction", null, 1, 1, EmitEventAction.class, !IS_TRANSIENT, !IS_VOLATILE,
                 IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.internalActionEClass, InternalAction.class, "InternalAction", !IS_ABSTRACT, !IS_INTERFACE,

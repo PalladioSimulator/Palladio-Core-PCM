@@ -341,8 +341,7 @@ public class ProtocolPackageImpl extends EPackageImpl implements ProtocolPackage
         this.initEClass(this.protocolEClass, Protocol.class, "Protocol", IS_ABSTRACT, !IS_INTERFACE,
                 IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getProtocol_ProtocolTypeID(), this.ecorePackage.getEString(), "protocolTypeID", null,
-                1, 1,
-                Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+                1, 1, Protocol.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
                 !IS_DERIVED, !IS_ORDERED);
     }
 

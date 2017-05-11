@@ -81,10 +81,8 @@ public enum ComponentType implements Enumerator {
      * 
      * @generated
      */
-    private static final ComponentType[] VALUES_ARRAY = new ComponentType[] {
-            BUSINESS_COMPONENT,
-            INFRASTRUCTURE_COMPONENT,
-    };
+    private static final ComponentType[] VALUES_ARRAY = new ComponentType[] { BUSINESS_COMPONENT,
+            INFRASTRUCTURE_COMPONENT, };
 
     /**
      * A public read-only list of all the '<em><b>Component Type</b></em>' enumerators. <!--

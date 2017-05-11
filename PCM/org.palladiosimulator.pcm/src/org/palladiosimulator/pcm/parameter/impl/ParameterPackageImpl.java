@@ -626,16 +626,15 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
         this.initEReference(this.getVariableUsage_NamedReference__VariableUsage(),
-                theStoexPackage.getAbstractNamedReference(),
-                null, "namedReference__VariableUsage", null, 1, 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                theStoexPackage.getAbstractNamedReference(), null, "namedReference__VariableUsage", null, 1, 1,
+                VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+                !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
         this.initEClass(this.variableCharacterisationEClass, VariableCharacterisation.class, "VariableCharacterisation",
                 !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getVariableCharacterisation_Type(), this.getVariableCharacterisationType(), "type",
-                null, 1, 1,
-                VariableCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
-                IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                null, 1, 1, VariableCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE,
+                !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
         this.initEReference(this.getVariableCharacterisation_Specification_VariableCharacterisation(),
                 theCorePackage.getPCMRandomVariable(),
                 theCorePackage.getPCMRandomVariable_VariableCharacterisation_Specification(),
@@ -643,19 +642,17 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
                 !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
         this.initEReference(this.getVariableCharacterisation_VariableUsage_VariableCharacterisation(),
-                this.getVariableUsage(),
-                this.getVariableUsage_VariableCharacterisation_VariableUsage(),
+                this.getVariableUsage(), this.getVariableUsage_VariableCharacterisation_VariableUsage(),
                 "variableUsage_VariableCharacterisation", null, 0, 1, VariableCharacterisation.class, !IS_TRANSIENT,
                 !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
                 !IS_ORDERED);
 
         this.initEClass(this.characterisedVariableEClass, CharacterisedVariable.class, "CharacterisedVariable",
-                !IS_ABSTRACT,
-                !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEAttribute(this.getCharacterisedVariable_CharacterisationType(),
-                this.getVariableCharacterisationType(),
-                "characterisationType", null, 1, 1, CharacterisedVariable.class, !IS_TRANSIENT, !IS_VOLATILE,
-                IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+                this.getVariableCharacterisationType(), "characterisationType", null, 1, 1, CharacterisedVariable.class,
+                !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED,
+                !IS_ORDERED);
 
         // Initialize enums and add enum literals
         this.initEEnum(this.variableCharacterisationTypeEEnum, VariableCharacterisationType.class,

@@ -306,13 +306,12 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
         theSubsystemPackage.initializePackageContents();
 
         // Register package validator
-        EValidator.Registry.INSTANCE.put(theReliabilityPackage,
-                new EValidator.Descriptor() {
-                    @Override
-                    public EValidator getEValidator() {
-                        return ReliabilityValidator.INSTANCE;
-                    }
-                });
+        EValidator.Registry.INSTANCE.put(theReliabilityPackage, new EValidator.Descriptor() {
+            @Override
+            public EValidator getEValidator() {
+                return ReliabilityValidator.INSTANCE;
+            }
+        });
 
         // Mark meta-data to indicate it can't be changed
         theReliabilityPackage.freeze();
@@ -634,8 +633,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         this.initEClass(this.hardwareInducedFailureTypeEClass, HardwareInducedFailureType.class,
-                "HardwareInducedFailureType",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                "HardwareInducedFailureType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getHardwareInducedFailureType_ProcessingResourceType__HardwareInducedFailureType(),
                 theResourcetypePackage.getProcessingResourceType(),
                 theResourcetypePackage.getProcessingResourceType_HardwareInducedFailureType__ProcessingResourceType(),
@@ -654,8 +652,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         this.initEClass(this.softwareInducedFailureTypeEClass, SoftwareInducedFailureType.class,
-                "SoftwareInducedFailureType",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                "SoftwareInducedFailureType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(
                 this.getSoftwareInducedFailureType_InternalFailureOccurrenceDescriptions__SoftwareInducedFailureType(),
                 this.getInternalFailureOccurrenceDescription(),
@@ -692,8 +689,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         this.initEClass(this.networkInducedFailureTypeEClass, NetworkInducedFailureType.class,
-                "NetworkInducedFailureType",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                "NetworkInducedFailureType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(
                 this.getNetworkInducedFailureType_CommunicationLinkResourceType__NetworkInducedFailureType(),
                 theResourcetypePackage.getCommunicationLinkResourceType(),
@@ -740,8 +736,7 @@ public class ReliabilityPackageImpl extends EPackageImpl implements ReliabilityP
         this.addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
         this.initEClass(this.resourceTimeoutFailureTypeEClass, ResourceTimeoutFailureType.class,
-                "ResourceTimeoutFailureType",
-                !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                "ResourceTimeoutFailureType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
         this.initEReference(this.getResourceTimeoutFailureType_PassiveResource__ResourceTimeoutFailureType(),
                 theRepositoryPackage.getPassiveResource(),
                 theRepositoryPackage.getPassiveResource_ResourceTimeoutFailureType__PassiveResource(),

@@ -136,8 +136,7 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
         switch (featureID) {
         case SeffPackage.SYNCHRONISATION_POINT__OUTPUT_PARAMETER_USAGE_SYNCHRONISATION_POINT:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getOutputParameterUsage_SynchronisationPoint())
-                            .basicAdd(otherEnd, msgs);
+                    .getOutputParameterUsage_SynchronisationPoint()).basicAdd(otherEnd, msgs);
         case SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT:
             if (this.eInternalContainer() != null) {
                 msgs = this.eBasicRemoveFromContainer(msgs);
@@ -145,8 +144,7 @@ public class SynchronisationPointImpl extends IdentifierImpl implements Synchron
             return this.basicSetForkAction_SynchronisationPoint((ForkAction) otherEnd, msgs);
         case SeffPackage.SYNCHRONISATION_POINT__SYNCHRONOUS_FORKED_BEHAVIOURS_SYNCHRONISATION_POINT:
             return ((InternalEList<InternalEObject>) (InternalEList<?>) this
-                    .getSynchronousForkedBehaviours_SynchronisationPoint())
-                            .basicAdd(otherEnd, msgs);
+                    .getSynchronousForkedBehaviours_SynchronisationPoint()).basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }

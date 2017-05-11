@@ -113,12 +113,7 @@ public enum ParameterModifier implements Enumerator {
      * 
      * @generated
      */
-    private static final ParameterModifier[] VALUES_ARRAY = new ParameterModifier[] {
-            NONE,
-            IN,
-            OUT,
-            INOUT,
-    };
+    private static final ParameterModifier[] VALUES_ARRAY = new ParameterModifier[] { NONE, IN, OUT, INOUT, };
 
     /**
      * A public read-only list of all the '<em><b>Parameter Modifier</b></em>' enumerators. <!--
