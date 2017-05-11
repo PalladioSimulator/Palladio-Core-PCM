@@ -26,14 +26,14 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ComponentSpecifiedExecutionTimeImpl() {
@@ -42,7 +42,7 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -52,7 +52,7 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -65,7 +65,7 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext_ComponentSpecifiedExecutionTime() {
@@ -77,7 +77,7 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -91,7 +91,7 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -108,7 +108,7 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -123,7 +123,7 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -138,7 +138,7 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

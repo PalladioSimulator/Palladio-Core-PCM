@@ -25,14 +25,14 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected InfrastructureRequiredRoleImpl() {
@@ -41,7 +41,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -51,7 +51,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -64,7 +64,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public InfrastructureInterface basicGetRequiredInterface__InfrastructureRequiredRole() {
@@ -76,7 +76,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -90,7 +90,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -107,7 +107,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -122,7 +122,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -137,7 +137,7 @@ public class InfrastructureRequiredRoleImpl extends RequiredRoleImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

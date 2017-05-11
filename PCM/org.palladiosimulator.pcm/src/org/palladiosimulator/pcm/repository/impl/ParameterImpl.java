@@ -46,7 +46,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -54,7 +54,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
     /**
      * The default value of the '{@link #getParameterName() <em>Parameter Name</em>}' attribute.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getParameterName()
      * @generated
      * @ordered
@@ -64,7 +64,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
     /**
      * The default value of the '{@link #getModifier__Parameter() <em>Modifier Parameter</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getModifier__Parameter()
      * @generated
      * @ordered
@@ -73,7 +73,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ParameterImpl() {
@@ -82,7 +82,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -92,7 +92,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -102,7 +102,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -113,7 +113,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public DataType basicGetDataType__Parameter() {
@@ -123,7 +123,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -134,7 +134,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -146,7 +146,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetInfrastructureSignature__Parameter(
@@ -158,7 +158,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -171,7 +171,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -182,7 +182,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetOperationSignature__Parameter(
@@ -194,7 +194,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -205,7 +205,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -216,7 +216,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetEventType__Parameter(final EventType newEventType__Parameter,
@@ -228,7 +228,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -239,7 +239,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -250,7 +250,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -261,7 +261,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -272,7 +272,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -283,7 +283,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -294,7 +294,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetResourceSignature__Parameter(
@@ -306,7 +306,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -317,7 +317,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -349,7 +349,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -370,7 +370,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -397,7 +397,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -426,7 +426,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -459,7 +459,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -492,7 +492,7 @@ public class ParameterImpl extends CDOObjectImpl implements Parameter {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

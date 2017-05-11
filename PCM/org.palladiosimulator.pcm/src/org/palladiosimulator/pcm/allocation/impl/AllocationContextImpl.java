@@ -48,14 +48,14 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected AllocationContextImpl() {
@@ -64,7 +64,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -74,7 +74,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -86,7 +86,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceContainer basicGetResourceContainer_AllocationContext() {
@@ -97,7 +97,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -109,7 +109,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -121,7 +121,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext_AllocationContext() {
@@ -132,7 +132,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -144,7 +144,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -155,7 +155,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetAllocation_AllocationContext(final Allocation newAllocation_AllocationContext,
@@ -167,7 +167,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -179,7 +179,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -190,7 +190,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public EventChannel basicGetEventChannel__AllocationContext() {
@@ -200,7 +200,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -227,7 +227,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * '{@link #OneAssemblyContextOrOneEventChannelShouldBeReferred(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>One Assembly Context Or One Event Channel Should Be Referred</em>}' invariant operation.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #OneAssemblyContextOrOneEventChannelShouldBeReferred(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -237,7 +237,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -274,7 +274,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -291,7 +291,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -306,7 +306,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -321,7 +321,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -350,7 +350,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -374,7 +374,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -398,7 +398,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -419,7 +419,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

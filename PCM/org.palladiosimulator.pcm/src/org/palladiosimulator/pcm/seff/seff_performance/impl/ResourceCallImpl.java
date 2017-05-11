@@ -49,14 +49,14 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceCallImpl() {
@@ -65,7 +65,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -75,7 +75,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -87,7 +87,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetAction__ResourceCall(
@@ -99,7 +99,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -110,7 +110,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -122,7 +122,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceRequiredRole basicGetResourceRequiredRole__ResourceCall() {
@@ -133,7 +133,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -146,7 +146,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -157,7 +157,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceSignature basicGetSignature__ResourceCall() {
@@ -167,7 +167,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -178,7 +178,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -189,7 +189,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetNumberOfCalls__ResourceCall(final PCMRandomVariable newNumberOfCalls__ResourceCall,
@@ -201,7 +201,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -238,7 +238,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -298,7 +298,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -337,7 +337,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      * '{@link #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Signature Role Combination Must Be Unique Within Abstract Internal Control Flow
      * Action</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -349,7 +349,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      * '{@link #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Signature Role Combination Must Be Unique Within Abstract Internal Control Flow
      * Action</em>}' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -359,7 +359,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -396,7 +396,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -421,7 +421,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -438,7 +438,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -454,7 +454,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -480,7 +480,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -504,7 +504,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -528,7 +528,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -549,7 +549,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @generated
      * @ordered
      */

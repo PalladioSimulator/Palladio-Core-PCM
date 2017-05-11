@@ -39,7 +39,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -55,7 +55,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Linking Resource Communication Link Resource
      *         Specification</em>' container reference.
      * @see #setLinkingResource_CommunicationLinkResourceSpecification(LinkingResource)
@@ -72,7 +72,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * '{@link org.palladiosimulator.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLinkingResource_CommunicationLinkResourceSpecification
      * <em>Linking Resource Communication Link Resource Specification</em>}' container reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Linking Resource Communication Link Resource
      *            Specification</em>' container reference.
@@ -99,7 +99,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * Sets the value of the
      * '{@link org.palladiosimulator.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getFailureProbability
      * <em>Failure Probability</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Failure Probability</em>' attribute.
      * @see #getFailureProbability()
@@ -116,7 +116,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Communication Link Resource Type Communication Link Resource
      *         Specification</em>' reference.
      * @see #setCommunicationLinkResourceType_CommunicationLinkResourceSpecification(CommunicationLinkResourceType)
@@ -131,7 +131,7 @@ public interface CommunicationLinkResourceSpecification extends Identifier {
      * '{@link org.palladiosimulator.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getCommunicationLinkResourceType_CommunicationLinkResourceSpecification
      * <em>Communication Link Resource Type Communication Link Resource Specification</em>}'
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Communication Link Resource Type Communication Link
      *            Resource Specification</em>' reference.

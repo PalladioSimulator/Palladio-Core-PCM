@@ -29,7 +29,7 @@ public interface EventChannelSourceConnector extends Connector {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -42,7 +42,7 @@ public interface EventChannelSourceConnector extends Connector {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Source Role Event Channel Source Role</em>' reference.
      * @see #setSourceRole__EventChannelSourceRole(SourceRole)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getEventChannelSourceConnector_SourceRole__EventChannelSourceRole()
@@ -56,7 +56,7 @@ public interface EventChannelSourceConnector extends Connector {
      * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getSourceRole__EventChannelSourceRole
      * <em>Source Role Event Channel Source Role</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Source Role Event Channel Source Role</em>' reference.
      * @see #getSourceRole__EventChannelSourceRole()
@@ -72,7 +72,7 @@ public interface EventChannelSourceConnector extends Connector {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Assembly Context Event Channel Source Connector</em>'
      *         reference.
      * @see #setAssemblyContext__EventChannelSourceConnector(AssemblyContext)
@@ -87,7 +87,7 @@ public interface EventChannelSourceConnector extends Connector {
      * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getAssemblyContext__EventChannelSourceConnector
      * <em>Assembly Context Event Channel Source Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Assembly Context Event Channel Source Connector</em>'
      *            reference.
@@ -106,7 +106,7 @@ public interface EventChannelSourceConnector extends Connector {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Event Channel Event Channel Source Connector</em>' reference.
      * @see #setEventChannel__EventChannelSourceConnector(EventChannel)
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getEventChannelSourceConnector_EventChannel__EventChannelSourceConnector()
@@ -121,7 +121,7 @@ public interface EventChannelSourceConnector extends Connector {
      * '{@link org.palladiosimulator.pcm.core.composition.EventChannelSourceConnector#getEventChannel__EventChannelSourceConnector
      * <em>Event Channel Event Channel Source Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Event Channel Event Channel Source Connector</em>'
      *            reference.

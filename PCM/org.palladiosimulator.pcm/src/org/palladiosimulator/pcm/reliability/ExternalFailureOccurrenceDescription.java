@@ -34,7 +34,7 @@ public interface ExternalFailureOccurrenceDescription extends FailureOccurrenceD
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -69,7 +69,7 @@ public interface ExternalFailureOccurrenceDescription extends FailureOccurrenceD
      * '{@link org.palladiosimulator.pcm.reliability.ExternalFailureOccurrenceDescription#getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription
      * <em>Specified Reliability Annotation External Failure Occurrence Description</em>}' container
      * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Specified Reliability Annotation External Failure
      *            Occurrence Description</em>' container reference.
@@ -86,7 +86,7 @@ public interface ExternalFailureOccurrenceDescription extends FailureOccurrenceD
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Failure Type External Failure Occurrence Description</em>'
      *         reference.
      * @see #setFailureType__ExternalFailureOccurrenceDescription(FailureType)

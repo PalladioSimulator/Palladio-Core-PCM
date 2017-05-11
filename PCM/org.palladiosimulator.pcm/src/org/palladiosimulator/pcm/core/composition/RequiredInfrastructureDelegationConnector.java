@@ -29,7 +29,7 @@ public interface RequiredInfrastructureDelegationConnector extends DelegationCon
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -42,7 +42,7 @@ public interface RequiredInfrastructureDelegationConnector extends DelegationCon
      * Connector</em>' reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Inner Required Role Required Infrastructure Delegation
      *         Connector</em>' reference.
      * @see #setInnerRequiredRole__RequiredInfrastructureDelegationConnector(InfrastructureRequiredRole)
@@ -74,7 +74,7 @@ public interface RequiredInfrastructureDelegationConnector extends DelegationCon
      * Connector</em>' reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Outer Required Role Required Infrastructure Delegation
      *         Connector</em>' reference.
      * @see #setOuterRequiredRole__RequiredInfrastructureDelegationConnector(InfrastructureRequiredRole)
@@ -106,7 +106,7 @@ public interface RequiredInfrastructureDelegationConnector extends DelegationCon
      * ' reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Assembly Context Required Infrastructure Delegation
      *         Connector</em>' reference.
      * @see #setAssemblyContext__RequiredInfrastructureDelegationConnector(AssemblyContext)

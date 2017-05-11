@@ -35,14 +35,14 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected PassiveResourceImpl() {
@@ -51,7 +51,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -61,7 +61,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -72,7 +72,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetCapacity_PassiveResource(final PCMRandomVariable newCapacity_PassiveResource,
@@ -84,7 +84,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -95,7 +95,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -106,7 +106,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetBasicComponent_PassiveResource(
@@ -118,7 +118,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -130,7 +130,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -143,7 +143,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceTimeoutFailureType basicGetResourceTimeoutFailureType__PassiveResource() {
@@ -155,7 +155,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetResourceTimeoutFailureType__PassiveResource(
@@ -167,7 +167,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -180,7 +180,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -215,7 +215,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -234,7 +234,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -249,7 +249,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -270,7 +270,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -291,7 +291,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -312,7 +312,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

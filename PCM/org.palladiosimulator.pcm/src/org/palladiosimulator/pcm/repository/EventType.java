@@ -31,7 +31,7 @@ public interface EventType extends Signature {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -46,7 +46,7 @@ public interface EventType extends Signature {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Parameter Event Type</em>' containment reference.
      * @see #setParameter__EventType(Parameter)
      * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getEventType_Parameter__EventType()
@@ -60,7 +60,7 @@ public interface EventType extends Signature {
      * Sets the value of the
      * '{@link org.palladiosimulator.pcm.repository.EventType#getParameter__EventType <em>Parameter
      * Event Type</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Parameter Event Type</em>' containment reference.
      * @see #getParameter__EventType()
@@ -78,7 +78,7 @@ public interface EventType extends Signature {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Event Group Event Type</em>' container reference.
      * @see #setEventGroup__EventType(EventGroup)
      * @see org.palladiosimulator.pcm.repository.RepositoryPackage#getEventType_EventGroup__EventType()
@@ -92,7 +92,7 @@ public interface EventType extends Signature {
      * Sets the value of the
      * '{@link org.palladiosimulator.pcm.repository.EventType#getEventGroup__EventType <em>Event
      * Group Event Type</em>}' container reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Event Group Event Type</em>' container reference.
      * @see #getEventGroup__EventType()

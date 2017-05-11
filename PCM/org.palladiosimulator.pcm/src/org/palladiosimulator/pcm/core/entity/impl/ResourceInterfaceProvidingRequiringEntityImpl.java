@@ -33,14 +33,14 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceInterfaceProvidingRequiringEntityImpl() {
@@ -49,7 +49,7 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -59,7 +59,7 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -73,7 +73,7 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -90,7 +90,7 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -106,7 +106,7 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -120,7 +120,7 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -138,7 +138,7 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -153,7 +153,7 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -167,7 +167,7 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -185,7 +185,7 @@ public class ResourceInterfaceProvidingRequiringEntityImpl extends ResourceInter
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

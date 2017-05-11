@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * each class of the model, starting with the actual class of the object and proceeding up the
  * inheritance hierarchy until a non-null result is returned, which is the result of the switch.
  * <!-- end-user-doc -->
- * 
+ *
  * @see org.palladiosimulator.pcm.reliability.ReliabilityPackage
  * @generated
  */
@@ -34,21 +34,21 @@ public class ReliabilitySwitch<T> extends Switch<T> {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected static ReliabilityPackage modelPackage;
 
     /**
      * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ReliabilitySwitch() {
@@ -60,7 +60,7 @@ public class ReliabilitySwitch<T> extends Switch<T> {
     /**
      * Checks whether this is a switch for the given package. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param ePackage
      *            the package in question.
      * @return whether this is a switch for the given package.
@@ -74,7 +74,7 @@ public class ReliabilitySwitch<T> extends Switch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -220,7 +220,7 @@ public class ReliabilitySwitch<T> extends Switch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Failure Occurrence
      * Description</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
      * non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Failure Occurrence
@@ -236,7 +236,7 @@ public class ReliabilitySwitch<T> extends Switch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Hardware Induced Failure
      * Type</em>'. <!-- begin-user-doc --> This implementation returns null; returning a non-null
      * result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Hardware Induced Failure
@@ -252,7 +252,7 @@ public class ReliabilitySwitch<T> extends Switch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Software Induced Failure
      * Type</em>'. <!-- begin-user-doc --> This implementation returns null; returning a non-null
      * result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Software Induced Failure
@@ -268,7 +268,7 @@ public class ReliabilitySwitch<T> extends Switch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Internal Failure
      * Occurrence Description</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Internal Failure
@@ -284,7 +284,7 @@ public class ReliabilitySwitch<T> extends Switch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Network Induced Failure
      * Type</em>'. <!-- begin-user-doc --> This implementation returns null; returning a non-null
      * result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Network Induced Failure
@@ -300,7 +300,7 @@ public class ReliabilitySwitch<T> extends Switch<T> {
      * Returns the result of interpreting the object as an instance of '<em>External Failure
      * Occurrence Description</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>External Failure
@@ -316,7 +316,7 @@ public class ReliabilitySwitch<T> extends Switch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Resource Timeout Failure
      * Type</em>'. <!-- begin-user-doc --> This implementation returns null; returning a non-null
      * result will terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Resource Timeout Failure
@@ -362,7 +362,7 @@ public class ReliabilitySwitch<T> extends Switch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * 
+     *
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.

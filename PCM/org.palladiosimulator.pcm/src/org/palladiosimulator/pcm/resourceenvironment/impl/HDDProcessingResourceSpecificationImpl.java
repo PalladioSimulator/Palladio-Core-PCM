@@ -32,14 +32,14 @@ public class HDDProcessingResourceSpecificationImpl extends ProcessingResourceSp
         implements HDDProcessingResourceSpecification {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected HDDProcessingResourceSpecificationImpl() {
@@ -48,7 +48,7 @@ public class HDDProcessingResourceSpecificationImpl extends ProcessingResourceSp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -58,7 +58,7 @@ public class HDDProcessingResourceSpecificationImpl extends ProcessingResourceSp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -71,7 +71,7 @@ public class HDDProcessingResourceSpecificationImpl extends ProcessingResourceSp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetWriteProcessingRate(final PCMRandomVariable newWriteProcessingRate,
@@ -83,7 +83,7 @@ public class HDDProcessingResourceSpecificationImpl extends ProcessingResourceSp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -95,7 +95,7 @@ public class HDDProcessingResourceSpecificationImpl extends ProcessingResourceSp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -108,7 +108,7 @@ public class HDDProcessingResourceSpecificationImpl extends ProcessingResourceSp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetReadProcessingRate(final PCMRandomVariable newReadProcessingRate,
@@ -120,7 +120,7 @@ public class HDDProcessingResourceSpecificationImpl extends ProcessingResourceSp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -132,7 +132,7 @@ public class HDDProcessingResourceSpecificationImpl extends ProcessingResourceSp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -145,7 +145,7 @@ public class HDDProcessingResourceSpecificationImpl extends ProcessingResourceSp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public ResourceContainer basicGetResourceContainer() {
@@ -157,7 +157,7 @@ public class HDDProcessingResourceSpecificationImpl extends ProcessingResourceSp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetResourceContainer(final ResourceContainer newResourceContainer,
@@ -169,7 +169,7 @@ public class HDDProcessingResourceSpecificationImpl extends ProcessingResourceSp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -181,7 +181,7 @@ public class HDDProcessingResourceSpecificationImpl extends ProcessingResourceSp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -201,7 +201,7 @@ public class HDDProcessingResourceSpecificationImpl extends ProcessingResourceSp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -220,7 +220,7 @@ public class HDDProcessingResourceSpecificationImpl extends ProcessingResourceSp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -241,7 +241,7 @@ public class HDDProcessingResourceSpecificationImpl extends ProcessingResourceSp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -262,7 +262,7 @@ public class HDDProcessingResourceSpecificationImpl extends ProcessingResourceSp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -283,7 +283,7 @@ public class HDDProcessingResourceSpecificationImpl extends ProcessingResourceSp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

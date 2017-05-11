@@ -40,7 +40,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -48,7 +48,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
     /**
      * The default value of the '{@link #getFailureProbability() <em>Failure Probability</em>}'
      * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @see #getFailureProbability()
      * @generated
      * @ordered
@@ -57,7 +57,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected CommunicationLinkResourceSpecificationImpl() {
@@ -66,7 +66,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -76,7 +76,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -89,7 +89,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetLinkingResource_CommunicationLinkResourceSpecification(
@@ -102,7 +102,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -116,7 +116,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -129,7 +129,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -141,7 +141,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -154,7 +154,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public CommunicationLinkResourceType basicGetCommunicationLinkResourceType_CommunicationLinkResourceSpecification() {
@@ -166,7 +166,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -180,7 +180,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -193,7 +193,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetLatency_CommunicationLinkResourceSpecification(
@@ -206,7 +206,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -220,7 +220,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -233,7 +233,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetThroughput_CommunicationLinkResourceSpecification(
@@ -246,7 +246,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -260,7 +260,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -298,7 +298,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -317,7 +317,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -333,7 +333,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -358,7 +358,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -386,7 +386,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -414,7 +414,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

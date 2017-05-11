@@ -37,7 +37,7 @@ public interface HardwareInducedFailureType extends FailureType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -52,7 +52,7 @@ public interface HardwareInducedFailureType extends FailureType {
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Processing Resource Type Hardware Induced Failure Type</em>'
      *         reference.
      * @see #setProcessingResourceType__HardwareInducedFailureType(ProcessingResourceType)

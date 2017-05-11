@@ -43,14 +43,14 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected ResourceTypeImpl() {
@@ -59,7 +59,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -69,7 +69,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -80,7 +80,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetUnit(final Unit newUnit, NotificationChain msgs) {
@@ -90,7 +90,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public void setUnit(final Unit newUnit) {
@@ -100,7 +100,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicUnsetUnit(final NotificationChain msgs) {
@@ -110,7 +110,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -120,7 +120,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -131,7 +131,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -145,7 +145,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -157,7 +157,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetResourceRepository_ResourceType(
@@ -169,7 +169,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -181,7 +181,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -202,7 +202,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -222,7 +222,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -238,7 +238,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -256,7 +256,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -280,7 +280,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -301,7 +301,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -319,7 +319,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -345,7 +345,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

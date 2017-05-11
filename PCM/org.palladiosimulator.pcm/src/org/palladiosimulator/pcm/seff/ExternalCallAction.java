@@ -42,7 +42,7 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -69,7 +69,7 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
      * '{@link org.palladiosimulator.pcm.seff.ExternalCallAction#getCalledService_ExternalService
      * <em>Called Service External Service</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Called Service External Service</em>' reference.
      * @see #getCalledService_ExternalService()
@@ -98,7 +98,7 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
      * Sets the value of the
      * '{@link org.palladiosimulator.pcm.seff.ExternalCallAction#getRole_ExternalService <em>Role
      * External Service</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Role External Service</em>' reference.
      * @see #getRole_ExternalService()
@@ -123,7 +123,7 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
     /**
      * Sets the value of the '{@link org.palladiosimulator.pcm.seff.ExternalCallAction#getRetryCount
      * <em>Retry Count</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Retry Count</em>' attribute.
      * @see #getRetryCount()

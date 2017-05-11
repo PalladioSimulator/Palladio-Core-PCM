@@ -35,7 +35,7 @@ public interface ResourceRepository extends CDOObject {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -52,7 +52,7 @@ public interface ResourceRepository extends CDOObject {
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Resource Interfaces Resource Repository</em>' containment
      *         reference list.
      * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#getResourceRepository_ResourceInterfaces__ResourceRepository()
@@ -74,7 +74,7 @@ public interface ResourceRepository extends CDOObject {
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Scheduling Policies Resource Repository</em>' containment
      *         reference list.
      * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#getResourceRepository_SchedulingPolicies__ResourceRepository()
@@ -96,7 +96,7 @@ public interface ResourceRepository extends CDOObject {
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Available Resource Types Resource Repository</em>' containment
      *         reference list.
      * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage#getResourceRepository_AvailableResourceTypes_ResourceRepository()

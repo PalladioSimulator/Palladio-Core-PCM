@@ -28,7 +28,7 @@ public interface RepositoryComponent extends InterfaceProvidingRequiringEntity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -55,7 +55,7 @@ public interface RepositoryComponent extends InterfaceProvidingRequiringEntity {
      * '{@link org.palladiosimulator.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent
      * <em>Repository Repository Component</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Repository Repository Component</em>' container
      *            reference.

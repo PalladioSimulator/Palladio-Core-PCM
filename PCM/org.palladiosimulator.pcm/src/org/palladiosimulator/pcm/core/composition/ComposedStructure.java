@@ -44,7 +44,7 @@ public interface ComposedStructure extends Entity {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -61,7 +61,7 @@ public interface ComposedStructure extends Entity {
      * list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Assembly Contexts Composed Structure</em>' containment
      *         reference list.
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getComposedStructure_AssemblyContexts__ComposedStructure()
@@ -83,7 +83,7 @@ public interface ComposedStructure extends Entity {
      * containment reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Resource Required Delegation Connectors Composed
      *         Structure</em>' containment reference list.
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getComposedStructure_ResourceRequiredDelegationConnectors_ComposedStructure()
@@ -106,7 +106,7 @@ public interface ComposedStructure extends Entity {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Event Channel Composed Structure</em>' containment reference
      *         list.
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getComposedStructure_EventChannel__ComposedStructure()
@@ -128,7 +128,7 @@ public interface ComposedStructure extends Entity {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Connectors Composed Structure</em>' containment reference list.
      * @see org.palladiosimulator.pcm.core.composition.CompositionPackage#getComposedStructure_Connectors__ComposedStructure()
      * @see org.palladiosimulator.pcm.core.composition.Connector#getParentStructure__Connector

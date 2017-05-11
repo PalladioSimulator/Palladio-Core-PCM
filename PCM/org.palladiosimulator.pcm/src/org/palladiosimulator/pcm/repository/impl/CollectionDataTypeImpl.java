@@ -31,14 +31,14 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected CollectionDataTypeImpl() {
@@ -47,7 +47,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -57,7 +57,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -68,7 +68,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetRepository__DataType(final Repository newRepository__DataType,
@@ -80,7 +80,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -91,7 +91,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -102,7 +102,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public DataType basicGetInnerType_CollectionDataType() {
@@ -112,7 +112,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -124,7 +124,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -141,7 +141,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -156,7 +156,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -171,7 +171,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -190,7 +190,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -208,7 +208,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -226,7 +226,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -242,7 +242,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -260,7 +260,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

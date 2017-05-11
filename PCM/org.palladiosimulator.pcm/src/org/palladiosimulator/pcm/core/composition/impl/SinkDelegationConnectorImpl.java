@@ -30,14 +30,14 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SinkDelegationConnectorImpl() {
@@ -46,7 +46,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -56,7 +56,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -69,7 +69,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext__SinkDelegationConnector() {
@@ -81,7 +81,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -94,7 +94,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -105,7 +105,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SinkRole basicGetInnerSinkRole__SinkRole() {
@@ -115,7 +115,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -127,7 +127,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -138,7 +138,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public SinkRole basicGetOuterSinkRole__SinkRole() {
@@ -148,7 +148,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -160,7 +160,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -187,7 +187,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -208,7 +208,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -229,7 +229,7 @@ public class SinkDelegationConnectorImpl extends DelegationConnectorImpl impleme
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override

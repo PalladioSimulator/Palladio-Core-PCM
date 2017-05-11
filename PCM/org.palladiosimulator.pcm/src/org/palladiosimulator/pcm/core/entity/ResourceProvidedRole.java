@@ -28,7 +28,7 @@ public interface ResourceProvidedRole extends Role {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -44,7 +44,7 @@ public interface ResourceProvidedRole extends Role {
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Resource Interface Providing Entity Resource Provided
      *         Role</em>' container reference.
      * @see #setResourceInterfaceProvidingEntity__ResourceProvidedRole(ResourceInterfaceProvidingEntity)
@@ -61,7 +61,7 @@ public interface ResourceProvidedRole extends Role {
      * '{@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole#getResourceInterfaceProvidingEntity__ResourceProvidedRole
      * <em>Resource Interface Providing Entity Resource Provided Role</em>}' container reference.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Resource Interface Providing Entity Resource Provided
      *            Role</em>' container reference.
@@ -78,7 +78,7 @@ public interface ResourceProvidedRole extends Role {
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
+     *
      * @return the value of the '<em>Provided Resource Interface Resource Provided Role</em>'
      *         reference.
      * @see #setProvidedResourceInterface__ResourceProvidedRole(ResourceInterface)
@@ -93,7 +93,7 @@ public interface ResourceProvidedRole extends Role {
      * '{@link org.palladiosimulator.pcm.core.entity.ResourceProvidedRole#getProvidedResourceInterface__ResourceProvidedRole
      * <em>Provided Resource Interface Resource Provided Role</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
      * @param value
      *            the new value of the '<em>Provided Resource Interface Resource Provided Role</em>'
      *            reference.

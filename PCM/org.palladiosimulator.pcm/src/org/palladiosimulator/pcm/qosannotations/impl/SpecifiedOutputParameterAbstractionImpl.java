@@ -42,14 +42,14 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     protected SpecifiedOutputParameterAbstractionImpl() {
@@ -58,7 +58,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -68,7 +68,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -78,7 +78,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -91,7 +91,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public Signature basicGetSignature_SpecifiedOutputParameterAbstraction() {
@@ -103,7 +103,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -117,7 +117,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -130,7 +130,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public Role basicGetRole_SpecifiedOutputParameterAbstraction() {
@@ -142,7 +142,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -155,7 +155,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -169,7 +169,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -182,7 +182,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     public NotificationChain basicSetQosAnnotations_SpecifiedOutputParameterAbstraction(
@@ -195,7 +195,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -209,7 +209,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -230,7 +230,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -248,7 +248,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -264,7 +264,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -290,7 +290,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -317,7 +317,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
@@ -341,7 +341,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends CDOObjectI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
      * @generated
      */
     @Override
