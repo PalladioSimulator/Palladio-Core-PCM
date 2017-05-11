@@ -31,14 +31,14 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceProvidedRoleImpl() {
@@ -47,7 +47,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -57,7 +57,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -70,7 +70,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetResourceInterfaceProvidingEntity__ResourceProvidedRole(
@@ -83,7 +83,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -97,7 +97,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -110,7 +110,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourceInterface basicGetProvidedResourceInterface__ResourceProvidedRole() {
@@ -122,7 +122,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -135,7 +135,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -153,7 +153,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -168,7 +168,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -184,7 +184,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -203,7 +203,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -221,7 +221,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -239,7 +239,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

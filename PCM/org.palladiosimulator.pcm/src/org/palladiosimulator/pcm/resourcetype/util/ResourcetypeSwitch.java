@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.units.UnitCarryingElement;
  * each class of the model, starting with the actual class of the object and proceeding up the
  * inheritance hierarchy until a non-null result is returned, which is the result of the switch.
  * <!-- end-user-doc -->
- *
+ * 
  * @see org.palladiosimulator.pcm.resourcetype.ResourcetypePackage
  * @generated
  */
@@ -35,21 +35,21 @@ public class ResourcetypeSwitch<T> extends Switch<T> {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected static ResourcetypePackage modelPackage;
 
     /**
      * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public ResourcetypeSwitch() {
@@ -61,7 +61,7 @@ public class ResourcetypeSwitch<T> extends Switch<T> {
     /**
      * Checks whether this is a switch for the given package. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @param ePackage
      *            the package in question.
      * @return whether this is a switch for the given package.
@@ -75,7 +75,7 @@ public class ResourcetypeSwitch<T> extends Switch<T> {
     /**
      * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
      * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -225,7 +225,7 @@ public class ResourcetypeSwitch<T> extends Switch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Resource
      * Signature</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
      * non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Resource
@@ -241,7 +241,7 @@ public class ResourcetypeSwitch<T> extends Switch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Processing Resource
      * Type</em>'. <!-- begin-user-doc --> This implementation returns null; returning a non-null
      * result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Processing Resource
@@ -257,7 +257,7 @@ public class ResourcetypeSwitch<T> extends Switch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Resource Type</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Resource Type</em>'.
@@ -272,7 +272,7 @@ public class ResourcetypeSwitch<T> extends Switch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Resource
      * Repository</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
      * non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Resource
@@ -288,7 +288,7 @@ public class ResourcetypeSwitch<T> extends Switch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Scheduling Policy</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Scheduling Policy</em>'.
@@ -303,7 +303,7 @@ public class ResourcetypeSwitch<T> extends Switch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Communication Link
      * Resource Type</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
      * non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Communication Link
@@ -319,7 +319,7 @@ public class ResourcetypeSwitch<T> extends Switch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Resource
      * Interface</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
      * non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Resource
@@ -350,7 +350,7 @@ public class ResourcetypeSwitch<T> extends Switch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
@@ -380,7 +380,7 @@ public class ResourcetypeSwitch<T> extends Switch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Unit Carrying
      * Element</em>'. <!-- begin-user-doc --> This implementation returns null; returning a non-null
      * result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Unit Carrying
@@ -396,7 +396,7 @@ public class ResourcetypeSwitch<T> extends Switch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Resource Interface
      * Providing Entity</em>'. <!-- begin-user-doc --> This implementation returns null; returning a
      * non-null result will terminate the switch. <!-- end-user-doc -->
-     *
+     * 
      * @param object
      *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Resource Interface

@@ -35,7 +35,7 @@ public interface EmitEventAction extends AbstractAction, CallAction {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";

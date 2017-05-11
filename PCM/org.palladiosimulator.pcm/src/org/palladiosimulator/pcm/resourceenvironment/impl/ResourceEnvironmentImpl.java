@@ -35,14 +35,14 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected ResourceEnvironmentImpl() {
@@ -51,7 +51,7 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -61,7 +61,7 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -75,7 +75,7 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -89,7 +89,7 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -109,7 +109,7 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -126,7 +126,7 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -142,7 +142,7 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -163,7 +163,7 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -181,7 +181,7 @@ public class ResourceEnvironmentImpl extends NamedElementImpl implements Resourc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

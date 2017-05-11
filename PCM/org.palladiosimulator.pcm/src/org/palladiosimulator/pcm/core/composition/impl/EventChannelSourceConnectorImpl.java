@@ -33,14 +33,14 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected EventChannelSourceConnectorImpl() {
@@ -49,7 +49,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -59,7 +59,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -72,7 +72,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public SourceRole basicGetSourceRole__EventChannelSourceRole() {
@@ -84,7 +84,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -96,7 +96,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -109,7 +109,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext__EventChannelSourceConnector() {
@@ -121,7 +121,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -135,7 +135,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -148,7 +148,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public EventChannel basicGetEventChannel__EventChannelSourceConnector() {
@@ -160,7 +160,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetEventChannel__EventChannelSourceConnector(
@@ -172,7 +172,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -186,7 +186,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -207,7 +207,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -222,7 +222,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -249,7 +249,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -270,7 +270,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -291,7 +291,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override

@@ -28,7 +28,7 @@ public interface CommunicationLinkResourceType extends ResourceType {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2017 by palladiosimulator.org";
@@ -44,7 +44,7 @@ public interface CommunicationLinkResourceType extends ResourceType {
      * ' reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     *
+     * 
      * @return the value of the '<em>Network Induced Failure Type Communication Link Resource
      *         Type</em>' reference.
      * @see #setNetworkInducedFailureType__CommunicationLinkResourceType(NetworkInducedFailureType)

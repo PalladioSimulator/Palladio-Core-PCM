@@ -47,14 +47,14 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2017 by palladiosimulator.org";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     protected OperationSignatureImpl() {
@@ -63,7 +63,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -73,7 +73,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -85,7 +85,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public NotificationChain basicSetInterface__OperationSignature(
@@ -97,7 +97,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -109,7 +109,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -122,7 +122,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -133,7 +133,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     public DataType basicGetReturnType__OperationSignature() {
@@ -143,7 +143,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -158,7 +158,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
      * '{@link #ParameterNamesHaveToBeUniqueForASignature(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * <em>Parameter Names Have To Be Unique For ASignature</em>}' operation. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     *
+     * 
      * @see #ParameterNamesHaveToBeUniqueForASignature(org.eclipse.emf.common.util.DiagnosticChain,
      *      java.util.Map)
      * @generated
@@ -181,7 +181,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -216,7 +216,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -237,7 +237,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -254,7 +254,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -270,7 +270,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -291,7 +291,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -314,7 +314,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -335,7 +335,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
+     * 
      * @generated
      */
     @Override
@@ -354,7 +354,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
     /**
      * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     *
+     * 
      * @generated
      * @ordered
      */
