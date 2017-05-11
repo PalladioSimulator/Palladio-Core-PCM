@@ -46,7 +46,7 @@ public interface ResourcetypePackage extends EPackage {
      * 
      * @generated
      */
-    String eNS_URI = "http://palladiosimulator.org/PalladioComponentModel/ResourceType/5.1";
+    String eNS_URI = "http://palladiosimulator.org/PalladioComponentModel/ResourceType/5.2";
 
     /**
      * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
