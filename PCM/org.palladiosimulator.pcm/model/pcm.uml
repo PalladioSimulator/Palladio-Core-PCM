@@ -4045,27 +4045,27 @@ the &quot;timeout&quot; attribute of the &quot;AcquireAction&quot; for further i
       <appliedProfile href="pathmap://UML_PROFILES/Ecore.profile.uml#_0"/>
     </profileApplication>
   </uml:Model>
-  <Ecore:EPackage xmi:id="_U1lYIJZwEdyvM-KRcbKtDQ" base_Package="_wQr8YCh8Edue7oeC4NTCGg" packageName="pcm" nsPrefix="pcm" nsURI="http://palladiosimulator.org/PalladioComponentModel/5.1" basePackage="org.palladiosimulator" prefix="Pcm"/>
-  <Ecore:EPackage xmi:id="_U1l_MJZwEdyvM-KRcbKtDQ" base_Package="_3amlYCh8Edue7oeC4NTCGg" packageName="core" nsPrefix="core" nsURI="http://palladiosimulator.org/PalladioComponentModel/Core/5.1" basePackage="" prefix="Core"/>
-  <Ecore:EPackage xmi:id="_U1mmQJZwEdyvM-KRcbKtDQ" base_Package="_qLB6kOJQEdqxcra4qpeplw" packageName="entity" nsPrefix="entity" nsURI="http://palladiosimulator.org/PalladioComponentModel/Core/Entity/5.1" basePackage="" prefix="Entity"/>
-  <Ecore:EPackage xmi:id="_U1n0YZZwEdyvM-KRcbKtDQ" base_Package="_cGFKsGc6EduCGaQAxkcIwA" packageName="composition" nsPrefix="composition" nsURI="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.1" basePackage="" prefix="Composition"/>
-  <Ecore:EPackage xmi:id="_U1qQoJZwEdyvM-KRcbKtDQ" base_Package="_8EoEgCh8Edue7oeC4NTCGg" packageName="allocation" nsPrefix="allocation" nsURI="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.1" basePackage="" prefix="Allocation"/>
-  <Ecore:EPackage xmi:id="_U1q3sJZwEdyvM-KRcbKtDQ" base_Package="_BdlGMCh9Edue7oeC4NTCGg" packageName="repository" nsPrefix="repository" nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.1" basePackage="" prefix="Repository"/>
+  <Ecore:EPackage xmi:id="_U1lYIJZwEdyvM-KRcbKtDQ" base_Package="_wQr8YCh8Edue7oeC4NTCGg" packageName="pcm" nsPrefix="pcm" nsURI="http://palladiosimulator.org/PalladioComponentModel/5.2" basePackage="org.palladiosimulator" prefix="Pcm"/>
+  <Ecore:EPackage xmi:id="_U1l_MJZwEdyvM-KRcbKtDQ" base_Package="_3amlYCh8Edue7oeC4NTCGg" packageName="core" nsPrefix="core" nsURI="http://palladiosimulator.org/PalladioComponentModel/Core/5.2" basePackage="" prefix="Core"/>
+  <Ecore:EPackage xmi:id="_U1mmQJZwEdyvM-KRcbKtDQ" base_Package="_qLB6kOJQEdqxcra4qpeplw" packageName="entity" nsPrefix="entity" nsURI="http://palladiosimulator.org/PalladioComponentModel/Core/Entity/5.2" basePackage="" prefix="Entity"/>
+  <Ecore:EPackage xmi:id="_U1n0YZZwEdyvM-KRcbKtDQ" base_Package="_cGFKsGc6EduCGaQAxkcIwA" packageName="composition" nsPrefix="composition" nsURI="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" basePackage="" prefix="Composition"/>
+  <Ecore:EPackage xmi:id="_U1qQoJZwEdyvM-KRcbKtDQ" base_Package="_8EoEgCh8Edue7oeC4NTCGg" packageName="allocation" nsPrefix="allocation" nsURI="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2" basePackage="" prefix="Allocation"/>
+  <Ecore:EPackage xmi:id="_U1q3sJZwEdyvM-KRcbKtDQ" base_Package="_BdlGMCh9Edue7oeC4NTCGg" packageName="repository" nsPrefix="repository" nsURI="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" basePackage="" prefix="Repository"/>
   <Default:Documentation xmi:id="_U2glMJZwEdyvM-KRcbKtDQ" base_Comment="_7gFgQJvjEdqN_b565_mSbQ"/>
   <Default:Documentation xmi:id="_U2hMQJZwEdyvM-KRcbKtDQ" base_Comment="_pfXlcJvmEdqN_b565_mSbQ"/>
   <Default:Documentation xmi:id="_U2hMQZZwEdyvM-KRcbKtDQ" base_Comment="_v8sVkJvjEdqN_b565_mSbQ"/>
   <Default:Documentation xmi:id="_U2hMQpZwEdyvM-KRcbKtDQ" base_Comment="_0sfFgJvjEdqN_b565_mSbQ"/>
   <Default:Documentation xmi:id="_U2hzUJZwEdyvM-KRcbKtDQ" base_Comment="_1Xd8MJvjEdqN_b565_mSbQ"/>
-  <Ecore:EPackage xmi:id="_U1vJIJZwEdyvM-KRcbKtDQ" base_Package="_HSHQoCh9Edue7oeC4NTCGg" packageName="protocol" nsPrefix="protocol" nsURI="http://palladiosimulator.org/PalladioComponentModel/Protocol/5.1" basePackage="" prefix="Protocol"/>
-  <Ecore:EPackage xmi:id="_U1vwMJZwEdyvM-KRcbKtDQ" base_Package="_LaA6ICh9Edue7oeC4NTCGg" packageName="resourceenvironment" nsPrefix="resourceenvironment" nsURI="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.1" basePackage="" prefix="Resourceenvironment"/>
-  <Ecore:EPackage xmi:id="_U1xlYJZwEdyvM-KRcbKtDQ" base_Package="_V8vSACh9Edue7oeC4NTCGg" packageName="usagemodel" nsPrefix="usagemodel" nsURI="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.1" basePackage="" prefix="Usagemodel"/>
-  <Ecore:EPackage xmi:id="_U10osJZwEdyvM-KRcbKtDQ" base_Package="_XZbScCh9Edue7oeC4NTCGg" packageName="seff" nsPrefix="seff" nsURI="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.1" basePackage="" prefix="Seff"/>
-  <Ecore:EPackage xmi:id="_U15hMJZwEdyvM-KRcbKtDQ" base_Package="_bpEisCh9Edue7oeC4NTCGg" packageName="resourcetype" nsPrefix="resourcetype" nsURI="http://palladiosimulator.org/PalladioComponentModel/ResourceType/5.1" basePackage="" prefix="Resourcetype"/>
-  <Ecore:EPackage xmi:id="_U16IQJZwEdyvM-KRcbKtDQ" base_Package="_ezkv0Ch9Edue7oeC4NTCGg" packageName="system" nsPrefix="system" nsURI="http://palladiosimulator.org/PalladioComponentModel/System/5.1" basePackage="" prefix="System"/>
-  <Ecore:EPackage xmi:id="_U16vUJZwEdyvM-KRcbKtDQ" base_Package="_t6z0sCh9Edue7oeC4NTCGg" packageName="parameter" nsPrefix="parameter" nsURI="http://palladiosimulator.org/PalladioComponentModel/Parameter/5.1" basePackage="" prefix="Parameter"/>
-  <Ecore:EPackage xmi:id="_U2HjoJZwEdyvM-KRcbKtDQ" base_Package="_Uvc4AHDVEdur9cZft9T4NQ" packageName="qosannotations" nsPrefix="qosannotations" nsURI="http://palladiosimulator.org/PalladioComponentModel/QoSAnnotations/5.1" basePackage="" prefix="Qosannotations"/>
-  <Ecore:EPackage xmi:id="_UuF1IL3lEdyGNbIQ-5Phlg" base_Package="_JwthkL3lEdyGNbIQ-5Phlg" packageName="qos_performance" nsPrefix="" nsURI="http://palladiosimulator.org/PalladioComponentModel/QoSAnnotations/QoS_Performance/5.1" basePackage="" prefix="QosPerformance"/>
-  <Ecore:EPackage xmi:id="_aG1wkL3nEdyGNbIQ-5Phlg" base_Package="_YHJJsL3nEdyGNbIQ-5Phlg" packageName="qos_reliability" nsPrefix="" nsURI="http://palladiosimulator.org/PalladioComponentModel/QoSAnnotations/QoS_Reliability/5.1" prefix="QosReliability"/>
+  <Ecore:EPackage xmi:id="_U1vJIJZwEdyvM-KRcbKtDQ" base_Package="_HSHQoCh9Edue7oeC4NTCGg" packageName="protocol" nsPrefix="protocol" nsURI="http://palladiosimulator.org/PalladioComponentModel/Protocol/5.2" basePackage="" prefix="Protocol"/>
+  <Ecore:EPackage xmi:id="_U1vwMJZwEdyvM-KRcbKtDQ" base_Package="_LaA6ICh9Edue7oeC4NTCGg" packageName="resourceenvironment" nsPrefix="resourceenvironment" nsURI="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2" basePackage="" prefix="Resourceenvironment"/>
+  <Ecore:EPackage xmi:id="_U1xlYJZwEdyvM-KRcbKtDQ" base_Package="_V8vSACh9Edue7oeC4NTCGg" packageName="usagemodel" nsPrefix="usagemodel" nsURI="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.2" basePackage="" prefix="Usagemodel"/>
+  <Ecore:EPackage xmi:id="_U10osJZwEdyvM-KRcbKtDQ" base_Package="_XZbScCh9Edue7oeC4NTCGg" packageName="seff" nsPrefix="seff" nsURI="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" basePackage="" prefix="Seff"/>
+  <Ecore:EPackage xmi:id="_U15hMJZwEdyvM-KRcbKtDQ" base_Package="_bpEisCh9Edue7oeC4NTCGg" packageName="resourcetype" nsPrefix="resourcetype" nsURI="http://palladiosimulator.org/PalladioComponentModel/ResourceType/5.2" basePackage="" prefix="Resourcetype"/>
+  <Ecore:EPackage xmi:id="_U16IQJZwEdyvM-KRcbKtDQ" base_Package="_ezkv0Ch9Edue7oeC4NTCGg" packageName="system" nsPrefix="system" nsURI="http://palladiosimulator.org/PalladioComponentModel/System/5.2" basePackage="" prefix="System"/>
+  <Ecore:EPackage xmi:id="_U16vUJZwEdyvM-KRcbKtDQ" base_Package="_t6z0sCh9Edue7oeC4NTCGg" packageName="parameter" nsPrefix="parameter" nsURI="http://palladiosimulator.org/PalladioComponentModel/Parameter/5.2" basePackage="" prefix="Parameter"/>
+  <Ecore:EPackage xmi:id="_U2HjoJZwEdyvM-KRcbKtDQ" base_Package="_Uvc4AHDVEdur9cZft9T4NQ" packageName="qosannotations" nsPrefix="qosannotations" nsURI="http://palladiosimulator.org/PalladioComponentModel/QoSAnnotations/5.2" basePackage="" prefix="Qosannotations"/>
+  <Ecore:EPackage xmi:id="_UuF1IL3lEdyGNbIQ-5Phlg" base_Package="_JwthkL3lEdyGNbIQ-5Phlg" packageName="qos_performance" nsPrefix="" nsURI="http://palladiosimulator.org/PalladioComponentModel/QoSAnnotations/QoS_Performance/5.2" basePackage="" prefix="QosPerformance"/>
+  <Ecore:EPackage xmi:id="_aG1wkL3nEdyGNbIQ-5Phlg" base_Package="_YHJJsL3nEdyGNbIQ-5Phlg" packageName="qos_reliability" nsPrefix="" nsURI="http://palladiosimulator.org/PalladioComponentModel/QoSAnnotations/QoS_Reliability/5.2" prefix="QosReliability"/>
   <Default:Documentation xmi:id="_ElYt0H5kEd2w8a0eK9hypA" base_Comment="_ElI2MH5kEd2w8a0eK9hypA"/>
   <Default:Documentation xmi:id="_qCzxkH5kEd2w8a0eK9hypA" base_Comment="_qCrOsH5kEd2w8a0eK9hypA"/>
   <Default:Documentation xmi:id="_BSN3cH5lEd2w8a0eK9hypA" base_Comment="_BSF7oH5lEd2w8a0eK9hypA"/>
@@ -4125,8 +4125,8 @@ the &quot;timeout&quot; attribute of the &quot;AcquireAction&quot; for further i
   <Default:Documentation xmi:id="_tPuW8IVeEd2pasxENQ18jg" base_Comment="_tLG8sIVeEd2pasxENQ18jg"/>
   <Default:Documentation xmi:id="_8sanEIVhEd2pasxENQ18jg" base_Comment="_8sQ2EIVhEd2pasxENQ18jg"/>
   <Default:Documentation xmi:id="_KiCdoIVjEd2pasxENQ18jg" base_Comment="_Kh5TsIVjEd2pasxENQ18jg"/>
-  <Ecore:EPackage xmi:id="_uKp1cIYfEd2Hz8WHhMU28w" base_Package="_ok5G0IYfEd2Hz8WHhMU28w" packageName="subsystem" nsPrefix="subsystem" nsURI="http://palladiosimulator.org/PalladioComponentModel/SubSystem/5.1" prefix="Subsystem"/>
-  <Ecore:EPackage xmi:id="_MXL_4JVSEd2YmvKJ8F4NuQ" base_Package="_BZwFgNTBEdy-Vtz2H2qvXw" packageName="seff_performance" nsPrefix="seff_performance" nsURI="http://palladiosimulator.org/PalladioComponentModel/SEFF/SEFF_Performance/5.1" prefix="SeffPerformance"/>
+  <Ecore:EPackage xmi:id="_uKp1cIYfEd2Hz8WHhMU28w" base_Package="_ok5G0IYfEd2Hz8WHhMU28w" packageName="subsystem" nsPrefix="subsystem" nsURI="http://palladiosimulator.org/PalladioComponentModel/SubSystem/5.2" prefix="Subsystem"/>
+  <Ecore:EPackage xmi:id="_MXL_4JVSEd2YmvKJ8F4NuQ" base_Package="_BZwFgNTBEdy-Vtz2H2qvXw" packageName="seff_performance" nsPrefix="seff_performance" nsURI="http://palladiosimulator.org/PalladioComponentModel/SEFF/SEFF_Performance/5.2" prefix="SeffPerformance"/>
   <Default:Documentation xmi:id="_3vIBAaHZEd2av7jcZUzHwg" base_Comment="_3vIBAKHZEd2av7jcZUzHwg"/>
   <Default:Documentation xmi:id="_1lMqoaHaEd2av7jcZUzHwg" base_Comment="_1lMqoKHaEd2av7jcZUzHwg"/>
   <Default:Documentation xmi:id="_1W890aHbEd2av7jcZUzHwg" base_Comment="_1W890KHbEd2av7jcZUzHwg"/>
@@ -4310,9 +4310,9 @@ the &quot;timeout&quot; attribute of the &quot;AcquireAction&quot; for further i
   <Default:Documentation xmi:id="_a2FwAHSzEd-1jbVkuJ9Llg" base_Comment="_a1_pYHSzEd-1jbVkuJ9Llg"/>
   <Default:Documentation xmi:id="_bOougOdUEd-cUq-NuWJH_g" base_Comment="_bOPs8OdUEd-cUq-NuWJH_g"/>
   <Default:Documentation xmi:id="_tpmHUOfrEd-7B-w-u5ZN-g" base_Comment="_tpjEAOfrEd-7B-w-u5ZN-g"/>
-  <Ecore:EPackage xmi:id="_IUEIYOf4Ed-7B-w-u5ZN-g" base_Package="_E37YsOf4Ed-7B-w-u5ZN-g" packageName="reliability" nsPrefix="reliability" nsURI="http://palladiosimulator.org/PalladioComponentModel/Reliability/5.1" prefix="Reliability"/>
+  <Ecore:EPackage xmi:id="_IUEIYOf4Ed-7B-w-u5ZN-g" base_Package="_E37YsOf4Ed-7B-w-u5ZN-g" packageName="reliability" nsPrefix="reliability" nsURI="http://palladiosimulator.org/PalladioComponentModel/Reliability/5.2" prefix="Reliability"/>
   <Default:Documentation xmi:id="_WXHzcOf4Ed-7B-w-u5ZN-g" base_Comment="_WXBs0Of4Ed-7B-w-u5ZN-g"/>
-  <Ecore:EPackage xmi:id="_UKZV0Of7Ed-7B-w-u5ZN-g" base_Package="_RkttAOf7Ed-7B-w-u5ZN-g" packageName="seff_reliability" nsPrefix="seff_reliability" nsURI="http://palladiosimulator.org/PalladioComponentModel/SEFF/SEFF_Reliability/5.1" prefix="SeffReliability"/>
+  <Ecore:EPackage xmi:id="_UKZV0Of7Ed-7B-w-u5ZN-g" base_Package="_RkttAOf7Ed-7B-w-u5ZN-g" packageName="seff_reliability" nsPrefix="seff_reliability" nsURI="http://palladiosimulator.org/PalladioComponentModel/SEFF/SEFF_Reliability/5.2" prefix="SeffReliability"/>
   <Default:Documentation xmi:id="_5vh7YOgMEd-OMbuyc2jvgA" base_Comment="_5qlxAOgMEd-OMbuyc2jvgA"/>
   <Default:Documentation xmi:id="_L9Y-ACZKEeCvwZ8FxCt6_A" base_Comment="_L9V6sCZKEeCvwZ8FxCt6_A"/>
   <Default:Documentation xmi:id="_1sH4MDw-EeCN5Kjn9iQWGg" base_Comment="_1q2s4Dw-EeCN5Kjn9iQWGg"/>
