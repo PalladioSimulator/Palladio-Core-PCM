@@ -18,6 +18,42 @@
       %license
    </license>
 
+   <includes
+         id="org.palladiosimulator.editors.commons.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.palladiosimulator.editors.sirius.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.palladiosimulator.edp2.ui.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.palladiosimulator.pcm.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.palladiosimulator.protocom.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.palladiosimulator.simucom.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.palladiosimulator.solver.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.palladiosimulator.recorderframework.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.palladiosimulator.edp2.feature"
+         version="0.0.0"/>
+
    <requires>
       <import feature="org.palladiosimulator.editors.commons.feature" version="1.0.0" match="equivalent"/>
       <import feature="org.palladiosimulator.editors.sirius.feature" version="1.1.0" match="equivalent"/>
