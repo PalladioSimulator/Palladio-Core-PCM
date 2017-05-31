@@ -38,7 +38,7 @@
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
   <genPackages xsi:type="genmodel:GenPackage" prefix="Pcm" basePackage="org.palladiosimulator"
       resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
-      ecorePackage="pcm.ecore#/">
+      childCreationExtenders="true" ecorePackage="pcm.ecore#/">
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//DummyClass"/>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Core" basePackage="org.palladiosimulator.pcm"
         resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
