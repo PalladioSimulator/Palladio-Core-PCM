@@ -58,6 +58,10 @@
          id="org.palladiosimulator.analyzer.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.palladiosimulator.monitorrepository.feature"
+         version="0.0.0"/>
+
    <requires>
       <import feature="org.palladiosimulator.editors.commons.feature" version="1.0.0" match="equivalent"/>
       <import feature="org.palladiosimulator.editors.sirius.feature" version="1.1.0" match="equivalent"/>
