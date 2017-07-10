@@ -4,5 +4,11 @@
 <toc label="Samples" link_to="toc.xml#samples"> 
 	<topic label="Stochastical Expressions">
 		<topic label="Overview" href="html/samples/stoex.html" /> 
-	</topic> 
+	</topic>
+ <topic label="Modeling Examples">
+    <topic href="html/samples/initiatorTemplates.html" label="Initiator Templates">
+    </topic>
+    <topic href="html/samples/exampleModels.html" label="Example Models">
+    </topic>
+ </topic> 
 </toc>
