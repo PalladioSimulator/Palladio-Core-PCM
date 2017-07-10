@@ -2,6 +2,8 @@
 <?NLS TYPE="org.eclipse.help.toc"?>
 
 <toc label="Reference" link_to="toc.xml#reference"> 
-	<topic label="Palladio Component Model TechReport"  href="html/reference/PCM/PCM.html"> 
-	</topic>
+ <topic href="https://doi.org/10.5445/IR/1000022503" label="Palladio Component Model TechReport (2011)">
+ </topic>
+ <topic href="http://www.palladio-simulator.com/the_book/" label="Modeling and Simulating Software Architectures">
+ </topic>
 </toc>

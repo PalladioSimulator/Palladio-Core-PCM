@@ -1,0 +1,6 @@
+.spacingList li, .stepList li {
+    margin: 0 0 1em 0;
+}
+
+span.uiElement {
+    font-weight: bold;
