@@ -1,5 +1,5 @@
 /**
- * Copyright 2005-2015 by palladiosimulator.org
+ * Copyright 2005-2017 by palladiosimulator.org
  */
 package org.palladiosimulator.pcm.resourceenvironment.impl;
 
