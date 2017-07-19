@@ -3,8 +3,8 @@
 
   <rm:property key="resolveFrom" value="release"/>
 
-  <rm:redirect pattern="^org\.palladiosimulator\.license$" href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Build/trunk/org.palladiosimulator.targetPlatformBuild/license.rmap"/>
-  <rm:redirect pattern="^org\.palladiosimulator\.branding$" href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Build/trunk/org.palladiosimulator.targetPlatformBuild/license.rmap"/>
+  <rm:redirect pattern="^org\.palladiosimulator\.license$" href="https://raw.githubusercontent.com/PalladioSimulator/Palladio-Build-Infrastructure/master/org.palladiosimulator.targetPlatformBuild/license.rmap"/>
+  <rm:redirect pattern="^org\.palladiosimulator\.branding$" href="https://raw.githubusercontent.com/PalladioSimulator/Palladio-Build-Infrastructure/master/org.palladiosimulator.targetPlatformBuild/license.rmap"/>
 
   <rm:locator pattern="^org\.palladiosimulator\.product.*" searchPathRef="productsvn" failOnError="true"/>
   <rm:locator pattern="^org\.palladiosimulator.*" searchPathRef="pcm_aggregate" failOnError="true"/>
@@ -13,7 +13,7 @@
   <rm:locator pattern="^de\.fzi\..*" searchPathRef="pcm_aggregate" failOnError="true"/>
   <rm:locator pattern=".*" searchPathRef="pcm_aggregate" failOnError="false"/>
 
-  <rm:redirect pattern=".*" href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/Build/trunk/org.palladiosimulator.targetPlatformBuild/eclipse-platform.rmap"/>
+  <rm:redirect pattern=".*" href="https://raw.githubusercontent.com/PalladioSimulator/Palladio-Build-Infrastructure/master/org.palladiosimulator.targetPlatformBuild/eclipse-platform.rmap"/>
 
   <rm:searchPath name="productsvn">
     <rm:provider componentTypes="eclipse.feature,osgi.bundle" readerType="svn">
