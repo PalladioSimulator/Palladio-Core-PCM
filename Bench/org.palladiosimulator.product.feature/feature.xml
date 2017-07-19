@@ -2,7 +2,7 @@
 <feature
       id="org.palladiosimulator.product.feature"
       label="Palladio Product Feature"
-      version="4.0.0.qualifier"
+      version="4.1.0.qualifier"
       provider-name="palladiosimulator.org"
       plugin="org.palladiosimulator.branding">
 
