@@ -158,7 +158,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
    </plugins>
 
    <features>
-      <feature id="org.palladiosimulator.product.feature" version="4.0.0.qualifier"/>
+      <feature id="org.palladiosimulator.product.feature" version="4.1.0.qualifier"/>
    </features>
 
    <configurations>
