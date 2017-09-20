@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Palladio Bench" uid="org.palladiosimulator.palladiobench" id="org.palladiosimulator.pcm.ui.PalladioProduct" application="org.eclipse.ui.ide.workbench" version="4.0.0" useFeatures="true" includeLaunchers="true">
+<product name="Palladio Bench" uid="org.palladiosimulator.palladiobench" id="org.palladiosimulator.pcm.ui.PalladioProduct" application="org.eclipse.ui.ide.workbench" version="4.1.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/org.palladiosimulator.pcm.ui/about.png"/>
       <text>
          This is the Palladio Bench product build, which is preconfigured with the Palladio Core Features, i.e., the Palladio Component Model and its most common analyzers.
 
-Version: Palladio Bench 4.0
+Version: Palladio Bench 4.1
 
 Palladio Bench, Palladio Component Model
 Copyright 2005-2017
