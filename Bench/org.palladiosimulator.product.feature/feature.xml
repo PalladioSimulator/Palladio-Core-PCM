@@ -18,54 +18,6 @@
       %license
    </license>
 
-   <includes
-         id="org.palladiosimulator.editors.commons.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.palladiosimulator.editors.sirius.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.palladiosimulator.edp2.ui.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.palladiosimulator.pcm.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.palladiosimulator.protocom.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.palladiosimulator.simucom.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.palladiosimulator.solver.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.palladiosimulator.recorderframework.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.palladiosimulator.edp2.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.palladiosimulator.analyzer.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.palladiosimulator.monitorrepository.feature"
-         version="0.0.0"/>
-
-   <includes
-         id="org.palladiosimulator.simulizar.feature"
-         version="0.0.0"/>
-
    <requires>
       <import feature="org.palladiosimulator.editors.commons.feature" version="1.0.0" match="equivalent"/>
       <import feature="org.palladiosimulator.editors.sirius.feature" version="1.1.0" match="equivalent"/>
@@ -76,6 +28,9 @@
       <import feature="org.palladiosimulator.simucom.feature" version="4.0.0" match="equivalent"/>
       <import feature="org.palladiosimulator.solver.feature" version="4.0.0" match="equivalent"/>
       <import feature="org.palladiosimulator.recorderframework.feature" version="2.1.0" match="equivalent"/>
+      <import feature="org.palladiosimulator.analyzer.feature" version="1.0.0" match="equivalent"/>
+      <import feature="org.palladiosimulator.monitorrepository.feature" version="3.0.0" match="equivalent"/>
+      <import feature="org.palladiosimulator.simulizar.feature" version="2.0.0" match="equivalent"/>
       <import feature="org.eclipse.jdt" version="3.10.0" match="compatible"/>
       <import feature="org.eclipse.platform" version="4.6.0" match="compatible"/>
       <import plugin="org.eclipse.sdk" version="4.6.0" match="compatible"/>
