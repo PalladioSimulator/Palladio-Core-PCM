@@ -159,6 +159,18 @@ This Agreement is governed by the laws of the State of New York and the intellec
 
    <features>
       <feature id="org.palladiosimulator.product.feature" version="4.1.0.qualifier"/>
+      <feature id="org.palladiosimulator.editors.commons.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.editors.sirius.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.edp2.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.edp2.ui.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.pcm.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.protocom.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.simucom.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.solver.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.recorderframework.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.analyzer.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.monitorrepository.feature" installMode="root"/>
+      <feature id="org.palladiosimulator.simulizar.feature" installMode="root"/>
    </features>
 
    <configurations>
