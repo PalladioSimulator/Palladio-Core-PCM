@@ -16,6 +16,10 @@ PCM Metamodel build.
          id="org.palladiosimulator.pcm.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.palladiosimulator.pcm.edp2.measuringpoint.feature"
+         version="0.0.0"/>
+
    <requires>
       <import plugin="org.palladiosimulator.commons" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.junit" version="4.11.0" match="greaterOrEqual"/>
