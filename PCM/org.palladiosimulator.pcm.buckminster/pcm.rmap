@@ -11,7 +11,8 @@
   <rm:locator pattern="^org\.palladiosimulator\.recorderframework.*" searchPathRef="RecorderFramework" failOnError="true"/>
   <rm:redirect pattern="^de\.uka\.ipd\.sdq\.sensorframework.*" href="https://raw.githubusercontent.com/PalladioSimulator/Palladio-QuAL-SensorFramework/master/de.uka.ipd.sdq.sensorframework.buckminster/sensorframework.rmap"/>
   <rm:redirect pattern="^de\.uka\.ipd\.sdq\.codegen\.simudatavisualisation\.datatypes$" href="https://raw.githubusercontent.com/PalladioSimulator/Palladio-QuAL-SensorFramework/master/de.uka.ipd.sdq.sensorframework.buckminster/sensorframework.rmap"/>
-  <rm:redirect pattern=".*" href="https://anonymous:anonymous@svnserver.informatik.kit.edu/i43/svn/code/ProbeFramework/trunk/org.palladiosimulator.probeframework.buckminster/probeframework.rmap"/>
+  
+  <rm:redirect pattern=".*" href="https://raw.githubusercontent.com/PalladioSimulator/Palladio-QuAL-ProbeFramework/master/org.palladiosimulator.probeframework.buckminster/probeframework.rmap"/>
   
   <rm:searchPath name="RecorderFramework">
     <rm:provider resolutionFilter="(resolveFrom=nightly)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
@@ -21,8 +22,6 @@
       <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/recorderframework/releases/latest/"/>
     </rm:provider>
   </rm:searchPath>
-		
-		
 
   <rm:searchPath name="PCM">
     <rm:provider resolutionFilter="(resolveFrom=nightly)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
