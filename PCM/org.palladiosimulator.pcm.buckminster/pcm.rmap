@@ -12,7 +12,58 @@
   <rm:redirect pattern="^de\.uka\.ipd\.sdq\.sensorframework.*" href="https://raw.githubusercontent.com/PalladioSimulator/Palladio-QuAL-SensorFramework/master/de.uka.ipd.sdq.sensorframework.buckminster/sensorframework.rmap"/>
   <rm:redirect pattern="^de\.uka\.ipd\.sdq\.codegen\.simudatavisualisation\.datatypes$" href="https://raw.githubusercontent.com/PalladioSimulator/Palladio-QuAL-SensorFramework/master/de.uka.ipd.sdq.sensorframework.buckminster/sensorframework.rmap"/>
   
-  <rm:redirect pattern=".*" href="https://raw.githubusercontent.com/PalladioSimulator/Palladio-QuAL-ProbeFramework/master/org.palladiosimulator.probeframework.buckminster/probeframework.rmap"/>
+	<rm:locator pattern="^org\.palladiosimulator\.probeframework.*" searchPathRef="ProbeFramework" failOnError="true"/>
+	<rm:locator searchPathRef="edp2svn" failOnError="true" pattern="^org\.palladiosimulator\.edp2.*" />
+	<rm:locator pattern="^org\.palladiosimulator\.measurementframework.*" searchPathRef="measurementframework" failOnError="true"/>
+	<rm:locator pattern="^org\.palladiosimulator\.metricspec.*" searchPathRef="metricspec" failOnError="true"/>
+	<rm:locator pattern="^de\.uka\.ipd\.sdq\.[dialogs|errorhandling|identifier|probfuction|statistics|stoex|units].*" searchPathRef="commons" failOnError="true" />
+	<rm:locator pattern="^org\.palladiosimulator\.commons.*" searchPathRef="commons" failOnError="true" />
+	<rm:redirect pattern=".*" href="https://raw.githubusercontent.com/PalladioSimulator/Palladio-ThirdParty-Library/master/org.palladiosimulator.thirdpartywrapper.buckminster/thirdpartywrapper.rmap" />
+
+	<rm:searchPath name="commons">
+		<rm:provider componentTypes="osgi.bundle,eclipse.feature" resolutionFilter="(resolveFrom=nightly)" readerType="p2" source="false" mutable="false">
+			<rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/commons/nightly/"/>
+		</rm:provider>
+		<rm:provider componentTypes="osgi.bundle,eclipse.feature" resolutionFilter="(resolveFrom=release)" readerType="p2" source="false" mutable="false">
+			<rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/commons/releases/latest/"/>
+		</rm:provider>
+	</rm:searchPath>
+
+	<rm:searchPath name="measurementframework">
+		<rm:provider resolutionFilter="(resolveFrom=nightly)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+			<rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/measurementframework/nightly/"/>
+		</rm:provider>
+		<rm:provider resolutionFilter="(resolveFrom=release)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+			<rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/measurementframework/releases/latest/"/>
+		</rm:provider>
+	</rm:searchPath>
+
+	<rm:searchPath name="metricspec">
+		<rm:provider resolutionFilter="(resolveFrom=nightly)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+			<rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/metricspec/nightly/"/>
+		</rm:provider>
+		<rm:provider resolutionFilter="(resolveFrom=release)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+			<rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/metricspec/releases/latest/"/>
+		</rm:provider>
+	</rm:searchPath>
+
+	<rm:searchPath name="edp2svn">
+		<rm:provider resolutionFilter="(resolveFrom=nightly)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+			<rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/edp2/nightly/"/>
+		</rm:provider>
+		<rm:provider resolutionFilter="(resolveFrom=release)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+			<rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/edp2/releases/latest/"/>
+		</rm:provider>
+	</rm:searchPath>
+
+	<rm:searchPath name="ProbeFramework">
+		<rm:provider resolutionFilter="(resolveFrom=nightly)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+			<rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/probeframework/nightly/"/>
+		</rm:provider>
+		<rm:provider resolutionFilter="(resolveFrom=release)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+			<rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/probeframework/releases/latest/"/>
+		</rm:provider>
+	</rm:searchPath>
   
   <rm:searchPath name="RecorderFramework">
     <rm:provider resolutionFilter="(resolveFrom=nightly)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
