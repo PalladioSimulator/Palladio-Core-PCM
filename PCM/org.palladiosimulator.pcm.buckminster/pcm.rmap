@@ -9,8 +9,8 @@
   <rm:locator pattern="^org\.palladiosimulator\.mdsdprofiles\.*" searchPathRef="MDSDProfiles" failOnError="true"/>
   <rm:locator pattern="^org\.modelversioning\.*" searchPathRef="EMFProfiles" failOnError="true"/>		
   <rm:locator pattern="^org\.palladiosimulator\.recorderframework.*" searchPathRef="RecorderFramework" failOnError="true"/>
-  <rm:redirect pattern="^de\.uka\.ipd\.sdq\.sensorframework.*" href="https://raw.githubusercontent.com/PalladioSimulator/Palladio-QuAL-SensorFramework/master/de.uka.ipd.sdq.sensorframework.buckminster/sensorframework.rmap"/>
-  <rm:redirect pattern="^de\.uka\.ipd\.sdq\.codegen\.simudatavisualisation\.datatypes$" href="https://raw.githubusercontent.com/PalladioSimulator/Palladio-QuAL-SensorFramework/master/de.uka.ipd.sdq.sensorframework.buckminster/sensorframework.rmap"/>
+  <rm:locator pattern="^de\.uka\.ipd\.sdq\.sensorframework.*" searchPathRef="sensorframework" failOnError="true"/>
+  <rm:locator pattern="^de\.uka\.ipd\.sdq\.codegen\.simudatavisualisation\.datatypes$" searchPathRef="sensorframework" failOnError="true"/>
   
 	<rm:locator pattern="^org\.palladiosimulator\.probeframework.*" searchPathRef="ProbeFramework" failOnError="true"/>
 	<rm:locator searchPathRef="edp2svn" failOnError="true" pattern="^org\.palladiosimulator\.edp2.*" />
@@ -102,5 +102,14 @@
       <rm:uri format="https://sdqweb.ipd.kit.edu/eclipse/emf-profiles/releases/latest"/>
     </rm:provider>
   </rm:searchPath>
+  
+  	<rm:searchPath name="sensorframework">
+		<rm:provider  resolutionFilter="(resolveFrom=nightly)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+			<rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/sensorframework/nightly"/>
+		</rm:provider>
+		<rm:provider  resolutionFilter="(resolveFrom=release)" componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
+			<rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/sensorframework/releases/latest"/>
+		</rm:provider>
+	</rm:searchPath>
   
 </rm:rmap>
