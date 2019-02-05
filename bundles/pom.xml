@@ -15,11 +15,9 @@
 		<module>de.uka.ipd.sdq.pcm.stochasticexpressions</module>
 		<module>de.uka.ipd.sdq.stoex.analyser</module>
 		<module>org.palladiosimulator.pcm</module>
-		<module>org.palladiosimulator.pcm.doc</module>
 		<module>org.palladiosimulator.pcm.edp2.measuringpoint</module>
 		<module>org.palladiosimulator.pcm.help</module>
 		<module>org.palladiosimulator.pcm.resources</module>
-		<module>org.palladiosimulator.pcm.rsa</module>
 		<module>org.palladiosimulator.pcm.ui</module>
 	</modules>
 	
