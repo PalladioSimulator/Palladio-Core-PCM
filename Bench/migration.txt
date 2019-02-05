@@ -1,2 +1,0 @@
-The Palladio Bench product has been migrated to Github. You can find it in the following location:
-https://github.com/PalladioSimulator/Palladio-Bench-Product
