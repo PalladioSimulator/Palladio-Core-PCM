@@ -76,5 +76,9 @@
 <unit id="org.palladiosimulator.mdsdprofiles.feature.feature.group" version="1.0.1.201609191729"/>
 <repository location="https://sdqweb.ipd.kit.edu/eclipse/mdsdprofiles/nightly/"/>
 </location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
+<unit id="org.eclipse.gmf.runtime.notation.feature.group" version="1.11.0.201706061354"/>
+<repository location="http://download.eclipse.org/releases/oxygen/"/>
+</location>
 </locations>
 </target>
