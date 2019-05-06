@@ -43,6 +43,7 @@ of the PCM using tree editors.
       <import plugin="org.eclipse.ui.intro.universal" version="3.2.701" match="greaterOrEqual"/>
       <import plugin="org.eclipse.sirius.ui"/>
       <import plugin="org.eclipse.ui.workbench"/>
+      <import plugin="org.palladiosimulator.branding"/>
    </requires>
 
    <plugin
@@ -85,12 +86,5 @@ of the PCM using tree editors.
          download-size="0"
          install-size="0"
          version="0.0.0"/>
-
-   <plugin
-         id="org.palladiosimulator.branding"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
 
 </feature>
