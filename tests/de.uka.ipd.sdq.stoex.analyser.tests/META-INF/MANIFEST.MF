@@ -9,4 +9,4 @@ Require-Bundle: de.uka.ipd.sdq.stoex;visibility:=reexport,
  de.uka.ipd.sdq.probfunction.math,
  org.junit;bundle-version="4.11.0"
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-11
