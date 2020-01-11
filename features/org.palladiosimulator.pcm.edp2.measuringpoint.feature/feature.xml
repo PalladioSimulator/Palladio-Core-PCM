@@ -24,14 +24,6 @@
       <import plugin="de.uka.ipd.sdq.units"/>
       <import plugin="org.palladiosimulator.edp2.util" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.commons"/>
-      <import plugin="org.eclipse.emf.edit"/>
-      <import plugin="org.palladiosimulator.edp2.edit"/>
-      <import plugin="de.uka.ipd.sdq.identifier.edit"/>
-      <import plugin="org.palladiosimulator.metricspec.edit"/>
-      <import plugin="org.palladiosimulator.pcm.edit"/>
-      <import plugin="de.uka.ipd.sdq.probfunction.edit"/>
-      <import plugin="de.uka.ipd.sdq.stoex.edit"/>
-      <import plugin="de.uka.ipd.sdq.units.edit"/>
    </requires>
 
    <plugin
