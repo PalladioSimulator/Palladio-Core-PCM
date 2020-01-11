@@ -48,23 +48,6 @@
 <repository location="https://updatesite.palladio-simulator.com/palladio-qual-metricspecification/nightly/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release" refresh="true">
-<unit id="org.palladiosimulator.editors.commons.feature.feature.group" version="2.1.1.201709282144"/>
-<repository location="https://updatesite.palladio-simulator.com/palladio-editors-commons/releases/latest/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
-<unit id="org.palladiosimulator.editors.commons.feature.feature.group" version="2.1.1.201709282144"/>
-<repository location="https://updatesite.palladio-simulator.com/palladio-editors-commons/nightly/"/>
-</location>
-<!-- Zyklische Abhängigkeit zwischen pcm.feature und editors.commons -->
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release" refresh="true">
-<unit id="org.palladiosimulator.pcm.feature.feature.group" version="4.1.0.201709282114"/>
-<repository location="https://updatesite.palladio-simulator.com/palladio-core-pcm/releases/latest/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
-<unit id="org.palladiosimulator.pcm.feature.feature.group" version="4.1.0.201709282114"/>
-<repository location="https://updatesite.palladio-simulator.com/palladio-core-pcm/nightly/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release" refresh="true">
 <unit id="org.modelversioning.emfprofile.feature.feature.group" version="tbd"/>
 <repository location="https://updatesite.palladio-simulator.com/palladio-thirdparty-emfprofiles/releases/latest/"/>
 </location>
