@@ -25,6 +25,7 @@ of the PCM using tree editors.
       <import plugin="de.uka.ipd.sdq.errorhandling"/>
       <import plugin="de.uka.ipd.sdq.probfunction.math" version="2.0.2" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.stoex" version="2.2.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.stoex.analyser" version="3.1.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.units" version="2.1.0" match="greaterOrEqual"/>
       <import plugin="org.apache.log4j"/>
       <import plugin="org.palladiosimulator.pcm" version="4.0.0" match="greaterOrEqual"/>
@@ -62,13 +63,6 @@ of the PCM using tree editors.
 
    <plugin
          id="de.uka.ipd.sdq.pcm.stochasticexpressions"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="de.uka.ipd.sdq.stoex.analyser"
          download-size="0"
          install-size="0"
          version="0.0.0"

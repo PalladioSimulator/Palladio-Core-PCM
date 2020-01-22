@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="de.uka.ipd.sdq.stoex.analyser.StoExTypeInference">
+      <client
+            class="de.uka.ipd.sdq.pcm.stochasticexpressions.TypeInference"
+            name="StoEx Type Inference">
+      </client>
+   </extension>
+
+</plugin>

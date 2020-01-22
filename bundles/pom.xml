@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-		
+
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.palladiosimulator.pcm</groupId>
@@ -10,15 +10,14 @@
 	</parent>
 	<artifactId>bundles</artifactId>
 	<packaging>pom</packaging>
-	
+
 	<modules>
 		<module>de.uka.ipd.sdq.pcm.stochasticexpressions</module>
-		<module>de.uka.ipd.sdq.stoex.analyser</module>
 		<module>org.palladiosimulator.pcm</module>
 		<module>org.palladiosimulator.pcm.edp2.measuringpoint</module>
 		<module>org.palladiosimulator.pcm.help</module>
 		<module>org.palladiosimulator.pcm.resources</module>
 		<module>org.palladiosimulator.pcm.ui</module>
 	</modules>
-	
+
 </project>
