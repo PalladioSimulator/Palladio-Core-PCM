@@ -240,7 +240,7 @@ helper setupEventChannelMiddleware(	in eventChannel: EventChannel,
 
 /**
  * Setup the central middleware if required.
- * This method cans the used resource enviroment for a 
+ * This method scans the used resource enviroment for a 
  * resourcecontainer named Middleware. if this is in place,
  * the middleware components related to this central hub are 
  * deployed in this resource container.
