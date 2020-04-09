@@ -77,9 +77,10 @@ property centralSenderContext : AssemblyContext = null;
  * This is the entry point to the overall transformation
  */
 main() {
-	
+	assert fatal (not Finder_findComposedComponent(pcmRepository)) with log("ComposedComponents not supported");	
+
 	log('Event-Transformation started');
-	
+
 	createOperationInterfaces();
 
 	var eventChannelAllocations := Finder_findAllEventChannelAllocations(pcmAllocation);
@@ -1229,6 +1230,23 @@ query Finder_findAllocation(in assemblyContext : AssemblyContext, in allocationM
 	return allocation;
 }
 
+/**
+ * Scans for a composed component
+ *
+ * @param repositoryModel The repository model to scan.
+ * @return True if a composed component exists
+ */
+query Finder_findComposedComponent(in repositoryModel : PCM_REP) : Boolean{
+	
+	repositoryModel.objects()[Repository]->forEach(repository){
+		if(repository.components__Repository->select(sr|sr.oclIsTypeOf(CompositeComponent))->size() > 0)
+		then{
+			return true;
+		} endif;
+	};
+		
+	return false;
+}
 
 /**
  * Find the resource container for an assembly context.
