@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Stochastic Expressions Tests Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.pcm.stochasticexpressions.tests
-Bundle-Version: 4.2.0.qualifier
+Bundle-Version: 4.3.0.qualifier
 Bundle-Vendor: org.palladiosimulator
 Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.pcm.stochasticexpressions,
