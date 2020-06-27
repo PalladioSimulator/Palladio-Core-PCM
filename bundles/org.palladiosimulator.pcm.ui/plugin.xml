@@ -52,11 +52,11 @@
          </property>
          <property
                name="startupProgressRect"
-               value="250,290,245,10">
+               value="135,285,230,10">
          </property>
          <property
                name="startupMessageRect"
-               value="232,302,255,20">
+               value="135,265,230,15">
          </property>
          <property
                name="appName"
