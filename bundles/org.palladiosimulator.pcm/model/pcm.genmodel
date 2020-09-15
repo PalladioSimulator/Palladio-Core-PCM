@@ -4,7 +4,7 @@
     copyrightText="Copyright 2005-2017 by palladiosimulator.org" modelDirectory="/org.palladiosimulator.pcm/src"
     editDirectory="/org.palladiosimulator.pcm.edit/src" editorDirectory="/org.palladiosimulator.pcm.editor/src"
     modelPluginID="org.palladiosimulator.pcm" templateDirectory="/org.palladiosimulator.pcm/templates"
-    dynamicTemplates="true" redirection="" modelName="PalladioComponentModel" editPluginClass="org.palladiosimulator.pcm.core.provider.PalladioComponentModelEditPlugin"
+    redirection="" modelName="PalladioComponentModel" editPluginClass="org.palladiosimulator.pcm.core.provider.PalladioComponentModelEditPlugin"
     editorPluginClass="org.palladiosimulator.pcm.core.presentation.PalladioComponentModelEditorPlugin"
     rootExtendsInterface="org.eclipse.emf.cdo.CDOObject" rootExtendsClass="org.eclipse.emf.internal.cdo.CDOObjectImpl"
     codeFormatting="true" testSuiteClass="org.palladiosimulator.pcm.tests.PalladioComponentModelAllTests"
