@@ -1,0 +1,146 @@
+module generate.editor
+
+import org.eclipse.emf.mwe2.ecore.EcoreGenerator
+import tools.mdsd.ecoreworkflow.mwe2lib.bean.EclipseRCPSupportingStandaloneSetup
+import tools.mdsd.ecoreworkflow.mwe2lib.component.ContextDependentMapping
+import tools.mdsd.ecoreworkflow.mwe2lib.component.URISupportingDirectoryCleaner
+import tools.mdsd.ecoreworkflow.mwe2lib.component.GapPatternPostProcessor
+import tools.mdsd.ecoreworkflow.mwe2lib.component.RegexComponent
+import tools.mdsd.ecoreworkflow.umlecoregenerator.UMLEcoreGenerator
+import java.util.regex.Pattern
+var workspaceRoot = "../../"
+var projectName = "org.palladiosimulator.pcm"
+var pluginEditorDir = "${workspaceRoot}/bundles/${projectName}.editor"
+Workflow {
+	bean = EclipseRCPSupportingStandaloneSetup {
+		scanClassPath = true
+		platformUri = workspaceRoot
+		uriMap = {
+			from = "platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel"
+			to = "platform:/resource/de.uka.ipd.sdq.identifier/model/identifier.genmodel"
+		}
+		uriMap = {
+			from = "platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore"
+			to = "platform:/resource/de.uka.ipd.sdq.identifier/model/identifier.ecore"
+		}
+		uriMap = {
+			from = "platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel"
+			to = "platform:/resource/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel"
+		}
+		uriMap = {
+			from = "platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore"
+			to = "platform:/resource/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore"
+		}
+		uriMap = {
+			from = "platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel"
+			to = "platform:/resource/de.uka.ipd.sdq.stoex/model/stoex.genmodel"
+		}
+		uriMap = {
+			from = "platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore"
+			to = "platform:/resource/de.uka.ipd.sdq.stoex/model/stoex.ecore"
+		}
+		uriMap = {
+			from = "platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel"
+			to = "platform:/resource/de.uka.ipd.sdq.units/model/Units.genmodel"
+		}
+		uriMap = {
+			from = "platform:/plugin/de.uka.ipd.sdq.units/model/Units.ecore"
+			to = "platform:/resource/de.uka.ipd.sdq.units/model/Units.ecore"
+		}
+		uriMap = {
+			from = "platform:/plugin/org.eclipse.emf.codegen.ecore/model/GenModel.genmodel"
+			to = "platform:/resource/org.eclipse.emf.codegen.ecore/model/GenModel.genmodel"
+		}
+		uriMap = {
+			from = "platform:/plugin/org.eclipse.emf.ecore/model/Ecore.genmodel"
+			to = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel"
+		}
+		uriMap = {
+			from = "platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore"
+			to = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.ecore"
+		}
+		uriMap = {
+			from = "platform:/plugin/org.eclipse.uml2.codegen.ecore/model/GenModel.genmodel"
+			to = "platform:/resource/org.eclipse.uml2.codegen.ecore/model/GenModel.genmodel"
+		}
+
+		registerGenModelFile = "platform:/resource/org.eclipse.emf.codegen.ecore/model/GenModel.genmodel"
+		registerGenModelFile = "platform:/resource/org.eclipse.emf.ecore/model/Ecore.genmodel"
+		registerGenModelFile = "platform:/resource/org.eclipse.uml2.codegen.ecore/model/GenModel.genmodel"
+		registerGeneratedEPackage = "org.eclipse.uml2.codegen.ecore.genmodel.GenModelPackage"
+		registerGenModelFile = "platform:/resource/de.uka.ipd.sdq.identifier/model/identifier.genmodel"
+		registerGenModelFile = "platform:/resource/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel"
+		registerGenModelFile = "platform:/resource/de.uka.ipd.sdq.stoex/model/stoex.genmodel"
+		registerGenModelFile = "platform:/resource/de.uka.ipd.sdq.units/model/Units.genmodel"
+	}
+			component = UMLEcoreGenerator {
+		generateCustomClasses = false
+		generateEdit = false
+		generateEditor = true
+		genModel = "platform:/resource/org.palladiosimulator.pcm/model/pcm.genmodel"
+		srcPath = "platform:/resource/org.palladiosimulator.pcm.editor/src"
+	}
+	component = RegexComponent {
+		
+			replacement = {
+			filename =  "${pluginEditorDir}/src/org/palladiosimulator/pcm/allocation/presentation/AllocationEditor.java"
+			filename =  "${pluginEditorDir}/src/org/palladiosimulator/pcm/core/composition/presentation/CompositionEditor.java"
+			filename =  "${pluginEditorDir}/src/org/palladiosimulator/pcm/usagemodel/presentation/UsagemodelEditor.java"
+			filename =  "${pluginEditorDir}/src/org/palladiosimulator/pcm/system/presentation/SystemEditor.java"
+			filename =  "${pluginEditorDir}/src/org/palladiosimulator/pcm/resourcetype/presentation/ResourcetypeEditor.java"
+			filename =  "${pluginEditorDir}/src/org/palladiosimulator/pcm/resourceenvironment/presentation/ResourceenvironmentEditor.java"
+			filename =  "${pluginEditorDir}/src/org/palladiosimulator/pcm/subsystem/presentation/SubsystemEditor.java"
+			filename =  "${pluginEditorDir}/src/org/palladiosimulator/pcm/repository/presentation/RepositoryEditor.java"
+			filename =  "${pluginEditorDir}/src/org/palladiosimulator/pcm/qosannotations/presentation/QosannotationsEditor.java"
+
+			
+			mapping = {
+				from = "adapterFactory = new ComposedAdapterFactory"
+				to = "ComposedAdapterFactory compAdapterFactory = new ComposedAdapterFactory"
+			}
+			mapping = {
+				from = "adapterFactory.addAdapterFactory"
+				to = "compAdapterFactory.addAdapterFactory"
+			}
+			mapping = {
+				from = "compAdapterFactory.addAdapterFactory\\(new ReflectiveItemProviderAdapterFactory\\(\\)\\);"
+				to = "compAdapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());\n		adapterFactory = new StereotypableElementDecoratorAdapterFactory(new PalladioItemProviderAdapterFactory(compAdapterFactory));"
+			}
+			mapping = {
+				from = "import org.palladiosimulator.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;"
+				to = "import org.palladiosimulator.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory; \nimport org.palladiosimulator.mdsdprofiles.provider.StereotypableElementDecoratorAdapterFactory;\nimport org.palladiosimulator.pcm.ui.provider.PalladioItemProviderAdapterFactory;\nimport org.eclipse.emf.edit.provider.IDisposable;"
+			}
+			mapping = {
+				from = "protected ComposedAdapterFactory adapterFactory;"
+				to = "protected AdapterFactory adapterFactory;"
+			}
+			mapping = {
+				from = "adapterFactory.dispose\\(\\);"
+				to = "((IDisposable) (adapterFactory)).dispose();"
+			}
+		}
+	}
+	
+		component = RegexComponent {
+			replacement = {
+			filename =  "${pluginEditorDir}/src/org/palladiosimulator/pcm/resourcetype/presentation/ResourcetypeEditor.java"
+			filename =  "${pluginEditorDir}/src/org/palladiosimulator/pcm/usagemodel/presentation/UsagemodelEditor.java"
+			filename =  "${pluginEditorDir}/src/org/palladiosimulator/pcm/qosannotations/presentation/QosannotationsEditor.java"
+			
+			mapping = {
+				from = "		ComposedAdapterFactory compAdapterFactory = new ComposedAdapterFactory\\(ComposedAdapterFactory.Descriptor.Registry.INSTANCE\\);"
+				to = "		ComposedAdapterFactory compAdapterFactory = new ComposedAdapterFactory(ComposedAdapterFactory.Descriptor.Registry.INSTANCE) {\n 		@Override\n		public ComposeableAdapterFactory getRootAdapterFactory() {\n		return ((ComposeableAdapterFactory) (adapterFactory));\n		}};"
+			}
+			mapping = {
+				from = "import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;"
+				to = "import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;\n		import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;"
+			}
+		}
+	}
+	component = GapPatternPostProcessor {
+		folders =  {
+			gen = "platform:/resource/org.palladiosimulator.pcm.editor/src"
+			src = "platform:/resource/org.palladiosimulator.pcm.editor/src-man"
+		}
+	}
+}	
