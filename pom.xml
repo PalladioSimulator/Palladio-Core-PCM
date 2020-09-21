@@ -18,10 +18,10 @@
 	</properties>
 	
 	<modules>
-		<module>releng</module>
 		<module>bundles</module>
 		<module>features</module>
 		<module>tests</module>
+		<module>releng</module>
 	</modules>
 	
 </project>
