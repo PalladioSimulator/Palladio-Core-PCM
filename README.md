@@ -6,6 +6,9 @@ The PCM is implemented using the Eclipse Modeling Framework (EMF).
 ## Documentation
 For comprehensive documentation, please visit our [wiki page](https://sdqweb.ipd.kit.edu/wiki/Palladio_Component_Model).
 
+## Development Information
+We generate source code based on the metamodel during the build process and do not add generated artifacts to the repository. To generate the code, you have to either run the Maven build or the generation workflow (`generate.mwe2`).
+
 ## Support
 For support
 * visit our [issue tracking system](https://palladio-simulator.com/jira)
