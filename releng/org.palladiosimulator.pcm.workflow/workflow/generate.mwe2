@@ -82,10 +82,10 @@ Workflow {
 	}
 
 	component = GapPatternPostProcessor {
-	    folders = {
-	        gen = "platform:/resource/org.palladiosimulator.pcm/src-gen"
-	        src = "platform:/resource/org.palladiosimulator.pcm/src"
-	    }
+		folders = {
+			gen = "platform:/resource/org.palladiosimulator.pcm/src-gen"
+			src = "platform:/resource/org.palladiosimulator.pcm/src"
+		}
 	}
 
 }	
