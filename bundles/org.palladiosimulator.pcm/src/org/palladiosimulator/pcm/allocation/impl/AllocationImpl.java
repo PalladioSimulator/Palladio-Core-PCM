@@ -1,8 +1,8 @@
 package org.palladiosimulator.pcm.allocation.impl;
 
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
@@ -35,34 +35,85 @@ public class AllocationImpl extends AllocationImplGen {
         return validationResult;
     }
 
+    /**
+     * Tests if each assembly context within the referenced system has been allocated correctly.
+     * 
+     * @return True if the allocation is correct, False otherwise.
+     */
     protected boolean validateEachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce() {
-        // collect all assembly contexts that have been allocated
-        var allocatedAssemblyContexts = this.getAllocationContexts_Allocation()
-            .stream()
-            .map(AllocationContext::getAssemblyContext_AllocationContext)
-            .collect(Collectors.toSet());
+        var allocatedAssemblyContexts = getAllocatedAssemblyContexts();
+        var unallocatedAssemblyContexts = findUnallocatedAssemblyContexts(allocatedAssemblyContexts);
 
-        // collect all assembly contexts that have to be allocated
-        var requiredAssemblyContexts = this.getSystem_Allocation()
-            .getAssemblyContexts__ComposedStructure();
-
-        // find the assembly contexts that have not be allocated
-        var unallocatedAssemblyContexts = new HashSet<>(requiredAssemblyContexts);
-        unallocatedAssemblyContexts.removeAll(allocatedAssemblyContexts);
-
-        // ensure that the unallocated assembly contexts are all subsystems
-        var remainingSubsystems = new HashSet<>(unallocatedAssemblyContexts.stream()
-            .map(AssemblyContext::getEncapsulatedComponent__AssemblyContext)
-            .filter(SubSystem.class::isInstance)
-            .map(SubSystem.class::cast)
-            .collect(Collectors.toSet()));
+        var remainingSubsystems = extractAllSubsystems(unallocatedAssemblyContexts);
         if (remainingSubsystems.size() != unallocatedAssemblyContexts.size()) {
+            // there are unallocated components
             return false;
         }
 
-        // ensure that all remaining subsystems are either allocated directly or every nested
-        // assembly context is allocated
-        var queue = new LinkedList<>(remainingSubsystems);
+        return testCorrectAllocationOfSubsystems(remainingSubsystems, allocatedAssemblyContexts);
+    }
+
+    /**
+     * Determines all assembly contexts that are part of the current allocation (this).
+     * 
+     * @return A set of assembly contexts.
+     */
+    protected Set<AssemblyContext> getAllocatedAssemblyContexts() {
+        return this.getAllocationContexts_Allocation()
+            .stream()
+            .map(AllocationContext::getAssemblyContext_AllocationContext)
+            .collect(Collectors.toSet());
+    }
+
+    /**
+     * Determines assembly contexts of the system that are not part of a given set of assembly
+     * contexts. The given set represents assembly contexts that have already been allocated.
+     * 
+     * @param allocatedAssemblyContexts
+     *            A set of assembly contexts that shall not be part of the result set.
+     * @return A set of unallocated system assembly contexts.
+     */
+    protected Set<AssemblyContext> findUnallocatedAssemblyContexts(Set<AssemblyContext> allocatedAssemblyContexts) {
+        return this.getSystem_Allocation()
+            .getAssemblyContexts__ComposedStructure()
+            .stream()
+            .filter(ac -> !allocatedAssemblyContexts.contains(ac))
+            .collect(Collectors.toSet());
+    }
+
+    /**
+     * Determines all {@link SubSystem} elements that are encapsulated by the given assembly
+     * contexts.
+     * 
+     * This method ignores all other types of encapsulated components.
+     * 
+     * @param assemblyContexts
+     * @return The set of encapsulated {@link SubSystem} elements.
+     */
+    protected static Set<SubSystem> extractAllSubsystems(Set<AssemblyContext> assemblyContexts) {
+        return assemblyContexts.stream()
+            .map(AssemblyContext::getEncapsulatedComponent__AssemblyContext)
+            .filter(SubSystem.class::isInstance)
+            .map(SubSystem.class::cast)
+            .collect(Collectors.toSet());
+    }
+
+    /**
+     * Tests if all given {@link SubSystem} elements are allocated correctly by the given set of
+     * allocated {@link AssemblyContext} elements.
+     * 
+     * A {@link SubSystem} is allocated correctly if it either is allocated directly or if all of
+     * its encapsulated components are allocated correctly.
+     * 
+     * @param subsystems
+     *            The set of subsystems to test.
+     * @param allocatedAssemblyContexts
+     *            The set of allocated assembly contexts.
+     * @return True if all subsystems are allocated correctly, False otherwise.
+     */
+    protected static boolean testCorrectAllocationOfSubsystems(Set<SubSystem> subsystems,
+            Set<AssemblyContext> allocatedAssemblyContexts) {
+        var queue = new LinkedList<>(subsystems);
         while (!queue.isEmpty()) {
             var subSystem = queue.pop();
             for (var ac : subSystem.getAssemblyContexts__ComposedStructure()) {
@@ -75,8 +126,6 @@ public class AllocationImpl extends AllocationImplGen {
                 }
             }
         }
-
-        // no assembly contexts remaining
         return true;
     }
 
