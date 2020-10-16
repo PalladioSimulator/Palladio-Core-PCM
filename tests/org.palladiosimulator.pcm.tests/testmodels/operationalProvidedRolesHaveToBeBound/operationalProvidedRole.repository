@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ASCII"?>
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" id="_mJNbIA_FEeu347NS7BIyJA" entityName="New Repository">
+  <components__Repository xsi:type="repository:BasicComponent" id="_oiCTsA_FEeu347NS7BIyJA" entityName="InnerComponent">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_ErCwUA_HEeu347NS7BIyJA" entityName="InnerComponent.Dummy.OperationProvidedRole1" providedInterface__OperationProvidedRole="_BP8icA_HEeu347NS7BIyJA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_ErPkoA_HEeu347NS7BIyJA" describedService__SEFF="_COqNcA_HEeu347NS7BIyJA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_ErQLsA_HEeu347NS7BIyJA" successor_AbstractAction="_ErQLsQ_HEeu347NS7BIyJA"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_ErQLsQ_HEeu347NS7BIyJA" predecessor_AbstractAction="_ErQLsA_HEeu347NS7BIyJA"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:CompositeComponent" id="_u_WVYA_FEeu347NS7BIyJA" entityName="CompositeComponent">
+    <assemblyContexts__ComposedStructure id="_GQhV0A_GEeu347NS7BIyJA" entityName="Assembly_InnerComponent" encapsulatedComponent__AssemblyContext="_oiCTsA_FEeu347NS7BIyJA"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_gTsuYA_HEeu347NS7BIyJA" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_ErCwUA_HEeu347NS7BIyJA" outerProvidedRole_ProvidedDelegationConnector="_GztF8A_HEeu347NS7BIyJA" assemblyContext_ProvidedDelegationConnector="_GQhV0A_GEeu347NS7BIyJA"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_GztF8A_HEeu347NS7BIyJA" entityName="CompositeComponent.Dummy.OperationProvidedRole1" providedInterface__OperationProvidedRole="_BP8icA_HEeu347NS7BIyJA"/>
+  </components__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_BP8icA_HEeu347NS7BIyJA" entityName="Dummy">
+    <signatures__OperationInterface id="_COqNcA_HEeu347NS7BIyJA" entityName="doSomething"/>
+  </interfaces__Repository>
+</repository:Repository>
