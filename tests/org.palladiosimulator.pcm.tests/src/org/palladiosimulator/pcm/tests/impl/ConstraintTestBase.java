@@ -49,7 +49,7 @@ public abstract class ConstraintTestBase {
     }
 
     protected static URI createURIFromRelativePath(String path) {
-        return URI.createPlatformResourceURI(String.format("%s/%s", PROJECT_NAME_TEST, path), false);
+        return URI.createPlatformPluginURI(String.format("%s/%s", PROJECT_NAME_TEST, path), false);
     }
 
     protected static void assertViolation(EObject object) {
