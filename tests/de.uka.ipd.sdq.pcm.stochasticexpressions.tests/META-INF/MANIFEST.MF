@@ -9,6 +9,9 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.stoex,
  de.uka.ipd.sdq.stoex.analyser,
  org.junit,
- org.palladiosimulator.pcm
+ org.palladiosimulator.pcm,
+ org.palladiosimulator.commons.stoex.api;bundle-version="4.3.0",
+ org.palladiosimulator.commons.stoex.ui;bundle-version="4.3.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: de.uka.ipd.sdq.pcm.stochasticexpressions.tests
