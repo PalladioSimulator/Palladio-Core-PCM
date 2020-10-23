@@ -1,25 +1,24 @@
 package org.palladiosimulator.pcm.core.impl;
 
-import org.antlr.runtime.ANTLRStringStream;
-import org.antlr.runtime.CommonTokenStream;
-import org.antlr.runtime.RecognitionException;
-import org.palladiosimulator.pcm.stochasticexpressions.parser.MyPCMStoExLexer;
-import org.palladiosimulator.pcm.stochasticexpressions.parser.MyPCMStoExParser;
+import org.palladiosimulator.commons.stoex.api.StoExParser;
+import org.palladiosimulator.commons.stoex.api.StoExParser.SyntaxErrorException;
 
 import de.uka.ipd.sdq.stoex.Expression;
 
 public class PCMRandomVariableImpl extends PCMRandomVariableImplGen {
 
     /**
+     * Instance of an {@link StoExParser} to parse textual StoEx expressions.
+     */
+    private static final StoExParser STOEX_PARSER = StoExParser.createInstance();
+
+    /**
      * Cached version of specification to decide if re-parsing is required.
-     *
-     * @generated NOT
      */
     private String lastParsedSpecification;
+
     /**
      * Cached version of parsed specification to return if no re-parsing is required.
-     *
-     * @generated NOT
      */
     private Expression lastParseExpression;
 
@@ -29,28 +28,20 @@ public class PCMRandomVariableImpl extends PCMRandomVariableImplGen {
      * stochastic expression language.
      *
      * @return The prepared Expression parsed from the specification string.
-     *
-     * @generated not
      */
     @Override
     public Expression basicGetExpression() {
         if (this.lastParseExpression == null || !this.lastParsedSpecification.equals(this.getSpecification())) {
             // re-parsing required
-            final MyPCMStoExLexer lexer = new MyPCMStoExLexer(new ANTLRStringStream(this.getSpecification()));
-            final MyPCMStoExParser parser = new MyPCMStoExParser(new CommonTokenStream(lexer));
+
             Expression e;
             try {
-                e = parser.expression();
-            } catch (final RecognitionException e1) {
-                e = null;
-            }
-            if (parser.hasErrors()) {
+                e = STOEX_PARSER.parse(this.getSpecification());
+            } catch (final SyntaxErrorException e1) {
                 e = null;
             }
             this.lastParseExpression = e;
             this.lastParsedSpecification = new String(this.getSpecification());
-        } else {
-            // old parsed result can be returned
         }
         return this.lastParseExpression;
     }
