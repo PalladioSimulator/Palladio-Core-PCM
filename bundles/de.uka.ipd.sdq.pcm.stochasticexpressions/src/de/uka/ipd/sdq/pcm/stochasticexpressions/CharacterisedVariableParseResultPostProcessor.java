@@ -92,6 +92,9 @@ public class CharacterisedVariableParseResultPostProcessor implements ParseResul
         queue.add(start);
         while (!queue.isEmpty()) {
             var current = queue.pop();
+            if (current == null) {
+                continue;
+            }
             queue.addAll(current.eContents());
             if (type.isInstance(current)) {
                 result.add((T) current);
