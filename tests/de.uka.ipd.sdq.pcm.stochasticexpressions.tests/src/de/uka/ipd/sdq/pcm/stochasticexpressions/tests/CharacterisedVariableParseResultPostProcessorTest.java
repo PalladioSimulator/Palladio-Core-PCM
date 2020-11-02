@@ -61,7 +61,7 @@ public class CharacterisedVariableParseResultPostProcessorTest {
     @Test
     public void testChangedNestedObject() {
         var variable1 = createVariable("test", "VALUE");
-        var variable2 = createVariable("test", "bla");
+        var variable2 = createVariable("test", "foo");
         var product = StoexFactory.eINSTANCE.createProductExpression();
         product.setLeft(variable1);
         product.setRight(variable2);
