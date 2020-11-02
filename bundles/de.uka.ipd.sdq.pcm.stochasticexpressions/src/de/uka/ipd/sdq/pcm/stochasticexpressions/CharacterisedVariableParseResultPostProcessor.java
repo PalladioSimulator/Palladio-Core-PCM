@@ -13,6 +13,8 @@ import org.palladiosimulator.pcm.parameter.CharacterisedVariable;
 import org.palladiosimulator.pcm.parameter.ParameterFactory;
 import org.palladiosimulator.pcm.parameter.VariableCharacterisationType;
 
+import de.uka.ipd.sdq.stoex.NamespaceReference;
+import de.uka.ipd.sdq.stoex.StoexFactory;
 import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.VariableReference;
 
@@ -26,21 +28,27 @@ public class CharacterisedVariableParseResultPostProcessor implements ParseResul
     @Override
     public IParseResult postProcess(final IParseResult givenResult) {
         var result = givenResult;
-        var variableReferences = findContentOfType(result.getRootASTElement(), VariableReference.class);
-        for (var variableReference : variableReferences) {
-            var refName = variableReference.getReferenceName();
+        
+        var namespaceReferences = findContentOfType(result.getRootASTElement(), NamespaceReference.class);
+        for (var namespaceReference : namespaceReferences) {
+            var innerReference = namespaceReference.getInnerReference_NamespaceReference();
+            if (!(innerReference instanceof VariableReference)) {
+                // the reference is not the last part of a reference
+                continue;
+            }
+            var refName = innerReference.getReferenceName();
             var characterisationType = VariableCharacterisationType.get(refName);
             if (characterisationType == null) {
                 // the reference does not refer to a characterisation type
                 continue;
             }
-            var variable = findParent(variableReference, Variable.class);
+            var variable = findParent(namespaceReference, Variable.class);
             if (variable.isEmpty()) {
                 // the reference does not belong to a variable
                 // this should not happen but might change in the future
                 continue;
             }
-            result = replaceVariable(variable.get(), characterisationType, result);
+            result = replaceVariable(variable.get(), namespaceReference, characterisationType, result);
         }
 
         return result;
@@ -54,17 +62,23 @@ public class CharacterisedVariableParseResultPostProcessor implements ParseResul
      * 
      * @param variable
      *            The variable to replace.
+     * @param namespaceReference The reference segment to change.
      * @param characterisationType
      *            The characteristic variable type to use in the replacement.
      * @param result
      *            The result that contains the variable.
      * @return The same or a new {@link IParseResult} instance that contains the replacement.
      */
-    protected IParseResult replaceVariable(Variable variable, VariableCharacterisationType characterisationType,
-            IParseResult result) {
+    protected IParseResult replaceVariable(Variable variable, NamespaceReference namespaceReference,
+            VariableCharacterisationType characterisationType, IParseResult result) {
         var characterisedVariable = ParameterFactory.eINSTANCE.createCharacterisedVariable();
         characterisedVariable.setId_Variable(variable.getId_Variable());
         characterisedVariable.setCharacterisationType(characterisationType);
+
+        var lastSegment = StoexFactory.eINSTANCE.createVariableReference();
+        lastSegment.setReferenceName(namespaceReference.getReferenceName());
+        EcoreUtil.replace(namespaceReference, lastSegment);
+
         if (result.getRootASTElement() == variable) {
             return new ParseResult(characterisedVariable, result.getRootNode(), result.hasSyntaxErrors());
         } else {

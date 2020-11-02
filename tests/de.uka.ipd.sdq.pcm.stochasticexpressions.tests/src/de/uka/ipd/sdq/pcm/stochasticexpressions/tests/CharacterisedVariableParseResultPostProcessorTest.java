@@ -21,6 +21,7 @@ import de.uka.ipd.sdq.stoex.ProductExpression;
 import de.uka.ipd.sdq.stoex.ProductOperations;
 import de.uka.ipd.sdq.stoex.StoexFactory;
 import de.uka.ipd.sdq.stoex.Variable;
+import de.uka.ipd.sdq.stoex.VariableReference;
 
 public class CharacterisedVariableParseResultPostProcessorTest {
 
@@ -42,7 +43,7 @@ public class CharacterisedVariableParseResultPostProcessorTest {
 
     @Test
     public void testChangedRootObject() {
-        var variable = createVariable("TYPE");
+        var variable = createVariable("test", "TYPE");
         var input = createResult(variable);
 
         var actual = subject.postProcess(input);
@@ -52,13 +53,15 @@ public class CharacterisedVariableParseResultPostProcessorTest {
         assertEquals(input.hasSyntaxErrors(), actual.hasSyntaxErrors());
         assertThat(actual.getRootASTElement(), is(instanceOf(CharacterisedVariable.class)));
         var newVariable = (CharacterisedVariable) actual.getRootASTElement();
+        assertThat(newVariable.getId_Variable(), is(instanceOf(VariableReference.class)));
+        assertEquals("test", newVariable.getId_Variable().getReferenceName());
         assertEquals(VariableCharacterisationType.TYPE, newVariable.getCharacterisationType());
     }
 
     @Test
     public void testChangedNestedObject() {
-        var variable1 = createVariable("VALUE");
-        var variable2 = createVariable("test");
+        var variable1 = createVariable("test", "VALUE");
+        var variable2 = createVariable("test", "foo");
         var product = StoexFactory.eINSTANCE.createProductExpression();
         product.setLeft(variable1);
         product.setRight(variable2);
@@ -72,6 +75,8 @@ public class CharacterisedVariableParseResultPostProcessorTest {
         var newProduct = (ProductExpression)actual.getRootASTElement();
         assertThat(newProduct.getLeft(), is(instanceOf(CharacterisedVariable.class)));
         var newVariable = (CharacterisedVariable)newProduct.getLeft();
+        assertThat(newVariable.getId_Variable(), is(instanceOf(VariableReference.class)));
+        assertEquals("test", newVariable.getId_Variable().getReferenceName());
         assertEquals(VariableCharacterisationType.VALUE, newVariable.getCharacterisationType());
     }
 
@@ -80,11 +85,14 @@ public class CharacterisedVariableParseResultPostProcessorTest {
         return new ParseResult(rootObject, rootNode, false);
     }
 
-    protected static Variable createVariable(String name) {
+    protected static Variable createVariable(String name, String typeName) {
         var variable = StoexFactory.eINSTANCE.createVariable();
+        var namespaceReference = StoexFactory.eINSTANCE.createNamespaceReference();
+        namespaceReference.setReferenceName(name);
         var reference = StoexFactory.eINSTANCE.createVariableReference();
-        reference.setReferenceName(name);
-        variable.setId_Variable(reference);
+        namespaceReference.setInnerReference_NamespaceReference(reference);
+        reference.setReferenceName(typeName);
+        variable.setId_Variable(namespaceReference);
         return variable;
     }
 }
