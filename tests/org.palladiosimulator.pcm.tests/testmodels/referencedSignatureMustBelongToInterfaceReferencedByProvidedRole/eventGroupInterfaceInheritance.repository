@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="ASCII"?>
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" id="_hjV9UCBaEeu_eL7spKBPnw" entityName="New Repository">
+  <components__Repository xsi:type="repository:BasicComponent" id="_Jq2ZACBsEeudX9l4s6X0iA" entityName="ChildComponent">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:SinkRole" id="_QHUGICBsEeudX9l4s6X0iA" entityName="ChildComponent.ChildEventGroup.SinkRole1" eventGroup__SinkRole="_Scu60CBrEeudX9l4s6X0iA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_QHWiYCBsEeudX9l4s6X0iA" describedService__SEFF="_hIx4gCBrEeudX9l4s6X0iA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_QHmaACBsEeudX9l4s6X0iA" successor_AbstractAction="_QHnBECBsEeudX9l4s6X0iA"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_QHnBECBsEeudX9l4s6X0iA" predecessor_AbstractAction="_QHmaACBsEeudX9l4s6X0iA"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_J7p1ICBsEeudX9l4s6X0iA" entityName="OneLevelUpComponent">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:SinkRole" id="_QrM2UCBsEeudX9l4s6X0iA" entityName="OneLevelUpComponent.OneLevelUpEventGroup.SinkRole1" eventGroup__SinkRole="_VVDLwCBrEeudX9l4s6X0iA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_SCgngCBsEeudX9l4s6X0iA" describedService__SEFF="_k4JtQCBrEeudX9l4s6X0iA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_S2QYoCBsEeudX9l4s6X0iA" successor_AbstractAction="_S2QYoSBsEeudX9l4s6X0iA"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_S2QYoSBsEeudX9l4s6X0iA" predecessor_AbstractAction="_S2QYoCBsEeudX9l4s6X0iA"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_LpKf0CBsEeudX9l4s6X0iA" entityName="TwoLevelsUpComponents">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:SinkRole" id="_RajPoCBsEeudX9l4s6X0iA" entityName="TwoLevelsUpComponents.TwoLevelsUpEventGroup.SinkRole1" eventGroup__SinkRole="_Xoz-ICBrEeudX9l4s6X0iA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_TJonoCBsEeudX9l4s6X0iA" describedService__SEFF="_lHw2kCBrEeudX9l4s6X0iA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_TldoACBsEeudX9l4s6X0iA" successor_AbstractAction="_TldoASBsEeudX9l4s6X0iA"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_TldoASBsEeudX9l4s6X0iA" predecessor_AbstractAction="_TldoACBsEeudX9l4s6X0iA"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_fnOwwCBsEeudX9l4s6X0iA" entityName="BrokenComponent">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:SinkRole" id="_lr7eICBsEeudX9l4s6X0iA" entityName="BrokenComponent.TwoLevelsUpEventGroup.SinkRole1" eventGroup__SinkRole="_Xoz-ICBrEeudX9l4s6X0iA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_m4szQCBsEeudX9l4s6X0iA" describedService__SEFF="_k4JtQCBrEeudX9l4s6X0iA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_naJ6gCBsEeudX9l4s6X0iA" successor_AbstractAction="_naJ6gSBsEeudX9l4s6X0iA"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_naJ6gSBsEeudX9l4s6X0iA" predecessor_AbstractAction="_naJ6gCBsEeudX9l4s6X0iA"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <interfaces__Repository xsi:type="repository:EventGroup" id="_Scu60CBrEeudX9l4s6X0iA" entityName="ChildEventGroup">
+    <eventTypes__EventGroup id="_hIx4gCBrEeudX9l4s6X0iA" entityName="eventType1">
+      <parameter__EventType parameterName="test">
+        <dataType__Parameter xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.2"/>
+      </parameter__EventType>
+    </eventTypes__EventGroup>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:EventGroup" id="_VVDLwCBrEeudX9l4s6X0iA" entityName="OneLevelUpEventGroup" parentInterfaces__Interface="_WcswUCBrEeudX9l4s6X0iA"/>
+  <interfaces__Repository xsi:type="repository:EventGroup" id="_WcswUCBrEeudX9l4s6X0iA" entityName="ParentEventGroup">
+    <eventTypes__EventGroup id="_k4JtQCBrEeudX9l4s6X0iA" entityName="eventType1">
+      <parameter__EventType parameterName="test">
+        <dataType__Parameter xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.2"/>
+      </parameter__EventType>
+    </eventTypes__EventGroup>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:EventGroup" id="_Xoz-ICBrEeudX9l4s6X0iA" entityName="TwoLevelsUpEventGroup" parentInterfaces__Interface="_ZILfICBrEeudX9l4s6X0iA"/>
+  <interfaces__Repository xsi:type="repository:EventGroup" id="_ZILfICBrEeudX9l4s6X0iA" entityName="ParentEventGroup" parentInterfaces__Interface="_aCbg4CBrEeudX9l4s6X0iA"/>
+  <interfaces__Repository xsi:type="repository:EventGroup" id="_aCbg4CBrEeudX9l4s6X0iA" entityName="ParentParentEventGroup">
+    <eventTypes__EventGroup id="_lHw2kCBrEeudX9l4s6X0iA" entityName="eventType1">
+      <parameter__EventType parameterName="test">
+        <dataType__Parameter xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.2"/>
+      </parameter__EventType>
+    </eventTypes__EventGroup>
+  </interfaces__Repository>
+</repository:Repository>

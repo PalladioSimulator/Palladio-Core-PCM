@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ASCII"?>
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" id="_hjV9UCBaEeu_eL7spKBPnw" entityName="New Repository">
+  <components__Repository xsi:type="repository:BasicComponent" id="_PsYGUCBbEeu_eL7spKBPnw" entityName="ChildComponent">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_m-m2sCBbEeu_eL7spKBPnw" entityName="ChildComponent.ChildInterface.OperationProvidedRole1" providedInterface__OperationProvidedRole="_LFh3ACBbEeu_eL7spKBPnw"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_B4cm8CBcEeu_eL7spKBPnw" describedService__SEFF="_hSwuMCBbEeu_eL7spKBPnw">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_CQ140CBcEeu_eL7spKBPnw" successor_AbstractAction="_CQ140SBcEeu_eL7spKBPnw"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_CQ140SBcEeu_eL7spKBPnw" predecessor_AbstractAction="_CQ140CBcEeu_eL7spKBPnw"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_pnHxECBbEeu_eL7spKBPnw" entityName="ParentComponent">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_0sBB4CBbEeu_eL7spKBPnw" entityName="ParentComponent.OneLevelUp.OperationProvidedRole1" providedInterface__OperationProvidedRole="_t3ZTcCBbEeu_eL7spKBPnw"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_cCffsCBhEeuj6pgbQMaDVA" describedService__SEFF="_gSY2UCBbEeu_eL7spKBPnw">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_ccNnQCBhEeuj6pgbQMaDVA" successor_AbstractAction="_ccOOUCBhEeuj6pgbQMaDVA"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_ccOOUCBhEeuj6pgbQMaDVA" predecessor_AbstractAction="_ccNnQCBhEeuj6pgbQMaDVA"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_6X-fICBbEeu_eL7spKBPnw" entityName="ParentParentComponent">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_8Uq1UCBbEeu_eL7spKBPnw" entityName="ParentParentComponent.TowLevelsUp.OperationProvidedRole1" providedInterface__OperationProvidedRole="_3MO74CBbEeu_eL7spKBPnw"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_c1JrsCBhEeuj6pgbQMaDVA" describedService__SEFF="_dvjtMCBbEeu_eL7spKBPnw">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_dOTykCBhEeuj6pgbQMaDVA" successor_AbstractAction="_dOUZoCBhEeuj6pgbQMaDVA"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_dOUZoCBhEeuj6pgbQMaDVA" predecessor_AbstractAction="_dOTykCBhEeuj6pgbQMaDVA"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_x_VJcCBsEeudX9l4s6X0iA" entityName="BrokenComponent">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_0hm48CBsEeudX9l4s6X0iA" entityName="BrokenComponent.TowLevelsUp.OperationProvidedRole1" providedInterface__OperationProvidedRole="_3MO74CBbEeu_eL7spKBPnw"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_1TMt8CBsEeudX9l4s6X0iA" describedService__SEFF="_gSY2UCBbEeu_eL7spKBPnw">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_1tMiUCBsEeudX9l4s6X0iA" successor_AbstractAction="_1tMiUSBsEeudX9l4s6X0iA"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_1tMiUSBsEeudX9l4s6X0iA" predecessor_AbstractAction="_1tMiUCBsEeudX9l4s6X0iA"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_LFh3ACBbEeu_eL7spKBPnw" entityName="ChildInterface">
+    <signatures__OperationInterface id="_hSwuMCBbEeu_eL7spKBPnw" entityName="childMethod"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_NSHqYCBbEeu_eL7spKBPnw" entityName="ParentInterface">
+    <signatures__OperationInterface id="_gSY2UCBbEeu_eL7spKBPnw" entityName="parentMethod"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_Og9cECBbEeu_eL7spKBPnw" entityName="ParentParentInterface">
+    <signatures__OperationInterface id="_dvjtMCBbEeu_eL7spKBPnw" entityName="parentParentMethod"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_t3ZTcCBbEeu_eL7spKBPnw" entityName="OneLevelUp" parentInterfaces__Interface="_NSHqYCBbEeu_eL7spKBPnw"/>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_2OQ3wCBbEeu_eL7spKBPnw" entityName="ParentInterface" parentInterfaces__Interface="_Og9cECBbEeu_eL7spKBPnw"/>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_3MO74CBbEeu_eL7spKBPnw" entityName="TowLevelsUp" parentInterfaces__Interface="_2OQ3wCBbEeu_eL7spKBPnw"/>
+</repository:Repository>
