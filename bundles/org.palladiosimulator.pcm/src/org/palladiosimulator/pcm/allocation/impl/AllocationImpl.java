@@ -10,67 +10,104 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.palladiosimulator.pcm.allocation.Allocation;
 import org.palladiosimulator.pcm.allocation.AllocationContext;
 import org.palladiosimulator.pcm.allocation.util.AllocationValidator;
 import org.palladiosimulator.pcm.core.composition.AssemblyContext;
+import org.palladiosimulator.pcm.core.entity.Entity;
 import org.palladiosimulator.pcm.subsystem.SubSystem;
 
 public class AllocationImpl extends AllocationImplGen {
 
+    protected static class ValidationResult {
+        
+        private final boolean isValid;
+        private final String message;
+
+        public ValidationResult() {
+            this.isValid = true;
+            this.message = "";
+        }
+        
+        public ValidationResult(String message) {
+            this.isValid = false;
+            this.message = message;
+        }
+
+        public boolean isValid() {
+            return isValid;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+    }
+
+    
     /**
      * {@inheritDoc}
      */
     @Override
     public boolean validateEachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(DiagnosticChain diagnostics, Map<Object, Object> context) {
         var validationResult = validateEachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce();
-        if (!validationResult && diagnostics != null) {
+        if (!validationResult.isValid() && diagnostics != null) {
+            var defaultMessage = EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "eachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce", getEntityLabel(this) });
+            var validationMessage = String.format("%s: %s", defaultMessage, validationResult.getMessage());
             diagnostics.add
                 (new BasicDiagnostic
                     (Diagnostic.ERROR,
                      AllocationValidator.DIAGNOSTIC_SOURCE,
                      AllocationValidator.ALLOCATION__VALIDATE_EACH_ASSEMBLY_CONTEXT_WITHIN_SYSTEM_HAS_TO_BE_ALLOCATED_EXACTLY_ONCE,
-                     EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "eachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce", EObjectValidator.getObjectLabel(this, context) }),
+                     validationMessage,
                      new Object [] { this }));
         }
-        return validationResult;
+        return validationResult.isValid();
     }
 
     /**
      * Tests if each assembly context within the referenced system has been allocated correctly.
      * 
-     * @return True if the allocation is correct, False otherwise.
+     * @return Test result.
      */
-    protected boolean validateEachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce() {
-        if (moreThanOneAllocationForAssemblyContextExists()) {
+    protected ValidationResult validateEachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce() {
+        var testResult = testAtMostOneAllocationForAssemblyContextExists();
+        if (!testResult.isValid()) {
             // assembly context allocated more than one time
-            return false;
+            return testResult;
         }
         var allocatedAssemblyContexts = getAllocatedAssemblyContexts();
         var unallocatedAssemblyContexts = findUnallocatedAssemblyContexts(allocatedAssemblyContexts);
 
         var remainingSubsystems = extractAllSubsystems(unallocatedAssemblyContexts);
         if (remainingSubsystems.size() != unallocatedAssemblyContexts.size()) {
-            // there are unallocated components
-            return false;
+            // there are unallocated assembly contexts
+            var assemblyContextMessagePart = unallocatedAssemblyContexts.stream()
+                .map(AllocationImpl::getEntityLabel)
+                .collect(Collectors.joining(", "));
+            return new ValidationResult(String.format("There are unallocated %s elements: %s",
+                    AssemblyContext.class.getSimpleName(), assemblyContextMessagePart));
         }
 
         return testCorrectAllocationOfSubsystems(remainingSubsystems, allocatedAssemblyContexts);
     }
 
+
     /**
-     * Determines if one assembly context has been allocated more than once.
+     * Tests if each assembly context is allocated at most once.
      * 
-     * @return True if an assembly context has been allocated more than once, false otherwise.
+     * @return Test result.
      */
-    protected boolean moreThanOneAllocationForAssemblyContextExists() {
+    protected ValidationResult testAtMostOneAllocationForAssemblyContextExists() {
         var allocatedAssemblyContexts = new HashSet<>();
         for (var allocation : getAllocationContexts_Allocation()) {
             if (!allocatedAssemblyContexts.add(allocation.getAllocation_AllocationContext())) {
-                return true;
+                return new ValidationResult(
+                        String.format("%s %s allocates %s elements more than once.", Allocation.class.getSimpleName(),
+                                getEntityLabel(allocation), AssemblyContext.class.getSimpleName()));
             }
         }
-        return false;
+        return new ValidationResult();
     }
 
     /**
@@ -129,9 +166,9 @@ public class AllocationImpl extends AllocationImplGen {
      *            The set of subsystems to test.
      * @param allocatedAssemblyContexts
      *            The set of allocated assembly contexts.
-     * @return True if all subsystems are allocated correctly, False otherwise.
+     * @return Test result.
      */
-    protected static boolean testCorrectAllocationOfSubsystems(Set<SubSystem> subsystems,
+    protected static ValidationResult testCorrectAllocationOfSubsystems(Set<SubSystem> subsystems,
             Set<AssemblyContext> allocatedAssemblyContexts) {
         var queue = new LinkedList<>(subsystems);
         while (!queue.isEmpty()) {
@@ -140,13 +177,26 @@ public class AllocationImpl extends AllocationImplGen {
                 if (!allocatedAssemblyContexts.contains(ac)) {
                     var encapsulatedComponent = ac.getEncapsulatedComponent__AssemblyContext();
                     if (!(encapsulatedComponent instanceof SubSystem)) {
-                        return false;
+                        return new ValidationResult(String.format("%s %s of %s %s is not allocated.",
+                                AssemblyContext.class.getSimpleName(), getEntityLabel(ac),
+                                SubSystem.class.getSimpleName(), getEntityLabel(subSystem)));
                     }
                     queue.add((SubSystem) encapsulatedComponent);
                 }
             }
         }
-        return true;
+        return new ValidationResult();
+    }
+
+    /**
+     * Generates a label for an {@link Entity} to be used in validation messages.
+     * 
+     * @param entity
+     *            The entity.
+     * @return The label.
+     */
+    protected static String getEntityLabel(Entity entity) {
+        return String.format("%s (%s)", entity.getEntityName(), entity.getId());
     }
 
 }
