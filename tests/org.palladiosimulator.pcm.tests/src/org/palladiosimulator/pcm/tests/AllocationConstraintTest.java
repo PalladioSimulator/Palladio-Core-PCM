@@ -24,7 +24,7 @@ public class AllocationConstraintTest extends ConstraintTestBase {
          */
         var allocation = loadModel("testmodels/Subsystem_Test/allocateSubSystemDirectly.allocation",
                 Allocation.class);
-        assertNoViolation(allocation);
+        assertViolation(allocation);
     }
         
     @Test

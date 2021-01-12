@@ -1,5 +1,6 @@
 package org.palladiosimulator.pcm.allocation.impl;
 
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
@@ -41,6 +42,10 @@ public class AllocationImpl extends AllocationImplGen {
      * @return True if the allocation is correct, False otherwise.
      */
     protected boolean validateEachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce() {
+        if (moreThanOneAllocationForAssemblyContextExists()) {
+            // assembly context allocated more than one time
+            return false;
+        }
         var allocatedAssemblyContexts = getAllocatedAssemblyContexts();
         var unallocatedAssemblyContexts = findUnallocatedAssemblyContexts(allocatedAssemblyContexts);
 
@@ -51,6 +56,21 @@ public class AllocationImpl extends AllocationImplGen {
         }
 
         return testCorrectAllocationOfSubsystems(remainingSubsystems, allocatedAssemblyContexts);
+    }
+
+    /**
+     * Determines if one assembly context has been allocated more than once.
+     * 
+     * @return True if an assembly context has been allocated more than once, false otherwise.
+     */
+    protected boolean moreThanOneAllocationForAssemblyContextExists() {
+        var allocatedAssemblyContexts = new HashSet<>();
+        for (var allocation : getAllocationContexts_Allocation()) {
+            if (!allocatedAssemblyContexts.add(allocation.getAllocation_AllocationContext())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
