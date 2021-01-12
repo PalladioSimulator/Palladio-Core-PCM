@@ -91,4 +91,15 @@ public class AllocationConstraintTest extends ConstraintTestBase {
         assertViolation(allocation);
     }
     
+    @Test
+    public void testSubsystem_MissingComponentAllocation() {
+        /*
+         * System consists of subsystem and component
+         * Allocation allocates the subsystem
+         */
+        var allocation = loadModel("testmodels/Subsystem_Test/subsystemAndComponent_missingComponent.allocation",
+                Allocation.class);
+        assertViolation(allocation);
+    }
+    
 }
