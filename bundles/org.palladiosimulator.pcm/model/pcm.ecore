@@ -187,6 +187,22 @@
           <details key="multipleConnectorsConstraint" value="self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->forAll( c1, c2 | c1 &lt;> c2 implies c1.outerProvidedRole_ProvidedDelegationConnector &lt;> c2.outerProvidedRole_ProvidedDelegationConnector)&#xD;&#xA;"/>
           <details key="multipleConnectorsConstraintForAssemblyConnectors" value="self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::AssemblyConnector)).oclAsType(AssemblyConnector)->forAll( c1, c2 | ( (c1 &lt;> c2) and ( c1.requiringAssemblyContext_AssemblyConnector = c2.requiringAssemblyContext_AssemblyConnector ) ) implies c1.requiredRole_AssemblyConnector &lt;> c2.requiredRole_AssemblyConnector )&#xD;&#xA;"/>
         </eAnnotations>
+        <eOperations name="validateSameSubsystemMustNotBeInstantiatedMoreThanOnce"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+            <details key="invariant" value="true"/>
+          </eAnnotations>
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="body" value="var validationSucceeded = org.palladiosimulator.pcm.core.composition.impl.ComposedStructureValidationUtil.validateSameSubsystemMustNotBeInstantiatedMoreThanOnce(this);&#xA;if (!validationSucceeded &amp;&amp; diagnostics != null) {&#xA;    diagnostics.add&#xA;        (new org.eclipse.emf.common.util.BasicDiagnostic&#xA;            (org.eclipse.emf.common.util.Diagnostic.ERROR,&#xA;                org.palladiosimulator.pcm.core.composition.util.CompositionValidator.DIAGNOSTIC_SOURCE,&#xA;                org.palladiosimulator.pcm.core.composition.util.CompositionValidator.COMPOSED_STRUCTURE__VALIDATE_SAME_SUBSYSTEM_MUST_NOT_BE_INSTANTIATED_MORE_THAN_ONCE,&#xA;                org.eclipse.emf.ecore.plugin.EcorePlugin.INSTANCE.getString(&quot;_UI_GenericConstraint_diagnostic&quot;, new Object[] { &quot;sameSubsystemMustNotBeInstantiatedMoreThanOnce&quot;, org.eclipse.emf.ecore.util.EObjectValidator.getObjectLabel(this, context) }),&#xA;                new Object [] { this }));&#xA;}&#xA;return validationSucceeded;"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+          <eParameters name="context" lowerBound="1">
+            <eGenericType eClassifier="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EMap">
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContexts__ComposedStructure"
             ordered="false" upperBound="-1" eType="#//core/composition/AssemblyContext"
             containment="true" eOpposite="#//core/composition/AssemblyContext/parentStructure__AssemblyContext"/>
