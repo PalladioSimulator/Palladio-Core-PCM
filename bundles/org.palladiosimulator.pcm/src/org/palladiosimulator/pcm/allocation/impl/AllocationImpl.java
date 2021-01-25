@@ -99,9 +99,9 @@ public class AllocationImpl extends AllocationImplGen {
      * @return Test result.
      */
     protected ValidationResult testAtMostOneAllocationForAssemblyContextExists() {
-        var allocatedAssemblyContexts = new HashSet<>();
+        var allocatedAssemblyContexts = new HashSet<AssemblyContext>();
         for (var allocation : getAllocationContexts_Allocation()) {
-            if (!allocatedAssemblyContexts.add(allocation.getAllocation_AllocationContext())) {
+            if (!allocatedAssemblyContexts.add(allocation.getAssemblyContext_AllocationContext())) {
                 return new ValidationResult(
                         String.format("%s %s allocates %s elements more than once.", Allocation.class.getSimpleName(),
                                 getEntityLabel(allocation), AssemblyContext.class.getSimpleName()));
