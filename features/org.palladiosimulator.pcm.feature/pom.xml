@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.palladiosimulator.pcm</groupId>
 		<artifactId>features</artifactId>
-		<version>4.3.0-SNAPSHOT</version>
+		<version>5.0.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.palladiosimulator.pcm.feature</artifactId>
 	<packaging>eclipse-feature</packaging>
