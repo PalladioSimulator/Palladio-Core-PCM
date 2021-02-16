@@ -8,11 +8,5 @@
             name="StoEx Type Inference">
       </client>
    </extension>
-   <extension
-         point="org.palladiosimulator.commons.stoex.parseresultpostprocessor">
-      <class
-            class="de.uka.ipd.sdq.pcm.stochasticexpressions.CharacterisedVariableParseResultPostProcessor">
-      </class>
-   </extension>
 
 </plugin>

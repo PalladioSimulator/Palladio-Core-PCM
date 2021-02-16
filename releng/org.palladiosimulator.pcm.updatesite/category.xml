@@ -1,25 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-	<feature url="features/org.palladiosimulator.pcm.feature_5.0.0.qualifier.jar" id="org.palladiosimulator.pcm.feature" version="5.0.0.qualifier">
-	   <category name="org.palladiosimulator.corefeatures.category"/>
-	</feature>
-	<feature url="features/org.palladiosimulator.pcm.feature.source_5.0.0.qualifier.jar" id="org.palladiosimulator.pcm.feature.source" version="5.0.0.qualifier">
-	   <category name="org.palladiosimulator.corefeatures.source.category"/>
-	</feature>
-	<feature url="features/org.palladiosimulator.pcm.edp2.measuringpoint.feature_5.0.0.qualifier.jar" id="org.palladiosimulator.pcm.edp2.measuringpoint.feature" version="5.0.0.qualifier">
-	   <category name="org.palladiosimulator.corefeatures.category"/>
-	</feature>
-	<feature url="features/org.palladiosimulator.pcm.edp2.measuringpoint.feature.source_5.0.0.qualifier.jar" id="org.palladiosimulator.pcm.edp2.measuringpoint.feature.source" version="5.0.0.qualifier">
-	   <category name="org.palladiosimulator.corefeatures.source.category"/>
-	</feature>
-	<category-def name="org.palladiosimulator.corefeatures.category" label="This category contains all features which belong to a complete installation of the Palladio Bench Core Features">
-	   <description>
-	      This category contains all features which belong to a complete installation of the Palladio Bench Core Features
-	   </description>
-	  </category-def>
-	  <category-def name="org.palladiosimulator.corefeatures.source.category" label="This category contains all features which belong to a complete installation of the Palladio Bench Core Features Source">
-	     <description>
-	        This category contains all features which belong to a complete installation of the Palladio Bench Core Features Source
-	     </description>
-	  </category-def>
+   <feature id="org.palladiosimulator.pcm.feature">
+      <category name="org.palladiosimulator.corefeatures.category"/>
+   </feature>
+   <feature id="org.palladiosimulator.pcm.feature.source">
+      <category name="org.palladiosimulator.corefeatures.source.category"/>
+   </feature>
+   <feature id="org.palladiosimulator.pcm.edp2.measuringpoint.feature">
+      <category name="org.palladiosimulator.corefeatures.category"/>
+   </feature>
+   <feature id="org.palladiosimulator.pcm.edp2.measuringpoint.feature.source">
+      <category name="org.palladiosimulator.corefeatures.source.category"/>
+   </feature>
+   <feature id="org.palladiosimulator.pcm.stoex.ui.feature">
+      <category name="org.palladiosimulator.corefeatures.category"/>
+   </feature>
+   <feature id="org.palladiosimulator.pcm.stoex.ui.feature.source">
+      <category name="org.palladiosimulator.corefeatures.source.category"/>
+   </feature>
+   <category-def name="org.palladiosimulator.corefeatures.category" label="This category contains all features which belong to a complete installation of the Palladio Bench Core Features">
+      <description>
+         This category contains all features which belong to a complete installation of the Palladio Bench Core Features
+      </description>
+   </category-def>
+   <category-def name="org.palladiosimulator.corefeatures.source.category" label="This category contains all features which belong to a complete installation of the Palladio Bench Core Features Source">
+      <description>
+         This category contains all features which belong to a complete installation of the Palladio Bench Core Features Source
+      </description>
+   </category-def>
 </site>
