@@ -5,8 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.palladiosimulator.commons.stoex.api.StoExParser;
-import org.palladiosimulator.commons.stoex.api.StoExParser.SyntaxErrorException;
+import org.palladiosimulator.pcm.stoex.api.StoExParser;
+import org.palladiosimulator.pcm.stoex.api.StoExParser.SyntaxErrorException;
 
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.FunctionLiteral;

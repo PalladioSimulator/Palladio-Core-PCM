@@ -1,0 +1,30 @@
+grammar org.palladiosimulator.pcm.stoex.PCMStoex with org.palladiosimulator.commons.stoex.Stoex
+
+import "http://sdq.ipd.uka.de/StochasticExpressions/2.2" 
+import "platform:/resource/org.palladiosimulator.pcm/model/pcm.ecore#//parameter" as parameter
+
+// define start rule
+@Override 
+expression returns Expression:
+    ifelseExpr;
+
+// replace Variable with CharacterisedVariable
+@Override 
+atom returns Atom:
+    IntLiteral |
+    DoubleLiteral |
+    StringLiteral |
+    BoolLiteral |
+    FunctionLiteral |
+    CharacterisedVariable |
+    Parenthesis |
+    ProbabilityFunctionLiteral;
+
+// a CharacterisedVariable always ends with a fixed characterisation type
+CharacterisedVariable returns parameter::CharacterisedVariable: 
+    id_Variable=AbstractNamedReference '.' characterisationType=VariableCharacterisationType
+;
+    
+enum VariableCharacterisationType returns parameter::VariableCharacterisationType:
+    BYTESIZE='BYTESIZE' | NUMBER_OF_ELEMENTS='NUMBER_OF_ELEMENTS' | STRUCTURE='STRUCTURE' | TYPE='TYPE' | VALUE='VALUE'
+;

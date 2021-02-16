@@ -1,7 +1,7 @@
 package org.palladiosimulator.pcm.core.impl;
 
-import org.palladiosimulator.commons.stoex.api.StoExParser;
-import org.palladiosimulator.commons.stoex.api.StoExParser.SyntaxErrorException;
+import org.palladiosimulator.pcm.stoex.api.StoExParser;
+import org.palladiosimulator.pcm.stoex.api.StoExParser.SyntaxErrorException;
 
 import de.uka.ipd.sdq.stoex.Expression;
 

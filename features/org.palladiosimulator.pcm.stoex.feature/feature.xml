@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.palladiosimulator.pcm.stoex.ui.feature"
+      label="PCM StoEx UI Feature"
+      version="5.0.0.qualifier"
+      plugin="org.palladiosimulator.branding"
+      license-feature="org.palladiosimulator.license"
+      license-feature-version="1.0.0">
+
+   <includes
+         id="org.palladiosimulator.pcm.stoex.serialising.feature"
+         version="0.0.0"/>
+
+   <requires>
+      <import plugin="org.palladiosimulator.branding"/>
+      <import feature="org.palladiosimulator.commons.stoex.ui.feature" version="5.0.0.qualifier"/>
+   </requires>
+
+   <plugin
+         id="org.palladiosimulator.pcm.stoex.ide"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.palladiosimulator.pcm.stoex.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

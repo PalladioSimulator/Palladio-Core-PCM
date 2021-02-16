@@ -6,6 +6,8 @@
 -->
 
 <plugin>
+   <extension-point id="stoex_serialiser_provider" name="Stoex Serialiser Provider" schema="schema/stoex_serialiser_provider.exsd"/>
+   <extension-point id="stoex_parser_provider" name="Stoex Parser Provider" schema="schema/stoex_parser_provider.exsd"/>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
