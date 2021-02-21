@@ -1,4 +1,4 @@
-package org.palladiosimulator.pcm.stoex.ui.dialog.impl;
+package org.palladiosimulator.pcm.stoex.ui.services;
 
 import java.util.UUID;
 
