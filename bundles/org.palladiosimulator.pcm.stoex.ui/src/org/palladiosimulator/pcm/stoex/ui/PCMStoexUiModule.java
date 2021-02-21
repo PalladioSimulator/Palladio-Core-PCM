@@ -5,9 +5,7 @@ package org.palladiosimulator.pcm.stoex.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.editor.embedded.IEditedResourceProvider;
-import org.palladiosimulator.pcm.stoex.ui.dialog.StoExEditDialogFactory;
-import org.palladiosimulator.pcm.stoex.ui.dialog.impl.StoExEditDialogFactoryImpl;
-import org.palladiosimulator.pcm.stoex.ui.dialog.impl.StoexEditedResourceProvider;
+import org.palladiosimulator.pcm.stoex.ui.services.StoexEditedResourceProvider;
 
 /**
  * Use this class to register components to be used within the Eclipse IDE.
@@ -18,10 +16,6 @@ public class PCMStoexUiModule extends AbstractPCMStoexUiModule {
 	public PCMStoexUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
-	
-    public Class<? extends StoExEditDialogFactory> bindStoExEditDialogFactory() {
-        return StoExEditDialogFactoryImpl.class;
-    }
 
     public Class<? extends IEditedResourceProvider> bindIEditedResourceProvider() {
         return StoexEditedResourceProvider.class;

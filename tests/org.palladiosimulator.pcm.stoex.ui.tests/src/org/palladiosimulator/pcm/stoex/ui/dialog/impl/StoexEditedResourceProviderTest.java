@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.palladiosimulator.commons.stoex.StoexStandaloneSetup;
+import org.palladiosimulator.pcm.stoex.ui.services.StoexEditedResourceProvider;
 
 import tools.mdsd.library.standalone.initialization.StandaloneInitializationException;
 import tools.mdsd.library.standalone.initialization.StandaloneInitializerBuilder;

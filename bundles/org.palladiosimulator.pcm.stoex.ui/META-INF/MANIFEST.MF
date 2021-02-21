@@ -5,10 +5,10 @@ Bundle-Name: PCM StoEx UI
 Bundle-Version: 5.0.0.qualifier
 Bundle-SymbolicName: org.palladiosimulator.pcm.stoex.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.xtext.ui,
+Require-Bundle: org.eclipse.xtext.ui;visibility:=reexport,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.ui.codetemplates.ui,
- org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.editors;bundle-version="3.5.0";visibility:=reexport,
  org.eclipse.ui.ide;bundle-version="3.5.0",
  org.eclipse.ui,
  org.eclipse.compare,
@@ -19,8 +19,7 @@ Require-Bundle: org.eclipse.xtext.ui,
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: org.palladiosimulator.pcm.stoex.ui.contentassist,
- org.palladiosimulator.pcm.stoex.ui.dialog,
- org.palladiosimulator.pcm.stoex.ui.dialog.impl,
  org.palladiosimulator.pcm.stoex.ui.internal,
- org.palladiosimulator.pcm.stoex.ui.quickfix
-Bundle-Activator: org.palladiosimulator.pcm.stoex.ui.internal.CustomStoexActivator
+ org.palladiosimulator.pcm.stoex.ui.quickfix,
+ org.palladiosimulator.pcm.stoex.ui.services
+Bundle-Activator: org.palladiosimulator.pcm.stoex.ui.internal.StoexActivator
