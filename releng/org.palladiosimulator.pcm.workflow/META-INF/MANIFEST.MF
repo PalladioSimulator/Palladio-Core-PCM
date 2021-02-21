@@ -23,5 +23,6 @@ Require-Bundle: org.eclipse.xtext.generator,
  de.uka.ipd.sdq.stoex;bundle-version="4.3.0",
  tools.mdsd.ecoreworkflow.umlecoregenerator;bundle-version="1.0.0",
  tools.mdsd.ecoreworkflow.mwe2lib.xtext;bundle-version="0.1.1",
- org.palladiosimulator.commons.stoex;bundle-version="5.0.0"
+ org.palladiosimulator.commons.stoex;bundle-version="5.0.0",
+ de.itemis.xtext.antlr;bundle-version="2.1.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-11
