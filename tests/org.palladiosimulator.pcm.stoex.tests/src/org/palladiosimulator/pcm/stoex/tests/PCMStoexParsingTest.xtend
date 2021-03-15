@@ -27,6 +27,14 @@ class PCMStoexParsingTest {
 	ParseHelper<Expression> parseHelper
 	
     @Test
+    def void parseMax() {
+        val result = parseHelper.parse('''Max ( 35374 * 10 , 60 * 196 * 2375646 + 60 * 196 * 13697006 ) / loopSize.VALUE''')
+        Assertions.assertNotNull(result)
+        val errors = result.eResource.errors
+        Assertions.assertTrue(errors.isEmpty, '''Unexpected errors: «errors.join(", ")»''')
+    }
+	
+    @Test
     def void testCharacterisedVariable() {
         val result = parseHelper.parse('''
             a.VALUE

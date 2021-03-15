@@ -8,7 +8,7 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.palladiosimulator.commons.stoex.StoexStandaloneSetup;
+import org.palladiosimulator.pcm.stoex.PCMStoexStandaloneSetup;
 import org.palladiosimulator.pcm.stoex.ui.services.StoexEditedResourceProvider;
 
 import tools.mdsd.library.standalone.initialization.StandaloneInitializationException;
@@ -21,7 +21,7 @@ public class StoexEditedResourceProviderTest {
     @BeforeAll
     public static void init() throws StandaloneInitializationException {
         StandaloneInitializerBuilder.builder()
-            .addCustomTask(StoexStandaloneSetup::doSetup)
+            .addCustomTask(PCMStoexStandaloneSetup::doSetup)
             .build()
             .init();
     }

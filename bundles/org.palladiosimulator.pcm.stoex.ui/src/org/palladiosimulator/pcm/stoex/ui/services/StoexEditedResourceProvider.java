@@ -13,7 +13,7 @@ public class StoexEditedResourceProvider implements IEditedResourceProvider {
     @Override
     public XtextResource createResource() {
         final var rs = new XtextResourceSet();
-        final var tmpURI = URI.createURI("virtual:/" + UUID.randomUUID().toString() + ".stoex");
+        final var tmpURI = URI.createURI("virtual:/" + UUID.randomUUID().toString() + ".pcmstoex");
         return (XtextResource) rs.createResource(tmpURI);
     }
 

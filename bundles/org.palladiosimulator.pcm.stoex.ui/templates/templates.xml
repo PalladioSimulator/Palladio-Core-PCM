@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+	<template autoinsert="true"
+		context="org.palladiosimulator.commons.stoex.Stoex.ProbabilityMassFunction"
+		deleted="false" description="Creates a boolean random variable"
+		enabled="true" id="boolPMF" name="BoolPMF">BoolPMF[(true;${p})(false;${q})]</template>
+	<template autoinsert="true"
+		context="org.palladiosimulator.commons.stoex.Stoex.BoxedPDF"
+		deleted="false"
+		description="Creates a double random variable (BoxedPDF)"
+		enabled="true" id="doublePDF" name="DoublePDF">DoublePDF[(${x};${p})(${y};${q})(${z};${r})]</template>
+	<template autoinsert="true"
+		context="org.palladiosimulator.commons.stoex.Stoex.ProbabilityMassFunction"
+		deleted="false" description="Creates a double random variable"
+		enabled="true" id="doublePMF" name="DoublePMF">DoublePMF[(${x};${p})(${y};${q})(${z};${r})]</template>
+	<template autoinsert="true"
+		context="org.palladiosimulator.commons.stoex.Stoex.ProbabilityMassFunction"
+		deleted="false" description="Creates an enum random variable"
+		enabled="true" id="enumPMF" name="EnumPMF">EnumPMF[(${x};${p})]</template>
+	<template autoinsert="true"
+		context="org.palladiosimulator.commons.stoex.Stoex.ProbabilityMassFunction"
+		deleted="false" description="Creates an integer random variable"
+		enabled="true" id="intPMF" name="Insert IntPMF">IntPMF[(${x};${p})(${y};${q})(${z};${r})]</template>
+</templates>
