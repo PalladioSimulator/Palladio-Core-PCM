@@ -2,13 +2,15 @@ package org.palladiosimulator.pcm.stoex.api;
 
 import org.palladiosimulator.pcm.stoex.api.impl.StoExSerialiserImpl;
 
+import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.Expression;
 
 /**
  * Service interface for StoEx serialisers.
  * 
  * The serialiser transforms an {@link Expression} to human readable conrete syntax. You can acquire
- * an instance of the parser via OSGi declarative services or use the {@link #createInstance()} method.
+ * an instance of the parser via OSGi declarative services or use the {@link #createInstance()}
+ * method.
  */
 public interface StoExSerialiser {
 
@@ -43,6 +45,23 @@ public interface StoExSerialiser {
      *             expression.
      */
     String serialise(Expression expression) throws SerialisationErrorException;
+
+    /**
+     * Serialises an {@link AbstractNamedReference} to a human readable text.
+     * 
+     * @param reference
+     *            The reference to serialise.
+     * @return The concrete syntax representation of the given reference.
+     * @throws SerialisationErrorException
+     *             In case of an error during serialisation. This is usually caused by an invalid
+     *             reference.
+     * @deprecated Client code should only serialise complete {@link Expression} elements instead of
+     *             subtrees of an expression. The method is only available for backwards
+     *             compatibility and will soon be removed. Consider migrating client code to
+     *             {@link #serialise(Expression)}.
+     */
+    @Deprecated
+    String serialise(AbstractNamedReference reference) throws SerialisationErrorException;
 
     /**
      * Creates an instance of the {@link StoExSerialiser}.
