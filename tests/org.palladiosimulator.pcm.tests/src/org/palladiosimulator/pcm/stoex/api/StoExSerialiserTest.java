@@ -38,4 +38,27 @@ public class StoExSerialiserTest extends TestBase {
         assertThrows(SerialisationErrorException.class, () -> subject.serialise(expression));
     }
 
+    @Test
+    @SuppressWarnings("deprecation")
+    public void testSerialiseValidVariableReference() throws SerialisationErrorException {
+        var subject = StoExSerialiser.createInstance();
+        var reference = StoexFactory.eINSTANCE.createVariableReference();
+        reference.setReferenceName("foo");
+        var serialisedReference = subject.serialise(reference);
+        assertThat(serialisedReference, is(equalTo("foo")));
+    }
+    
+    @Test
+    @SuppressWarnings("deprecation")
+    public void testSerialiseValidNamespaceReference() throws SerialisationErrorException {
+        var subject = StoExSerialiser.createInstance();
+        var reference = StoexFactory.eINSTANCE.createNamespaceReference();
+        reference.setReferenceName("foo");
+        var innerReference = StoexFactory.eINSTANCE.createVariableReference();
+        innerReference.setReferenceName("bar");
+        reference.setInnerReference_NamespaceReference(innerReference);
+        var serialisedReference = subject.serialise(reference);
+        assertThat(serialisedReference, is(equalTo("foo.bar")));
+    }
+    
 }
