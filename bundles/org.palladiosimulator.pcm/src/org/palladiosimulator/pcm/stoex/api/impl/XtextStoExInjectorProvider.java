@@ -3,6 +3,7 @@ package org.palladiosimulator.pcm.stoex.api.impl;
 import javax.inject.Provider;
 
 import org.eclipse.xtext.ISetup;
+import org.palladiosimulator.commons.stoex.api.impl.generic.GenericXtextStoExStandaloneInjectorProvider;
 import org.palladiosimulator.pcm.stoex.PCMStoexStandaloneSetup;
 
 import com.google.inject.Injector;
@@ -15,10 +16,9 @@ import com.google.inject.Injector;
  * 
  * The implementation creates a {@link PCMStoexStandaloneSetup} instance and calls it.
  */
-public class XtextStoExInjectorProvider implements Provider<Injector> {
+public class XtextStoExInjectorProvider extends GenericXtextStoExStandaloneInjectorProvider {
 
     private static final Provider<Injector> INSTANCE = new XtextStoExInjectorProvider();
-    private volatile Injector stoExInjector;
 
     /**
      * Constructor not meant to be called by users.
@@ -37,25 +37,8 @@ public class XtextStoExInjectorProvider implements Provider<Injector> {
     }
 
     @Override
-    public Injector get() {
-        if (stoExInjector == null) {
-            synchronized (this) {
-                if (stoExInjector == null) {
-                    stoExInjector = getStoexSetup().createInjectorAndDoEMFRegistration();
-                }
-            }
-        }
-        return stoExInjector;
-    }
-
-    /**
-     * Finds an {@link ISetup} implementation to get an {@link Injector} instance from.
-     * 
-     * The implementation uses the {@link PCMStoexStandaloneSetup}.
-     * 
-     * @return The {@link ISetup} instance.
-     */
     protected ISetup getStoexSetup() {
         return new PCMStoexStandaloneSetup();
     }
+
 }

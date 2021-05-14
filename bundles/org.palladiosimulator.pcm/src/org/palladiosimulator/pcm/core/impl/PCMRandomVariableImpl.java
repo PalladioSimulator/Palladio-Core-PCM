@@ -1,7 +1,8 @@
 package org.palladiosimulator.pcm.core.impl;
 
+import java.text.ParseException;
+
 import org.palladiosimulator.pcm.stoex.api.StoExParser;
-import org.palladiosimulator.pcm.stoex.api.StoExParser.SyntaxErrorException;
 
 import de.uka.ipd.sdq.stoex.Expression;
 
@@ -37,7 +38,7 @@ public class PCMRandomVariableImpl extends PCMRandomVariableImplGen {
             Expression e;
             try {
                 e = STOEX_PARSER.parse(this.getSpecification());
-            } catch (final SyntaxErrorException e1) {
+            } catch (final ParseException e1) {
                 e = null;
             }
             this.lastParseExpression = e;
