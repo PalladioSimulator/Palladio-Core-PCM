@@ -93,5 +93,13 @@
 <unit id="de.itemis.xtext.antlr.feature.feature.group" version="0.0.0"/>
 <repository location="http://download.itemis.com/updates/releases/2.1.1"/>
 </location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly">
+<unit id="tools.mdsd.junit5utils.feature.feature.group" version="0.0.0"/>
+<repository location="https://updatesite.mdsd.tools/library-junit5utils/nightly/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release">
+<unit id="tools.mdsd.junit5utils.feature.feature.group" version="0.0.0"/>
+<repository location="https://updatesite.mdsd.tools/library-junit5utils/releases/latest/"/>
+</location>
 </locations>
 </target>

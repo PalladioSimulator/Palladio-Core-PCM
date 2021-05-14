@@ -32,9 +32,11 @@ import com.google.inject.Provider;
 
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
+import tools.mdsd.junit5utils.annotations.PluginTestOnly;
 
 @ExtendWith(InjectionExtension.class)
 @InjectWith(PCMStoexUiInjectorProvider.class)
+@PluginTestOnly
 public class PCMStoexProposalProviderTest {
 
     @Inject

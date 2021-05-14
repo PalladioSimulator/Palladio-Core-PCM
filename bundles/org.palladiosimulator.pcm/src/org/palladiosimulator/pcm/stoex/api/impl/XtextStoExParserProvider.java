@@ -1,6 +1,7 @@
 package org.palladiosimulator.pcm.stoex.api.impl;
 
 import org.eclipse.xtext.parser.IParser;
+import org.palladiosimulator.commons.stoex.api.impl.generic.GenericXtextToolProviderImpl;
 import org.palladiosimulator.commons.stoex.parser.antlr.StoexParser;
 
 /**
@@ -8,7 +9,7 @@ import org.palladiosimulator.commons.stoex.parser.antlr.StoexParser;
  * 
  * @see XtextToolProviderImpl
  */
-public class XtextStoExParserProvider extends XtextToolProviderImpl<IParser> {
+public class XtextStoExParserProvider extends GenericXtextToolProviderImpl<IParser> {
 
     private static final String EP_ID_PARSER = "org.palladiosimulator.pcm.stoex_parser_provider";
     private static final String EP_ID_ATTR = "class";
@@ -17,7 +18,7 @@ public class XtextStoExParserProvider extends XtextToolProviderImpl<IParser> {
      * Constructs the provider.
      */
     public XtextStoExParserProvider() {
-        super(IParser.class, EP_ID_PARSER, EP_ID_ATTR);
+        super(XtextStoExInjectorProvider.getInstance(), IParser.class, EP_ID_PARSER, EP_ID_ATTR);
     }
 
 }

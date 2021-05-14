@@ -3,10 +3,11 @@ package de.uka.ipd.sdq.pcm.stochasticexpressions.tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.text.ParseException;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.palladiosimulator.pcm.stoex.api.StoExParser;
-import org.palladiosimulator.pcm.stoex.api.StoExParser.SyntaxErrorException;
 
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.FunctionLiteral;
@@ -24,7 +25,7 @@ public class TypeInferTests {
     }
     
     @Test
-	public void testEnums() throws SyntaxErrorException{
+	public void testEnums() throws ParseException{
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		Expression expression = parser("\"blah\"");
 		infer(expression,visitor);
@@ -36,7 +37,7 @@ public class TypeInferTests {
 	}
 	
     @Test
-	public void testIntPMF() throws SyntaxErrorException{
+	public void testIntPMF() throws ParseException{
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		Expression expression = parser("IntPMF[(1;0.2)(2;0.4)]");
 		infer(expression,visitor);
@@ -44,7 +45,7 @@ public class TypeInferTests {
 	}
 
     @Test
-	public void testNegativeDoublePDF() throws SyntaxErrorException{
+	public void testNegativeDoublePDF() throws ParseException{
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		Expression expression = parser("DoublePDF[(-1.0;0.2)(2.0;0.4)]");
 		infer(expression,visitor);
@@ -52,7 +53,7 @@ public class TypeInferTests {
 	}
 
     @Test
-	public void testDoubleAnyCompare() throws SyntaxErrorException{
+	public void testDoubleAnyCompare() throws ParseException{
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		Expression expression = parser("192.0 / file.STRUCTURE < 1");
 		infer(expression,visitor);
@@ -60,7 +61,7 @@ public class TypeInferTests {
 	}
 
     @Test
-	public void testDoubleAnyCompareIfElse() throws SyntaxErrorException{
+	public void testDoubleAnyCompareIfElse() throws ParseException{
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		IfElseExpression expression = (IfElseExpression) parser("192.0 / file.STRUCTURE < 1 ? 5 : 5");
 		infer(expression,visitor);
@@ -69,7 +70,7 @@ public class TypeInferTests {
 	}
 
     @Test
-	public void testTypeInfererBool() throws SyntaxErrorException {
+	public void testTypeInfererBool() throws ParseException {
 		assertTrue(infer("true AND false") == TypeEnum.BOOL);
 		assertTrue(infer("true OR false") == TypeEnum.BOOL);
 		assertTrue(infer("128.0 < 192 OR false") == TypeEnum.BOOL);
@@ -78,7 +79,7 @@ public class TypeInferTests {
 	}
 	
     @Test
-	public void testsubInfer() throws SyntaxErrorException {
+	public void testsubInfer() throws ParseException {
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		IfElseExpression expression = (IfElseExpression) parser("true ? 1 : 5.5");
 		infer(expression,visitor);
@@ -88,7 +89,7 @@ public class TypeInferTests {
 	}
 
     @Test
-	public void testSubFuncInfer() throws SyntaxErrorException {
+	public void testSubFuncInfer() throws ParseException {
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		FunctionLiteral expression = (FunctionLiteral) parser("Trunc(2.5)");
 		infer(expression,visitor);
@@ -97,7 +98,7 @@ public class TypeInferTests {
 	}	
 
     @Test
-	public void testVariables() throws SyntaxErrorException {
+	public void testVariables() throws ParseException {
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		Expression expression = parser("file.TYPE");
 		infer(expression,visitor);
@@ -105,7 +106,7 @@ public class TypeInferTests {
 	}
 
     @Test
-	public void testParenthesis() throws SyntaxErrorException {
+	public void testParenthesis() throws ParseException {
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		Expression expression = parser("file.BYTESIZE * ( file.TYPE / 192 )");
 		infer(expression,visitor);
@@ -113,31 +114,31 @@ public class TypeInferTests {
 	}
 	
     @Test
-	public void testTenaryOp() throws SyntaxErrorException {
+	public void testTenaryOp() throws ParseException {
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		IfElseExpression expression = (IfElseExpression) parser("file.TYPE > 192 ? file.BYTESIZE * ( file.TYPE / 192 ) : file.BYTESIZE");
 		infer(expression,visitor);
 	}
 	
-	private TypeEnum infer(String expression) throws SyntaxErrorException{
+	private TypeEnum infer(String expression) throws ParseException{
 		return infer(expression, new ExpressionInferTypeVisitor());
 	}
 	
-	private  TypeEnum infer(String expression, ExpressionInferTypeVisitor typeInferer) throws SyntaxErrorException{
+	private  TypeEnum infer(String expression, ExpressionInferTypeVisitor typeInferer) throws ParseException{
 		Expression formula = parser(expression);
 		typeInferer.doSwitch(formula);
 		
 		return typeInferer.getType(formula);
 	}
 
-	private  TypeEnum infer(Expression expression, ExpressionInferTypeVisitor typeInferer) throws SyntaxErrorException{
+	private  TypeEnum infer(Expression expression, ExpressionInferTypeVisitor typeInferer) throws ParseException{
 		Expression formula = expression;
 		typeInferer.doSwitch(formula);
 		
 		return typeInferer.getType(formula);
 	}
 	
-	private Expression parser(String expression) throws SyntaxErrorException {
+	private Expression parser(String expression) throws ParseException {
 		return stoexParser.parse(expression);
 	}
 }

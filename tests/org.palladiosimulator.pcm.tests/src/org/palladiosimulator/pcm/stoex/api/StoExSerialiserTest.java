@@ -6,9 +6,10 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.io.NotSerializableException;
+
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
-import org.palladiosimulator.pcm.stoex.api.StoExSerialiser.SerialisationErrorException;
 import org.palladiosimulator.pcm.stoex.api.impl.TestBase;
 
 import de.uka.ipd.sdq.stoex.StoexFactory;
@@ -23,7 +24,7 @@ public class StoExSerialiserTest extends TestBase {
     }
 
     @Test
-    public void testSerialiseValidExpression() throws SerialisationErrorException {
+    public void testSerialiseValidExpression() throws NotSerializableException {
         var subject = StoExSerialiser.createInstance();
         var expression = StoexFactory.eINSTANCE.createIntLiteral();
         expression.setValue(1);
@@ -35,12 +36,11 @@ public class StoExSerialiserTest extends TestBase {
     public void testSerialiseInvalidExpression() {
         var subject = StoExSerialiser.createInstance();
         var expression = StoexFactory.eINSTANCE.createNegativeExpression();
-        assertThrows(SerialisationErrorException.class, () -> subject.serialise(expression));
+        assertThrows(NotSerializableException.class, () -> subject.serialise(expression));
     }
 
     @Test
-    @SuppressWarnings("deprecation")
-    public void testSerialiseValidVariableReference() throws SerialisationErrorException {
+    public void testSerialiseValidVariableReference() throws NotSerializableException {
         var subject = StoExSerialiser.createInstance();
         var reference = StoexFactory.eINSTANCE.createVariableReference();
         reference.setReferenceName("foo");
@@ -49,8 +49,7 @@ public class StoExSerialiserTest extends TestBase {
     }
     
     @Test
-    @SuppressWarnings("deprecation")
-    public void testSerialiseValidNamespaceReference() throws SerialisationErrorException {
+    public void testSerialiseValidNamespaceReference() throws NotSerializableException {
         var subject = StoExSerialiser.createInstance();
         var reference = StoexFactory.eINSTANCE.createNamespaceReference();
         reference.setReferenceName("foo");
