@@ -42,7 +42,7 @@ public class PCMRandomVariableImpl extends PCMRandomVariableImplGen {
                 e = null;
             }
             this.lastParseExpression = e;
-            this.lastParsedSpecification = new String(this.getSpecification());
+            this.lastParsedSpecification = this.getSpecification();
         }
         return this.lastParseExpression;
     }
