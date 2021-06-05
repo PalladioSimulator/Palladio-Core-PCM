@@ -30,4 +30,19 @@ public class PCMRandomVariableTest extends TestBase {
         assertThat(parsedExpression, is(nullValue()));
     }
 
+    @Test
+    public void testReturnNullOnNullSpecification() {
+        var variable = CoreFactory.eINSTANCE.createPCMRandomVariable();
+        var parsedExpression = variable.getExpression();
+        assertThat(parsedExpression, is(nullValue()));
+    }
+
+    @Test
+    public void testReturnNullOnBlankSpecification() {
+        var variable = CoreFactory.eINSTANCE.createPCMRandomVariable();
+        variable.setSpecification("\t");
+        var parsedExpression = variable.getExpression();
+        assertThat(parsedExpression, is(nullValue()));
+    }
+
 }
