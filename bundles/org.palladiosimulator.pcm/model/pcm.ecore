@@ -617,10 +617,10 @@
         <details key="documentation" value="ClosedWorkload specifies directly the (constant) user population and a think time. It models&#xD;&#xA;that a fixed number of users execute their scenario, then wait (or think) for the specified amount&#xD;&#xA;of think time as a RandomVariable, and then reenter the system executing their scenario again.&#xD;&#xA;Performance analysts use closed workloads to model scenarios, where the number of users is known&#xD;&#xA;(e.g., a fixed number of users in a company)."/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="populationInClosedWorkloadNeedsToBeSpecified thinkTimeInClosedWorkloadNeedsToBeSpecified"/>
+        <details key="constraints" value="populationInClosedWorkloadNeedsToBeGreaterZero thinkTimeInClosedWorkloadNeedsToBeSpecified"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
-        <details key="populationInClosedWorkloadNeedsToBeSpecified" value="not self.population.oclIsUndefined() and self.population &lt;> ''"/>
+        <details key="populationInClosedWorkloadNeedsToBeGreaterZero" value="not self.population.oclIsUndefined() and self.population > 0"/>
         <details key="thinkTimeInClosedWorkloadNeedsToBeSpecified" value="not self.thinkTime_ClosedWorkload.oclIsUndefined() and self.thinkTime_ClosedWorkload.specification &lt;> ''"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="population" ordered="false"
@@ -782,6 +782,12 @@
     <eClassifiers xsi:type="ecore:EClass" name="Repository" eSuperTypes="#//core/entity/Entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The repository entity allows storing components, data types, and interfaces to be fetched and reused for construction of component instances as well as new component types."/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="repositorynotempty"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <details key="repositorynotempty" value="self.components__Repository->size()&lt;>0 and self.dataTypes__Repository->size()&lt;>0 and self.interfaces__Repository->size()&lt;>0 and self.failureTypes__Repository->size()&lt;>0"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryDescription"
           ordered="false" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
