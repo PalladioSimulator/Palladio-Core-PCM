@@ -787,7 +787,7 @@
         <details key="constraints" value="repositorynotempty"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
-        <details key="repositorynotempty" value="self.components__Repository->size()&lt;>0 and self.dataTypes__Repository->size()&lt;>0 and self.interfaces__Repository->size()&lt;>0 and self.failureTypes__Repository->size()&lt;>0"/>
+        <details key="repositorynotempty" value="self.components__Repository->size()&lt;>0 or self.dataTypes__Repository->size()&lt;>0 or self.interfaces__Repository->size()&lt;>0 or self.failureTypes__Repository->size()&lt;>0"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryDescription"
           ordered="false" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
