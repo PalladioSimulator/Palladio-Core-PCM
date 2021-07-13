@@ -6,4 +6,5 @@
   <dataTypes__Repository xsi:type="pcm.repository:PrimitiveDataType" type="DOUBLE"/>
   <dataTypes__Repository xsi:type="pcm.repository:PrimitiveDataType" type="CHAR"/>
   <dataTypes__Repository xsi:type="pcm.repository:PrimitiveDataType" type="BYTE"/>
+  <dataTypes__Repository xsi:type="pcm.repository:PrimitiveDataType" type="LONG"/>
 </pcm.repository:Repository>
