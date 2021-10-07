@@ -5,7 +5,7 @@ import org.palladiosimulator.pcm.repository.BasicComponent;
 import org.palladiosimulator.pcm.repository.RepositoryFactory;
 import org.palladiosimulator.pcm.tests.impl.ConstraintTestBase;
 
-public class InterFaceProvidingEntityTest extends ConstraintTestBase{
+public class InterfaceProvidingEntityTest extends ConstraintTestBase{
 	
 	@Test
 	public void testNoID() {
