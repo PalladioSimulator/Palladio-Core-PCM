@@ -7,8 +7,9 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.junit.jupiter.api.Test;
 import org.palladiosimulator.pcm.seff.SeffFactory;
+import org.palladiosimulator.pcm.tests.impl.ConstraintTestBase;
 
-public class ResourceDemandingTest {
+public class ResourceDemandingTest extends ConstraintTestBase{
 	
 	@Test
 	void noStop() {

@@ -6,9 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.ecore.util.Diagnostician;
 import org.junit.jupiter.api.Test;
+import org.palladiosimulator.pcm.tests.impl.ConstraintTestBase;
 import org.palladiosimulator.pcm.usagemodel.UsagemodelFactory;
 
-public class ScenarioBehaviourTest{
+public class ScenarioBehaviourTest extends ConstraintTestBase{
 	
 	@Test
 	void noStop() {
