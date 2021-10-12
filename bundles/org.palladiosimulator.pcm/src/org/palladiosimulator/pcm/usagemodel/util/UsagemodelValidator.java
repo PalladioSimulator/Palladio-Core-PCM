@@ -43,8 +43,9 @@ public class UsagemodelValidator extends UsagemodelValidatorGen {
 		var seen = new HashSet<AbstractUserAction>();
 		seen.add(action);
 		var nextElement = action.getSuccessor();
-		while (nextElement != null && !(nextElement instanceof Stop) && seen.contains(nextElement)) {
-			nextElement = nextElement.getSuccessor();
+		while (nextElement != null && !(nextElement instanceof Stop) && !seen.contains(nextElement)) {
+			seen.add(nextElement);
+			nextElement = nextElement.getSuccessor();		
 		}
 		return nextElement instanceof Stop;
 	}

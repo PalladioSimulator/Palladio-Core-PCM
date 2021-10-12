@@ -47,7 +47,8 @@ public class SeffValidator extends SeffValidatorGen{
 		var seen = new HashSet<AbstractAction>();
 		seen.add(action);
 		var nextElement = action.getSuccessor_AbstractAction();
-		while(nextElement != null && !(nextElement instanceof StopAction) && seen.contains(nextElement)) {
+		while(nextElement != null && !(nextElement instanceof StopAction) && !seen.contains(nextElement)) {
+			seen.add(nextElement);
 			nextElement = nextElement.getSuccessor_AbstractAction();
 		}
 		return nextElement instanceof StopAction;
