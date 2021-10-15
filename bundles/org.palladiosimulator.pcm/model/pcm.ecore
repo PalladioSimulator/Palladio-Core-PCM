@@ -90,6 +90,12 @@
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="All Entities that provide an Interface are represented by this class. Prominent inheriting classes are all component types, for example.&#xD;&#xA;&#xD;&#xA;Two roles can be identified a software entity can take relative to an interface. Any entity can claim to implement the functionality specified in an interface as well as to request that functionality. This is reflected in the Palladio Component Model by a set of abstract meta-classes giving a conceptual view on interfaces, entities and their relationships. The abstract meta-class InterfaceProvidingEntity is inherited by all entities which can potentially offer interface implementations. Similarly, the meta-class InterfaceRequiringEntity is inherited by all entities which are allowed to request functionality offered by entities providing this functionality.&#xD;&#xA;&#xD;&#xA;See also:&#xD;&#xA;Interface, ProvidedRole"/>
         </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+          <details key="constraints" value="needID"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+          <details key="needID" value="self.id&lt;>null and not (self.id='')"/>
+        </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="providedRoles_InterfaceProvidingEntity"
             ordered="false" upperBound="-1" eType="#//repository/ProvidedRole" containment="true"
             eOpposite="#//repository/ProvidedRole/providingEntity_ProvidedRole"/>
@@ -365,6 +371,16 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="AssemblyInfrastructureConnector"
           eSuperTypes="#//core/composition/Connector">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+          <details key="constraints" value="referencedInfrastructureRequiredRoleNotRequiredByAssemblyContext InfrastructureInterfacesNotCompatible referencedInfrastructureProvidedRoleNotProvidedByAssemblyContext"/>
+        </eAnnotations>
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+          <details key="referencedInfrastructureProvidedRoleNotProvidedByAssemblyContext"
+              value="self.providingAssemblyContext__AssemblyInfrastructureConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole__AssemblyInfrastructureConnector)&#xA;"/>
+          <details key="referencedInfrastructureRequiredRoleNotRequiredByAssemblyContext"
+              value="self.requiringAssemblyContext__AssemblyInfrastructureConnector.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole__AssemblyInfrastructureConnector)"/>
+          <details key="InfrastructureInterfacesNotCompatible" value="&#x9;self.providedRole__AssemblyInfrastructureConnector.providedInterface__InfrastructureProvidedRole = self.requiredRole__AssemblyInfrastructureConnector.requiredInterface__InfrastructureRequiredRole  or self.providedRole__AssemblyInfrastructureConnector.providedInterface__InfrastructureProvidedRole.parentInterfaces__Interface->includes(self.requiredRole__AssemblyInfrastructureConnector.requiredInterface__InfrastructureRequiredRole)"/>
+        </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole__AssemblyInfrastructureConnector"
             ordered="false" lowerBound="1" eType="#//repository/InfrastructureProvidedRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRole__AssemblyInfrastructureConnector"
@@ -508,7 +524,7 @@
         <details key="documentation" value="A ScenarioBehaviour specifies possible sequences of executing services provided by the system.&#xD;&#xA;It contains a set of AbstractUserActions, each referencing a predecessor and successor (except the&#xD;&#xA;first and last action), thereby forming a sequence of actions. &#xD;&#xA;&#xD;&#xA;See the AbstractAction documentation for why it is advantageous&#xD;&#xA;to model control flow in this way, as the same principle is used in the RDSEFF language. &#xD;&#xA;&#xD;&#xA;Concrete user actions of the usage model are:&#xD;&#xA;- Branch&#xD;&#xA;- Loop&#xD;&#xA;- EntryLevelSystemCall&#xD;&#xA;- Delay&#xD;&#xA;- Start &#xD;&#xA;- Stop&#xD;&#xA;&#xD;&#xA;So far, ScenarioBehaviours do not include forks in the user flow (i.e., splitting the flow with an&#xD;&#xA;AND semantic), as it is assumed that users always act sequentially.&#xD;&#xA;&#xD;&#xA;As there are no random variables depending on other variables in the&#xD;&#xA;usage model, there are no equivalent actions to GuardedBranchTransitions or CollectionIteratorActions.&#xD;&#xA;"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="eachuseractionexceptStartandStopmusthaveapredecessorandsuccessor exactlyonestart exactlyonestop"/>
+        <details key="constraints" value="eachuseractionexceptStartandStopmusthaveapredecessorandsuccessor exactlyonestart exactlyonestop routeFromStartToStopAction"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
         <details key="eachuseractionexceptStartandStopmusthaveapredecessorandsuccessor"
@@ -611,10 +627,10 @@
         <details key="documentation" value="ClosedWorkload specifies directly the (constant) user population and a think time. It models&#xD;&#xA;that a fixed number of users execute their scenario, then wait (or think) for the specified amount&#xD;&#xA;of think time as a RandomVariable, and then reenter the system executing their scenario again.&#xD;&#xA;Performance analysts use closed workloads to model scenarios, where the number of users is known&#xD;&#xA;(e.g., a fixed number of users in a company)."/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="populationInClosedWorkloadNeedsToBeSpecified thinkTimeInClosedWorkloadNeedsToBeSpecified"/>
+        <details key="constraints" value="populationInClosedWorkloadNeedsToBeGreaterZero thinkTimeInClosedWorkloadNeedsToBeSpecified"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
-        <details key="populationInClosedWorkloadNeedsToBeSpecified" value="not self.population.oclIsUndefined() and self.population &lt;> ''"/>
+        <details key="populationInClosedWorkloadNeedsToBeGreaterZero" value="not self.population.oclIsUndefined() and self.population > 0"/>
         <details key="thinkTimeInClosedWorkloadNeedsToBeSpecified" value="not self.thinkTime_ClosedWorkload.oclIsUndefined() and self.thinkTime_ClosedWorkload.specification &lt;> ''"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="population" ordered="false"
@@ -658,10 +674,12 @@
         <details key="documentation" value="This entity represents a black-box component implementation. Basic components are atomic building blocks of a software architecture. They cannot be further subdivided into smaller components and are built from scratch, i.e, not by assembling other components. Component developers specify basic components by associating interfaces to them in a providing or requiring role."/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="noSeffTypeUsedTwice"/>
+        <details key="constraints" value="noSeffTypeUsedTwice everyOperationInterfaceMethodsNeedsSEFF everyInfrastructureInterfaceMethodsNeedsSEFF"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
         <details key="noSeffTypeUsedTwice" value="self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |&#xD;&#xA;  p1 &lt;> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID &lt;> p2.seffTypeID))"/>
+        <details key="everyOperationInterfaceMethodsNeedsSEFF" value="self.providedRoles_InterfaceProvidingEntity->selectByType(OperationProvidedRole).providedInterface__OperationProvidedRole.signatures__OperationInterface->forAll(s | self.serviceEffectSpecifications__BasicComponent->select(service | service.describedService__SEFF=s)->size()>0)"/>
+        <details key="everyInfrastructureInterfaceMethodsNeedsSEFF" value="self.providedRoles_InterfaceProvidingEntity->selectByType(InfrastructureProvidedRole).providedInterface__InfrastructureProvidedRole.infrastructureSignatures__InfrastructureInterface->forAll(s | self.serviceEffectSpecifications__BasicComponent->select(service | service.describedService__SEFF=s)->size()>0)"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="serviceEffectSpecifications__BasicComponent"
           ordered="false" upperBound="-1" eType="#//seff/ServiceEffectSpecification"
@@ -777,6 +795,12 @@
     <eClassifiers xsi:type="ecore:EClass" name="Repository" eSuperTypes="#//core/entity/Entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The repository entity allows storing components, data types, and interfaces to be fetched and reused for construction of component instances as well as new component types."/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="repositorynotempty"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <details key="repositorynotempty" value="self.components__Repository->size()&lt;>0 or self.dataTypes__Repository->size()&lt;>0 or self.interfaces__Repository->size()&lt;>0 or self.failureTypes__Repository->size()&lt;>0"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryDescription"
           ordered="false" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -1514,7 +1538,7 @@
         <details key="documentation" value="Models the behaviour of a component service as a sequence of internal actions with resource demands, control flow constructs, and external&#xD;&#xA;calls. Therefore, the class contains a chain of AbstractActions. The emphasis in this type of behaviour is on the resource demands attached to internal actions, which mainly influence performance analysis.&#xD;&#xA;Each action in a ResourceDemandingBehaviour references a predecessor and a successor action. Exceptions are the first and last action, which do not reference a predecessor and a successor respectively. A behaviour is valid, if there is a continuous path from the first to last action, which includes all actions. The chain must not include cycles. To specify control flow branches, loops, or forks, component developers need to use special types of actions, which contain nested inner ResourceDemandingBehaviours to specify the behaviour inside branches or loop bodies. Any ResourceDemandingBehaviour can have at most one starting and one finishing action."/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="exactlyOneStopAction exactlyOneStartAction eachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor"/>
+        <details key="constraints" value="exactlyOneStopAction exactlyOneStartAction eachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor startActionNeedsRouteToStopAction"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
         <details key="exactlyOneStopAction" value="self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() = 1"/>
