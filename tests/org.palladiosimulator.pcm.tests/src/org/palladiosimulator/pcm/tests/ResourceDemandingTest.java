@@ -17,6 +17,8 @@ public class ResourceDemandingTest extends ConstraintTestBase{
 		var start = SeffFactory.eINSTANCE.createStartAction();
 		var internalAction = SeffFactory.eINSTANCE.createInternalAction();
 		
+		
+		
 		start.setSuccessor_AbstractAction(internalAction);
 		
 		behaviour.getSteps_Behaviour().add(start);
@@ -24,7 +26,7 @@ public class ResourceDemandingTest extends ConstraintTestBase{
 		
 		var diagnostic = Diagnostician.INSTANCE.validate(behaviour);
 		assertTrue(diagnostic.getChildren().stream().anyMatch(this::checkForConstraint));
-		
+		assertFalse(behaviour.startActionNeedsRouteToStopAction(null,null));
 	}
 	@Test
 	void WithStop() {
@@ -39,13 +41,13 @@ public class ResourceDemandingTest extends ConstraintTestBase{
 		
 		var diagnostic = Diagnostician.INSTANCE.validate(behaviour);
 		assertFalse(diagnostic.getChildren().stream().anyMatch(this::checkForConstraint));
-		
+		assertTrue(behaviour.startActionNeedsRouteToStopAction(null,null));
 	}
 	
 	
 	
 	private boolean checkForConstraint(Diagnostic diagnostic) {
-		return diagnostic.getMessage().contains("The 'startActionNeedsRouteToStopAction' constraint is violated on");
+		return diagnostic.getMessage().contains("The 'startActionNeedsRouteToStopAction' invariant is violated on");
 	}
 
 }

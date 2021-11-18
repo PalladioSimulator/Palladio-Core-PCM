@@ -524,7 +524,7 @@
         <details key="documentation" value="A ScenarioBehaviour specifies possible sequences of executing services provided by the system.&#xD;&#xA;It contains a set of AbstractUserActions, each referencing a predecessor and successor (except the&#xD;&#xA;first and last action), thereby forming a sequence of actions. &#xD;&#xA;&#xD;&#xA;See the AbstractAction documentation for why it is advantageous&#xD;&#xA;to model control flow in this way, as the same principle is used in the RDSEFF language. &#xD;&#xA;&#xD;&#xA;Concrete user actions of the usage model are:&#xD;&#xA;- Branch&#xD;&#xA;- Loop&#xD;&#xA;- EntryLevelSystemCall&#xD;&#xA;- Delay&#xD;&#xA;- Start &#xD;&#xA;- Stop&#xD;&#xA;&#xD;&#xA;So far, ScenarioBehaviours do not include forks in the user flow (i.e., splitting the flow with an&#xD;&#xA;AND semantic), as it is assumed that users always act sequentially.&#xD;&#xA;&#xD;&#xA;As there are no random variables depending on other variables in the&#xD;&#xA;usage model, there are no equivalent actions to GuardedBranchTransitions or CollectionIteratorActions.&#xD;&#xA;"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="eachuseractionexceptStartandStopmusthaveapredecessorandsuccessor exactlyonestart exactlyonestop routeFromStartToStopAction"/>
+        <details key="constraints" value="eachuseractionexceptStartandStopmusthaveapredecessorandsuccessor exactlyonestart exactlyonestop"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
         <details key="eachuseractionexceptStartandStopmusthaveapredecessorandsuccessor"
@@ -532,6 +532,18 @@
         <details key="exactlyonestart" value="self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Start))->size() = 1"/>
         <details key="exactlyonestop" value="self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Stop))->size() = 1"/>
       </eAnnotations>
+      <eOperations name="routeFromStartToStopAction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+          <details key="invariant" value="true"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+        <eParameters name="context" lowerBound="1">
+          <eGenericType eClassifier="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="usageScenario_SenarioBehaviour"
           ordered="false" eType="#//usagemodel/UsageScenario" eOpposite="#//usagemodel/UsageScenario/scenarioBehaviour_UsageScenario"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="branchTransition_ScenarioBehaviour"
@@ -1538,7 +1550,7 @@
         <details key="documentation" value="Models the behaviour of a component service as a sequence of internal actions with resource demands, control flow constructs, and external&#xD;&#xA;calls. Therefore, the class contains a chain of AbstractActions. The emphasis in this type of behaviour is on the resource demands attached to internal actions, which mainly influence performance analysis.&#xD;&#xA;Each action in a ResourceDemandingBehaviour references a predecessor and a successor action. Exceptions are the first and last action, which do not reference a predecessor and a successor respectively. A behaviour is valid, if there is a continuous path from the first to last action, which includes all actions. The chain must not include cycles. To specify control flow branches, loops, or forks, component developers need to use special types of actions, which contain nested inner ResourceDemandingBehaviours to specify the behaviour inside branches or loop bodies. Any ResourceDemandingBehaviour can have at most one starting and one finishing action."/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="exactlyOneStopAction exactlyOneStartAction eachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor startActionNeedsRouteToStopAction"/>
+        <details key="constraints" value="exactlyOneStopAction exactlyOneStartAction eachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
         <details key="exactlyOneStopAction" value="self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() = 1"/>
@@ -1546,6 +1558,18 @@
         <details key="eachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor"
             value="not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined()) and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined())"/>
       </eAnnotations>
+      <eOperations name="startActionNeedsRouteToStopAction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+          <details key="invariant" value="true"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+        <eParameters name="context" lowerBound="1">
+          <eGenericType eClassifier="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="abstractLoopAction_ResourceDemandingBehaviour"
           ordered="false" eType="#//seff/AbstractLoopAction" eOpposite="#//seff/AbstractLoopAction/bodyBehaviour_Loop"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="abstractBranchTransition_ResourceDemandingBehaviour"
