@@ -39,6 +39,8 @@
   <genPackages xsi:type="genmodel:GenPackage" prefix="Pcm" basePackage="org.palladiosimulator"
       resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
       childCreationExtenders="true" ecorePackage="pcm.ecore#/">
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//PCMBaseClass"/>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//PCMClass"/>
     <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//DummyClass"/>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Core" basePackage="org.palladiosimulator.pcm"
         resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
@@ -363,6 +365,10 @@
             createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/ScenarioBehaviour/loop_ScenarioBehaviour"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
             createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/ScenarioBehaviour/actions_ScenarioBehaviour"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//usagemodel/ScenarioBehaviour/routeFromStartToStopAction">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//usagemodel/ScenarioBehaviour/routeFromStartToStopAction/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//usagemodel/ScenarioBehaviour/routeFromStartToStopAction/context"/>
+        </genOperations>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//usagemodel/BranchTransition">
         <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//usagemodel/BranchTransition/branchProbability"/>
@@ -498,6 +504,9 @@
             createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Interface/requiredCharacterisations"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
             createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/Interface/repository__Interface"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//repository/Interface/isAssignableFrom">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//repository/Interface/isAssignableFrom/otherInterface"/>
+        </genOperations>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//repository/RequiredCharacterisation">
         <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/RequiredCharacterisation/type"/>
@@ -796,6 +805,10 @@
             createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//seff/ResourceDemandingBehaviour/abstractBranchTransition_ResourceDemandingBehaviour"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
             createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//seff/ResourceDemandingBehaviour/startActionNeedsRouteToStopAction">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/ResourceDemandingBehaviour/startActionNeedsRouteToStopAction/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/ResourceDemandingBehaviour/startActionNeedsRouteToStopAction/context"/>
+        </genOperations>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//seff/AbstractLoopAction"
           labelFeature="#//pcm/core/entity/NamedElement/entityName">
