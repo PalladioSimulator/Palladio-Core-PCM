@@ -81,13 +81,13 @@
 <unit id="org.hamcrest.core" version="0.0.0"/>
 <unit id="org.hamcrest.library" version="0.0.0"/>
 <unit id="org.eclipse.xtext.sdk.feature.group" version="0.0.0"/>
-<repository location="http://download.eclipse.org/releases/2021-09/202109151000/"/>
+<repository location="https://download.eclipse.org/releases/2021-12/202112081000/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
 <unit id="org.mockito" version="0.0.0"/>
 <unit id="net.bytebuddy.byte-buddy" version="0.0.0"/>
 <unit id="org.objenesis" version="0.0.0"/>
-<repository location="http://download.eclipse.org/tools/orbit/downloads/2021-09/"/>
+<repository location="https://download.eclipse.org/tools/orbit/downloads/2021-12/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
 <unit id="de.itemis.xtext.antlr.feature.feature.group" version="0.0.0"/>
