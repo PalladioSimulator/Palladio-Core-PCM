@@ -63,18 +63,39 @@
 <unit id="org.palladiosimulator.mdsdprofiles.feature.feature.group" version="0.0.0"/>
 <repository location="https://updatesite.palladio-simulator.com/palladio-supporting-mdsdprofiles/nightly/"/>
 </location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release">
 <unit id="tools.mdsd.ecoreworkflow.umlecoregenerator.feature.feature.group" version="0.0.0"/>
 <unit id="tools.mdsd.ecoreworkflow.mwe2lib.xtext.feature.feature.group" version="0.0.0"/>
 <repository location="https://updatesite.mdsd.tools/ecore-workflow/releases/latest/"/>
 </location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly">
+<unit id="tools.mdsd.ecoreworkflow.umlecoregenerator.feature.feature.group" version="0.0.0"/>
+<unit id="tools.mdsd.ecoreworkflow.mwe2lib.xtext.feature.feature.group" version="0.0.0"/>
+<repository location="https://updatesite.mdsd.tools/ecore-workflow/nightly/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release">
 <unit id="tools.mdsd.library.standalone.initialization.core.feature.feature.group" version="0.0.0"/>
 <repository location="https://updatesite.mdsd.tools/library-standaloneinitialization/releases/latest/"/>
 </location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly">
+<unit id="tools.mdsd.library.standalone.initialization.core.feature.feature.group" version="0.0.0"/>
+<repository location="https://updatesite.mdsd.tools/library-standaloneinitialization/nightly/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release">
+<unit id="tools.mdsd.junit5utils.feature.feature.group" version="0.0.0"/>
+<repository location="https://updatesite.mdsd.tools/library-junit5utils/releases/latest/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly">
+<unit id="tools.mdsd.junit5utils.feature.feature.group" version="0.0.0"/>
+<repository location="https://updatesite.mdsd.tools/library-junit5utils/nightly/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release">
 <unit id="tools.mdsd.license.epl2.feature.group" version="0.0.0"/>
 <repository location="https://updatesite.mdsd.tools/build-licensefeature/releases/1.0.0/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly">
+<unit id="tools.mdsd.license.epl2.feature.group" version="0.0.0"/>
+<repository location="https://updatesite.mdsd.tools/build-licensefeature/nightly/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
 <unit id="org.eclipse.gmf.runtime.notation.feature.group" version="0.0.0"/>
@@ -92,14 +113,6 @@
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit">
 <unit id="de.itemis.xtext.antlr.feature.feature.group" version="0.0.0"/>
 <repository location="http://download.itemis.com/updates/releases/2.1.1"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly">
-<unit id="tools.mdsd.junit5utils.feature.feature.group" version="0.0.0"/>
-<repository location="https://updatesite.mdsd.tools/library-junit5utils/nightly/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release">
-<unit id="tools.mdsd.junit5utils.feature.feature.group" version="0.0.0"/>
-<repository location="https://updatesite.mdsd.tools/library-junit5utils/releases/latest/"/>
 </location>
 </locations>
 </target>
