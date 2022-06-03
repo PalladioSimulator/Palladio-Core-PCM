@@ -33,9 +33,9 @@
     <details key="INVOCATION_DELEGATES" value="IGNORE"/>
   </genAnnotations>
   <foreignModel>pcm.ecore</foreignModel>
-  <modelPluginVariables>OCL=org.eclipse.ocl</modelPluginVariables>
-  <modelPluginVariables>EMF_OCL=org.eclipse.ocl.ecore</modelPluginVariables>
   <modelPluginVariables>CDO=org.eclipse.emf.cdo</modelPluginVariables>
+  <modelPluginVariables>OCL=org.eclipse.ocl.lpg</modelPluginVariables>
+  <modelPluginVariables>EMF_OCL=org.eclipse.ocl.ecore</modelPluginVariables>
   <genPackages xsi:type="genmodel:GenPackage" prefix="Pcm" basePackage="org.palladiosimulator"
       resource="XMI" disposableProviderFactory="true" extensibleProviderFactory="true"
       childCreationExtenders="true" ecorePackage="pcm.ecore#/">
