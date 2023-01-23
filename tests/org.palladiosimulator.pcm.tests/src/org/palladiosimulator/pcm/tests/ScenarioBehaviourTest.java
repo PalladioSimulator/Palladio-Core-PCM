@@ -25,6 +25,7 @@ public class ScenarioBehaviourTest extends ConstraintTestBase{
 		var diagnostic = Diagnostician.INSTANCE.validate(scenario);
 		
 		assertTrue(diagnostic.getChildren().stream().anyMatch(this::checkForConstraint));
+		assertFalse(scenario.routeFromStartToStopAction(null, null));
 		
 	}
 	
@@ -42,11 +43,12 @@ public class ScenarioBehaviourTest extends ConstraintTestBase{
 		var diagnostic = Diagnostician.INSTANCE.validate(scenario);
 		
 		assertFalse(diagnostic.getChildren().stream().anyMatch(this::checkForConstraint));
+		assertTrue(scenario.routeFromStartToStopAction(null, null));
 		
 	}
 	
 	private boolean checkForConstraint(Diagnostic diagnostic) {
-		return diagnostic.getMessage().contains("The 'routeFromStartToStopAction' constraint is violated on");
+		return diagnostic.getMessage().contains("The 'routeFromStartToStopAction' invariant is violated on");
 	}
 
 }

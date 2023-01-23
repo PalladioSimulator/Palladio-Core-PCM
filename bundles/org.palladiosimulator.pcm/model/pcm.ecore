@@ -5,23 +5,29 @@
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="This package is the root package of all packages of the Palladio Component Model (PCM)."/>
   </eAnnotations>
-  <eClassifiers xsi:type="ecore:EClass" name="DummyClass"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PCMBaseClass" abstract="true" eSuperTypes="#//PCMClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="Common base for all EClass instances of PCM.&#xA;&#xA;The sole purpose of the class is to represent the inheritance relationship&#xA;to EObject. Making inheritance from EObject explicit is necessary to safely&#xA;cast instances of PCM meta classes to EObject in reflective scenarios such&#xA;as OCL evaluations.&#xA;&#xA;It is important to not define EObject as first super type. If doing so, EObject&#xA;will always be used as super class during the code generation. This ignores&#xA;the configured superclass in the genmodel. By referring to an empty EClass&#xA;in the first place, the super class defined in the genmodel is used."/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PCMClass" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DummyClass" eSuperTypes="#//PCMBaseClass"/>
   <eSubpackages name="core" nsURI="http://palladiosimulator.org/PalladioComponentModel/Core/5.2"
       nsPrefix="core">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="This package contains the PCM Core meta-classes used throughout the PCM: entities carrying a  globally unique ID (GUID), an abstract model for entities which provide and require interfaces, and  an abstract model to describe entities composed from other entities."/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG"/>
     </eAnnotations>
-    <eClassifiers xsi:type="ecore:EClass" name="PCMRandomVariable" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable">
+    <eClassifiers xsi:type="ecore:EClass" name="PCMRandomVariable" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable #//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Random variables are used to describe user and component behaviour. They allow not only constant values (e.g., 3 loop iterations), but also probabilistic values (e.g., 2 loop iterations with a probability of 0.4 and 3 loop iterations with a probability of 0.6). They are well-suited for capturing uncertainty when modelling systems during early development stages. Examples where developers may use random variables are:&#xD;&#xA;- Characterisations of Input Parameters: Describes the QoS relevant characteristics of parameters of component services.&#xD;&#xA;- Inter-Arrival Time: Describes how much time passes between the arrival of two subsequent users.&#xD;&#xA;- Think Time: Describes how much time passes between the execution of a user scenario and the start of the next execution of this scenario.&#xD;&#xA;- Loop Iteration Count: Describes the number of repetitions of a loop.&#xD;&#xA;- Guarded Branch Transitions: Used to determine whether to conditionally execute a certain behaviour.&#xD;&#xA;&#xD;&#xA;PCMRandomVariable extends RandomVariable in a way, that the only type of variables available in the PCMRandomVariable are references to variable characterisations like a.NUMBER_OF_ELEMENTS. The corresponding editors ensure that the user can enter only valid expressions."/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="specificationMustNotBeNULL"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="specificationMustNotBeNULL" value="not self.specification.oclIsUndefined() and self.specification &lt;> ''"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="closedWorkload_PCMRandomVariable"
@@ -70,7 +76,7 @@
         <details key="documentation" value="This  set of abstract meta-classes gives a conceptual view on interfaces, entities and their relationships: Two roles can be identified a software entity can take relative to an interface. Any entity can claim to implement the functionality specified in an interface as well as to request that functionality. &#xD;&#xA;&#xD;&#xA;Base of the inheritance hierarchy are Identifier and NamedElement, both of which Entity and all inheriting classes are derived from. &#xD;&#xA;&#xD;&#xA;The relationship of Entities and Interfaces is described with the three meta classes InterfaceProvidingEntity, InterfaceRequiringEntity, and InterfaceProvidingRequiringEntity. The abstract meta-class InterfaceProvidingEntity is inherited by all entities which can potentially offer interface implementations. Similarly, the meta-class InterfaceRequiringEntity is inherited by all entities which are allowed to request functionality offer by entities providing this functionality. InterfaceProvidingRequiringEntity inherits from both of them and thus combines their properties. "/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+        <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG"/>
       </eAnnotations>
       <eClassifiers xsi:type="ecore:EClass" name="ResourceProvidedRole" eSuperTypes="#//repository/Role">
         <eStructuralFeatures xsi:type="ecore:EReference" name="resourceInterfaceProvidingEntity__ResourceProvidedRole"
@@ -93,7 +99,7 @@
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
           <details key="constraints" value="needID"/>
         </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
           <details key="needID" value="self.id&lt;>null and not (self.id='')"/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="providedRoles_InterfaceProvidingEntity"
@@ -136,14 +142,14 @@
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="The ComposedProvidingRequiringEntity combines the properties of an InterfaceProvidingRequiringEntity and a ComposedStructure. It is inherited by all classes that, on the one hand,  claim to implement the functionality specified in an interface as well as to request that functionality, and, on the other hand, are composed out of some inner entities. &#xD;&#xA;&#xD;&#xA;Valid ComposedProvidingRequiringEntities need to have their ProvidedRoles bound to ProvidedRoles of the contained entities.  &#xD;&#xA;&#xD;&#xA;Prominent examples are System, SubSystem, and CompositeComponents&#xD;&#xA;&#xD;&#xA;TODO/FIXME: The distinction between ComposedStructure and ComposedProvidingRequiringStructure does not make sense at the moment, because the ComposedStructure already talks about inner provided / required delegation connectors, which only make sense if there are outer roles for interfaces -> ComposedProvidingRequiringStructure. IDEA: Move the delegation connector attributes to ComposedProvidingRequiringStructure. I'm not sure about the assembly connectors. SEE ALSO: ComposedStructure &#xD;&#xA;However, as AssemblyContexts of ComposedStructure always contain InterfaceProvidingRequiringEntities at the moment, the above might not help... and we may just want to merge the meta classes. --Anne"/>
         </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
           <details key="operationProvidedRolesMustBeBound" value="self.providedRoles_InterfaceProvidingEntity->selectByKind(pcm::repository::OperationProvidedRole)->forAll(role|self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->exists(connector|connector.outerProvidedRole_ProvidedDelegationConnector = role))"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
           <details key="constraints" value="operationProvidedRolesMustBeBound"/>
         </eAnnotations>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+      <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="#//PCMBaseClass">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="The NamedElement meta class is inherited by all PCM classes whose instances bear a name. Thus, the semantic of &quot;bearing a name&quot; is given to all inheriting classes, so that the name can be used in visualisations, for example. "/>
         </eAnnotations>
@@ -165,7 +171,7 @@
         <details key="documentation" value="A package holding all composable entities"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+        <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG"/>
       </eAnnotations>
       <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"
           eSuperTypes="#//core/composition/Connector">
@@ -189,7 +195,7 @@
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
           <details key="constraints" value="multipleConnectorsConstraint multipleConnectorsConstraintForAssemblyConnectors"/>
         </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
           <details key="multipleConnectorsConstraint" value="self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::ProvidedDelegationConnector)).oclAsType(pcm::core::composition::ProvidedDelegationConnector)->forAll( c1, c2 | c1 &lt;> c2 implies c1.outerProvidedRole_ProvidedDelegationConnector &lt;> c2.outerProvidedRole_ProvidedDelegationConnector)&#xD;&#xA;"/>
           <details key="multipleConnectorsConstraintForAssemblyConnectors" value="self.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::AssemblyConnector)).oclAsType(AssemblyConnector)->forAll( c1, c2 | ( (c1 &lt;> c2) and ( c1.requiringAssemblyContext_AssemblyConnector = c2.requiringAssemblyContext_AssemblyConnector ) ) implies c1.requiredRole_AssemblyConnector &lt;> c2.requiredRole_AssemblyConnector )&#xD;&#xA;"/>
         </eAnnotations>
@@ -222,7 +228,8 @@
             ordered="false" upperBound="-1" eType="#//core/composition/Connector"
             containment="true" eOpposite="#//core/composition/Connector/parentStructure__Connector"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="ResourceRequiredDelegationConnector">
+      <eClassifiers xsi:type="ecore:EClass" name="ResourceRequiredDelegationConnector"
+          eSuperTypes="#//PCMBaseClass">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="TODO Michael Hauck"/>
         </eAnnotations>
@@ -274,7 +281,7 @@
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
           <details key="constraints" value="componentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame providedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure"/>
         </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
           <details key="componentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame"
               value="self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.assemblyContext_ProvidedDelegationConnector.encapsulatedComponent__AssemblyContext"/>
           <details key="providedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure"
@@ -294,7 +301,7 @@
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
           <details key="constraints" value="componentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame requiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector requiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure"/>
         </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
           <details key="componentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame"
               value="self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.assemblyContext_RequiredDelegationConnector.encapsulatedComponent__AssemblyContext"/>
           <details key="requiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector"
@@ -316,7 +323,7 @@
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
           <details key="constraints" value="assemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch assemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch assemblyConnectorsReferencedInterfacesMustMatch"/>
         </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
           <details key="assemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch"
               value="self.providingAssemblyContext_AssemblyConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole_AssemblyConnector)&#xD;&#xA;&#xD;&#xA;"/>
           <details key="assemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch"
@@ -374,7 +381,7 @@
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
           <details key="constraints" value="referencedInfrastructureRequiredRoleNotRequiredByAssemblyContext InfrastructureInterfacesNotCompatible referencedInfrastructureProvidedRoleNotProvidedByAssemblyContext"/>
         </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
           <details key="referencedInfrastructureProvidedRoleNotProvidedByAssemblyContext"
               value="self.providingAssemblyContext__AssemblyInfrastructureConnector.encapsulatedComponent__AssemblyContext.providedRoles_InterfaceProvidingEntity->includes(self.providedRole__AssemblyInfrastructureConnector)&#xA;"/>
           <details key="referencedInfrastructureRequiredRoleNotRequiredByAssemblyContext"
@@ -438,9 +445,9 @@
       <details key="documentation" value="TODO:&amp;nbsp;Put&amp;nbsp;the&amp;nbsp;3.2.2&amp;nbsp;Context&amp;nbsp;Model&amp;nbsp;chapter&amp;nbsp;of&amp;nbsp;Steffens&amp;nbsp;Diss&amp;nbsp;somewhere&amp;nbsp;so&amp;nbsp;that&amp;nbsp;it&amp;nbsp;can&amp;nbsp;be&amp;nbsp;referred&amp;nbsp;to&amp;nbsp;here.&amp;nbsp;It&amp;nbsp;provides&amp;nbsp;an&amp;nbsp;important&amp;nbsp;overview&amp;nbsp;on&amp;nbsp;why&amp;nbsp;we&amp;nbsp;have&amp;nbsp;the&amp;nbsp;usage&amp;nbsp;model.&amp;nbsp;&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;TODO:&amp;nbsp;Include&amp;nbsp;the&amp;nbsp;example&amp;nbsp;from&amp;nbsp;Heiko's&amp;nbsp;dissertation&amp;nbsp;here?&amp;nbsp;But&amp;nbsp;how&amp;nbsp;to&amp;nbsp;include&amp;nbsp;the&amp;nbsp;picture?&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;The&amp;nbsp;usage&amp;nbsp;of&amp;nbsp;a&amp;nbsp;software&amp;nbsp;system&amp;nbsp;by&amp;nbsp;external&amp;nbsp;clients&amp;nbsp;has&amp;nbsp;to&amp;nbsp;be&amp;nbsp;captured&amp;nbsp;in&amp;nbsp;models&amp;nbsp;to&amp;nbsp;enable&amp;nbsp;model-driven&lt;br />&#xD;&#xA;performance&amp;nbsp;predictions.&amp;nbsp;Here,&amp;nbsp;the&amp;nbsp;term&amp;nbsp;usage&amp;nbsp;refers&amp;nbsp;to&amp;nbsp;workload&amp;nbsp;(i.e.,&amp;nbsp;the&amp;nbsp;number&amp;nbsp;of&amp;nbsp;users&amp;nbsp;concurrently&lt;br />&#xD;&#xA;present&amp;nbsp;in&amp;nbsp;the&amp;nbsp;system),&amp;nbsp;usage&amp;nbsp;scenarios&amp;nbsp;(i.e.,&amp;nbsp;possible&amp;nbsp;sequences&amp;nbsp;of&amp;nbsp;invoking&amp;nbsp;services&amp;nbsp;at&amp;nbsp;system&amp;nbsp;provided&lt;br />&#xD;&#xA;roles),&amp;nbsp;waiting&amp;nbsp;delays&amp;nbsp;between&amp;nbsp;service&amp;nbsp;invocations,&amp;nbsp;and&amp;nbsp;values&amp;nbsp;for&amp;nbsp;parameters&amp;nbsp;and&amp;nbsp;component&amp;nbsp;configurations.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;This&amp;nbsp;package&amp;nbsp;contains&amp;nbsp;the&amp;nbsp;usage&amp;nbsp;specification&amp;nbsp;language,&amp;nbsp;which&amp;nbsp;(i)&amp;nbsp;provides&amp;nbsp;more&amp;nbsp;expressiveness&amp;nbsp;for&lt;br />&#xD;&#xA;characterising&amp;nbsp;parameter&amp;nbsp;instances&amp;nbsp;than&amp;nbsp;previous&amp;nbsp;models,&amp;nbsp;but&amp;nbsp;(ii)&amp;nbsp;at&amp;nbsp;the&amp;nbsp;same&amp;nbsp;time&amp;nbsp;is&amp;nbsp;restricted&amp;nbsp;to&amp;nbsp;concepts&lt;br />&#xD;&#xA;familiar&amp;nbsp;to&amp;nbsp;domain&amp;nbsp;experts&amp;nbsp;to&amp;nbsp;create&amp;nbsp;a&amp;nbsp;domain&amp;nbsp;specific&amp;nbsp;language.&amp;nbsp;The&amp;nbsp;language&amp;nbsp;is&amp;nbsp;called&amp;nbsp;PCM&amp;nbsp;usage&lt;br />&#xD;&#xA;model.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;The&amp;nbsp;UsageModel&amp;nbsp;specifies&amp;nbsp;the&amp;nbsp;whole&amp;nbsp;user&amp;nbsp;interaction&amp;nbsp;with&amp;nbsp;a&amp;nbsp;system&amp;nbsp;from&amp;nbsp;a&amp;nbsp;performance&amp;nbsp;viewpoint.&amp;nbsp;It&amp;nbsp;consists&amp;nbsp;of&amp;nbsp;a&amp;nbsp;number&amp;nbsp;of&amp;nbsp;concurrently&amp;nbsp;executed&amp;nbsp;UsageScenarios&amp;nbsp;and&amp;nbsp;a&amp;nbsp;set&amp;nbsp;of&amp;nbsp;global&amp;nbsp;UserData&amp;nbsp;specifications.&amp;nbsp;Each&amp;nbsp;UsageScenario&amp;nbsp;includes&amp;nbsp;a&amp;nbsp;workload&amp;nbsp;and&amp;nbsp;a&amp;nbsp;scenario&amp;nbsp;behaviour.&amp;nbsp;The&amp;nbsp;concepts&amp;nbsp;are&amp;nbsp;explained&amp;nbsp;for&amp;nbsp;the&amp;nbsp;single&amp;nbsp;meta&amp;nbsp;classes&amp;nbsp;included&amp;nbsp;in&amp;nbsp;this&amp;nbsp;package.&amp;nbsp;&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;Note&amp;nbsp;that&amp;nbsp;UsageModels&amp;nbsp;are&amp;nbsp;completely&amp;nbsp;decoupled&amp;nbsp;from&amp;nbsp;the&amp;nbsp;inner&amp;nbsp;contents&amp;nbsp;of&amp;nbsp;a&amp;nbsp;system,&amp;nbsp;which&amp;nbsp;consists&amp;nbsp;of&amp;nbsp;an&amp;nbsp;assembly&amp;nbsp;and&amp;nbsp;a&amp;nbsp;connected&amp;nbsp;resource&amp;nbsp;environment.&amp;nbsp;The&amp;nbsp;UsageModel&amp;nbsp;only&amp;nbsp;refers&amp;nbsp;to&amp;nbsp;services&amp;nbsp;of&amp;nbsp;system&amp;nbsp;provided&amp;nbsp;roles.&amp;nbsp;It&amp;nbsp;regards&amp;nbsp;the&amp;nbsp;component&lt;br />&#xD;&#xA;architecture&amp;nbsp;(i.e.,&amp;nbsp;the&amp;nbsp;assembly)&amp;nbsp;as&amp;nbsp;well&amp;nbsp;as&amp;nbsp;used&amp;nbsp;resources&amp;nbsp;(i.e.,&amp;nbsp;hardware&amp;nbsp;devices&amp;nbsp;such&amp;nbsp;as&amp;nbsp;CPUs&lt;br />&#xD;&#xA;and&amp;nbsp;harddisks&amp;nbsp;or&amp;nbsp;software&amp;nbsp;entities&amp;nbsp;such&amp;nbsp;as&amp;nbsp;threads,&amp;nbsp;semaphores)&amp;nbsp;as&amp;nbsp;hidden&amp;nbsp;in&amp;nbsp;the&amp;nbsp;system.&amp;nbsp;Thus,&amp;nbsp;the&amp;nbsp;UsageModel&amp;nbsp;only&amp;nbsp;captures&amp;nbsp;information&amp;nbsp;that&amp;nbsp;is&amp;nbsp;available&amp;nbsp;to&amp;nbsp;domain&amp;nbsp;experts&amp;nbsp;and&amp;nbsp;can&amp;nbsp;be&amp;nbsp;changed&amp;nbsp;by&amp;nbsp;them.&amp;nbsp;Resource&lt;br />&#xD;&#xA;environment&amp;nbsp;and&amp;nbsp;component&amp;nbsp;architecture&amp;nbsp;may&amp;nbsp;be&amp;nbsp;changed&amp;nbsp;independently&amp;nbsp;from&amp;nbsp;the&amp;nbsp;UsageModel&amp;nbsp;&lt;br />&#xD;&#xA;by&amp;nbsp;system&amp;nbsp;architects,&amp;nbsp;if&amp;nbsp;the&amp;nbsp;system's&amp;nbsp;ProvidedRoles&amp;nbsp;remain&amp;nbsp;unchanged.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;Discussion:&amp;nbsp;&lt;br />&#xD;&#xA;Notice,&amp;nbsp;that&amp;nbsp;unlike&amp;nbsp;other&amp;nbsp;behavioural&amp;nbsp;description&amp;nbsp;languages&amp;nbsp;for&amp;nbsp;performance&amp;nbsp;prediction&amp;nbsp;(e.g.,&amp;nbsp;[162,&amp;nbsp;187,&lt;br />&#xD;&#xA;78]),&amp;nbsp;the&amp;nbsp;PCM&amp;nbsp;usage&amp;nbsp;model&amp;nbsp;specifically&amp;nbsp;models&amp;nbsp;user&amp;nbsp;behaviour&amp;nbsp;and&amp;nbsp;for&amp;nbsp;example&amp;nbsp;does&amp;nbsp;not&amp;nbsp;refer&amp;nbsp;to&amp;nbsp;resources.&lt;br />&#xD;&#xA;Other&amp;nbsp;performance&amp;nbsp;meta-models&amp;nbsp;mix&amp;nbsp;up&amp;nbsp;the&amp;nbsp;specification&amp;nbsp;of&amp;nbsp;user&amp;nbsp;behaviour,&amp;nbsp;component&amp;nbsp;behaviour,&amp;nbsp;and&lt;br />&#xD;&#xA;resources,&amp;nbsp;so&amp;nbsp;that&amp;nbsp;a&amp;nbsp;single&amp;nbsp;developer&amp;nbsp;role&amp;nbsp;(i.e.,&amp;nbsp;a&amp;nbsp;performance&amp;nbsp;analyst)&amp;nbsp;needs&amp;nbsp;to&amp;nbsp;specify&amp;nbsp;the&amp;nbsp;performance&lt;br />&#xD;&#xA;model.&amp;nbsp;Opposed&amp;nbsp;to&amp;nbsp;this,&amp;nbsp;the&amp;nbsp;PCM&amp;nbsp;targets&amp;nbsp;a&amp;nbsp;division&amp;nbsp;of&amp;nbsp;work&amp;nbsp;for&amp;nbsp;multiple&amp;nbsp;developer&amp;nbsp;roles&amp;nbsp;(cf.&amp;nbsp;Section&amp;nbsp;3.1&amp;nbsp;of&amp;nbsp;Heiko&amp;nbsp;Koziolek's&amp;nbsp;dissertation).&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;Furthermore,&amp;nbsp;none&amp;nbsp;of&amp;nbsp;the&amp;nbsp;other&amp;nbsp;performance&amp;nbsp;meta-models&amp;nbsp;support&amp;nbsp;explicit&amp;nbsp;service&amp;nbsp;parameter&amp;nbsp;modelling.&lt;br />&#xD;&#xA;While&amp;nbsp;CSM&amp;nbsp;[162]&amp;nbsp;includes&amp;nbsp;a&amp;nbsp;meta-class&amp;nbsp;Message&amp;nbsp;to&amp;nbsp;specify&amp;nbsp;the&amp;nbsp;amount&amp;nbsp;of&amp;nbsp;data&amp;nbsp;transferred&amp;nbsp;between&lt;br />&#xD;&#xA;two&amp;nbsp;steps&amp;nbsp;in&amp;nbsp;the&amp;nbsp;performance&amp;nbsp;model,&amp;nbsp;and&amp;nbsp;KLAPER&amp;nbsp;[78]&amp;nbsp;allows&amp;nbsp;the&amp;nbsp;specification&amp;nbsp;of&amp;nbsp;parameter&amp;nbsp;values&lt;br />&#xD;&#xA;in&amp;nbsp;principle,&amp;nbsp;none&amp;nbsp;of&amp;nbsp;these&amp;nbsp;language&amp;nbsp;uses&amp;nbsp;the&amp;nbsp;information&amp;nbsp;to&amp;nbsp;parameterise&amp;nbsp;resource&amp;nbsp;demands&amp;nbsp;or&amp;nbsp;component&lt;br />&#xD;&#xA;behaviour.&amp;nbsp;Additionally,&amp;nbsp;they&amp;nbsp;do&amp;nbsp;not&amp;nbsp;provide&amp;nbsp;the&amp;nbsp;information&amp;nbsp;readily&amp;nbsp;analysable&amp;nbsp;by&amp;nbsp;MDSD&amp;nbsp;tools.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;The&amp;nbsp;PCM&amp;nbsp;usage&amp;nbsp;model&amp;nbsp;has&amp;nbsp;been&amp;nbsp;designed&amp;nbsp;based&amp;nbsp;on&amp;nbsp;meta&amp;nbsp;models&amp;nbsp;such&amp;nbsp;as&amp;nbsp;the&amp;nbsp;performance&amp;nbsp;domain&amp;nbsp;model&lt;br />&#xD;&#xA;of&amp;nbsp;the&amp;nbsp;UML&amp;nbsp;SPT&amp;nbsp;profile&amp;nbsp;[31],&amp;nbsp;the&amp;nbsp;Core&amp;nbsp;Scenario&amp;nbsp;Model&amp;nbsp;(CSM)&amp;nbsp;[162],&amp;nbsp;and&amp;nbsp;KLAPER&amp;nbsp;[78].&amp;nbsp;It&amp;nbsp;is&amp;nbsp;furthermore&lt;br />&#xD;&#xA;related&amp;nbsp;to&amp;nbsp;usage&amp;nbsp;models&amp;nbsp;used&amp;nbsp;in&amp;nbsp;statistical&amp;nbsp;testing&amp;nbsp;[34].&amp;nbsp;Although&amp;nbsp;the&amp;nbsp;concepts&amp;nbsp;included&amp;nbsp;in&amp;nbsp;the&amp;nbsp;PCM&amp;nbsp;usage&lt;br />&#xD;&#xA;model&amp;nbsp;are&amp;nbsp;quite&amp;nbsp;similar&amp;nbsp;to&amp;nbsp;the&amp;nbsp;modelling&amp;nbsp;capabilities&amp;nbsp;of&amp;nbsp;the&amp;nbsp;UML&amp;nbsp;SPT&amp;nbsp;profile,&amp;nbsp;there&amp;nbsp;are&amp;nbsp;some&amp;nbsp;subtle&lt;br />&#xD;&#xA;differences:&lt;br />&#xD;&#xA;-&#xD;&#xA;The&amp;nbsp;usage&amp;nbsp;model&amp;nbsp;is&amp;nbsp;aligned&amp;nbsp;with&amp;nbsp;the&amp;nbsp;role&amp;nbsp;of&amp;nbsp;the&amp;nbsp;domain&amp;nbsp;expert,&amp;nbsp;and&amp;nbsp;uses&amp;nbsp;only&amp;nbsp;concepts&amp;nbsp;known&amp;nbsp;to&lt;br />&#xD;&#xA;this&amp;nbsp;role.&amp;nbsp;It&amp;nbsp;is&amp;nbsp;a&amp;nbsp;domain&amp;nbsp;specific&amp;nbsp;language,&amp;nbsp;whereas&amp;nbsp;the&amp;nbsp;UML&amp;nbsp;SPT&amp;nbsp;performance&amp;nbsp;domain&amp;nbsp;model&amp;nbsp;is&lt;br />&#xD;&#xA;a&amp;nbsp;general&amp;nbsp;purpose&amp;nbsp;language&amp;nbsp;that&amp;nbsp;includes&amp;nbsp;information,&amp;nbsp;which&amp;nbsp;is&amp;nbsp;usually&amp;nbsp;spread&amp;nbsp;over&amp;nbsp;multiple&amp;nbsp;developer&lt;br />&#xD;&#xA;roles&amp;nbsp;such&amp;nbsp;as&amp;nbsp;the&amp;nbsp;component&amp;nbsp;assembler&amp;nbsp;and&amp;nbsp;the&amp;nbsp;system&amp;nbsp;deployer,&amp;nbsp;so&amp;nbsp;that&amp;nbsp;a&amp;nbsp;domain&amp;nbsp;expert&amp;nbsp;without&amp;nbsp;a&amp;nbsp;technical&amp;nbsp;background&amp;nbsp;could&amp;nbsp;not&amp;nbsp;specify&amp;nbsp;an&amp;nbsp;instance&amp;nbsp;of&amp;nbsp;it.&amp;nbsp;Nevertheless,&amp;nbsp;domain&amp;nbsp;experts&lt;br />&#xD;&#xA;should&amp;nbsp;be&amp;nbsp;able&amp;nbsp;to&amp;nbsp;create&amp;nbsp;PCM&amp;nbsp;usage&amp;nbsp;models&amp;nbsp;with&amp;nbsp;appropriate&amp;nbsp;tools&amp;nbsp;independently&amp;nbsp;from&amp;nbsp;other&amp;nbsp;developer&lt;br />&#xD;&#xA;roles,&amp;nbsp;because&amp;nbsp;such&amp;nbsp;models&amp;nbsp;only&amp;nbsp;contain&amp;nbsp;concepts&amp;nbsp;known&amp;nbsp;to&amp;nbsp;them.&lt;br />&#xD;&#xA;-&#xD;&#xA;The&amp;nbsp;number&amp;nbsp;of&amp;nbsp;loop&amp;nbsp;iterations&amp;nbsp;is&amp;nbsp;not&amp;nbsp;bound&amp;nbsp;to&amp;nbsp;a&amp;nbsp;constant&amp;nbsp;value,&amp;nbsp;but&amp;nbsp;can&amp;nbsp;be&amp;nbsp;specified&amp;nbsp;as&amp;nbsp;a&amp;nbsp;random&lt;br />&#xD;&#xA;variable.&lt;br />&#xD;&#xA;-&#xD;&#xA;The&amp;nbsp;control&amp;nbsp;flow&amp;nbsp;constructs&amp;nbsp;are&amp;nbsp;arranged&amp;nbsp;in&amp;nbsp;a&amp;nbsp;hierarchical&amp;nbsp;fashion&amp;nbsp;to&amp;nbsp;enable&amp;nbsp;easy&amp;nbsp;analyses.&lt;br />&#xD;&#xA;-&#xD;&#xA;Users&amp;nbsp;are&amp;nbsp;restricted&amp;nbsp;to&amp;nbsp;non-concurrent&amp;nbsp;behaviour,&amp;nbsp;as&amp;nbsp;it&amp;nbsp;is&amp;nbsp;assumed,&amp;nbsp;that&amp;nbsp;users&amp;nbsp;only&amp;nbsp;execute&amp;nbsp;the&lt;br />&#xD;&#xA;services&amp;nbsp;of&amp;nbsp;a&amp;nbsp;system&amp;nbsp;one&amp;nbsp;at&amp;nbsp;a&amp;nbsp;time.&lt;br />&#xD;&#xA;-&#xD;&#xA;System&amp;nbsp;service&amp;nbsp;invocations&amp;nbsp;can&amp;nbsp;be&amp;nbsp;enhanced&amp;nbsp;with&amp;nbsp;characterisations&amp;nbsp;of&amp;nbsp;parameters&amp;nbsp;values.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;[31]&amp;nbsp;Object&amp;nbsp;Management&amp;nbsp;Group&amp;nbsp;(OMG),&amp;nbsp;&quot;UML&amp;nbsp;Profile&amp;nbsp;for&amp;nbsp;Schedulability,&amp;nbsp;Performance&amp;nbsp;and&amp;nbsp;Time,&quot;&lt;br />&#xD;&#xA;http://www.omg.org/cgi-bin/doc?formal/2005-01-02,&amp;nbsp;January&amp;nbsp;2005.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;[34]&amp;nbsp;James&amp;nbsp;A.&amp;nbsp;Whittaker&amp;nbsp;and&amp;nbsp;Michael&amp;nbsp;G.&amp;nbsp;Thomason,&amp;nbsp;&quot;A&amp;nbsp;Markov&amp;nbsp;chain&amp;nbsp;model&amp;nbsp;for&amp;nbsp;statistical&amp;nbsp;software&lt;br />&#xD;&#xA;testing,&quot;&amp;nbsp;IEEE&amp;nbsp;Transactions&amp;nbsp;on&amp;nbsp;Software&amp;nbsp;Engineering,&amp;nbsp;vol.&amp;nbsp;20,&amp;nbsp;no.&amp;nbsp;10,&amp;nbsp;pp.&amp;nbsp;812-824,&amp;nbsp;Oct.&amp;nbsp;1994.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;[78]&amp;nbsp;V.&amp;nbsp;Grassi,&amp;nbsp;R.&amp;nbsp;Mirandola,&amp;nbsp;and&amp;nbsp;A.&amp;nbsp;Sabetta,&amp;nbsp;&quot;From&amp;nbsp;design&amp;nbsp;to&amp;nbsp;analysis&amp;nbsp;models:&amp;nbsp;a&amp;nbsp;kernel&amp;nbsp;language&lt;br />&#xD;&#xA;for&amp;nbsp;performance&amp;nbsp;and&amp;nbsp;reliability&amp;nbsp;analysis&amp;nbsp;of&amp;nbsp;component-based&amp;nbsp;systems,&quot;&amp;nbsp;in&amp;nbsp;Proc.&amp;nbsp;5th&amp;nbsp;International&lt;br />&#xD;&#xA;Workshop&amp;nbsp;on&amp;nbsp;Software&amp;nbsp;and&amp;nbsp;Performance&amp;nbsp;(WOSP&amp;nbsp;'05).&amp;nbsp;New&amp;nbsp;York,&amp;nbsp;NY,&amp;nbsp;USA:&amp;nbsp;ACM&amp;nbsp;Press,&amp;nbsp;2005,&lt;br />&#xD;&#xA;pp.&amp;nbsp;25-36.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;[162]&amp;nbsp;D.&amp;nbsp;B.&amp;nbsp;Petriu&amp;nbsp;and&amp;nbsp;M.&amp;nbsp;Woodside,&amp;nbsp;&quot;A&amp;nbsp;metamodel&amp;nbsp;for&amp;nbsp;generating&amp;nbsp;performance&amp;nbsp;models&amp;nbsp;from&amp;nbsp;UML&amp;nbsp;designs,&quot;&lt;br />&#xD;&#xA;in&amp;nbsp;UML&amp;nbsp;2004&amp;nbsp;-&amp;nbsp;The&amp;nbsp;Unified&amp;nbsp;Modeling&amp;nbsp;Language.&amp;nbsp;Model&amp;nbsp;Languages&amp;nbsp;and&amp;nbsp;Applications.&amp;nbsp;7th&lt;br />&#xD;&#xA;International&amp;nbsp;Conference,&amp;nbsp;Lisbon,&amp;nbsp;Portugal,&amp;nbsp;October&amp;nbsp;11-15,&amp;nbsp;2004,&amp;nbsp;Proceedings,&amp;nbsp;ser.&amp;nbsp;LNCS,&amp;nbsp;T.&amp;nbsp;Baar,&lt;br />&#xD;&#xA;A.&amp;nbsp;Strohmeier,&amp;nbsp;A.&amp;nbsp;Moreira,&amp;nbsp;and&amp;nbsp;S.&amp;nbsp;J.&amp;nbsp;Mellor,&amp;nbsp;Eds.,&amp;nbsp;vol.&amp;nbsp;3273.&amp;nbsp;Springer,&amp;nbsp;2004,&amp;nbsp;pp.&amp;nbsp;41-53.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;[187]&amp;nbsp;C.&amp;nbsp;U.&amp;nbsp;Smith,&amp;nbsp;C.&amp;nbsp;M.&amp;nbsp;Llado,&amp;nbsp;V.&amp;nbsp;Cortellessa,&amp;nbsp;A.&amp;nbsp;D.&amp;nbsp;Marco,&amp;nbsp;and&amp;nbsp;L.&amp;nbsp;G.&amp;nbsp;Williams,&amp;nbsp;&quot;From&amp;nbsp;UML&amp;nbsp;models&lt;br />&#xD;&#xA;to&amp;nbsp;software&amp;nbsp;performance&amp;nbsp;results:&amp;nbsp;an&amp;nbsp;SPE&amp;nbsp;process&amp;nbsp;based&amp;nbsp;on&amp;nbsp;XML&amp;nbsp;interchange&amp;nbsp;formats,&quot;&amp;nbsp;in&amp;nbsp;Proc.&amp;nbsp;5th&lt;br />&#xD;&#xA;international&amp;nbsp;workshop&amp;nbsp;on&amp;nbsp;Software&amp;nbsp;and&amp;nbsp;performance&amp;nbsp;(WOSP'05).&amp;nbsp;New&amp;nbsp;York,&amp;nbsp;NY,&amp;nbsp;USA:&amp;nbsp;ACM&lt;br />&#xD;&#xA;Press,&amp;nbsp;2005,&amp;nbsp;pp.&amp;nbsp;87-98.&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;&lt;br />&#xD;&#xA;&lt;br />"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG"/>
     </eAnnotations>
-    <eClassifiers xsi:type="ecore:EClass" name="Workload" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="Workload" abstract="true" eSuperTypes="#//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A Workload specifies the usage intensity of a system, which relates to the number of users concurrently&#xD;&#xA;present in the system. The PCM usage model adopts this concept from classical queueing&#xD;&#xA;theory [123]. The specified workloads can directly be used in queueing networks or easily be mapped&#xD;&#xA;to markings in stochastic Petri nets. Workloads can either be open or closed.&#xD;&#xA;&#xD;&#xA;The algorithms used to analyse queueing networks differ depending on whether open or closed workloads&#xD;&#xA;are modelled [123]. Some special queueing networks can only be analysed given a particular workload&#xD;&#xA;type (open or closed). Notice, that it is possible to specify a usage model with open workload usage&#xD;&#xA;scenarios and closed workload usage scenarios at the same time. Open and closed workloads can be&#xD;&#xA;executed in parallel when analysing the model.&#xD;&#xA;&#xD;&#xA;[123] E. Lazowska, J. Zahorjan, G. Graham, and K. Sevcik, Quantitative System Performance. Prentice&#xD;&#xA;Hall, 1984."/>
       </eAnnotations>
@@ -460,7 +467,7 @@
           ordered="false" lowerBound="1" eType="#//usagemodel/Workload" containment="true"
           eOpposite="#//usagemodel/Workload/usageScenario_Workload"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UserData">
+    <eClassifiers xsi:type="ecore:EClass" name="UserData" eSuperTypes="#//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="UserData characterises data&#xD;&#xA;used in specific assembly contexts in the system. This data is the same for all UsageScenarios, i.e.,&#xD;&#xA;multiple users accessing the same components access the same data. This UserData refers to component&#xD;&#xA;parameters of the system publicized by the software architect (see pcm::parameters package). The domain expert&#xD;&#xA;characterises the values of component parameters related to business concepts (e.g., user specific data,&#xD;&#xA;data specific for a business domain), whereas the software architect characterises the values of component&#xD;&#xA;parameters related to technical concepts (e.g., size of caches, size of a thread pool, configuration data,&#xD;&#xA;etc.). One UserData instance includes all parameter characterisation for the annotated entity. "/>
       </eAnnotations>
@@ -472,7 +479,7 @@
           ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"
           eOpposite="#//parameter/VariableUsage/userData_VariableUsage"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="UsageModel">
+    <eClassifiers xsi:type="ecore:EClass" name="UsageModel" eSuperTypes="#//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The UsageModel specifies the whole user interaction with a system from a performance viewpoint. It consists of a number of concurrently executed UsageScenarios and a set of global UserData specifications. Each UsageScenario includes a workload and a scenario behaviour. "/>
       </eAnnotations>
@@ -490,7 +497,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="entryLevelSystemCallMustReferenceProvidedRoleOfASystem entryLevelSystemCallSignatureMustMatchItsProvidedRole"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="entryLevelSystemCallMustReferenceProvidedRoleOfASystem" value="self.providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.oclIsTypeOf(pcm::system::System)"/>
         <details key="entryLevelSystemCallSignatureMustMatchItsProvidedRole" value="self.providedRole_EntryLevelSystemCall.providedInterface__OperationProvidedRole.signatures__OperationInterface->includes(self.operationSignature__EntryLevelSystemCall)"/>
       </eAnnotations>
@@ -524,14 +531,26 @@
         <details key="documentation" value="A ScenarioBehaviour specifies possible sequences of executing services provided by the system.&#xD;&#xA;It contains a set of AbstractUserActions, each referencing a predecessor and successor (except the&#xD;&#xA;first and last action), thereby forming a sequence of actions. &#xD;&#xA;&#xD;&#xA;See the AbstractAction documentation for why it is advantageous&#xD;&#xA;to model control flow in this way, as the same principle is used in the RDSEFF language. &#xD;&#xA;&#xD;&#xA;Concrete user actions of the usage model are:&#xD;&#xA;- Branch&#xD;&#xA;- Loop&#xD;&#xA;- EntryLevelSystemCall&#xD;&#xA;- Delay&#xD;&#xA;- Start &#xD;&#xA;- Stop&#xD;&#xA;&#xD;&#xA;So far, ScenarioBehaviours do not include forks in the user flow (i.e., splitting the flow with an&#xD;&#xA;AND semantic), as it is assumed that users always act sequentially.&#xD;&#xA;&#xD;&#xA;As there are no random variables depending on other variables in the&#xD;&#xA;usage model, there are no equivalent actions to GuardedBranchTransitions or CollectionIteratorActions.&#xD;&#xA;"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="eachuseractionexceptStartandStopmusthaveapredecessorandsuccessor exactlyonestart exactlyonestop routeFromStartToStopAction"/>
+        <details key="constraints" value="eachuseractionexceptStartandStopmusthaveapredecessorandsuccessor exactlyonestart exactlyonestop"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="eachuseractionexceptStartandStopmusthaveapredecessorandsuccessor"
             value="not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).predecessor.oclIsUndefined()) and not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).successor.oclIsUndefined())"/>
         <details key="exactlyonestart" value="self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Start))->size() = 1"/>
         <details key="exactlyonestop" value="self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Stop))->size() = 1"/>
       </eAnnotations>
+      <eOperations name="routeFromStartToStopAction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+          <details key="invariant" value="true"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+        <eParameters name="context" lowerBound="1">
+          <eGenericType eClassifier="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="usageScenario_SenarioBehaviour"
           ordered="false" eType="#//usagemodel/UsageScenario" eOpposite="#//usagemodel/UsageScenario/scenarioBehaviour_UsageScenario"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="branchTransition_ScenarioBehaviour"
@@ -542,7 +561,7 @@
           ordered="false" upperBound="-1" eType="#//usagemodel/AbstractUserAction"
           containment="true" eOpposite="#//usagemodel/AbstractUserAction/scenarioBehaviour_AbstractUserAction"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BranchTransition">
+    <eClassifiers xsi:type="ecore:EClass" name="BranchTransition" eSuperTypes="#//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The BranchTransition is an association class that realises the containment of ScenarioBehaviours in in the branches of a Branch action. It is a separate meta class because it has the additional attribute branchProbability that specifies how probably it is that the references ScenarioBehaviour is executed in the Branch action. &#xD;&#xA;&#xD;&#xA;See also Branch."/>
       </eAnnotations>
@@ -561,7 +580,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="allBranchProbabilitiesMustSumUpTo1"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="allBranchProbabilitiesMustSumUpTo1" value="self->collect(branchTransitions_Branch.branchProbability)->sum() > 0.999 and self->collect(branchTransitions_Branch.branchProbability)->sum() &lt;1.001"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="branchTransitions_Branch"
@@ -585,7 +604,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="stopHasNoSuccessor"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="stopHasNoSuccessor" value="self.successor.oclIsUndefined()"/>
       </eAnnotations>
     </eClassifiers>
@@ -596,7 +615,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="startHasNoPredecessor"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="startHasNoPredecessor" value="self.predecessor.oclIsUndefined()"/>
       </eAnnotations>
     </eClassifiers>
@@ -607,7 +626,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="interArrivalTimeInOpenWorkloadNeedsToBeSpecified"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="interArrivalTimeInOpenWorkloadNeedsToBeSpecified" value="not self.interArrivalTime_OpenWorkload.oclIsUndefined() and self.interArrivalTime_OpenWorkload.specification &lt;> ''"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="interArrivalTime_OpenWorkload"
@@ -629,7 +648,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="populationInClosedWorkloadNeedsToBeGreaterZero thinkTimeInClosedWorkloadNeedsToBeSpecified"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="populationInClosedWorkloadNeedsToBeGreaterZero" value="not self.population.oclIsUndefined() and self.population > 0"/>
         <details key="thinkTimeInClosedWorkloadNeedsToBeSpecified" value="not self.thinkTime_ClosedWorkload.oclIsUndefined() and self.thinkTime_ClosedWorkload.specification &lt;> ''"/>
       </eAnnotations>
@@ -646,8 +665,8 @@
       <details key="documentation" value="The main package contributing component types and interfaces."/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
-      <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG"/>
+      <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG"/>
     </eAnnotations>
     <eClassifiers xsi:type="ecore:EClass" name="PassiveResource" eSuperTypes="#//core/entity/Entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -676,7 +695,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="noSeffTypeUsedTwice everyOperationInterfaceMethodsNeedsSEFF everyInfrastructureInterfaceMethodsNeedsSEFF"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="noSeffTypeUsedTwice" value="self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |&#xD;&#xA;  p1 &lt;> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID &lt;> p2.seffTypeID))"/>
         <details key="everyOperationInterfaceMethodsNeedsSEFF" value="self.providedRoles_InterfaceProvidingEntity->selectByType(OperationProvidedRole).providedInterface__OperationProvidedRole.signatures__OperationInterface->forAll(s | self.serviceEffectSpecifications__BasicComponent->select(service | service.describedService__SEFF=s)->size()>0)"/>
         <details key="everyInfrastructureInterfaceMethodsNeedsSEFF" value="self.providedRoles_InterfaceProvidingEntity->selectByType(InfrastructureProvidedRole).providedInterface__InfrastructureProvidedRole.infrastructureSignatures__InfrastructureInterface->forAll(s | self.serviceEffectSpecifications__BasicComponent->select(service | service.describedService__SEFF=s)->size()>0)"/>
@@ -704,7 +723,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="requiredInterfacesHaveToConformToCompleteType providedInterfacesHaveToConformToCompleteType providedInterfaceHaveToConformToComponentType provideSameOrMoreInterfacesAsCompleteComponentType requireSameOrFewerInterfacesAsCompleteComponentType"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="requiredInterfacesHaveToConformToCompleteType" value="-- ImplementationTypes required Interfaces have to be a subset&#xD;&#xA;-- of CompleteComponentType required Interfaces #&#xD;&#xA;--&#xD;&#xA;-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#xD;&#xA;--&#xD;&#xA;-- Recursive Query for parent Interface IDs&#xD;&#xA;-- see 'lpar2005.pdf' (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#xD;&#xA;--let parentInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc1 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc1->union(pt.requiredRoles->iterate(r : RequiredRole; acc2 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc2->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;))&#xD;&#xA;--&#x9;) in&#xD;&#xA;--let anchestorInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc3 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc3->union(pt.requiredRoles->iterate(r : RequiredRole; acc4 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc4->union(r.requiredInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;))&#xD;&#xA;--&#x9;)->union( -- union with anchestors found in former recursion #&#xD;&#xA;--&#x9;&#x9;self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc5 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc5->union(pt.requiredRoles->iterate(r : RequiredRole; acc6 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;&#x9;acc6->union(r.requiredInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#xD;&#xA;--&#x9;&#x9;&#x9;))&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;) in&#xD;&#xA;-- Directly required interfaces need to be a subset of required anchestorInterfaces of Supertype #&#xD;&#xA;--anchestorInterfaces.identifier.id->includesAll(&#xD;&#xA;--&#x9;self.requiredRoles->iterate(p : RequiredRole; acc7 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc7->union(p.requiredInterface.identifier.id->asBag())&#xD;&#xA;--&#x9;)&#x9;&#xD;&#xA;--)&#xD;&#xA;true"/>
         <details key="providedInterfacesHaveToConformToCompleteType" value="-- ### EXACT COPY FROM ABOVE ###&#xD;&#xA;-- ImplementationComponentTypes provided Interfaces have to be a superset&#xD;&#xA;-- of CompleteComponentType provided Interfaces #&#xD;&#xA;--&#xD;&#xA;-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#xD;&#xA;--&#xD;&#xA;-- Recursive Query for parent Interface IDs&#xD;&#xA;-- see 'lpar2005.pdf' (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#xD;&#xA;--let parentInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;) in&#xD;&#xA;--let anchestorInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;)->union( -- union with anchestors found in former recursion #&#xD;&#xA;--&#x9;&#x9;self.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;) in&#xD;&#xA;&#x9;-- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #&#xD;&#xA;--&#x9;anchestorInterfaces.identifier.id->includesAll(&#xD;&#xA;--&#x9;&#x9;self.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;pt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;&#x9;acc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;&#x9;)&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;)&#xD;&#xA;true"/>
         <details key="providedInterfaceHaveToConformToComponentType" value="-- assures that InfrastructureComponents only have InfrastructureInterfaces and that BusinessComponents only have OperationInterfaces or EventGroups&#xD;&#xA;if self.componentType = ComponentType::INFRASTRUCTURE_COMPONENT then&#xD;&#xA;&#x9;self.providedRoles_InterfaceProvidingEntity->select(role | role.oclIsTypeOf(OperationInterface) or role.oclIsTypeOf(EventGroup))->size() = 0&#xD;&#xA;else if self.componentType = ComponentType::BUSINESS_COMPONENT then&#xD;&#xA;&#x9;self.providedRoles_InterfaceProvidingEntity->select(role | role.oclIsTypeOf(InfrastructureInterface))->size() = 0&#xD;&#xA;else&#xD;&#xA;&#x9;1 = 0&#xD;&#xA;endif&#xD;&#xA;endif"/>
@@ -746,7 +765,7 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+    <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This entity represents a parameter within a signature. The parameter has a name and it is of a data type."/>
       </eAnnotations>
@@ -781,7 +800,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceSignature__Parameter"
           ordered="false" eType="#//resourcetype/ResourceSignature" eOpposite="#//resourcetype/ResourceSignature/parameter__ResourceSignature"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true" eSuperTypes="#//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This entity represents a data type that can be stored in a repository and used for specification and modeling of interface signatures."/>
       </eAnnotations>
@@ -799,7 +818,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="repositorynotempty"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="repositorynotempty" value="self.components__Repository->size()&lt;>0 or self.dataTypes__Repository->size()&lt;>0 or self.interfaces__Repository->size()&lt;>0 or self.failureTypes__Repository->size()&lt;>0"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryDescription"
@@ -840,11 +859,11 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="noProtocolTypeIDUsedTwice"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="noProtocolTypeIDUsedTwice" value="self.protocols__Interface->forAll(p1, p2 |&#xD;&#xA;p1.protocolTypeID &lt;> p2.protocolTypeID)&#xD;&#xA;"/>
       </eAnnotations>
       <eOperations name="isAssignableFrom" lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
           <details key="body" value="self->closure(i : Interface | i.parentInterfaces__Interface)->including(self)->includes(otherInterface)"/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -878,7 +897,7 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RequiredCharacterisation">
+    <eClassifiers xsi:type="ecore:EClass" name="RequiredCharacterisation" eSuperTypes="#//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Specification of required variable characeterisations per parameter. Increases power of interfaces and lifts variable characterisations to the interface to enable extended interoperability checks."/>
       </eAnnotations>
@@ -924,7 +943,7 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ExceptionType">
+    <eClassifiers xsi:type="ecore:EClass" name="ExceptionType" eSuperTypes="#//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This entity represents a type of an exception."/>
       </eAnnotations>
@@ -977,7 +996,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="parameterNamesHaveToBeUniqueForASignature"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="parameterNamesHaveToBeUniqueForASignature" value="self.parameters__OperationSignature->isUnique(p : Parameter |&#xD;&#xA;&#x9;p.parameterName&#xD;&#xA;)"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="interface__OperationSignature"
@@ -1007,7 +1026,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="signaturesHaveToBeUniqueForAnInterface"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="signaturesHaveToBeUniqueForAnInterface" value="-- full signature has to be unique &#xD;&#xA;-- (use of ocl-tupels) #&#xD;&#xA;let sigs : Bag(&#xD;&#xA;&#x9;-- parameters: Sequence of DataType, NOT name #&#xD;&#xA;&#x9;-- exceptions have not to be considered #&#xD;&#xA;&#x9;Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) &#xD;&#xA;) = &#xD;&#xA;self.signatures__OperationInterface->collect(sig : OperationSignature |&#xD;&#xA;&#x9;Tuple{&#xD;&#xA;&#x9;&#x9;returnType : DataType = sig.returnType__OperationSignature,&#xD;&#xA;&#x9;&#x9;serviceName : String = sig.entityName,&#xD;&#xA;&#x9;&#x9;parameters : Sequence(DataType) = sig.parameters__OperationSignature.dataType__Parameter&#xD;&#xA;&#x9;}&#xD;&#xA;)&#xD;&#xA;in&#xD;&#xA;sigs->isUnique(s|s)"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="signatures__OperationInterface"
@@ -1087,7 +1106,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="atLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType providedInterfacesHaveToConformToProvidedType2"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="atLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType"
             value="(&#xD;&#xA;&#x9;self.oclIsTypeOf(CompleteComponentType)&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.oclIsTypeOf(ImplementationComponentType)&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.oclIsTypeOf(CompositeComponent)&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.oclIsTypeOf(BasicComponent)&#xD;&#xA;)&#xD;&#xA;implies&#xD;&#xA;(&#xD;&#xA;&#x9;self.providedRoles_InterfaceProvidingEntity->size() >= 1&#xD;&#xA;&#x9;or&#xD;&#xA;&#x9;self.requiredRoles_InterfaceRequiringEntity->size() >= 1&#xD;&#xA;)"/>
         <details key="providedInterfacesHaveToConformToProvidedType2" value="-- CompleteTypes provided Interfaces have to be a superset&#xD;&#xA;-- of ProvidesComponentType provided Interfaces #&#xD;&#xA;--&#xD;&#xA;-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.&#xD;&#xA;--&#xD;&#xA;-- Recursive Query for parent Interface IDs&#xD;&#xA;-- see &quot;lpar2005.pdf&quot; (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #&#xD;&#xA;--let parentInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;) in&#xD;&#xA;--let anchestorInterfaces : Bag(Interface) =&#xD;&#xA;--&#x9;self.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;acc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;)->union( -- union with anchestors found in former recursion #&#xD;&#xA;--&#x9;&#x9;self.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;acc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;) in&#xD;&#xA;--&#x9;-- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #&#xD;&#xA;--&#x9;anchestorInterfaces.identifier.id->includesAll(&#xD;&#xA;--&#x9;&#x9;self.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;pt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;--&#x9;&#x9;&#x9;&#x9;acc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #&#xD;&#xA;--&#x9;&#x9;&#x9;)&#xD;&#xA;--&#x9;&#x9;)&#xD;&#xA;--&#x9;)&#xD;&#xA;true"/>
@@ -1102,7 +1121,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="atLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="atLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType"
             value="self.oclIsTypeOf(ProvidesComponentType)&#xD;&#xA;implies&#xD;&#xA;self.providedRoles_InterfaceProvidingEntity->size() >= 1"/>
       </eAnnotations>
@@ -1220,7 +1239,7 @@
           ordered="false" lowerBound="1" eType="#//resourcetype/ResourceRepository"
           eOpposite="#//resourcetype/ResourceRepository/availableResourceTypes_ResourceRepository"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceRepository">
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceRepository" eSuperTypes="#//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Extendable repository of resource types of the PCM. The resource type repository is intentionally left open to support&#xD;&#xA;arbitrary resources in the future"/>
       </eAnnotations>
@@ -1280,7 +1299,7 @@
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="The parameter package allows to model data dependent performance characteristics of software systems. It is mainly used to specify performance dependencies on input and output parameters of single service calls. It can also be used to describe dependencies on the state of components by the use of component parameters. The latter describe stochastically a component state which does not change over time. &#xD;&#xA;&#xD;&#xA;Parameters are described by the use of variable usages which on the one side contain a performance abstraction of the variable's value and on the other side the name of the variable for refering to the variable. Characterisations available include Structure (information on the data's internal structure like &quot;sorted&quot; or &quot;unsorted&quot; for an array), Number of Elements (size of a collection), Value (the actuall variable value), Bytesize (the variable's memory footprint), or type (the type of the variable in polymorphic cases).&#xD;&#xA;&#xD;&#xA;Example for variable usages may be a.NUMBER_OF_ELEMENTS = 10 (array &quot;a&quot; contains 10 elements), tree.STRUCTURE = &quot;balanced&quot; (tree &quot;tree&quot; is a balanced tree), and so on."/>
     </eAnnotations>
-    <eClassifiers xsi:type="ecore:EClass" name="VariableUsage">
+    <eClassifiers xsi:type="ecore:EClass" name="VariableUsage" eSuperTypes="#//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Variable usages are used to characterise variables like input and output variables or component parameters. They contain the specification of the variable as VariableCharacterisation and also refer to the name of the characterised variable in its namedReference association. Note that it was an explicit design decision to refer to variable names instead of the actual variables (i.e., by refering to Parameter class). It eased the writing of transformations (DSolver as well as SimuCom) but put some complexity in the frontend for entering the variable usages."/>
       </eAnnotations>
@@ -1314,7 +1333,7 @@
           ordered="false" lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//AbstractNamedReference"
           containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="VariableCharacterisation">
+    <eClassifiers xsi:type="ecore:EClass" name="VariableCharacterisation" eSuperTypes="#//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Variable characterisations store performance critical meta-information on a variable. For example, if a variable's value is used in a long running loop, the value of the variable is performance critical. Or as an other example, for Q-Sort it is performancewise important to know how much elements are in a given array and whether the array is sorted or not. Variable characterisations contain a type which tells what kind of meta-information is stored (STRUCTURE, NUMBER_OF_ELEMENTS, ...) and a PCMRandomVariable for storing the value of the characterisation.&#xD;&#xA;&#xD;&#xA;For example, in &quot;a.NUMBER_OF_ELEMENTS=10&quot; the a is the name of the variable, NUMBER_OF_ELEMENTS is the characterisation type and &quot;10&quot; would be the specification (as PCMRandomVariable) of the characterisation's value."/>
       </eAnnotations>
@@ -1334,7 +1353,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="variableUsage_VariableCharacterisation"
           ordered="false" eType="#//parameter/VariableUsage" eOpposite="#//parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CharacterisedVariable" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//Variable">
+    <eClassifiers xsi:type="ecore:EClass" name="CharacterisedVariable" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//Variable #//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A characterised variable is a special variable which contains a performance abstraction of a data type. It can be transformed in a named reference and a variable characterisation. It has to end always with a variable characterisation type. Examples are &quot;a.NUMBER_OF_ELEMENTS&quot; or &quot;array.STRUCTURE&quot;."/>
       </eAnnotations>
@@ -1382,16 +1401,17 @@
       <details key="documentation" value="This package contains reliability-relevant classes such as the definition of failure types."/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG"/>
     </eAnnotations>
-    <eClassifiers xsi:type="ecore:EClass" name="FailureOccurrenceDescription" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="FailureOccurrenceDescription" abstract="true"
+        eSuperTypes="#//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="&lt;p>&#xD;&#xA;    Abstract superclass that connects a failure type definition to an occurrence probability. Used to describe the failure&#xD;&#xA;    potential of certain points of failure within the control and data flow (i.e. Actions within&#xD;&#xA;    ResourceDemandingBehaviours).&#xD;&#xA;&lt;/p>"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="ensureValidFailureProbabilityRange"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="ensureValidFailureProbabilityRange" value="(self.failureProbability.oclAsType(Real) &lt;= 1.0) and (self.failureProbability.oclAsType(Real) >= 0.0)"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="failureProbability" ordered="false"
@@ -1404,7 +1424,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="hardwareInducedFailureTypeHasProcessingResourceType"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="hardwareInducedFailureTypeHasProcessingResourceType" value="( self.processingResourceType__HardwareInducedFailureType &lt;> null ) and ( not ( self.processingResourceType__HardwareInducedFailureType.oclIsTypeOf( pcm::resourcetype::CommunicationLinkResourceType ) ) )"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="processingResourceType__HardwareInducedFailureType"
@@ -1427,7 +1447,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="noResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="noResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription"
             value="not self.softwareInducedFailureType__InternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)"/>
       </eAnnotations>
@@ -1444,7 +1464,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="networkInducedFailureTypeHasCommunicationLinkResourceType"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="networkInducedFailureTypeHasCommunicationLinkResourceType" value="self.communicationLinkResourceType__NetworkInducedFailureType &lt;> null"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="communicationLinkResourceType__NetworkInducedFailureType"
@@ -1459,7 +1479,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="noResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="noResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription"
             value="not self.failureType__ExternalFailureOccurrenceDescription.oclIsTypeOf(ResourceTimeoutFailureType)"/>
       </eAnnotations>
@@ -1494,7 +1514,7 @@
       <details key="documentation" value="Package containing the abstract behaviour model of components"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG"/>
     </eAnnotations>
     <eClassifiers xsi:type="ecore:EClass" name="StopAction" eSuperTypes="#//seff/AbstractInternalControlFlowAction">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -1503,7 +1523,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="stopActionSuccessorMustNotBeDefined"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="stopActionSuccessorMustNotBeDefined" value="self.successor_AbstractAction.oclIsUndefined()"/>
       </eAnnotations>
     </eClassifiers>
@@ -1533,19 +1553,31 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceDemandingBehaviour_AbstractAction"
           ordered="false" eType="#//seff/ResourceDemandingBehaviour" eOpposite="#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingBehaviour" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingBehaviour" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Models the behaviour of a component service as a sequence of internal actions with resource demands, control flow constructs, and external&#xD;&#xA;calls. Therefore, the class contains a chain of AbstractActions. The emphasis in this type of behaviour is on the resource demands attached to internal actions, which mainly influence performance analysis.&#xD;&#xA;Each action in a ResourceDemandingBehaviour references a predecessor and a successor action. Exceptions are the first and last action, which do not reference a predecessor and a successor respectively. A behaviour is valid, if there is a continuous path from the first to last action, which includes all actions. The chain must not include cycles. To specify control flow branches, loops, or forks, component developers need to use special types of actions, which contain nested inner ResourceDemandingBehaviours to specify the behaviour inside branches or loop bodies. Any ResourceDemandingBehaviour can have at most one starting and one finishing action."/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="exactlyOneStopAction exactlyOneStartAction eachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor startActionNeedsRouteToStopAction"/>
+        <details key="constraints" value="exactlyOneStopAction exactlyOneStartAction eachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="exactlyOneStopAction" value="self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() = 1"/>
         <details key="exactlyOneStartAction" value="self.steps_Behaviour->select(s|s.oclIsTypeOf(StartAction))->size() = 1"/>
         <details key="eachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor"
             value="not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined()) and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined())"/>
       </eAnnotations>
+      <eOperations name="startActionNeedsRouteToStopAction" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+          <details key="invariant" value="true"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+        <eParameters name="context" lowerBound="1">
+          <eGenericType eClassifier="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="abstractLoopAction_ResourceDemandingBehaviour"
           ordered="false" eType="#//seff/AbstractLoopAction" eOpposite="#//seff/AbstractLoopAction/bodyBehaviour_Loop"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="abstractBranchTransition_ResourceDemandingBehaviour"
@@ -1580,7 +1612,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="eitherGuardedBranchesOrProbabilisiticBranchTransitions allProbabilisticBranchProbabilitiesMustSumUpTo1"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="eitherGuardedBranchesOrProbabilisiticBranchTransitions" value="self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition)) &#xD;&#xA;or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition))"/>
         <details key="allProbabilisticBranchProbabilitiesMustSumUpTo1" value="if self.branches_Branch->forAll(oclIsTypeOf(ProbabilisticBranchTransition)) then &#xD;&#xA;&#x9;self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() > 0.9999 &#xD;&#xA;&#x9;and self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() &lt; 1.0001 &#xD;&#xA;&#x9;else true &#xD;&#xA;endif"/>
       </eAnnotations>
@@ -1603,7 +1635,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="startActionPredecessorMustNotBeDefined"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="startActionPredecessorMustNotBeDefined" value="self.predecessor_AbstractAction.oclIsUndefined()"/>
       </eAnnotations>
     </eClassifiers>
@@ -1614,7 +1646,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="referencedOperationSignatureMustBelongToInterfaceReferencedByProvidedRole referencedEventTypeMustBelongToEventGroupReferencedByProvidedRole"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="referencedOperationSignatureMustBelongToInterfaceReferencedByProvidedRole"
             value="let describedService : repository::Signature = self.describedService__SEFF in&#xA;    not describedService.oclIsKindOf(repository::OperationSignature) or&#xA;    let providedRoles : Set(repository::ProvidedRole) = self.basicComponent_ServiceEffectSpecification.providedRoles_InterfaceProvidingEntity in&#xA;        -- collect all directly provided interfaces&#xA;        let directlyProvidedInterfaces : Set(repository::Interface) = providedRoles->selectByKind(repository::OperationProvidedRole).providedInterface__OperationProvidedRole->selectByKind(repository::Interface)->asSet() in&#xA;            -- collect all provided interfaces including parent interfaces&#xA;            let providedInterfaces : Set(repository::Interface) = directlyProvidedInterfaces->closure(interface : repository::Interface | interface.parentInterfaces__Interface)->union(directlyProvidedInterfaces) in&#xA;                -- collect all provided signatures&#xA;                let providedSignatures : Set(repository::Signature) = providedInterfaces->selectByKind(repository::OperationInterface).signatures__OperationInterface->selectByKind(repository::Signature)->asSet() in&#xA;                    -- compare signatures&#xA;                    providedSignatures->includes(self.describedService__SEFF)"/>
         <details key="referencedEventTypeMustBelongToEventGroupReferencedByProvidedRole"
@@ -1679,7 +1711,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="forkAction_ForkedBehaivour"
           ordered="false" eType="#//seff/ForkAction" eOpposite="#//seff/ForkAction/asynchronousForkedBehaviours_ForkAction"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SynchronisationPoint" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+    <eClassifiers xsi:type="ecore:EClass" name="SynchronisationPoint" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Component developers can use a SynchronisationPoint to join synchronously ForkedBehaviours and specify a result of the computations with its attached VariableUsages.&#xD;&#xA;See ForkAction for a more detailed description. "/>
       </eAnnotations>
@@ -1699,7 +1731,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="signatureBelongsToRole operationRequiredRoleMustBeReferencedByContainer"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="signatureBelongsToRole" value="self.role_ExternalService.requiredInterface__OperationRequiredRole.signatures__OperationInterface->includes(self.calledService_ExternalService)"/>
         <details key="operationRequiredRoleMustBeReferencedByContainer" value="self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).oclAsType(pcm::core::entity::InterfaceRequiringEntity).requiredRoles_InterfaceRequiringEntity->includes(self.role_ExternalService)"/>
       </eAnnotations>
@@ -1736,7 +1768,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="timeoutValueOfAcquireActionMustNotBeNegative"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="timeoutValueOfAcquireActionMustNotBeNegative" value="self.timeoutValue.oclAsType(Real) >= 0.0"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="passiveresource_AcquireAction"
@@ -1800,7 +1832,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="multipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed sumOfInternalActionFailureProbabilitiesMustNotExceed1"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="multipleInternalOccurrenceDescriptionsPerFailureTypeNotAllowed"
             value="self.internalFailureOccurrenceDescriptions__InternalAction->forAll(x:pcm::reliability::InternalFailureOccurrenceDescription,y:pcm::reliability::InternalFailureOccurrenceDescription  | x&lt;>y implies x.softwareInducedFailureType__InternalFailureOccurrenceDescription &lt;> y.softwareInducedFailureType__InternalFailureOccurrenceDescription )&#xD;&#xA;"/>
         <details key="sumOfInternalActionFailureProbabilitiesMustNotExceed1" value="self.internalFailureOccurrenceDescriptions__InternalAction.failureProbability.oclAsType(Real)->sum()&lt;=1.0&#xD;&#xA;"/>
@@ -1815,13 +1847,13 @@
         <details key="documentation" value="Package capturing performance aspects of an RDSEFF"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+        <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG"/>
       </eAnnotations>
       <eClassifiers xsi:type="ecore:EClass" name="InfrastructureCall" eSuperTypes="#//seff/CallAction">
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
           <details key="constraints" value="signatureMustBelongToUsedRequiredRole referencedRequiredRoleMustBeRequiredByComponent signatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction"/>
         </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
           <details key="signatureMustBelongToUsedRequiredRole" value="signature__InfrastructureCall.infrastructureInterface__InfrastructureSignature = requiredRole__InfrastructureCall.requiredInterface__InfrastructureRequiredRole"/>
           <details key="referencedRequiredRoleMustBeRequiredByComponent" value="self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).oclAsType(pcm::core::entity::InterfaceRequiringEntity).requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole__InfrastructureCall)"/>
           <details key="signatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction"
@@ -1842,7 +1874,7 @@
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
           <details key="constraints" value="resourceSignatureBelongsToResourceRequiredRole resourceRequiredRoleMustBeReferencedByComponent signatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction"/>
         </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
           <details key="resourceSignatureBelongsToResourceRequiredRole" value="self.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.resourceSignatures__ResourceInterface->includes(self.signature__ResourceCall)"/>
           <details key="resourceRequiredRoleMustBeReferencedByComponent" value="self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::ResourceInterfaceRequiringEntity)).oclAsType(pcm::core::entity::ResourceInterfaceRequiringEntity).resourceRequiredRoles__ResourceInterfaceRequiringEntity->includes(self.resourceRequiredRole__ResourceCall)"/>
           <details key="signatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction"
@@ -1859,14 +1891,14 @@
             ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"
             eOpposite="#//core/PCMRandomVariable/resourceCall__PCMRandomVariable"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="ParametricResourceDemand">
+      <eClassifiers xsi:type="ecore:EClass" name="ParametricResourceDemand" eSuperTypes="#//PCMBaseClass">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="TODO&amp;nbsp;(Überarbeitung&amp;nbsp;durch&amp;nbsp;MH)&lt;br />&#xD;&#xA;Parametric&amp;nbsp;Resource&amp;nbsp;Demand&amp;nbsp;Specifies&amp;nbsp;the&amp;nbsp;amount&amp;nbsp;of&amp;nbsp;processing&amp;nbsp;requested&amp;nbsp;from&amp;nbsp;a&amp;nbsp;certain&amp;nbsp;type&amp;nbsp;of&amp;nbsp;resource&amp;nbsp;in&amp;nbsp;a&amp;nbsp;parametrised&amp;nbsp;way.&amp;nbsp;It&amp;nbsp;assigns&amp;nbsp;the&amp;nbsp;demand&amp;nbsp;specified&amp;nbsp;as&amp;nbsp;a&amp;nbsp;Random-Variable&amp;nbsp;to&amp;nbsp;an&amp;nbsp;abstract&amp;nbsp;ProcessingResourceType&amp;nbsp;(e.g.,&amp;nbsp;CPU,&amp;nbsp;hard&amp;nbsp;disk)&amp;nbsp;instead&amp;nbsp;of&amp;nbsp;a&amp;nbsp;concrete&amp;nbsp;ProcessingResourceSpecification&amp;nbsp;(e.g.,&amp;nbsp;5&amp;nbsp;Ghz&amp;nbsp;CPU,&amp;nbsp;20&amp;nbsp;MByte/s&amp;nbsp;hard&amp;nbsp;disk).&amp;nbsp;This&amp;nbsp;keeps&amp;nbsp;the&amp;nbsp;RDSEFF&amp;nbsp;independent&amp;nbsp;from&amp;nbsp;a&amp;nbsp;specific&amp;nbsp;resource&amp;nbsp;environment,&amp;nbsp;and&amp;nbsp;makes&amp;nbsp;the&amp;nbsp;concrete&amp;nbsp;resources&amp;nbsp;replaceable&amp;nbsp;to&amp;nbsp;answer&amp;nbsp;sizing&amp;nbsp;questions.&lt;br />&#xD;&#xA;The&amp;nbsp;demand's&amp;nbsp;unit&amp;nbsp;is&amp;nbsp;equal&amp;nbsp;for&amp;nbsp;all&amp;nbsp;ProcessingResourceSpecifications&amp;nbsp;referencing&lt;br />&#xD;&#xA;the&amp;nbsp;same&amp;nbsp;ProcessingResourceType.&amp;nbsp;It&amp;nbsp;can&amp;nbsp;for&amp;nbsp;example&amp;nbsp;be&amp;nbsp;&quot;WorkUnits&quot;&lt;br />&#xD;&#xA;for&amp;nbsp;CPUs&amp;nbsp;[Smi02]&amp;nbsp;or&amp;nbsp;&quot;BytesRead&quot;&amp;nbsp;for&amp;nbsp;hard&amp;nbsp;disks.&amp;nbsp;Each&amp;nbsp;ProcessingResource-&lt;br />&#xD;&#xA;Specification&amp;nbsp;contains&amp;nbsp;a&amp;nbsp;processing&amp;nbsp;rate&amp;nbsp;for&amp;nbsp;demands&amp;nbsp;(e.g.,&amp;nbsp;1000&amp;nbsp;WorkUnits/s,&amp;nbsp;20&lt;br />&#xD;&#xA;MB/s),&amp;nbsp;which&amp;nbsp;analysis&amp;nbsp;tools&amp;nbsp;use&amp;nbsp;to&amp;nbsp;compute&amp;nbsp;an&amp;nbsp;actual&amp;nbsp;timing&amp;nbsp;value&amp;nbsp;in&amp;nbsp;seconds.&amp;nbsp;They&lt;br />&#xD;&#xA;use&amp;nbsp;this&amp;nbsp;timing&amp;nbsp;value&amp;nbsp;for&amp;nbsp;example&amp;nbsp;as&amp;nbsp;the&amp;nbsp;service&amp;nbsp;demand&amp;nbsp;on&amp;nbsp;a&amp;nbsp;service&amp;nbsp;center&amp;nbsp;in&amp;nbsp;a&amp;nbsp;queueing&lt;br />&#xD;&#xA;network&amp;nbsp;or&amp;nbsp;the&amp;nbsp;firing&amp;nbsp;delay&amp;nbsp;of&amp;nbsp;a&amp;nbsp;transition&amp;nbsp;in&amp;nbsp;a&amp;nbsp;Petri&amp;nbsp;net.&amp;nbsp;As&amp;nbsp;multiple&amp;nbsp;component&amp;nbsp;services&lt;br />&#xD;&#xA;might&amp;nbsp;request&amp;nbsp;processing&amp;nbsp;on&amp;nbsp;the&amp;nbsp;same&amp;nbsp;resource,&amp;nbsp;these&amp;nbsp;analytical&amp;nbsp;or&amp;nbsp;simulation&amp;nbsp;models&lt;br />&#xD;&#xA;allow&amp;nbsp;determining&amp;nbsp;the&amp;nbsp;waiting&amp;nbsp;delay&amp;nbsp;induced&amp;nbsp;by&amp;nbsp;this&amp;nbsp;contention&amp;nbsp;effect.&lt;br />&#xD;&#xA;Besides&amp;nbsp;this&amp;nbsp;parameterisation&amp;nbsp;over&amp;nbsp;different&amp;nbsp;resource&amp;nbsp;environments,&amp;nbsp;Parametric-&lt;br />&#xD;&#xA;ResourceDemands&amp;nbsp;also&amp;nbsp;parameterise&amp;nbsp;over&amp;nbsp;the&amp;nbsp;usage&amp;nbsp;profile.&amp;nbsp;For&amp;nbsp;this,&amp;nbsp;the&amp;nbsp;stochastic&amp;nbsp;expression&lt;br />&#xD;&#xA;specifying&amp;nbsp;the&amp;nbsp;resource&amp;nbsp;demand&amp;nbsp;can&amp;nbsp;contain&amp;nbsp;references&amp;nbsp;to&amp;nbsp;the&amp;nbsp;service's&amp;nbsp;input&lt;br />&#xD;&#xA;parameters&amp;nbsp;or&amp;nbsp;the&amp;nbsp;component&amp;nbsp;parameters.&amp;nbsp;Upon&amp;nbsp;evaluating&amp;nbsp;the&amp;nbsp;resource&amp;nbsp;demand,&amp;nbsp;analysis&lt;br />&#xD;&#xA;tools&amp;nbsp;use&amp;nbsp;the&amp;nbsp;current&amp;nbsp;characterisation&amp;nbsp;of&amp;nbsp;the&amp;nbsp;referenced&amp;nbsp;input&amp;nbsp;or&amp;nbsp;component&amp;nbsp;parameter&lt;br />&#xD;&#xA;and&amp;nbsp;substitute&amp;nbsp;the&amp;nbsp;reference&amp;nbsp;with&amp;nbsp;this&amp;nbsp;characterisation&amp;nbsp;in&amp;nbsp;the&amp;nbsp;stochastic&amp;nbsp;expression.&lt;br />&#xD;&#xA;Solving&amp;nbsp;the&amp;nbsp;stochastic&amp;nbsp;expression,&amp;nbsp;which&amp;nbsp;can&amp;nbsp;be&amp;nbsp;a&amp;nbsp;function&amp;nbsp;involving&amp;nbsp;arithmetic&amp;nbsp;operators&lt;br />&#xD;&#xA;(Chapter&amp;nbsp;3.3.6),&amp;nbsp;then&amp;nbsp;yields&amp;nbsp;a&amp;nbsp;constant&amp;nbsp;or&amp;nbsp;probability&amp;nbsp;function&amp;nbsp;for&amp;nbsp;the&amp;nbsp;resource&amp;nbsp;demand.&lt;br />&#xD;&#xA;As&amp;nbsp;an&amp;nbsp;example&amp;nbsp;for&amp;nbsp;solving&amp;nbsp;the&amp;nbsp;parameterisation&amp;nbsp;over&amp;nbsp;resource&amp;nbsp;environment&amp;nbsp;and&amp;nbsp;usage&lt;br />&#xD;&#xA;profile,&amp;nbsp;consider&amp;nbsp;an&amp;nbsp;RDSEFF&amp;nbsp;for&amp;nbsp;a&amp;nbsp;service&amp;nbsp;implementing&amp;nbsp;the&amp;nbsp;bubblesort&amp;nbsp;algorithm.&amp;nbsp;It&lt;br />&#xD;&#xA;might&amp;nbsp;include&amp;nbsp;a&amp;nbsp;CPU&amp;nbsp;demand&amp;nbsp;specification&amp;nbsp;of&amp;nbsp;n22000WorkUnits&amp;nbsp;derived&amp;nbsp;from&amp;nbsp;complexity&lt;br />&#xD;&#xA;theory&amp;nbsp;(n2)&amp;nbsp;and&amp;nbsp;empirical&amp;nbsp;measurements&amp;nbsp;(2000).&amp;nbsp;In&amp;nbsp;this&amp;nbsp;case&amp;nbsp;n&amp;nbsp;refers&amp;nbsp;to&amp;nbsp;the&amp;nbsp;length&amp;nbsp;of&lt;br />&#xD;&#xA;the&amp;nbsp;list&amp;nbsp;the&amp;nbsp;algorithm&amp;nbsp;shall&amp;nbsp;sort,&amp;nbsp;which&amp;nbsp;is&amp;nbsp;an&amp;nbsp;input&amp;nbsp;parameter&amp;nbsp;of&amp;nbsp;the&amp;nbsp;service.&amp;nbsp;If&amp;nbsp;the&amp;nbsp;current&lt;br />&#xD;&#xA;characterisation&amp;nbsp;of&amp;nbsp;the&amp;nbsp;list's&amp;nbsp;length&amp;nbsp;is&amp;nbsp;100&amp;nbsp;(as&amp;nbsp;the&amp;nbsp;modelled&amp;nbsp;usage&amp;nbsp;profile),&amp;nbsp;analysis&amp;nbsp;tools&lt;br />&#xD;&#xA;derive&amp;nbsp;1002&amp;nbsp;&amp;nbsp;2000&amp;nbsp;&amp;nbsp;12000&amp;nbsp;WorkUnits&amp;nbsp;from&amp;nbsp;the&amp;nbsp;specification,&amp;nbsp;thus&amp;nbsp;resolving&amp;nbsp;the&amp;nbsp;usage&lt;br />&#xD;&#xA;profile&amp;nbsp;dependency.&amp;nbsp;If&amp;nbsp;the&amp;nbsp;CPU&amp;nbsp;ProcessingResourceSpecification&amp;nbsp;the&amp;nbsp;service's&lt;br />&#xD;&#xA;126&lt;br />&#xD;&#xA;4.3.&amp;nbsp;Resource&amp;nbsp;Demanding&amp;nbsp;Service&amp;nbsp;Effect&amp;nbsp;Specification&lt;br />&#xD;&#xA;component&amp;nbsp;is&amp;nbsp;allocated&amp;nbsp;on&amp;nbsp;then&amp;nbsp;contains&amp;nbsp;a&amp;nbsp;processing&amp;nbsp;rate&amp;nbsp;of&amp;nbsp;10000WorkUnits/s,&amp;nbsp;analysis&lt;br />&#xD;&#xA;tools&amp;nbsp;derive&amp;nbsp;an&amp;nbsp;execution&amp;nbsp;time&amp;nbsp;of&amp;nbsp;12000&amp;nbsp;WorkUnits&amp;nbsp;{10000&amp;nbsp;WorkUnits/s&amp;nbsp;=&amp;nbsp;1:2&amp;nbsp;s&amp;nbsp;from&amp;nbsp;the&lt;br />&#xD;&#xA;specification,&amp;nbsp;thus&amp;nbsp;resolving&amp;nbsp;the&amp;nbsp;resource&amp;nbsp;environment&amp;nbsp;dependency.&lt;br />&#xD;&#xA;The&amp;nbsp;stochastic&amp;nbsp;expression&amp;nbsp;for&amp;nbsp;a&amp;nbsp;ParametricResourceDemand&amp;nbsp;depends&amp;nbsp;on&amp;nbsp;the&amp;nbsp;implementation&lt;br />&#xD;&#xA;of&amp;nbsp;the&amp;nbsp;service.&amp;nbsp;Component&amp;nbsp;developers&amp;nbsp;can&amp;nbsp;specify&amp;nbsp;it&amp;nbsp;using&amp;nbsp;complexity&amp;nbsp;theory,&lt;br />&#xD;&#xA;estimations,&amp;nbsp;or&amp;nbsp;measurements.&amp;nbsp;However,&amp;nbsp;how&amp;nbsp;to&amp;nbsp;get&amp;nbsp;data&amp;nbsp;to&amp;nbsp;define&amp;nbsp;such&amp;nbsp;expressions&lt;br />&#xD;&#xA;accurately&amp;nbsp;is&amp;nbsp;beyond&amp;nbsp;of&amp;nbsp;the&amp;nbsp;scope&amp;nbsp;of&amp;nbsp;this&amp;nbsp;thesis.&amp;nbsp;Woodside&amp;nbsp;et&amp;nbsp;al.&amp;nbsp;[WVCB01]&amp;nbsp;and&amp;nbsp;Krogmann&lt;br />&#xD;&#xA;[Kro07]&amp;nbsp;present&amp;nbsp;approaches&amp;nbsp;for&amp;nbsp;measuring&amp;nbsp;resource&amp;nbsp;demands&amp;nbsp;in&amp;nbsp;dependency&amp;nbsp;to&amp;nbsp;input&amp;nbsp;parameters.&lt;br />&#xD;&#xA;Meyerhoefer&amp;nbsp;et&amp;nbsp;al.&amp;nbsp;[ML05]&amp;nbsp;and&amp;nbsp;Kuperberg&amp;nbsp;et&amp;nbsp;al.&amp;nbsp;[KB07]&amp;nbsp;propose&amp;nbsp;methods&amp;nbsp;to&lt;br />&#xD;&#xA;establish&amp;nbsp;resource&amp;nbsp;demands&amp;nbsp;independent&amp;nbsp;from&amp;nbsp;concrete&amp;nbsp;resources.&amp;nbsp;For&amp;nbsp;the&amp;nbsp;scope&amp;nbsp;of&amp;nbsp;this&lt;br />&#xD;&#xA;thesis,&amp;nbsp;it&amp;nbsp;is&amp;nbsp;assumed&amp;nbsp;that&amp;nbsp;these&amp;nbsp;methods&amp;nbsp;have&amp;nbsp;been&amp;nbsp;applied&amp;nbsp;and&amp;nbsp;an&amp;nbsp;accurate&amp;nbsp;specification&lt;br />&#xD;&#xA;of&amp;nbsp;the&amp;nbsp;ParametricResourceDemand&amp;nbsp;is&amp;nbsp;available."/>
         </eAnnotations>
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
           <details key="constraints" value="demandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction"/>
         </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
           <details key="demandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction"
               value="self.action_ParametricResourceDemand.resourceDemand_Action->select(prd | prd.requiredResource_ParametricResourceDemand=self.requiredResource_ParametricResourceDemand)->size() = 1"/>
         </eAnnotations>
@@ -1883,13 +1915,13 @@
     <eSubpackages name="seff_reliability" nsURI="http://palladiosimulator.org/PalladioComponentModel/SEFF/SEFF_Reliability/5.2"
         nsPrefix="seff_reliability">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+        <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG"/>
       </eAnnotations>
       <eClassifiers xsi:type="ecore:EClass" name="RecoveryActionBehaviour" eSuperTypes="#//seff/seff_reliability/FailureHandlingEntity #//seff/ResourceDemandingBehaviour">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="&lt;p>&#xD;&#xA;    Recovery block alternative haviours represent alternatives of recovery blocks. They are resource demanding behaviours,&#xD;&#xA;    thus any behaviour can be defined as an alternative.&#xD;&#xA;&lt;/p>&#xD;&#xA;&lt;p>&#xD;&#xA;    The alternatives of a recovery block form a chain. They are failure handling entities, i.e.&amp;nbsp;they can handle&#xD;&#xA;    failures that occur in previous alternatives. If one alternative fails, the next alternative is executed that can&#xD;&#xA;    handle the failure type.&#xD;&#xA;&lt;/p>"/>
         </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
           <details key="recoveryActionBehaviourHasOnlyOnePredecessor" value="not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->&#xD;&#xA;&#x9;exists(x,y:RecoveryActionBehaviour | x&lt;>y&#xD;&#xA;&#x9;&#x9;and x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)&#xD;&#xA;&#x9;&#x9;and y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))"/>
           <details key="recoveryActionBehaviourIsNotSuccessorOfItself" value="not self.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self)"/>
           <details key="successorsOfRecoveryActionBehaviourHandleDisjointFailureTypes"
@@ -1911,7 +1943,7 @@
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
           <details key="constraints" value="primaryBehaviourOfRecoveryActionMustBeSet"/>
         </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
           <details key="primaryBehaviourOfRecoveryActionMustBeSet" value="self.primaryBehaviour__RecoveryAction &lt;> null"/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="primaryBehaviour__RecoveryAction"
@@ -1936,9 +1968,10 @@
       <details key="documentation" value="This package contains elements to specify fixed QoS attributes of system-external services."/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG"/>
     </eAnnotations>
-    <eClassifiers xsi:type="ecore:EClass" name="SpecifiedQoSAnnotation" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="SpecifiedQoSAnnotation" abstract="true"
+        eSuperTypes="#//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="&lt;p>&#xD;&#xA;    SpecifiedQoSAnnotations&amp;nbsp;(as&amp;nbsp;an&amp;nbsp;abstract&amp;nbsp;class)&amp;nbsp;associate&amp;nbsp;specified&amp;nbsp;(see&amp;nbsp;QoSAnnotation)&amp;nbsp;QoS&amp;nbsp;properties&amp;nbsp;to&amp;nbsp;services&amp;nbsp;of&amp;nbsp;components.&amp;nbsp;A&amp;nbsp;service&amp;nbsp;is&amp;nbsp;thereby&amp;nbsp;determined&amp;nbsp;by&amp;nbsp;a&amp;nbsp;Signature&amp;nbsp;and&amp;nbsp;a&amp;nbsp;Role&amp;nbsp;(i.e.,&amp;nbsp;an&amp;nbsp;interface&amp;nbsp;bound&amp;nbsp;to&amp;nbsp;a&amp;nbsp;component).&#xD;&#xA;&lt;/p>"/>
       </eAnnotations>
@@ -1957,7 +1990,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="multipleReliabilityAnnotationsPerExternalCallNotAllowed"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="multipleReliabilityAnnotationsPerExternalCallNotAllowed" value="self.specifiedQoSAnnotations_QoSAnnotations->select(oclIsTypeOf(pcm::qosannotations::qos_reliability::SpecifiedReliabilityAnnotation))->forAll( x, y | ( x&lt;>y ) implies ( ( x.role_SpecifiedQoSAnnotation &lt;> y.role_SpecifiedQoSAnnotation )  or ( x.signature_SpecifiedQoSAnnation &lt;> y.signature_SpecifiedQoSAnnation ) ) )"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="specifiedOutputParameterAbstractions_QoSAnnotations"
@@ -1991,7 +2024,7 @@
         <details key="documentation" value="Performance aspects of QoS annotations."/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+        <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG"/>
       </eAnnotations>
       <eClassifiers xsi:type="ecore:EClass" name="SystemSpecifiedExecutionTime" eSuperTypes="#//qosannotations/qos_performance/SpecifiedExecutionTime">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2000,7 +2033,7 @@
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
           <details key="constraints" value="systemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem"/>
         </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
           <details key="systemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem"
               value="(self.role_SpecifiedQoSAnnotation.oclIsTypeOf(pcm::repository::OperationRequiredRole)) and (self.role_SpecifiedQoSAnnotation.oclAsType(pcm::repository::OperationRequiredRole).requiringEntity_RequiredRole.oclIsTypeOf(pcm::system::System))&#xD;&#xA;"/>
         </eAnnotations>
@@ -2029,7 +2062,7 @@
         <details key="documentation" value="Reliability&amp;nbsp;aspects&amp;nbsp;of&amp;nbsp;QoS&amp;nbsp;annotations."/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+        <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG"/>
       </eAnnotations>
       <eClassifiers xsi:type="ecore:EClass" name="SpecifiedReliabilityAnnotation"
           eSuperTypes="#//qosannotations/SpecifiedQoSAnnotation">
@@ -2039,7 +2072,7 @@
         <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
           <details key="constraints" value="specifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem multipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed sumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1"/>
         </eAnnotations>
-        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
           <details key="specifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem"
               value="(self.role_SpecifiedQoSAnnotation.oclIsTypeOf(pcm::repository::OperationRequiredRole)) and (self.role_SpecifiedQoSAnnotation.oclAsType(pcm::repository::OperationRequiredRole).requiringEntity_RequiredRole.oclIsTypeOf(pcm::system::System))&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;"/>
           <details key="sumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1"
@@ -2059,7 +2092,7 @@
       <details key="documentation" value="The system package holds only the System meta class. A system is the most high-level and out-most compositional entity of the PCM. It defines the boundaries of a modelled application. Only systems (more precisely provided services of a system) can be accessed from usage profile. Systems also can carry QoS-Annotations, a special means to express fixed QoS properties of services that are required at the system boundary."/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG"/>
     </eAnnotations>
     <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//core/entity/Entity #//core/entity/ComposedProvidingRequiringEntity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2068,7 +2101,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="systemMustHaveAtLeastOneProvidedRole"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="systemMustHaveAtLeastOneProvidedRole" value="not self.providedRoles_InterfaceProvidingEntity->isEmpty()"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="qosAnnotations_System"
@@ -2127,7 +2160,7 @@
           upperBound="-1" eType="#//resourceenvironment/HDDProcessingResourceSpecification"
           eOpposite="#//resourceenvironment/HDDProcessingResourceSpecification/resourceContainer"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceSpecification" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceSpecification" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Performance specification of processing resources (e.g. processing rate, scheduling policy)"/>
       </eAnnotations>
@@ -2170,7 +2203,7 @@
           eOpposite="#//resourceenvironment/ResourceContainer/activeResourceSpecifications_ResourceContainer"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceSpecification"
-        eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+        eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//PCMBaseClass">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Throughput and performance specification of linking resources"/>
       </eAnnotations>
@@ -2217,7 +2250,7 @@
       <details key="documentation" value="All PCM entities related to model allocation"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG"/>
     </eAnnotations>
     <eClassifiers xsi:type="ecore:EClass" name="AllocationContext" eSuperTypes="#//core/entity/Entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -2226,7 +2259,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="oneAssemblyContextOrOneEventChannelShouldBeReferred"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="oneAssemblyContextOrOneEventChannelShouldBeReferred" value="not(self.assemblyContext_AllocationContext.oclIsUndefined()) xor not(self.eventChannel__AllocationContext.oclIsUndefined())"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer_AllocationContext"
@@ -2245,7 +2278,7 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="communicatingServersHaveToBeConnectedByLinkingResource"/>
       </eAnnotations>
-      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/LPG">
         <details key="communicatingServersHaveToBeConnectedByLinkingResource" value="self.allocationContexts_Allocation->forAll(a | self.allocationContexts_Allocation->forAll(b | &#xD;&#xA;    --- if a and b are not on the same server&#xD;&#xA;    (a.resourceContainer_AllocationContext &lt;> b.resourceContainer_AllocationContext &#xD;&#xA;    and&#xD;&#xA;    --  and if the assembly contexts of a and b are connected&#xD;&#xA;      self.system_Allocation.connectors__ComposedStructure->select(conn | conn.oclIsTypeOf(pcm::core::composition::AssemblyConnector)).oclAsType(pcm::core::composition::AssemblyConnector)->exists(conn | &#xD;&#xA;         (conn.providingAssemblyContext_AssemblyConnector = a.assemblyContext_AllocationContext  &#xD;&#xA;         and &#xD;&#xA;         conn.requiringAssemblyContext_AssemblyConnector = b.assemblyContext_AllocationContext )&#xD;&#xA;         or &#xD;&#xA;          (conn.providingAssemblyContext_AssemblyConnector = b.assemblyContext_AllocationContext  &#xD;&#xA;         and &#xD;&#xA;         conn.requiringAssemblyContext_AssemblyConnector = a.assemblyContext_AllocationContext )&#xD;&#xA;       )&#xD;&#xA;     )&#xD;&#xA;     -- then the servers have to be connected by a linking resource&#xD;&#xA;     implies &#xD;&#xA;     self.targetResourceEnvironment_Allocation.linkingResources__ResourceEnvironment->exists(l | &#xD;&#xA;        -- l connects the two&#xD;&#xA;        l.connectedResourceContainers_LinkingResource->includes(a.resourceContainer_AllocationContext)&#xD;&#xA;        and &#xD;&#xA;        l.connectedResourceContainers_LinkingResource->includes(b.resourceContainer_AllocationContext)&#xD;&#xA;     )&#xD;&#xA;  ))"/>
       </eAnnotations>
       <eOperations name="validateEachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce"
