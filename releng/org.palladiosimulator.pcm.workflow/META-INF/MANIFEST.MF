@@ -25,4 +25,4 @@ Require-Bundle: org.eclipse.xtext.generator,
  tools.mdsd.ecoreworkflow.mwe2lib.xtext;bundle-version="0.1.1",
  org.palladiosimulator.commons.stoex;bundle-version="5.0.0",
  de.itemis.xtext.antlr;bundle-version="2.1.1"
-Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-RequiredExecutionEnvironment: JavaSE-17
