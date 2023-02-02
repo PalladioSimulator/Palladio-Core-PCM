@@ -4,10 +4,9 @@ Bundle-Name: PCM Workflow
 Bundle-SymbolicName: org.palladiosimulator.pcm.workflow
 Bundle-Version: 5.1.0.qualifier
 Automatic-Module-Name: org.palladiosimulator.pcm.workflow
-Require-Bundle: org.eclipse.xtext.generator,
- org.apache.commons.logging,
+Require-Bundle: org.apache.commons.logging,
  org.eclipse.uml2.codegen.ecore,
- tools.mdsd.ecoreworkflow.mwe2lib;bundle-version="0.1.0",
+ tools.mdsd.ecoreworkflow.mwe2lib,
  de.uka.ipd.sdq.identifier;bundle-version="2.1.0",
  org.eclipse.xtext.xbase,
  org.eclipse.xtext.common.types,
@@ -21,8 +20,8 @@ Require-Bundle: org.eclipse.xtext.generator,
  org.eclipse.uml2.uml,
  de.uka.ipd.sdq.probfunction;bundle-version="4.3.0",
  de.uka.ipd.sdq.stoex;bundle-version="4.3.0",
- tools.mdsd.ecoreworkflow.umlecoregenerator;bundle-version="1.0.0",
- tools.mdsd.ecoreworkflow.mwe2lib.xtext;bundle-version="0.1.1",
+ tools.mdsd.ecoreworkflow.umlecoregenerator,
+ tools.mdsd.ecoreworkflow.mwe2lib.xtext,
  org.palladiosimulator.commons.stoex;bundle-version="5.0.0",
  de.itemis.xtext.antlr;bundle-version="2.1.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-17
