@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: PCM Workflow
 Bundle-SymbolicName: org.palladiosimulator.pcm.workflow
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.2.0
 Automatic-Module-Name: org.palladiosimulator.pcm.workflow
 Require-Bundle: org.apache.commons.logging,
  org.eclipse.uml2.codegen.ecore,

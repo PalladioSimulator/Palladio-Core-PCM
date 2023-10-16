@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Stochasticexpressions Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.pcm.stochasticexpressions;singleton:=true
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.2.0
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: de.uka.ipd.sdq.stoex,
  de.uka.ipd.sdq.stoex.analyser,

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Automatic-Module-Name: org.palladiosimulator.pcm.stoex.ui.tests
 Bundle-ManifestVersion: 2
 Bundle-Name: PCM StoEx UI Tests
-Bundle-Version: 5.1.0.qualifier
+Bundle-Version: 5.2.0
 Bundle-SymbolicName: org.palladiosimulator.pcm.stoex.ui.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.palladiosimulator.pcm.stoex.ui,
