@@ -5,3 +5,5 @@ xtend-gen/
 xtext-gen/
 *.xtendbin
 *._trace
+*.polyglot.META-INF
+plugin.xml_gen
