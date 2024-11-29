@@ -89,15 +89,13 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.probfunction;visibility:=reexport,
  de.uka.ipd.sdq.stoex;visibility:=reexport,
  de.uka.ipd.sdq.units;visibility:=reexport,
- de.uka.ipd.sdq.errorhandling,
- org.palladiosimulator.pcm.workflow;resolution:=optional,
+ de.uka.ipd.sdq.errorhandling.core;bundle-version="5.2.0",
  org.eclipse.xtext,
  org.eclipse.xtext.xbase,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
  org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
  org.eclipse.xtext.util,
  org.palladiosimulator.commons.stoex;visibility:=reexport,
- org.palladiosimulator.commons,
- org.eclipse.ui.ide;resolution:=optional
+ org.palladiosimulator.commons
 Bundle-ActivationPolicy: lazy
 Import-Package: org.apache.log4j
