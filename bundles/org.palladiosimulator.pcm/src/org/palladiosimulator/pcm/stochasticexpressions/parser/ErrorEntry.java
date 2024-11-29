@@ -2,8 +2,8 @@ package org.palladiosimulator.pcm.stochasticexpressions.parser;
 
 import org.antlr.runtime.RecognitionException;
 
-import de.uka.ipd.sdq.errorhandling.IIssue;
-import de.uka.ipd.sdq.errorhandling.SeverityEnum;
+import de.uka.ipd.sdq.errorhandling.core.IIssue;
+import de.uka.ipd.sdq.errorhandling.core.SeverityEnum;
 
 public class ErrorEntry implements IIssue {
     private RecognitionException ex = null;
