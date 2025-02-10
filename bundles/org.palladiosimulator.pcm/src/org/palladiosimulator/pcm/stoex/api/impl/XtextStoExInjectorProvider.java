@@ -1,6 +1,6 @@
 package org.palladiosimulator.pcm.stoex.api.impl;
 
-import com.google.inject.Provider;
+import javax.inject.Provider;
 
 import org.eclipse.xtext.ISetup;
 import org.palladiosimulator.commons.stoex.api.impl.generic.GenericXtextStoExStandaloneInjectorProvider;
