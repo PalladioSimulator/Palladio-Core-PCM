@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.palladiosimulator.pcm;singleton:=true
 Automatic-Module-Name: org.palladiosimulator.pcm
-Bundle-Version: 5.2.1.qualifier
+Bundle-Version: 5.2.2
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
@@ -89,7 +89,7 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.probfunction;visibility:=reexport,
  de.uka.ipd.sdq.stoex;visibility:=reexport,
  de.uka.ipd.sdq.units;visibility:=reexport,
- de.uka.ipd.sdq.errorhandling.core;bundle-version="5.2.1",
+ de.uka.ipd.sdq.errorhandling.core;bundle-version="5.2.2",
  org.eclipse.xtext,
  org.eclipse.xtext.xbase,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",

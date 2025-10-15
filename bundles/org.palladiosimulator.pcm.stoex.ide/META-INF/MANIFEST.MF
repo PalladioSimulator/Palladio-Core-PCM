@@ -2,14 +2,14 @@ Manifest-Version: 1.0
 Automatic-Module-Name: org.palladiosimulator.pcm.stoex.ide
 Bundle-ManifestVersion: 2
 Bundle-Name: PCM StoEx IDE
-Bundle-Version: 5.2.1.qualifier
+Bundle-Version: 5.2.2
 Bundle-SymbolicName: org.palladiosimulator.pcm.stoex.ide; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext.ide,
  org.eclipse.xtext.xbase.ide,
  org.antlr.runtime;bundle-version="[3.2.0,3.2.1)",
  org.palladiosimulator.pcm;visibility:=reexport,
- org.palladiosimulator.commons.stoex;bundle-version="5.2.1",
+ org.palladiosimulator.commons.stoex;bundle-version="5.2.2",
  org.palladiosimulator.commons.stoex.ide;visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-17
 Export-Package: org.palladiosimulator.pcm.stoex.ide.contentassist.antlr,
