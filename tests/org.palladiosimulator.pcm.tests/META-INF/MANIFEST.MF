@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: PCM Tests
 Bundle-SymbolicName: org.palladiosimulator.pcm.tests
-Bundle-Version: 5.2.2
+Bundle-Version: 6.0.0.qualifier
 Fragment-Host: org.palladiosimulator.pcm;bundle-version="5.2.2"
 Automatic-Module-Name: org.palladiosimulator.pcm.tests
 Bundle-RequiredExecutionEnvironment: JavaSE-17
