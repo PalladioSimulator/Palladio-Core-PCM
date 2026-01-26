@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: MDSD Profiles Tests
 Bundle-SymbolicName: org.palladiosimulator.pcm.profiles.tests;singleton:=true
-Bundle-Version: 5.2.2
+Bundle-Version: 6.0.0.qualifier
 Bundle-Vendor: palladiosimulator.org
 Bundle-RequiredExecutionEnvironment: JavaSE-17
-Require-Bundle: org.palladiosimulator.commons;bundle-version="1.0.0",
+Require-Bundle: org.palladiosimulator.commons,
  org.junit;bundle-version="4.11.0",
- org.palladiosimulator.pcm;bundle-version="4.0.0",
+ org.palladiosimulator.pcm,
  org.modelversioning.emfprofile.registry;bundle-version="1.0.0",
- org.palladiosimulator.mdsdprofiles.api;bundle-version="1.0.0",
+ org.palladiosimulator.mdsdprofiles.api,
  org.eclipse.gmf.runtime.notation;bundle-version="1.8.0"

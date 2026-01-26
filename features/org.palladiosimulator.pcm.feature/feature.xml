@@ -2,7 +2,7 @@
 <feature
       id="org.palladiosimulator.pcm.feature"
       label="Palladio Component Model"
-      version="5.2.2"
+      version="6.0.0.qualifier"
       plugin="org.palladiosimulator.branding"
       license-feature="org.palladiosimulator.license"
       license-feature-version="1.0.0">
@@ -27,12 +27,12 @@ of the PCM using tree editors.
       <import plugin="de.uka.ipd.sdq.identifier"/>
       <import plugin="de.uka.ipd.sdq.probfunction"/>
       <import plugin="de.uka.ipd.sdq.errorhandling"/>
-      <import plugin="de.uka.ipd.sdq.probfunction.math" version="2.0.2" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.stoex" version="2.2.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.stoex.analyser" version="3.1.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.units" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.probfunction.math"/>
+      <import plugin="de.uka.ipd.sdq.stoex"/>
+      <import plugin="de.uka.ipd.sdq.stoex.analyser"/>
+      <import plugin="de.uka.ipd.sdq.units"/>
       <import plugin="org.apache.log4j"/>
-      <import plugin="org.palladiosimulator.pcm" version="4.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.pcm"/>
       <import plugin="org.eclipse.ui" version="3.106.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.console" version="3.5.300" match="greaterOrEqual"/>
       <import plugin="org.eclipse.debug.ui" version="3.10.2" match="greaterOrEqual"/>

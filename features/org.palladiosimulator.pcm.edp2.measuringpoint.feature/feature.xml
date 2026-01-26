@@ -2,7 +2,7 @@
 <feature
       id="org.palladiosimulator.pcm.edp2.measuringpoint.feature"
       label="EDP2 Measuring Points for the PCM"
-      version="5.2.2"
+      version="6.0.0.qualifier"
       license-feature="org.palladiosimulator.license"
       license-feature-version="1.0.0">
 
@@ -22,7 +22,7 @@
       <import plugin="de.uka.ipd.sdq.probfunction"/>
       <import plugin="de.uka.ipd.sdq.stoex"/>
       <import plugin="de.uka.ipd.sdq.units"/>
-      <import plugin="org.palladiosimulator.edp2.util" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.edp2.util"/>
       <import plugin="org.palladiosimulator.commons"/>
    </requires>
 
