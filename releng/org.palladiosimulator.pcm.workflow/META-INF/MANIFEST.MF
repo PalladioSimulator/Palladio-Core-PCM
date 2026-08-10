@@ -24,4 +24,4 @@ Require-Bundle: org.apache.commons.logging,
  tools.mdsd.ecoreworkflow.mwe2lib.xtext,
  org.palladiosimulator.commons.stoex,
  de.itemis.xtext.antlr;bundle-version="2.1.1"
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
