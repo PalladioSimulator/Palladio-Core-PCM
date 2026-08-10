@@ -25,5 +25,5 @@ Require-Bundle: org.palladiosimulator.pcm.stoex.ui,
  org.eclipse.xtext,
  tools.mdsd.junit5utils,
  org.eclipse.xtext.xbase.ui.testing
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Export-Package: org.palladiosimulator.pcm.stoex.ui.tests;x-internal=true

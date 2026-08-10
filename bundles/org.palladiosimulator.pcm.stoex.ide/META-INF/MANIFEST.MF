@@ -11,6 +11,6 @@ Require-Bundle: org.eclipse.xtext.ide,
  org.palladiosimulator.pcm;visibility:=reexport,
  org.palladiosimulator.commons.stoex,
  org.palladiosimulator.commons.stoex.ide;visibility:=reexport
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Export-Package: org.palladiosimulator.pcm.stoex.ide.contentassist.antlr,
  org.palladiosimulator.pcm.stoex.ide.contentassist.antlr.internal
